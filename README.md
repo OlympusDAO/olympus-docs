@@ -23,6 +23,8 @@ yarn start
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
+* [MDX Extension for VSCode syntax highlighting](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
+
 ### Build
 
 Builds are automatic via CI/CD pipeline using fleek.
