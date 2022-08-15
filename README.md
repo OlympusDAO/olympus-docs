@@ -6,6 +6,8 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 
 1. [not using blog](https://docusaurus.io/docs/installation#project-structure-rundown) - we have deleted the `blog` directory & disabled the blog plugin
 2. we are using typescript, which has some [uniqueness within docusaurus](https://docusaurus.io/docs/typescript-support)
+3. Embedding dynamic content? We use [MDX-Embed](https://www.mdx-embed.com/?path=/docs/introduction--page)
+  A. docs/intro.mdx shows an example with youtube
 
 ### Installation
 
@@ -23,24 +25,8 @@ This command starts a local development server and opens up a browser window. Mo
 
 ### Build
 
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Builds are automatic via CI/CD pipeline using fleek.
 
 ### Deployment
 
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+PRs are automatically deployed on fleek.
