@@ -60,10 +60,10 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Protocol Docs',
           },
           {
-            href: 'https://github.com/OlympusDAO',
+            href: 'https://github.com/OlympusDAO/olympus-docs',
             label: 'GitHub',
             position: 'right',
           },
@@ -76,7 +76,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Protocol Docs',
                 to: '/docs/intro',
               },
             ],
