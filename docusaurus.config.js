@@ -91,7 +91,7 @@ const config = {
             items: [
               {
                 label: 'Protocol Docs',
-                to: '/main/intro',
+                to: '/main/basics/readme',
               },
             ],
           },
