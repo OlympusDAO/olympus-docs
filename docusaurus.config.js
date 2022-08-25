@@ -35,6 +35,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/main', // defaults to docs, but `main` maintains the gitbook paths
           sidebarPath: require.resolve('./sidebars.js'),
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -71,7 +72,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'basics/readme',
             position: 'left',
             label: 'Protocol Docs',
           },
@@ -90,7 +91,7 @@ const config = {
             items: [
               {
                 label: 'Protocol Docs',
-                to: '/docs/intro',
+                to: '/main/intro',
               },
             ],
           },

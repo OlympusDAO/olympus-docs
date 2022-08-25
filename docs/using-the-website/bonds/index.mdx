@@ -1,12 +1,15 @@
 ---
-sidebar_position: 1
-
+sidebar_position: 2
+sidebar_label: Purchase A Bond (1, 1)
 ---
+<!-- Embedding generated index in doc page -->
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # Purchasing A Bond (1, 1)
 
 Bonds allow users to buy OHM from the protocol at a discount by trading it against i\) liquidity \(LP tokens\) or ii\) other assets. 
-The former are called [liquidity bonds](/gitbook/assets/references/glossary.md#liquidity-bonds) and the latter [reserve bonds](../../references/glossary.md#reserve-bonds).
+The former are called [liquidity bonds](/gitbook/assets/references/glossary#liquidity-bonds) and the latter [reserve bonds](../../references/glossary#reserve-bonds).
 
 Bonds take a variable amount of time to vest, called the vesting period. 
 During this period, the OHM tokens given as payout to the bonder are staked and locked. 
@@ -15,7 +18,7 @@ After the vesting period is expired, the bonder can claim the OHM in full.
 Liquidity bonds help the protocol to accumulate and lock liquidity, while reserve bonds allow the protocol to grow its treasury.
 
 Olympus offers two types of bonds [on its website](https://app.olympusdao.finance/#/bonds), reserve and liquidity bonds.
-You can follow the [tutorial](bond_example.md) to see a step-by-step guide to bonding.
+You can follow the [tutorial](bond_example) to see a step-by-step guide to bonding.
 
 ## Settings
 
@@ -36,7 +39,7 @@ buying the bond (a feature called Hades), which can be useful for additional pri
 
 _Notes:_
 
-* _An "Approve" transaction is needed when bonding an asset for the first time; this transaction gives the [Olympus bond contract](../../contracts/bonds.md) the permission to execute the bond. Subsequent bonding only requires you to perform the "Bond" transaction._
+* _An "Approve" transaction is needed when bonding an asset for the first time; this transaction gives the [Olympus bond contract](../../contracts/bonds) the permission to execute the bond. Subsequent bonding only requires you to perform the "Bond" transaction._
 
 
 ## **How to Redeem**
@@ -66,3 +69,6 @@ or each bond individually if you prefer.
 **Discount** is the difference between the bond price and the market price expressed as a percentage. In the screenshot above, bonding would give you a 0.11% discount versus buying the same amount of OHM from the market.
 
 **Duration** gives you the vesting term, which is the period during which the OHM payout is locked (and staked).
+
+<!-- Embedding generated index in doc page -->
+<DocCardList items={useCurrentSidebarCategory().items}/>
