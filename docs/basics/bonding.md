@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Bonding
 
-Olympus bonds are a financial primitive for protocols to acquire assets, including their own liquidity, in exchange for governance tokens at a discount. In other words, Olympus bonds are a pricing mechanism for any two ERC-20 tokens that does not rely on third parties like oracles. Olympus bonds internally respond to supply and demand by offering a variable ROI rate to the market and its users. 
+Olympus bonds are a financial primitive for protocols to acquire assets, including their own liquidity, in exchange for governance tokens at a discount. In other words, Olympus bonds are a pricing mechanism for any two ERC-20 tokens that does not rely on third parties like oracles. Olympus bonds internally respond to supply and demand by offering a variable ROI rate to the market and its users.
 
 ## How do both the Olympus Treasury and the bonder benefit from the process?
 

@@ -58,7 +58,7 @@ No, you can't switch back from gOHM to V1 tokens through our migration tool.
 
 ## How much gOHM can I expect from the migration?
 
-The [Index](../#how-do-i-track-my-rebase-rewards) at the time of migration was `46.721314322` and will be used for the migration.
+The Index at the time of migration was `46.721314322` and will be used for the migration.
 
 * For OHM v1 and sOHM v1 the amount of gOHM you will receive is `(amount of [s]OHM v1) / 46.721314322`.\
   So if you have 10 OHM or sOHM you will receive `10 / 46.721314322` → `0.214035074678779` gOHM.\

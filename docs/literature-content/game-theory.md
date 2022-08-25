@@ -232,7 +232,7 @@ $$
 rewardYield = (OHM_{totalSupply} * rewardRate) / OHM_{totalStaked}
 $$
 
-The reward rate is subject to change by community vote and can be thought of as the amount of OHM distributed to the stakers per epoch. The total OHM supply is determined by several factors such as bond sales and DAO's minting, as documented in the [Olympus documentation](broken-reference). These variables are exogenous (e.g. amount of OHM staked in the protocol) as well as endogenous (e.g. amount of OHM minted by the DAO, which is determined by the Policy team). Let's examine what happens to reward yield if any of them change while all other variables remain the same.
+The reward rate is subject to change by community vote and can be thought of as the amount of OHM distributed to the stakers per epoch. The total OHM supply is determined by several factors such as bond sales and DAO's minting, as documented in the [Supply Equations](equations#ohm-supply). These variables are exogenous (e.g. amount of OHM staked in the protocol) as well as endogenous (e.g. amount of OHM minted by the DAO, which is determined by the Policy team). Let's examine what happens to reward yield if any of them change while all other variables remain the same.
 
 * If $$rewardRate$$ **falls**, $$rewardYield$$ **falls**.
 * If $$OHM_{totalStaked}$$ **falls**, $$rewardYield$$ **rises**.
