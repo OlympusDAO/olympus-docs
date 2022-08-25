@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Links
 
 ## Official
@@ -7,7 +11,7 @@
 * [Medium](https://olympusdao.medium.com)
 * [Discord](https://discord.com/invite/olympusdao)
 * [Forum](https://forum.olympusdao.finance)
-* [Scattershot](https://scattershot.page/#/olympusdao.eth)
+* [Snapshot](https://snapshot.org/#/olympusdao.eth)
 
 ## Third Party
 

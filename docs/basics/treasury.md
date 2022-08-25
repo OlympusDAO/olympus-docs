@@ -1,6 +1,5 @@
 ---
 sidebar_position: 4
-displayed_sidebar: main
 ---
 
 # Treasury

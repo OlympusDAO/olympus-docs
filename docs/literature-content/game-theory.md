@@ -1,6 +1,8 @@
-# Olympus Game Theory
+---
+sidebar_position: 10
+---
 
-kleb
+# Olympus Game Theory
 
 ## Introduction
 

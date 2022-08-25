@@ -1,3 +1,8 @@
+---
+sidebar_position: 7
+sidebar_label: Grant Process
+---
+
 # Grant Decision Process
 
 Olympus Grants aims to educate the community, increase Olympus infrastructure and to build OHM utility. Each Grant applicant must go through a rigorous vetting process to determine whether it is a viable opportunity.

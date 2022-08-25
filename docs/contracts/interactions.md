@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 # Interactions
 
 Olympus has numerous contracts that work together to provide the required functions of the currency: staking, bonds, tokens, treasury allocation.

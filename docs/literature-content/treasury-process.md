@@ -1,3 +1,8 @@
+---
+sidebar_position: 5
+sidebar_label: Treasury Process
+---
+
 # Treasury Decision Process
 
 One of OlympusDAO’s core values is being decentralized, so it’s important that the community has a say in all key decisions.
