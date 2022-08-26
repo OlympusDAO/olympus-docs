@@ -73,12 +73,12 @@ export const Guides = [
   {
     title: "Treasury",
     text: "The Treasury represents all assets owned and controlled by the protocol",
-    to: "./basics/treasury",
+    to: "./main/basics/treasury",
   },
   {
     title: "Inverse Bonds",
     text: "Inverse bonds have been introduced as a protocol lever in OIP-76 as a way to support the price of OHM when it is below the backing per OHM",
-    to: "./basics/inverse-bonds",
+    to: "./main/basics/inverse-bonds",
   },
   {
     title: "Staking your OHM",
