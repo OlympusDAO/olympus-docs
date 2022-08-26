@@ -38,7 +38,7 @@ const config = {
           routeBasePath: "/main", // defaults to docs, but `main` maintains the gitbook paths
           sidebarPath: require.resolve("./sidebars.js"),
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/OlympusDAO/olympus-docs/edit/main",
+          editUrl: "https://github.com/OlympusDAO/olympus-docs/blob/main",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
