@@ -8,13 +8,13 @@ const katex = require("rehype-katex");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  url: "https://your-docusaurus-test-site.com",
+  title: "Olympus Docs",
+  tagline: "",
+  url: "https://docs.olympusdao.finance",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.svg",
+  favicon: "img/favicon.ico",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -38,8 +38,7 @@ const config = {
           routeBasePath: "/main", // defaults to docs, but `main` maintains the gitbook paths
           sidebarPath: require.resolve("./sidebars.js"),
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/OlympusDAO/olympus-docs/tree/main/packages/create-docusaurus/templates/shared/",
+          editUrl: "https://github.com/OlympusDAO/olympus-docs/blob/main",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
