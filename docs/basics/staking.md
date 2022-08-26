@@ -50,3 +50,5 @@ OHM_{distributed} = OHM_{totalSupply} \times rewardRate
 $$
 
 Note that the reward rate is subject to change by the protocol.
+
+some change
