@@ -62,11 +62,17 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: "light",
+        disableSwitch: false,
+        respectPrefersColorScheme: false,
+      },
       navbar: {
-        title: "My Site",
+        title: "",
         logo: {
-          alt: "My Site Logo",
+          alt: "Olympus Docs",
           src: "img/logo.svg",
+          srcDark: "img/logo_dark.svg",
         },
         items: [
           {
@@ -99,7 +105,7 @@ const config = {
             items: [
               {
                 label: "Discord",
-                href: "https://discord.com/invite/olympusdao",
+                href: "https://discord-invite.olympusdao.finance/",
               },
               {
                 label: "Twitter",
@@ -121,7 +127,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Olympus DAO, Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Olympus DAO`,
       },
       prism: {
         theme: lightCodeTheme,
