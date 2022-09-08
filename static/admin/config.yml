@@ -2,6 +2,7 @@ backend:
   name: github
   branch: netlify-cms
   repo: OlympusDAO/olympus-docs
+  base_url: https://api.netlify.com
 
 # These lines should *not* be indented
 media_folder: "gitbook/assets" # Media files will be stored in the repo under static/images/uploads
@@ -15,23 +16,68 @@ site_url: https://dark-lab-0638.on.fleek.co/
 display_url: https://dark-lab-0638.on.fleek.co/
 
 collections:
-- name: docs
-  label: "docs"
-  folder: docs
-  # identifier_field: name
+- name: basics
+  label: "Protocol Basics"
+  folder: docs/basics
   # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
   extension: md
   widget: "list"
   create: true
-  # nested collections like docusaurus:
-  # https://www.netlifycms.org/docs/beta-features/#nested-collections
-  nested:
-      depth: 3 # max depth to show in the collection tree
-      summary: "{{name}}"
   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-  summary: "{{dirname}}/{{filename}}"
+  summary: "{{sidebar_position}}. {{filename}}"
+  sortable_fields: ["sidebar_position"]
   fields:
-    - { name: name, label: Name, widget: string }
+    - { name: sidebar_position, label: Sidbar Position, widget: number }
     - { name: body, label: Body, widget: markdown }
-    - { name: slug, label: Slug, widget: string }
-  meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
+- name: website
+  label: "Using the Website"
+  folder: docs/using-the-website
+  # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
+  extension: md
+  widget: "list"
+  create: true
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  summary: "{{sidebar_position}}. {{filename}}"
+  sortable_fields: ["sidebar_position"]
+  fields:
+    - { name: sidebar_position, label: Sidbar Position, widget: number }
+    - { name: body, label: Body, widget: markdown }
+- name: literature
+  label: "Literature & Content"
+  folder: docs/literature-content
+  # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
+  extension: md
+  widget: "list"
+  create: true
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  summary: "{{sidebar_position}}. {{filename}}"
+  sortable_fields: ["sidebar_position"]
+  fields:
+    - { name: sidebar_position, label: Sidbar Position, widget: number }
+    - { name: body, label: Body, widget: markdown }
+- name: contracts
+  label: "Contracts"
+  folder: docs/contracts
+  # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
+  extension: md
+  widget: "list"
+  create: true
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  summary: "{{sidebar_position}}. {{filename}}"
+  sortable_fields: ["sidebar_position"]
+  fields:
+    - { name: sidebar_position, label: Sidbar Position, widget: number }
+    - { name: body, label: Body, widget: markdown }
+- name: get-involved
+  label: "Get Involved"
+  folder: docs/get-involved
+  # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
+  extension: md
+  widget: "list"
+  create: true
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  summary: "{{sidebar_position}}. {{filename}}"
+  sortable_fields: ["sidebar_position"]
+  fields:
+    - { name: sidebar_position, label: Sidbar Position, widget: number }
+    - { name: body, label: Body, widget: markdown }
