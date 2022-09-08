@@ -1,0 +1,33 @@
+backend:
+  name: github
+  branch: netlify-cms
+  repo: OlympusDAO/olympus-docs
+
+# These lines should *not* be indented
+media_folder: "gitbook/assets" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/img/" # The src attribute for uploaded media will begin with /images/uploads
+
+# more info: https://www.netlifycms.org/docs/configuration-options/
+publish_mode: editorial_workflow
+
+# TODO: change this to the correct url
+site_url: https://dark-lab-0638.on.fleek.co/
+display_url: https://dark-lab-0638.on.fleek.co/
+
+collections:
+- name: docs
+  label: "docs"
+  folder: docs
+  identifier_field: name
+  # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
+  extension: md
+  widget: "list"
+  create: true
+  nested:
+      depth: 4 # max depth to show in the collection tree
+      summary: '{{name}}'
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  fields:
+    - { name: name, label: Name, widget: string }
+    - { name: body, label: Body, widget: markdown }
+    - { name: slug, label: Slug, widget: string }

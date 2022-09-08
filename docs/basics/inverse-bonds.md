@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 sidebar_label: Inverse Bonds
+name: Inverse Bonds
 ---
 
 # Inverse Bonds ([OIP-76](https://forum.olympusdao.finance/d/1020-oip-76-create-inverse-bond-policy-lever))

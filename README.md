@@ -32,3 +32,13 @@ Builds are automatic via CI/CD pipeline using fleek.
 ### Deployment
 
 PRs are automatically deployed on fleek.
+
+## Netlify CMS
+
+- Netlify cms is available at /admin.
+- it requires login with github credentials
+- all changes will read against the `main` branch
+- all submitted changes will be submitted as pull requests
+- netlify cms ONLY READS and WRITES DATA to/from github... it does not read/write any local changes you might have on your local machine
+- Netlify cms requires a "name" field for use as a file identifier within the cms.
+- need to test who has "Publish" rights...
