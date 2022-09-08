@@ -1,6 +1,6 @@
 backend:
   name: github
-  branch: netlify-cms
+  branch: main
   repo: OlympusDAO/olympus-docs
   base_url: https://api.netlify.com
 
