@@ -18,16 +18,20 @@ collections:
 - name: docs
   label: "docs"
   folder: docs
-  identifier_field: name
+  # identifier_field: name
   # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
   extension: md
   widget: "list"
   create: true
+  # nested collections like docusaurus:
+  # https://www.netlifycms.org/docs/beta-features/#nested-collections
   nested:
-      depth: 4 # max depth to show in the collection tree
-      summary: '{{name}}'
+      depth: 3 # max depth to show in the collection tree
+      summary: "{{name}}"
   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  summary: "{{dirname}}/{{filename}}"
   fields:
     - { name: name, label: Name, widget: string }
     - { name: body, label: Body, widget: markdown }
     - { name: slug, label: Slug, widget: string }
+  meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
