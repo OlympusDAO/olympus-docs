@@ -3,7 +3,7 @@ backend:
   branch: main
   repo: OlympusDAO/olympus-docs
   base_url: https://api.netlify.com
-  site_id: 6995f0b0-f754-4a9c-bbf9-56eaadc2095c
+  siteId: 6995f0b0-f754-4a9c-bbf9-56eaadc2095c
 
 # These lines should *not* be indented
 media_folder: "gitbook/assets" # Media files will be stored in the repo under static/images/uploads
