@@ -12,7 +12,7 @@ charity causes or to any wallet of their choosing (e.g. a friend or family membe
 
 When an Olympus Give cause goes live, you can follow these steps to set up the donation:
 
-1. [Acquire sOHM  or gOHM tokens](../using-the-website/staking).
+1. [Acquire sOHM or gOHM tokens](../using-the-website/staking).
    They earn you rebase rewards that can be redirected to the causes.
 2. Head over to the Give section of the Olympus App.
 3. In the “My Donations” tab, you’ll be able to see a number of causes which we
