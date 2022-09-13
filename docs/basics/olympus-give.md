@@ -1,7 +1,6 @@
 ---
 sidebar_position: 6
 ---
-
 # Olympus Give
 
 ## What is Olympus Give?
@@ -11,24 +10,19 @@ charity causes or to any wallet of their choosing (e.g. a friend or family membe
 
 ## How do I take part?
 
-When Olympus Give goes live, you can follow these steps to set up the donation:
+When an Olympus Give cause goes live, you can follow these steps to set up the donation:
 
 1. [Acquire sOHM  or gOHM tokens](../using-the-website/staking).
-They earn you rebase rewards that can be redirected to the causes.
-
+   They earn you rebase rewards that can be redirected to the causes.
 2. Head over to the Give section of the Olympus App.
-
 3. In the “My Donations” tab, you’ll be able to see a number of causes which we
-have partnered with.
-
+   have partnered with.
 4. You can also donate to any **verified wallet** of your choosing - family, friends,
-or organizations in your community.
-
+   or organizations in your community.
 5. Once you have selected a recipient, determine the sOHM amount that you wish to
-pledge/deposit into the Give Vault for that recipient.
-
+   pledge/deposit into the Give Vault for that recipient.
 6. The recipient will receive all the rebase rewards from the pledged tokens
-**indefinitely** --- until you withdraw your principle from the pool.
+   **indefinitely** --- until you withdraw your principle from the pool.
 
 ## What are the causes I can donate to?
 
