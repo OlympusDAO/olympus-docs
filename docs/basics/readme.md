@@ -1,9 +1,8 @@
 ---
 sidebar_position: 1
-sidebar_label: "Basics"
+sidebar_label: "What is Olympus?"
 slug: /basics/readme
 ---
-import { YouTube } from 'mdx-embed';
 
 # Introduction
 
@@ -14,11 +13,16 @@ The goal of the Olympus protocol is to create a decentralized, censorship resist
 * Having access to unique purpose-built assets that are widely and uniformly available across L1s and L2s
 * Being able to transact/store value in highly decentralized and censorship-resistant assets that are not dependent on the traditional financial ecosystem for validation or survival
 
-<YouTube youTubeId="QZOaZ9dd-ms" />
+<div>
+<video width="100%" height="100%" playsInline controls loop>
+<source src="https://www.youtube.com/watch?v=QZOaZ9dd-ms" />
+Your browser does not support the video tag.
+</video>
+</div>
 
 ## What is OHM?
 
-Olympus’ goal is to create a credibly neutral currency for Web3 and to help onboard users into a decentralized, democratized economy, with the additional goal of becoming the reserve currency for DeFi.
+Olympus’s goal is to create a credibly neutral currency for Web3 and to help onboard users into a decentralized, democratized economy, with the additional goal of becoming the reserve currency for DeFi.
 
 What are reserve currencies designed to achieve? 
 
