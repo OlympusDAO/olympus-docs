@@ -4,7 +4,7 @@
 
 ### gOHM
 
-gOHM stands for Governance OHM. It supersedes [wsOHM](tokens.md#wsohm) as part of the [v2 migration](../basics/v2-migration). gOHM is wrapped sOHM V2, which allows you to use sOHM V2 on different blockchains. It is priced exactly the same as wsOHM:
+gOHM stands for Governance OHM. It supersedes [wsOHM](tokens.md#wsohm) as part of the v2-migration. gOHM is wrapped sOHM V2, which allows you to use sOHM V2 on different blockchains. It is priced exactly the same as wsOHM:
 
 $$
 gOHM_{price} = OHM_{price} * CurrentIndex
@@ -40,8 +40,6 @@ Polygon:
 **Current Index explanation / Why does it show less OHM for me during migration?**
 
 The Current Index is how many OHM one would have if they staked 1 OHM since the protocol inception. Check out the [Olympus dashboard](https://app.olympusdao.finance/#/dashboard) for the Current Index value.
-
-Unsure about the gOHM balance you get after the V2 migration? [Read the FAQ](../basics/v2-migration#can-you-walk-me-through-an-example-of-how-much-gohm-i-can-expect-from-the-migration) for more details about the calculation.
 {% endhint %}
 
 ### OHM
