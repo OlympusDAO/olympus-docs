@@ -17,9 +17,22 @@ site_url: https://dark-lab-0638.on.fleek.co/
 display_url: https://dark-lab-0638.on.fleek.co/
 
 collections:
-- name: basics
-  label: "Protocol Basics"
-  folder: docs/basics
+- name: what-is-olympus
+  label: "What is Olympus?"
+  extension: md
+  widget: "list"
+  create: true
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  files:
+    - label: "What is Olympus?"
+      name: what-is-olympus
+      file: "docs/basics/readme.md"
+      fields:
+        - { name: sidebar_position, label: Sidbar Position, widget: number }
+        - { name: body, label: Body, widget: markdown }
+- name: mechanics
+  label: "Mechanics"
+  folder: docs/mechanics
   # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
   extension: md
   widget: "list"
@@ -30,9 +43,9 @@ collections:
   fields:
     - { name: sidebar_position, label: Sidbar Position, widget: number }
     - { name: body, label: Body, widget: markdown }
-- name: website
-  label: "Using the Website"
-  folder: docs/using-the-website
+- name: utility
+  label: "Utility"
+  folder: docs/utility
   # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
   extension: md
   widget: "list"
@@ -43,9 +56,9 @@ collections:
   fields:
     - { name: sidebar_position, label: Sidbar Position, widget: number }
     - { name: body, label: Body, widget: markdown }
-- name: literature
-  label: "Literature & Content"
-  folder: docs/literature-content
+- name: technical-guides
+  label: "Technical Guides - Landing Page"
+  folder: docs/technical-guides
   # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
   extension: md
   widget: "list"
@@ -57,8 +70,21 @@ collections:
     - { name: sidebar_position, label: Sidbar Position, widget: number }
     - { name: body, label: Body, widget: markdown }
 - name: contracts
-  label: "Contracts"
+  label: "Technical Guides - Contracts"
   folder: docs/contracts
+  # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
+  extension: md
+  widget: "list"
+  create: true
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  summary: "{{sidebar_position}}. {{filename}}"
+  sortable_fields: ["sidebar_position"]
+  fields:
+    - { name: sidebar_position, label: Sidbar Position, widget: number }
+    - { name: body, label: Body, widget: markdown }
+- name: using-the-website
+  label: "Technical Guides - Using The Website"
+  folder: docs/using-the-website
   # mdx not currently supported: https://github.com/netlify/netlify-cms/issues/1776
   extension: md
   widget: "list"
