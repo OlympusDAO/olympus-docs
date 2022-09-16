@@ -27,18 +27,18 @@ export const actions = [
     text: `Learn about the core concepts of the Olympus Protocol`,
   },
   {
-    title: "Staking Overview",
+    title: "Utility",
     href: "#",
     icon: BookOpenIcon,
-    to: "./main/basics/staking",
-    text: `Learn about Staking, the primary value accrual strategy of Olympus`,
+    to: "./main/utility/",
+    text: `Needs copy`,
   },
   {
-    title: "Bonding Overview",
+    title: "Technical Guides",
     href: "#",
     icon: QuestionMarkCircleIcon,
-    to: "./main/basics/bonding",
-    text: `Learn about Bonding, the primary mechanism for Treasury inflows`,
+    to: "./main/technical-guides",
+    text: `Learn about interacting with the website or directly with the contracts`,
   },
 ];
 
