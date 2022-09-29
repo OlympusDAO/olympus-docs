@@ -9,7 +9,7 @@ After the protocol was able to bootstrap its treasury with an initial growth pha
 
 Having this in mind, Zeus (with the support of the DAO members) ideated a novel mechanism that leverages the protocol treasury reserves and protocol owner liquidity to create an algorithmic forward-looking trading range in which the protocol provides a spread of maker and taker bids and asks to create consistent, predictable market pricing. This system moderates protocol and treasury growth in exchange for support, effectively making the treasury an active participant of the ecosystem that backs its currency.
 
-A deep-dive explanation of the system can be found in the [Range Bound Stability paper]([https://docs.google.com/document/u/2/d/e/2PACX-1vSIufbgAxAAtZkITd_s57o5AmyhAnk6iYbLYvN-ATL59hQ5nC2t2BTPvA8X9DYzFa-i3PRw9ARrAS9E/pub)) .
+A deep-dive explanation of the system can be found in the [Range Bound Stability paper](https://docs.google.com/document/u/2/d/e/2PACX-1vSIufbgAxAAtZkITd_s57o5AmyhAnk6iYbLYvN-ATL59hQ5nC2t2BTPvA8X9DYzFa-i3PRw9ARrAS9E/pub).
 
 
 ## How will the Range Bound system help with Stability?
