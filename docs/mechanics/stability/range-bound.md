@@ -18,14 +18,14 @@ By evolving from a passive liquidity provider role, into a more active one with 
 
 As long as the protocol remains credible and trustworthy, the market participants are incentivized to support the objectives that the protocol sets (predictability), so those that trade alongside the Treasury are rewarded and those deviating are dissuaded.
 
-The credibility of this protocol guidance is derived from the capitalization of the Treasury and its monopoly on market liquidity. As long as the Treasury holds significant assets relative to the *market capitalization of the liquid supply of OHM*, the market should take its guidance seriously. On top of that, the protocol’s ownership of the entire liquidity market further extends this dynamic.
+The credibility of this protocol guidance is derived from the capitalization of the Treasury and its majority ownership of market liquidity. As long as the Treasury holds significant assets relative to the *market capitalization of the liquid supply of OHM*, the market should take its guidance seriously. On top of that, the protocol’s majority ownership of its liquidity markets further extends this dynamic.
 
 *Note that the influence of the Treasury over the market is directly dependent on the liquid supply of OHM. Thanks to the introduction of [OHM bonds](./ohm-bonds.md), the protocol can convert current supply into supply locked on a protocol level, magnifying the influence of the Treasury over the liquid market.*
 
 
 ## How does the Range Bound Stability system work?
 
-As previously described, the system will use the Treasury assets to perform market operations and guide the traders.
+As previously described, the system will use Treasury assets to perform market operations and guide market participants.
 
 The whole system revolves around a target price. This target is calculated as a price moving average, and determines the range of "free trading" where the treasury expects regular market activity to happen.
 
@@ -35,4 +35,4 @@ It is important to note that the treasury wants to dissuade irrational traders f
 
 ![RBS-paper](olympus-docs/static/gitbook/assets/RBS-paper.png?raw=true)
 
-Market operations have two different forms based on how far from the price target the market is trading. Initially, some capacity is used by creating bond markets. If this capacity wasn't enough, harder measures would be taken by enabling users to swap their tokens with the treasury at a fixed exchange rate.
+Market operations have two different forms based on how far from the price target the market is trading. Initially, some capacity is used by creating bond markets. If this capacity depletes then additional capacity is added in the form of fixed exchange rate swaps with the treasury.
