@@ -33,6 +33,6 @@ Based on this target price, the treasury will algorithmically set (and therefore
 
 It is important to note that the treasury wants to dissuade irrational traders from creating volatility, but it is not willing to combat the whole market. Because of that, it will only allocate a certain percentage of its reserves to market operations and, if there is enough coordination from market participants, it will let those participants establish a new trading range outside of the previous one.
 
-[pending to add RBS image from Zeus' paper]
+![RBS-paper](olympus-docs/static/gitbook/assets/RBS-paper.png?raw=true)
 
 Market operations have two different forms based on how far from the price target the market is trading. Initially, some capacity is used by creating bond markets. If this capacity wasn't enough, harder measures would be taken by enabling users to swap their tokens with the treasury at a fixed exchange rate.
