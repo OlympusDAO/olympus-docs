@@ -75,36 +75,36 @@ const config = {
           srcDark: "img/logo_dark.svg",
         },
         items: [
-          {
-            type: "doc",
-            docId: "utility/index",
-            position: "left",
-            label: "Utility",
-          },
-          {
-            type: "doc",
-            docId: "mechanics/stability/index",
-            position: "left",
-            label: "Stability",
-          },
-          {
-            type: "doc",
-            docId: "mechanics/liquidity/index",
-            position: "left",
-            label: "Liquidity",
-          },
-          {
-            type: "doc",
-            docId: "mechanics/governance/index",
-            position: "left",
-            label: "Governance",
-          },
-          {
-            type: "doc",
-            docId: "technical-guides/index",
-            position: "left",
-            label: "Technical Docs",
-          },
+          // {
+          //   type: "doc",
+          //   docId: "utility/index",
+          //   position: "left",
+          //   label: "Utility",
+          // },
+          // {
+          //   type: "doc",
+          //   docId: "mechanics/stability/index",
+          //   position: "left",
+          //   label: "Stability",
+          // },
+          // {
+          //   type: "doc",
+          //   docId: "mechanics/liquidity/index",
+          //   position: "left",
+          //   label: "Liquidity",
+          // },
+          // {
+          //   type: "doc",
+          //   docId: "mechanics/governance/index",
+          //   position: "left",
+          //   label: "Governance",
+          // },
+          // {
+          //   type: "doc",
+          //   docId: "technical-guides/index",
+          //   position: "left",
+          //   label: "Technical Docs",
+          // },
           {
             href: "https://github.com/OlympusDAO/olympus-docs",
             label: "GitHub",

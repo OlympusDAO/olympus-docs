@@ -9,4 +9,4 @@ Olympus Grants aims to educate the community, increase Olympus infrastructure an
 
 The diagram below illustrates the decision-making process for approving grants.
 
-![Grant Process](./grant-process.svg)
+![Grant Process](/gitbook/assets/grant-process.svg)
