@@ -16,29 +16,30 @@ import {
   BookOpenIcon,
   ChatBubbleLeftIcon,
   CodeBracketIcon,
+  BuildingLibraryIcon
 } from "@heroicons/react/24/outline";
 
 export const actions = [
   {
-    title: "What is Olympus",
+    title: "Basics",
     href: "#",
     icon: InformationCircleIcon,
     to: "./main/basics/readme",
-    text: `Learn about the core concepts of the Olympus Protocol`,
+    text: `Olympus Protocol core concepts`,
   },
   {
-    title: "Utility",
+    title: "Treasury",
+    href: "#",
+    icon: BuildingLibraryIcon,
+    to: "./main/treasury/pol",
+    text: `All about Olympus Treasury`,
+  },
+  {
+    title: "Governance",
     href: "#",
     icon: BookOpenIcon,
-    to: "./main/utility/",
-    text: `Needs copy`,
-  },
-  {
-    title: "Technical Guides",
-    href: "#",
-    icon: QuestionMarkCircleIcon,
-    to: "./main/technical-guides",
-    text: `Learn about interacting with the website or directly with the contracts`,
+    to: "./main/governance",
+    text: `An overview of Olympus Governance`,
   },
 ];
 
@@ -73,7 +74,7 @@ export const Guides = [
   {
     title: "Treasury",
     text: "The Treasury represents all assets owned and controlled by the protocol",
-    to: "./main/basics/treasury",
+    to: "./main/treasury/pol",
   },
   {
     title: "Inverse Bonds",

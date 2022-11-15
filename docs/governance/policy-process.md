@@ -9,4 +9,4 @@ OlympusDAO’s Policy team monitors the protocol through key metrics related to 
 
 The diagram below illustrates the decision-making process for amending/creating policies.
 
-![Policy Process](./policy-process.svg)
+![Policy Process](/gitbook/assets/policy-process.svg)

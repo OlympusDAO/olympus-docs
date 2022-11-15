@@ -11,4 +11,4 @@ Every decision must go through a rigorous process prior to execution which inclu
 
 The diagram below illustrates the decision-making process for allocating funds from the treasury.
 
-![Treasury Process](./treasury-process.svg)
+![Treasury Process](/gitbook/assets/treasury-process.svg)
