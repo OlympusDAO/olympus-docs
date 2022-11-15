@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-sidebar_label: Range Bound
+sidebar_label: Range Bound Stability
 ---
 
 # Range Bound Stability
@@ -10,7 +10,6 @@ After the protocol was able to bootstrap its treasury with an initial growth pha
 Having this in mind, Zeus (with the support of the DAO members) ideated a novel mechanism that leverages the protocol treasury reserves and protocol owner liquidity to create an algorithmic forward-looking trading range in which the protocol provides a spread of maker and taker bids and asks to create consistent, predictable market pricing. This system moderates protocol and treasury growth in exchange for support, effectively making the treasury an active participant in the ecosystem that backs its currency.
 
 A deep-dive explanation of the system can be found in the [Range Bound Stability paper](https://docs.google.com/document/u/2/d/e/2PACX-1vSIufbgAxAAtZkITd_s57o5AmyhAnk6iYbLYvN-ATL59hQ5nC2t2BTPvA8X9DYzFa-i3PRw9ARrAS9E/pub).
-
 
 ## How will the Range Bound system help with Stability?
 
@@ -33,6 +32,6 @@ Based on this target price, the treasury will algorithmically set (and therefore
 
 It is important to note that the treasury wants to dissuade irrational traders from creating volatility, but it is not willing to combat the whole market. Because of that, it will only allocate a certain percentage of its reserves to market operations and, if there is enough coordination from market participants, it will let those participants establish a new trading range outside of the previous one.
 
-![RBS-paper](olympus-docs/static/gitbook/assets/RBS-paper.png?raw=true)
+![RBS-paper](/gitbook/assets/range-denoted.png)
 
 Market operations have two different forms based on how far from the price target the market is trading. Initially, some capacity is used by creating bond markets. If this capacity depletes then additional capacity is added in the form of fixed exchange rate swaps with the treasury.

@@ -6,8 +6,9 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 
 1. [not using blog](https://docusaurus.io/docs/installation#project-structure-rundown) - we have deleted the `blog` directory & disabled the blog plugin
 2. we are using typescript, which has some [uniqueness within docusaurus](https://docusaurus.io/docs/typescript-support)
-3. Embedding dynamic content? We use [MDX-Embed](https://www.mdx-embed.com/?path=/docs/introduction--page)
-    * docs/intro.mdx shows an example with youtube
+3. ~~Embedding dynamic content? We use [MDX-Embed](https://www.mdx-embed.com/?path=/docs/introduction--page)~~
+    * ~~docs/intro.mdx shows an example with youtube~~
+    * Don't use mdx. It breaks the CMS.
 
 ## How to Edit these docs
 
@@ -29,8 +30,6 @@ yarn start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-* [MDX Extension for VSCode syntax highlighting](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
 
 #### Build
 
