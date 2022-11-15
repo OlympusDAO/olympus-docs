@@ -5065,10 +5065,10 @@ mdurl@^1.0.0:
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==
 
-mdx-embed@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/mdx-embed/-/mdx-embed-1.0.0.tgz#b1d6ae7fe8d27299769430b2ea7df280ae85c539"
-  integrity sha512-Ey2TqM7EA+EKHXUheD4me1rfxYvd633ZqoRIFv1shsfSxUQ+5776hUtPYm5g8WMZAKOkzta7cZKZ/ipUWCNoXQ==
+mdx-embed@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/mdx-embed/-/mdx-embed-1.1.2.tgz#04468e8dcb3be9fe3e65207e88a83d2f76555a24"
+  integrity sha512-AAronHC/sh4py+RhJOuX8+9+lyUbJsmCLquXNPCEHZ0llPWjMuwls77hII/lWI2kwBSPZPahrqti8kGTv1pi1w==
 
 media-typer@0.3.0:
   version "0.3.0"
