@@ -40,6 +40,10 @@ const sidebars = {
       label: "Treasury",
       collapsible: true,
       collapsed: true,
+      link: {
+        type: "doc",
+        id: "treasury/index",
+      },
       items: [
         "treasury/pol",
         "treasury/range-bound",

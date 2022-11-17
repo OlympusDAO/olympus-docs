@@ -1,15 +1,13 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Staking
 
-Olympus leverages the staking mechanism to organize the capital within the network ($OHM) around economic activity which is productive for both the protocol treasury and OHM holders, with the Olympus Treasury being one of the largest OHM holders.
+OHM holders can choose to stake OHM for gOHM, which receives the Base Staking Rate (“BSR”). During Olympus’ bootstrapping phase, this rate was intended to reflect the expected growth of the network. The BSR now serves as a demand driver for OHM as well as a reference rate against which productive economic activity (lending, liquidity provision, etc.) is measured. Furthermore, it acts as a foundation for OHM bonds to develop a yield curve across different expiries. 
 
-Olympus is able to, either directly or indirectly, incentivize different modes of economic activity that help manage risk to the protocol and treasury as a part of its evolving and autonomous monetary policy.
+The BSR is set by governance.
 
-***Base Staking Rate [TBD?]***
-
-Base Staking Rate functions as a base incentive to hold OHM, helps to drive demand, and acts as a reference rate for emerging lending markets. Furthermore, it acts as a foundation for OHM bonds to develop a yield curve across different expiries.
-
-![sOHM/gOHM explainer](/gitbook/assets/sohmgohm.png)
+$$
+gOHM = OHM*Index
+$$
