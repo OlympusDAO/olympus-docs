@@ -79,31 +79,32 @@ const sidebars = {
       label: "Technical Guides",
       collapsible: true,
       collapsed: true,
-      link: {
-        type: "doc",
-        id: "technical-guides/index",
-      },
+      // link: {
+      //   type: "doc",
+      //   id: "technical-guides/index",
+      // },
       items: [
-        {
-          type: "category",
-          label: "Using the Website",
-          collapsible: true,
-          collapsed: true,
-          items: [
-            "using-the-website/staking",
-            {
-              type: "category",
-              label: "Purchase A Bond (1, 1)",
-              collapsible: true,
-              collapsed: false,
-              link: {
-                type: "doc",
-                id: "using-the-website/bonds/index",
-              },
-              items: [{ type: "doc", id: "using-the-website/bonds/bond_example" }],
-            },
-          ],
-        },
+        // {
+        //   type: "category",
+        //   label: "Using the Website",
+        //   collapsible: true,
+        //   collapsed: true,
+        //   items: [
+        //     "using-the-website/staking",
+        //     {
+        //       type: "category",
+        //       label: "Purchase A Bond (1, 1)",
+        //       collapsible: true,
+        //       collapsed: false,
+        //       link: {
+        //         type: "doc",
+        //         id: "using-the-website/bonds/index",
+        //       },
+        //       items: [{ type: "doc", id: "using-the-website/bonds/bond_example" }],
+        //     },
+        //     "basics/migration",
+        //   ],
+        // },
         {
           type: "category",
           label: "Contracts",
