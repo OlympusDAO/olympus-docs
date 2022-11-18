@@ -17,7 +17,7 @@ LP staking is deprecated. You can unstake your LP via Etherscan still.
 
 * V1 [0xF11f...2223](https://etherscan.io/address/0xF11f0F078BfaF05a28Eac345Bb84fcb2a3722223)
 
-## Staking
+## OHM Staking
 
 Prior to [V1.1  migration](https://olympusdao.medium.com/olympus-v1-1-a5c6a48be7d1),
 the old staking contract (V1) was used for staking OHM. Afterwards, a new staking
