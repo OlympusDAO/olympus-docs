@@ -141,8 +141,8 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Blog",
-                to: "https://www.olympusdao.finance/blog",
+                label: "Medium",
+                to: "https://olympusdao.medium.com/",
               },
               {
                 label: "GitHub",
