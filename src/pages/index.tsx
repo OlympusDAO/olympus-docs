@@ -50,8 +50,8 @@ export const github = [
     icon: CodeBracketIcon,
   },
   {
-    title: "Contract Addresses",
-    href: "https://github.com/OlympusDAO/olympus-contracts/blob/main/docs/deployments/ethereum.md",
+    title: "Bophades Framework",
+    href: "https://github.com/OlympusDAO/bophades2",
     icon: CodeBracketIcon,
   },
   {
