@@ -9,6 +9,7 @@ The distributor contract receives minted OHM from the treasury in order to drip-
 * V3 [0x73cf...bb1e](https://etherscan.io/address/0x73cfe6b116d161a2f9c165f7fc5270fb7dd2bb1e)
 * V4 [0xc58e...3ce6](https://etherscan.io/address/0xc58e923bf8a00e4361fe3f4275226a543d7d3ce6)
 * V5 [0xeeeb...2e05](https://etherscan.io/address/0xeeeb97A127a342656191E0313DF33D58D06B2E05)
+* V6 [0x27e6...7866](https://etherscan.io/address/0x27e606fdb5C922F8213dC588A434BF7583697866)
 ## LP Staking
 
 LP staking is deprecated. You can unstake your LP via Etherscan still.
