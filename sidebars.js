@@ -21,7 +21,7 @@ const sidebars = {
   main: [
     {
       type: "category",
-      label: "Basics",
+      label: "Overview",
       collapsible: true,
       collapsed: true,
       link: {
@@ -76,7 +76,7 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Technical Guides",
+      label: "Technical Info",
       collapsible: true,
       collapsed: true,
       // link: {
