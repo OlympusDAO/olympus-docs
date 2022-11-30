@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Bonds
@@ -19,7 +19,7 @@ Bond payouts are dictated by their current discount percentage. A **positive** d
 This variable discount rate is how a bond market internally governs its supply by responding to demand. This ensures that a bond market’s supply is sold over the specified period of time.
 
 :::info 
-More technical information on bonds can be found in the
+More information on bonds can be found in the
 [Bond Protocol documentation](https://docs.bondprotocol.finance/)
 :::
 

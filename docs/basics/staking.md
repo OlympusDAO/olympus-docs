@@ -10,8 +10,6 @@ OHM holders can choose to stake OHM for gOHM, which receives the Base Staking Ra
 
 The BSR is set by governance.
 
-$$
-gOHM = OHM*Index
-$$
+    gOHM = OHM * Index
 
 where `Index` is an increasing number based on the BSR.
