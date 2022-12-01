@@ -24,13 +24,13 @@ export const actions = [
   {
     title: "Overview",
     icon: InformationCircleIcon,
-    to: "./main/intro",
+    to: "./main/overview/intro",
     text: `What is Olympus Protocol?`,
   },
   {
     title: "Governance",
     icon: BuildingLibraryIcon,
-    to: "./main/governance",
+    to: "./main/governance/dao",
     text: `An overview of Olympus Governance`,
   },
   {
@@ -38,13 +38,15 @@ export const actions = [
     icon: BookOpenIcon,
     to: "./main/technical/overview",
     text: `Technical information and documentation`,
-  },
+  }
+  /*
   {
     title: "User Guides",
     icon: MapIcon,
-    to: "./main/using-the-website/staking",
+    to: "./main/user-guides/using-website/staking",
     text: `How to interact with the protocol`,
   },
+  */
 ];
 
 export const github = [
@@ -76,19 +78,19 @@ export const github = [
 
 export const Guides = [
   {
-    title: "Treasury",
-    text: "The Treasury represents all assets owned and controlled by the protocol",
-    to: "./main/treasury/pol",
+    title: "What is Olympus Protocol?",
+    text: "An overview of the Olympus protocol",
+    to: "./main/overview/intro",
   },
   {
-    title: "Inverse Bonds",
-    text: "Inverse bonds have been introduced as a protocol lever in OIP-76 as a way to support the price of OHM when it is below the backing per OHM",
-    to: "./main/basics/inverse-bonds",
+    title: "Staking",
+    text: "Stake OHM for gOHM using the website",
+    to: "./main/user-guides/using-website/staking",
   },
   {
-    title: "Staking your OHM",
-    text: "Learn how to stake to earn OHM passively via auto-compounding",
-    to: "./main/using-the-website/staking",
+    title: "Bonds",
+    text: "Exchange reserve assets with the protocol for OHM, or vice-versa using the website",
+    to: "./main/user-guides/using-website/bonds/",
   },
 ];
 

@@ -1,6 +1,3 @@
----
-slug: /intro
----
 
 # What is Olympus Protocol?
 
@@ -8,11 +5,7 @@ Olympus is a protocol on the Ethereum blockchain with the goal of establishing O
 
 OHM serves a need in the market between fiat stablecoins and volatile crypto assets, providing relative stability and scalability underpinned by the protocol’s Range Bound Stability (“RBS”) system.  RBS is the major implementation of Olympus’ autonomous monetary policy.
 
-:::info
-[Read more about RBS here](range-bound.md)
-:::
-
-What are reserve currencies designed to achieve?
+## What are reserve currencies designed to achieve?
 
 * Deep liquidity: reserve currencies are highly liquid and can be easily exchanged for other assets, products and services
 * Serve  as a unit of account: Other assets are denominated in the currency

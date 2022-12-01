@@ -12,7 +12,7 @@ const config = {
   tagline: "",
   url: "https://docs.olympusdao.finance",
   baseUrl: "/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.svg",
 
@@ -120,7 +120,7 @@ const config = {
             items: [
               {
                 label: "Protocol Documentation",
-                to: "/main/intro",
+                to: "/main/overview/intro",
               },
             ],
           },
