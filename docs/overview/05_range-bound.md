@@ -1,8 +1,3 @@
----
-sidebar_position: 2
-sidebar_label: Range Bound Stability
----
-
 # Range Bound Stability
 
 ## Overview
@@ -14,6 +9,13 @@ The Olympus Protocol automatically executes market operations to absorb volatili
 RBS involves deploying treasury reserves in a downward trending market and selling OHM for reserves in an upward trending market to stabilize price. The nature of these actions causes contraction and growth of the network depending on the market environment to enforce stability.
 
 Liquidity is a key aspect of the Olympus system and the vast majority of OHM liquidity is [Protocol-Owned](./pol). In addition to the market operations performed by RBS, the protocol enacts policies to balance the amount of reserves deployed in liquidity and the treasury for RBS to maintain sufficient pricing depth.
+
+:::info
+Details can be found in these resources:
+- [Whitepaper](https://ohm.fyi/gentle-pegging)
+- [Initial spec](https://docs.google.com/document/d/1AdPex_lMpSC_3U8UEU4hiSZIT1O1FekoCujRtYEJ0ig)
+- [Video overview](https://www.loom.com/share/f3b053ad02674383908d53783eccb37e)
+:::
 
 ## RBS System Specification and Requirements
 

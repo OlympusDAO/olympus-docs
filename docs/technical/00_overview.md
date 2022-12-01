@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-# Overview
+# Contracts Overview
 
 Olympus V3, aka Bophades, is the next iteration of the Olympus protocol. It is a foundation for the future of the protocol, utilizing the [Default Framework](https://github.com/fullyallocated/Default) to allow extensibility at the base layer via fully onchain governance mechanisms. There are a few major pieces to this release: the core registry (Kernel), treasury, minter, governor, and finally, the range-bound stability (RBS) system.
 

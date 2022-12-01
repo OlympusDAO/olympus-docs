@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Treasury
 
 The Treasury is a key component of the Olympus protocol. The Treasury represents all assets owned and controlled by the protocol.

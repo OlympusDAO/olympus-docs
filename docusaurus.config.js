@@ -116,11 +116,11 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Documentation",
             items: [
               {
-                label: "Protocol Docs",
-                to: "/main/basics/readme",
+                label: "Protocol Documentation",
+                to: "/main/intro",
               },
             ],
           },

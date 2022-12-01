@@ -16,30 +16,34 @@ import {
   BookOpenIcon,
   ChatBubbleLeftIcon,
   CodeBracketIcon,
-  BuildingLibraryIcon
+  BuildingLibraryIcon,
+  MapIcon
 } from "@heroicons/react/24/outline";
 
 export const actions = [
   {
-    title: "Basics",
-    href: "#",
+    title: "Overview",
     icon: InformationCircleIcon,
-    to: "./main/basics/readme",
-    text: `Olympus Protocol core concepts`,
-  },
-  {
-    title: "Treasury",
-    href: "#",
-    icon: BuildingLibraryIcon,
-    to: "./main/treasury/pol",
-    text: `All about Olympus Treasury`,
+    to: "./main/intro",
+    text: `What is Olympus Protocol?`,
   },
   {
     title: "Governance",
-    href: "#",
-    icon: BookOpenIcon,
+    icon: BuildingLibraryIcon,
     to: "./main/governance",
     text: `An overview of Olympus Governance`,
+  },
+  {
+    title: "Technical",
+    icon: BookOpenIcon,
+    to: "./main/technical/overview",
+    text: `Technical information and documentation`,
+  },
+  {
+    title: "User Guides",
+    icon: MapIcon,
+    to: "./main/using-the-website/staking",
+    text: `How to interact with the protocol`,
   },
 ];
 

@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Policy Team & Policy Framework
 
 The policy team is composed of about 20 members of the Olympus community who have displayed sufficient knowledge of the protocol and a curiosity to continue to learn as the protocol grows in size and complexity. Policy is largely guided by the [policy framework](https://forum.olympusdao.finance/d/622-oip-56-olympusdao-policy-framework-v2).

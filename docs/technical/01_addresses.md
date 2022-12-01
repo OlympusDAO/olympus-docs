@@ -1,8 +1,4 @@
----
-sidebar_position: 0
----
-
-# Addresses
+# Contract Addresses
 
 ## Latest Deployments
 
