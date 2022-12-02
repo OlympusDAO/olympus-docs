@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # Contracts Overview
 
-Olympus V3, aka Bophades, is the next iteration of the Olympus protocol. It is a foundation for the future of the protocol, utilizing the [Default Framework](https://github.com/fullyallocated/Default) to allow extensibility at the base layer via fully onchain governance mechanisms. There are a few major pieces to this release: the core registry (Kernel), treasury, minter, governor, and finally, the range-bound stability (RBS) system.
+Olympus V3 is the current and latest iteration of the Olympus protocol. It is a foundation for the future of the protocol, utilizing the [Default Framework](https://github.com/fullyallocated/Default) to allow extensibility at the base layer via fully onchain governance mechanisms. There are a few major pieces to V3: the core registry (Kernel), treasury, minter, governor, and finally, the range-bound stability (RBS) system.
 
 ## Default Framework: Kernel, Modules and Policies Summary
 Olympus V3 uses the [Default Framework](https://github.com/fullyallocated/Default) to configure the protocol’s smart contracts and authorized addresses within the system. In this framework, all contract dependencies and authorizations are managed via “Actions” in the Kernel.sol contract. These actions are as follows:

@@ -1,9 +1,9 @@
 
 # What is Olympus Protocol?
 
-Olympus is a protocol on the Ethereum blockchain with the goal of establishing OHM as a crypto-native reserve currency. It operates by way of autonomous and dynamic monetary policy, with market operations supported by the Olympus Treasury as a core component of the protocol.
+Olympus is a protocol on the Ethereum blockchain with the goal of establishing OHM as a crypto-native reserve currency. It conducts autonomous and dynamic monetary policy, with market operations supported by the protocol-owned Olympus Treasury.
 
-OHM serves a need in the market between fiat stablecoins and volatile crypto assets, providing relative stability and scalability underpinned by the protocol’s Range Bound Stability (“RBS”) system.  RBS is the major implementation of Olympus’ autonomous monetary policy.
+OHM serves a need in the market gap between fiat stablecoins and volatile crypto assets, providing relative stability and scalability underpinned by the protocol’s Range Bound Stability (“RBS”) system. RBS is the flagship system of Olympus’ autonomous monetary policy.
 
 ## What are reserve currencies designed to achieve?
 
