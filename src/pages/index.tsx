@@ -82,16 +82,6 @@ export const Guides = [
     text: "An overview of the Olympus protocol",
     to: "./main/overview/intro",
   },
-  {
-    title: "Staking",
-    text: "Stake OHM for gOHM using the website",
-    to: "./main/user-guides/using-website/staking",
-  },
-  {
-    title: "Bonds",
-    text: "Exchange reserve assets with the protocol for OHM, or vice-versa using the website",
-    to: "./main/user-guides/using-website/bonds/",
-  },
 ];
 
 const Container = styled.div`
