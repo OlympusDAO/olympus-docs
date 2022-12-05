@@ -51,15 +51,15 @@ export const actions = [
 
 export const github = [
   {
-    title: "olympus-contracts",
+    title: "olympus-v3",
+    href: "https://github.com/OlympusDAO/olympus-v3",
+    icon: CodeBracketIcon,
+  },
+  {
+    title: "olympus-contracts (OLD)",
     href: "https://github.com/OlympusDAO/olympus-contracts",
     icon: CodeBracketIcon,
   },
-  // {
-  //   title: "Bophades Framework",
-  //   href: "https://github.com/OlympusDAO/bophades2",
-  //   icon: CodeBracketIcon,
-  // },
   {
     title: "olympus-frontend",
     href: "https://github.com/OlympusDAO/olympus-frontend",
