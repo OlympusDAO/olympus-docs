@@ -1,7 +1,3 @@
----
-sidebar_position: 8
----
-
 # V2 Migration
 
 ## Why do I need to migrate?

@@ -16,44 +16,50 @@ import {
   BookOpenIcon,
   ChatBubbleLeftIcon,
   CodeBracketIcon,
-  BuildingLibraryIcon
+  BuildingLibraryIcon,
+  MapIcon
 } from "@heroicons/react/24/outline";
 
 export const actions = [
   {
-    title: "Basics",
-    href: "#",
+    title: "Overview",
     icon: InformationCircleIcon,
-    to: "./main/basics/readme",
-    text: `Olympus Protocol core concepts`,
-  },
-  {
-    title: "Treasury",
-    href: "#",
-    icon: BuildingLibraryIcon,
-    to: "./main/treasury/pol",
-    text: `All about Olympus Treasury`,
+    to: "./main/overview/intro",
+    text: `What is Olympus Protocol?`,
   },
   {
     title: "Governance",
-    href: "#",
-    icon: BookOpenIcon,
-    to: "./main/governance",
+    icon: BuildingLibraryIcon,
+    to: "./main/governance/dao",
     text: `An overview of Olympus Governance`,
   },
+  {
+    title: "Technical",
+    icon: BookOpenIcon,
+    to: "./main/technical/overview",
+    text: `Technical information and documentation`,
+  }
+  /*
+  {
+    title: "User Guides",
+    icon: MapIcon,
+    to: "./main/user-guides/using-website/staking",
+    text: `How to interact with the protocol`,
+  },
+  */
 ];
 
 export const github = [
   {
-    title: "olympus-contracts",
+    title: "olympus-v3",
+    href: "https://github.com/OlympusDAO/olympus-v3",
+    icon: CodeBracketIcon,
+  },
+  {
+    title: "olympus-contracts (OLD)",
     href: "https://github.com/OlympusDAO/olympus-contracts",
     icon: CodeBracketIcon,
   },
-  // {
-  //   title: "Bophades Framework",
-  //   href: "https://github.com/OlympusDAO/bophades2",
-  //   icon: CodeBracketIcon,
-  // },
   {
     title: "olympus-frontend",
     href: "https://github.com/OlympusDAO/olympus-frontend",
@@ -72,19 +78,9 @@ export const github = [
 
 export const Guides = [
   {
-    title: "Treasury",
-    text: "The Treasury represents all assets owned and controlled by the protocol",
-    to: "./main/treasury/pol",
-  },
-  {
-    title: "Inverse Bonds",
-    text: "Inverse bonds have been introduced as a protocol lever in OIP-76 as a way to support the price of OHM when it is below the backing per OHM",
-    to: "./main/basics/inverse-bonds",
-  },
-  {
-    title: "Staking your OHM",
-    text: "Learn how to stake to earn OHM passively via auto-compounding",
-    to: "./main/using-the-website/staking",
+    title: "What is Olympus Protocol?",
+    text: "An overview of the Olympus protocol",
+    to: "./main/overview/intro",
   },
 ];
 
