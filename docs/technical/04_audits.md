@@ -19,6 +19,6 @@
 | ------------------------------ | ------------------------------------------------------ |
 | Spearbit                       | [Link](/OlympusDAO-1.pdf)                              |
 | CodeArena                      | [Link](https://code4rena.com/reports/2022-08-olympus/) |
-| KebabSec (remediation phase 1) | [Link](https://hackmd.io/tJdujc0gSICv06p_9GgeFQ)       |
-| KebabSec (remediation phase 2) | [Link](https://hackmd.io/@12og4u7y8i/rk5PeIiEs)        |
-| KebabSec (finalization)        | [Link](https://hackmd.io/@12og4u7y8i/Sk56otcBs)        |
+| KebabSec (Remediation Phase 1) | [Link](https://hackmd.io/tJdujc0gSICv06p_9GgeFQ)       |
+| KebabSec (Remediation Phase 2) | [Link](https://hackmd.io/@12og4u7y8i/rk5PeIiEs)        |
+| KebabSec (Finalization)        | [Link](https://hackmd.io/@12og4u7y8i/Sk56otcBs)        |
