@@ -82,6 +82,11 @@ export const Guides = [
     text: "An overview of the Olympus protocol",
     to: "./main/overview/intro",
   },
+  {
+    title: "What is Range Bound Stability?",
+    text: "An overview of the RBS",
+    to: "./main/overview/range-bound",
+  },
 ];
 
 const Container = styled.div`
