@@ -137,6 +137,8 @@
 | FxsAllocatorV2  | [`0x0f953D861347414698F34B75dbFd6e7dF1A73493`](https://etherscan.io/address/0x0f953D861347414698F34B75dbFd6e7dF1A73493) |
 | BtrflyAllocator | [`0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f`](https://etherscan.io/address/0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f) |
 | LUSDAllocatorV2 | [`0x2C1700F38C38C32595CFeF3D6B0B275bC2D2a578`](https://etherscan.io/address/0x2C1700F38C38C32595CFeF3D6B0B275bC2D2a578) |
+| AuraAllocatorV2 | [`0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD`](https://etherscan.io/address/0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD) |
+| DSRAllocator    | [`0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063`](https://etherscan.io/address/0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063) |
 
 ## Multisigs
 
@@ -144,7 +146,6 @@
 | -------- | ----------------------------------------------------------------------------------------------------------------------- |
 | DAO      | [`0x245cc372C84B3645Bf0Ffe6538620B04a217988B`](https://etherscan.io/address/0x245cc372C84B3645Bf0Ffe6538620B04a217988B) |
 | Policy   | [`0x0cf30dc0d48604A301dF8010cdc028C055336b2E`](https://etherscan.io/address/0x0cf30dc0d48604A301dF8010cdc028C055336b2E) |
-
 
 ## Cross-Chain
 
