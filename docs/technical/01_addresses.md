@@ -142,10 +142,14 @@
 
 ## Multisigs
 
-| Contract | Address                                                                                                                 |
-| -------- | ----------------------------------------------------------------------------------------------------------------------- |
-| DAO      | [`0x245cc372C84B3645Bf0Ffe6538620B04a217988B`](https://etherscan.io/address/0x245cc372C84B3645Bf0Ffe6538620B04a217988B) |
-| Policy   | [`0x0cf30dc0d48604A301dF8010cdc028C055336b2E`](https://etherscan.io/address/0x0cf30dc0d48604A301dF8010cdc028C055336b2E) |
+| Contract | Chain     | Address                                                                                                                            |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| DAO      | Ethereum  |[`0x245cc372C84B3645Bf0Ffe6538620B04a217988B`](https://etherscan.io/address/0x245cc372C84B3645Bf0Ffe6538620B04a217988B)             |
+| DAO      | Arbitrum  |[`0x012BBf0481b97170577745D2167ee14f63E2aD4C`](https://arbiscan.io/address/0x012BBf0481b97170577745D2167ee14f63E2aD4CB)             |
+| DAO      | Polygon   |[`0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7`](https://polygonscan.com/address/0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7)          |
+| DAO      | Fantom    |[`0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10`](https://ftmscan.com/address/0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10)              |
+| DAO      | Avalanche |[`0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32`](https://snowtrace.io/address/0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32)             |
+| Policy   | Ethereum  |[`0x0cf30dc0d48604A301dF8010cdc028C055336b2E`](https://etherscan.io/address/0x0cf30dc0d48604A301dF8010cdc028C055336b2E)             |
 
 ## Cross-Chain
 
