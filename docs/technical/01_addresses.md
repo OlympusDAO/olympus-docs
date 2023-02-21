@@ -147,7 +147,7 @@
 | DAO      | [`0x245cc372C84B3645Bf0Ffe6538620B04a217988B`](https://etherscan.io/address/0x245cc372C84B3645Bf0Ffe6538620B04a217988B) |
 | Policy   | [`0x0cf30dc0d48604A301dF8010cdc028C055336b2E`](https://etherscan.io/address/0x0cf30dc0d48604A301dF8010cdc028C055336b2E) |
 
-## Cross-Chain
+## Cross-Chain Token Contracts
 
 | Contract | Chain     | Address                                                                                                                            |
 | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
