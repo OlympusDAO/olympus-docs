@@ -1,18 +1,18 @@
 # Single Sided Liquidity Vaults
 
-The Single Sided Liquidity Vault aims to bootstrap third-party liquidity for OHM pairs with selected, high quality counter assets. The goal is to improve OHM's stability relative to these counter-assets and stablishing it as a liquidity router of the main pillars of DeFi.
+The Single Sided Liquidity Vault is a new Olympus utility designed to improve the stability of OHM pairs and establish OHM as a liquidity router for the main pillars of DeFi. By incentivizing third-party liquidity provision using high-quality counter assets, the protocol aims to boost liquidity and minimize volatility.
 
 The mechanism provides a framework for the Olympus Treasury to mint OHM directly into liquidity pair vaults against whitelisted assets. The counter-asset will be provided by individual holders and the vault will be incentivized by partner incentives.
 
 ## Economic Mechanisms
 
-Through the design of the single sided liquidity vaults, Olympus creates a self-correcting system that boosts liquidity for OHM pairs while dampening its relative volatility against the partner counter asset. The circulating supply of OHM is dynamically adjusted based on price fluctuation of OHM and the counter-asset, which helps stabilize their exchange rate with a self-regulating system.
+The Single Sided Liquidity Vaults are designed to boost liquidity for OHM pairs and stabilize their exchange rate relative to high-quality counter assets through a self-regulating system. The circulating supply of OHM is dynamically adjusted based on its own price fluctuations, but also with the ones of the counter-asset. This property helps stabilize their exchange rate with a self-regulating system.
 
-On the one hand, when the price of OHM increases relative to the counter-asset (either by OHM appreciation or depreciation of the partner token), some of the OHM that was previously minted into the liquidity pool is released back into circulation. This increase in the circulating supply of OHM should, all else being equal, push the price of OHM back down.
+When the price of OHM increases relative to the counter-asset (either by OHM appreciation or depreciation of the partner token), some of the OHM that was previously minted into the liquidity pool is released back into circulation. This increase in the circulating supply of OHM should, all else being equal, push the price of OHM back down.
 
-On the other hand, if the price of OHM decreases relative to the counter-asset (either by OHM depreciation or appreciation of the partner token), previously circulating OHM will now enter the liquidity pool and the protocol will have a claim on it. This decrease in the circulating supply of OHM should, all else being equal, push the price of OHM back up.
+Conversely, if the price of OHM decreases relative to the counter-asset (either by OHM depreciation or appreciation of the partner token), previously circulating OHM will now enter the liquidity pool and the protocol will have a claim on it. This decrease in the circulating supply of OHM should, all else being equal, push the price of OHM back up.
 
-*Note that the volatility-dampening effect of the vaults will be limited by the amount of liquidity bootstrapped by the vaults. The deeper the pools, the more effective they will become.
+*Note: It is important to note that the effectiveness of the vaults in dampening volatility is directly tied to the amount of liquidity that is provided. The more liquidity that is provided, the more effective the volatility-dampening effect will be.
 
 ## Operational Mechanisms
 
@@ -38,18 +38,21 @@ Users can also withdraw their assets from the vault whenever they want. The step
 ## Benefits by Stakeholder
 
 ### For the Protocol:
-- Efficiently bootstrapping liquidity for OHM.
-- Growing liquidity for pairs with quality counter-assets.
-- Dampening OHM volatility against these counter-pair assets.
+- Facilitating the provision of liquidity for OHM pairs through a more streamlined process.
+- Increasing the liquidity of OHM pairs by incentivizing users to provide liquidity using selected, high-quality counter assets.
+- Dampening OHM volatility against these high-quality counter-pair assets, helping position OHM as a base asset with great liquidity routing.
 
 ### For Partners:
 - A more efficient liquidity mining vehicle.
 - Olympus does not take a portion of the rewards provided by the partner protocol, meaning partners get 2x TVL for their rewards compared to traditional liquidity mining systems.
+- Since OHM is a volatile asset with decent price stability, by pairing with it partners can:
+    - Reduce the Impermanent Loss (IL) that Liquidity Providers (LPs) would accure when providing liquidity agains stables.
+    - Minimize the price supression that arbitrageurs can produce when their pools are paired with ETH.
+
 
 ### For Users:
--   More efficient liquidity farms.
--   Receiving 2x rewards, relative to traditional liquidity systems.
--   Effectively receiving 2x leverage on reward accumulation without 2x exposure to the underlying asset nor liquidation risk.
+- If the ratio of assets in the liquidity pool changes significantly over time, users may experience impermanent losses, which occur when the value of the assets they receive upon withdrawal is lower than the value of the assets they originally deposited.
+- To encourage users to provide liquidity and reduce the risks associated with liquidity provision, Olympus is giving up all of its rewards and allocating them to users instead.
 
 ## Risks by Stakeholder
 
