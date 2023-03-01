@@ -65,8 +65,10 @@ Users can also withdraw their assets from the vault whenever they want. The step
 -   If Olympus appreciates a lot in price, their asset could be impacted due to arbitrageurs. However, this risk is minimized by the fact that RBS (Reference Based Stabilization) is actively dampening OHM volatility versus DAI.
 
 ### For Users:
--   The typical liquidity provider risks apply in this mechanism too.
+-   The typical liquidity provider opportunity costs apply in this mechanism too.
 -   If the composition of the pool changes over time, users may incur some Impermanent Loss (IL).
 -   Olympus gives up its rewards in favor of users to incentivize deposits and minimize the risks of liquidity provisioning.
+
+[yella's infographic on IL risk]
 
 By participating in the Single Sided Liquidity Vaults, users and partners can take advantage of the benefits offered by Olympus DAO while managing their risks. We believe this mechanism will play an important role in the growth and stability of the Olympus ecosystem.
