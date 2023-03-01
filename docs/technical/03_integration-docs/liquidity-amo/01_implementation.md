@@ -1,15 +1,13 @@
-# SingleSidedLiquidityVault
-
-## Contract Implementation
+# Example Contract Implementation
 Once the key functions are understood, the implementation of a contract that inherits `SingleSidedLiquidityVault` will be easier and safer.
 
 For instance, let's take the `StethLiquidityVault` implementation as an example ([check the source code here](gitbuh-link)). In this case, the vault will be harvesting rewards from Aura. Therefore, it will first deposit its liquidity on Balancer and, afterwards, deposit the received BPT on Aura.
 
-### Custom Variables and Getters
+## Custom Variables and Getters
 
 The `SingleSidedLiquidityVault` defines custom variables that help handle the interactions with Balancer and Aura Finance.
 
-#### Integration State
+### Integration State
 
 ```
 IVault public vault;
@@ -39,11 +37,11 @@ OracleFeed public stethUsdPriceFeed;
 ```
 Finally, to handle the price conversions, different Chainlink price oracles must be used.
 
-### Overriding Virtual Functions
+## Overriding Virtual Functions
 
 The easiest way to implement a these functions is by directly checking the `StethLiquidityVault` [code](gitbuh-link)). Nevertheless, this section will list some of the this that any developer should have in mind.
 
-#### deposit
+### deposit
 
 When implementing the `_deposit` function:
 1. Cast the liquidity pool address from abstract to Balancer Base pool.
@@ -53,7 +51,7 @@ When implementing the `_deposit` function:
 5. Calculate the amount of resulting LP tokens, approve the Aura Booster as a spender, and deposit them there.
 6. Return the amount of resulting BPT tokens.
 
-#### withdraw
+### withdraw
 
 When implementing the `_withdraw` function:
 1. Cast the liquidity pool address from abstract to Balancer Base pool.
@@ -62,7 +60,7 @@ When implementing the `_withdraw` function:
 4. Make a request to the Balancer Vault to leave the liquidity pool.
 5. Return the amount of extra tokens (OHM and the pair token) held in the vault.
 
-#### accumulateExternalRewards
+### accumulateExternalRewards
 
 When implementing the `_accumulateExternalRewards` function:
 1. Loop over the `externalRewardTokens` to cast the balances of the vault.
@@ -70,18 +68,18 @@ When implementing the `_accumulateExternalRewards` function:
 3. Loop over the `externalRewardTokens` again to cast the new balances of the vault.
 4. Return a list with the harvested rewards for each token in the `externalRewardTokens` array.
 
-#### valueCollateral
+### valueCollateral
 
 When implementing the `_valueCollateral` function:
 1. Fetch the necessary price feed oracles to get the ratio of `OHM / PairToken`. Make sure that the decimals are in place.
 2. Return the conversion of the input `_amount` of pair token in OHM terms.
 
-#### getPoolPrice
+### getPoolPrice
 
 When implementing the `_getPoolPrice` function:
 1. Calculate the `OHM / pairToken` ratio of the Liquidity pool by fetching the amount of each token in the pool.
 
-#### getPoolOhmShare
+### getPoolOhmShare
 
 When implementing the `_getPoolOhmShare` function:
 1. Calculate the vault's share on the liquidity pool.
