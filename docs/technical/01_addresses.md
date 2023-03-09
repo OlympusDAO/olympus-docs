@@ -31,6 +31,13 @@
 | Distributor       | [`0x27e606fdb5C922F8213dC588A434BF7583697866`](https://etherscan.io/address/0x27e606fdb5C922F8213dC588A434BF7583697866) |
 | Emergency         | [`0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75`](https://etherscan.io/address/0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75) |
 
+#### Dependencies
+
+| Contract                        | Address                                                                                                                        |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Bond Teller                     | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
+
+
 ### Goerli Testnet
 
 | Contract | Address                                                                                                                        |
