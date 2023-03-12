@@ -1,12 +1,12 @@
-# Single Sided Liquidity Vaults
+# Boosted Liquidity Vaults
 
-The Single Sided Liquidity Vault is a new Olympus utility designed to improve the stability of OHM pairs and establish OHM as a liquidity router for the main pillars of DeFi. By incentivizing third-party liquidity provision using high-quality counter assets, the protocol aims to boost liquidity and minimize volatility.
+The Boosted Liquidity Vault is a new Olympus utility designed to improve the stability of OHM pairs and establish OHM as a liquidity router for the main pillars of DeFi. By incentivizing third-party liquidity provision using high-quality counter assets, the protocol aims to boost liquidity and minimize volatility.
 
-The mechanism provides a framework for the Olympus Treasury to mint OHM directly into liquidity pair vaults against whitelisted assets. The counter-asset will be provided by individual holders and the vault will be incentivized by partner incentives.
+The mechanism provides a framework for the Olympus Treasury to mint OHM directly into liquidity pair vaults against allowlisted assets. The counter-asset will be provided by individual holders and the vault will be incentivized by partner incentives.
 
 ## Economic Mechanisms
 
-The Single Sided Liquidity Vaults are designed to boost liquidity for OHM pairs and stabilize their exchange rate relative to high-quality counter assets through a self-regulating system. The circulating supply of OHM is dynamically adjusted based on its own price fluctuations, but also with the ones of the counter-asset. This property helps stabilize their exchange rate with a self-regulating system.
+The BoostedLiquidity Vaults are designed to boost liquidity for OHM pairs and stabilize their exchange rate relative to high-quality counter assets through a self-regulating system. The circulating supply of OHM is dynamically adjusted based on its own price fluctuations, but also with the ones of the counter-asset. This property helps stabilize their exchange rate with a self-regulating system.
 
 When the price of OHM increases relative to the counter-asset (either by OHM appreciation or depreciation of the partner token), some of the OHM that was previously minted into the liquidity pool is released back into circulation. This increase in the circulating supply of OHM should, all else being equal, push the price of OHM back down.
 
@@ -19,7 +19,7 @@ Conversely, if the price of OHM decreases relative to the counter-asset (either 
 ### Deposit
 The deposit process is simple and straightforward. Anyone (both, users and DAOs) can deposit their assets into the vault to provide single-sided liquidity and receive farming rewards in exchange. The steps are as follows:
 
-1. The counter-asset is taken from the user.
+1. The counter-asset is deposited by the user.
 2. The counter-asset is valued using oracles and OHM is minted 1:1 against the dollar value of the deposited counter-asset.
 4. The newly minted OHM and deposited counter-asset are deployed into a liquidity pool.
 5. LP receipt tokens are custodied by the vault.
@@ -51,8 +51,9 @@ Users can also withdraw their assets from the vault whenever they want. The step
 
 
 ### For Users:
-- If the ratio of assets in the liquidity pool changes significantly over time, users may experience impermanent losses, which occur when the value of the assets they receive upon withdrawal is lower than the value of the assets they originally deposited.
-- To encourage users to provide liquidity and reduce the risks associated with liquidity provision, Olympus is giving up all of its rewards and allocating them to users instead.
+- Ability to provide single sided liquidity.
+- Reduced fees / slippage when entering an LP position.
+- Double the rewards (compared to traditional pools) because Olympus is giving up all of its rewards and allocating them to users instead.
 
 ## Risks by Stakeholder
 
@@ -65,10 +66,11 @@ Users can also withdraw their assets from the vault whenever they want. The step
 -   If Olympus appreciates a lot in price, their asset could be impacted due to arbitrageurs. However, this risk is minimized by the fact that RBS (Reference Based Stabilization) is actively dampening OHM volatility versus DAI.
 
 ### For Users:
--   The typical liquidity provider opportunity costs apply in this mechanism too.
--   If the composition of the pool changes over time, users may incur some Impermanent Loss (IL).
--   Olympus gives up its rewards in favor of users to incentivize deposits and minimize the risks of liquidity provisioning.
+- The typical liquidity provider risks apply.
+- If the ratio of assets in the liquidity pool changes significantly over time, users may experience impermanent losses (IL), which occur when the value of the assets they receive upon withdrawal is lower than the value of the assets they originally deposited.
+- To encourage users to provide liquidity and reduce the risks associated with liquidity provision, Olympus is giving up all of its rewards and allocating them to users instead.
+
 
 [yella's infographic on IL risk]
 
-By participating in the Single Sided Liquidity Vaults, users and partners can take advantage of the benefits offered by Olympus DAO while managing their risks. We believe this mechanism will play an important role in the growth and stability of the Olympus ecosystem.
+By participating in the Boosted Liquidity Vaults, users and partners can take advantage of the benefits offered by Olympus DAO while managing their risks. We believe this mechanism will play an important role in the growth and stability of the Olympus ecosystem.
