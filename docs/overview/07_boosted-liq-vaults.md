@@ -66,11 +66,25 @@ Users can also withdraw their assets from the vault whenever they want. The step
 -   If Olympus appreciates a lot in price, their asset could be impacted due to arbitrageurs. However, this risk is minimized by the fact that RBS (Reference Based Stabilization) is actively dampening OHM volatility versus DAI.
 
 ### For Users:
-- The typical liquidity provider risks apply.
-- If the ratio of assets in the liquidity pool changes significantly over time, users may experience impermanent losses (IL), which occur when the value of the assets they receive upon withdrawal is lower than the value of the assets they originally deposited.
+- The typical liquidity provider risks apply (smart contract risk, impermanent loss, etc).
+- If the ratio of assets in the liquidity pool changes significantly over time, users may experience impermanent losses (IL), which occur when the value of the assets they receive upon withdrawal is lower than the value than the originally deposited assets would have.
 - To encourage users to provide liquidity and reduce the risks associated with liquidity provision, Olympus is giving up all of its rewards and allocating them to users instead.
 
 
 [yella's infographic on IL risk]
 
 By participating in the Boosted Liquidity Vaults, users and partners can take advantage of the benefits offered by Olympus DAO while managing their risks. We believe this mechanism will play an important role in the growth and stability of the Olympus ecosystem.
+
+## Security Considerations
+
+Security is of utmost importance to Olympus. The DAO is committed to ensuring that the participants of the econohmy are always safe and secure. The Boosted Liquidity Vaults implement several measures to mitigate security risks.
+
+Firstly, the smart contracts have been designed with security in mind. The contracts do not have upgradable proxies, meaning that once a contract has been deployed, its code cannot be changed. This ensures that there are no unforeseen changes that can compromise the integrity of the contract.
+
+Secondly, an emergency shutoff mechanism has been implemented, which is controlled by the DAO multisig. This function allows for a quick and efficient way to shut down the platform in the event of an emergency, such as an exploit.
+
+Thirdly, the vault uses price oracles to determine the USD value of OHM and the pair asset. While this approach is necessary to facilitate the Boosted Liquidity Vaults, it also exposes the vault to potential attacks (either from well capitalized individuals, or flashlaon users). To mitigate this risk, the vault implements a strategy where it executes an arbitrage between the pool where the assets are deposited and the oracle price feeds. By taking the arbitrage opportunity, the vault ensures that any attempt to manipulate the price oracle or the pool composition will translate the price imbalance to the attacker (generating a profit for the vault and a loss for the attacker).
+
+Furthermore, all smart contracts have been audited by reputable third-party auditors such as [Sherlock](link-to-report-sherlock) and [XXX](link-to-report-XXX). Any issues identified during the audit have been addressed and re-audited to ensure that the necessary corrections were made. In addition, an [ImmuneFi bug bounty program](link-to-immunefi) has been implemented to incentivize white-hat hackers to find and report any vulnerabilities they may discover in the Boosted Liquidity Vaults. This practice helps proactively identify and address any potential security issues before they can be exploited.
+
+Olympus takes the security of its ecosystem very seriously and is committed to ensuring that its users' assets are always protected. With these measures in place, participants can have confidence in the security of the Boosted Liquidity Vaults.
