@@ -77,13 +77,15 @@ By participating in the Boosted Liquidity Vaults, users and partners can take ad
 
 ## Security Considerations
 
-Security is of utmost importance to Olympus. The DAO is committed to ensuring that the participants of the econohmy are always safe and secure. The Boosted Liquidity Vaults implement several measures to mitigate security risks.
+Security is of utmost importance to Olympus. The DAO is committed to ensuring that the participants of the econohmy are always safe and secure. Because of that, the Boosted Liquidity Vaults implement several measures to mitigate security risks.
 
 Firstly, the smart contracts have been designed with security in mind. The contracts do not have upgradable proxies, meaning that once a contract has been deployed, its code cannot be changed. This ensures that there are no unforeseen changes that can compromise the integrity of the contract.
 
-Secondly, an emergency shutoff mechanism has been implemented, which is controlled by the DAO multisig. This function allows for a quick and efficient way to shut down the platform in the event of an emergency, such as an exploit.
+Secondly, the vault contracts are designed in a manner where user deposits are recorded as liabilities, thus preventing any commingling of funds. This procedure guarantees that the underlying funds can solely be accessed by the depositor and not by external entities, including Olympus.
 
-Thirdly, the vault uses price oracles to determine the USD value of OHM and the pair asset. While this approach is necessary to facilitate the Boosted Liquidity Vaults, it also exposes the vault to potential attacks (either from well capitalized individuals, or flashlaon users). To mitigate this risk, the vault implements a strategy where it executes an arbitrage between the pool where the assets are deposited and the oracle price feeds. By taking the arbitrage opportunity, the vault ensures that any attempt to manipulate the price oracle or the pool composition will translate the price imbalance to the attacker (generating a profit for the vault and a loss for the attacker).
+Thirdly, an emergency shutoff mechanism has been implemented, which is controlled by the DAO multisig. This function allows for a quick and efficient way to shut down the platform in the event of an emergency, such as an exploit.
+
+Fourthly, the vault uses price oracles to determine the USD value of OHM and the pair asset. While this approach is necessary to facilitate the Boosted Liquidity Vaults, it also exposes the vault to potential attacks (either from well capitalized individuals, or flashlaon users). To mitigate this risk, the vault implements a strategy where it executes an arbitrage between the pool where the assets are deposited and the oracle price feeds. By taking the arbitrage opportunity, the vault ensures that any attempt to manipulate the price oracle or the pool composition will translate the price imbalance to the attacker (generating a profit for the vault and a loss for the attacker).
 
 Furthermore, all smart contracts have been audited by reputable third-party auditors such as [Sherlock](link-to-report-sherlock) and [XXX](link-to-report-XXX). Any issues identified during the audit have been addressed and re-audited to ensure that the necessary corrections were made. In addition, an [ImmuneFi bug bounty program](link-to-immunefi) has been implemented to incentivize white-hat hackers to find and report any vulnerabilities they may discover in the Boosted Liquidity Vaults. This practice helps proactively identify and address any potential security issues before they can be exploited.
 
