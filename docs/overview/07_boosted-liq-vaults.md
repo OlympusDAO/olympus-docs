@@ -12,7 +12,7 @@ When the price of OHM increases relative to the counter-asset (either by OHM app
 
 Conversely, if the price of OHM decreases relative to the counter-asset (either by OHM depreciation or appreciation of the partner token), previously circulating OHM will now enter the liquidity pool and the protocol will have a claim on it. This decrease in the circulating supply of OHM should, all else being equal, push the price of OHM back up.
 
-*Note: It is important to note that the effectiveness of the vaults in dampening volatility is directly tied to the amount of liquidity that is provided. The more liquidity that is provided, the more effective the volatility-dampening effect will be.
+_It is important to note that the effectiveness of the vaults in dampening volatility is directly tied to the amount of liquidity that is provided. The more liquidity that is provided, the more effective the volatility-dampening effect will be._
 
 ## Operational Mechanisms
 
