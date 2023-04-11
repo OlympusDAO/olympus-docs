@@ -70,9 +70,6 @@ Users can also withdraw their assets from the vault whenever they want. The step
 - If the ratio of assets in the liquidity pool changes significantly over time, users may experience impermanent losses (IL), which occur when the value of the assets they receive upon withdrawal is lower than the value than the originally deposited assets would have.
 - To encourage users to provide liquidity and reduce the risks associated with liquidity provision, Olympus is giving up all of its rewards and allocating them to users instead.
 
-
-[yella's infographic on IL risk]
-
 By participating in the Boosted Liquidity Vaults, users and partners can take advantage of the benefits offered by Olympus DAO while managing their risks. We believe this mechanism will play an important role in the growth and stability of the Olympus ecosystem.
 
 ## Security Considerations
@@ -87,6 +84,6 @@ Thirdly, an emergency shutoff mechanism has been implemented, which is controlle
 
 Fourthly, the vault uses price oracles to determine the USD value of OHM and the pair asset. While this approach is necessary to facilitate the Boosted Liquidity Vaults, it also exposes the vault to potential attacks (either from well capitalized individuals, or flashlaon users). To mitigate this risk, the vault implements a strategy where it executes an arbitrage between the pool where the assets are deposited and the oracle price feeds. By taking the arbitrage opportunity, the vault ensures that any attempt to manipulate the price oracle or the pool composition will translate the price imbalance to the attacker (generating a profit for the vault and a loss for the attacker).
 
-Furthermore, all smart contracts have been audited by reputable third-party auditors such as [Sherlock](link-to-report-sherlock) and [XXX](link-to-report-XXX). Any issues identified during the audit have been addressed and re-audited to ensure that the necessary corrections were made. In addition, an [ImmuneFi bug bounty program](link-to-immunefi) has been implemented to incentivize white-hat hackers to find and report any vulnerabilities they may discover in the Boosted Liquidity Vaults. This practice helps proactively identify and address any potential security issues before they can be exploited.
+Furthermore, all smart contracts have been audited by reputable third-party auditors such as [Sherlock](https://www.sherlock.xyz/) and [Kebab Security](https://kebabsec.xyz/). Any issues identified during the audit have been addressed and re-audited to ensure that the necessary corrections were made. In addition, an [ImmuneFi bug bounty program](https://immunefi.com/) will be implemented to incentivize white-hat hackers to find and report any vulnerabilities they may discover in the Boosted Liquidity Vaults. This practice helps proactively identify and address any potential security issues before they can be exploited.
 
-Olympus takes the security of its ecosystem very seriously and is committed to ensuring that its users' assets are always protected. With these measures in place, participants can have confidence in the security of the Boosted Liquidity Vaults.
+Olympus takes the security of its ecosystem very seriously and is committed to ensuring that its users' assets are always protected. With these measures in place, participants can have confidence in the security of the Boosted Liquidity Vaults. 
