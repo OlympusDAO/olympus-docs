@@ -6,7 +6,7 @@ The mechanism provides a framework for the Olympus Treasury to mint OHM directly
 
 ## Economic Mechanisms
 
-The BoostedLiquidity Vaults are designed to boost liquidity for OHM pairs and stabilize their exchange rate relative to high-quality counter assets through a self-regulating system. The circulating supply of OHM is dynamically adjusted based on its own price fluctuations, but also with the ones of the counter-asset. This property helps stabilize their exchange rate with a self-regulating system.
+The Boosted Liquidity Vaults are designed to boost liquidity for OHM pairs and stabilize their exchange rate relative to high-quality counter assets through a self-regulating system. The circulating supply of OHM is dynamically adjusted based on its own price fluctuations, but also with the ones of the counter-asset. This property helps stabilize their exchange rate with a self-regulating system.
 
 When the price of OHM increases relative to the counter-asset (either by OHM appreciation or depreciation of the partner token), some of the OHM that was previously minted into the liquidity pool is released back into circulation. This increase in the circulating supply of OHM should, all else being equal, push the price of OHM back down.
 
