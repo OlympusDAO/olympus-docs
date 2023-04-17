@@ -22,3 +22,10 @@
 | KebabSec (Remediation Phase 1) | [Link](https://hackmd.io/tJdujc0gSICv06p_9GgeFQ)       |
 | KebabSec (Remediation Phase 2) | [Link](https://hackmd.io/@12og4u7y8i/rk5PeIiEs)        |
 | KebabSec (Finalization)        | [Link](https://hackmd.io/@12og4u7y8i/Sk56otcBs)        |
+
+## Boosted Liquidity Vaults
+
+| Auditor  | Link                                                                |
+| -------- | ------------------------------------------------------------------- |
+| Kebabsec | [Link](https://hackmd.io/@12og4u7y8i/HJVAPMlno)                     |
+| Sherlock | [Link](/gitbook/assets/Olympus_Liquidity_Vaults_Audit_Report_1.pdf) |
