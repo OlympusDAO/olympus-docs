@@ -6,7 +6,7 @@ The mechanism provides a framework for the Olympus Treasury to mint OHM directly
 
 ## Economic Mechanisms
 
-The BoostedLiquidity Vaults are designed to boost liquidity for OHM pairs and stabilize their exchange rate relative to high-quality counter assets through a self-regulating system. The circulating supply of OHM is dynamically adjusted based on its own price fluctuations, but also with the ones of the counter-asset. This property helps stabilize their exchange rate with a self-regulating system.
+The Boosted Liquidity Vaults are designed to boost liquidity for OHM pairs and stabilize their exchange rate relative to high-quality counter assets through a self-regulating system. The circulating supply of OHM is dynamically adjusted based on its own price fluctuations, but also with the ones of the counter-asset. This property helps stabilize their exchange rate with a self-regulating system.
 
 When the price of OHM increases relative to the counter-asset (either by OHM appreciation or depreciation of the partner token), some of the OHM that was previously minted into the liquidity pool is released back into circulation. This increase in the circulating supply of OHM should, all else being equal, push the price of OHM back down.
 
@@ -25,12 +25,12 @@ The deposit process is simple and straightforward. Anyone (both, users and DAOs)
 5. LP receipt tokens are custodied by the vault.
 6. User’s claim on the LP receipt tokens is tracked.
 
-*Note this vault is custom implementation which doesn't rely on the ERC20 nor the ERC1155 standards. Therefore, despite the claim on the LP is tracked in the contracts, users won't receive a standard receipt of the LP tokens in exchange.
+*Note this vault is custom implementation which doesn't rely on the ERC20 nor the ERC1155 standards. Therefore, despite the claim on the LP being tracked in the contracts, users won't receive a standard receipt of the LP tokens in exchange.
 
 ### Withdraw
 Users can also withdraw their assets from the vault whenever they want. The steps are as follows:
 
-1.  The user specifies how many LP receipt tokens they would like to withdraw from.
+1.  The user specifies how many LP receipt tokens they would like to withdraw.
 2.  OHM and counter-asset are withdrawn from the liquidity pool in exchange for the LP receipt tokens.
 3.  All the OHM received by the vault is burned.
 4.  All the received counter-asset and reward tokens are sent back to the user.
@@ -39,13 +39,13 @@ Users can also withdraw their assets from the vault whenever they want. The step
 
 ### For the Protocol:
 - Facilitating the provision of liquidity for OHM pairs through a more streamlined process.
-- Increasing the liquidity of OHM pairs by incentivizing users to provide liquidity using selected, high-quality counter assets.
+- Increasing the liquidity of OHM pairs by incentivizing users to provide liquidity using high-quality counter assets.
 - Dampening OHM volatility against these high-quality counter-pair assets, helping position OHM as a base asset with great liquidity routing.
 
 ### For Partners:
 - A more efficient liquidity mining vehicle.
 - Olympus does not take a portion of the rewards provided by the partner protocol, meaning partners get 2x TVL for their rewards compared to traditional liquidity mining systems.
-- Since OHM is a volatile asset with decent price stability, by pairing with it partners can:
+- Since OHM is a volatile asset with decent price stability, using it as a pair provides the following benefits for partners:
     - Reduce the Impermanent Loss (IL) that Liquidity Providers (LPs) would accure when providing liquidity agains stables.
     - Minimize the price supression that arbitrageurs can produce when their pools are paired with ETH.
 
@@ -53,28 +53,28 @@ Users can also withdraw their assets from the vault whenever they want. The step
 ### For Users:
 - Ability to provide single sided liquidity.
 - Reduced fees / slippage when entering an LP position.
-- Double the rewards (compared to traditional pools) because Olympus is giving up all of its rewards and allocating them to users instead.
+- Double the rewards (compared to traditional pools) because Olympus is forfeiting all of its rewards and allocating them to users instead.
 
 ## Risks by Stakeholder
 
 ### For the Protocol:
 -   The OHM is exposed to the counter asset's volatility.
--   Newly minted supply could lead to OHM depreciation if the market is inefficient.
+-   Newly minted supply could lead to OHM depreciation if the market is inefficient .
 
 ### For Partners:
 -   The asset is exposed to OHM's volatility.
--   If Olympus appreciates a lot in price, their asset could be impacted due to arbitrageurs. However, this risk is minimized by the fact that RBS (Reference Based Stabilization) is actively dampening OHM volatility versus DAI.
+-   If OHM depreciates excessively in price, their asset could be impacted due to arbitrageurs. In such scenario, arbitrageurs would buy "cheap" OHM from the main Olympus' pools, arb the BLV pool, and realize the profits by selling the acquired partner token to their main pool. However, this risk is minimized by the fact that RBS (Range Bound Stability) is actively dampening OHM volatility versus DAI, and the fact that the Treasury provides an infinite bid at liquid backing.
 
 ### For Users:
 - The typical liquidity provider risks apply (smart contract risk, impermanent loss, etc).
-- If the ratio of assets in the liquidity pool changes significantly over time, users may experience impermanent losses (IL), which occur when the value of the assets they receive upon withdrawal is lower than the value than the originally deposited assets would have.
+- If the ratio of assets in the liquidity pool changes significantly over time, users may experience impermanent losses (IL), which occur when the value of the assets they receive upon withdrawal is lower than the originally deposited assets would have if held without providing liquidity.
 - To encourage users to provide liquidity and reduce the risks associated with liquidity provision, Olympus is giving up all of its rewards and allocating them to users instead.
 
 By participating in the Boosted Liquidity Vaults, users and partners can take advantage of the benefits offered by Olympus DAO while managing their risks. We believe this mechanism will play an important role in the growth and stability of the Olympus ecosystem.
 
 ## Security Considerations
 
-Security is of utmost importance to Olympus. The DAO is committed to ensuring that the participants of the econohmy are always safe and secure. Because of that, the Boosted Liquidity Vaults implement several measures to mitigate security risks.
+Security is of utmost importance to Olympus. The DAO is committed to ensuring that the participants of the econohmy are always safe and secure. With this commitment, the Boosted Liquidity Vaults implement several measures to mitigate security risks.
 
 Firstly, the smart contracts have been designed with security in mind. The contracts do not have upgradable proxies, meaning that once a contract has been deployed, its code cannot be changed. This ensures that there are no unforeseen changes that can compromise the integrity of the contract.
 
@@ -84,6 +84,6 @@ Thirdly, an emergency shutoff mechanism has been implemented, which is controlle
 
 Fourthly, the vault uses price oracles to determine the USD value of OHM and the pair asset. While this approach is necessary to facilitate the Boosted Liquidity Vaults, it also exposes the vault to potential attacks (either from well capitalized individuals, or flashlaon users). To mitigate this risk, the vault implements a strategy where it executes an arbitrage between the pool where the assets are deposited and the oracle price feeds. By taking the arbitrage opportunity, the vault ensures that any attempt to manipulate the price oracle or the pool composition will translate the price imbalance to the attacker (generating a profit for the vault and a loss for the attacker).
 
-Furthermore, all smart contracts have been audited by reputable third-party auditors such as [Sherlock](https://www.sherlock.xyz/) and [Kebabsec](https://kebabsec.xyz/). Any issues identified during the audit have been addressed and re-audited to ensure that the necessary corrections were made. In addition, an [ImmuneFi bug bounty program](https://immunefi.com/) will be implemented to incentivize white-hat hackers to find and report any vulnerabilities they may discover in the Boosted Liquidity Vaults. This practice helps proactively identify and address any potential security issues before they can be exploited.
+Furthermore, all smart contracts have been audited by reputable third-party auditors such as [Sherlock](https://www.sherlock.xyz/) and [Kebabsec](https://hackmd.io/@12og4u7y8i/HJVAPMlno). Any issues identified during the audit have been addressed and re-audited to ensure that the necessary corrections were made. In addition, an [ImmuneFi bug bounty program](https://immunefi.com/bounty/olympus/) of $3.33M which aims to incentivize white-hat hackers to find and report any vulnerabilities they may discover in the Boosted Liquidity Vaults, is in place. This practice helps proactively identify and address any potential security issues before they can be exploited.
 
 Olympus takes the security of its ecosystem very seriously and is committed to ensuring that its users' assets are always protected. With these measures in place, participants can have confidence in the security of the Boosted Liquidity Vaults. 
