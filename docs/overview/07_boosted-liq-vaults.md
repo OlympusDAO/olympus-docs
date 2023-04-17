@@ -76,7 +76,7 @@ Users can also withdraw their assets from the vault whenever they want. The step
 - The typical liquidity provider risks apply (smart contract risk, impermanent loss, etc).
 - If the ratio of assets in the liquidity pool changes significantly over time, users may experience impermanent losses (IL), which occur when the value of the assets they receive upon withdrawal is lower than the originally deposited assets would have if held without providing liquidity.
 - To encourage users to provide liquidity and reduce the risks associated with liquidity provision, Olympus is giving up all of its rewards and allocating them to users instead.
-- To mitigate oracle attacks, there is a 24-hour withdraw period from last deposit timestamp.
+- To mitigate oracle attacks, there is a 24-hour withdraw period from time of last deposit.
 
 By participating in the Boosted Liquidity Vaults, users and partners can take advantage of the benefits offered by Olympus DAO while managing their risks. We believe this mechanism will play an important role in the growth and stability of the Olympus ecosystem.
 
