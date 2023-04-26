@@ -50,7 +50,7 @@ Users can also withdraw their assets from the vault whenever they want. The step
 - A more efficient liquidity mining vehicle.
 - Olympus does not take a portion of the rewards provided by the partner protocol, meaning partners get 2x TVL for their rewards compared to traditional liquidity mining systems.
 - Since OHM is a volatile asset with decent price stability, using it as a pair provides the following benefits for partners:
-  - Reduce the Impermanent Loss (IL) that Liquidity Providers (LPs) would accure when providing liquidity agains stables.
+  - Reduce the Impermanent Loss (IL) that Liquidity Providers (LPs) would accure when providing liquidity against stables.
   - Minimize the price supression that arbitrageurs can produce when their pools are paired with ETH.
 
 ### For Users:
