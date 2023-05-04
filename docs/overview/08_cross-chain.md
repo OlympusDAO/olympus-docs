@@ -14,7 +14,7 @@ The OHM token is available cross-chain! Olympus utilizes LayerZero, a messaging 
 
 ## Supported networks
 
-Arbitrum, Optimism, other chains soon.
+Arbitrum; other chains soon.
 
 ## Mechanism
 
