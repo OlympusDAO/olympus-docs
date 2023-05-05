@@ -33,13 +33,39 @@
 | Emergency          | [`0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75`](https://etherscan.io/address/0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75) |
 | BondManager        | [`0xf577c77ee3578c7F216327F41B5D7221EaD2B2A3`](https://etherscan.io/address/0xf577c77ee3578c7f216327f41b5d7221ead2b2a3) |
 | BLVaultManagerLido | [`0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23`](https://etherscan.io/address/0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23) |
-| CrossChainBridge   | [0x45e563c39cddba8699a90078f42353a57509543a](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a)   |
+| CrossChainBridge   | [`0x45e563c39cddba8699a90078f42353a57509543a`](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a) |
 
 #### Dependencies
 
 | Contract    | Address                                                                                                                 |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Bond Teller | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
+
+### Arbitrum
+
+| Contract | Address                                                                                                                |
+| -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Kernel   | [`0xeac3eC0CC130f4826715187805d1B50e861F2DaC`](https://arbiscan.io/address/0xeac3eC0CC130f4826715187805d1B50e861F2DaC) |
+
+#### Modules
+
+| Contract | Address                                                                                                                |
+| -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| MINTR    | [`0x8f6406eDbFA393e327822D4A08BcF15503570D87`](https://arbiscan.io/address/0x8f6406eDbFA393e327822D4A08BcF15503570D87) |
+| ROLES    | [`0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6`](https://arbiscan.io/address/0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6) |
+
+#### Policies
+
+| Contract         | Address                                                                                                                |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| RolesAdmin       | [`0x69168c08AcF66f002fd02E1B169f38C022c93b70`](https://arbiscan.io/address/0x69168c08AcF66f002fd02E1B169f38C022c93b70) |
+| CrossChainBridge | [`0x20B3834091f038Ce04D8686FAC99CA44A0FB285c`](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c) |
+
+#### Dependencies
+
+| Contract  | Address                                                                                                                |
+| --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Authority | [`0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e`](https://arbiscan.io/address/0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e) |
 
 ### Goerli Testnet
 
@@ -169,11 +195,12 @@
 
 ## Cross-Chain
 
-| Contract | Chain     | Address                                                                                                                            |
-| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| gOHM     | Arbitrum  | [`0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1`](https://arbiscan.io/address/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1)             |
-| gOHM     | Avalanche | [`0x321e7092a180bb43555132ec53aaa65a5bf84251`](https://snowtrace.io/address/0x321e7092a180bb43555132ec53aaa65a5bf84251)            |
-| gOHM     | Polygon   | [`0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195`](https://polygonscan.com/address/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195)         |
-| gOHM     | Fantom    | [`0x91fa20244fb509e8289ca630e5db3e9166233fdc`](https://ftmscan.com/address/0x91fa20244fb509e8289ca630e5db3e9166233fdc)             |
-| gOHM     | Optimism  | [`0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB`](https://optimistic.etherscan.io/address/0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB) |
-| gOHM     | Boba      | [`0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95`](https://bobascan.com/address/0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95)            |
+| Contract  | Chain     | Address                                                                                                                          |
+| --------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| OHM ERC20 | Arbitrum  | [`0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028`](https://arbiscan.io/token/0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028)             |
+| gOHM      | Arbitrum  | [`0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1`](https://arbiscan.io/token/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1)             |
+| gOHM      | Avalanche | [`0x321e7092a180bb43555132ec53aaa65a5bf84251`](https://snowtrace.io/token/0x321e7092a180bb43555132ec53aaa65a5bf84251)            |
+| gOHM      | Polygon   | [`0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195`](https://polygonscan.com/token/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195)         |
+| gOHM      | Fantom    | [`0x91fa20244fb509e8289ca630e5db3e9166233fdc`](https://ftmscan.com/token/0x91fa20244fb509e8289ca630e5db3e9166233fdc)             |
+| gOHM      | Optimism  | [`0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB`](https://optimistic.etherscan.io/token/0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB) |
+| gOHM      | Boba      | [`0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95`](https://bobascan.com/token/0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95)            |
