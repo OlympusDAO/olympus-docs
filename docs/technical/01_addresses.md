@@ -41,6 +41,33 @@
 | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Bond Teller | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
 
+### Arbitrum
+
+| Contract | Address                                                                                                                |
+| -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Kernel   | [`0xeac3eC0CC130f4826715187805d1B50e861F2DaC`](https://arbiscan.io/address/0xeac3eC0CC130f4826715187805d1B50e861F2DaC) |
+
+#### Modules
+
+| Contract | Address                                                                                                                |
+| -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| MINTR    | [`0x8f6406eDbFA393e327822D4A08BcF15503570D87`](https://arbiscan.io/address/0x8f6406eDbFA393e327822D4A08BcF15503570D87) |
+| ROLES    | [`0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6`](https://arbiscan.io/address/0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6) |
+
+#### Policies
+
+| Contract         | Address                                                                                                                |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| RolesAdmin       | [`0x69168c08AcF66f002fd02E1B169f38C022c93b70`](https://arbiscan.io/address/0x69168c08AcF66f002fd02E1B169f38C022c93b70) |
+| CrossChainBridge | [0x20B3834091f038Ce04D8686FAC99CA44A0FB285c](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c)   |
+
+#### Dependencies
+
+| Contract  | Address                                                                                                                |
+| --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Authority | [`0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e`](https://arbiscan.io/address/0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e) |
+| OHM ERC20 | [`0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028`](https://arbiscan.io/token/0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028)   |
+
 ### Goerli Testnet
 
 | Contract | Address                                                                                                                        |
