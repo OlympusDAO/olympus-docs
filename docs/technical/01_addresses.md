@@ -66,7 +66,6 @@
 | Contract  | Address                                                                                                                |
 | --------- | ---------------------------------------------------------------------------------------------------------------------- |
 | Authority | [`0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e`](https://arbiscan.io/address/0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e) |
-| OHM ERC20 | [`0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028`](https://arbiscan.io/token/0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028)   |
 
 ### Goerli Testnet
 
@@ -196,11 +195,12 @@
 
 ## Cross-Chain
 
-| Contract | Chain     | Address                                                                                                                            |
-| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| gOHM     | Arbitrum  | [`0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1`](https://arbiscan.io/address/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1)             |
-| gOHM     | Avalanche | [`0x321e7092a180bb43555132ec53aaa65a5bf84251`](https://snowtrace.io/address/0x321e7092a180bb43555132ec53aaa65a5bf84251)            |
-| gOHM     | Polygon   | [`0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195`](https://polygonscan.com/address/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195)         |
-| gOHM     | Fantom    | [`0x91fa20244fb509e8289ca630e5db3e9166233fdc`](https://ftmscan.com/address/0x91fa20244fb509e8289ca630e5db3e9166233fdc)             |
-| gOHM     | Optimism  | [`0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB`](https://optimistic.etherscan.io/address/0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB) |
-| gOHM     | Boba      | [`0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95`](https://bobascan.com/address/0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95)            |
+| Contract  | Chain     | Address                                                                                                                          |
+| --------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| OHM ERC20 | Arbitrum  | [`0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028`](https://arbiscan.io/token/0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028)             |
+| gOHM      | Arbitrum  | [`0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1`](https://arbiscan.io/token/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1)             |
+| gOHM      | Avalanche | [`0x321e7092a180bb43555132ec53aaa65a5bf84251`](https://snowtrace.io/token/0x321e7092a180bb43555132ec53aaa65a5bf84251)            |
+| gOHM      | Polygon   | [`0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195`](https://polygonscan.com/token/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195)         |
+| gOHM      | Fantom    | [`0x91fa20244fb509e8289ca630e5db3e9166233fdc`](https://ftmscan.com/token/0x91fa20244fb509e8289ca630e5db3e9166233fdc)             |
+| gOHM      | Optimism  | [`0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB`](https://optimistic.etherscan.io/token/0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB) |
+| gOHM      | Boba      | [`0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95`](https://bobascan.com/token/0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95)            |
