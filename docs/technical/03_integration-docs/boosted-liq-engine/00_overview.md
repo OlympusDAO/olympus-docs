@@ -1,5 +1,5 @@
 # Contract Overview
-For understanding the mechanics and the advantatges of the Boosted Liquidity Vaults, please refer to the [standard documentation](../../overview/07_boosted-liq-vaults.md).
+For understanding the mechanics and the advantages of the Boosted Liquidity Vaults, please refer to the [standard documentation](../../overview/07_boosted-liq-vaults.md).
 You can also check the [source code](github-link), the [contract interface](github-link), and the [stETH implementation](github-link) on Github. 
 
 Before implementing an instance of the `SingleSidedLiquidityVault` contract, it is key to understand its relevant functions.
