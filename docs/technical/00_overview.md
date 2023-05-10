@@ -82,4 +82,4 @@ General protocol and management policies:
 
 The following diagram represents all the active modules and polices that take part in Olympus V3.
 
-![Olympus V3](gitbook/assets/security-diagrams/olympus-v3.svg)
+![Olympus V3](/gitbook/assets/security-diagrams/olympus-v3.svg)
