@@ -29,3 +29,9 @@
 | -------- | ------------------------------------------------------------------- |
 | Kebabsec | [Link](https://hackmd.io/@12og4u7y8i/HJVAPMlno)                     |
 | Sherlock | [Link](/gitbook/assets/Olympus_Liquidity_Vaults_Audit_Report_1.pdf) |
+
+## Cross-chain
+
+| Auditor  | Link                                                                |
+| -------- | ------------------------------------------------------------------- |
+| OtterSec | [Link](/gitbook/assets/ottersec_audit_final.pdf) |
