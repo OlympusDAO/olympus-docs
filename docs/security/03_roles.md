@@ -18,7 +18,7 @@ More information regarding Default Framework can be found in the [Contracts Over
 	**Roles:**
 	- `executor`: Only address that can interact with the `Kernel` contract. The `executor` can install and upgrade modules, as well as approve and terminate policies.
 
-	![](gitbook/assets/security-diagrams/olympus-kernel.svg)
+	![](/gitbook/assets/security-diagrams/olympus-kernel.svg)
 
 2. **ROLES.sol**
 	- Module that stores all the active system roles.
@@ -37,7 +37,7 @@ More information regarding Default Framework can be found in the [Contracts Over
 	**Roles:**
 	- `admin`: Only address that can grant/revoke roles by calling `grantRole()` and `revokeRole()` respectively. It is also the only address that can propose a newAdmin by calling pushNewAdmin(). On top of that, the newAdmin must accept the role by calling pullNewAdmin().
 
-	![](gitbook/assets/security-diagrams/olympus-roles.svg)
+	![](/gitbook/assets/security-diagrams/olympus-roles.svg)
 
 2. **Emergency.sol**
 	- Policy that has the ability to shutdown critical system functionalities.
@@ -57,7 +57,7 @@ More information regarding Default Framework can be found in the [Contracts Over
 	- `emergency_shutdown`: has the ability to shutdown Treasury withdrawals by calling `shutdownWithdrawals()`, Minting capabilities by calling `shutdownMinting()`, or both by calling `shutdown()`. This role is held by the Emergency Multisig, requiring only 2 confirmations out of 8 signers.
 	- `emergency_restart`: has the ability to restart Treasury withdrawals by calling `restartWithdrawals()`, Minting capabilities by calling `restartMinting()`, or both by calling `restart()`. This role is held by the DAO Multisig, requiring 4 confirmations out of 8 signers.
 
-	![](gitbook/assets/security-diagrams/olympus-emergency.svg)
+	![](/gitbook/assets/security-diagrams/olympus-emergency.svg)
 
 3. **Heart.sol**
 	- Policy that provides keeper rewards to call the `beat()` function which orchestrates state updates and fuels Olympus' market operations.
@@ -72,7 +72,7 @@ More information regarding Default Framework can be found in the [Contracts Over
 	**Roles:**
 	- Only the `heart_admin` controls the liveliness of the `Heart` contract, as well as the `Operator` implementation and the reward tokens paid to keepers.
 
-	![](gitbook/assets/security-diagrams/olympus-heart.svg)
+	![](/gitbook/assets/security-diagrams/olympus-heart.svg)
 
 4. **Operator.sol**
 	- Policy that performs market operations to enforce OlympusDAO's OHM price range guidance policies against a specific reserve asset. These market operations are only performed under certain conditions and up to a specific capacity before the market must stabilize to regenerate more capacity.
@@ -106,7 +106,7 @@ More information regarding Default Framework can be found in the [Contracts Over
 	- `operator_operate`: Has the ability to make the system work. Executes different core functions depending on the system state. Limited to the `Heart` contract (triggered by keepers) and the DAO Multisig.
 	- `operator_reporter`: Records a bond purchase and updates capacity accordingly. Limited to the `BondCallback` contract.
 
-	![](gitbook/assets/security-diagrams/olympus-operator.svg)
+	![](/gitbook/assets/security-diagrams/olympus-operator.svg)
 
 5. **TreasuryCustodian.sol**
 	- Policy that gatekeeps the Treasury. Prevents unauthorized contracts from interacting with the Treasury.
@@ -126,7 +126,7 @@ More information regarding Default Framework can be found in the [Contracts Over
 	**Roles:**
 	- `custodian`: The solely manager of Treasury access. Has the ability to grant/revoke withdrawal/debt capabilities to external contracts. It can also withdraw funds form the Treasury directly. Finally, it can also revoke previous approvals for policies. Limited to the DAO Multisig.
 
-	![](gitbook/assets/security-diagrams/olympus-custodian.svg)
+	![](/gitbook/assets/security-diagrams/olympus-custodian.svg)
 
 6. **BondCallback.sol**
 	- Policy that handles the calls from the bond markets to gatekeep the interactions with the Treasury.
@@ -147,7 +147,7 @@ More information regarding Default Framework can be found in the [Contracts Over
 	- `callback_admin`: Has the ability to set he operator contract for the callback to use to report bond purchases. It also has the ability to send tokens in this contract to the Treasury.
 	- `callback_whitelist`: Can whitelist a bond Teller, as well as blacklist specific bond markets in case there's an issue with the Teller.
 
-	![](gitbook/assets/security-diagrams/olympus-callback.svg)
+	![](/gitbook/assets/security-diagrams/olympus-callback.svg)
 
 7. **PriceConfig.sol**
 	- Policy that deals with the price observations and which serves as the price reference that guides the market operations of the system.
@@ -166,7 +166,7 @@ More information regarding Default Framework can be found in the [Contracts Over
 	**Roles:**
 	- `price_admin`: Has the ability to configure the observation frequency, as well as determine the moving average duration and the minimum target price.
 
-	![](gitbook/assets/security-diagrams/olympus-price.svg)
+	![](/gitbook/assets/security-diagrams/olympus-price.svg)
 
 8. **BondManager.sol**
 	- Policy that manages the auctions and the issuance of OHM Bonds.
