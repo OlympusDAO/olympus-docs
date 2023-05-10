@@ -192,6 +192,9 @@
 | DAO      | Fantom    | [`0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10`](https://ftmscan.com/address/0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10)     |
 | DAO      | Avalanche | [`0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32`](https://snowtrace.io/address/0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32)    |
 | Policy   | Ethereum  | [`0x0cf30dc0d48604A301dF8010cdc028C055336b2E`](https://etherscan.io/address/0x0cf30dc0d48604A301dF8010cdc028C055336b2E)    |
+| DAO      | Optimism | [`0x559a14a2219Ae81f9a9f857CF31407de2b07F36c`](https://optimistic.etherscan.io/address/0x559a14a2219Ae81f9a9f857CF31407de2b07F36c) |    
+|
+
 
 ## Cross-Chain
 
