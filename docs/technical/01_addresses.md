@@ -17,26 +17,55 @@
 | PRICE    | [`0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f`](https://etherscan.io/address/0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f) |
 | RANGE    | [`0xb212D9584cfc56EFf1117F412Fe0bBdc53673954`](https://etherscan.io/address/0xb212D9584cfc56EFf1117F412Fe0bBdc53673954) |
 | ROLES    | [`0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59`](https://etherscan.io/address/0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59) |
+| BLREG    | [`0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59`](https://etherscan.io/address/0x375E06C694B5E50aF8be8FB03495A612eA3e2275) |
 
 #### Policies
 
-| Contract          | Address                                                                                                                 |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| BondCallback      | [`0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6`](https://etherscan.io/address/0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6) |
-| Operator          | [`0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65`](https://etherscan.io/address/0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65) |
-| Heart             | [`0x1652b503E0F1CF38b6246Ed3b91CB3786Bb11656`](https://etherscan.io/address/0x1652b503E0F1CF38b6246Ed3b91CB3786Bb11656) |
-| PriceConfig       | [`0xf6D5d06A4e8e6904E4360108749C177692F59E90`](https://etherscan.io/address/0xf6D5d06A4e8e6904E4360108749C177692F59E90) |
-| RolesAdmin        | [`0xb216d714d91eeC4F7120a732c11428857C659eC8`](https://etherscan.io/address/0xb216d714d91eeC4F7120a732c11428857C659eC8) |
-| TreasuryCustodian | [`0xC9518AC915e46D707585116451Dc19c164513Ccf`](https://etherscan.io/address/0xC9518AC915e46D707585116451Dc19c164513Ccf) |
-| Distributor       | [`0x27e606fdb5C922F8213dC588A434BF7583697866`](https://etherscan.io/address/0x27e606fdb5C922F8213dC588A434BF7583697866) |
-| Emergency         | [`0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75`](https://etherscan.io/address/0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75) |
+| Contract           | Address                                                                                                                 |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| BondCallback       | [`0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6`](https://etherscan.io/address/0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6) |
+| Operator           | [`0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65`](https://etherscan.io/address/0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65) |
+| Heart              | [`0x1652b503E0F1CF38b6246Ed3b91CB3786Bb11656`](https://etherscan.io/address/0x1652b503E0F1CF38b6246Ed3b91CB3786Bb11656) |
+| PriceConfig        | [`0xf6D5d06A4e8e6904E4360108749C177692F59E90`](https://etherscan.io/address/0xf6D5d06A4e8e6904E4360108749C177692F59E90) |
+| RolesAdmin         | [`0xb216d714d91eeC4F7120a732c11428857C659eC8`](https://etherscan.io/address/0xb216d714d91eeC4F7120a732c11428857C659eC8) |
+| TreasuryCustodian  | [`0xC9518AC915e46D707585116451Dc19c164513Ccf`](https://etherscan.io/address/0xC9518AC915e46D707585116451Dc19c164513Ccf) |
+| Distributor        | [`0x27e606fdb5C922F8213dC588A434BF7583697866`](https://etherscan.io/address/0x27e606fdb5C922F8213dC588A434BF7583697866) |
+| Emergency          | [`0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75`](https://etherscan.io/address/0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75) |
+| BondManager        | [`0xf577c77ee3578c7F216327F41B5D7221EaD2B2A3`](https://etherscan.io/address/0xf577c77ee3578c7f216327f41b5d7221ead2b2a3) |
+| BLVaultManagerLido | [`0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23`](https://etherscan.io/address/0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23) |
+| CrossChainBridge   | [`0x45e563c39cddba8699a90078f42353a57509543a`](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a) |
 
 #### Dependencies
 
-| Contract                        | Address                                                                                                                        |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Bond Teller                     | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
+| Contract    | Address                                                                                                                 |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Bond Teller | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
 
+### Arbitrum
+
+| Contract | Address                                                                                                                |
+| -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Kernel   | [`0xeac3eC0CC130f4826715187805d1B50e861F2DaC`](https://arbiscan.io/address/0xeac3eC0CC130f4826715187805d1B50e861F2DaC) |
+
+#### Modules
+
+| Contract | Address                                                                                                                |
+| -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| MINTR    | [`0x8f6406eDbFA393e327822D4A08BcF15503570D87`](https://arbiscan.io/address/0x8f6406eDbFA393e327822D4A08BcF15503570D87) |
+| ROLES    | [`0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6`](https://arbiscan.io/address/0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6) |
+
+#### Policies
+
+| Contract         | Address                                                                                                                |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| RolesAdmin       | [`0x69168c08AcF66f002fd02E1B169f38C022c93b70`](https://arbiscan.io/address/0x69168c08AcF66f002fd02E1B169f38C022c93b70) |
+| CrossChainBridge | [`0x20B3834091f038Ce04D8686FAC99CA44A0FB285c`](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c) |
+
+#### Dependencies
+
+| Contract  | Address                                                                                                                |
+| --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Authority | [`0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e`](https://arbiscan.io/address/0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e) |
 
 ### Goerli Testnet
 
@@ -53,6 +82,7 @@
 | PRICE    | [`0xD9ace3Be2d80006EF4D90A2D35D861a5C9F98252`](https://goerli.etherscan.io/address/0xD9ace3Be2d80006EF4D90A2D35D861a5C9F98252) |
 | RANGE    | [`0x446f06f8Df7d5f627B073c6349b948B95c1f9185`](https://goerli.etherscan.io/address/0x446f06f8Df7d5f627B073c6349b948B95c1f9185) |
 | ROLES    | [`0xe9a9d80CE3eE32FFf7279dce4c2962eC8098f71B`](https://goerli.etherscan.io/address/0xe9a9d80CE3eE32FFf7279dce4c2962eC8098f71B) |
+| BLREG    | [`0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14`](https://goerli.etherscan.io/address/0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14) |
 
 #### Policies
 
@@ -67,6 +97,8 @@
 | RolesAdmin            | [`0x54FfCA586cD1B01E96a5682DF93a55d7Ef91EFF0`](https://goerli.etherscan.io/address/0x54FfCA586cD1B01E96a5682DF93a55d7Ef91EFF0) |
 | Emergency             | [`0x196a59fB453da942f062Be4407D923129c759435`](https://goerli.etherscan.io/address/0x196a59fB453da942f062Be4407D923129c759435) |
 | Faucet (Testnet only) | [`0xA247156a39169c0FAFf979F57361CC734e82e3d0`](https://goerli.etherscan.io/address/0xA247156a39169c0FAFf979F57361CC734e82e3d0) |
+| BondManager           | [`0x1e5a6834A71770067fcCbAeDDBC86b6d8dFDCb27`](https://goerli.etherscan.io/address/0x1e5a6834A71770067fcCbAeDDBC86b6d8dFDCb27) |
+| BLVaultManagerLido    | [`0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34`](https://goerli.etherscan.io/address/0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34) |
 
 #### Dependencies
 
@@ -138,33 +170,40 @@
 
 ## Allocators
 
-| Contract        | Address                                                                                                                 |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| AaveAllocatorV2 | [`0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F`](https://etherscan.io/address/0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F) |
-| FxsAllocatorV2  | [`0x0f953D861347414698F34B75dbFd6e7dF1A73493`](https://etherscan.io/address/0x0f953D861347414698F34B75dbFd6e7dF1A73493) |
-| BtrflyAllocator | [`0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f`](https://etherscan.io/address/0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f) |
-| LUSDAllocatorV2 | [`0x2C1700F38C38C32595CFeF3D6B0B275bC2D2a578`](https://etherscan.io/address/0x2C1700F38C38C32595CFeF3D6B0B275bC2D2a578) |
-| AuraAllocatorV2 | [`0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD`](https://etherscan.io/address/0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD) |
-| DSRAllocator    | [`0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063`](https://etherscan.io/address/0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063) |
+| Contract         | Address                                                                                                                 |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| AaveAllocatorV2  | [`0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F`](https://etherscan.io/address/0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F) |
+| AuraAllocatorV2  | [`0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD`](https://etherscan.io/address/0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD) |
+| BtrflyAllocator  | [`0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f`](https://etherscan.io/address/0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f) |
+| CVXAllocatorV2   | [`0x2d643Df5De4e9Ba063760d475BEAa62821c71681`](https://etherscan.io/address/0x2d643Df5De4e9Ba063760d475BEAa62821c71681) |
+| DSRAllocator     | [`0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063`](https://etherscan.io/address/0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063) |
+| FXS Allocator V1 | [`0xde7b85f52577B113181921A7aa8Fc0C22e309475`](https://etherscan.io/address/0xde7b85f52577B113181921A7aa8Fc0C22e309475) |
+| FxsAllocatorV2   | [`0x0f953D861347414698F34B75dbFd6e7dF1A73493`](https://etherscan.io/address/0x0f953D861347414698F34B75dbFd6e7dF1A73493) |
+| LUSDAllocatorV2  | [`0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA`](https://etherscan.io/address/0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA) |
+| OlympusCvxHolder | [`0xdFC95aaf0a107DaAe2b350458DED4b7906E7f728`](https://etherscan.io/address/0xdFC95aaf0a107DaAe2b350458DED4b7906E7f728) |
 
 ## Multisigs
 
-| Contract | Chain     | Address                                                                                                                            |
-| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| DAO      | Ethereum  |[`0x245cc372C84B3645Bf0Ffe6538620B04a217988B`](https://etherscan.io/address/0x245cc372C84B3645Bf0Ffe6538620B04a217988B)             |
-| DAO      | Arbitrum  |[`0x012BBf0481b97170577745D2167ee14f63E2aD4C`](https://arbiscan.io/address/0x012BBf0481b97170577745D2167ee14f63E2aD4C)             |
-| DAO      | Polygon   |[`0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7`](https://polygonscan.com/address/0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7)          |
-| DAO      | Fantom    |[`0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10`](https://ftmscan.com/address/0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10)              |
-| DAO      | Avalanche |[`0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32`](https://snowtrace.io/address/0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32)             |
-| Policy   | Ethereum  |[`0x0cf30dc0d48604A301dF8010cdc028C055336b2E`](https://etherscan.io/address/0x0cf30dc0d48604A301dF8010cdc028C055336b2E)             |
+| Contract | Chain     | Address                                                                                                                    |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------- |
+| DAO      | Ethereum  | [`0x245cc372C84B3645Bf0Ffe6538620B04a217988B`](https://etherscan.io/address/0x245cc372C84B3645Bf0Ffe6538620B04a217988B)    |
+| DAO      | Arbitrum  | [`0x012BBf0481b97170577745D2167ee14f63E2aD4C`](https://arbiscan.io/address/0x012BBf0481b97170577745D2167ee14f63E2aD4C)     |
+| DAO      | Polygon   | [`0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7`](https://polygonscan.com/address/0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7) |
+| DAO      | Fantom    | [`0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10`](https://ftmscan.com/address/0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10)     |
+| DAO      | Avalanche | [`0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32`](https://snowtrace.io/address/0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32)    |
+| Policy   | Ethereum  | [`0x0cf30dc0d48604A301dF8010cdc028C055336b2E`](https://etherscan.io/address/0x0cf30dc0d48604A301dF8010cdc028C055336b2E)    |
+| DAO      | Optimism | [`0x559a14a2219Ae81f9a9f857CF31407de2b07F36c`](https://optimistic.etherscan.io/address/0x559a14a2219Ae81f9a9f857CF31407de2b07F36c) |    
+|
+
 
 ## Cross-Chain
 
-| Contract | Chain     | Address                                                                                                                            |
-| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| gOHM     | Arbitrum  | [`0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1`](https://arbiscan.io/address/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1)             |
-| gOHM     | Avalanche | [`0x321e7092a180bb43555132ec53aaa65a5bf84251`](https://snowtrace.io/address/0x321e7092a180bb43555132ec53aaa65a5bf84251)            |
-| gOHM     | Polygon   | [`0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195`](https://polygonscan.com/address/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195)         |
-| gOHM     | Fantom    | [`0x91fa20244fb509e8289ca630e5db3e9166233fdc`](https://ftmscan.com/address/0x91fa20244fb509e8289ca630e5db3e9166233fdc)             |
-| gOHM     | Optimism  | [`0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB`](https://optimistic.etherscan.io/address/0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB) |
-| gOHM     | Boba      | [`0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95`](https://bobascan.com/address/0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95)            |
+| Contract  | Chain     | Address                                                                                                                          |
+| --------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| OHM ERC20 | Arbitrum  | [`0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028`](https://arbiscan.io/token/0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028)             |
+| gOHM      | Arbitrum  | [`0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1`](https://arbiscan.io/token/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1)             |
+| gOHM      | Avalanche | [`0x321e7092a180bb43555132ec53aaa65a5bf84251`](https://snowtrace.io/token/0x321e7092a180bb43555132ec53aaa65a5bf84251)            |
+| gOHM      | Polygon   | [`0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195`](https://polygonscan.com/token/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195)         |
+| gOHM      | Fantom    | [`0x91fa20244fb509e8289ca630e5db3e9166233fdc`](https://ftmscan.com/token/0x91fa20244fb509e8289ca630e5db3e9166233fdc)             |
+| gOHM      | Optimism  | [`0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB`](https://optimistic.etherscan.io/token/0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB) |
+| gOHM      | Boba      | [`0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95`](https://bobascan.com/token/0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95)            |
