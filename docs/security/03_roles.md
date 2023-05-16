@@ -1,13 +1,13 @@
-# Understanding Roles
+# Default Framework & Roles
 
-# Relevant Multisigs
+## Relevant Multisigs
 | Multisig | Network | Address | Roles | Setup |
 | ------- | -------- | ------- | ------| ------- |
 | DAO Multisig | Mainnet | `0x245cc372C84B3645Bf0Ffe6538620B04a217988B` | [`executor`, `admin`, `emergency_restart`, `operator_admin`, `operator_operate`, `custodian`, `callback_admin`, `price_admin`] | 4/8 |
 | Emergency Multisig| Mainnet  | `0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55` | [`emergency_shutdown`, `emergency_admin`] | 2/8 |
 | Policy Multisig | Mainnet | `0x0cf30dc0d48604A301dF8010cdc028C055336b2E` | [`heart_admin`, `operator_policy`, `price_admin`, `bondmanager_admin`, `liquidityvault_admin`, `bridge_admin`] | 3/5 |
 
-# Understanding Roles
+## Understanding Roles
 
 Olympus V3 uses the [Default Framework](https://github.com/fullyallocated/Default) to configure the protocol’s smart contracts and authorized addresses within the system.
 
