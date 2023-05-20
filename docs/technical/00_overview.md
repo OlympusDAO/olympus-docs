@@ -77,3 +77,9 @@ General protocol and management policies:
 - `Distributor.sol` - Contract for handling rebase emissions for OHM stakers.
 - `RolesAdmin.sol` - Policy for managing the `ROLES` module.
 - `Emergency.sol` - Emergency contract to shutdown and restart core systems in special cases.
+
+### Protocol Architecture
+
+The following diagram represents all the active modules and polices that take part in Olympus V3.
+
+![Olympus V3](/gitbook/assets/security-diagrams/olympus-v3.svg)
