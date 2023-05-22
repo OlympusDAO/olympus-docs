@@ -25,19 +25,21 @@
 
 ### Policies
 
-| Contract           | Address                                                                                                                 |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| BondCallback       | [`0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6`](https://etherscan.io/address/0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6) |
-| Operator           | [`0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65`](https://etherscan.io/address/0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65) |
-| Heart              | [`0x1652b503E0F1CF38b6246Ed3b91CB3786Bb11656`](https://etherscan.io/address/0x1652b503E0F1CF38b6246Ed3b91CB3786Bb11656) |
-| PriceConfig        | [`0xf6D5d06A4e8e6904E4360108749C177692F59E90`](https://etherscan.io/address/0xf6D5d06A4e8e6904E4360108749C177692F59E90) |
-| RolesAdmin         | [`0xb216d714d91eeC4F7120a732c11428857C659eC8`](https://etherscan.io/address/0xb216d714d91eeC4F7120a732c11428857C659eC8) |
-| TreasuryCustodian  | [`0xC9518AC915e46D707585116451Dc19c164513Ccf`](https://etherscan.io/address/0xC9518AC915e46D707585116451Dc19c164513Ccf) |
-| Distributor        | [`0x27e606fdb5C922F8213dC588A434BF7583697866`](https://etherscan.io/address/0x27e606fdb5C922F8213dC588A434BF7583697866) |
-| Emergency          | [`0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75`](https://etherscan.io/address/0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75) |
-| BondManager        | [`0xf577c77ee3578c7F216327F41B5D7221EaD2B2A3`](https://etherscan.io/address/0xf577c77ee3578c7f216327f41b5d7221ead2b2a3) |
-| BLVaultManagerLido | [`0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23`](https://etherscan.io/address/0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23) |
-| CrossChainBridge   | [`0x45e563c39cddba8699a90078f42353a57509543a`](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a) |
+| Contract | Chain | Address |
+| -------- | ----  | ------- |
+| BondCallback       | Mainnet |  [`0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6`](https://etherscan.io/address/0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6) |
+| Operator           | Mainnet | [`0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65`](https://etherscan.io/address/0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65) |
+| Heart              | Mainnet | [`0x1652b503E0F1CF38b6246Ed3b91CB3786Bb11656`](https://etherscan.io/address/0x1652b503E0F1CF38b6246Ed3b91CB3786Bb11656) |
+| PriceConfig        | Mainnet | [`0xf6D5d06A4e8e6904E4360108749C177692F59E90`](https://etherscan.io/address/0xf6D5d06A4e8e6904E4360108749C177692F59E90) |
+| RolesAdmin         | Mainnet  | [`0xb216d714d91eeC4F7120a732c11428857C659eC8`](https://etherscan.io/address/0xb216d714d91eeC4F7120a732c11428857C659eC8) |
+|                    | Arbitrum | [`0x69168c08AcF66f002fd02E1B169f38C022c93b70`](https://arbiscan.io/address/0x69168c08AcF66f002fd02E1B169f38C022c93b70) |
+| TreasuryCustodian  | Mainnet | [`0xC9518AC915e46D707585116451Dc19c164513Ccf`](https://etherscan.io/address/0xC9518AC915e46D707585116451Dc19c164513Ccf) |
+| Distributor        | Mainnet | [`0x27e606fdb5C922F8213dC588A434BF7583697866`](https://etherscan.io/address/0x27e606fdb5C922F8213dC588A434BF7583697866) |
+| Emergency          | Mainnet | [`0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75`](https://etherscan.io/address/0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75) |
+| BondManager        | Mainnet | [`0xf577c77ee3578c7F216327F41B5D7221EaD2B2A3`](https://etherscan.io/address/0xf577c77ee3578c7f216327f41b5d7221ead2b2a3) |
+| BLVaultManagerLido | Mainnet | [`0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23`](https://etherscan.io/address/0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23) |
+| CrossChainBridge   | Mainnet  | [`0x45e563c39cddba8699a90078f42353a57509543a`](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a) |
+|                    | Arbitrum | [`0x20B3834091f038Ce04D8686FAC99CA44A0FB285c`](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c) | 
 
 #### Dependencies
 
@@ -47,12 +49,8 @@
 
 ### Arbitrum
 
-#### Policies
 
-| Contract         | Address                                                                                                                |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| RolesAdmin       | [`0x69168c08AcF66f002fd02E1B169f38C022c93b70`](https://arbiscan.io/address/0x69168c08AcF66f002fd02E1B169f38C022c93b70) |
-| CrossChainBridge | [`0x20B3834091f038Ce04D8686FAC99CA44A0FB285c`](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c) |
+### Arbitrum
 
 #### Dependencies
 
