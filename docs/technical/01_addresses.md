@@ -2,11 +2,12 @@
 
 ## Olympus V3 Contracts
 
-### Mainnet
+### Kernel
 
-| Contract | Address                                                                                                                 |
-| -------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Kernel   | [`0x2286d7f9639e8158FaD1169e76d1FbC38247f54b`](https://etherscan.io/address/0x2286d7f9639e8158FaD1169e76d1FbC38247f54b) |
+|   Contract   |   Chain   | Address |
+|-----------|-----------------|-----------------|
+|   Kernel  |   Mainnet        | [`0x2286d7f9639e8158FaD1169e76d1FbC38247f54b`](https://etherscan.io/address/0x2286d7f9639e8158FaD1169e76d1FbC38247f54b) |
+|           |   Arbitrum       | [`0xeac3eC0CC130f4826715187805d1B50e861F2DaC`](https://arbiscan.io/address/0xeac3eC0CC130f4826715187805d1B50e861F2DaC) |
 
 #### Modules
 
@@ -42,10 +43,6 @@
 | Bond Teller | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
 
 ### Arbitrum
-
-| Contract | Address                                                                                                                |
-| -------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Kernel   | [`0xeac3eC0CC130f4826715187805d1B50e861F2DaC`](https://arbiscan.io/address/0xeac3eC0CC130f4826715187805d1B50e861F2DaC) |
 
 #### Modules
 
