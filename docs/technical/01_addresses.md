@@ -9,18 +9,21 @@
 |   Kernel  |   Mainnet        | [`0x2286d7f9639e8158FaD1169e76d1FbC38247f54b`](https://etherscan.io/address/0x2286d7f9639e8158FaD1169e76d1FbC38247f54b) |
 |           |   Arbitrum       | [`0xeac3eC0CC130f4826715187805d1B50e861F2DaC`](https://arbiscan.io/address/0xeac3eC0CC130f4826715187805d1B50e861F2DaC) |
 
-#### Modules
+### Modules
 
-| Contract | Address                                                                                                                 |
-| -------- | ----------------------------------------------------------------------------------------------------------------------- |
-| TRSRY    | [`0xa8687A15D4BE32CC8F0a8a7B9704a4C3993D9613`](https://etherscan.io/address/0xa8687A15D4BE32CC8F0a8a7B9704a4C3993D9613) |
-| MINTR    | [`0xa90bFe53217da78D900749eb6Ef513ee5b6a491e`](https://etherscan.io/address/0xa90bFe53217da78D900749eb6Ef513ee5b6a491e) |
-| PRICE    | [`0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f`](https://etherscan.io/address/0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f) |
-| RANGE    | [`0xb212D9584cfc56EFf1117F412Fe0bBdc53673954`](https://etherscan.io/address/0xb212D9584cfc56EFf1117F412Fe0bBdc53673954) |
-| ROLES    | [`0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59`](https://etherscan.io/address/0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59) |
-| BLREG    | [`0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59`](https://etherscan.io/address/0x375E06C694B5E50aF8be8FB03495A612eA3e2275) |
+| Contract | Chain | Address |
+| -------- | -------- | -------- |
+| TRSRY    | Mainnet | [`0xa8687A15D4BE32CC8F0a8a7B9704a4C3993D9613`](https://etherscan.io/address/0xa8687A15D4BE32CC8F0a8a7B9704a4C3993D9613) |
+| MINTR    | Mainnet  |  [`0xa90bFe53217da78D900749eb6Ef513ee5b6a491e`](https://etherscan.io/address/0xa90bFe53217da78D900749eb6Ef513ee5b6a491e) |
+|          | Arbitrum | [`0x8f6406eDbFA393e327822D4A08BcF15503570D87`](https://arbiscan.io/address/0x8f6406eDbFA393e327822D4A08BcF15503570D87) |
+| PRICE    | Mainnet | [`0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f`](https://etherscan.io/address/0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f) |
+| RANGE    | Mainnet| [`0xb212D9584cfc56EFf1117F412Fe0bBdc53673954`](https://etherscan.io/address/0xb212D9584cfc56EFf1117F412Fe0bBdc53673954) |
+| ROLES    | Mainnet  | [`0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59`](https://etherscan.io/address/0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59) |
+|          | Arbitrum | [`0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6`](https://arbiscan.io/address/0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6) |
+| BLREG    | Mainnet | [`0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59`](https://etherscan.io/address/0x375E06C694B5E50aF8be8FB03495A612eA3e2275) |
 
-#### Policies
+
+### Policies
 
 | Contract           | Address                                                                                                                 |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
@@ -43,13 +46,6 @@
 | Bond Teller | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
 
 ### Arbitrum
-
-#### Modules
-
-| Contract | Address                                                                                                                |
-| -------- | ---------------------------------------------------------------------------------------------------------------------- |
-| MINTR    | [`0x8f6406eDbFA393e327822D4A08BcF15503570D87`](https://arbiscan.io/address/0x8f6406eDbFA393e327822D4A08BcF15503570D87) |
-| ROLES    | [`0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6`](https://arbiscan.io/address/0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6) |
 
 #### Policies
 
