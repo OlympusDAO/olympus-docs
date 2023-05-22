@@ -41,22 +41,14 @@
 | CrossChainBridge   | Mainnet  | [`0x45e563c39cddba8699a90078f42353a57509543a`](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a) |
 |                    | Arbitrum | [`0x20B3834091f038Ce04D8686FAC99CA44A0FB285c`](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c) | 
 
-#### Dependencies
 
-| Contract    | Address                                                                                                                 |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Bond Teller | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
+### Dependencies
 
-### Arbitrum
+| Contract    | Chain | Address |
+| ----------- | ----- | ------- |
+| BondTeller | Mainnet | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
+| Authority | Arbitrum | [`0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e`](https://arbiscan.io/address/0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e) |
 
-
-### Arbitrum
-
-#### Dependencies
-
-| Contract  | Address                                                                                                                |
-| --------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Authority | [`0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e`](https://arbiscan.io/address/0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e) |
 
 ### Goerli Testnet
 
