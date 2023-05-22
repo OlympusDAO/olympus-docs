@@ -111,21 +111,6 @@
 | Bond Auctioneer                 | Goerli | [`0x007F7A1cb838A872515c8ebd16bE4b14Ef43a222`](https://goerli.etherscan.io/address/0x007F7A1cb838A872515c8ebd16bE4b14Ef43a222) |
 | Bond Aggregator                 | Goerli | [`0x007A66A2a13415DB3613C1a4dd1C942A285902d1`](https://goerli.etherscan.io/address/0x007A66A2a13415DB3613C1a4dd1C942A285902d1) |
 
-
-## Allocators
-
-| Contract         | Address                                                                                                                 |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| AaveAllocatorV2  | [`0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F`](https://etherscan.io/address/0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F) |
-| AuraAllocatorV2  | [`0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD`](https://etherscan.io/address/0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD) |
-| BtrflyAllocator  | [`0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f`](https://etherscan.io/address/0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f) |
-| CVXAllocatorV2   | [`0x2d643Df5De4e9Ba063760d475BEAa62821c71681`](https://etherscan.io/address/0x2d643Df5De4e9Ba063760d475BEAa62821c71681) |
-| DSRAllocator     | [`0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063`](https://etherscan.io/address/0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063) |
-| FXS Allocator V1 | [`0xde7b85f52577B113181921A7aa8Fc0C22e309475`](https://etherscan.io/address/0xde7b85f52577B113181921A7aa8Fc0C22e309475) |
-| FxsAllocatorV2   | [`0x0f953D861347414698F34B75dbFd6e7dF1A73493`](https://etherscan.io/address/0x0f953D861347414698F34B75dbFd6e7dF1A73493) |
-| LUSDAllocatorV2  | [`0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA`](https://etherscan.io/address/0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA) |
-| OlympusCvxHolder | [`0xdFC95aaf0a107DaAe2b350458DED4b7906E7f728`](https://etherscan.io/address/0xdFC95aaf0a107DaAe2b350458DED4b7906E7f728) |
-
 ## Multisigs
 
 | Contract | Chain     | Address                                                                                                                    |
@@ -141,6 +126,21 @@
 | Executor | Goerli  | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0) |
 | Guardian  | Goerli | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0) |
 | Emergency | Goerli | [`0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7`](https://goerli.etherscan.io/address/0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7) |
+
+
+
+## Allocators
+| Contract         | Address                                                                                                                 |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| AaveAllocatorV2  | [`0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F`](https://etherscan.io/address/0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F) |
+| AuraAllocatorV2  | [`0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD`](https://etherscan.io/address/0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD) |
+| BtrflyAllocator  | [`0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f`](https://etherscan.io/address/0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f) |
+| CVXAllocatorV2   | [`0x2d643Df5De4e9Ba063760d475BEAa62821c71681`](https://etherscan.io/address/0x2d643Df5De4e9Ba063760d475BEAa62821c71681) |
+| DSRAllocator     | [`0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063`](https://etherscan.io/address/0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063) |
+| FXS Allocator V1 | [`0xde7b85f52577B113181921A7aa8Fc0C22e309475`](https://etherscan.io/address/0xde7b85f52577B113181921A7aa8Fc0C22e309475) |
+| FxsAllocatorV2   | [`0x0f953D861347414698F34B75dbFd6e7dF1A73493`](https://etherscan.io/address/0x0f953D861347414698F34B75dbFd6e7dF1A73493) |
+| LUSDAllocatorV2  | [`0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA`](https://etherscan.io/address/0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA) |
+| OlympusCvxHolder | [`0xdFC95aaf0a107DaAe2b350458DED4b7906E7f728`](https://etherscan.io/address/0xdFC95aaf0a107DaAe2b350458DED4b7906E7f728) |
 
 
 
