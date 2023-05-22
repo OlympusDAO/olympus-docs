@@ -26,7 +26,7 @@
 | ROLES    | Mainnet  | [`0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59`](https://etherscan.io/address/0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59) |
 |          | Arbitrum | [`0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6`](https://arbiscan.io/address/0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6) |
 |          | Goerli   | [`0xe9a9d80CE3eE32FFf7279dce4c2962eC8098f71B`](https://goerli.etherscan.io/address/0xe9a9d80CE3eE32FFf7279dce4c2962eC8098f71B) |
-| BLREG    | Mainnet | [`0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59`](https://etherscan.io/address/0x375E06C694B5E50aF8be8FB03495A612eA3e2275) |
+| BLREG    | Mainnet | [`0x375E06C694B5E50aF8be8FB03495A612eA3e2275`](https://etherscan.io/address/0x375E06C694B5E50aF8be8FB03495A612eA3e2275) |
 |          | Goerli  | [`0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14`](https://goerli.etherscan.io/address/0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14) |
 
 
