@@ -37,7 +37,7 @@
 |                       | Goerli   | [`0xC1545804Fb804fdC7756e8e40c91B7581b2a2856`](https://goerli.etherscan.io/address/0xC1545804Fb804fdC7756e8e40c91B7581b2a2856) |
 | Operator              | Mainnet  | [`0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65`](https://etherscan.io/address/0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65)        |
 |                       | Goerli   | [`0x61B79d10ebC48166F7495Fce5E0c352B61777460`](https://goerli.etherscan.io/address/0x61B79d10ebC48166F7495Fce5E0c352B61777460) |
-| Heart                 | Mainnet  | [`0x1652b503E0F1CF38b6246Ed3b91CB3786Bb11656`](https://etherscan.io/address/0x1652b503E0F1CF38b6246Ed3b91CB3786Bb11656)        |
+| Heart                 | Mainnet  | [`0x9C6220fE829d6FC889cde9b4966D2033C4EfFD48`](https://etherscan.io/address/0x9C6220fE829d6FC889cde9b4966D2033C4EfFD48)        |
 |                       | Goerli   | [`0x384c7AeFB9f7aF276CF717905A696F85E2dD8845`](https://goerli.etherscan.io/address/0x384c7AeFB9f7aF276CF717905A696F85E2dD8845) |
 | PriceConfig           | Mainnet  | [`0xf6D5d06A4e8e6904E4360108749C177692F59E90`](https://etherscan.io/address/0xf6D5d06A4e8e6904E4360108749C177692F59E90)        |
 |                       | Goerli   | [`0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463`](https://goerli.etherscan.io/address/0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463) |
