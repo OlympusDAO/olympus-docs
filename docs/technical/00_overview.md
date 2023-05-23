@@ -34,7 +34,7 @@ The `MigrateKernel` Action reconfigures the internal variable for each contract 
 
 Modules are **internal-facing smart contracts** that store shared state across the protocol, and are used as dependencies for Policies within the protocol. A module is a mix of a microservice and a data model: each Module is responsible for managing a particular data model within the system. Modules should have no dependencies of their own, and their logic should be limited to modifying their own internal state: in other words, a Module contract should not read from or the modify state of an external contract. By and large, EOAs should never call module contracts directly — if ever.
 
-In Default protocols, Module contracts are referenced internally as 5 byte uppercase `KEYCODE` representing their underlying data models. For example, an ERC20 token module might have the keycode `TOKEN`, while a Treasury module might have the keycode `TRSRY`. This abstraction is intended to help clarify and distinguish where side effects occur when the protocol experiences external interactions, which should simplify both reading, writing and auditing its business logic.
+In Default protocols, Module contracts are referenced internally as a 5 byte uppercase `KEYCODE` representing their underlying data models. For example, an ERC20 token module might have the keycode `TOKEN`, while a Treasury module might have the keycode `TRSRY`. This abstraction is intended to help clarify and distinguish where side effects occur when the protocol experiences external interactions, which should simplify both reading, writing and auditing its business logic.
 
 In Olympus V3, we have the following Modules:
 
