@@ -47,7 +47,6 @@ mapping(address user => mapping(address rewardToken => int256 rewards)) public u
 - `pairTokenDeposits` tracks the deposited pair tokens by each user.
 - `lpPositions` tracks the LP tokens received when creating the liquidity positions with the provided pair tokens by each user.
 - `userRewardDebts` is a nested mapping that tracks the amount of each reward token owed to each user.
-  ``
 
 ## View Functions
 
