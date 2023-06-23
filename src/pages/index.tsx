@@ -502,33 +502,6 @@ export default function Home() {
             </CenterCard>
           </Link>
         </Row>
-        <Link
-          style={{
-            textDecoration: "none",
-            maxWidth: "960px",
-            margin: "0 auto 4rem auto",
-            width: "100%",
-          }}
-          href={"https://grants.olympusdao.finance/"}
-        >
-          <WideCard
-            style={{
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "center",
-              gap: "24px",
-            }}
-          >
-            {/* <img src={UGP} width={"120px"} /> */}
-            <div>
-              <h2 style={{ marginBottom: "0.5rem" }}>Olympus Grants Program</h2>
-              <p style={{ margin: "0rem" }}>
-                Expanding the econOHMy by planting new seeds, building bridges,
-                moving at the speed of trust
-              </p>
-            </div>
-          </WideCard>
-        </Link>
       </Container>
     </Layout>
   );
