@@ -16,6 +16,7 @@
 | Contract | Chain    | Address                                                                                                                        |
 | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | TRSRY    | Mainnet  | [`0xa8687A15D4BE32CC8F0a8a7B9704a4C3993D9613`](https://etherscan.io/address/0xa8687A15D4BE32CC8F0a8a7B9704a4C3993D9613)        |
+|          | Arbitrum | [`0x56db53e9801a6EA080569261b63925E0f1f3C81A`](https://arbiscan.io/address/0x56db53e9801a6EA080569261b63925E0f1f3C81A)         |
 |          | Goerli   | [`0xD8C59cFe5afbDB83D904E56D379028a2f6A07a2D`](https://goerli.etherscan.io/address/0xD8C59cFe5afbDB83D904E56D379028a2f6A07a2D) |
 | MINTR    | Mainnet  | [`0xa90bFe53217da78D900749eb6Ef513ee5b6a491e`](https://etherscan.io/address/0xa90bFe53217da78D900749eb6Ef513ee5b6a491e)        |
 |          | Arbitrum | [`0x8f6406eDbFA393e327822D4A08BcF15503570D87`](https://arbiscan.io/address/0x8f6406eDbFA393e327822D4A08BcF15503570D87)         |
@@ -31,6 +32,7 @@
 |          | Goerli   | [`0xe9a9d80CE3eE32FFf7279dce4c2962eC8098f71B`](https://goerli.etherscan.io/address/0xe9a9d80CE3eE32FFf7279dce4c2962eC8098f71B) |
 | BLREG    | Mainnet  | [`0x375E06C694B5E50aF8be8FB03495A612eA3e2275`](https://etherscan.io/address/0x375E06C694B5E50aF8be8FB03495A612eA3e2275)        |
 |          | Goerli   | [`0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14`](https://goerli.etherscan.io/address/0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14) |
+| LENDR    | Arbitrum | [`0x868C3ae18Fdea85bBb7a303e379c5B7e23b30F03`](https://arbiscan.io/address/0x868C3ae18Fdea85bBb7a303e379c5B7e23b30F03)         |
 
 ### Policies
 
@@ -61,6 +63,7 @@
 | CrossChainBridge      | Mainnet  | [`0x45e563c39cddba8699a90078f42353a57509543a`](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a)        |
 |                       | Arbitrum | [`0x20B3834091f038Ce04D8686FAC99CA44A0FB285c`](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c)         |
 |                       | Optimism | [`0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0`](https://optimistic.etherscan.io/address/0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0)         |
+| SiloAMO               | Arbitrum | [`0xA8578c9A73C2b4F75968EC76d6689045ff68B97C`](https://arbiscan.io/address/0xA8578c9A73C2b4F75968EC76d6689045ff68B97C)         |
 | Faucet (Testnet only) | Goerli   | [`0xA247156a39169c0FAFf979F57361CC734e82e3d0`](https://goerli.etherscan.io/address/0xA247156a39169c0FAFf979F57361CC734e82e3d0) |
 
 ### Dependencies
