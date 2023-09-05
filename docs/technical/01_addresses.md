@@ -135,27 +135,25 @@
 
 ## Allocators
 
-| Contract         |Address| Status |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ----|
-| AaveAllocatorV2  | [`0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F`](https://etherscan.io/address/0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F) |  |
-| AuraAllocatorV2  | [`0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD`](https://etherscan.io/address/0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD) |
-| BtrflyAllocator  | [`0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f`](https://etherscan.io/address/0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f) |  |
-| CVXAllocatorV2 / vlCVX   | [`0x2d643Df5De4e9Ba063760d475BEAa62821c71681`](https://etherscan.io/address/0x2d643Df5De4e9Ba063760d475BEAa62821c71681) |  |
-| DSRAllocator     | [`0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063`](https://etherscan.io/address/0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063) |  |
-| veFXS Allocator V1 | [`0xde7b85f52577B113181921A7aa8Fc0C22e309475`](https://etherscan.io/address/0xde7b85f52577B113181921A7aa8Fc0C22e309475) |  |
-| FXS Allocator Impl | [`0x1eF9A8C38b1d32F61B563eeD4c09Da2F10ABb379`](https://etherscan.io/address/0x1eF9A8C38b1d32F61B563eeD4c09Da2F10ABb379) |  |
-| FxsAllocatorV2   | [`0x0f953D861347414698F34B75dbFd6e7dF1A73493`](https://etherscan.io/address/0x0f953D861347414698F34B75dbFd6e7dF1A73493) |
-| OlympusCvxHolder Old CVX Holder | [`0xdFC95aaf0a107DaAe2b350458DED4b7906E7f728`](https://etherscan.io/address/0xdFC95aaf0a107DaAe2b350458DED4b7906E7f728) |  |
-| Tokemak | [`0x0483DE8C11eE2f0538a29F0C294246677cbC92F5`](https://etherscan.io/address/0x0483DE8C11eE2f0538a29F0C294246677cbC92F5) |  | 
-| Convex | [`0xDbf0683fC4FC8Ac11e64a6817d3285ec4f2Fc42d`](https://etherscan.io/address/0xDbf0683fC4FC8Ac11e64a6817d3285ec4f2Fc42d) |  | 
-| LUSD Rescue | [`0x47d8d05F05F4CCB5aC48A5d90906d57B040E655c`](https://etherscan.io/address/0x47d8d05F05F4CCB5aC48A5d90906d57B040E655c) |  | 
-| Aave Allocator | [`0x0e1177e47151Be72e5992E0975000E73Ab5fd9D4`](https://etherscan.io/address/0x0e1177e47151Be72e5992E0975000E73Ab5fd9D4) |  | 
-| Aura | [`0x872ebDd8129Aa328C89f6BF032bBD77a4c4BaC7e`](https://etherscan.io/address/0x872ebDd8129Aa328C89f6BF032bBD77a4c4BaC7e) | Deprecated |
-| Balancer Allocator | [`0xa9b52a2d0ffdbabdb2cb23ebb7cd879cac6618a6`](https://etherscan.io/address/0xa9b52a2d0ffdbabdb2cb23ebb7cd879cac6618a6) | Deprecated |
-| Fraxswap Allocator V1 | [`0x38633ed142bcc8128b45ab04a2e4a6e53774699f`](https://etherscan.io/address/0x38633ed142bcc8128b45ab04a2e4a6e53774699f) | Deprecated |
-| LUSDAllocatorV2 Old  | [`0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA`](https://etherscan.io/address/0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA) | Deprecated |
-| Alchemix | [`0x51563d61f8a5869B24EDdFb2705308Bae539BF56`](https://etherscan.io/address/0x51563d61f8a5869B24EDdFb2705308Bae539BF56) | Deprecated |
-| Rari | [`0x061C8610A784b8A1599De5B1157631e35180d818`](https://etherscan.io/address/0x061C8610A784b8A1599De5B1157631e35180d818) | Deprecated |
+| Contract  | Address | Status |
+| --------- | ------- | -------|
+| AaveAllocator | [`0x0e1177e47151Be72e5992E0975000E73Ab5fd9D4`](https://etherscan.io/address/0x0e1177e47151Be72e5992E0975000E73Ab5fd9D4) | In process of deprecation |
+| BtrflyAllocator  | [`0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f`](https://etherscan.io/address/0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f) | In process of deprecation |
+| veFXS Allocator V1 | [`0xde7b85f52577B113181921A7aa8Fc0C22e309475`](https://etherscan.io/address/0xde7b85f52577B113181921A7aa8Fc0C22e309475) | In process of deprecation |
+| GeneralizedTokemak | [`0x0483DE8C11eE2f0538a29F0C294246677cbC92F5`](https://etherscan.io/address/0x0483DE8C11eE2f0538a29F0C294246677cbC92F5) | In process of deprecation |
+| DSRAllocator     | [`0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063`](https://etherscan.io/address/0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063) | In process of deprecation |
+| AaveAllocatorV2  | [`0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F`](https://etherscan.io/address/0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F) | Bricked |
+| CVXAllocatorV2 / vlCVX   | [`0x2d643Df5De4e9Ba063760d475BEAa62821c71681`](https://etherscan.io/address/0x2d643Df5De4e9Ba063760d475BEAa62821c71681) | Bricked |
+| AlchemixAllocatorV2 | [`0x51563d61f8a5869B24EDdFb2705308Bae539BF56`](https://etherscan.io/address/0x51563d61f8a5869B24EDdFb2705308Bae539BF56) | Deprecated |
+| LUSDAllocatorV2R | [`0x47d8d05F05F4CCB5aC48A5d90906d57B040E655c`](https://etherscan.io/address/0x47d8d05F05F4CCB5aC48A5d90906d57B040E655c) | Deprecated |
+| AuraAllocatorV2  | [`0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD`](https://etherscan.io/address/0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD) | Deprecated |
+| Convex | [`0xDbf0683fC4FC8Ac11e64a6817d3285ec4f2Fc42d`](https://etherscan.io/address/0xDbf0683fC4FC8Ac11e64a6817d3285ec4f2Fc42d) | Deprecated |
+| OlympusCvxHolder | [`0xdFC95aaf0a107DaAe2b350458DED4b7906E7f728`](https://etherscan.io/address/0xdFC95aaf0a107DaAe2b350458DED4b7906E7f728) | Deprecated |
+| AuraAllocator | [`0x872ebDd8129Aa328C89f6BF032bBD77a4c4BaC7e`](https://etherscan.io/address/0x872ebDd8129Aa328C89f6BF032bBD77a4c4BaC7e) | Deprecated |
+| BalancerLiquidityMigrator | [`0xa9b52a2d0ffdbabdb2cb23ebb7cd879cac6618a6`](https://etherscan.io/address/0xa9b52a2d0ffdbabdb2cb23ebb7cd879cac6618a6) | Deprecated |
+| FraxswapPair | [`0x38633ed142bcc8128b45ab04a2e4a6e53774699f`](https://etherscan.io/address/0x38633ed142bcc8128b45ab04a2e4a6e53774699f) | Deprecated |
+| LUSDAllocatorV2  | [`0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA`](https://etherscan.io/address/0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA) | Deprecated |
+| RariFuseAllocator | [`0x061C8610A784b8A1599De5B1157631e35180d818`](https://etherscan.io/address/0x061C8610A784b8A1599De5B1157631e35180d818) | Deprecated |
 
 
 
