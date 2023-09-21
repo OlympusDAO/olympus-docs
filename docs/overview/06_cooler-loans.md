@@ -6,35 +6,35 @@ Cooler Loans is a decentralized lending facility that allows OHM (Olympus) token
 
 Cooler Loans differentiates itself from existing lending markets:
 
-- Peer-to-lender - loans originate from Olympus Treasury through a clearinghouse contract. Practically, Cooler Loans acts as lender-of-last-resort and can guarantee liquidity because every gOHM is backed by DAI.
-- Fixed duration - all loans have a fixed maturity.
-- Fixed interest - all loans have a fixed interest rate that is independent of market conditions.
-- No liquidations - whereas most lending markets will liquidate your position if underlying collateral falls below a certain price, Cooler Loans is in a unique position to offer liquidation-free loans because every gOHM is backed by DAI. As long as Loan-to-Collateral value is at a safe discount relative to actual backing, the protocol remains solvent.
-- Oracle-free - since Cooler Loans does not have liquidations, it doesn’t depend on any external oracles.
-- Isolated risk architecture - whereas most lending markets socialize borrower risk through shared pool architecture, Cooler Loans isolates risk via user-specific debt-collateral contracts called Coolers.
+- **Peer-to-lender** - loans originate from Olympus Treasury through a clearinghouse contract. Practically, Cooler Loans acts as lender-of-last-resort and can guarantee liquidity because every gOHM is backed by DAI.
+- **Fixed duration** - all loans have a fixed maturity.
+- **Fixed interest** - all loans have a fixed interest rate that is independent of market conditions.
+- **No liquidations** - whereas most lending markets will liquidate your position if underlying collateral falls below a certain price, Cooler Loans is in a unique position to offer liquidation-free loans because every gOHM is backed by DAI. As long as Loan-to-Collateral value is at a safe discount relative to actual backing, the protocol remains solvent.
+- **Oracle-free** - since Cooler Loans does not have liquidations, it doesn’t depend on any external oracles.
+- **Isolated risk architecture** - whereas most lending markets socialize borrower risk through shared pool architecture, Cooler Loans isolates risk via user-specific debt-collateral contracts called Coolers.
 
 ## Architecture
 
 Cooler Loans is built on top of three smart contracts and two structs:
 
-- Cooler.sol - Cooler is an escrow contract that facilitates fixed-duration, peer-to-peer loans for a user-debt-collateral combination. Some of the responsibilities of Cooler contract include:
+- **Cooler.sol** - Cooler is an escrow contract that facilitates fixed-duration, peer-to-peer loans for a user-debt-collateral combination. Some of the responsibilities of Cooler contract include:
   - Keeps track of all the requests/loans and their status
   - Escrows the collateral during the lending period
   - Handles clearings, repayments, rollovers and defaults
   - Offers callbacks to the lender after key actions happen
-- Clearinghouse.sol - Clearinghouse is a lender-owned contract that manages loan workflows including fulfilling requests, extending maturities, claiming defaults and rebalancing funds to/from Olympus Treasury. Some of the responsibilities of Clearinghouse contract include:
+- **Clearinghouse.sol** - Clearinghouse is a lender-owned contract that manages loan workflows including fulfilling requests, extending maturities, claiming defaults and rebalancing funds to/from Olympus Treasury. Some of the responsibilities of Clearinghouse contract include:
   - Implements the mandate of the Olympus community in OIP-144 by offering loans at the governance-approved terms
   - Tracks the outstanding debt and interest that the protocol should be received upon repayment
   - Its lending capacity is limited by a FUND_AMOUNT and a FUND_CADENCE.
     Despite providing loans denominated in DAI, the system allocates its dormant capital to the Dai Savings Rate (DSR) while maintaining holdings in sDAI.
-    Im \* plements permissioned functions to shutdown, defund, and reactivate the lending facility
-- CoolerFactory.sol - CoolerFactory is a factory contract for deploying Cooler.sol contracts associated with a user-debt-collateral combination. Some of the responsibilities of CoolerFactory contract include:
+    Implements permissioned functions to shutdown, defund, and reactivate the lending facility
+- **CoolerFactory.sol** - CoolerFactory is a factory contract for deploying Cooler.sol contracts associated with a user-debt-collateral combination. Some of the responsibilities of CoolerFactory contract include:
   - Keeps track of all the deployed contracts
   - Deploys a new Cooler if the combination of user-debt-collateral doesn't exist yet
   - Uses clones with immutable arguments to save gas
   - In charge of logging the Cooler events
-- Request struct - Request is a struct that represents intent (or request) by the borrower to borrow DAI against gOHM. Technically, requests may or may not be filled, but current implementation of Clearinghouse.sol automatically fills all requests.
-- Loan struct - Loan is a struct that represents fulfillment by the lender of a particular Request.
+- **Request struct** - Request is a struct that represents intent (or request) by the borrower to borrow DAI against gOHM. Technically, requests may or may not be filled, but current implementation of Clearinghouse.sol automatically fills all requests.
+- **Loan struct** - Loan is a struct that represents fulfillment by the lender of a particular Request.
 
 The following diagram may help understand the relationship between the various components:
 
@@ -47,16 +47,18 @@ When a user wants to use Cooler Loans, they begin by interacting with CoolerFact
 Next, when a user signals intent to borrow say 95 DAI against 100 DAI worth of gOHM, a Request struct is created. Simultaneously, Clearinghouse.sol withdraws the requisite amount of DAI from TRSRY.sol and fulfills the request. The act of fulfillment creates the Loan struct.
 
 At this point, Clearinghouse.sol gets gOHM collateral and the user gets DAI in their wallet. The user can then repay the loan, extend the loan, or default on the loan.
-Loan Terms and Conditions
+
+### Loan Terms and Conditions
+
 Before borrowing from the Clearinghouse, it's important to understand the terms and conditions:
 
-Loans are extended in DAI, against gOHM collateral
-Loans have an annualized interest rate of 0.5%, as approved by TAP-28
-Loan duration is 121 days, as approved by TAP-28
-The loan-to-collateral ratio is 3,000 DAI per gOHM, as approved by TAP-28
-Loans can be extended with the same terms an arbitrary number of times into the future.
-While Clearinghouse.sol is immutable, future governance proposals may deploy new Clearinghouse contracts with updated parameters. Any loan terms made under the original Clearinghouse contract are not affected.
-To minimize smart contract risk, Cooler Loans will be rolled out with a weekly cadence of 18M DAI capacity.
+- Loans are extended in DAI, against gOHM collateral
+- Loans have an annualized interest rate of 0.5%, as approved by TAP-28
+- Loan duration is 121 days, as approved by TAP-28
+- The loan-to-collateral ratio is 3,000 DAI per gOHM, as approved by TAP-28
+- Loans can be extended with the same terms an arbitrary number of times into the future.
+- While Clearinghouse.sol is immutable, future governance proposals may deploy new Clearinghouse contracts with updated parameters. Any loan terms made under the original Clearinghouse contract are not affected.
+- To minimize smart contract risk, Cooler Loans will be rolled out with a weekly cadence of 18M DAI capacity.
 
 ### Opening a Loan
 
@@ -65,9 +67,10 @@ To open a loan, a user will first need to create a Cooler.sol escrow contract fo
 Once a Cooler is created, a user requests a loan by specifying the amount of DAI to borrow. Alternatively, a user can specify the amount of gOHM collateral to deposit. The calculation between collateral and borrowable asset is fixed by the Loan-to-Collateral defined on Clearinghouse.sol.
 
 In the same transaction that a request is created, Clearinghouse.sol fulfills the request by creating a Loan struct with the following parameters:
-principal - amount of DAI that is borrowed
-expiry - expiration of the loan, defined to be the current block timestamp plus 121 days
-interestDue - amount of interest, in DAI, to be paid 121 days from current timestamp.
+
+- principal - amount of DAI that is borrowed
+- expiry - expiration of the loan, defined to be the current block timestamp plus 121 days
+- interestDue - amount of interest, in DAI, to be paid 121 days from current timestamp.
 
 It’s important to highlight that interest on the loan is accrued at the time the loan is opened. Keep this in mind as you read the next two sections.
 
@@ -78,10 +81,11 @@ Example: user requests to borrow 95 DAI against 100 DAI worth of gOHM. At the ti
 A user can repay a loan at any time with any amount. However, because of how loans are fulfilled, any repayment will be allocated toward interest first. Any repayment in excess of interest owed is then allocated to repaying the principal. Once all outstanding interest and principal have been repaid, the user unlocks their collateral.
 
 Example: user requests to borrow 95 DAI against 100 DAI worth of gOHM, owing 1.57 DAI in interest.
-If user repays 1 DAI, the user now owes 0.57 DAI in interest and 95 DAI in principal. User gets no collateral back.
-If user repays 1.57 DAI, user owes no interest and only 95 DAI in principal. User gets no collateral back.
-If user repays 50 DAI, user has fully repaid interest (1.57 DAI) and partially repaid principal (48.43 DAI). User gets back 50.98 DAI worth of collateral back.
-If user repays 96.57 DAI, user has fully repaid interest (1.57 DAI) AND fully repaid 95 DAI in principal. Users gets back all of their collateral.
+
+- If user repays 1 DAI, the user now owes 0.57 DAI in interest and 95 DAI in principal. User gets no collateral back.
+- If user repays 1.57 DAI, user owes no interest and only 95 DAI in principal. User gets no collateral back.
+- If user repays 50 DAI, user has fully repaid interest (1.57 DAI) and partially repaid principal (48.43 DAI). User gets back 50.98 DAI worth of collateral back.
+- If user repays 96.57 DAI, user has fully repaid interest (1.57 DAI) AND fully repaid 95 DAI in principal. Users gets back all of their collateral.
 
 ### Extending Duration
 
