@@ -101,70 +101,79 @@ Notice how interest due remains the same as the original loan term. Why? Functio
 
 ## FAQ
 
-What chains are Cooler Loans available on?
+### What chains are Cooler Loans available on?
 
 Cooler Loans are only available on Ethereum.
-What token do I need for interest payments?
+
+### What token do I need for interest payments?
+
 Interest payments must be completed with DAI.
 
-Can I pay interest from a different wallet?
+### Can I pay interest from a different wallet?
+
 Yes, interest payments can be made by wallets other than the one originating the loan.
 
-What if I need to repay before the term is over, can I pay partial interest?
+### What if I need to repay before the term is over, can I pay partial interest?
 
 Interest is charged upfront. To get your principal back or extend a loan, you will need to pay that in full. As this is a fixed-term product, there's no distinction between paying at maturity or earlier.
 
-Is there a limit to the number of times I can extend my loan?
+### Is there a limit to the number of times I can extend my loan?
 
 There is no functional limit to the number of extensions, however extensions are not supported past August 23rd, 275760. Please plan accordingly.
 
-How many cooler loans can I have?
+### How many cooler loans can I have?
 
 There is no limit on the number of loans or the total cumulative value of loans per user. Limits are based on fixed terms and the weekly clearinghouse capacity.
 
-Can I loop my loan?
+### Can I loop my loan?
 
 Yes, it is possible to convert the DAI obtained from the loan back into gOHM and take out another Cooler Loan. Use caution when choosing to leverage.
 
-What if I want to add to my loan amount?
+### What if I want to add to my loan amount?
 
 You cannot add to an existing loan. To increase the loan amount either take out an additional loan, or pay off the first loan in full and take a new loan with the total amount desired.
 
-Can I partially pay back my loan?
+### Can I partially pay back my loan?
 
 You may make a partial payment on your loan. All payments are automatically applied towards outstanding interest payment prior to being applied to the principal.
 
-If I partially repay a loan, can I just reborrow those funds later?
+### If I partially repay a loan, can I just reborrow those funds later?
 
 No, there's no ability to add to the loan once a payment has been received.
 
-If I partially repay a loan, will my interest payments change to reflect the lower balance?
+### If I partially repay a loan, will my interest payments change to reflect the lower balance?
 
 If you have paid part of the balance prior to maturity, the interest amount on the next roll will reflect the outstanding balance instead of the original loan value.
-What if price or backing goes up, can I pull out the added equity from my loan?
+
+### What if price or backing goes up, can I pull out the added equity from my loan?
+
 Loan terms are hard-coded at time of launch. So if backing goes up, LTV remains at X DAI per gOHM. Price has no impact on loan terms.
-What if I forget to roll my loan, is there a grace period before defaulting?
+
+### What if I forget to roll my loan, is there a grace period before defaulting?
+
 Defaults will occur automatically according to contract terms.
 
-I accidentally defaulted, can I recover my collateral?
+### I accidentally defaulted, can I recover my collateral?
 
 Unfortunately, this is not possible. Once a default occurs contract terms are automatically executed.
 
-If other users repay their loans, will that increase the capacity available in the clearinghouse?
+### If other users repay their loans, will that increase the capacity available in the clearinghouse?
 
 The capacity in the clearinghouse is rebalanced weekly. If a user repays their loan, the DAI will be available in the clearinghouse. If the available amount is below the threshold upon rebalancing it will be topped up, if the available amount is above the threshold the excess will be removed when rebalancing occurs.
 
-Do Cooler Loans increase OHM supply?
+### Do Cooler Loans increase OHM supply?
 
 No, Cooler Loans do not cause an increase in supply.
 
-What happens to the defaulted gOHM?
+### What happens to the defaulted gOHM?
 
 When a loan is defaulted, the underlying collateral is burned.
 
-What happens with the collected interest payments?
+### What happens with the collected interest payments?
 
 Interest payments are directed to Liquid Backing.
+
+## Contracts
 
 | Contract      | Address                                                                                                               |
 | ------------- | --------------------------------------------------------------------------------------------------------------------- |
