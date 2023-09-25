@@ -10,9 +10,10 @@ Cooler Loans differentiates itself from existing lending markets:
 - **Fixed duration** - all loans have a fixed maturity.
 - **Fixed interest** - all loans have a fixed interest rate that is independent of market conditions.
 - **No liquidations** - whereas most lending markets will liquidate your position if underlying collateral falls below a certain price, Cooler Loans is in a unique position to offer liquidation-free loans because every gOHM is backed by DAI. As long as Loan-to-Collateral value is at a safe discount relative to actual backing, the protocol remains solvent.
-- **Oracle-free** - since Cooler Loans does not have liquidations, it doesn’t depend on any external oracles.
+- **Oracle-free** - since Cooler Loans does not have liquidations and origination is based on a fixed value, it doesn’t depend on any external oracles.
 - **Isolated risk architecture** - whereas most lending markets socialize borrower risk through shared pool architecture, Cooler Loans isolates risk via user-specific debt-collateral contracts called Coolers.
-
+- **Predictable Terms** - Capacity, Loan-to-backing amount, tenor, and interest rates are all fixed parameters.
+- **Ability to roll** - Users can roll their loans at any time prior to the loan's expiration, keeping the same fixed terms.  
 ## Architecture
 
 Cooler Loans is built on top of three smart contracts and two structs:
@@ -42,7 +43,7 @@ The following diagram may help understand the relationship between the various c
 
 ## Using Cooler Loans
 
-When a user wants to use Cooler Loans, they begin by interacting with CoolerFactory.sol to create a Cooler.sol that is unique to them, the collateral, and the borrowable asset. For this reason, each user can only have one Cooler.sol.
+When a user wants to use Cooler Loans, they begin by interacting with CoolerFactory.sol to create a Cooler.sol that is unique to them, the collateral, and the borrowable asset. Within a user's Cooler.sol there may be multiple requests and loans. It is important to distinguish this singular escrow contract from the plural loan workflow.
 
 Next, when a user signals intent to borrow say 95 DAI against 100 DAI worth of gOHM, a Request struct is created. Simultaneously, Clearinghouse.sol withdraws the requisite amount of DAI from TRSRY.sol and fulfills the request. The act of fulfillment creates the Loan struct.
 
@@ -55,7 +56,7 @@ Before borrowing from the Clearinghouse, it's important to understand the terms 
 - Loans are extended in DAI, against gOHM collateral
 - Loans have an annualized interest rate of 0.5%, as approved by TAP-28
 - Loan duration is 121 days, as approved by TAP-28
-- The loan-to-collateral ratio is 3,000 DAI per gOHM, as approved by TAP-28
+- The loan-to-collateral ratio is 2892.92 DAI per gOHM, as approved by TAP-28
 - Loans can be extended with the same terms an arbitrary number of times into the future.
 - While Clearinghouse.sol is immutable, future governance proposals may deploy new Clearinghouse contracts with updated parameters. Any loan terms made under the original Clearinghouse contract are not affected.
 - To minimize smart contract risk, Cooler Loans will be rolled out with a weekly cadence of 18M DAI capacity.
@@ -89,9 +90,9 @@ Example: user requests to borrow 95 DAI against 100 DAI worth of gOHM, owing 1.5
 
 ### Extending Duration
 
-A user can extend a loan at any time, for as long as they want, with the same terms they opened a Cooler with. However, because of how loans are fulfilled, any loan extension must first repay the accrued interest on previous loans before the extension is granted. This is done automatically in a single transaction.
+A user can extend a loan at any time, for as long as they want, with the same terms they opened a Cooler with. However, because of how loans are fulfilled, any loan extension must first repay the accrued interest on previous loans before the extension is granted. This is done automatically in a single transaction, optimized to reduce friction and costs for the user.
 
-Furthermore, since Clearinghouse.sol gives the ability to extend a loan an arbitrary number of times, the user must pay up to N-1 interest terms if they want to extend a loan for N terms. This is best demonstrated with the examples below.
+Furthermore, since Clearinghouse.sol gives the ability to extend a loan an arbitrary number of times, the user must pay N-1 interest terms if they want to extend a loan for N terms. This is best demonstrated with the examples below.
 
 Example: user has an open loan, borrowing 95 DAI against 100 DAI worth of gOHM, owing 1.57 DAI in interest. They want to extend the loan for one more term (121 days). For this to work, they transfer 1.57 DAI (paying off interest on previous loan) and loan expiry extends by 121 days. In another 121 days, user owes 1.57 DAI interest and 95 DAI in principal.
 
@@ -121,7 +122,7 @@ Interest is charged upfront. To get your principal back or extend a loan, you wi
 
 There is no functional limit to the number of extensions, however extensions are not supported past August 23rd, 275760. Please plan accordingly.
 
-### How many cooler loans can I have?
+### How many Cooler Loans can I have?
 
 There is no limit on the number of loans or the total cumulative value of loans per user. Limits are based on fixed terms and the weekly clearinghouse capacity.
 
@@ -151,11 +152,11 @@ Loan terms are hard-coded at time of launch. So if backing goes up, LTV remains 
 
 ### What if I forget to roll my loan, is there a grace period before defaulting?
 
-Defaults will occur automatically according to contract terms.
+Expiration of the loan will occur automatically according to contract terms.
 
 ### I accidentally defaulted, can I recover my collateral?
 
-Unfortunately, this is not possible. Once a default occurs contract terms are automatically executed.
+Unfortunately, this is not possible. Once loan expiration occurs contract terms are automatically executed.
 
 ### If other users repay their loans, will that increase the capacity available in the clearinghouse?
 
@@ -173,6 +174,15 @@ When a loan is defaulted, the underlying collateral is burned.
 
 Interest payments are directed to Liquid Backing.
 
+### Can a user vote with their Cooler collateral?
+
+To participate in governance, users MUST self-delegate in order to be able to use Cooler collateral to vote on snapshot proposals. Undelegated collateral is unable to be recognized by snapshot. Users can either delegate to their own address, or delegate their voting power to another address.
+- Delegation can be completed via the Cooler page on the app once a user has an active loan.
+- Delegation must be completed prior to a snapshot proposal going live or the user will be unable to vote for that proposal.
+- ALL of the collateral in your Cooler is delegated when calling this function, it is not on a per loan basis.
+- If you have multiple loans, they will all be delegated to the same address.
+- You only need to call delegate once, it will automatically recognize each time you add to a loan to your Cooler and reflect the increased collateral.
+- You can choose to change the address that you delegate to at a later time.
 ## Contracts
 
 | Contract      | Address                                                                                                               |
