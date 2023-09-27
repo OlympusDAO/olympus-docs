@@ -82,12 +82,9 @@
 |                       | Goerli   | [`0x196a59fB453da942f062Be4407D923129c759435`](https://goerli.etherscan.io/address/0x196a59fB453da942f062Be4407D923129c759435) |
 | BondManager           | Mainnet  | [`0xf577c77ee3578c7F216327F41B5D7221EaD2B2A3`](https://etherscan.io/address/0xf577c77ee3578c7f216327f41b5d7221ead2b2a3)        |
 |                       | Goerli   | [`0x1e5a6834A71770067fcCbAeDDBC86b6d8dFDCb27`](https://goerli.etherscan.io/address/0x1e5a6834A71770067fcCbAeDDBC86b6d8dFDCb27) |
-| BLVaultManagerLido    | Mainnet  | [`0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23`](https://etherscan.io/address/0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23)        |
-|                       | Goerli   | [`0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34`](https://goerli.etherscan.io/address/0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34) |
 | CrossChainBridge      | Mainnet  | [`0x45e563c39cddba8699a90078f42353a57509543a`](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a)        |
 |                       | Arbitrum | [`0x20B3834091f038Ce04D8686FAC99CA44A0FB285c`](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c)         |
 |                       | Optimism | [`0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0`](https://optimistic.etherscan.io/address/0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0)         |
-| SiloAMO               | Arbitrum | [`0xA8578c9A73C2b4F75968EC76d6689045ff68B97C`](https://arbiscan.io/address/0xA8578c9A73C2b4F75968EC76d6689045ff68B97C)         |
 | Faucet (Testnet only) | Goerli   | [`0xA247156a39169c0FAFf979F57361CC734e82e3d0`](https://goerli.etherscan.io/address/0xA247156a39169c0FAFf979F57361CC734e82e3d0) |
 | Burner | Goerli   | [`0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853`](https://goerli.etherscan.io/address/0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853) |
 
@@ -128,6 +125,16 @@
 
 
 ## Legacy Contracts
+
+### Policies
+
+
+| Contract              | Chain    | Address                                                                                                                        |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| BLVaultManagerLido    | Mainnet  | [`0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23`](https://etherscan.io/address/0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23)        |
+|                       | Goerli   | [`0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34`](https://goerli.etherscan.io/address/0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34) |
+| SiloAMO               | Arbitrum | [`0xA8578c9A73C2b4F75968EC76d6689045ff68B97C`](https://arbiscan.io/address/0xA8578c9A73C2b4F75968EC76d6689045ff68B97C)         |
+
 
 ## OHM versions
 | Contract                                    | Chain     | Address                                                                                                                          |
