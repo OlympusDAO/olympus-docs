@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-# Contracts Overview
+# Overview
 
 Olympus V3 is the current and latest iteration of the Olympus protocol. It is a foundation for the future of the protocol, utilizing the [Default Framework](https://github.com/fullyallocated/Default) to allow extensibility at the base layer via fully onchain governance mechanisms. There are a few major pieces to V3: the core registry (Kernel), treasury, minter, governor, and finally, the range-bound stability (RBS) system.
 

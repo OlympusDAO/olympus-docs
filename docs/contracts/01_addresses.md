@@ -1,4 +1,4 @@
-# Contract Addresses
+# Addresses
 
 ## Olympus V3 Contracts
 ### Kernel
