@@ -38,6 +38,8 @@
 
 | Contract              | Chain    | Address                                                                                                                        |
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Clearinghouse         | Mainnet  | [`0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880`](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880)        |
+|                       | Goerli | [`0x075441d52ff9aedcbe9177d70895c0ad4775a50e`](https://goerli.etherscan.io/address/0x075441d52ff9aedcbe9177d70895c0ad4775a50e)         |
 | BondCallback          | Mainnet  | [`0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6`](https://etherscan.io/address/0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6)        |
 |                       | Goerli   | [`0xC1545804Fb804fdC7756e8e40c91B7581b2a2856`](https://goerli.etherscan.io/address/0xC1545804Fb804fdC7756e8e40c91B7581b2a2856) |
 | Operator              | Mainnet  | [`0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65`](https://etherscan.io/address/0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65)        |
@@ -73,6 +75,8 @@
 | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | BondTeller | Mainnet | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6)        |
 |            | Goerli  | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://goerli.etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
+| CoolerFactory         | Mainnet  | [`0xDE3e735d37A8498AD2F141F603A6d0F976A6F772`](https://etherscan.io/address/0xDE3e735d37A8498AD2F141F603A6d0F976A6F772)        |
+|                       | Goerli | [`0x8786b19dfe251459a1177beB484cF3fC44D58E3d`](https://goerli.etherscan.io/address/0x8786b19dfe251459a1177beB484cF3fC44D58E3d)         |
 
 ### Legacy Contracts
 
@@ -131,7 +135,8 @@
 |           | Goerli    | [`0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7`](https://goerli.etherscan.io/address/0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7)     |
 | Executor  | Goerli    | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0)     |
 | Guardian  | Goerli    | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0)     |
-| Emergency | Goerli    | [`0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7`](https://goerli.etherscan.io/address/0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7)     |
+| Emergency | Mainnet   | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://etherscan.io/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55)     |
+|           | Goerli    | [`0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7`](https://goerli.etherscan.io/address/0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7)     |
 
 ## Allocators
 
