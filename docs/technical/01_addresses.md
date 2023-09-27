@@ -133,12 +133,7 @@
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | BLVaultManagerLido    | Mainnet  | [`0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23`](https://etherscan.io/address/0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23)        |
 |                       | Goerli   | [`0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34`](https://goerli.etherscan.io/address/0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34) |
-| CrossChainBridge      | Mainnet  | [`0x45e563c39cddba8699a90078f42353a57509543a`](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a)        |
-|                       | Arbitrum | [`0x20B3834091f038Ce04D8686FAC99CA44A0FB285c`](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c)         |
-|                       | Optimism | [`0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0`](https://optimistic.etherscan.io/address/0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0)         |
 | SiloAMO               | Arbitrum | [`0xA8578c9A73C2b4F75968EC76d6689045ff68B97C`](https://arbiscan.io/address/0xA8578c9A73C2b4F75968EC76d6689045ff68B97C)         |
-| Faucet (Testnet only) | Goerli   | [`0xA247156a39169c0FAFf979F57361CC734e82e3d0`](https://goerli.etherscan.io/address/0xA247156a39169c0FAFf979F57361CC734e82e3d0) |
-| Burner | Goerli   | [`0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853`](https://goerli.etherscan.io/address/0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853) |
 
 
 ## OHM versions
