@@ -66,6 +66,10 @@ Range-Bound Stability (RBS) policies:
 - `Heart.sol` — Contract to allow easy access for keepers to call RBS keeper functions.
 - `PriceConfig.sol` — Used for a specified role to adjust parameters in the `PRICE` module
 
+Cooler Loans policies:
+
+- `Clearinghouse.sol` — Clearinghouse is a lender-owned contract that manages loan workflows including fulfilling requests, extending maturities, claiming defaults and rebalancing funds to/from Olympus Treasury.
+
 Governance policies (NOTE: Still have not been deployed):
 
 - `Parthenon.sol` - Governor contract specially made for Default, modeled after Proof-of-Stake.

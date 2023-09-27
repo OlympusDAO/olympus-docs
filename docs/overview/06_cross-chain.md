@@ -1,4 +1,4 @@
-# Cross-chain Bridge
+# Cross-Chain Bridge
 
 ## Overview
 
