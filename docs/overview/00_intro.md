@@ -11,4 +11,4 @@ OHM serves a need in the market gap between fiat stablecoins and volatile crypto
 * Serve  as a unit of account: Other assets are denominated in the currency
 * Preserve purchasing power: Provides its holders a stable, low volatility asset that grows at a steady rate over the medium-to- long-term.
 
-Olympus DAO’s efforts in Treasury management, development of on-chain governance structures and prudent use of Olympus’ liquidity and Treasury assets will help to strengthen OHM’s stability to usher in the growth of the Olympus network economy.
+Olympus DAO’s efforts in Treasury management, development of on-chain governance structures, and prudent use of Olympus’ liquidity and Treasury assets will help to strengthen OHM’s stability to usher in the growth of the Olympus network economy.
