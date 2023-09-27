@@ -64,6 +64,8 @@
 | Faucet (Testnet only) | Goerli   | [`0xA247156a39169c0FAFf979F57361CC734e82e3d0`](https://goerli.etherscan.io/address/0xA247156a39169c0FAFf979F57361CC734e82e3d0) |
 | Burner | Goerli   | [`0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853`](https://goerli.etherscan.io/address/0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853) |
 
+
+
 ### Dependencies
 | Contract   | Chain   | Address                                                                                                                        |
 | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -96,6 +98,8 @@
 ### Policies
 | Contract              | Chain    | Address                                                                                                                        |
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Heart v2 (deprecated) | Mainnet | [`0x1652b503e0f1cf38b6246ed3b91cb3786bb11656`](https://arbiscan.io/address/0x1652b503e0f1cf38b6246ed3b91cb3786bb11656)         |
+| Heart v1 (deprecated) | Mainnet | [`0xeaf46bd21dd9b263f28eed7260a269ffba9ace6e`](https://arbiscan.io/address/0xeaf46bd21dd9b263f28eed7260a269ffba9ace6e)         |
 | BLVaultManagerLido    | Mainnet  | [`0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23`](https://etherscan.io/address/0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23)        |
 |                       | Goerli   | [`0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34`](https://goerli.etherscan.io/address/0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34) |
 | SiloAMO               | Arbitrum | [`0xA8578c9A73C2b4F75968EC76d6689045ff68B97C`](https://arbiscan.io/address/0xA8578c9A73C2b4F75968EC76d6689045ff68B97C)         |
