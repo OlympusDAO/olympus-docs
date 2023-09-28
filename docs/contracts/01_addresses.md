@@ -36,7 +36,9 @@
 ### Policies
 | Contract              | Chain    | Address                                                                                                                        |
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Clearinghouse         | Mainnet  | [`0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880`](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880)        |
+| Clearinghouse         | Mainnet  | [`0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c`](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c)        |
+|                       | Goerli | [`0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47`](https://goerli.etherscan.io/address/0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47)         |
+| Clearinghouse (deprecated)         | Mainnet  | [`0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880`](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880)        |
 |                       | Goerli | [`0x075441d52ff9aedcbe9177d70895c0ad4775a50e`](https://goerli.etherscan.io/address/0x075441d52ff9aedcbe9177d70895c0ad4775a50e)         |
 | BondCallback          | Mainnet  | [`0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6`](https://etherscan.io/address/0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6)        |
 |                       | Goerli   | [`0xC1545804Fb804fdC7756e8e40c91B7581b2a2856`](https://goerli.etherscan.io/address/0xC1545804Fb804fdC7756e8e40c91B7581b2a2856) |
@@ -71,7 +73,9 @@
 | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | BondTeller | Mainnet | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6)        |
 |            | Goerli  | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://goerli.etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
-| CoolerFactory         | Mainnet  | [`0xDE3e735d37A8498AD2F141F603A6d0F976A6F772`](https://etherscan.io/address/0xDE3e735d37A8498AD2F141F603A6d0F976A6F772)        |
+| CoolerFactory  | Mainnet  | [`0x30Ce56e80aA96EbbA1E1a74bC5c0FEB5B0dB4216`](https://etherscan.io/address/0x30Ce56e80aA96EbbA1E1a74bC5c0FEB5B0dB4216)        |
+|                  | Goerli | [`0xD652BaB0741Abb568e4849A654C66e11A7613283`](https://goerli.etherscan.io/address/0xD652BaB0741Abb568e4849A654C66e11A7613283)         |
+| CoolerFactory (deprecated) | Mainnet  | [`0xDE3e735d37A8498AD2F141F603A6d0F976A6F772`](https://etherscan.io/address/0xDE3e735d37A8498AD2F141F603A6d0F976A6F772)        |
 |                       | Goerli | [`0x8786b19dfe251459a1177beB484cF3fC44D58E3d`](https://goerli.etherscan.io/address/0x8786b19dfe251459a1177beB484cF3fC44D58E3d)         |
 
 
