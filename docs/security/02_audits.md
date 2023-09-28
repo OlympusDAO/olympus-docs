@@ -4,7 +4,7 @@
 
 | Auditor  | Link          | Date |
 | -------- | ------------- | ---- |
-| Sherlock | [Link](/gitbook/assets/Cooler_Update_Audit_Report.pdf) | Sept 22, 2023 |
+| Sherlock | [Link](/gitbook/assets/Cooler_Update_Audit_Report.pdf) | September 22, 2023 |
 
 
 ## Cross-chain
@@ -42,7 +42,7 @@
 ## Olympus V2
 | Auditor  | Link  | Date |
 | -------- | ----- | ---- |
-| Omniscia | [Link](https://omniscia.io/olympus-dao-protocol-v2/) | Nov 23, 2021 |
+| Omniscia | [Link](https://omniscia.io/olympus-dao-protocol-v2/) | November 23, 2021 |
 
 
 ## Olympus V1
