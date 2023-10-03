@@ -187,4 +187,6 @@ To participate in governance, users MUST self-delegate in order to be able to us
 
 | Contract      | Address                                                                                                               |
 | ------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Clearinghouse | [0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880) |
+| Clearinghouse v1| [0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880) |
+| Clearinghouse v2| [0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c ](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c) |
+
