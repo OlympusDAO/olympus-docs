@@ -185,6 +185,6 @@ To participate in governance, users MUST self-delegate in order to be able to us
 - You can choose to change the address that you delegate to at a later time.
 ## Contracts
 
-| Contract      | Address                                                                                                               |
-| ------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Clearinghouse | [0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880) |
+| Contract         | Address                                                                                                               
+| -------------    | --------------------------------------------------------------------------------------------------------------------- 
+| Clearinghouse V1 | [0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880) | Clearinghouse V2 | [0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c](https://etherscan.io/address/0xe6343ad0675c9b8d3f32679ae6adba0766a2ab4c)
