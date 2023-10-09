@@ -39,11 +39,8 @@
 | Clearinghouse v2        | Mainnet  | [`0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c`](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c)        |
 |                       | Goerli | [`0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47`](https://goerli.etherscan.io/address/0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47)         |
 | BondCallback          | Mainnet  | [`0x473F86EBfa7AB57c4c82C3592d6147104996C19B`](https://etherscan.io/address/0x473F86EBfa7AB57c4c82C3592d6147104996C19B)        |
-|                       | Goerli   | [`0xC1545804Fb804fdC7756e8e40c91B7581b2a2856`](https://goerli.etherscan.io/address/0xC1545804Fb804fdC7756e8e40c91B7581b2a2856) |
 | Operator              | Mainnet  | [`0x5F15b91B59AD65D490921016d4134c2301197485`](https://etherscan.io/address/0x5F15b91B59AD65D490921016d4134c2301197485)        |
-|                       | Goerli   | [`0x61B79d10ebC48166F7495Fce5E0c352B61777460`](https://goerli.etherscan.io/address/0x61B79d10ebC48166F7495Fce5E0c352B61777460) |
 | Heart                 | Mainnet  | [`0xE05646971Ec444f8449d1CA6Fc8D9793986017d5`](https://etherscan.io/address/0xE05646971Ec444f8449d1CA6Fc8D9793986017d5)        |
-|                       | Goerli   | [`0x3B6edDE642E9C1f541e2Fa88A2E28F28fabAC9Da`](https://goerli.etherscan.io/address/0x3B6edDE642E9C1f541e2Fa88A2E28F28fabAC9Da) |
 | PriceConfig           | Mainnet  | [`0xf6D5d06A4e8e6904E4360108749C177692F59E90`](https://etherscan.io/address/0xf6D5d06A4e8e6904E4360108749C177692F59E90)        |
 |                       | Goerli   | [`0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463`](https://goerli.etherscan.io/address/0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463) |
 | RolesAdmin            | Mainnet  | [`0xb216d714d91eeC4F7120a732c11428857C659eC8`](https://etherscan.io/address/0xb216d714d91eeC4F7120a732c11428857C659eC8)        |
