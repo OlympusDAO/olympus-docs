@@ -118,18 +118,6 @@
 
 
 
-### Flex Loans
-
-| Contract                        | Address                                                                                                                 |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Flex Loan contract (Incur Debt) | [`0xd9d87586774Fb9d036fa95A5991474513Ff6C96E`](https://etherscan.io/address/0xd9d87586774Fb9d036fa95A5991474513Ff6C96E) |
-| Curve Strategy                  | [`0x4B152CCB613Ee248df9bb98195bC505665D6C4b2`](https://etherscan.io/address/0x4B152CCB613Ee248df9bb98195bC505665D6C4b2) |
-| Uniswap Strategy                | [`0x39D1984051759830F0C0Ae979b4aEd776CF481E0`](https://etherscan.io/address/0x39D1984051759830F0C0Ae979b4aEd776CF481E0) |
-| Sushiswap Strategy              | [`0x0692bDcAa767Dc62C420B7893a1045E657771324`](https://etherscan.io/address/0x0692bDcAa767Dc62C420B7893a1045E657771324) |
-| Balancer Strategy               | [`0x48BdC486C9DF31848C62FDc85c5c77d4Be013cDC`](https://etherscan.io/address/0x48BdC486C9DF31848C62FDc85c5c77d4Be013cDC) |
-
-
-
 ### Allocators
 | Contract  | Address | Status |
 | --------- | ------- | -------|
@@ -151,8 +139,20 @@
 
 
 
+### Flex Loans (deprecated)
 
-### Version 1 and Version 2 Contracts
+| Contract                        | Address                                                                                                                 |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Flex Loan contract (Incur Debt) | [`0xd9d87586774Fb9d036fa95A5991474513Ff6C96E`](https://etherscan.io/address/0xd9d87586774Fb9d036fa95A5991474513Ff6C96E) |
+| Curve Strategy                  | [`0x4B152CCB613Ee248df9bb98195bC505665D6C4b2`](https://etherscan.io/address/0x4B152CCB613Ee248df9bb98195bC505665D6C4b2) |
+| Uniswap Strategy                | [`0x39D1984051759830F0C0Ae979b4aEd776CF481E0`](https://etherscan.io/address/0x39D1984051759830F0C0Ae979b4aEd776CF481E0) |
+| Sushiswap Strategy              | [`0x0692bDcAa767Dc62C420B7893a1045E657771324`](https://etherscan.io/address/0x0692bDcAa767Dc62C420B7893a1045E657771324) |
+| Balancer Strategy               | [`0x48BdC486C9DF31848C62FDc85c5c77d4Be013cDC`](https://etherscan.io/address/0x48BdC486C9DF31848C62FDc85c5c77d4Be013cDC) |
+
+
+
+
+### Olympus V1 and V2
 | Contract                                    | Chain     | Address                                                                                                                          |
 | ------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | OHM V2                                      | Mainnet   | [`0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5`](https://etherscan.io/address/0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5)          |
