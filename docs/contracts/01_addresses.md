@@ -40,6 +40,7 @@
 |                       | Goerli | [`0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47`](https://goerli.etherscan.io/address/0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47)         |
 | BondCallback          | Mainnet  | [`0x473F86EBfa7AB57c4c82C3592d6147104996C19B`](https://etherscan.io/address/0x473F86EBfa7AB57c4c82C3592d6147104996C19B)        |
 | Operator              | Mainnet  | [`0x5F15b91B59AD65D490921016d4134c2301197485`](https://etherscan.io/address/0x5F15b91B59AD65D490921016d4134c2301197485)        |
+|               | Goerli  | [`0x255467F1ca090Cd0Ed20014DC957E942d846843b`](https://goerli.etherscan.io/address/0x255467F1ca090Cd0Ed20014DC957E942d846843b)        |
 | Heart                 | Mainnet  | [`0xE05646971Ec444f8449d1CA6Fc8D9793986017d5`](https://etherscan.io/address/0xE05646971Ec444f8449d1CA6Fc8D9793986017d5)        |
 | PriceConfig           | Mainnet  | [`0xf6D5d06A4e8e6904E4360108749C177692F59E90`](https://etherscan.io/address/0xf6D5d06A4e8e6904E4360108749C177692F59E90)        |
 |                       | Goerli   | [`0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463`](https://goerli.etherscan.io/address/0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463) |
