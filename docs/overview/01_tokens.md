@@ -15,7 +15,7 @@ OHM - 0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5
 ```
 
 ## Is OHM a stablecoin?
-No, OHM is in the “flatcoin” category. OHM is a free-floating money that is subject to the Range Bound Stability (RBS) system. It programmatically and transparently encourages a price range for market participants.
+No, OHM is in the "flatcoin" category. OHM is a free-floating money that is subject to the Range Bound Stability (RBS) system. It programmatically and transparently encourages a price range for market participants.
 
 ## Is OHM pegged?
-Unlike stablecoins, OHM is not pegged to any fiat currency. Instead, it is backed by a growing $200M+ worth of assets in the Olympus Treasury, ensuring confidence and stability via the RBS monetary policy. Learn more about RBS.
+Unlike stablecoins, OHM is not pegged to any fiat currency. Instead, it is backed by assets in the Olympus Treasury, ensuring confidence and stability via the RBS monetary policy.
