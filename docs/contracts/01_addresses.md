@@ -36,16 +36,12 @@
 ### Policies
 | Contract              | Chain    | Address                                                                                                                        |
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Clearinghouse V2        | Mainnet  | [`0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c`](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c)        |
+| Clearinghouse v2        | Mainnet  | [`0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c`](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c)        |
 |                       | Goerli | [`0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47`](https://goerli.etherscan.io/address/0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47)         |
-| Clearinghouse V1 (deprecated)         | Mainnet  | [`0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880`](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880)        |
-|                       | Goerli | [`0x075441d52ff9aedcbe9177d70895c0ad4775a50e`](https://goerli.etherscan.io/address/0x075441d52ff9aedcbe9177d70895c0ad4775a50e)         |
-| BondCallback          | Mainnet  | [`0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6`](https://etherscan.io/address/0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6)        |
-|                       | Goerli   | [`0xC1545804Fb804fdC7756e8e40c91B7581b2a2856`](https://goerli.etherscan.io/address/0xC1545804Fb804fdC7756e8e40c91B7581b2a2856) |
-| Operator              | Mainnet  | [`0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65`](https://etherscan.io/address/0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65)        |
-|                       | Goerli   | [`0x61B79d10ebC48166F7495Fce5E0c352B61777460`](https://goerli.etherscan.io/address/0x61B79d10ebC48166F7495Fce5E0c352B61777460) |
-| Heart                 | Mainnet  | [`0x9C6220fE829d6FC889cde9b4966D2033C4EfFD48`](https://etherscan.io/address/0x9C6220fE829d6FC889cde9b4966D2033C4EfFD48)        |
-|                       | Goerli   | [`0x3B6edDE642E9C1f541e2Fa88A2E28F28fabAC9Da`](https://goerli.etherscan.io/address/0x3B6edDE642E9C1f541e2Fa88A2E28F28fabAC9Da) |
+| BondCallback          | Mainnet  | [`0x473F86EBfa7AB57c4c82C3592d6147104996C19B`](https://etherscan.io/address/0x473F86EBfa7AB57c4c82C3592d6147104996C19B)        |
+| Operator              | Mainnet  | [`0x5F15b91B59AD65D490921016d4134c2301197485`](https://etherscan.io/address/0x5F15b91B59AD65D490921016d4134c2301197485)        |
+|               | Goerli  | [`0x255467F1ca090Cd0Ed20014DC957E942d846843b`](https://goerli.etherscan.io/address/0x255467F1ca090Cd0Ed20014DC957E942d846843b)        |
+| Heart                 | Mainnet  | [`0xE05646971Ec444f8449d1CA6Fc8D9793986017d5`](https://etherscan.io/address/0xE05646971Ec444f8449d1CA6Fc8D9793986017d5)        |
 | PriceConfig           | Mainnet  | [`0xf6D5d06A4e8e6904E4360108749C177692F59E90`](https://etherscan.io/address/0xf6D5d06A4e8e6904E4360108749C177692F59E90)        |
 |                       | Goerli   | [`0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463`](https://goerli.etherscan.io/address/0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463) |
 | RolesAdmin            | Mainnet  | [`0xb216d714d91eeC4F7120a732c11428857C659eC8`](https://etherscan.io/address/0xb216d714d91eeC4F7120a732c11428857C659eC8)        |
@@ -102,6 +98,14 @@
 ### Policies
 | Contract              | Chain    | Address                                                                                                                        |
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Clearinghouse v1 (deprecated)         | Mainnet  | [`0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880`](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880)        |
+|                       | Goerli | [`0x075441d52ff9aedcbe9177d70895c0ad4775a50e`](https://goerli.etherscan.io/address/0x075441d52ff9aedcbe9177d70895c0ad4775a50e)         |
+| BondCallback V1 (deprecated)          | Mainnet  | [`0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6`](https://etherscan.io/address/0xbf2B6E99B0E8D4c96b946c182132f5752eAa55C6)        |
+|                       | Goerli   | [`0xC1545804Fb804fdC7756e8e40c91B7581b2a2856`](https://goerli.etherscan.io/address/0xC1545804Fb804fdC7756e8e40c91B7581b2a2856) |
+| Operator V1 (deprecated)              | Mainnet  | [`0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65`](https://etherscan.io/address/0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65)        |
+|                       | Goerli   | [`0x61B79d10ebC48166F7495Fce5E0c352B61777460`](https://goerli.etherscan.io/address/0x61B79d10ebC48166F7495Fce5E0c352B61777460) |
+| Heart v3 (deprecated)                | Mainnet  | [`0x9C6220fE829d6FC889cde9b4966D2033C4EfFD48`](https://etherscan.io/address/0x9C6220fE829d6FC889cde9b4966D2033C4EfFD48)        |
+|                       | Goerli   | [`0x3B6edDE642E9C1f541e2Fa88A2E28F28fabAC9Da`](https://goerli.etherscan.io/address/0x3B6edDE642E9C1f541e2Fa88A2E28F28fabAC9Da) |
 | Heart v2 (deprecated) | Mainnet | [`0x1652b503e0f1cf38b6246ed3b91cb3786bb11656`](https://arbiscan.io/address/0x1652b503e0f1cf38b6246ed3b91cb3786bb11656)         |
 | Heart v1 (deprecated) | Mainnet | [`0xeaf46bd21dd9b263f28eed7260a269ffba9ace6e`](https://arbiscan.io/address/0xeaf46bd21dd9b263f28eed7260a269ffba9ace6e)         |
 | BLVaultManagerLido    | Mainnet  | [`0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23`](https://etherscan.io/address/0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23)        |
@@ -110,28 +114,14 @@
 
 
 
-### Flex Loans
-
-| Contract                        | Address                                                                                                                 |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Flex Loan contract (Incur Debt) | [`0xd9d87586774Fb9d036fa95A5991474513Ff6C96E`](https://etherscan.io/address/0xd9d87586774Fb9d036fa95A5991474513Ff6C96E) |
-| Curve Strategy                  | [`0x4B152CCB613Ee248df9bb98195bC505665D6C4b2`](https://etherscan.io/address/0x4B152CCB613Ee248df9bb98195bC505665D6C4b2) |
-| Uniswap Strategy                | [`0x39D1984051759830F0C0Ae979b4aEd776CF481E0`](https://etherscan.io/address/0x39D1984051759830F0C0Ae979b4aEd776CF481E0) |
-| Sushiswap Strategy              | [`0x0692bDcAa767Dc62C420B7893a1045E657771324`](https://etherscan.io/address/0x0692bDcAa767Dc62C420B7893a1045E657771324) |
-| Balancer Strategy               | [`0x48BdC486C9DF31848C62FDc85c5c77d4Be013cDC`](https://etherscan.io/address/0x48BdC486C9DF31848C62FDc85c5c77d4Be013cDC) |
-
-
-
 ### Allocators
 | Contract  | Address | Status |
 | --------- | ------- | -------|
-| AaveAllocator | [`0x0e1177e47151Be72e5992E0975000E73Ab5fd9D4`](https://etherscan.io/address/0x0e1177e47151Be72e5992E0975000E73Ab5fd9D4) | In process of deprecation |
 | BtrflyAllocator  | [`0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f`](https://etherscan.io/address/0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f) | In process of deprecation |
 | veFXS Allocator V1 | [`0xde7b85f52577B113181921A7aa8Fc0C22e309475`](https://etherscan.io/address/0xde7b85f52577B113181921A7aa8Fc0C22e309475) | In process of deprecation |
 | DSRAllocator     | [`0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063`](https://etherscan.io/address/0x0EA26319836fF05B8C5C5afD83b8aB17dd46d063) | In process of deprecation |
 | AaveAllocatorV2  | [`0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F`](https://etherscan.io/address/0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F) | Bricked |
 | CVXAllocatorV2 / vlCVX   | [`0x2d643Df5De4e9Ba063760d475BEAa62821c71681`](https://etherscan.io/address/0x2d643Df5De4e9Ba063760d475BEAa62821c71681) | Bricked |
-| GeneralizedTokemak | [`0x0483DE8C11eE2f0538a29F0C294246677cbC92F5`](https://etherscan.io/address/0x0483DE8C11eE2f0538a29F0C294246677cbC92F5) | Deprecated |
 | AlchemixAllocatorV2 | [`0x51563d61f8a5869B24EDdFb2705308Bae539BF56`](https://etherscan.io/address/0x51563d61f8a5869B24EDdFb2705308Bae539BF56) | Deprecated |
 | LUSDAllocatorV2R | [`0x47d8d05F05F4CCB5aC48A5d90906d57B040E655c`](https://etherscan.io/address/0x47d8d05F05F4CCB5aC48A5d90906d57B040E655c) | Deprecated |
 | AuraAllocatorV2  | [`0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD`](https://etherscan.io/address/0x8CaF91A6bb38D55fB530dEc0faB535FA78d98FaD) | Deprecated |
@@ -145,8 +135,20 @@
 
 
 
+### Flex Loans (deprecated)
 
-### Version 1 and Version 2 Contracts
+| Contract                        | Address                                                                                                                 |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Flex Loan contract (Incur Debt) | [`0xd9d87586774Fb9d036fa95A5991474513Ff6C96E`](https://etherscan.io/address/0xd9d87586774Fb9d036fa95A5991474513Ff6C96E) |
+| Curve Strategy                  | [`0x4B152CCB613Ee248df9bb98195bC505665D6C4b2`](https://etherscan.io/address/0x4B152CCB613Ee248df9bb98195bC505665D6C4b2) |
+| Uniswap Strategy                | [`0x39D1984051759830F0C0Ae979b4aEd776CF481E0`](https://etherscan.io/address/0x39D1984051759830F0C0Ae979b4aEd776CF481E0) |
+| Sushiswap Strategy              | [`0x0692bDcAa767Dc62C420B7893a1045E657771324`](https://etherscan.io/address/0x0692bDcAa767Dc62C420B7893a1045E657771324) |
+| Balancer Strategy               | [`0x48BdC486C9DF31848C62FDc85c5c77d4Be013cDC`](https://etherscan.io/address/0x48BdC486C9DF31848C62FDc85c5c77d4Be013cDC) |
+
+
+
+
+### Olympus V1 and V2
 | Contract                                    | Chain     | Address                                                                                                                          |
 | ------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | OHM V2                                      | Mainnet   | [`0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5`](https://etherscan.io/address/0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5)          |
