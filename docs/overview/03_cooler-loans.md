@@ -183,6 +183,7 @@ To participate in governance, users MUST self-delegate in order to be able to us
 - If you have multiple loans, they will all be delegated to the same address.
 - You only need to call delegate once, it will automatically recognize each time you add to a loan to your Cooler and reflect the increased collateral.
 - You can choose to change the address that you delegate to at a later time.
+
 ## Contracts
 
 | Contract      | Address                                                                                                               |
