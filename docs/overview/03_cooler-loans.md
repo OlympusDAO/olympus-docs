@@ -45,7 +45,7 @@ The following diagram may help understand the relationship between the various c
 
 When a user wants to use Cooler Loans, they begin by interacting with CoolerFactory.sol to create a Cooler.sol that is unique to them, the collateral, and the borrowable asset. Within a user's Cooler.sol there may be multiple requests and loans. It is important to distinguish this singular escrow contract from the plural loan workflow.
 
-Next, when a user signals intent to borrow say 95 DAI against 100 DAI worth of gOHM, a Request struct is created. Simultaneously, Clearinghouse.sol withdraws the requisite amount of DAI from TRSRY.sol and fulfills the request. The act of fulfillment creates the Loan struct.
+Next, when a user signals intent to borrow 2892.92 DAI against 1 gOHM, a Request struct is created. Simultaneously, Clearinghouse.sol withdraws the requisite amount of DAI from TRSRY.sol and fulfills the request. The act of fulfillment creates the Loan struct.
 
 At this point, Clearinghouse.sol gets gOHM collateral and the user gets DAI in their wallet. The user can then repay the loan, extend the loan, or default on the loan.
 
@@ -75,18 +75,18 @@ In the same transaction that a request is created, Clearinghouse.sol fulfills th
 
 It’s important to highlight that interest on the loan is accrued at the time the loan is opened. Keep this in mind as you read the next two sections.
 
-Example: user requests to borrow 95 DAI against 100 DAI worth of gOHM. At the time the loan is opened, the user owes 1.57 DAI in interest (0.05% multiplied by 95 DAI principal multiplied by 121 days out of 365). User gets 95 DAI in their wallet and transfers 100 DAI worth of gOHM.
+Example: user requests to borrow against 1 gOHM. The LTB for cooler is 2892.92 DAI per gOHM, at the time the loan is opened, the user owes 4.82 DAI in interest (0.05% multiplied by 2892.92 DAI principal multiplied by 121 days out of 365). User gets 2892.92 DAI in their wallet and transfers 1 gOHM.
 
 ### Repaying a Loan
 
 A user can repay a loan at any time with any amount. However, because of how loans are fulfilled, any repayment will be allocated toward interest first. Any repayment in excess of interest owed is then allocated to repaying the principal. Once all outstanding interest and principal have been repaid, the user unlocks their collateral.
 
-Example: user requests to borrow 95 DAI against 100 DAI worth of gOHM, owing 1.57 DAI in interest.
+Example: user requests to borrow against 1 gOHM. The LTB for cooler is 2892.92 DAI per gOHM, therefore the interest owed is 4.82 DAI per tenor.
 
-- If user repays 1 DAI, the user now owes 0.57 DAI in interest and 95 DAI in principal. User gets no collateral back.
-- If user repays 1.57 DAI, user owes no interest and only 95 DAI in principal. User gets no collateral back.
-- If user repays 50 DAI, user has fully repaid interest (1.57 DAI) and partially repaid principal (48.43 DAI). User gets back 50.98 DAI worth of collateral back.
-- If user repays 96.57 DAI, user has fully repaid interest (1.57 DAI) AND fully repaid 95 DAI in principal. Users gets back all of their collateral.
+- If user repays 1 DAI, the user now owes 3.82 DAI in interest and 2892.92 DAI in principal. User gets no collateral back.
+- If user repays 4.82 DAI, user owes no interest and only 2892.92 DAI in principal. User gets no collateral back.
+- If user repays 500 DAI, user has fully repaid interest (4.82 DAI) and partially repaid principal (495.18 DAI). User gets 0.17117 gOHM collateral back (495.18/2892.92).
+- If user repays 2897.74 DAI, user has fully repaid interest (4.82 DAI) AND fully repaid 2892.92 DAI in principal. User gets back their 1 gOHM collateral.
 
 ### Extending Duration
 
@@ -94,9 +94,9 @@ A user can extend a loan at any time, for as long as they want, with the same te
 
 Furthermore, since Clearinghouse.sol gives the ability to extend a loan an arbitrary number of times, the user must pay N-1 interest terms if they want to extend a loan for N terms. This is best demonstrated with the examples below.
 
-Example: user has an open loan, borrowing 95 DAI against 100 DAI worth of gOHM, owing 1.57 DAI in interest. They want to extend the loan for one more term (121 days). For this to work, they transfer 1.57 DAI (paying off interest on previous loan) and loan expiry extends by 121 days. In another 121 days, user owes 1.57 DAI interest and 95 DAI in principal.
+Example: user has an open loan, borrowing 2892.92 DAI against 1 gOHM, owing 4.82 DAI in interest. They want to extend the loan for one more term (121 days). For this to work, they transfer 4.82 DAI (paying off interest on previous loan) and loan expiry extends by 121 days. In another 121 days, user owes 4.82 DAI interest and 2892.92 DAI in principal.
 
-Example: Consider the same example but now the user wants to extend for 10 terms (1210 days). For this to work, they transfer 15.7 DAI (ten times 1.57 DAI) and loan expiry extends by 1210 days. In 1210 days, user owes 1.57 DAI and 95 DAI in principal.
+Example: Consider the same example but now the user wants to extend for 10 terms (1210 days). For this to work, they transfer 482 DAI (ten times 4.82 DAI) and loan expiry extends by 1210 days. In 1210 days, user owes 4.82 DAI and 2892.92 DAI in principal.
 
 Notice how interest due remains the same as the original loan term. Why? Functionally speaking, user’s interestDue variable didn’t change; the user just transferred the amount of interest that would’ve been charged during the extension directly to Clearinghouse.sol contract.
 
