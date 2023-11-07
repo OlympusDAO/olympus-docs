@@ -66,10 +66,6 @@ export const github = [
     icon: CodeBracketIcon,
   },
   {
-    title: "@olympusdao/incur-debt",
-    href: "https://github.com/OlympusDAO/incur-debt-ts",
-  },
-  {
     title: "protocol-metrics-subgraph",
     href: "https://github.com/OlympusDAO/olympus-protocol-metrics-subgraph",
     icon: CodeBracketIcon,
@@ -86,6 +82,11 @@ export const Guides = [
     title: "What is Range Bound Stability?",
     text: "An overview of the RBS",
     to: "./main/overview/range-bound",
+  },
+  {
+    title: "What is Cooler Loans?",
+    text: "An overview of Cooler Loans",
+    to: "./main/overview/cooler-loans",
   },
 ];
 
@@ -313,7 +314,6 @@ export default function Home() {
         >
           <div>
             <h2>Getting Started</h2>
-            <p>Explore these docs to learn more about the Olympus Protocol.</p>
             <div>
               {Guides.map((action) => (
                 <Link
@@ -343,10 +343,6 @@ export default function Home() {
           </div>
           <div>
             <h2>Developer Links</h2>
-            <p>
-              The Olympus Protocol codebase is comprised of open source
-              components.
-            </p>
             {github.map((action) => (
               <Link style={{ textDecoration: "none" }} href={action.href}>
                 <Card key={action.title} style={{ marginBottom: "1rem" }}>
