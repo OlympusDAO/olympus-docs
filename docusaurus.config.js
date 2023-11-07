@@ -144,17 +144,12 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Medium",
-                to: "https://olympusdao.medium.com/",
-              },
-              {
                 label: "GitHub",
                 href: "https://github.com/OlympusDAO",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Olympus DAO`,
       },
       prism: {
         theme: lightCodeTheme,
