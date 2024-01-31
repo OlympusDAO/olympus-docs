@@ -73,6 +73,12 @@
 |                  | Goerli | [`0xD652BaB0741Abb568e4849A654C66e11A7613283`](https://goerli.etherscan.io/address/0xD652BaB0741Abb568e4849A654C66e11A7613283)         |
 | CoolerFactory (deprecated) | Mainnet  | [`0xDE3e735d37A8498AD2F141F603A6d0F976A6F772`](https://etherscan.io/address/0xDE3e735d37A8498AD2F141F603A6d0F976A6F772)        |
 |                       | Goerli | [`0x8786b19dfe251459a1177beB484cF3fC44D58E3d`](https://goerli.etherscan.io/address/0x8786b19dfe251459a1177beB484cF3fC44D58E3d)         |
+| Governor Bravo Delegate | Mainnet | [``](https://etherscan.io/address/)        |
+| Governor Bravo Delegator | Mainnet | [``](https://etherscan.io/address/)        |
+| Timelock | Mainnet | [``](https://etherscan.io/address/)        |
+
+
+
 
 
 ## Multisigs
