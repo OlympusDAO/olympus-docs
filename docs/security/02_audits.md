@@ -1,7 +1,12 @@
 # Audits
 
-## Cooler Loans
+## RBS 2.0
+| Auditor  | Link          | Date |
+| -------- | ------------- | ---- |
+| Sherlock | [Link](/gitbook/assets/olympus_rbs2_audit_report.pdf) | Jan 29, 2024 |
 
+
+## Cooler Loans
 | Auditor  | Link          | Date |
 | -------- | ------------- | ---- |
 | Sherlock | [Link](/gitbook/assets/Cooler_Update_Audit_Report.pdf) | Sept 22, 2023 |

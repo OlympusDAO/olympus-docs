@@ -94,7 +94,7 @@ Policy that performs market operations to enforce OlympusDAO's OHM price range g
 
 **Roles**
 - `operator_admin`: Has the ability to initialize the system. Limited to the DAO Multisig and to a single execution.
-- `operator_policy`: Has the ability to execute policy-related functions that control the system liveliness and determine the parameters under which the system works. The liveliness functions are critical, since they can activate/deactivate the system, as well as regenerate the Treasury's capacity to perform market operations. Limited to the Policy Multisig contract.
+- `operator_policy`: Has the ability to execute policy-related functions that control the system liveliness and determine the parameters under which the system works. The liveliness functions are critical, since they can activate/deactivate the system, as well as regenerate the Treasury's capacity to perform market operations.
 - `operator_operate`: Has the ability to make the system work. Executes different core functions depending on the system state. Limited to the `Heart` contract (triggered by keepers) and the DAO Multisig.
 - `operator_reporter`: Records a bond purchase and updates capacity accordingly. Limited to the `BondCallback` contract.
 
@@ -253,19 +253,19 @@ Policy that manages the auctions and the issuance of OHM Bonds.
 |  `admin` |  DAO Multisig |
 |  `emergency_restart` |  DAO Multisig |
 |  `emergency_shutdown` |  Emergency Multisig |
-|  `heart_admin` |  Policy Multisig |
+|  `heart_admin` |  DAO Multisig |
 |  `operator_admin` |  DAO Multisig |
-|  `operator_policy` |  Policy Multisig |
+|  `operator_policy` |  DAO Multisig |
 |  `operator_operate` |  DAO Multisig |
 |  `operator_reporter` | Bond Callback |
 |  `custodian` |  DAO Multisig |
 |  `callback_admin` |  DAO Multisig |
 |  `price_admin` |  DAO Multisig |
-|  `price_admin` |  Policy Multisig |
-|  `bondmanager_admin` |  Policy Multisig |
-|  `liquidityvault_admin` |  Policy Multisig |
+|  `price_admin` |  DAO Multisig |
+|  `bondmanager_admin` |  DAO Multisig |
+|  `liquidityvault_admin` |  DAO Multisig |
 |  `emergency_admin` | Emergency Multisig |
-|  `bridge_admin` |  Policy Multisig |
+|  `bridge_admin` |  DAO Multisig |
 |  `cooler_overseer` |  DAO MS |
 |  `emergency_shutdown` |  Emergency MS |
 
@@ -275,4 +275,3 @@ Policy that manages the auctions and the issuance of OHM Bonds.
 | ------- | -------- | ------- | ------| ------- |
 | DAO Multisig | Mainnet | `0x245cc372C84B3645Bf0Ffe6538620B04a217988B` | [`executor`, `admin`, `emergency_restart`, `operator_admin`, `operator_operate`, `custodian`, `callback_admin`, `price_admin`, `cooler_overseer`] | 4/8 |
 | Emergency Multisig| Mainnet  | `0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55` | [`emergency_shutdown`, `emergency_admin`] | 2/8 |
-| Policy Multisig | Mainnet | `0x0cf30dc0d48604A301dF8010cdc028C055336b2E` | [`heart_admin`, `operator_policy`, `price_admin`, `bondmanager_admin`, `liquidityvault_admin`, `bridge_admin`] | 3/5 |
