@@ -151,14 +151,12 @@
 | RariFuseAllocator | [`0x061C8610A784b8A1599De5B1157631e35180d818`](https://etherscan.io/address/0x061C8610A784b8A1599De5B1157631e35180d818) | Deprecated |
 | V1 Aave Allocator | [`0x0e1177e47151Be72e5992E0975000E73Ab5fd9D4`](https://etherscan.io/address/0x0e1177e47151Be72e5992E0975000E73Ab5fd9D4) | Deprecated |
 | V1 Convex Allocator | [`0x3dF5A355457dB3A4B5C744B8623A7721BF56dF78`](https://etherscan.io/address/0x3dF5A355457dB3A4B5C744B8623A7721BF56dF78) | Deprecated |
-| V1 Dai Bond | [`0x575409F8d77c12B05feD8B455815f0e54797381c`](https://etherscan.io/address/0x575409F8d77c12B05feD8B455815f0e54797381c) | Deprecated |
-| V1 OHM/DAI LP Bond | [`0x956c43998316b6a2F21f89a1539f73fB5B78c151`](https://etherscan.io/address/0x956c43998316b6a2F21f89a1539f73fB5B78c151) | Deprecated |
-| V1 Frax Bond | [`0x8510c8c2B6891E04864fa196693D44E6B6ec2514`](https://etherscan.io/address/0x8510c8c2B6891E04864fa196693D44E6B6ec2514) | Deprecated |
-| V1 OHM/Frax LP Bond | [`0xc20CffF07076858a7e642E396180EC390E5A02f7`](https://etherscan.io/address/0xc20CffF07076858a7e642E396180EC390E5A02f7) | Deprecated |
-| V1 wETH bond | [`0xE6295201CD1ff13CeD5f063a5421c39A1D236F1c`](https://etherscan.io/address/0xE6295201CD1ff13CeD5f063a5421c39A1D236F1c) | Deprecated |
-| V1 OHM/WTETH LP Bond | [`0xB6C9dc843dEc44Aa305217c2BbC58B44438B6E16`](https://etherscan.io/address/0xB6C9dc843dEc44Aa305217c2BbC58B44438B6E16) | Deprecated |
-| V1 LUSD Bond | [`0x10C0f93f64e3C8D0a1b0f4B87d6155fd9e89D08D`](https://etherscan.io/address/0x10C0f93f64e3C8D0a1b0f4B87d6155fd9e89D08D) | Deprecated |
-| V1 OHM/LUSD LP Bond | [`0xFB1776299E7804DD8016303Df9c07a65c80F67b6`](https://etherscan.io/address/0xFB1776299E7804DD8016303Df9c07a65c80F67b6) | Deprecated |
+| LUSD V2 | [`0x2C1700F38C38C32595CFeF3D6B0B275bC2D2a578`](https://etherscan.io/address/0x2C1700F38C38C32595CFeF3D6B0B275bC2D2a578) | Deprecated |
+| LUSD V1 | [`0x67bae867b62fed0d1ca5f5f059d9a170e7007180`](https://etherscan.io/address/0x67bae867b62fed0d1ca5f5f059d9a170e7007180) | Deprecated |
+| BTRFLY/LOBI | [`0x41afc1cd7d944cc38dba0afb31d5c6f83602d58c`](https://etherscan.io/address/0x41afc1cd7d944cc38dba0afb31d5c6f83602d58c) | Deprecated |
+| tALCX | [`0x877cAf628ea1f799b742909Cf767C971e2a4d700`](https://etherscan.io/address/0x877cAf628ea1f799b742909Cf767C971e2a4d700) | Deprecated |
+| FXS V2 | [`0x0f953D861347414698F34B75dbFd6e7dF1A73493`](https://etherscan.io/address/0x0f953D861347414698F34B75dbFd6e7dF1A73493) | Deprecated |
+
 
 
 
@@ -240,5 +238,16 @@
 | Mock DAI/ETH Price Feed                     | Goerli    | [`0xdC8E4eD326cFb730a759312B6b1727C6Ef9ca233`](https://goerli.etherscan.io/address/0xdC8E4eD326cFb730a759312B6b1727C6Ef9ca233)   |
 | Bond Auctioneer                             | Goerli    | [`0x007F7A1cb838A872515c8ebd16bE4b14Ef43a222`](https://goerli.etherscan.io/address/0x007F7A1cb838A872515c8ebd16bE4b14Ef43a222)   |
 | Bond Aggregator                             | Goerli    | [`0x007A66A2a13415DB3613C1a4dd1C942A285902d1`](https://goerli.etherscan.io/address/0x007A66A2a13415DB3613C1a4dd1C942A285902d1)   |
-
-
+| OHM/DAI SLP                             | Mainnet    | [`0x34d7d7Aaf50AD4944B70B320aCB24C95fa2def7c`](https://etherscan.io/address/0x34d7d7Aaf50AD4944B70B320aCB24C95fa2def7c)   |
+| OHM/FRAX SLP                             | Mainnet    | [`0x2dcE0dDa1C2f98e0F171DE8333c3c6Fe1BbF4877`](https://etherscan.io/address/0x2dcE0dDa1C2f98e0F171DE8333c3c6Fe1BbF4877)   |
+| V1 OHM/LUSD LP Bond | Mainnet | [`0xFB1776299E7804DD8016303Df9c07a65c80F67b6`](https://etherscan.io/address/0xFB1776299E7804DD8016303Df9c07a65c80F67b6) |
+| V1 LUSD Bond | Mainnet | [`0x10C0f93f64e3C8D0a1b0f4B87d6155fd9e89D08D`](https://etherscan.io/address/0x10C0f93f64e3C8D0a1b0f4B87d6155fd9e89D08D) |
+| V1 OHM/WTETH LP Bond | Mainnet | [`0xB6C9dc843dEc44Aa305217c2BbC58B44438B6E16`](https://etherscan.io/address/0xB6C9dc843dEc44Aa305217c2BbC58B44438B6E16) |
+| CVX Bond | Mainnet | [`0x767e3459a35419122e5f6274fb1223d75881e0a9`](https://etherscan.io/address/0x767e3459a35419122e5f6274fb1223d75881e0a9) |
+| V1 wETH bond | Mainnet | [`0xE6295201CD1ff13CeD5f063a5421c39A1D236F1c`](https://etherscan.io/address/0xE6295201CD1ff13CeD5f063a5421c39A1D236F1c) |
+| V1 Frax Bond | Mainnet | [`0x8510c8c2B6891E04864fa196693D44E6B6ec2514`](https://etherscan.io/address/0x8510c8c2B6891E04864fa196693D44E6B6ec2514) |
+| V1 OHM/Frax LP Bond | Mainnet | [`0xc20CffF07076858a7e642E396180EC390E5A02f7`](https://etherscan.io/address/0xc20CffF07076858a7e642E396180EC390E5A02f7) |
+| ETH Bond deposit | Mainnet | [`0x2B0Fbb411D355979005ab4F003d99D4AAdF33639`](https://etherscan.io/address/0x2B0Fbb411D355979005ab4F003d99D4AAdF33639) |
+| V1 Dai Bond | Mainnet | [`0x575409F8d77c12B05feD8B455815f0e54797381c`](https://etherscan.io/address/0x575409F8d77c12B05feD8B455815f0e54797381c) |
+| V1 OHM/DAI LP Bond | Mainnet | [`0x956c43998316b6a2F21f89a1539f73fB5B78c151`](https://etherscan.io/address/0x956c43998316b6a2F21f89a1539f73fB5B78c151) |
+| Staking warmup (unused) | Mainnet | [`0x2882A5CD82AC49e06620382660f5ed932607c5f1`](https://etherscan.io/address/0x2882A5CD82AC49e06620382660f5ed932607c5f1) |
