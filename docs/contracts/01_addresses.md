@@ -1,6 +1,23 @@
 # Addresses
 
-## Olympus V3 Contracts
+## Multisigs
+| Contract  | Chain     | Address                                                                                                                            |
+| --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| DAO       | Ethereum  | [`0x245cc372C84B3645Bf0Ffe6538620B04a217988B`](https://etherscan.io/address/0x245cc372C84B3645Bf0Ffe6538620B04a217988B)            |
+|           | Arbitrum  | [`0x012BBf0481b97170577745D2167ee14f63E2aD4C`](https://arbiscan.io/address/0x012BBf0481b97170577745D2167ee14f63E2aD4C)             |
+|           | Optimism  | [`0x559a14a2219Ae81f9a9f857CF31407de2b07F36c`](https://optimistic.etherscan.io/address/0x559a14a2219Ae81f9a9f857CF31407de2b07F36c) |
+|           | Polygon   | [`0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7`](https://polygonscan.com/address/0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7)         |
+|           | Fantom    | [`0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10`](https://ftmscan.com/address/0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10)             |
+|           | Avalanche | [`0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32`](https://snowtrace.io/address/0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32)            |
+| Executor  | Goerli    | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0)     |
+| Guardian  | Goerli    | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0)     |
+| Emergency | Mainnet   | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://etherscan.io/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55)     |
+|           | Goerli    | [`0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7`](https://goerli.etherscan.io/address/0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7)     |
+
+
+
+
+## Olympus V3
 ### Kernel
 | Contract | Chain    | Address                                                                                                                        |
 | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -66,51 +83,7 @@
 | Faucet (Testnet only) | Goerli   | [`0xA247156a39169c0FAFf979F57361CC734e82e3d0`](https://goerli.etherscan.io/address/0xA247156a39169c0FAFf979F57361CC734e82e3d0) |
 | Burner | Goerli   | [`0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853`](https://goerli.etherscan.io/address/0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853) |
 
-
-
-### Dependencies
-| Contract   | Chain   | Address                                                                                                                        |
-| ---------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| BondTeller | Mainnet | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6)        |
-|            | Goerli  | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://goerli.etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
-| CoolerFactory  | Mainnet  | [`0x30Ce56e80aA96EbbA1E1a74bC5c0FEB5B0dB4216`](https://etherscan.io/address/0x30Ce56e80aA96EbbA1E1a74bC5c0FEB5B0dB4216)        |
-|                  | Goerli | [`0xD652BaB0741Abb568e4849A654C66e11A7613283`](https://goerli.etherscan.io/address/0xD652BaB0741Abb568e4849A654C66e11A7613283)         |
-| CoolerFactory (deprecated) | Mainnet  | [`0xDE3e735d37A8498AD2F141F603A6d0F976A6F772`](https://etherscan.io/address/0xDE3e735d37A8498AD2F141F603A6d0F976A6F772)        |
-|                       | Goerli | [`0x8786b19dfe251459a1177beB484cF3fC44D58E3d`](https://goerli.etherscan.io/address/0x8786b19dfe251459a1177beB484cF3fC44D58E3d)         |
-| Governor Bravo Delegate | Mainnet | [`0xa6013bBFd70d6190FA1cc1afD0cB3859847711B4`](https://etherscan.io/address/0xa6013bBFd70d6190FA1cc1afD0cB3859847711B4)        |
-| Governor Bravo Delegator | Mainnet | [`0x0941233c964e7d7Efeb05D253176E5E634cEFfcD`](https://etherscan.io/address/0x0941233c964e7d7Efeb05D253176E5E634cEFfcD)        |
-| Timelock | Mainnet | [`0x953EA3223d2dd3c1A91E9D6cca1bf7Af162C9c39`](https://etherscan.io/address/0x953EA3223d2dd3c1A91E9D6cca1bf7Af162C9c39)        |
-
-
-
-## Multisigs
-| Contract  | Chain     | Address                                                                                                                            |
-| --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| DAO       | Ethereum  | [`0x245cc372C84B3645Bf0Ffe6538620B04a217988B`](https://etherscan.io/address/0x245cc372C84B3645Bf0Ffe6538620B04a217988B)            |
-|           | Arbitrum  | [`0x012BBf0481b97170577745D2167ee14f63E2aD4C`](https://arbiscan.io/address/0x012BBf0481b97170577745D2167ee14f63E2aD4C)             |
-|           | Optimism  | [`0x559a14a2219Ae81f9a9f857CF31407de2b07F36c`](https://optimistic.etherscan.io/address/0x559a14a2219Ae81f9a9f857CF31407de2b07F36c) |
-|           | Polygon   | [`0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7`](https://polygonscan.com/address/0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7)         |
-|           | Fantom    | [`0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10`](https://ftmscan.com/address/0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10)             |
-|           | Avalanche | [`0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32`](https://snowtrace.io/address/0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32)            |
-| Executor  | Goerli    | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0)     |
-| Guardian  | Goerli    | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0)     |
-| Emergency | Mainnet   | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://etherscan.io/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55)     |
-|           | Goerli    | [`0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7`](https://goerli.etherscan.io/address/0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7)     |
-
-
-## Multisigs (deprecated)
-| Contract  | Chain     | Address                                                                                                                            |
-| --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Policy    | Ethereum  | [`0x0cf30dc0d48604A301dF8010cdc028C055336b2E`](https://etherscan.io/address/0x0cf30dc0d48604A301dF8010cdc028C055336b2E)            |
-|           | Goerli    | [`0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7`](https://goerli.etherscan.io/address/0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7)     |
-
-
-
-
-
-## Legacy Contracts
-
-### Policies
+### Policies (Deprecated)
 | Contract              | Chain    | Address                                                                                                                        |
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | Clearinghouse v1 (deprecated)         | Mainnet  | [`0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880`](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880)        |
@@ -131,7 +104,106 @@
 
 
 
-### Allocators
+
+
+### Dependencies
+| Contract   | Chain   | Address                                                                                                                        |
+| ---------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| BondTeller | Mainnet | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6)        |
+|            | Goerli  | [`0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6`](https://goerli.etherscan.io/address/0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6) |
+| CoolerFactory  | Mainnet  | [`0x30Ce56e80aA96EbbA1E1a74bC5c0FEB5B0dB4216`](https://etherscan.io/address/0x30Ce56e80aA96EbbA1E1a74bC5c0FEB5B0dB4216)        |
+|                  | Goerli | [`0xD652BaB0741Abb568e4849A654C66e11A7613283`](https://goerli.etherscan.io/address/0xD652BaB0741Abb568e4849A654C66e11A7613283)         |
+| CoolerFactory (deprecated) | Mainnet  | [`0xDE3e735d37A8498AD2F141F603A6d0F976A6F772`](https://etherscan.io/address/0xDE3e735d37A8498AD2F141F603A6d0F976A6F772)        |
+|                       | Goerli | [`0x8786b19dfe251459a1177beB484cF3fC44D58E3d`](https://goerli.etherscan.io/address/0x8786b19dfe251459a1177beB484cF3fC44D58E3d)         |
+| Governor Bravo Delegate | Mainnet | [`0xa6013bBFd70d6190FA1cc1afD0cB3859847711B4`](https://etherscan.io/address/0xa6013bBFd70d6190FA1cc1afD0cB3859847711B4)        |
+| Governor Bravo Delegator | Mainnet | [`0x0941233c964e7d7Efeb05D253176E5E634cEFfcD`](https://etherscan.io/address/0x0941233c964e7d7Efeb05D253176E5E634cEFfcD)        |
+| Timelock | Mainnet | [`0x953EA3223d2dd3c1A91E9D6cca1bf7Af162C9c39`](https://etherscan.io/address/0x953EA3223d2dd3c1A91E9D6cca1bf7Af162C9c39)        |
+
+
+
+
+
+## Olympus V2
+| Contract                                    | Chain     | Address                                                                                                                          |
+| ------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| OHM V2                                      | Mainnet   | [`0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5`](https://etherscan.io/address/0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5)          |
+|                                             | Arbitrum  | [`0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028`](https://arbiscan.io/token/0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028)             |
+|                                             | Optimism  | [`0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0`](https://optimistic.etherscan.io/address/0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0)             |
+|                                             | Goerli    | [`0x0595328847AF962F951a4f8F8eE9A3Bf261e4f6b`](https://goerli.etherscan.io/address/0x0595328847AF962F951a4f8F8eE9A3Bf261e4f6b)   |
+| sOHM V2                                     | Mainnet   | [`0x04906695D6D12CF5459975d7C3C03356E4Ccd460`](https://etherscan.io/address/0x04906695D6D12CF5459975d7C3C03356E4Ccd460)          |
+|                                             | Goerli    | [`0x4EFe119F4949319f2Acb12efD615a7B63896482B`](https://goerli.etherscan.io/address/0x4EFe119F4949319f2Acb12efD615a7B63896482B)   |
+|                                             | Avalanche | [`0x8cd309e14575203535ef120b5b0ab4dded0c2073`](https://snowtrace.io/token/0x8cd309e14575203535ef120b5b0ab4dded0c2073)            |
+| gOHM                                        | Mainnet   | [`0x0ab87046fBb341D058F17CBC4c1133F25a20a52f`](https://etherscan.io/address/0x0ab87046fBb341D058F17CBC4c1133F25a20a52f)          |
+|                                             | Arbitrum  | [`0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1`](https://arbiscan.io/token/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1)             |
+|                                             | Avalanche | [`0x321e7092a180bb43555132ec53aaa65a5bf84251`](https://snowtrace.io/token/0x321e7092a180bb43555132ec53aaa65a5bf84251)            |
+|                                             | Polygon   | [`0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195`](https://polygonscan.com/token/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195)         |
+|                                             | Fantom    | [`0x91fa20244fb509e8289ca630e5db3e9166233fdc`](https://ftmscan.com/token/0x91fa20244fb509e8289ca630e5db3e9166233fdc)             |
+|                                             | Optimism  | [`0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB`](https://optimistic.etherscan.io/token/0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB) |
+|                                             | Boba      | [`0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95`](https://bobascan.com/token/0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95)            |
+|                                             | Goerli    | [`0xC1863141dc1861122d5410fB5973951c82871d98`](https://goerli.etherscan.io/address/0xC1863141dc1861122d5410fB5973951c82871d98)   |
+| Authority                                   | Mainnet   | [`0x1c21F8EA7e39E2BA00BC12d2968D63F4acb38b7A`](https://etherscan.io/address/0x1c21F8EA7e39E2BA00BC12d2968D63F4acb38b7A)          |
+|                                            | Arbitrum  | [`0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e`](https://arbiscan.io/address/0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e)           |
+|                                            | Optimism  | [`0x13DFEff85779118136bB9826DcAD8f3bd25153a3`](https://optimistic.etherscan.io/address/0x13DFEff85779118136bB9826DcAD8f3bd25153a3)           |
+|                                             | Goerli    | [`0x4A8c9502A34962a2C6d73c5D181dAaeF3dcDc88D`](https://goerli.etherscan.io/address/0x4A8c9502A34962a2C6d73c5D181dAaeF3dcDc88D)   |
+| OlympusMigrator                             | Mainnet   | [`0x184f3FAd8618a6F458C16bae63F70C426fE784B3`](https://etherscan.io/address/0x184f3FAd8618a6F458C16bae63F70C426fE784B3)          |
+|                              | Avalanche   | [`0x9050D25977F8A19CDD5599A28bC5f55d39fb6105`](https://snowtrace.io/token/0x9050D25977F8A19CDD5599A28bC5f55d39fb6105)         |
+| Staking                                     | Mainnet   | [`0xB63cac384247597756545b500253ff8E607a8020`](https://etherscan.io/address/0xB63cac384247597756545b500253ff8E607a8020)          |
+|                                             | Goerli    | [`0x7263372b9ff6E619d8774aEB046cE313677E2Ec7`](https://goerli.etherscan.io/address/0x7263372b9ff6E619d8774aEB046cE313677E2Ec7)   |
+| Treasury V2                                 | Mainnet   | [`0x9A315BdF513367C0377FB36545857d12e85813Ef`](https://etherscan.io/address/0x9A315BdF513367C0377FB36545857d12e85813Ef)          |
+|                                             | Goerli    | [`0xB3e1dF7951a62fFb5eF7D3b1C9D80CF09325580A`](https://goerli.etherscan.io/address/0xB3e1dF7951a62fFb5eF7D3b1C9D80CF09325580A)   |
+| TreasuryExtender                            | Mainnet   | [`0xb32Ad041f23eAfd682F57fCe31d3eA4fd92D17af`](https://etherscan.io/address/0xb32Ad041f23eAfd682F57fCe31d3eA4fd92D17af)          |
+| Distributor                                 | Mainnet   | [`0xeeeb97A127a342656191E0313DF33D58D06B2E05`](https://etherscan.io/address/0xeeeb97A127a342656191E0313DF33D58D06B2E05)          |
+|                                             | Goerli    | [`0x2b954551307FB929DF8BB96657DB69fB4d72617c`](https://goerli.etherscan.io/address/0x2b954551307FB929DF8BB96657DB69fB4d72617c)   |
+| DistributorPatch                                 | Mainnet   | [`0x623164A9Ee2556D524b08f34F1d2389d7B4e1A1C`](https://etherscan.io/address/0x623164A9Ee2556D524b08f34F1d2389d7B4e1A1C)          |
+| DistributorPatch + Mint & Sync                                 | Mainnet   | [`0x5206d13F625320Cb73CcD222518ee0Edb801f78B`](https://etherscan.io/address/0x5206d13F625320Cb73CcD222518ee0Edb801f78B)          |
+| BondDepositoryV2                            | Mainnet   | [`0x9025046c6fb25Fb39e720d97a8FD881ED69a1Ef6`](https://etherscan.io/address/0x9025046c6fb25Fb39e720d97a8FD881ED69a1Ef6)          |
+|                                             | Goerli    | [`0xAda3336fcD233Ff0Eb39BeA0b1a7784E43aD4B00`](https://goerli.etherscan.io/address/0xAda3336fcD233Ff0Eb39BeA0b1a7784E43aD4B00)   |
+| Rebalancer                            | Mainnet   | [`0x77B19aDf335143D954CD5F59A01879fA532C404e `](https://etherscan.io/address/0x77B19aDf335143D954CD5F59A01879fA532C404e )          |
+| Frax Bond                            | Mainnet   | [`0xc60a6656e08b62DD2644DC703d7855301363Cc38 `](https://etherscan.io/address/0xc60a6656e08b62DD2644DC703d7855301363Cc38 )          |
+| YieldDirector                               | Mainnet   | [`0x2604170762A1dD22BB4F96C963043Cd4FC358f18`](https://etherscan.io/address/0x2604170762A1dD22BB4F96C963043Cd4FC358f18)          |
+|                                             | Goerli    | [`0x6982CcD55F95A7469746C123f73D54377f382454`](https://goerli.etherscan.io/address/0x6982CcD55F95A7469746C123f73D54377f382454)   |
+| OP Market Creator (for inverse bonds) (old) | Mainnet   | [`0xb1fA0Ac44d399b778B14af0AAF4bCF8af3437ad1`](https://etherscan.io/address/0xb1fA0Ac44d399b778B14af0AAF4bCF8af3437ad1)          |
+|                                             | Goerli    | [`0x0C9D01FbD07cC2fD3e09bD953bb65698351AF05D`](https://goerli.etherscan.io/address/0x0C9D01FbD07cC2fD3e09bD953bb65698351AF05D)   |
+| OHM Bond Market | Mainnet   | [`0x73D7e4BDdEcAd7379d679e60f22788E501493896`](https://etherscan.io/address/0x73D7e4BDdEcAd7379d679e60f22788E501493896)          |
+| V1->V2 liquidity migrator | Mainnet   | [`0x13DFEff85779118136bB9826DcAD8f3bd25153a3`](https://etherscan.io/address/0x13DFEff85779118136bB9826DcAD8f3bd25153a3)          |
+| OPv2 (original) (for inverse bonds) | Mainnet   | [`0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0`](https://etherscan.io/address/0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0)          |
+
+
+
+
+## Olympus V1
+| Contract                                    | Chain     | Address                                                                                                                          |
+| ------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| OHM V1                                      | Mainnet   | [`0x383518188c0c6d7730d91b2c03a03c837814a899`](https://etherscan.io/address/0x383518188c0c6d7730d91b2c03a03c837814a899)          |
+| sOHM V1                                      | Mainnet   | [`0x04F2694C8fcee23e8Fd0dfEA1d4f5Bb8c352111F`](https://etherscan.io/address/0x04F2694C8fcee23e8Fd0dfEA1d4f5Bb8c352111F)          |
+| wsOHM V1                                      | Mainnet   | [`0xCa76543Cf381ebBB277bE79574059e32108e3E65`](https://etherscan.io/address/0xCa76543Cf381ebBB277bE79574059e32108e3E65)          |
+| V1 Staking                                      | Mainnet   | [`0xFd31c7d00Ca47653c6Ce64Af53c1571f9C36566a`](https://etherscan.io/address/0xFd31c7d00Ca47653c6Ce64Af53c1571f9C36566a)          |
+| V1 StakingHelper                                      | Mainnet   | [`0xC8C436271f9A6F10a5B80c8b8eD7D0E8f37a612d`](https://etherscan.io/address/0xC8C436271f9A6F10a5B80c8b8eD7D0E8f37a612d)          |
+| V1 Distributor                                      | Mainnet   | [`0xC58E923bf8A00E4361FE3f4275226a543D7D3ce6`](https://etherscan.io/address/0xC58E923bf8A00E4361FE3f4275226a543D7D3ce6)          |
+| V1 Treasury                                      | Mainnet   | [`0x31F8Cc382c9898b273eff4e0b7626a6987C846E8`](https://etherscan.io/address/0x31F8Cc382c9898b273eff4e0b7626a6987C846E8)          |
+| DAI Token                                   | Goerli    | [`0x41e38e70a36150D08A8c97aEC194321b5eB545A5`](https://goerli.etherscan.io/address/0x41e38e70a36150D08A8c97aEC194321b5eB545A5)   |
+| OHM-DAI Balancer LP Pool                    | Goerli    | [`0xd8833594420dB3D6589c1098dbDd073f52419Dba`](https://goerli.etherscan.io/address/0xd8833594420dB3D6589c1098dbDd073f52419Dba)   |
+| WETH Token (for keeper rewards)             | Goerli    | [`0x0Bb7509324cE409F7bbC4b701f932eAca9736AB7`](https://goerli.etherscan.io/address/0x0Bb7509324cE409F7bbC4b701f932eAca9736AB7)   |
+| Mock OHM/ETH Price Feed                     | Goerli    | [`0x022710a589C9796dce59A0C52cA4E36f0a5e991A`](https://goerli.etherscan.io/address/0x022710a589C9796dce59A0C52cA4E36f0a5e991A)   |
+| Mock DAI/ETH Price Feed                     | Goerli    | [`0xdC8E4eD326cFb730a759312B6b1727C6Ef9ca233`](https://goerli.etherscan.io/address/0xdC8E4eD326cFb730a759312B6b1727C6Ef9ca233)   |
+| Bond Auctioneer                             | Goerli    | [`0x007F7A1cb838A872515c8ebd16bE4b14Ef43a222`](https://goerli.etherscan.io/address/0x007F7A1cb838A872515c8ebd16bE4b14Ef43a222)   |
+| Bond Aggregator                             | Goerli    | [`0x007A66A2a13415DB3613C1a4dd1C942A285902d1`](https://goerli.etherscan.io/address/0x007A66A2a13415DB3613C1a4dd1C942A285902d1)   |
+| OHM/DAI SLP                             | Mainnet    | [`0x34d7d7Aaf50AD4944B70B320aCB24C95fa2def7c`](https://etherscan.io/address/0x34d7d7Aaf50AD4944B70B320aCB24C95fa2def7c)   |
+| OHM/FRAX SLP                             | Mainnet    | [`0x2dcE0dDa1C2f98e0F171DE8333c3c6Fe1BbF4877`](https://etherscan.io/address/0x2dcE0dDa1C2f98e0F171DE8333c3c6Fe1BbF4877)   |
+| V1 OHM/LUSD LP Bond | Mainnet | [`0xFB1776299E7804DD8016303Df9c07a65c80F67b6`](https://etherscan.io/address/0xFB1776299E7804DD8016303Df9c07a65c80F67b6) |
+| V1 LUSD Bond | Mainnet | [`0x10C0f93f64e3C8D0a1b0f4B87d6155fd9e89D08D`](https://etherscan.io/address/0x10C0f93f64e3C8D0a1b0f4B87d6155fd9e89D08D) |
+| V1 OHM/WTETH LP Bond | Mainnet | [`0xB6C9dc843dEc44Aa305217c2BbC58B44438B6E16`](https://etherscan.io/address/0xB6C9dc843dEc44Aa305217c2BbC58B44438B6E16) |
+| CVX Bond | Mainnet | [`0x767e3459a35419122e5f6274fb1223d75881e0a9`](https://etherscan.io/address/0x767e3459a35419122e5f6274fb1223d75881e0a9) |
+| V1 wETH bond | Mainnet | [`0xE6295201CD1ff13CeD5f063a5421c39A1D236F1c`](https://etherscan.io/address/0xE6295201CD1ff13CeD5f063a5421c39A1D236F1c) |
+| V1 Frax Bond | Mainnet | [`0x8510c8c2B6891E04864fa196693D44E6B6ec2514`](https://etherscan.io/address/0x8510c8c2B6891E04864fa196693D44E6B6ec2514) |
+| V1 OHM/Frax LP Bond | Mainnet | [`0xc20CffF07076858a7e642E396180EC390E5A02f7`](https://etherscan.io/address/0xc20CffF07076858a7e642E396180EC390E5A02f7) |
+| ETH Bond deposit | Mainnet | [`0x2B0Fbb411D355979005ab4F003d99D4AAdF33639`](https://etherscan.io/address/0x2B0Fbb411D355979005ab4F003d99D4AAdF33639) |
+| V1 Dai Bond | Mainnet | [`0x575409F8d77c12B05feD8B455815f0e54797381c`](https://etherscan.io/address/0x575409F8d77c12B05feD8B455815f0e54797381c) |
+| V1 OHM/DAI LP Bond | Mainnet | [`0x956c43998316b6a2F21f89a1539f73fB5B78c151`](https://etherscan.io/address/0x956c43998316b6a2F21f89a1539f73fB5B78c151) |
+| Staking warmup (unused) | Mainnet | [`0x2882A5CD82AC49e06620382660f5ed932607c5f1`](https://etherscan.io/address/0x2882A5CD82AC49e06620382660f5ed932607c5f1) |
+
+
+## Allocators
 | Contract  | Address | Status |
 | --------- | ------- | -------|
 | BtrflyAllocator  | [`0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f`](https://etherscan.io/address/0xC8431fEb345B46c30A4576c1b5faF080fdc54e2f) | In process of deprecation |
@@ -149,62 +221,34 @@
 | FraxswapPair | [`0x38633ed142bcc8128b45ab04a2e4a6e53774699f`](https://etherscan.io/address/0x38633ed142bcc8128b45ab04a2e4a6e53774699f) | Deprecated |
 | LUSDAllocatorV2  | [`0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA`](https://etherscan.io/address/0x97b3Ef4C558Ec456D59Cb95c65BFB79046E31fCA) | Deprecated |
 | RariFuseAllocator | [`0x061C8610A784b8A1599De5B1157631e35180d818`](https://etherscan.io/address/0x061C8610A784b8A1599De5B1157631e35180d818) | Deprecated |
+| V1 Aave Allocator | [`0x0e1177e47151Be72e5992E0975000E73Ab5fd9D4`](https://etherscan.io/address/0x0e1177e47151Be72e5992E0975000E73Ab5fd9D4) | Deprecated |
+| V1 Convex Allocator | [`0x3dF5A355457dB3A4B5C744B8623A7721BF56dF78`](https://etherscan.io/address/0x3dF5A355457dB3A4B5C744B8623A7721BF56dF78) | Deprecated |
+| LUSD V2 | [`0x2C1700F38C38C32595CFeF3D6B0B275bC2D2a578`](https://etherscan.io/address/0x2C1700F38C38C32595CFeF3D6B0B275bC2D2a578) | Deprecated |
+| LUSD V1 | [`0x67bae867b62fed0d1ca5f5f059d9a170e7007180`](https://etherscan.io/address/0x67bae867b62fed0d1ca5f5f059d9a170e7007180) | Deprecated |
+| BTRFLY/LOBI | [`0x41afc1cd7d944cc38dba0afb31d5c6f83602d58c`](https://etherscan.io/address/0x41afc1cd7d944cc38dba0afb31d5c6f83602d58c) | Deprecated |
+| tALCX | [`0x877cAf628ea1f799b742909Cf767C971e2a4d700`](https://etherscan.io/address/0x877cAf628ea1f799b742909Cf767C971e2a4d700) | Deprecated |
+| FXS V2 | [`0x0f953D861347414698F34B75dbFd6e7dF1A73493`](https://etherscan.io/address/0x0f953D861347414698F34B75dbFd6e7dF1A73493) | Deprecated |
+
+
+
+## Deprecated
+### Multisigs (deprecated)
+| Contract  | Chain     | Address                                                                                                                            |
+| --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Policy    | Ethereum  | [`0x0cf30dc0d48604A301dF8010cdc028C055336b2E`](https://etherscan.io/address/0x0cf30dc0d48604A301dF8010cdc028C055336b2E)            |
+|           | Goerli    | [`0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7`](https://goerli.etherscan.io/address/0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7)     |
+
+
 
 
 
 ### Flex Loans (deprecated)
-
-| Contract                        | Address                                                                                                                 |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Contract | Address |
+|-|-|
 | Flex Loan contract (Incur Debt) | [`0xd9d87586774Fb9d036fa95A5991474513Ff6C96E`](https://etherscan.io/address/0xd9d87586774Fb9d036fa95A5991474513Ff6C96E) |
 | Curve Strategy                  | [`0x4B152CCB613Ee248df9bb98195bC505665D6C4b2`](https://etherscan.io/address/0x4B152CCB613Ee248df9bb98195bC505665D6C4b2) |
 | Uniswap Strategy                | [`0x39D1984051759830F0C0Ae979b4aEd776CF481E0`](https://etherscan.io/address/0x39D1984051759830F0C0Ae979b4aEd776CF481E0) |
 | Sushiswap Strategy              | [`0x0692bDcAa767Dc62C420B7893a1045E657771324`](https://etherscan.io/address/0x0692bDcAa767Dc62C420B7893a1045E657771324) |
 | Balancer Strategy               | [`0x48BdC486C9DF31848C62FDc85c5c77d4Be013cDC`](https://etherscan.io/address/0x48BdC486C9DF31848C62FDc85c5c77d4Be013cDC) |
-
-
-
-
-### Olympus V1 and V2
-| Contract                                    | Chain     | Address                                                                                                                          |
-| ------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| OHM V2                                      | Mainnet   | [`0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5`](https://etherscan.io/address/0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5)          |
-|                                             | Arbitrum  | [`0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028`](https://arbiscan.io/token/0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028)             |
-|                                             | Optimism  | [`0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0`](https://optimistic.etherscan.io/address/0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0)             |
-|                                             | Goerli    | [`0x0595328847AF962F951a4f8F8eE9A3Bf261e4f6b`](https://goerli.etherscan.io/address/0x0595328847AF962F951a4f8F8eE9A3Bf261e4f6b)   |
-| sOHM V2                                     | Mainnet   | [`0x04906695D6D12CF5459975d7C3C03356E4Ccd460`](https://etherscan.io/address/0x04906695D6D12CF5459975d7C3C03356E4Ccd460)          |
-|                                             | Goerli    | [`0x4EFe119F4949319f2Acb12efD615a7B63896482B`](https://goerli.etherscan.io/address/0x4EFe119F4949319f2Acb12efD615a7B63896482B)   |
-| gOHM                                        | Mainnet   | [`0x0ab87046fBb341D058F17CBC4c1133F25a20a52f`](https://etherscan.io/address/0x0ab87046fBb341D058F17CBC4c1133F25a20a52f)          |
-|                                             | Arbitrum  | [`0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1`](https://arbiscan.io/token/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1)             |
-|                                             | Avalanche | [`0x321e7092a180bb43555132ec53aaa65a5bf84251`](https://snowtrace.io/token/0x321e7092a180bb43555132ec53aaa65a5bf84251)            |
-|                                             | Polygon   | [`0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195`](https://polygonscan.com/token/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195)         |
-|                                             | Fantom    | [`0x91fa20244fb509e8289ca630e5db3e9166233fdc`](https://ftmscan.com/token/0x91fa20244fb509e8289ca630e5db3e9166233fdc)             |
-|                                             | Optimism  | [`0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB`](https://optimistic.etherscan.io/token/0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB) |
-|                                             | Boba      | [`0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95`](https://bobascan.com/token/0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95)            |
-|                                             | Goerli    | [`0xC1863141dc1861122d5410fB5973951c82871d98`](https://goerli.etherscan.io/address/0xC1863141dc1861122d5410fB5973951c82871d98)   |
-| Staking                                     | Mainnet   | [`0xB63cac384247597756545b500253ff8E607a8020`](https://etherscan.io/address/0xB63cac384247597756545b500253ff8E607a8020)          |
-|                                             | Goerli    | [`0x7263372b9ff6E619d8774aEB046cE313677E2Ec7`](https://goerli.etherscan.io/address/0x7263372b9ff6E619d8774aEB046cE313677E2Ec7)   |
-| Treasury V2                                 | Mainnet   | [`0x9A315BdF513367C0377FB36545857d12e85813Ef`](https://etherscan.io/address/0x9A315BdF513367C0377FB36545857d12e85813Ef)          |
-|                                             | Goerli    | [`0xB3e1dF7951a62fFb5eF7D3b1C9D80CF09325580A`](https://goerli.etherscan.io/address/0xB3e1dF7951a62fFb5eF7D3b1C9D80CF09325580A)   |
-| TreasuryExtender                            | Mainnet   | [`0xb32Ad041f23eAfd682F57fCe31d3eA4fd92D17af`](https://etherscan.io/address/0xb32Ad041f23eAfd682F57fCe31d3eA4fd92D17af)          |
-| Distributor                                 | Mainnet   | [`0xeeeb97A127a342656191E0313DF33D58D06B2E05`](https://etherscan.io/address/0xeeeb97A127a342656191E0313DF33D58D06B2E05)          |
-|                                             | Goerli    | [`0x2b954551307FB929DF8BB96657DB69fB4d72617c`](https://goerli.etherscan.io/address/0x2b954551307FB929DF8BB96657DB69fB4d72617c)   |
-| BondDepositoryV2                            | Mainnet   | [`0x9025046c6fb25Fb39e720d97a8FD881ED69a1Ef6`](https://etherscan.io/address/0x9025046c6fb25Fb39e720d97a8FD881ED69a1Ef6)          |
-|                                             | Goerli    | [`0xAda3336fcD233Ff0Eb39BeA0b1a7784E43aD4B00`](https://goerli.etherscan.io/address/0xAda3336fcD233Ff0Eb39BeA0b1a7784E43aD4B00)   |
-| Authority                                   | Mainnet   | [`0x1c21F8EA7e39E2BA00BC12d2968D63F4acb38b7A`](https://etherscan.io/address/0x1c21F8EA7e39E2BA00BC12d2968D63F4acb38b7A)          |
-|                                            | Arbitrum  | [`0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e`](https://arbiscan.io/address/0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e)           |
-|                                            | Optimism  | [`0x13DFEff85779118136bB9826DcAD8f3bd25153a3`](https://optimistic.etherscan.io/address/0x13DFEff85779118136bB9826DcAD8f3bd25153a3)           |
-|                                             | Goerli    | [`0x4A8c9502A34962a2C6d73c5D181dAaeF3dcDc88D`](https://goerli.etherscan.io/address/0x4A8c9502A34962a2C6d73c5D181dAaeF3dcDc88D)   |
-| YieldDirector                               | Mainnet   | [`0x2604170762A1dD22BB4F96C963043Cd4FC358f18`](https://etherscan.io/address/0x2604170762A1dD22BB4F96C963043Cd4FC358f18)          |
-|                                             | Goerli    | [`0x6982CcD55F95A7469746C123f73D54377f382454`](https://goerli.etherscan.io/address/0x6982CcD55F95A7469746C123f73D54377f382454)   |
-| OP Market Creator (for inverse bonds) (old) | Mainnet   | [`0xb1fA0Ac44d399b778B14af0AAF4bCF8af3437ad1`](https://etherscan.io/address/0xb1fA0Ac44d399b778B14af0AAF4bCF8af3437ad1)          |
-|                                             | Goerli    | [`0x0C9D01FbD07cC2fD3e09bD953bb65698351AF05D`](https://goerli.etherscan.io/address/0x0C9D01FbD07cC2fD3e09bD953bb65698351AF05D)   |
-| DAI Token                                   | Goerli    | [`0x41e38e70a36150D08A8c97aEC194321b5eB545A5`](https://goerli.etherscan.io/address/0x41e38e70a36150D08A8c97aEC194321b5eB545A5)   |
-| OHM-DAI Balancer LP Pool                    | Goerli    | [`0xd8833594420dB3D6589c1098dbDd073f52419Dba`](https://goerli.etherscan.io/address/0xd8833594420dB3D6589c1098dbDd073f52419Dba)   |
-| WETH Token (for keeper rewards)             | Goerli    | [`0x0Bb7509324cE409F7bbC4b701f932eAca9736AB7`](https://goerli.etherscan.io/address/0x0Bb7509324cE409F7bbC4b701f932eAca9736AB7)   |
-| Mock OHM/ETH Price Feed                     | Goerli    | [`0x022710a589C9796dce59A0C52cA4E36f0a5e991A`](https://goerli.etherscan.io/address/0x022710a589C9796dce59A0C52cA4E36f0a5e991A)   |
-| Mock DAI/ETH Price Feed                     | Goerli    | [`0xdC8E4eD326cFb730a759312B6b1727C6Ef9ca233`](https://goerli.etherscan.io/address/0xdC8E4eD326cFb730a759312B6b1727C6Ef9ca233)   |
-| Bond Auctioneer                             | Goerli    | [`0x007F7A1cb838A872515c8ebd16bE4b14Ef43a222`](https://goerli.etherscan.io/address/0x007F7A1cb838A872515c8ebd16bE4b14Ef43a222)   |
-| Bond Aggregator                             | Goerli    | [`0x007A66A2a13415DB3613C1a4dd1C942A285902d1`](https://goerli.etherscan.io/address/0x007A66A2a13415DB3613C1a4dd1C942A285902d1)   |
 
 
