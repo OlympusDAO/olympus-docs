@@ -101,6 +101,7 @@ on-chain actions that are approved by the community through [Snapshot](https://d
 | price_admin | Calculates price metrics to use for RBS | RBS | DAO MS |
 | heart_admin | Manages heartbeats | RBS | DAO MS |
 | operator_admin | Initialize RBS operator | RBS | DAO MS |
+| operator_reporter | Records a bond purchase and updates capacity accordingly. Limited to the `BondCallback` contract. | RBS | DAO MS
 | operator_policy | Manages RBS ranges | RBS | DAO MS |
 | callback_admin | Callback to interface with Bond system | RBS | DAO MS |
 | heart_admin | Heart beat manager | RBS and Staking | DAO MS |
