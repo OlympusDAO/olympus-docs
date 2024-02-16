@@ -35,6 +35,23 @@ You must delegate your gOHM in Cooler Loans to be eligible to vote in both Snaps
 :::
 
 
+### Voting eligibility
+The following table outlines what gOHM supply is eligible to vote in both Snapshot and Governor Bravo:
+
+| gOHM type | Eligible for Snapshot | Eligible for Governor Bravo |
+|-|-|-|
+| [gOHM](https://etherscan.io/token/0x0ab87046fBb341D058F17CBC4c1133F25a20a52f) | ✅ | ✅ |
+| gOHM in Cooler Loans | ❗ (requires delegation) | ❗ (requires delegation) |
+| [tokemak gOHM](https://etherscan.io/token/0x41f6a95Bacf9bC43704c4A4902BA5473A8B00263)  | ✅ |  |
+| [Arbitrum gOHM](https://arbiscan.io/token/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1) | ✅ |  |
+| [AVAX gOHM](https://snowtrace.io/token/0x321E7092a180BB43555132ec53AaA65a5bF84251?chainId=43114) | ✅ |  |
+| [Polygon gOHM](https://polygonscan.com/token/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195) | ✅ |  |
+| [Fantom gOHM](https://ftmscan.com/token/0x91fa20244fb509e8289ca630e5db3e9166233fdc) | ✅ |  |
+| [Optimism gOHM](https://optimistic.etherscan.io/token/0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB) | ✅ |  |
+
+
+
+
 
 ## Governor Bravo
 Olympus implements a modified version of Compound’s Governor Bravo with the following key changes:
@@ -45,7 +62,7 @@ Olympus implements a modified version of Compound’s Governor Bravo with the fo
 
 The decision to introduce these changes stem from elasticity in the gOHM supply. Percent-based thresholds ensure that requirements (in absolute gOHM terms) for proposing and executing proposals scale/shrink with the token supply.
 
-Today, Governo Bravo is responsible for the following roles: 
+Today, Governor Bravo is responsible for the following roles: 
 
 | Role | Responsibility | Systems affected |
 |-------- | -------- | -------------- |
@@ -53,7 +70,6 @@ Today, Governo Bravo is responsible for the following roles:
 | liquidityvault_admin | Manage BLV factory | BLV |
 
 Per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governance), additional roles will be transfered from multisig management to Governor Bravo. This phase is expected to complete by Q3 2024.
-
 
 ### Parameters
 | Variable | Description | Value |
@@ -85,6 +101,7 @@ on-chain actions that are approved by the community through [Snapshot](https://d
 | price_admin | Calculates price metrics to use for RBS | RBS | DAO MS |
 | heart_admin | Manages heartbeats | RBS | DAO MS |
 | operator_admin | Initialize RBS operator | RBS | DAO MS |
+| operator_reporter | Records a bond purchase and updates capacity accordingly. Limited to the `BondCallback` contract. | RBS | DAO MS
 | operator_policy | Manages RBS ranges | RBS | DAO MS |
 | callback_admin | Callback to interface with Bond system | RBS | DAO MS |
 | heart_admin | Heart beat manager | RBS and Staking | DAO MS |
