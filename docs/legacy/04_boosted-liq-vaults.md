@@ -1,5 +1,10 @@
 # Boosted Liquidity Vaults
 
+:::warning Warning
+[BLVaultManagerLido](https://etherscan.io/address/0xafe729d57d2cc58978c2e01b4ec39c47fb7c4b23) has been turned off. Using
+Olympus frontend will revert. To withdraw, use `emergencyWithdraw()`, accessible from Write As Proxy within Etherscan.
+:::
+
 The Boosted Liquidity Vault is a new Olympus utility designed to improve the stability of OHM pairs and establish OHM as a liquidity router for the main pillars of DeFi. By incentivizing third-party liquidity provision using high-quality counter assets, the protocol aims to boost liquidity and minimize volatility.
 
 The mechanism provides a framework for the Olympus Treasury to mint OHM directly into liquidity pair vaults against allowlisted assets. The counter-asset will be provided by individual holders and the vault will be incentivized by partner incentives.
