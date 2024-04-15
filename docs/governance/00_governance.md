@@ -38,16 +38,16 @@ You must delegate your gOHM in Cooler Loans to be eligible to vote in both Snaps
 ### Voting eligibility
 The following table outlines what gOHM supply is eligible to vote in both Snapshot and Governor Bravo:
 
-| gOHM type | Eligible for Snapshot | Eligible for Governor Bravo |
+| gOHM type | Snapshot eligibility | Governor Bravo eligibility |
 |-|-|-|
-| [gOHM](https://etherscan.io/token/0x0ab87046fBb341D058F17CBC4c1133F25a20a52f) | ✅ | ✅ |
+| [gOHM](https://etherscan.io/token/0x0ab87046fBb341D058F17CBC4c1133F25a20a52f) | ✅ | ❗ (requires delegation) |
 | gOHM in Cooler Loans | ❗ (requires delegation) | ❗ (requires delegation) |
-| [tokemak gOHM](https://etherscan.io/token/0x41f6a95Bacf9bC43704c4A4902BA5473A8B00263)  | ✅ |  |
-| [Arbitrum gOHM](https://arbiscan.io/token/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1) | ✅ |  |
-| [AVAX gOHM](https://snowtrace.io/token/0x321E7092a180BB43555132ec53AaA65a5bF84251?chainId=43114) | ✅ |  |
-| [Polygon gOHM](https://polygonscan.com/token/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195) | ✅ |  |
-| [Fantom gOHM](https://ftmscan.com/token/0x91fa20244fb509e8289ca630e5db3e9166233fdc) | ✅ |  |
-| [Optimism gOHM](https://optimistic.etherscan.io/token/0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB) | ✅ |  |
+| [tokemak gOHM](https://etherscan.io/token/0x41f6a95Bacf9bC43704c4A4902BA5473A8B00263)  | ✅ | ❌ |
+| [Arbitrum gOHM](https://arbiscan.io/token/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1) | ✅ | ❌ |
+| [AVAX gOHM](https://snowtrace.io/token/0x321E7092a180BB43555132ec53AaA65a5bF84251?chainId=43114) | ✅ | ❌ |
+| [Polygon gOHM](https://polygonscan.com/token/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195) | ✅ | ❌ |
+| [Fantom gOHM](https://ftmscan.com/token/0x91fa20244fb509e8289ca630e5db3e9166233fdc) | ✅ | ❌ |
+| [Optimism gOHM](https://optimistic.etherscan.io/token/0x0b5740c6b4a97f90eF2F0220651Cca420B868FfB) | ✅ | ❌ |
 
 
 
@@ -66,8 +66,8 @@ Today, Governor Bravo is responsible for the following roles:
 
 | Role | Responsibility | Systems affected |
 |-------- | -------- | -------------- |
-| cooler_overseer | Defund and reactivate Clearinghouse | Cooler Loans |
-| liquidityvault_admin | Manage BLV factory | BLV |
+| `cooler_overseer` | Defund and reactivate Clearinghouse | Cooler Loans |
+| `liquidityvault_admin` | Manage BLV factory | BLV |
 
 Per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governance), additional roles will be transfered from multisig management to Governor Bravo. This phase is expected to complete by Q3 2024.
 
