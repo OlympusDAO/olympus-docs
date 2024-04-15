@@ -14,16 +14,12 @@ Any proposal to Olympus' Governor Bravo follows this lifecycle:
 ![proposal-timeline-diagram](/gitbook/assets/proposal-timeline-diagram.svg)
 
 ## Proposal Submission
-Anyone can submit a proposal to the Governor Bravo contract by calling `propose()`. However, the proposer must
-have a minimum amount of voting power to submit a proposal, which is determined by calling the `getProposalThresholdVotes()` function:
+To submit a new proposal to On-chain Governance (OCG), submitters interact directly with Governor Bravo contract by calling propose() function. However, the following requirements must be met before submitting a proposal:
 
-```solidity
-function getProposalThresholdVotes() public view returns (uint256) {
-    return (gohm.totalSupply() * proposalThreshold) / 100_000;
-}
-```
+1. **Minimum voting power** - proposer must hold, and maintain, at least proposalThreshold of the total gOHM supply at time of proposal submission.
+2. **Integration tests** - proposals must be added, tested and simulated in olympus-v3 repository. This process ensures that the proposal is secure and achieves the intended outcomes without putting the protocol at risk.
 
-The proposer's gOHM balance is checked within the `propose()`, `queue()`, and `execute()` functions. If, at any time, the proposer's gOHM balance falls below the proposal threshold, the proposal reverts. This approach ensures that proposers (or their delegators) maintain skin in the game, preventing them from benefiting from malicious proposals.
+To learn more about how to submit proposals, visit [Proposal Submission Framework page](./proposal_submission).
 
 
 :::info
