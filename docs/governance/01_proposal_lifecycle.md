@@ -17,7 +17,7 @@ Any proposal to Olympus' Governor Bravo follows this lifecycle:
 To submit a new proposal to On-chain Governance (OCG), submitters interact directly with Governor Bravo contract by calling propose() function. However, the following requirements must be met before submitting a proposal:
 
 1. **Minimum voting power** - proposer must hold, and maintain, at least proposalThreshold of the total gOHM supply at time of proposal submission.
-2. **Integration tests** - proposals must be added, tested and simulated in olympus-v3 repository. This process ensures that the proposal is secure and achieves the intended outcomes without putting the protocol at risk.
+2. **Code review** - proposals must be added, tested and simulated in olympus-v3 repository. This process ensures that the proposal is secure and achieves the intended outcomes without putting the protocol at risk.
 
 To learn more about how to submit proposals, visit [Proposal Submission Framework page](./proposal_submission).
 

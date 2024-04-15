@@ -1,9 +1,9 @@
 ---
 sidebar_position: 2
-sidebar_label: Proposal Submission
+sidebar_label: Submission Guidelines
 ---
 
-# Proposal Submission Framework
+# Submission Guidelines
 :::info
 Before submitting a new proposal, it's essential to understand Olympus' On-Chain Governance (OCG) system. Please review the details in the [Intro page](./00_governance.md) and [Proposal lifecycle page](./proposal_lifecycle).
 :::
@@ -13,7 +13,7 @@ Before submitting a new proposal, it's essential to understand Olympus' On-Chain
 To submit a new proposal to on-chain governance (OCG), submitters interact directly with Governor Bravo contract by calling `propose()` function. However, the following requirements must be met before submitting a proposal:
 
 1. **Minimum voting power** - proposer must hold, and maintain, at least `proposalThreshold` of the total gOHM supply at time of proposal submission.
-2. **Integration tests** - proposals must be added, tested and simulated in [olympus-v3 repository](https://github.com/OlympusDAO/olympus-v3/). This process ensures that the proposal is secure and achieves the intended outcomes without putting the protocol at risk.
+2. **Code review** - proposals must be added, tested and simulated in [olympus-v3 repository](https://github.com/OlympusDAO/olympus-v3/). This process ensures that the proposal is secure and achieves the intended outcomes without putting the protocol at risk.
 
 ### Minimum voting power
 Whily anyone can submit a proposal by calling `propose()`, the transaction will revert unless proposer has a minimum amount of voting power to submit a proposal, determined by calling the `getProposalThresholdVotes()` function:
@@ -30,7 +30,7 @@ The proposer's gOHM balance is checked within the `propose()`, `queue()`, and `e
 The current proposalThreshold is set to 0.017% of the total gOHM supply
 :::
 
-### Integration tests
+### Code review
 Olympus uses [forge-proposal-simulator](https://solidity-labs.gitbook.io/forge-proposal-simulator/), an open-source framework designed to structure proposals effectively and streamline the proposal verification process. On a high-level, this framework allows anyone to execute proposals in a forked environment and develop integration tests to examine the new system's behavior in a controlled sandbox.
 
 :::warning Warning
