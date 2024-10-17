@@ -4,7 +4,7 @@
 | Auditor  | Link          | Date |
 | -------- | ------------- | ---- |
 | Sherlock | [Link](/gitbook/assets/Olympus_On-Chain_Governance_Audit_Report.pdf) | Feb 6, 2024 |
-
+| yAudit | [Link](/gitbook/assets/yaudit_report.pdf) | Oct 10, 2024 |
 
 ## RBS 2.0
 | Auditor  | Link          | Date |
