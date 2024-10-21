@@ -30,7 +30,7 @@ export const actions = [
   {
     title: "Governance",
     icon: BuildingLibraryIcon,
-    to: "./main/governance/dao",
+    to: "./main/governance/governance",
     text: `An overview of Olympus Governance`,
   },
   {
