@@ -5,7 +5,7 @@ sidebar_label: Intro
 # Governance at Olympus
 
 :::info
-Olympus Governance is transitioning from multisig management to on-chain governance. Per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governance), this phase will complete by Q3 2024. 
+Olympus Governance is transitioning from multisig management to on-chain governanc, per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governance). [OIP-166](https://forum.olympusdao.finance/d/4625-oip-166-activate-governor-timelock/2) was the first deployment of these changes. 
 :::
 
 The Olympus protocol is governed and upgraded by tokenholders using three components:
@@ -88,7 +88,7 @@ Per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governanc
 
 
 ## Shared Roles
-Multisigs may perform protocol upgrades for roles that are not yet fully under Governor Bravo Timelock control. The multisigs may queue and execute on-chain actions that are approved by the community through [Snapshot](https://docs.snapshot.org/), an off-chain governance client. Today, the following roles are under shared Timelock and multisig control:
+Multisigs may perform protocol upgrades for roles that are not yet fully under Governor Bravo's Timelock control. The multisigs may queue and execute on-chain actions that are approved by the community through [Snapshot](https://docs.snapshot.org/), an off-chain governance client. Today, the following roles are under shared Timelock and multisig control:
 
 | Role | Responsibility | Systems affected | Multisig |
 |-------- | -------- | -------------- | -------------- |
@@ -107,7 +107,7 @@ Multisigs may perform protocol upgrades for roles that are not yet fully under G
 
 
 ## Multisig
-Multisigs perform protocol upgrades for roles that are not yet under Governor Bravo Timelock control. The multisigs queue and execute on-chain actions that are approved by the community through [Snapshot](https://docs.snapshot.org/), an off-chain governance client. Today, the following roles are under multisig control:
+Multisigs perform protocol upgrades for roles that are not yet under Governor Bravo's Timelock control. The multisigs queue and execute on-chain actions that are approved by the community through [Snapshot](https://docs.snapshot.org/), an off-chain governance client. Today, the following roles are under multisig control:
 
 
 | Role | Responsibility | Systems affected | Multisig |
