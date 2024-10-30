@@ -41,7 +41,7 @@ The following specification was used to implement the RBS V1 system. It provides
 
     b. Capacity of the upper wall (ask) in OHM should be the capacity of the lower wall (bid) divided by the upper wall price and scaled up by the difference in spread from the lower wall to the upper wall. 
 
-        Ask Capacity = Bid Capacity * (1 + 2 * Wall Spread)
+        Ask Capacity = Bid Capacity * (1 + 2 * Wall Spread) / Upper Wall Price
 
     c. When the capacity of either wall is depleted, the system should not allow additional swaps on that side until it is regenerated.
 
