@@ -21,6 +21,11 @@
 | -------- | ------------- | ---- |
 | Sherlock | [Link](/gitbook/assets/Cooler_Update_Audit_Report.pdf) | Sept 22, 2023 |
 
+## Cooler Loan COnsolidator
+| Auditor  | Link          | Date |
+| -------- | ------------- | ---- |
+| HickupHH3 | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2024_10_LoanConsolidator_Audit.pdf) | Nov 4, 2024 |
+
 ## Cross-chain
 | Auditor  | Link          | Date |
 | -------- | ------------- | ---- |
