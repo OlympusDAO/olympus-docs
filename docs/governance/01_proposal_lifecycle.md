@@ -48,7 +48,7 @@ The current votingDelay is set to 3 days
 
 
 ## Proposal Activation
-Anyone can activate a proposal by calling `activate()`. Calling activate records records `quorumVotes` on the proposal. If the proposal targets a high-risk module, the quorum is calculated using the `getHighRiskQuorumVotes()` function:
+Anyone can activate a proposal by calling `activate()`. Calling activate records `quorumVotes` on the proposal. If the proposal targets a high-risk module, the quorum is calculated using the `getHighRiskQuorumVotes()` function:
 
 ```solidity
 function getHighRiskQuorumVotes() public view returns (uint256) {
@@ -173,7 +173,7 @@ The current Veto Guardian is set to Emergency MS
 
 ## Emergency State
 In the event that gOHM supply collapsed below MIN_GOHM_SUPPLY, Governor Bravo contract enters an emergency state. No
-proposal can be submitted, activated, queued or executed. The only action that can be taken is `emergencyPropose()` which
+proposal can be submitted, activated, queued, or executed. The only action that can be taken is `emergencyPropose()` which
 can only be called by Veto Guardian. This function is used to propose a new proposal to address the emergency situation.
 
 :::info
