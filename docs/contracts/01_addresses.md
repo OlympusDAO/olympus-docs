@@ -55,6 +55,7 @@
 ### Policies
 | Contract              | Chain    | Address                                                                                                                        |
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Emissions Manager        | Mainnet  | [`0x50f441a3387625bDA8B8081cE3fd6C04CC48C0A2`](https://etherscan.io/address/0x50f441a3387625bDA8B8081cE3fd6C04CC48C0A2)        |
 | Clearinghouse v2        | Mainnet  | [`0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c`](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c)        |
 |                       | Goerli | [`0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47`](https://goerli.etherscan.io/address/0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47)         |
 | BondCallback          | Mainnet  | [`0x73df08CE9dcC8d74d22F23282c4d49F13b4c795E`](https://etherscan.io/address/0x73df08CE9dcC8d74d22F23282c4d49F13b4c795E)        |
