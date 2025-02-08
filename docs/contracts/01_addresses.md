@@ -9,10 +9,12 @@
 |           | Polygon   | [`0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7`](https://polygonscan.com/address/0xe06efA3D9Ee6923240ee1195A16ddd96B5CcE8F7)         |
 |           | Fantom    | [`0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10`](https://ftmscan.com/address/0x2bC001fFEB862d843e0a02a7163C7d4828e5FB10)             |
 |           | Avalanche | [`0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32`](https://snowtrace.io/address/0xD1f617fDC0E2e7aF49f7250f163095E76F8e4B32)            |
+|           | Bera      | [`0x91494D1BC2286343D51c55E46AE80C9356D099b5`](https://berascan.com/address/0x91494D1BC2286343D51c55E46AE80C9356D099b5)            |
 | Executor  | Goerli    | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0)     |
 | Guardian  | Goerli    | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0)     |
-| Emergency | Mainnet   | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://etherscan.io/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55)     |
+| Emergency | Mainnet   | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://etherscan.io/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55)            |
 |           | Goerli    | [`0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7`](https://goerli.etherscan.io/address/0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7)     |
+|           | Bera      | [`0xa5ea62894027D981D34BB99A04BD36B818b2Aaf0`](https://berascan.com/address/0xa5ea62894027D981D34BB99A04BD36B818b2Aaf0)            |
 
 
 
@@ -25,6 +27,8 @@
 |          | Arbitrum | [`0xeac3eC0CC130f4826715187805d1B50e861F2DaC`](https://arbiscan.io/address/0xeac3eC0CC130f4826715187805d1B50e861F2DaC)         |
 |          | Optimism   | [`0x18878Df23e2a36f81e820e4b47b4A40576D3159C`](https://optimistic.etherscan.io/address/0x18878Df23e2a36f81e820e4b47b4A40576D3159C) |
 |          | Goerli   | [`0xDb7cf68154bd422dF5196D90285ceA057786b4c3`](https://goerli.etherscan.io/address/0xDb7cf68154bd422dF5196D90285ceA057786b4c3) |
+|          | Base     | [`0x18878Df23e2a36f81e820e4b47b4A40576D3159C`](https://basescan.org/address/0x18878df23e2a36f81e820e4b47b4a40576d3159c#code)   |
+|          | Bera     | [`0x623164A9Ee2556D524b08f34F1d2389d7B4e1A1C`](https://berascan.com/address/0x623164A9Ee2556D524b08f34F1d2389d7B4e1A1C#code)   |
 
 
 ### Modules
@@ -33,10 +37,13 @@
 | TRSRY    | Mainnet  | [`0xa8687A15D4BE32CC8F0a8a7B9704a4C3993D9613`](https://etherscan.io/address/0xa8687A15D4BE32CC8F0a8a7B9704a4C3993D9613)        |
 |          | Arbitrum | [`0x56db53e9801a6EA080569261b63925E0f1f3C81A`](https://arbiscan.io/address/0x56db53e9801a6EA080569261b63925E0f1f3C81A)         |
 |          | Goerli   | [`0xD8C59cFe5afbDB83D904E56D379028a2f6A07a2D`](https://goerli.etherscan.io/address/0xD8C59cFe5afbDB83D904E56D379028a2f6A07a2D) |
+|          | Bera     | [`0xb1fA0Ac44d399b778B14af0AAF4bCF8af3437ad1`](https://berascan.com/address/0xb1fA0Ac44d399b778B14af0AAF4bCF8af3437ad1#code)   |
 | MINTR    | Mainnet  | [`0xa90bFe53217da78D900749eb6Ef513ee5b6a491e`](https://etherscan.io/address/0xa90bFe53217da78D900749eb6Ef513ee5b6a491e)        |
 |          | Arbitrum | [`0x8f6406eDbFA393e327822D4A08BcF15503570D87`](https://arbiscan.io/address/0x8f6406eDbFA393e327822D4A08BcF15503570D87)         |
 |          | Optimism | [`0x623164A9Ee2556D524b08f34F1d2389d7B4e1A1C`](https://optimistic.etherscan.io/address/0x623164A9Ee2556D524b08f34F1d2389d7B4e1A1C)         |
 |          | Goerli   | [`0xa192fFBF73858831a137DD098a706139Ca96AbD5`](https://goerli.etherscan.io/address/0xa192fFBF73858831a137DD098a706139Ca96AbD5) |
+|          | Base     | [`0x623164A9Ee2556D524b08f34F1d2389d7B4e1A1C`](https://basescan.org/address/0x623164a9ee2556d524b08f34f1d2389d7b4e1a1c#code)   |
+|          | Bera     | [`0xbC9eE0D911739cBc72cd094ADA26F56E0C49EeAE`](https://berascan.com/address/0xbC9eE0D911739cBc72cd094ADA26F56E0C49EeAE#code)   |
 | PRICE    | Mainnet  | [`0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f`](https://etherscan.io/address/0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f)        |
 |          | Goerli   | [`0x704e104713Dd874FC1C2493f2d98fF164eBdF735`](https://goerli.etherscan.io/address/0x704e104713Dd874FC1C2493f2d98fF164eBdF735) |
 | RANGE    | Mainnet  | [`0x399cD3685912bb56aAeD0949119dB6cE5Df60FB5`](https://etherscan.io/address/0x399cD3685912bb56aAeD0949119dB6cE5Df60FB5)        |
@@ -45,6 +52,8 @@
 |          | Arbitrum | [`0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6`](https://arbiscan.io/address/0xFF5F09D5efE13A9a424F30EC2e1af89D867834d6)         |
 |          | Optimism | [`0xbC9eE0D911739cBc72cd094ADA26F56E0C49EeAE`](https://optimistic.etherscan.io/address/0xbC9eE0D911739cBc72cd094ADA26F56E0C49EeAE)         |
 |          | Goerli   | [`0xe9a9d80CE3eE32FFf7279dce4c2962eC8098f71B`](https://goerli.etherscan.io/address/0xe9a9d80CE3eE32FFf7279dce4c2962eC8098f71B) |
+|          | Base     | [`0xbC9eE0D911739cBc72cd094ADA26F56E0C49EeAE`](https://basescan.org/address/0xbc9ee0d911739cbc72cd094ada26f56e0c49eeae#code)   |
+|          | Bera     | [`0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0`](https://berascan.com/address/0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0#code)   |
 | BLREG    | Mainnet  | [`0x375E06C694B5E50aF8be8FB03495A612eA3e2275`](https://etherscan.io/address/0x375E06C694B5E50aF8be8FB03495A612eA3e2275)        |
 |          | Goerli   | [`0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14`](https://goerli.etherscan.io/address/0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14) |
 | LENDR    | Arbitrum  | [`0x868C3ae18Fdea85bBb7a303e379c5B7e23b30F03`](https://arbiscan.io/address/0x868C3ae18Fdea85bBb7a303e379c5B7e23b30F03)        |
@@ -69,9 +78,12 @@
 | RolesAdmin            | Mainnet  | [`0xb216d714d91eeC4F7120a732c11428857C659eC8`](https://etherscan.io/address/0xb216d714d91eeC4F7120a732c11428857C659eC8)        |
 |                       | Arbitrum | [`0x69168c08AcF66f002fd02E1B169f38C022c93b70`](https://arbiscan.io/address/0x69168c08AcF66f002fd02E1B169f38C022c93b70)         |
 |                       | Optimism | [`0xb1fA0Ac44d399b778B14af0AAF4bCF8af3437ad1`](https://optimistic.etherscan.io/address/0xb1fA0Ac44d399b778B14af0AAF4bCF8af3437ad1)         |
+|                       | Base     | [`0xb1fA0Ac44d399b778B14af0AAF4bCF8af3437ad1`](https://basescan.org/address/0xb1fa0ac44d399b778b14af0aaf4bcf8af3437ad1)        |
+|                       | Bera     | [`0xe37D9a2791707BBB858012d219960D5FBD190794`](https://berascan.com/address/0xe37D9a2791707BBB858012d219960D5FBD190794)        |
 |                       | Goerli   | [`0x54FfCA586cD1B01E96a5682DF93a55d7Ef91EFF0`](https://goerli.etherscan.io/address/0x54FfCA586cD1B01E96a5682DF93a55d7Ef91EFF0) |
 | TreasuryCustodian     | Mainnet  | [`0xC9518AC915e46D707585116451Dc19c164513Ccf`](https://etherscan.io/address/0xC9518AC915e46D707585116451Dc19c164513Ccf)        |
 |                       | Goerli   | [`0x3DAE418f8B6382b3d3d0cb9008924BA83D2e0E87`](https://goerli.etherscan.io/address/0x3DAE418f8B6382b3d3d0cb9008924BA83D2e0E87) |
+|                       | Bera     | [`0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F`](https://berascan.com/address/0x0D33c811D0fcC711BcB388DFB3a152DE445bE66F#code)   |
 | Distributor           | Mainnet  | [`0x27e606fdb5C922F8213dC588A434BF7583697866`](https://etherscan.io/address/0x27e606fdb5C922F8213dC588A434BF7583697866)        |
 |                       | Goerli   | [`0x2716a1451BDE2B011f0D10ad6599e411d54Ec491`](https://goerli.etherscan.io/address/0x2716a1451BDE2B011f0D10ad6599e411d54Ec491) |
 | Emergency             | Mainnet  | [`0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75`](https://etherscan.io/address/0x9229b0b6FA4A58D67Eb465567DaA2c6A34714A75)        |
@@ -81,6 +93,8 @@
 | CrossChainBridge      | Mainnet  | [`0x45e563c39cddba8699a90078f42353a57509543a`](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a)        |
 |                       | Arbitrum | [`0x20B3834091f038Ce04D8686FAC99CA44A0FB285c`](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c)         |
 |                       | Optimism | [`0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0`](https://optimistic.etherscan.io/address/0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0)         |
+|                       | Base     | [`0x6CA1a916e883c7ce2BFBcF59dc70F2c1EF9dac6e`](https://basescan.org/address/0x6ca1a916e883c7ce2bfbcf59dc70f2c1ef9dac6e#code)   |
+|                       | Bera     | [`0xBA42BE149e5260EbA4B82418A6306f55D532eA47`](https://berascan.com/address/0xBA42BE149e5260EbA4B82418A6306f55D532eA47)        |
 | Faucet (Testnet only) | Goerli   | [`0xA247156a39169c0FAFf979F57361CC734e82e3d0`](https://goerli.etherscan.io/address/0xA247156a39169c0FAFf979F57361CC734e82e3d0) |
 | Burner | Goerli   | [`0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853`](https://goerli.etherscan.io/address/0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853) |
 
@@ -102,7 +116,7 @@
 | BLVaultManagerLido    | Mainnet  | [`0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23`](https://etherscan.io/address/0xafe729d57d2CC58978C2e01b4EC39C47FB7C4b23)        |
 |                       | Goerli   | [`0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34`](https://goerli.etherscan.io/address/0x5c9352d333F4D9EA1FDbF374d8D392e1843D0E34) |
 | SiloAMO               | Arbitrum | [`0xA8578c9A73C2b4F75968EC76d6689045ff68B97C`](https://arbiscan.io/address/0xA8578c9A73C2b4F75968EC76d6689045ff68B97C)         |
-
+| CrossChainBridge      | Base     | [`0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0`](https://basescan.org/address/0x22ae99d07584a2ae1af748de573c83f1b9cdb4c0)        |
 
 
 
@@ -119,7 +133,7 @@
 | Governor Bravo Delegate | Mainnet | [`0xa6013bBFd70d6190FA1cc1afD0cB3859847711B4`](https://etherscan.io/address/0xa6013bBFd70d6190FA1cc1afD0cB3859847711B4)        |
 | Governor Bravo Delegator | Mainnet | [`0x0941233c964e7d7Efeb05D253176E5E634cEFfcD`](https://etherscan.io/address/0x0941233c964e7d7Efeb05D253176E5E634cEFfcD)        |
 | Timelock | Mainnet | [`0x953EA3223d2dd3c1A91E9D6cca1bf7Af162C9c39`](https://etherscan.io/address/0x953EA3223d2dd3c1A91E9D6cca1bf7Af162C9c39)        |
-
+| Yield Repurchase Facility | Mainnet | [`0x30a967eb957e5b1ee053b75f1a57ea6bfb2e907e`](https://etherscan.io/address/0x30a967eb957e5b1ee053b75f1a57ea6bfb2e907e#code) |
 
 
 
@@ -131,6 +145,8 @@
 |                                             | Arbitrum  | [`0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028`](https://arbiscan.io/token/0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028)             |
 |                                             | Optimism  | [`0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0`](https://optimistic.etherscan.io/address/0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0)             |
 |                                             | Goerli    | [`0x0595328847AF962F951a4f8F8eE9A3Bf261e4f6b`](https://goerli.etherscan.io/address/0x0595328847AF962F951a4f8F8eE9A3Bf261e4f6b)   |
+|                                             | Base      | [`0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0`](https://basescan.org/address/0x060cb087a9730e13aa191f31a6d86bff8dfcdcc0#code)     |
+|                                             | Bera      | [`0x18878Df23e2a36f81e820e4b47b4A40576D3159C`](https://berascan.com/address/0x18878Df23e2a36f81e820e4b47b4A40576D3159C#code)     |
 | sOHM V2                                     | Mainnet   | [`0x04906695D6D12CF5459975d7C3C03356E4Ccd460`](https://etherscan.io/address/0x04906695D6D12CF5459975d7C3C03356E4Ccd460)          |
 |                                             | Goerli    | [`0x4EFe119F4949319f2Acb12efD615a7B63896482B`](https://goerli.etherscan.io/address/0x4EFe119F4949319f2Acb12efD615a7B63896482B)   |
 |                                             | Avalanche | [`0x8cd309e14575203535ef120b5b0ab4dded0c2073`](https://snowtrace.io/token/0x8cd309e14575203535ef120b5b0ab4dded0c2073)            |
@@ -146,6 +162,8 @@
 |                                            | Arbitrum  | [`0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e`](https://arbiscan.io/address/0x78f84998c73655ac2Da0Aa1e1270F6Cb985a343e)           |
 |                                            | Optimism  | [`0x13DFEff85779118136bB9826DcAD8f3bd25153a3`](https://optimistic.etherscan.io/address/0x13DFEff85779118136bB9826DcAD8f3bd25153a3)           |
 |                                             | Goerli    | [`0x4A8c9502A34962a2C6d73c5D181dAaeF3dcDc88D`](https://goerli.etherscan.io/address/0x4A8c9502A34962a2C6d73c5D181dAaeF3dcDc88D)   |
+|                                             | Base      | [`0x13DFEff85779118136bB9826DcAD8f3bd25153a3`](https://basescan.org/address/0x13dfeff85779118136bb9826dcad8f3bd25153a3)          |
+|                                             | Bera      | [`0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0`](https://berascan.com/address/0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0)          |
 | OlympusMigrator                             | Mainnet   | [`0x184f3FAd8618a6F458C16bae63F70C426fE784B3`](https://etherscan.io/address/0x184f3FAd8618a6F458C16bae63F70C426fE784B3)          |
 |                              | Avalanche   | [`0x9050D25977F8A19CDD5599A28bC5f55d39fb6105`](https://snowtrace.io/token/0x9050D25977F8A19CDD5599A28bC5f55d39fb6105)         |
 | Staking                                     | Mainnet   | [`0xB63cac384247597756545b500253ff8E607a8020`](https://etherscan.io/address/0xB63cac384247597756545b500253ff8E607a8020)          |
