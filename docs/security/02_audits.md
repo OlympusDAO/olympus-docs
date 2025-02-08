@@ -1,9 +1,9 @@
 # Audits
 
 ## Emissions Manager
-|Auditor | Link           | Date|
+| Auditor | Link           | Date|
+| -------- | ------------- | ---- |
 | yAudit | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2024_11_EmissionManager_ReserveMigrator.pdf) | Nov 9, 2024 |
-
 
 ## On-Chain Governance
 | Auditor  | Link          | Date |
