@@ -1,5 +1,10 @@
 # Audits
 
+## Emissions Manager
+| Auditor | Link           | Date|
+| -------- | ------------- | ---- |
+| yAudit | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2024_11_EmissionManager_ReserveMigrator.pdf) | Nov 9, 2024 |
+
 ## On-Chain Governance
 | Auditor  | Link          | Date |
 | -------- | ------------- | ---- |
@@ -21,7 +26,7 @@
 | -------- | ------------- | ---- |
 | Sherlock | [Link](/gitbook/assets/Cooler_Update_Audit_Report.pdf) | Sept 22, 2023 |
 
-## Cooler Loan COnsolidator
+## Cooler Loan Consolidator
 | Auditor  | Link          | Date |
 | -------- | ------------- | ---- |
 | HickupHH3 | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2024_10_LoanConsolidator_Audit.pdf) | Nov 4, 2024 |
