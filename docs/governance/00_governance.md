@@ -66,7 +66,7 @@ Today, Governor Bravo's Timelock is responsible for the following roles:
 
 | Role | Responsibility | Systems affected |
 |-------- | -------- | -------------- |
-| `admin` | Single address permission: Assign roles to any policy | Kernal |
+| `admin` | Single address permission: Assign roles to any policy | Kernel |
 
 Per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governance), additional roles will be transfered from multisig management to Governor Bravo's Timelock. [OIP-166](https://forum.olympusdao.finance/d/4625-oip-166-activate-governor-timelock/2) was the first deployment of these changes.
 
