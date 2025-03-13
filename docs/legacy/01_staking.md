@@ -1,19 +1,12 @@
 # Staking
 
-OHM holders can choose to stake OHM for gOHM, which receives the Base Staking Rate (“BSR”). During Olympus’ bootstrapping phase, this rate was intended to reflect the expected growth of the network. The BSR now serves as a demand driver for OHM as well as a reference rate against which productive economic activity (lending, liquidity provision, etc.) is measured. Furthermore, it acts as a foundation for OHM bonds to develop a yield curve across different expiries.
+Though rebasing is no longer in effect, users can still stake their OHM for gOHM. A user would mainly do so in order to acquire governance votes, or to interact with Cooler Loans.
 
-The BSR is set by governance.
+## Legacy Rebasing
 
-    gOHM = OHM * Index
+The original implementation of Olympus featured rebasing through the sOHM token. This mechanism was designed to reflect staking growth via supply and suppress OHM's unit price while preserving value for long-term holders, similar to how stock splits work in traditional markets. Rebasing increased the OHM supply for stakers such that 1 OHM staked before the first rebase was ~269.24 upon the final rebase.
+This historical mechanism continues to impact how OHM is represented today. Standard price charts only display the unstaked OHM price, creating a misleading impression of value changes. For example, someone who staked 1 OHM at $269 in March 2021 would have accumulated over 269 OHM by January 2023. Even with the unstaked price at $10, their position value would be $2,690 – a 10x increase in value despite what appears as a 96.3% price drop on conventional charts
 
-where `Index` is an increasing number based on the BSR.
+![Staking Index](https://github.com/user-attachments/assets/3e746147-3d0b-4808-9974-f3e1b19a91a0)
 
-## Staking Warm-Up Period
-
-To protect Olympus against flash loan attacks wishing to unfairly game the staking mechanism, a warm-up period was introduced in February 2023.
-
-When you stake OHM to receive gOHM, you:
-
-1. Will earn rebases as normal for each epoch that occurs every ~8 hours.
-2. Will be able to claim gOHM (gOHM → OHM) after 2 rebases.
-3. Can claim your original OHM amount if wishing to unstake before 2 epochs, waiving the earned rebases.
+You might see the phrase 'Index-Adjusted' mentioned when referring to historical metrics like price, backing or supply. What this means is that the metric has been normalized to account for the effects of rebasing. For example, Index-Adjusted Supply shows what the circulating supply is on a given date if all the rebases up to that date were accounted for, providing a more accurate view of supply growth over time. These adjusted metrics allow for more meaningful comparisons across different time periods in Olympus' history.
