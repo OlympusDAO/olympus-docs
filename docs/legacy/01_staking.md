@@ -7,5 +7,4 @@ Though rebasing is no longer in effect, users can still stake their OHM for gOHM
 The original implementation of Olympus featured rebasing through the sOHM token. This mechanism was designed to reflect staking growth via supply and suppress OHM's unit price while preserving value for long-term holders, similar to how stock splits work in traditional markets. Rebasing increased the OHM supply for stakers such that 1 OHM staked before the first rebase was ~269.24 upon the final rebase.
 This historical mechanism continues to impact how OHM is represented today. Standard price charts only display the unstaked OHM price, creating a misleading impression of value changes. For example, someone who staked 1 OHM at $269 in March 2021 would have accumulated over 269 OHM by January 2023. Even with the unstaked price at $10, their position value would be $2,690 – a 10x increase in value despite what appears as a 96.3% price drop on conventional charts
 
-![image](https://github.com/user-attachments/assets/896d23de-c7c4-44c6-a4ed-678c7abf926f)
-
+![Staking Index](https://github.com/user-attachments/assets/d8dac53f-91ce-41e9-849b-bb7e6811d896)
