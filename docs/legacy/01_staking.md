@@ -8,3 +8,5 @@ The original implementation of Olympus featured rebasing through the sOHM token.
 This historical mechanism continues to impact how OHM is represented today. Standard price charts only display the unstaked OHM price, creating a misleading impression of value changes. For example, someone who staked 1 OHM at $269 in March 2021 would have accumulated over 269 OHM by January 2023. Even with the unstaked price at $10, their position value would be $2,690 – a 10x increase in value despite what appears as a 96.3% price drop on conventional charts
 
 ![Staking Index](https://github.com/user-attachments/assets/3e746147-3d0b-4808-9974-f3e1b19a91a0)
+
+You might see the phrase 'Index-Adjusted' mentioned when referring to historical metrics like price, backing or supply. What this means is that the metric has been normalized to account for the effects of rebasing. For example, Index-Adjusted Supply shows what the circulating supply is on a given date if all the rebases up to that date were accounted for, providing a more accurate view of supply growth over time. These adjusted metrics allow for more meaningful comparisons across different time periods in Olympus' history.
