@@ -96,7 +96,7 @@ Furthermore, since Clearinghouse.sol gives the ability to extend a loan an arbit
 
 Example: user has an open loan, borrowing 2892.92 DAI against 1 gOHM, owing 4.82 DAI in interest. They want to extend the loan for one more term (121 days). For this to work, they transfer 4.82 DAI (paying off interest on previous loan) and loan expiry extends by 121 days. In another 121 days, user owes 4.82 DAI interest and 2892.92 DAI in principal.
 
-Example: Consider the same example but now the user wants to extend for 10 terms (1210 days). For this to work, they transfer 482 DAI (ten times 4.82 DAI) and loan expiry extends by 1210 days. In 1210 days, user owes 4.82 DAI and 2892.92 DAI in principal.
+Example: Consider the same example but now the user wants to extend for 10 terms (1210 days). For this to work, they transfer 48.2 DAI (ten times 4.82 DAI) and loan expiry extends by 1210 days. In 1210 days, user owes 4.82 DAI and 2892.92 DAI in principal.
 
 Notice how interest due remains the same as the original loan term. Why? Functionally speaking, user’s interestDue variable didn’t change; the user just transferred the amount of interest that would’ve been charged during the extension directly to Clearinghouse.sol contract.
 
