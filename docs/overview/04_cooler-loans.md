@@ -75,7 +75,7 @@ In the same transaction that a request is created, Clearinghouse.sol fulfills th
 
 It’s important to highlight that interest on the loan is accrued at the time the loan is opened. Keep this in mind as you read the next two sections.
 
-Example: user requests to borrow against 1 gOHM. The LTB for cooler is 2892.92 DAI per gOHM, at the time the loan is opened, the user owes 4.82 DAI in interest (0.05% multiplied by 2892.92 DAI principal multiplied by 121 days out of 365). User gets 2892.92 DAI in their wallet and transfers 1 gOHM.
+Example: user requests to borrow against 1 gOHM. The LTB for cooler is 2892.92 DAI per gOHM, at the time the loan is opened, the user owes 4.82 DAI in interest (0.5% multiplied by 2892.92 DAI principal multiplied by 121 days out of 365). User gets 2892.92 DAI in their wallet and transfers 1 gOHM.
 
 ### Repaying a Loan
 
