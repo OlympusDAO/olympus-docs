@@ -75,7 +75,7 @@ In the same transaction that a request is created, Clearinghouse.sol fulfills th
 
 It’s important to highlight that interest on the loan is accrued at the time the loan is opened. Keep this in mind as you read the next two sections.
 
-Example: user requests to borrow against 1 gOHM. The LTB for cooler is 2892.92 DAI per gOHM, at the time the loan is opened, the user owes 4.82 DAI in interest (0.05% multiplied by 2892.92 DAI principal multiplied by 121 days out of 365). User gets 2892.92 DAI in their wallet and transfers 1 gOHM.
+Example: user requests to borrow against 1 gOHM. The LTB for cooler is 2892.92 DAI per gOHM, at the time the loan is opened, the user owes 4.82 DAI in interest (0.5% multiplied by 2892.92 DAI principal multiplied by 121 days out of 365). User gets 2892.92 DAI in their wallet and transfers 1 gOHM.
 
 ### Repaying a Loan
 
@@ -96,7 +96,7 @@ Furthermore, since Clearinghouse.sol gives the ability to extend a loan an arbit
 
 Example: user has an open loan, borrowing 2892.92 DAI against 1 gOHM, owing 4.82 DAI in interest. They want to extend the loan for one more term (121 days). For this to work, they transfer 4.82 DAI (paying off interest on previous loan) and loan expiry extends by 121 days. In another 121 days, user owes 4.82 DAI interest and 2892.92 DAI in principal.
 
-Example: Consider the same example but now the user wants to extend for 10 terms (1210 days). For this to work, they transfer 482 DAI (ten times 4.82 DAI) and loan expiry extends by 1210 days. In 1210 days, user owes 4.82 DAI and 2892.92 DAI in principal.
+Example: Consider the same example but now the user wants to extend for 10 terms (1210 days). For this to work, they transfer 48.2 DAI (ten times 4.82 DAI) and loan expiry extends by 1210 days. In 1210 days, user owes 4.82 DAI and 2892.92 DAI in principal.
 
 Notice how interest due remains the same as the original loan term. Why? Functionally speaking, user’s interestDue variable didn’t change; the user just transferred the amount of interest that would’ve been charged during the extension directly to Clearinghouse.sol contract.
 
