@@ -68,6 +68,7 @@
 | Cooler V2 Composites        | Mainnet  | [`0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd`](https://etherscan.io/address/0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd)        |
 | Cooler V2 Monocooler       | Mainnet  | [`0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC`](https://etherscan.io/address/0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC)        |
 | Cooler V2 Migrator       | Mainnet  | [`0xe045bd0a0d85e980aa152064c06eae6b6ae358d2`](https://etherscan.io/address/0xe045bd0a0d85e980aa152064c06eae6b6ae358d2)        |
+| Yield Repurchase Facility        | Mainnet  | [`0x271e35a8555a62F6bA76508E85dfD76D580B0692`](https://etherscan.io/address/0x271e35a8555a62F6bA76508E85dfD76D580B0692)        |
 | BondCallback          | Mainnet  | [`0x73df08CE9dcC8d74d22F23282c4d49F13b4c795E`](https://etherscan.io/address/0x73df08CE9dcC8d74d22F23282c4d49F13b4c795E)        |
 |         | Goerli  | [`0x776142Abb0e274734A95dA2A4749b52eb4e896F3`](https://goerli.etherscan.io/address/0x776142Abb0e274734A95dA2A4749b52eb4e896F3)        |
 | Operator              | Mainnet  | [`0x0AE561226896dA978EaDA0Bec4a7d3CfAE04f506`](https://etherscan.io/address/0x0AE561226896dA978EaDA0Bec4a7d3CfAE04f506)        |
@@ -104,7 +105,6 @@
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | Clearinghouse v3        | Mainnet  | [`0x1e094fE00E13Fd06D64EeA4FB3cD912893606fE0`](https://etherscan.io/address/0x1e094fE00E13Fd06D64EeA4FB3cD912893606fE0)        |
 | Clearinghouse v2 (deprecated)       | Mainnet  | [`0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c`](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c)        |
-|                       | Goerli | [`0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47`](https://goerli.etherscan.io/address/0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47)         |
 |                       | Goerli | [`0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47`]
 | Clearinghouse v1 (deprecated)         | Mainnet  | [`0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880`](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880)        |
 |                       | Goerli | [`0x075441d52ff9aedcbe9177d70895c0ad4775a50e`](https://goerli.etherscan.io/address/0x075441d52ff9aedcbe9177d70895c0ad4775a50e)         |
