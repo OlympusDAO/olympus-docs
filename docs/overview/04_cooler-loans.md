@@ -22,15 +22,15 @@ Cooler Loans differentiates itself from existing lending markets:
 
 ## Architecture
 
-### Policies
-`MonoCooler` - Core contract managing loan state.
-`LTV Oracle` - Defines origination and liquidation LTVs.
-`Treasury Borrower` - Connects loan disbursement to the Olympus Treasury.
-### Modules
-`DLGTE` - Enables multi-wallet delegation and vote assignment.
-### Periphery
-`Composites` - Enables gas-efficient combined actions (e.g., deposit + borrow).
-`Migrator` - Streamlines transition from Cooler V1 to V2.
+#### Policies
+- `MonoCooler` - Core contract managing loan state.
+- `LTV Oracle` - Defines origination and liquidation LTVs.
+- `Treasury Borrower` - Connects loan disbursement to the Olympus Treasury.
+#### Modules
+- `DLGTE` - Enables multi-wallet delegation and vote assignment.
+#### Periphery
+- `Composites` - Enables gas-efficient combined actions (e.g., deposit + borrow).
+- `Migrator` - Streamlines transition from Cooler V1 to V2.
 
 
 ### Loan Terms and Conditions
@@ -45,7 +45,7 @@ Before borrowing from the Clearinghouse, it's important to understand the terms 
 - Minimum debt required to open a loan: 1000 USDS
 - Origination LTV Update Interval: 604800 seconds (7 days)
 
-:::Note
+:::note
 The system gradually increases the LTV through a drip mechanism, moving from its current value toward the target origination LTV for the Cooler V2 policy to be 2991.2564 USDS/gOHM (~ 11.11 USDS/OHM) on 15th May 2026.  This is a linear release, not a cadence-based recalculation.
 :::
 
@@ -90,7 +90,7 @@ Each delegation allows users to choose a delegate address, and optionally self-d
 - Delegation is active and can be updated at any time via "Manage Delegation"
 - Governance participation and Cooler loan management can be shared across up to 10 wallets
 
-:::Note
+:::note
 When delegation is applied, gOHM is not just logically assigned but physically moved into escrow. This ensures separation of powers and formalized delegation at the contract level.
 :::
 
