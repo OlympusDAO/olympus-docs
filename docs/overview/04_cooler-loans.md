@@ -183,13 +183,12 @@ When a loan is defaulted, the underlying collateral is burned.
 
 ### Can a user vote with their Cooler collateral?
 
-To participate in governance, users MUST self-delegate in order to be able to use Cooler collateral to vote on snapshot proposals. Undelegated collateral is unable to be recognized by snapshot. Users can either delegate to their own address, or delegate their voting power to another address.
+To participate in governance, users MUST self-delegate in order to be able to use Cooler collateral to vote on snapshot proposals. Undelegated collateral is unable to be recognized by snapshot. Users can either delegate to their own address, or delegate their voting power to another address, up to 10 addresses total.
 - Delegation can be completed via the Cooler page on the app once a user has an active loan.
 - Delegation must be completed prior to a snapshot proposal going live or the user will be unable to vote for that proposal.
-- ALL of the collateral in your Cooler is delegated when calling this function, it is not on a per loan basis.
-- If you have multiple loans, they will all be delegated to the same address.
-- You only need to call delegate once, it will automatically recognize each time you add to a loan to your Cooler and reflect the increased collateral.
-- You can choose to change the address that you delegate to at a later time.
+- ALL of the collateral in your Cooler is delegated when calling this function.
+- You only need to call delegate once, it will automatically recognize each time you add to your loan.
+- You can choose to change the address(s) that you delegate to at a later time.
 
 ## Contracts
 
