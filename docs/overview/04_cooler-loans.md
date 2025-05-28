@@ -2,103 +2,135 @@
 
 ## Overview
 
-Cooler Loans is a decentralized lending facility that allows OHM (Olympus) token holders to borrow DAI by using their gOHM (governance OHM) tokens as collateral. This lending facility is permissionless, immutable, and governed by Olympus smart contracts. With Cooler Loans, users will have a reliable access to liquidity using their gOHM token as collateral.
+Cooler Loans is Olympus DAO's protocol-native, perpetual lending system that allows OHM (Olympus) token holders to borrow USDS by using their gOHM (governance OHM) tokens as collateral. This lending facility is permissionless, immutable, and governed by Olympus smart contracts. With Cooler Loans, users will have a reliable access to liquidity using their gOHM token as collateral. Cooler V2 introduces a fixed-rate borrowing model backed directly by the Olympus Treasury, with no price-based liquidations and no expiry. V2 evolves beyond V1’s fixed term-based model, offering a more flexible credit primitive for long-term gOHM holders and treasuries.
 
 Cooler Loans differentiates itself from existing lending markets:
 
-- **Peer-to-lender** - loans originate from Olympus Treasury through a clearinghouse contract. Practically, Cooler Loans acts as lender-of-last-resort and can guarantee liquidity because every gOHM is backed by DAI.
-- **Fixed duration** - all loans have a fixed maturity.
-- **Fixed interest** - all loans have a fixed interest rate that is independent of market conditions.
-- **No liquidations** - whereas most lending markets will liquidate your position if underlying collateral falls below a certain price, Cooler Loans is in a unique position to offer liquidation-free loans because every gOHM is backed by DAI. As long as Loan-to-Collateral value is at a safe discount relative to actual backing, the protocol remains solvent.
-- **Oracle-free** - since Cooler Loans does not have liquidations and origination is based on a fixed value, it doesn’t depend on any external oracles.
-- **Isolated risk architecture** - whereas most lending markets socialize borrower risk through shared pool architecture, Cooler Loans isolates risk via user-specific debt-collateral contracts called Coolers.
-- **Predictable Terms** - Capacity, Loan-to-backing amount, tenor, and interest rates are all fixed parameters.
-- **Ability to roll** - Users can roll their loans at any time prior to the loan's expiration, keeping the same fixed terms.  
+- **Peer-to-lender** - loans originate from Olympus Treasury. Practically, Cooler Loans acts as lender-of-last-resort and can guarantee liquidity because every gOHM is backed by USDS.
+- **Perpetual Borrowing** - No expiration or renewal needed. Positions stay open as long as interest is paid.
+- **Fixed 0.5% APR** - Continuous interest accrual, set via governance, independent of market conditions.
+- **No Price-Based Liquidations** - Whereas most lending markets will liquidate your position if underlying collateral falls below a certain price, Cooler Loans is in a unique position to offer liquidation-free loans because every gOHM is backed by USDS. As long as Loan-to-Collateral value is at a safe discount relative to actual backing, the protocol remains solvent. Loans default only when unpaid interest exceeds a governance-defined threshold.
+- **Unified Loan Position** - One dynamic loan per user- collateral, debt, and repayments are managed flexibly.
+- **Governance-Aligned LTV Drip** - Origination LTV increases over time through a governance-controlled drip system.
+- **gOHM Collateral** - Ensures borrowing is backed by a protocol-native asset, reinforcing system solvency.
+- **Delegated Multi-Wallet Access** - Up to 10 wallets can manage a single loan position.
+- **Oracle-Free, Fully Treasury-Backed** - Since Cooler Loans does not have price liquidations and origination is based on a governance defined value, it doesn’t depend on any external oracles or price feeds.
+- **Manual Leverage Flexibility** - Users can re-leverage at their discretion by adding collateral and borrowing more, enabling custom exposure timing and pricing based on market premiums.
+- **No Exit Fees** - There are no penalties or fees for full or partial repayment of loans.
+- **Reduced Contract Risk** - Cooler V2 is a minimal, single-purpose system, reducing attack surface and simplifying security assumptions.
+- **Predictable Terms** - Capacity, Loan-to-backing amount, drip rate, and interest rates are all established parameters determined by governance.
+
 ## Architecture
 
-Cooler Loans is built on top of three smart contracts and two structs:
+### Policies
+`MonoCooler` - Core contract managing loan state.
+`LTV Oracle` - Defines origination and liquidation LTVs.
+`Treasury Borrower` - Connects loan disbursement to the Olympus Treasury.
+### Modules
+`DLGTE` - Enables multi-wallet delegation and vote assignment.
+### Periphery
+`Composites` - Enables gas-efficient combined actions (e.g., deposit + borrow).
+`Migrator` - Streamlines transition from Cooler V1 to V2.
 
-- **Cooler.sol** - Cooler is an escrow contract that facilitates fixed-duration, peer-to-peer loans for a user-debt-collateral combination. Some of the responsibilities of Cooler contract include:
-  - Keeps track of all the requests/loans and their status
-  - Escrows the collateral during the lending period
-  - Handles clearings, repayments, rollovers and defaults
-  - Offers callbacks to the lender after key actions happen
-- **Clearinghouse.sol** - Clearinghouse is a lender-owned contract that manages loan workflows including fulfilling requests, extending maturities, claiming defaults and rebalancing funds to/from Olympus Treasury. Some of the responsibilities of Clearinghouse contract include:
-  - Implements the mandate of the Olympus community in OIP-144 by offering loans at the governance-approved terms
-  - Tracks the outstanding debt and interest that the protocol should be received upon repayment
-  - Its lending capacity is limited by a FUND_AMOUNT and a FUND_CADENCE.
-    Despite providing loans denominated in DAI, the system allocates its dormant capital to the Dai Savings Rate (DSR) while maintaining holdings in sDAI.
-    Implements permissioned functions to shutdown, defund, and reactivate the lending facility
-- **CoolerFactory.sol** - CoolerFactory is a factory contract for deploying Cooler.sol contracts associated with a user-debt-collateral combination. Some of the responsibilities of CoolerFactory contract include:
-  - Keeps track of all the deployed contracts
-  - Deploys a new Cooler if the combination of user-debt-collateral doesn't exist yet
-  - Uses clones with immutable arguments to save gas
-  - In charge of logging the Cooler events
-- **Request struct** - Request is a struct that represents intent (or request) by the borrower to borrow DAI against gOHM. Technically, requests may or may not be filled, but current implementation of Clearinghouse.sol automatically fills all requests.
-- **Loan struct** - Loan is a struct that represents fulfillment by the lender of a particular Request.
-
-The following diagram may help understand the relationship between the various components:
-
-![Cooler Loan Architecture](/gitbook/assets/cooler-architecture.png)
-
-## Using Cooler Loans
-
-When a user wants to use Cooler Loans, they begin by interacting with CoolerFactory.sol to create a Cooler.sol that is unique to them, the collateral, and the borrowable asset. Within a user's Cooler.sol there may be multiple requests and loans. It is important to distinguish this singular escrow contract from the plural loan workflow.
-
-Next, when a user signals intent to borrow 2892.92 DAI against 1 gOHM, a Request struct is created. Simultaneously, Clearinghouse.sol withdraws the requisite amount of DAI from TRSRY.sol and fulfills the request. The act of fulfillment creates the Loan struct.
-
-At this point, Clearinghouse.sol gets gOHM collateral and the user gets DAI in their wallet. The user can then repay the loan, extend the loan, or default on the loan.
 
 ### Loan Terms and Conditions
 
 Before borrowing from the Clearinghouse, it's important to understand the terms and conditions:
 
-- Loans are extended in DAI, against gOHM collateral
-- Loans have an annualized interest rate of 0.5%, as approved by TAP-28
-- Loan duration is 121 days, as approved by TAP-28
-- The loan-to-collateral ratio is 2892.92 DAI per gOHM, as approved by TAP-28
-- Loans can be extended with the same terms an arbitrary number of times into the future.
-- While Clearinghouse.sol is immutable, future governance proposals may deploy new Clearinghouse contracts with updated parameters. Any loan terms made under the original Clearinghouse contract are not affected.
-- To minimize smart contract risk, Cooler Loans will be rolled out with a weekly cadence of 18M DAI capacity.
+- Loans are extended in USDS, against gOHM collateral
+- Loans have an annualized interest rate of 0.5%, as approved by OCG Proposal 8
+- The Initial Origination loan-to-collateral ratio (as of May 15, 2025) is 2961.64 USDS/gOHM (~ 11 USDS/OHM)
+- The Liquidation Premium is 1%.
+- The LTV Drip Rate: max (positive) rate of change of Origination LTV allowed: 0.0000011574 USDS/second (0.1 USDS/day)
+- Minimum debt required to open a loan: 1000 USDS
+- Origination LTV Update Interval: 604800 seconds (7 days)
+
+:::info
+Note: The system gradually increases the LTV through a drip mechanism, moving from its current value toward the target origination LTV for the Cooler V2 policy to be 2991.2564 USDS/gOHM (~ 11.11 USDS/OHM) on 15th May 2026.  This is a linear release, not a cadence-based recalculation.
+:::
+
+Governance can update these parameters as needed.
 
 ### Opening a Loan
 
-To open a loan, a user will first need to create a Cooler.sol escrow contract for themselves. This happens by interacting with CoolerFactory.sol factory, available on the Olympus frontend.
+To open a loan, a user will first need to obtain gOHM. A user requests a loan by specifying the amount of USDS to borrow. Alternatively, a user can specify the amount of gOHM collateral to deposit and use the slider to determine the LTV. The calculation between collateral and borrowable asset is determined by the Loan-to-Collateral defined on the LTV Oracle.
 
-Once a Cooler is created, a user requests a loan by specifying the amount of DAI to borrow. Alternatively, a user can specify the amount of gOHM collateral to deposit. The calculation between collateral and borrowable asset is fixed by the Loan-to-Collateral defined on Clearinghouse.sol.
+It’s important to highlight that interest on the loan accrues over the duration of the loan, beginning at the time the loan is opened. 
 
-In the same transaction that a request is created, Clearinghouse.sol fulfills the request by creating a Loan struct with the following parameters:
+Example: user requests to borrow against 1 gOHM. The LTV for cooler is 2961.64 USDS per gOHM, at the time the loan is opened, the user owes 0.4 USDS in interest (0.5% multiplied by 2961.64 USDS principal multiplied by 1 day out of 365). User gets 2961.62 USDS in their wallet and transfers 1 gOHM.
 
-- principal - amount of DAI that is borrowed
-- expiry - expiration of the loan, defined to be the current block timestamp plus 121 days
-- interestDue - amount of interest, in DAI, to be paid 121 days from current timestamp.
-
-It’s important to highlight that interest on the loan is accrued at the time the loan is opened. Keep this in mind as you read the next two sections.
-
-Example: user requests to borrow against 1 gOHM. The LTB for cooler is 2892.92 DAI per gOHM, at the time the loan is opened, the user owes 4.82 DAI in interest (0.5% multiplied by 2892.92 DAI principal multiplied by 121 days out of 365). User gets 2892.92 DAI in their wallet and transfers 1 gOHM.
+[Originating a Loan](/gitbook/assets/origination.png)
 
 ### Repaying a Loan
 
-A user can repay a loan at any time with any amount. However, because of how loans are fulfilled, any repayment will be allocated toward interest first. Any repayment in excess of interest owed is then allocated to repaying the principal. Once all outstanding interest and principal have been repaid, the user unlocks their collateral.
+Borrowers can repay a loan at any time with any amount using the Olympus front-end or by calling the repay() function on the Cooler V2 contract. However, because of how loans are fulfilled, any repayment will be allocated toward interest first. Any repayment in excess of interest owed is then allocated to repaying the principal. Partial repayments reduce both debt and the associated interest-bearing collateral, which becomes withdrawable. Full repayment stops interest accrual and unlocks the full gOHM collateral. Withdrawals must be executed manually unless bundled using the Composites contract.
 
-Example: user requests to borrow against 1 gOHM. The LTB for cooler is 2892.92 DAI per gOHM, therefore the interest owed is 4.82 DAI per tenor.
 
-- If user repays 1 DAI, the user now owes 3.82 DAI in interest and 2892.92 DAI in principal. User gets no collateral back.
-- If user repays 4.82 DAI, user owes no interest and only 2892.92 DAI in principal. User gets no collateral back.
-- If user repays 500 DAI, user has fully repaid interest (4.82 DAI) and partially repaid principal (495.18 DAI). User gets 0.17117 gOHM collateral back (495.18/2892.92).
-- If user repays 2897.74 DAI, user has fully repaid interest (4.82 DAI) AND fully repaid 2892.92 DAI in principal. User gets back their 1 gOHM collateral.
+Example: user borrowed against 1 gOHM 4 months ago. The LTV for cooler is 2961.64 USDS per gOHM, therefore the interest owed is 4.936 USDS at this point. For this example ignore the drip rate.
 
-### Extending Duration
+- If user repays 1 USDS, the user now owes 3.936 USDS in interest and 2961.64 USDS in principal. User gets no collateral back.
+- If user repays 4.936 USDS, user owes no interest and only 2961.64 USDS in principal. User gets no collateral back.
+- If user repays 500 USDS, user has fully repaid interest (4.936 USDS) and partially repaid principal (495.064 USDS). User gets 0.1671 gOHM collateral back (495.064/2961.64).
+- If user repays 2966.567 USDS, user has fully repaid interest (4.936 USDS) AND fully repaid 2961.64 USDS in principal. User gets back their 1 gOHM collateral.
 
-A user can extend a loan at any time, for as long as they want, with the same terms they opened a Cooler with. However, because of how loans are fulfilled, any loan extension must first repay the accrued interest on previous loans before the extension is granted. This is done automatically in a single transaction, optimized to reduce friction and costs for the user.
+[Repaying a Loan](/gitbook/assets/repayment.png)
 
-Furthermore, since Clearinghouse.sol gives the ability to extend a loan an arbitrary number of times, the user must pay N-1 interest terms if they want to extend a loan for N terms. This is best demonstrated with the examples below.
+### Multi-Wallet Delegation & Voting Power
 
-Example: user has an open loan, borrowing 2892.92 DAI against 1 gOHM, owing 4.82 DAI in interest. They want to extend the loan for one more term (121 days). For this to work, they transfer 4.82 DAI (paying off interest on previous loan) and loan expiry extends by 121 days. In another 121 days, user owes 4.82 DAI interest and 2892.92 DAI in principal.
+Cooler Loans V2 supports advanced delegation of gOHM through the DLGTE module. This enables users to assign voting rights to up to 10 different addresses for both wallet-held and Cooler V2 loan-associated gOHM. Note: this is also where users can manage delegation for any legacy Cooler Clearinghouse V1 voting power if they hold a position there.
 
-Example: Consider the same example but now the user wants to extend for 10 terms (1210 days). For this to work, they transfer 48.2 DAI (ten times 4.82 DAI) and loan expiry extends by 1210 days. In 1210 days, user owes 4.82 DAI and 2892.92 DAI in principal.
+Users can manage delegation through the "Governance" page in the Olympus app under the Delegation tab. Once a wallet is connected, they can assign voting power for:
+- Wallet Voting Power (directly held gOHM)
+- Cooler Clearinghouse V1 Voting Power (gOHM used as loan collateral)
+- Cooler V2 Voting Power (gOHM used as loan collateral)
 
-Notice how interest due remains the same as the original loan term. Why? Functionally speaking, user’s interestDue variable didn’t change; the user just transferred the amount of interest that would’ve been charged during the extension directly to Clearinghouse.sol contract.
+Each delegation allows users to choose a delegate address, and optionally self-delegate. Delegated gOHM is moved into a cloned DelegateEscrow contract, separating it from the DLGTE module and assigning it to the chosen delegate.
+
+**End State:**
+- Delegation is active and can be updated at any time via "Manage Delegation"
+- Governance participation and Cooler loan management can be shared across up to 10 wallets
+
+:::info
+Note:
+When delegation is applied, gOHM is not just logically assigned but physically moved into escrow. This ensures separation of powers and formalized delegation at the contract level.
+:::
+
+Refer to the diagram below for a visual overview of the delegation flow.
+
+[Delegation](/gitbook/assets/delegation.png)
+
+
+
+### Governance Controls
+**Governance has control to:**
+- Adjust LTV parameters and interest rates
+- Define default thresholds
+- Enable/disable periphery contracts
+- Assign delegate addresses
+- Upgrade loan risk parameters
+
+### Treasury Interaction
+Loans are issued from Treasury USDS reserves. Interest is recycled into:
+- Yield Repurchase Facility (YRF)
+- Liquidity provisioning
+- Governance-directed initiatives
+
+### Migration from V1
+A dedicated Migrator contract allows users to:
+- Exit V1 positions
+- Transition to V2 seamlessly
+- Maintain collateral continuity
+
+### Use Cases
+- gOHM Holders - Access stable liquidity without selling OHM.
+- DAOs/Treasuries - Borrow from protocol and retain governance control.
+- Builders - Use as base credit layer for OHM-native primitives (e.g., hOHM leverage).
+
+
+## Summary
+Cooler Loans V2 is a protocol-native borrowing system that replaces expiring debt with perpetual, flexible credit. It eliminates price-based liquidation risk entirely, ensuring borrower safety through predictable, behavior-based mechanics. By requiring gOHM as collateral, it reinforces alignment with Olympus governance and long-term protocol incentives. Loan growth is managed transparently through a governance-controlled, drip-fed LTV increase mechanism, enabling sustainable expansion over time. Altogether, Cooler Loans V2 serves as a foundational building block for Olympus’ on-chain financial infrastructure.
+
+
 
 ## FAQ
 
@@ -108,31 +140,27 @@ Cooler Loans are only available on Ethereum.
 
 ### What token do I need for interest payments?
 
-Interest payments must be completed with DAI.
+Interest payments must be completed with USDS. 
 
 ### Can I pay interest from a different wallet?
 
 Yes, interest payments can be made by wallets other than the one originating the loan.
 
-### What if I need to repay before the term is over, can I pay partial interest?
+### What if I need to repay, can I pay partial interest?
 
-Interest is charged upfront. To get your principal back or extend a loan, you will need to pay that in full. As this is a fixed-term product, there's no distinction between paying at maturity or earlier.
-
-### Is there a limit to the number of times I can extend my loan?
-
-There is no functional limit to the number of extensions, however extensions are not supported past August 23rd, 275760. Please plan accordingly.
+Interest is charged on an accrual basis. To get your principal back you will need to pay interst in full.
 
 ### How many Cooler Loans can I have?
 
-There is no limit on the number of loans or the total cumulative value of loans per user. Limits are based on fixed terms and the weekly clearinghouse capacity.
+You will have one Cooler Loan per wallet. Any additional funds deposited will be reflected in this singular position. 
 
 ### Can I loop my loan?
 
-Yes, it is possible to convert the DAI obtained from the loan back into gOHM and take out another Cooler Loan. Use caution when choosing to leverage.
+Yes, it is possible to convert the USDS obtained from the loan back into gOHM and to add to your Cooler position. Use caution when choosing to leverage.
 
 ### What if I want to add to my loan amount?
 
-You cannot add to an existing loan. To increase the loan amount either take out an additional loan, or pay off the first loan in full and take a new loan with the total amount desired.
+To increase the loan amount simply deposit more collateral, or borrow more against existing deposited collateral if available. 
 
 ### Can I partially pay back my loan?
 
@@ -140,27 +168,11 @@ You may make a partial payment on your loan. All payments are automatically appl
 
 ### If I partially repay a loan, can I just reborrow those funds later?
 
-No, there's no ability to add to the loan once a payment has been received.
+Yes, you can add to the loan at any time. 
 
 ### If I partially repay a loan, will my interest payments change to reflect the lower balance?
 
-If you have paid part of the balance prior to maturity, the interest amount on the next roll will reflect the outstanding balance instead of the original loan value.
-
-### What if price or backing goes up, can I pull out the added equity from my loan?
-
-Loan terms are hard-coded at time of launch. So if backing goes up, LTV remains at X DAI per gOHM. Price has no impact on loan terms.
-
-### What if I forget to roll my loan, is there a grace period before defaulting?
-
-Expiration of the loan will occur automatically according to contract terms.
-
-### I accidentally defaulted, can I recover my collateral?
-
-Unfortunately, this is not possible. Once loan expiration occurs contract terms are automatically executed.
-
-### If other users repay their loans, will that increase the capacity available in the clearinghouse?
-
-The capacity in the clearinghouse is rebalanced weekly. If a user repays their loan, the DAI will be available in the clearinghouse. If the available amount is below the threshold upon rebalancing it will be topped up, if the available amount is above the threshold the excess will be removed when rebalancing occurs.
+If you have paid part of the balance, the interest amount will reflect the outstanding balance instead of the original loan value.
 
 ### Do Cooler Loans increase OHM supply?
 
@@ -169,10 +181,6 @@ No, Cooler Loans do not cause an increase in supply.
 ### What happens to the defaulted gOHM?
 
 When a loan is defaulted, the underlying collateral is burned.
-
-### What happens with the collected interest payments?
-
-Interest payments are directed to Liquid Backing.
 
 ### Can a user vote with their Cooler collateral?
 
@@ -186,8 +194,14 @@ To participate in governance, users MUST self-delegate in order to be able to us
 
 ## Contracts
 
-| Contract      | Address                                                                                                               |
-| ------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Clearinghouse v1| [0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880) |
-| Clearinghouse v2| [0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c ](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c) |
+| Contract              | Type    | Address                                                                                                                        |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+
+
+| Monocooler       | Policy | [`0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC`](https://etherscan.io/address/0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC)        |
+| LTV Oracle             | Policy | [`0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc`](https://etherscan.io/address/0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc)        |
+| Treasury Borrower   | Policy | [`0xD58d7406E9CE34c90cf849Fc3eed3764EB3779B0`](https://etherscan.io/address/0xD58d7406E9CE34c90cf849Fc3eed3764EB3779B0)        |
+| DLGTE   | Module  | [`0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74`](https://etherscan.io/address/0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74)        |
+| Composites        | Periphery  | [`0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd`](https://etherscan.io/address/0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd)        |
+| Migrator       | Periphery  | [`0xe045bd0a0d85e980aa152064c06eae6b6ae358d2`](https://etherscan.io/address/0xe045bd0a0d85e980aa152064c06eae6b6ae358d2)        |
 

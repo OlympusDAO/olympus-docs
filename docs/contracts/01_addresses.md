@@ -57,7 +57,7 @@
 | BLREG    | Mainnet  | [`0x375E06C694B5E50aF8be8FB03495A612eA3e2275`](https://etherscan.io/address/0x375E06C694B5E50aF8be8FB03495A612eA3e2275)        |
 |          | Goerli   | [`0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14`](https://goerli.etherscan.io/address/0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14) |
 | LENDR    | Arbitrum  | [`0x868C3ae18Fdea85bBb7a303e379c5B7e23b30F03`](https://arbiscan.io/address/0x868C3ae18Fdea85bBb7a303e379c5B7e23b30F03)        |
-
+| DLGTE   | Mainnet  | [`0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74`](https://etherscan.io/address/0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74)        |
 		
 
 
@@ -65,9 +65,9 @@
 | Contract              | Chain    | Address                                                                                                                        |
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | Emissions Manager        | Mainnet  | [`0x50f441a3387625bDA8B8081cE3fd6C04CC48C0A2`](https://etherscan.io/address/0x50f441a3387625bDA8B8081cE3fd6C04CC48C0A2)        |
-| Cooler V2 Composites        | Mainnet  | [`0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd`](https://etherscan.io/address/0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd)        |
-| Cooler V2 Monocooler       | Mainnet  | [`0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC`](https://etherscan.io/address/0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC)        |
-| Cooler V2 Migrator       | Mainnet  | [`0xe045bd0a0d85e980aa152064c06eae6b6ae358d2`](https://etherscan.io/address/0xe045bd0a0d85e980aa152064c06eae6b6ae358d2)        |
+| Monocooler   | Mainnet  | [`0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC`](https://etherscan.io/address/0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC)        |
+| LTV Oracle             | Mainnet  | [`0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc`](https://etherscan.io/address/0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc)        |
+| Treasury Borrower   | Mainnet  | [`0xD58d7406E9CE34c90cf849Fc3eed3764EB3779B0`](https://etherscan.io/address/0xD58d7406E9CE34c90cf849Fc3eed3764EB3779B0)        |
 | Yield Repurchase Facility        | Mainnet  | [`0x271e35a8555a62F6bA76508E85dfD76D580B0692`](https://etherscan.io/address/0x271e35a8555a62F6bA76508E85dfD76D580B0692)        |
 | BondCallback          | Mainnet  | [`0x73df08CE9dcC8d74d22F23282c4d49F13b4c795E`](https://etherscan.io/address/0x73df08CE9dcC8d74d22F23282c4d49F13b4c795E)        |
 |         | Goerli  | [`0x776142Abb0e274734A95dA2A4749b52eb4e896F3`](https://goerli.etherscan.io/address/0x776142Abb0e274734A95dA2A4749b52eb4e896F3)        |
@@ -100,10 +100,10 @@
 | Faucet (Testnet only) | Goerli   | [`0xA247156a39169c0FAFf979F57361CC734e82e3d0`](https://goerli.etherscan.io/address/0xA247156a39169c0FAFf979F57361CC734e82e3d0) |
 | Burner | Goerli   | [`0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853`](https://goerli.etherscan.io/address/0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853) |
 
-### Policies (Deprecated)
+### Policies (deprecated)
 | Contract              | Chain    | Address                                                                                                                        |
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Clearinghouse v3        | Mainnet  | [`0x1e094fE00E13Fd06D64EeA4FB3cD912893606fE0`](https://etherscan.io/address/0x1e094fE00E13Fd06D64EeA4FB3cD912893606fE0)        |
+| Clearinghouse v3 (deprecated)       | Mainnet  | [`0x1e094fE00E13Fd06D64EeA4FB3cD912893606fE0`](https://etherscan.io/address/0x1e094fE00E13Fd06D64EeA4FB3cD912893606fE0)        |
 | Clearinghouse v2 (deprecated)       | Mainnet  | [`0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c`](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c)        |
 |                       | Goerli | [`0xbfe14B5950a530A5CE572Cd2FaC6d44c718A3C47`]
 | Clearinghouse v1 (deprecated)         | Mainnet  | [`0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880`](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880)        |
@@ -139,6 +139,13 @@
 | Governor Bravo Delegator | Mainnet | [`0x0941233c964e7d7Efeb05D253176E5E634cEFfcD`](https://etherscan.io/address/0x0941233c964e7d7Efeb05D253176E5E634cEFfcD)        |
 | Timelock | Mainnet | [`0x953EA3223d2dd3c1A91E9D6cca1bf7Af162C9c39`](https://etherscan.io/address/0x953EA3223d2dd3c1A91E9D6cca1bf7Af162C9c39)        |
 | Yield Repurchase Facility | Mainnet | [`0x30a967eb957e5b1ee053b75f1a57ea6bfb2e907e`](https://etherscan.io/address/0x30a967eb957e5b1ee053b75f1a57ea6bfb2e907e#code) |
+
+
+### Periphery
+| Contract              | Chain    | Address                                                                                                                        |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Composites   | Mainnet  | [`0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd`](https://etherscan.io/address/0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd)        |
+| Migrator    | Mainnet  | [`0xe045bd0a0d85e980aa152064c06eae6b6ae358d2`](https://etherscan.io/address/0xe045bd0a0d85e980aa152064c06eae6b6ae358d2)        |
 
 
 
