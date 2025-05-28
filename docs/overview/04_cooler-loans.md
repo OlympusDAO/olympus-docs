@@ -45,8 +45,8 @@ Before borrowing from the Clearinghouse, it's important to understand the terms 
 - Minimum debt required to open a loan: 1000 USDS
 - Origination LTV Update Interval: 604800 seconds (7 days)
 
-:::info
-Note: The system gradually increases the LTV through a drip mechanism, moving from its current value toward the target origination LTV for the Cooler V2 policy to be 2991.2564 USDS/gOHM (~ 11.11 USDS/OHM) on 15th May 2026.  This is a linear release, not a cadence-based recalculation.
+:::Note
+The system gradually increases the LTV through a drip mechanism, moving from its current value toward the target origination LTV for the Cooler V2 policy to be 2991.2564 USDS/gOHM (~ 11.11 USDS/OHM) on 15th May 2026.  This is a linear release, not a cadence-based recalculation.
 :::
 
 Governance can update these parameters as needed.
@@ -59,7 +59,7 @@ It’s important to highlight that interest on the loan accrues over the duratio
 
 Example: user requests to borrow against 1 gOHM. The LTV for cooler is 2961.64 USDS per gOHM, at the time the loan is opened, the user owes 0.4 USDS in interest (0.5% multiplied by 2961.64 USDS principal multiplied by 1 day out of 365). User gets 2961.62 USDS in their wallet and transfers 1 gOHM.
 
-[Originating a Loan](/gitbook/assets/origination.png)
+![Originating a Loan](/gitbook/assets/origination.png)
 
 ### Repaying a Loan
 
@@ -73,7 +73,7 @@ Example: user borrowed against 1 gOHM 4 months ago. The LTV for cooler is 2961.6
 - If user repays 500 USDS, user has fully repaid interest (4.936 USDS) and partially repaid principal (495.064 USDS). User gets 0.1671 gOHM collateral back (495.064/2961.64).
 - If user repays 2966.567 USDS, user has fully repaid interest (4.936 USDS) AND fully repaid 2961.64 USDS in principal. User gets back their 1 gOHM collateral.
 
-[Repaying a Loan](/gitbook/assets/repayment.png)
+![Repaying a Loan](/gitbook/assets/repayment.png)
 
 ### Multi-Wallet Delegation & Voting Power
 
@@ -90,14 +90,13 @@ Each delegation allows users to choose a delegate address, and optionally self-d
 - Delegation is active and can be updated at any time via "Manage Delegation"
 - Governance participation and Cooler loan management can be shared across up to 10 wallets
 
-:::info
-Note:
+:::Note
 When delegation is applied, gOHM is not just logically assigned but physically moved into escrow. This ensures separation of powers and formalized delegation at the contract level.
 :::
 
 Refer to the diagram below for a visual overview of the delegation flow.
 
-[Delegation](/gitbook/assets/delegation.png)
+![Delegation](/gitbook/assets/delegation.png)
 
 
 
@@ -196,12 +195,9 @@ To participate in governance, users MUST self-delegate in order to be able to us
 
 | Contract              | Type    | Address                                                                                                                        |
 | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
-
-
-| Monocooler       | Policy | [`0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC`](https://etherscan.io/address/0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC)        |
-| LTV Oracle             | Policy | [`0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc`](https://etherscan.io/address/0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc)        |
-| Treasury Borrower   | Policy | [`0xD58d7406E9CE34c90cf849Fc3eed3764EB3779B0`](https://etherscan.io/address/0xD58d7406E9CE34c90cf849Fc3eed3764EB3779B0)        |
-| DLGTE   | Module  | [`0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74`](https://etherscan.io/address/0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74)        |
-| Composites        | Periphery  | [`0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd`](https://etherscan.io/address/0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd)        |
-| Migrator       | Periphery  | [`0xe045bd0a0d85e980aa152064c06eae6b6ae358d2`](https://etherscan.io/address/0xe045bd0a0d85e980aa152064c06eae6b6ae358d2)        |
-
+| Monocooler       | Policy  | [`0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC`](https://etherscan.io/address/0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC)        |
+| LTV Oracle      | Policy  | [`0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc`](https://etherscan.io/address/0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc)        |
+| Treasury Borrower       | Policy  | [`0xD58d7406E9CE34c90cf849Fc3eed3764EB3779B0`](https://etherscan.io/address/0xD58d7406E9CE34c90cf849Fc3eed3764EB3779B0)        |
+| DLGTE       | Module  | [`0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74`](https://etherscan.io/address/0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74)        |
+| Cooler V2 Composites        | Periphery  | [`0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd`](https://etherscan.io/address/0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd)        |
+| Cooler V2 Migrator       | Periphery  | [`0xe045bd0a0d85e980aa152064c06eae6b6ae358d2`](https://etherscan.io/address/0xe045bd0a0d85e980aa152064c06eae6b6ae358d2)        |
