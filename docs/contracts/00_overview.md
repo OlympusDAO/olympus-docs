@@ -44,6 +44,7 @@ In Olympus V3, we have the following Modules:
 - `RANGE` — Stores range information for the RBS system.
 - `INSTR` — The Instructions Module, used for storing batched Kernel instructions for convenient proposal execution in the Parthenon policy.
 - `ROLES` — The Roles module is for allowing policies to define roles, assign addresses to those roles, and for the designated `rolesAdmin` to manage those roles.
+- `DLGTE` — The DLGTE module is for allowing governance delegation of gOHM and Coolered gOHM positions. 
 
 In addition, Modules have a `VERSION()` and optional initialization logic `INIT()` thats called when the Module is integrated into the Kernel, which is mainly used when an existing module is upgraded and its state needs to be migrated.
 
@@ -68,6 +69,11 @@ Range-Bound Stability (RBS) policies:
 
 Cooler Loans policies:
 
+- `MonoCooler` — Core contract managing cooler loan states, lender-owned contract that manages loan workflows including fulfilling requests, and rebalancing funds to/from Olympus Treasury.
+- `LTV Oracle` — Defines originaion and liquidation LTV's. 
+- `Treasury Borrower` — Connects loan disbursement to the Olympus Treasury.
+
+Deprecated:
 - `Clearinghouse.sol` — Clearinghouse is a lender-owned contract that manages loan workflows including fulfilling requests, extending maturities, claiming defaults and rebalancing funds to/from Olympus Treasury.
 
 Governance policies (NOTE: Still have not been deployed):
