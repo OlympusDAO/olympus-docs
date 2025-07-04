@@ -43,6 +43,7 @@ Before borrowing from the Clearinghouse, it's important to understand the terms 
 - The Liquidation Premium is 1%.
 - The LTV Drip Rate: max (positive) rate of change of Origination LTV allowed: 0.0000011574 USDS/second (0.1 USDS/day)
 - Minimum debt required to open a loan: 1000 USDS
+- Debt must remain above 1000 USDS or be paid off entirely if closing a position.
 - Origination LTV Update Interval: 604800 seconds (7 days)
 
 :::note
