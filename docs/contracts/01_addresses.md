@@ -159,6 +159,7 @@
 |                                             | Goerli    | [`0x0595328847AF962F951a4f8F8eE9A3Bf261e4f6b`](https://goerli.etherscan.io/address/0x0595328847AF962F951a4f8F8eE9A3Bf261e4f6b)   |
 |                                             | Base      | [`0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0`](https://basescan.org/address/0x060cb087a9730e13aa191f31a6d86bff8dfcdcc0#code)     |
 |                                             | Bera      | [`0x18878Df23e2a36f81e820e4b47b4A40576D3159C`](https://berascan.com/address/0x18878Df23e2a36f81e820e4b47b4A40576D3159C#code)     |
+|                                             | Solana    | [`2Xva1NeLRuBFdK41gEuXqgeWtnKKDve9PKeCnMEpNG6K`](https://solscan.io/token/2Xva1NeLRuBFdK41gEuXqgeWtnKKDve9PKeCnMEpNG6K)          |
 | sOHM V2                                     | Mainnet   | [`0x04906695D6D12CF5459975d7C3C03356E4Ccd460`](https://etherscan.io/address/0x04906695D6D12CF5459975d7C3C03356E4Ccd460)          |
 |                                             | Goerli    | [`0x4EFe119F4949319f2Acb12efD615a7B63896482B`](https://goerli.etherscan.io/address/0x4EFe119F4949319f2Acb12efD615a7B63896482B)   |
 |                                             | Avalanche | [`0x8cd309e14575203535ef120b5b0ab4dded0c2073`](https://snowtrace.io/token/0x8cd309e14575203535ef120b5b0ab4dded0c2073)            |
