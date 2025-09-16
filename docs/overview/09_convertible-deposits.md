@@ -6,9 +6,9 @@
 
 Convertible Deposits (CDs) are a financial instrument that allows you to deposit stablecoins into the Olympus protocol with three flexible exit options. When you make a convertible deposit, you're essentially making a structured bet on the future price of OHM while helping the protocol diversify its treasury holdings.
 
-Here's how it works in simple terms: You deposit stablecoins (like USDS) and receive receipt tokens plus a non-fungible position that locks in a specific "conversion price" for OHM. Before your deposit expires, you can choose to convert your deposit to OHM at that locked-in price, wait for full redemption of your original deposit, or exit early with a small discount.
+Here's how it works in simple terms: You deposit stablecoins (like USDS) and receive receipt tokens plus a non-fungible position that locks in a specific "conversion price" for OHM. Before your deposit expires, you can choose to convert your deposit to OHM at that locked-in price, wait for full redemption of your original deposit, or exit early with a discount applied.
 
-The key innovation is that this creates "no-risk speculation on the future price of OHM" - if OHM's market price rises above your conversion price, you profit by converting. If not, you simply get your original deposit back (minus any early exit fees if you choose that route).
+The key innovation is that this creates "no-risk speculation on the future price of OHM" - if OHM's market price rises above your conversion price, you profit by converting. If not, you simply get your original deposit back (subject to the discount if you choose early exit).
 
 ### Benefits for Users
 
@@ -16,7 +16,7 @@ Convertible Deposits offer several advantages for participants:
 
 - **Flexible Exit Options**: Unlike traditional investments, you're not locked into a single outcome. You can convert to OHM if it's profitable, wait for full redemption if you prefer certainty, or exit early if you need liquidity.
 
-- **Risk-Limited OHM Exposure**: You can speculate on OHM's price appreciation without the full downside risk of holding OHM directly. Your maximum loss is limited to early exit fees rather than OHM's price volatility.
+- **Risk-Limited OHM Exposure**: You can speculate on OHM's price appreciation without the full downside risk of holding OHM directly. Your maximum loss is limited to the discount applied for early exit rather than OHM's price volatility.
 
 - **Liquidity Options**: Receipt tokens are fungible and can be traded, and you can even borrow against active redemptions if you need liquidity while maintaining your position.
 
@@ -26,7 +26,7 @@ Convertible Deposits serve important strategic purposes for Olympus:
 
 - **Treasury Diversification**: The protocol receives stablecoins that diversify its treasury beyond OHM-denominated assets, reducing overall risk.
 
-- **Increased Protocol Income**: The protocol earns yield on deposited assets and benefits from early reclaim fees, creating additional revenue streams.
+- **Increased Protocol Income**: The protocol earns yield on deposited assets and benefits from reclaim discounts, creating additional revenue streams.
 
 - **Demand-Responsive OHM Emissions**: The auction mechanism allows the protocol to emit OHM at market-driven prices rather than fixed rates, ensuring fair value exchange.
 
@@ -286,7 +286,7 @@ Converting to OHM is the primary way to profit from your convertible deposit whe
 
 ### Early Reclaim
 
-Early reclaim allows you to exit your position immediately but with a discount applied to your original deposit.
+Early reclaim allows you to exit your position immediately but with a discount applied to your original deposit. The reclaim rate, which determines the discount, is configured by governance on a per-asset basis.
 
 #### When to Use Early Reclaim
 
@@ -304,7 +304,9 @@ Early reclaim allows you to exit your position immediately but with a discount a
 #### Important Notes
 
 - **Receipt Tokens Required**: You need receipt tokens for reclaim - they will be burned
-- **Discount Applied**: You'll receive less than your original deposit
+- **Reclaim Rate**: The percentage of your deposit you receive when reclaiming early
+- **Reclaim Discount**: The reclaim discount is 100% minus the reclaim rate
+- **Governance Configured**: Reclaim rates are set by governance for each supported asset
 - **Immediate Access**: You get your funds immediately, no waiting period
 
 ### Full Redemption
@@ -453,7 +455,9 @@ When considering convertible deposits, ask yourself:
 #### Early Reclaim Discounts
 
 - Applied when you exit your position before the deposit period completes
-- Rate varies by asset and deposit period (configured by protocol governance)
+- The reclaim rate varies by asset and deposit period
+- Reclaim rates are configured by protocol governance for each supported asset
+- The reclaim discount is 100% minus the reclaim rate
 - Discount amount goes to the protocol treasury
 - No fees for conversion or full redemption
 
