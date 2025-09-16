@@ -59,7 +59,7 @@ Once you've made a deposit, you have three ways to exit:
 
 #### 1. Convert to OHM
 
-Convert your deposit to OHM before your position's expiry date at the conversion price that was locked in when you made your deposit. This is profitable when OHM's market price exceeds your conversion price.
+Convert your deposit to OHM at any point before your position's expiry date at the conversion price that was locked in when you made your deposit. This is profitable when OHM's market price exceeds your conversion price.
 
 #### 2. Full Redemption
 
@@ -267,7 +267,7 @@ Converting to OHM is the primary way to profit from your convertible deposit whe
 
 #### When to Convert
 
-- **Before Expiry**: You can only convert before your position's expiry date
+- **Any Time Before Expiry**: You can convert at any point before your position's expiry date
 - **Profitable Scenarios**: Convert when OHM's market price is higher than your locked-in conversion price
 - **Partial Conversions**: You can convert portions of your position, not necessarily the entire amount
 
