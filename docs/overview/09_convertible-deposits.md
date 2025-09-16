@@ -484,6 +484,18 @@ When considering convertible deposits, users should consider:
 - **Base Emission Rate**: 0.02% per day
 - **Receipt Token Format**: ERC6909 (optionally wrappable to ERC20)
 
+### Current Configuration
+
+#### Launch Parameters
+
+- **Supported Asset**: USDS
+- **Deposit Periods**: 1, 2, and 3 months
+- **Tick Size**: 150 OHM (halves when daily target is exceeded)
+- **Tick Step Multiplier**: 100.75% (0.75% increase per tick)
+- **Minimum Price**: 100% of market price (configurable)
+- **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
+- **Borrowing Configuration**: 0% (disabled at launch, will be enabled in future update)
+
 #### Auction Mechanics
 
 - **Tick System**: Price levels with capacity-based progression
@@ -504,6 +516,15 @@ A: Longer periods give more time for profitable conversions but reduce flexibili
 **Q: Can I change my mind after depositing?**
 A: Yes, through early reclaim (with discount) or redemption (with waiting period). The conversion price cannot be changed once set.
 
+**Q: What can I do with my receipt tokens before expiry?**
+A: You can exchange the receipt tokens in a liquidity pool, reclaim the deposit (with a discount), redeem the deposit (waiting period), or redeem the deposit and borrow against it once borrowing is enabled.
+
+**Q: Will USDS deposits be lent out to earn yield?**
+A: USDS deposits are deposited into the sUSDS vault to earn the Sky Savings Rate. The goal is to maintain a low-risk approach while generating yield for the protocol.
+
+**Q: How can I deposit large amounts?**
+A: For large deposits, consider breaking up bids over time to give the price time to decay between bids. Large bids that consume multiple ticks will result in a weighted average conversion price.
+
 #### Managing Positions
 
 **Q: What happens if I lose my receipt tokens?**
@@ -514,6 +535,21 @@ A: Yes, if wrapped as an ERC721 NFT. Receipt tokens are also transferable. The n
 
 **Q: What happens if OHM never reaches my conversion price?**
 A: Users can still get their full deposit back through redemption, or exit early through reclaim (with discount).
+
+**Q: Will Olympus offer borrowing against receipt tokens?**
+A: Yes, borrowing functionality will be available to receipt token holders when they start the redemption process. This feature is planned for implementation after the initial launch.
+
+**Q: Can the CD position be traded as an NFT?**
+A: Yes, the convertible deposit position can be wrapped to an ERC721 NFT, allowing it to be traded on NFT marketplaces.
+
+**Q: Will there be different options for CDs with various strike prices or lengths?**
+A: The conversion price is determined through auction results at the time of purchase, while the deposit period is defined by governance. Users can choose from available periods (1, 2, or 3 months).
+
+**Q: Will "looping" be easy for regular users?**
+A: Looping is generally an advanced-user action. While it's possible, it isn't currently implemented in the interface and is more suited for sophisticated users.
+
+**Q: What's the best outcome for the protocol - if users exercise or not?**
+A: The protocol benefits from various outcomes: conversions provide OHM distribution, early reclaims generate protocol income through discounts, and redemptions maintain treasury stability.
 
 #### Redemption and Borrowing
 
@@ -536,6 +572,42 @@ A: Common issues include insufficient token approval, slippage on conversion amo
 
 **Q: Can governance change my position terms?**
 A: No, conversion price and expiry are immutable once set. Governance can change future auction parameters but not existing positions.
+
+**Q: Are all bids in an auction settled at the same price?**
+A: No, bids are processed through the tick system where each tick has a different price. Large bids may consume multiple ticks at different prices, resulting in a weighted average conversion price.
+
+**Q: Where does the auction price start relative to market price?**
+A: The auction starts at market price and won't go below that minimum price floor.
+
+**Q: How does price decay work in the auction?**
+A: Price decay occurs only after an auction has started and no bids have come in at a certain tick for a period of time. The price will decay continuously while there are no bids, but it cannot go below the minimum price floor.
+
+**Q: What happens at expiry?**
+A: At expiry, you can no longer convert to OHM. Your options are limited to redemption (if you haven't started it) or reclaim (with discount).
+
+**Q: Is the position auto-redeemed at expiry?**
+A: No, positions are not auto-redeemed. You must manually start the redemption process or reclaim your deposit. However, you can start redemption right after minting so you don't have an additional waiting period.
+
+**Q: Where will the market for receipt tokens be?**
+A: There are no plans to seed the market at launch. Anyone could create liquidity pools on decentralized exchanges like Uniswap. Once receipt tokens are wrapped to ERC20, any ERC20 AMM could be used.
+
+**Q: Can you explain how CD pricing works relative to market price?**
+A: 1. Starting price is market price. 2. As bids come in, the convertible price of OHM in the CD position goes up (amount depends on bid size). 3. If there are no bids for some time, the price will decay with a floor of the minimum price.
+
+**Q: Is tick capacity first come first serve to bidders?**
+A: Yes, the auction system processes bids on a first-come-first-serve basis within each tick. When a tick is filled, the system moves to the next higher-priced tick.
+
+**Q: What is the rationale behind needing to trigger redemption? Why not auto-redeem after expiry?**
+A: The manual redemption trigger provides flexibility for users to convert at optimal times and allows for borrowing functionality.
+
+**Q: How does the auction timing work? When do markets open?**
+A: The auction is continuous and infinite capacity. Parameters (min price, target) are set once per day as part of the periodic heartbeat. Bids can take place at any time, and capacity is added proportionally throughout each day. Note that the auction will only be enabled if the EmissionsManager determines that there is a premium. If the auction is disabled, no bids can be made.
+
+**Q: Will there be a countdown timer to the next market opening?**
+A: The auction is tied to the Olympus heartbeat system which operates three times a day (every 8 hours). However, since it's a continuous auction, there are discrete opening times - bids can be placed at any time once the market is live.
+
+**Q: In what scenario would you not want to hit redeem right after minting?**
+A: You might delay redemption if you want to maintain the option to convert at a favorable price, or if you plan to borrow against the redemption once that functionality is enabled.
 
 ### Troubleshooting
 
@@ -572,3 +644,86 @@ For additional support:
 - **Key Management**: Securely store private keys and seed phrases
 - **Verify Contracts**: Always interact with official Olympus contracts
 - **Stay Informed**: Keep up with protocol updates and security announcements
+
+## 7. Adding Support for New Assets
+
+### Overview
+
+The Convertible Deposits system is designed to be extensible, allowing the protocol to add support for new assets over time through the standard Olympus governance process.
+
+### Asset Addition Procedure
+
+#### Step 1: Asset Evaluation
+
+Before proposing a new asset, evaluate the following criteria:
+
+##### Technical Requirements
+
+- **Token Standard**: Must be ERC20 compliant
+- **Decimals**: Must have a standard decimal configuration (typically 6 or 18)
+- **Liquidity**: Sufficient on-chain liquidity for the asset to support deposit volumes
+- **Stability**: Price stability characteristics suitable for convertible deposits
+
+##### Risk Assessment
+
+- **Smart Contract Risk**: Audit status and security history of the asset
+- **Counterparty Risk**: Dependency on external systems or oracles
+- **Market Risk**: Volatility and correlation with other protocol assets
+- **Regulatory Considerations**: Compliance requirements for the asset type
+
+##### Yield Potential
+
+- **Native Yield**: Does the asset generate yield on its own?
+- **Vault Options**: Are there reliable ERC4626 vaults available?
+- **Risk-Adjusted Returns**: Yield potential relative to risk profile
+
+#### Step 2: Governance Process
+
+##### Request for Comment (RFC)
+
+- Post a detailed RFC on the [Olympus forums](https://forum.olympusdao.finance)
+- Include comprehensive analysis of the proposed asset
+- Outline technical requirements, risk assessment, and expected benefits
+- Gather community feedback and address concerns
+
+##### Olympus Improvement Proposal (OIP)
+
+- Submit a formal OIP based on the RFC discussion
+- Include finalized technical specifications and implementation details
+- Subject to community review and discussion period
+- Build consensus among key stakeholders
+
+##### OCG Proposal
+
+- Submit a final OCG proposal for implementation
+- Include all technical specifications and governance parameters
+- Subject to standard Olympus governance voting procedures
+- Requires quorum and approval thresholds as defined in governance parameters
+
+#### Step 3: Implementation
+
+##### Technical Deployment
+
+- Deploy a new auctioneer contract for the new deposit asset (no code changes needed)
+
+##### OCG Proposal Execution
+
+- Enable the auctioneer for the new asset
+- Enable the asset on the DepositManager (including the ERC4626 vault for yield)
+- Set up receipt token naming conventions
+- Set the reclaim rate and borrowing parameters
+
+### Future Considerations
+
+#### Potential Asset Categories
+
+- **Stablecoins**: Other major stablecoins with established track records
+- **Yield-Bearing Assets**: Tokens that generate native yield
+- **LSTs**: Liquid Staking Tokens with reliable oracle pricing
+- **RWA Tokens**: Real World Asset tokens with appropriate risk profiles
+
+#### Governance Parameters
+
+- Each new asset will require individual parameter tuning
+- Risk limits may be set per asset type
+- Yield strategies will be selected based on asset properties
