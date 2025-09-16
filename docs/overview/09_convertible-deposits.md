@@ -454,7 +454,7 @@ When considering convertible deposits, users should consider:
 
 #### Early Reclaim Discounts
 
-- Applied when you exit your position before the deposit period completes
+- Applied when users exit their position before the deposit period completes
 - The reclaim rate varies by asset and deposit period
 - Reclaim rates are configured by protocol governance for each supported asset
 - The reclaim discount is 100% minus the reclaim rate
@@ -463,10 +463,10 @@ When considering convertible deposits, users should consider:
 
 #### Borrowing Fees
 
-- **Interest Rates**: Fixed rates set when you borrow, typically matching deposit period duration
+- **Interest Rates**: Fixed rates set when users borrow, typically matching deposit period duration
 - **Extension Fees**: Additional interest charged when extending loan terms
 - **Keeper Rewards**: Third parties earn rewards for claiming defaulted loans
-- **No Early Repayment Penalties**: You can repay loans at any time without fees
+- **No Early Repayment Penalties**: Users can repay loans at any time without fees
 
 #### Gas Costs
 
@@ -544,13 +544,13 @@ A: No, conversion price and expiry are immutable once set. Governance can change
 - **Insufficient Approval**: Ensure the DepositManager is approved to spend deposit tokens
 - **Slippage Protection**: The minimum OHM out may be too high for current auction conditions
 - **Expired Position**: Cannot convert positions past their expiry date
-- **Insufficient Balance**: Check there are enough tokens for the desired action
+- **Insufficient Balance**: Ensure there are enough tokens for the desired action
 
 #### Missing Tokens or Positions
 
-- **Check Token Addresses**: Ensure looking for the correct receipt token contract
+- **Check Token Addresses**: Ensure you are looking for the correct receipt token contract
 - **Blockchain Confirmation**: Transactions may take time to confirm during network congestion
-- **Correct Network**: Verify connection to the correct Ethereum network
+- **Correct Network**: Verify you are connected to the correct Ethereum network
 
 #### Unexpected Behavior
 
