@@ -6,6 +6,11 @@ set -e  # Exit on any error
 
 echo "🚀 Starting contract documentation generation..."
 
+# Run forge install
+echo "Running forge install..."
+forge install
+echo
+
 # Check if dependencies directory exists
 if [ ! -d "dependencies/olympus-v3-1.0.0" ]; then
     echo "❌ Error: dependencies/olympus-v3-1.0.0 directory not found"
