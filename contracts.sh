@@ -12,41 +12,41 @@ if [ ! -d "dependencies/olympus-v3-1.0.0" ]; then
     exit 1
 fi
 
-# # Navigate to olympus-v3 repository
-# echo "📁 Changing to olympus-v3 directory..."
-# cd dependencies/olympus-v3-1.0.0
+# Navigate to olympus-v3 repository
+echo "📁 Changing to olympus-v3 directory..."
+cd dependencies/olympus-v3-1.0.0
 
-# # Build the project
-# echo "🔨 Building the project..."
-# pnpm run build
+# Build the project
+echo "🔨 Building the project..."
+pnpm run build
 
-# # Generate forge documentation
-# echo "📝 Generating forge documentation..."
-# forge doc
+# Generate forge documentation
+echo "📝 Generating forge documentation..."
+forge doc
 
-# # Check if docs directory was created
-# if [ ! -d "docs" ]; then
-#     echo "❌ Error: docs directory not found after forge doc"
-#     exit 1
-# fi
+# Check if docs directory was created
+if [ ! -d "docs" ]; then
+    echo "❌ Error: docs directory not found after forge doc"
+    exit 1
+fi
 
-# # Remove unnecessary directories before linting
-# echo "🧹 Removing unnecessary directories..."
-# rm -rf docs/src/src/scripts
-# rm -rf docs/src/src/test
-# rm -rf docs/src/README.md
-# echo "✅ Removed unnecessary directories"
-# echo
+# Remove unnecessary directories before linting
+echo "🧹 Removing unnecessary directories..."
+rm -rf docs/src/src/scripts
+rm -rf docs/src/src/test
+rm -rf docs/src/README.md
+echo "✅ Removed unnecessary directories"
+echo
 
-# # Rename SUMMARY.md to 00_overview.md
-# echo "📄 Renaming SUMMARY.md to 00_overview.md..."
-# mv docs/src/SUMMARY.md docs/src/00_overview.md
-# echo "✅ Renamed SUMMARY.md to 00_overview.md"
+# Rename SUMMARY.md to 00_overview.md
+echo "📄 Renaming SUMMARY.md to 00_overview.md..."
+mv docs/src/SUMMARY.md docs/src/00_overview.md
+echo "✅ Renamed SUMMARY.md to 00_overview.md"
 
-# # Navigate back to parent directory
-# echo "📁 Returning to parent directory..."
-# cd ../..
-# echo
+# Navigate back to parent directory
+echo "📁 Returning to parent directory..."
+cd ../..
+echo
 
 # Clear the existing contract docs directory
 echo "🧹 Clearing existing contract docs directory..."
