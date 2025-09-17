@@ -36,7 +36,7 @@ export const actions = [
   {
     title: "Technical",
     icon: BookOpenIcon,
-    to: "./main/technical/overview",
+    to: "./main/contracts/overview",
     text: `Technical information and documentation`,
   }
   /*

@@ -97,7 +97,7 @@ Thirdly, an emergency shutoff mechanism has been implemented, which is controlle
 
 Fourthly, the vault uses price oracles to determine the USD value of OHM and the pair asset. While this approach is necessary to facilitate the Boosted Liquidity Vaults, it also exposes the vault to potential attacks (either from well capitalized individuals, or flashlaon users). To mitigate this risk, the vault implements a strategy where it executes an arbitrage between the pool where the assets are deposited and the oracle price feeds. By taking the arbitrage opportunity, the vault ensures that any attempt to manipulate the price oracle or the pool composition will translate the price imbalance to the attacker (generating a profit for the vault and a loss for the attacker).
 
-Furthermore, all smart contracts have been [audited](../../security/05_audits.md#boosted-liquidity-vaults) by reputable third-party auditors such as [Sherlock](/gitbook/assets/Olympus_Liquidity_Vaults_Audit_Report_1.pdf) and [Kebabsec](https://hackmd.io/@12og4u7y8i/HJVAPMlno). Any issues identified during the audit have been addressed and re-audited to ensure that the necessary corrections were made. In addition, an [ImmuneFi bug bounty program](https://immunefi.com/bounty/olympus/) of $3.33M which aims to incentivize white-hat hackers to find and report any vulnerabilities they may discover in the Boosted Liquidity Vaults, is in place. This practice helps proactively identify and address any potential security issues before they can be exploited.
+Furthermore, all smart contracts have been [audited](../security/02_audits.md#boosted-liquidity-vaults) by reputable third-party auditors such as [Sherlock](/gitbook/assets/Olympus_Liquidity_Vaults_Audit_Report_1.pdf) and [Kebabsec](https://hackmd.io/@12og4u7y8i/HJVAPMlno). Any issues identified during the audit have been addressed and re-audited to ensure that the necessary corrections were made. In addition, an [ImmuneFi bug bounty program](https://immunefi.com/bounty/olympus/) of $3.33M which aims to incentivize white-hat hackers to find and report any vulnerabilities they may discover in the Boosted Liquidity Vaults, is in place. This practice helps proactively identify and address any potential security issues before they can be exploited.
 
 Olympus takes the security of its ecosystem very seriously and is committed to ensuring that its users' assets are always protected. With these measures in place, participants can have confidence in the security of the Boosted Liquidity Vaults.
 
@@ -107,7 +107,7 @@ Olympus takes the security of its ecosystem very seriously and is committed to e
 
 # Integrating with BLV
 For understanding the mechanics and the advantatges of the Boosted Liquidity Vaults, please refer to the [standard documentation](../../../overview/07_boosted-liq-vaults.md).
-You can also check the [source code](github-link), the [contract interface](github-link), and the [stETH implementation](github-link) on Github. 
+You can also check the [source code](github-link), the [contract interface](github-link), and the [stETH implementation](github-link) on Github.
 
 Before implementing an instance of the `SingleSidedLiquidityVault` contract, it is key to understand its relevant functions.
 
@@ -136,7 +136,7 @@ struct ExternalRewardToken {
 }
 ```
 
-As it can be deducted by looking at the `InternalRewardToken` struct, an internal reward token is a token where the vault distributes and handles the accounting of rewards over time. 
+As it can be deducted by looking at the `InternalRewardToken` struct, an internal reward token is a token where the vault distributes and handles the accounting of rewards over time.
 
 Instead, for external reward tokens the primary accrual of rewards occurs outside the scope of this contract (it happens in other systems such as Convex or Aura). In this case, the vault is responsible for harvesting the rewards and distributing them proportionally to users.
 
@@ -183,7 +183,7 @@ function deposit(
     uint256 amount_,
     uint256 minLpAmount_
 ) external returns (uint256 lpAmountOut);
-```    
+```
 
 If the contract call is successful, the Vault will emit the following event:
 ```
@@ -225,7 +225,7 @@ Virtual functions are not implemented by the `SingleSidedLiquidityVault` contrac
 These are the virtual functions which must be overrriden by the implementation contract:
 
 - `_valueCollateral:` Internal function which calculates the equivalent OHM amount for a given amount of partner tokens. This function will usually use several price feeds to calculate the conversion rate.
-```            
+```
 /// @param amount_      The amount of partner tokens to calculate the OHM value of
 /// @return ohmAmount   The amount of OHM for the given amount of partner tokens
 function _valueCollateral(uint256 amount_) internal view virtual returns (uint256 ohmAmount);

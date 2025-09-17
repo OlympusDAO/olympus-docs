@@ -72,7 +72,7 @@ The `yarn run build:contracts` command (which runs `contracts.sh`):
 - Generates forge documentation
 - Cleans up unnecessary directories (scripts, tests)
 - Fixes markdown issues and broken links
-- Updates the contract documentation in `docs/technical/01_contract-docs/`
+- Updates the contract documentation in `docs/contracts/02_docs/`
 
 ### Partial Editing with Netlify CMS
 
