@@ -1,10 +1,12 @@
 {
-  "name": "",
+  "name": "olympus-docs",
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "postinstall": "./contracts.sh",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "build:contracts": "./contracts.sh",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -12,8 +14,7 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc",
-    "build:contracts": "./contracts.sh"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@docusaurus/core": "2.4.1",
