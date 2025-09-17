@@ -67,6 +67,59 @@ echo
 # Perform manual fixes
 echo "🧹 Performing manual fixes..."
 find docs/technical/01_contract-docs -name "*.md" -type f -exec sed -i '' '/^\*$/d' {} \;
+echo
+
+# Remove scripts and test sections from 00_overview.md
+echo "📝 Removing scripts and test sections from 00_overview.md..."
+if [ -f "docs/technical/01_contract-docs/00_overview.md" ]; then
+    # Remove all lines containing src/scripts/ or src/test/ references
+    sed -i '' '/src\/scripts\//d' docs/technical/01_contract-docs/00_overview.md
+    sed -i '' '/src\/test\//d' docs/technical/01_contract-docs/00_overview.md
+    # Remove the empty section headers
+    sed -i '' '/^- \[❱ scripts\]/d' docs/technical/01_contract-docs/00_overview.md
+    sed -i '' '/^- \[❱ test\]/d' docs/technical/01_contract-docs/00_overview.md
+fi
+echo "✅ Removed scripts and test sections from 00_overview.md"
+echo
+
+# Remove scripts and test references from src/README.md
+echo "📝 Removing scripts and test references from src/README.md..."
+if [ -f "docs/technical/01_contract-docs/src/README.md" ]; then
+    sed -i '' '/^- \[scripts\](\/src\/scripts)/d' docs/technical/01_contract-docs/src/README.md
+    sed -i '' '/^- \[test\](\/src\/test)/d' docs/technical/01_contract-docs/src/README.md
+fi
+echo "✅ Removed scripts and test references from src/README.md"
+echo
+
+# Fix incorrect paths in markdown files
+echo "🔧 Fixing incorrect paths in markdown files..."
+find docs/technical/01_contract-docs -name "*.md" -type f -exec sed -i '' 's|/dependencies/chainlink-ccip-1.6.0/contracts/src/v0.8/vendor/openzeppelin-solidity/v4.8.3/contracts/utils/cryptography/ECDSA.sol/library.ECDSA.md|/docs/technical/01_contract-docs/src/external/OlympusERC20.sol/library.ECDSA.md|g' {} \;
+find docs/technical/01_contract-docs -name "*.md" -type f -exec sed -i '' 's|(/src/test/lib/zuniswapv2/ZuniswapV2Pair.sol/interface.IERC20.md)|(/docs/technical/01_contract-docs/src/external/OlympusERC20.sol/interface.IERC20.md)|g' {} \;
+find docs/technical/01_contract-docs -name "*.md" -type f -exec sed -i '' 's|(/src/test/lib/bonds/interfaces/IBondTeller.sol/interface.IBondTeller.md)|(/docs/technical/01_contract-docs/src/interfaces/IBondTeller.sol/interface.IBondTeller.md)|g' {} \;
+find docs/technical/01_contract-docs -name "*.md" -type f -exec sed -i '' 's|(/src/test/lib/bonds/interfaces/IBondAuctioneer.sol/interface.IBondAuctioneer.md)|(/docs/technical/01_contract-docs/src/interfaces/IBondAuctioneer.sol/interface.IBondAuctioneer.md)|g' {} \;
+find docs/technical/01_contract-docs -name "*.md" -type f -exec sed -i '' 's|(/src/test/lib/bonds/interfaces/IBondCallback.sol/interface.IBondCallback.md)|(/docs/technical/01_contract-docs/src/interfaces/IBondCallback.sol/interface.IBondCallback.md)|g' {} \;
+find docs/technical/01_contract-docs -name "*.md" -type f -exec sed -i '' 's|(/src/test/mocks/OlympusMocks.sol/interface.IDistributor.md)|(/docs/technical/01_contract-docs/src/policies/interfaces/IDistributor.sol/interface.IDistributor.md)|g' {} \;
+echo "✅ Fixed incorrect paths in markdown files"
+echo
+
+# Fix absolute paths in markdown files
+echo "🔧 Fixing absolute paths in markdown files..."
+find docs/technical/01_contract-docs -name "*.md" -type f -exec sed -i '' 's|](/src/|](/docs/technical/01_contract-docs/src/|g' {} \;
+echo "✅ Fixed absolute paths in markdown files"
+echo
+
+# Fix literal angle brackets in markdown files
+echo "🔧 Fixing literal angle brackets in markdown files..."
+find docs/technical/01_contract-docs -name "*.md" -type f -exec sed -i '' 's|<>|\\\\<\\\\>|g' {} \;
+echo "✅ Fixed literal angle brackets in markdown files"
+echo
+
+# Remove Home link from 00_overview.md
+echo "📝 Removing Home link from 00_overview.md..."
+if [ -f "docs/technical/01_contract-docs/00_overview.md" ]; then
+    sed -i '' '/^- \[Home\](README\.md)/d' docs/technical/01_contract-docs/00_overview.md
+    echo "✅ Removed Home link from 00_overview.md"
+fi
 echo "✅ Performed manual fixes"
 echo
 
@@ -85,6 +138,7 @@ cat > docs/technical/01_contract-docs/_category_.json << 'EOF'
     "collapsed": true
 }
 EOF
+echo
 
 echo "✅ Contract documentation generation completed successfully!"
 echo "📚 Documentation is now available in docs/technical/01_contract-docs/"
