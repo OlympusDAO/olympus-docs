@@ -32,9 +32,11 @@ fi
 
 # Remove unnecessary directories before linting
 echo "🧹 Removing unnecessary directories..."
-rm -rf docs/src/src/proposals
+rm -rf docs/src/src/scripts
 rm -rf docs/src/src/test
+rm -rf docs/src/README.md
 echo "✅ Removed unnecessary directories"
+echo
 
 # Rename SUMMARY.md to 00_overview.md
 echo "📄 Renaming SUMMARY.md to 00_overview.md..."
@@ -44,6 +46,7 @@ echo "✅ Renamed SUMMARY.md to 00_overview.md"
 # Navigate back to parent directory
 echo "📁 Returning to parent directory..."
 cd ../..
+echo
 
 # Clear the existing contract docs directory
 echo "🧹 Clearing existing contract docs directory..."
@@ -54,15 +57,24 @@ else
     echo "📁 Creating contract docs directory..."
     mkdir -p docs/technical/01_contract-docs
 fi
+echo
 
 # Copy the generated docs
 echo "📋 Copying generated documentation..."
 cp -r dependencies/olympus-v3-1.0.0/docs/src/* docs/technical/01_contract-docs/
+echo
+
+# Perform manual fixes
+echo "🧹 Performing manual fixes..."
+find docs/technical/01_contract-docs -name "*.md" -type f -exec sed -i '' '/^\*$/d' {} \;
+echo "✅ Performed manual fixes"
+echo
 
 # Run markdownlint on the docs directory
 echo "🔍 Running markdownlint on contract docs directory..."
-npx markdownlint --config .markdownlint.json --fix docs/technical/01_contract-docs/
-echo "✅ Markdownlint completed successfully"
+npx markdownlint --config .markdownlint-contracts.json --fix docs/technical/01_contract-docs/ || echo "⚠️  Markdownlint had some issues that couldn't be auto-fixed"
+echo "✅ Markdownlint completed"
+echo
 
 # Create _category_.json file
 echo "📄 Creating category configuration..."
