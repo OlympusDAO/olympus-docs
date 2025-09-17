@@ -24,6 +24,3 @@ yarn-error.log*
 
 # we use yarn
 package-lock.json
-
-# Generated contract docs
-docs/technical/01_contract-docs/
