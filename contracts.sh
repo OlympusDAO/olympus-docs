@@ -6,9 +6,9 @@ set -e  # Exit on any error
 
 echo "🚀 Starting contract documentation generation..."
 
-# Run forge install
-echo "Running forge install..."
-forge install
+# Install forge dependencies
+echo "🔨 Installing forge dependencies..."
+forge soldeer update
 echo
 
 # Check if dependencies directory exists
