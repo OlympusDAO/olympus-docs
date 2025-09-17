@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "./contracts.sh",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build:contracts": "./contracts.sh",
