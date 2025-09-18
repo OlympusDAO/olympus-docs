@@ -484,24 +484,31 @@ When considering convertible deposits, users should consider:
 - **Base Emission Rate**: 0.02% per day
 - **Receipt Token Format**: ERC6909 (optionally wrappable to ERC20)
 
-### Current Configuration
+### Configuration
 
-#### Launch Parameters
+#### Initial Parameters
+
+##### Assets
 
 - **Supported Asset**: USDS
 - **Deposit Periods**: 1, 2, and 3 months
-- **Tick Size**: 150 OHM (halves when daily target is exceeded)
-- **Tick Step Multiplier**: 100.75% (0.75% increase per tick)
-- **Minimum Price**: 100% of market price (configurable)
 - **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
+- **Minimum Deposit**: 1 USDS
+- **Deposit Cap**: 1,000,000 USDS
 - **Borrowing Configuration**: 0% (disabled at launch, will be enabled in future update)
 
-#### Auction Mechanics
+##### Auction
 
-- **Tick System**: Price levels with capacity-based progression
-- **Daily Resets**: Auction parameters updated once per day
-- **Price Decay**: Automatic price reduction during low demand (with floor)
-- **Capacity Scaling**: Proportional capacity addition throughout each day
+- **Tick Size**: 150 OHM (halves when daily target is exceeded)
+- **Tick Step Multiplier**: 100.75% (0.75% increase per tick)
+- **Tracking Period**: 7 days
+
+#### Emission Mechanics
+
+- **Base Emissions Rate**: 0.02% of supply/day
+- **Minimum Price**: 100% of market price
+- **Backing**: 11.74 USDS/OHM
+- **Restart Timeframe**: 11 days
 
 ### Common Questions
 
