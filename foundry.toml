@@ -1,0 +1,9 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["dependencies"]
+
+[dependencies]
+olympus-v3 = { version = "1.0.0", git = "https://github.com/OlympusDAO/olympus-v3", rev = "b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db" }
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

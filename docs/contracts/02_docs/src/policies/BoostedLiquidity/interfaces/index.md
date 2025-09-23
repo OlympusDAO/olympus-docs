@@ -1,0 +1,20 @@
+
+# Interfaces
+
+- [IAuraBooster](IAura.sol/interface.IAuraBooster.md)
+- [IAuraRewardPool](IAura.sol/interface.IAuraRewardPool.md)
+- [IAuraMiningLib](IAura.sol/interface.IAuraMiningLib.md)
+- [ISTASHToken](IAura.sol/interface.ISTASHToken.md)
+- [RewardsData](IBLVault.sol/struct.RewardsData.md)
+- [IBLVault](IBLVault.sol/interface.IBLVault.md)
+- [RewardsData](IBLVaultLido.sol/struct.RewardsData.md)
+- [IBLVaultLido](IBLVaultLido.sol/interface.IBLVaultLido.md)
+- [IBLVaultManager](IBLVaultManager.sol/interface.IBLVaultManager.md)
+- [IBLVaultManagerLido](IBLVaultManagerLido.sol/interface.IBLVaultManagerLido.md)
+- [JoinPoolRequest](IBalancer.sol/struct.JoinPoolRequest.md)
+- [ExitPoolRequest](IBalancer.sol/struct.ExitPoolRequest.md)
+- [IVault](IBalancer.sol/interface.IVault.md)
+- [IBasePool](IBalancer.sol/interface.IBasePool.md)
+- [IFactory](IBalancer.sol/interface.IFactory.md)
+- [IBalancerHelper](IBalancer.sol/interface.IBalancerHelper.md)
+- [IWsteth](ILido.sol/interface.IWsteth.md)
