@@ -1,6 +1,6 @@
 # SafeCast
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/libraries/SafeCast.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/libraries/SafeCast.sol)
 
 ## Functions
 
@@ -22,6 +22,12 @@ function encodeUInt112(uint256 amount) internal pure returns (uint112);
 function encodeUInt96(uint256 amount) internal pure returns (uint96);
 ```
 
+### encodeUInt48
+
+```solidity
+function encodeUInt48(uint256 amount) internal pure returns (uint48);
+```
+
 ### encodeUInt32
 
 ```solidity
@@ -32,6 +38,12 @@ function encodeUInt32(uint256 amount) internal pure returns (uint32);
 
 ```solidity
 function encodeUInt16(uint256 amount) internal pure returns (uint16);
+```
+
+### encodeUInt8
+
+```solidity
+function encodeUInt8(uint256 amount) internal pure returns (uint8);
 ```
 
 ## Errors

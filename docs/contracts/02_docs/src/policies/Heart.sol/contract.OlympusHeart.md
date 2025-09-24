@@ -1,9 +1,9 @@
 # OlympusHeart
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/Heart.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/policies/Heart.sol)
 
 **Inherits:**
-[IHeart](/main/contracts/docs/src/policies/interfaces/IHeart.sol/interface.IHeart), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer), ReentrancyGuard
+[IHeart](/main/contracts/docs/src/policies/interfaces/IHeart.sol/interface.IHeart), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), ReentrancyGuard, [BasePeriodicTaskManager](/main/contracts/docs/src/bases/BasePeriodicTaskManager.sol/abstract.BasePeriodicTaskManager)
 
 Olympus Heart (Policy) Contract
 
@@ -39,14 +39,6 @@ Max reward for beating the Heart (in reward token decimals)
 uint256 public maxReward;
 ```
 
-### active
-
-Status of the Heart, false = stopped, true = beating
-
-```solidity
-bool public active;
-```
-
 ### PRICE
 
 ```solidity
@@ -59,34 +51,10 @@ PRICEv1 internal PRICE;
 MINTRv1 internal MINTR;
 ```
 
-### operator
-
-```solidity
-IOperator public operator;
-```
-
 ### distributor
 
 ```solidity
 IDistributor public distributor;
-```
-
-### yieldRepo
-
-```solidity
-IYieldRepo public yieldRepo;
-```
-
-### reserveMigrator
-
-```solidity
-IReserveMigrator public reserveMigrator;
-```
-
-### emissionManager
-
-```solidity
-IEmissionManager public emissionManager;
 ```
 
 ## Functions
@@ -97,16 +65,7 @@ IEmissionManager public emissionManager;
 Therefore, manually ensure that the value is valid when deploying the contract.*
 
 ```solidity
-constructor(
-    Kernel kernel_,
-    IOperator operator_,
-    IDistributor distributor_,
-    IYieldRepo yieldRepo_,
-    IReserveMigrator reserveMigrator_,
-    IEmissionManager emissionManager_,
-    uint256 maxReward_,
-    uint48 auctionDuration_
-) Policy(kernel_);
+constructor(Kernel kernel_, IDistributor distributor_, uint256 maxReward_, uint48 auctionDuration_) Policy(kernel_);
 ```
 
 ### configureDependencies
@@ -178,50 +137,41 @@ function _resetBeat() internal;
 
 Unlocks the cycle if stuck on one side, eject function
 
+*This function is gated to the ADMIN or MANAGER roles*
+
 ```solidity
-function resetBeat() external onlyRole("heart_admin");
+function resetBeat() external onlyManagerOrAdminRole;
 ```
 
-### activate
+### _enable
 
-Turns the heart on and resets the beat
+Implementation-specific enable function
 
-*This function is used to restart the heart after a pause*
+*This function is called by the `enable()` function
+The implementing contract can override this function and perform the following:
 
-```solidity
-function activate() external onlyRole("heart_admin");
-```
-
-### deactivate
-
-Turns the heart off
-
-*Emergency stop function for the heart*
+1. Validate any parameters (if needed) or revert
+2. Validate state (if needed) or revert
+3. Perform any necessary actions, apart from modifying the `isEnabled` state variable*
 
 ```solidity
-function deactivate() external onlyRole("heart_admin");
-```
-
-### setOperator
-
-Updates the Operator contract address that the Heart calls on a beat
-
-```solidity
-function setOperator(address operator_) external onlyRole("heart_admin");
+function _enable(bytes calldata) internal override;
 ```
 
 **Parameters**
 
 |Name|Type|Description|
 |----|----|-----------|
-|`operator_`|`address`|The address of the new Operator contract|
+|`<none>`|`bytes`||
 
 ### setDistributor
 
 Updates the Distributor contract address that the Heart calls on a beat
 
+*This function is gated to the ADMIN role*
+
 ```solidity
-function setDistributor(address distributor_) external onlyRole("heart_admin");
+function setDistributor(address distributor_) external onlyAdminRole;
 ```
 
 **Parameters**
@@ -229,48 +179,6 @@ function setDistributor(address distributor_) external onlyRole("heart_admin");
 |Name|Type|Description|
 |----|----|-----------|
 |`distributor_`|`address`|The address of the new Distributor contract|
-
-### setYieldRepo
-
-Updates the YieldRepo contract address that the Heart calls on a beat
-
-```solidity
-function setYieldRepo(address yieldRepo_) external onlyRole("heart_admin");
-```
-
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`yieldRepo_`|`address`|The address of the new YieldRepo contract|
-
-### setReserveMigrator
-
-Updates the ReserveMigrator contract address that the Heart calls on a beat
-
-```solidity
-function setReserveMigrator(address reserveMigrator_) external onlyRole("heart_admin");
-```
-
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`reserveMigrator_`|`address`|The address of the new ReserveMigrator contract|
-
-### setEmissionManager
-
-Updates the EmissionManager contract address that the Heart calls on a beat
-
-```solidity
-function setEmissionManager(address emissionManager_) external onlyRole("heart_admin");
-```
-
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`emissionManager_`|`address`|The address of the new EmissionManager contract|
 
 ### notWhileBeatAvailable
 
@@ -282,10 +190,12 @@ modifier notWhileBeatAvailable();
 
 Sets the max reward amount, and auction duration for the beat function
 
+*This function is gated to the ADMIN role*
+
 ```solidity
 function setRewardAuctionParams(uint256 maxReward_, uint48 auctionDuration_)
     external
-    onlyRole("heart_admin")
+    onlyAdminRole
     notWhileBeatAvailable;
 ```
 

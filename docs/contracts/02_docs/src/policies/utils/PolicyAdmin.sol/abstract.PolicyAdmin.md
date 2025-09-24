@@ -1,6 +1,6 @@
 # PolicyAdmin
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/utils/PolicyAdmin.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/policies/utils/PolicyAdmin.sol)
 
 **Inherits:**
 [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
@@ -13,6 +13,14 @@ Modifier that reverts if the caller does not have the emergency or admin role
 
 ```solidity
 modifier onlyEmergencyOrAdminRole();
+```
+
+### onlyManagerOrAdminRole
+
+Modifier that reverts if the caller does not have the manager or admin role
+
+```solidity
+modifier onlyManagerOrAdminRole();
 ```
 
 ### onlyAdminRole
@@ -29,6 +37,14 @@ Modifier that reverts if the caller does not have the emergency role
 
 ```solidity
 modifier onlyEmergencyRole();
+```
+
+### onlyManagerRole
+
+Modifier that reverts if the caller does not have the manager role
+
+```solidity
+modifier onlyManagerRole();
 ```
 
 ### _isAdmin
@@ -70,6 +86,26 @@ function _isEmergency(address account_) internal view returns (bool);
 |Name|Type|Description|
 |----|----|-----------|
 |`<none>`|`bool`|true if the account has the emergency role, false otherwise|
+
+### _isManager
+
+Check if an account has the manager role
+
+```solidity
+function _isManager(address account_) internal view returns (bool);
+```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`account_`|`address`|The account to check|
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`<none>`|`bool`|true if the account has the manager role, false otherwise|
 
 ## Errors
 

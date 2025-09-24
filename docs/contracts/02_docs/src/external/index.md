@@ -2,6 +2,7 @@
 # External
 
 - [bridge](/main/contracts/docs/src/external/bridge)
+- [clones](/main/contracts/docs/src/external/clones)
 - [cooler](/main/contracts/docs/src/external/cooler)
 - [governance](/main/contracts/docs/src/external/governance)
 - [ClaimTransfer](ClaimTransfer.sol/contract.ClaimTransfer.md)

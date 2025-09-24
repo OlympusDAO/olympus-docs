@@ -1,6 +1,8 @@
 # IHeart
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/interfaces/IHeart.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/policies/interfaces/IHeart.sol)
+
+*Interface for the Heart policy as of v1.7*
 
 ## Functions
 
@@ -28,46 +30,6 @@ Access restricted
 function resetBeat() external;
 ```
 
-### activate
-
-Turns the heart on and resets the beat
-
-Access restricted
-
-*This function is used to restart the heart after a pause*
-
-```solidity
-function activate() external;
-```
-
-### deactivate
-
-Turns the heart off
-
-Access restricted
-
-*Emergency stop function for the heart*
-
-```solidity
-function deactivate() external;
-```
-
-### setOperator
-
-Updates the Operator contract address that the Heart calls on a beat
-
-Access restricted
-
-```solidity
-function setOperator(address operator_) external;
-```
-
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`operator_`|`address`|The address of the new Operator contract|
-
 ### setDistributor
 
 Updates the Distributor contract address that the Heart calls on a beat
@@ -83,54 +45,6 @@ function setDistributor(address distributor_) external;
 |Name|Type|Description|
 |----|----|-----------|
 |`distributor_`|`address`|The address of the new Distributor contract|
-
-### setYieldRepo
-
-Updates the YieldRepo contract address that the Heart calls on a beat
-
-Access restricted
-
-```solidity
-function setYieldRepo(address yieldRepo_) external;
-```
-
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`yieldRepo_`|`address`|The address of the new YieldRepo contract|
-
-### setReserveMigrator
-
-Updates the ReserveMigrator contract address that the Heart calls on a beat
-
-Access restricted
-
-```solidity
-function setReserveMigrator(address reserveMigrator_) external;
-```
-
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`reserveMigrator_`|`address`|The address of the new ReserveMigrator contract|
-
-### setEmissionManager
-
-Updates the EmissionManager contract address that the Heart calls on a beat
-
-Access restricted
-
-```solidity
-function setEmissionManager(address emissionManager_) external;
-```
-
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`emissionManager_`|`address`|The address of the new EmissionManager contract|
 
 ### setRewardAuctionParams
 

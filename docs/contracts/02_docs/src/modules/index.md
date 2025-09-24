@@ -3,6 +3,7 @@
 
 - [BLREG](/main/contracts/docs/src/modules/BLREG)
 - [CHREG](/main/contracts/docs/src/modules/CHREG)
+- [DEPOS](/main/contracts/docs/src/modules/DEPOS)
 - [DLGTE](/main/contracts/docs/src/modules/DLGTE)
 - [INSTR](/main/contracts/docs/src/modules/INSTR)
 - [MINTR](/main/contracts/docs/src/modules/MINTR)
