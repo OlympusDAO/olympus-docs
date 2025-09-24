@@ -486,6 +486,7 @@ When considering convertible deposits, users should consider:
 - **Minimum Deposit**: 1 USDS
 - **Deposit Cap**: 1,000,000 USDS
 - **Borrowing Configuration**: 0% (disabled at launch, will be enabled in future update)
+- **Reclaim Rate**: 90% (90% of the deposited amount will be returned upon reclaim)
 
 ##### Auction
 
