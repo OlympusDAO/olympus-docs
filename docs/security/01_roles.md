@@ -1,6 +1,6 @@
 # Default Framework
 
-Olympus V3 uses the [Default Framework](https://github.com/fullyallocated/Default) to configure the protocol’s smart contracts and authorized addresses within the system. More information regarding Default Framework can be found in the [Contracts Overview section](../technical/00_overview.md) of the docs.
+Olympus V3 uses the [Default Framework](https://github.com/fullyallocated/Default) to configure the protocol’s smart contracts and authorized addresses within the system. More information regarding Default Framework can be found in the [Contracts Overview section](../contracts/00_overview.md) of the docs.
 
 ## ROLES.sol
 Module that stores all the active system roles.
@@ -10,7 +10,7 @@ Module that stores all the active system roles.
 Contract registry that manages all the contracts of the system. The `Kernel` is in charge of module and policy upgradability.
 
 
-**Roles** 
+**Roles**
 - `executor`: Only address that can interact with the `Kernel` contract. The `executor` can install and upgrade modules, as well as approve and terminate policies.
 
 ![](/gitbook/assets/security-diagrams/olympus-kernel.svg)
@@ -21,7 +21,7 @@ Policy that has the ability to grant and revoke roles from `ROLES` module.
 
 **Dependencies**
 - `ROLES` module
-	
+
 **Permissions**
 - `ROLES.saveRole`
 - `ROLES.removeRole`
@@ -176,7 +176,7 @@ Policy that manages the auctions and the issuance of OHM Bonds.
 
 **Roles**
 - `bondmanager_admin`: Has the ability to configure the auction parameters, create new bond markets, finalize them, as well as some emergency functions in case there is a malfunction.
-	
+
 ## Clearinghouse.sol
 Policy that manages loan workflows including fulfilling requests, extending maturities, claiming defaults and rebalancing funds to/from Olympus Treasury
 
@@ -201,7 +201,7 @@ Policy that manages loan workflows including fulfilling requests, extending matu
 **Roles**
 - `cooler_overseer`: ability to call `defund()` and `reactivate()`
 - `emergency_shutdown`: ability to call `emergencyShutdown()`
-	
+
 
 ## CrossChainBridge.sol
 Policy that serves as the message bridge for cross-chain OHM transfers. Uses LayerZero as communication protocol.
@@ -214,10 +214,10 @@ Policy that serves as the message bridge for cross-chain OHM transfers. Uses Lay
 - `MINTR.mintOhm`
 - `MINTR.burnOhm`
 - `MINTR.increaseMintApproval`
-	
+
 **Roles**
 - `bridge_admin`: Has the ability to set the bridge configuration, as well as activating and deactivating the bridge.
-	
+
 ## BLVaultManagerLido.sol (in process of deprecation)
 Policy that manages the auctions and the issuance of OHM Bonds.
 
