@@ -98,6 +98,8 @@ echo
 
 # Fix incorrect paths in markdown files
 echo "🔧 Fixing incorrect paths in markdown files..."
+find docs/contracts/02_docs -name "*.md" -type f -exec sed -i '' 's|/dependencies/openzeppelin-4.8.0/contracts/mocks/ERC20WrapperMock.sol/contract.ERC20WrapperMock.md|/main/contracts/docs/src/external/OlympusERC20.sol/library.ECDSA.md|g' {} \;
+find docs/contracts/02_docs -name "*.md" -type f -exec sed -i '' 's|/dependencies/openzeppelin-4.8.0/contracts/utils/cryptography/ECDSA.sol/library.ECDSA.md|/main/contracts/docs/src/external/OlympusERC20.sol/library.ECDSA.md|g' {} \;
 find docs/contracts/02_docs -name "*.md" -type f -exec sed -i '' 's|/dependencies/chainlink-ccip-1.6.0/contracts/src/v0.8/vendor/openzeppelin-solidity/v4.8.3/contracts/utils/cryptography/ECDSA.sol/library.ECDSA.md|/main/contracts/docs/src/external/OlympusERC20.sol/library.ECDSA.md|g' {} \;
 find docs/contracts/02_docs -name "*.md" -type f -exec sed -i '' 's|(/src/test/lib/zuniswapv2/ZuniswapV2Pair.sol/interface.IERC20.md)|(/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20.md)|g' {} \;
 find docs/contracts/02_docs -name "*.md" -type f -exec sed -i '' 's|(/src/test/lib/bonds/interfaces/IBondTeller.sol/interface.IBondTeller.md)|(/main/contracts/docs/src/interfaces/IBondTeller.sol/interface.IBondTeller.md)|g' {} \;
