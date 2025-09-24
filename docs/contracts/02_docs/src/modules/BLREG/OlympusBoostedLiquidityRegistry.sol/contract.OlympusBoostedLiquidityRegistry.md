@@ -1,6 +1,6 @@
 # OlympusBoostedLiquidityRegistry
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/modules/BLREG/OlympusBoostedLiquidityRegistry.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/modules/BLREG/OlympusBoostedLiquidityRegistry.sol)
 
 **Inherits:**
 [BLREGv1](/main/contracts/docs/src/modules/BLREG/BLREG.v1.sol/abstract.BLREGv1)

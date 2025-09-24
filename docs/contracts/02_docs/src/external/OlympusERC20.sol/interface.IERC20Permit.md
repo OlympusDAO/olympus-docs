@@ -1,6 +1,6 @@
 # IERC20Permit
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/external/OlympusERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/external/OlympusERC20.sol)
 
 *Interface of the ERC20 Permit extension allowing approvals to be made via signatures, as defined in
 <https://eips.ethereum.org/EIPS/eip-2612[EIP-2612>].
