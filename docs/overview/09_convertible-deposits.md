@@ -474,16 +474,6 @@ When considering convertible deposits, users should consider:
 - More complex operations (like multi-tick bids) may use more gas
 - Consider gas costs when planning smaller positions
 
-### Technical Parameters
-
-#### Current Configuration (Launch Parameters)
-
-- **Supported Asset**: USDS
-- **Deposit Periods**: 1, 2, and 3 months (configurable by governance)
-- **Minimum Conversion Price**: 100% premium (configurable)
-- **Base Emission Rate**: 0.02% per day
-- **Receipt Token Format**: ERC6909 (optionally wrappable to ERC20)
-
 ### Configuration
 
 #### Initial Parameters
