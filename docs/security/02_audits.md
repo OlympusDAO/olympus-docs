@@ -1,5 +1,12 @@
 # Audits
 
+## Convertible Deposits
+
+| Auditor | Link           | Date|
+| -------- | ------------- | ---- |
+| Guardian | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-09_Convertible_Deposits-Guardian.pdf) | September 5th, 2025 |
+| Trust | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-10_Convertible_Deposits-Trust.pdf) | October 5th, 2025 |
+
 ## Emissions Manager
 
 | Auditor | Link           | Date|
