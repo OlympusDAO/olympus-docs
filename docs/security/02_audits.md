@@ -7,6 +7,26 @@
 | Guardian | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-09_Convertible_Deposits-Guardian.pdf) | September 5th, 2025 |
 | Trust | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-10_Convertible_Deposits-Trust.pdf) | October 5th, 2025 |
 
+## CCIP Bridge
+
+| Auditor | Link           | Date|
+| -------- | ------------- | ---- |
+| Electisec | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-06_Electisec_CCIP_Bridge.pdf) | June 2025 |
+
+## Cooler Loans v2 Migrator and Composites
+
+| Auditor | Link           | Date|
+| -------- | ------------- | ---- |
+| Electisec | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-03-19_Cooler_V2_Migrator-Electisec.pdf) | March 19th, 2025 |
+
+## Cooler Loans v2
+
+| Auditor | Link           | Date|
+| -------- | ------------- | ---- |
+| panprog | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-03-09_Cooler_V2-panprog.pdf) | March 9th, 2025 |
+| Electisec | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-03-19_Cooler_V2-Electisec.pdf) | March 19th, 2025 |
+| Nethermind | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-04-04%20Cooler%20V2%20-%20Nethermind.pdf) | April 4th, 2025 |
+
 ## Emissions Manager
 
 | Auditor | Link           | Date|
