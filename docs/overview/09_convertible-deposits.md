@@ -115,7 +115,8 @@ The DepositManager is the secure custody system that holds all deposited funds. 
 
 - **At Rest**: Each configured ERC20 token can be held directly in the DepositManager
 - **Vault Strategy**: Tokens can be deposited into a configured ERC4626 vault to earn yield
-- **Immutable Configuration**: Once an ERC4626 vault is set for a token, it cannot be changed - this prevents governance attacks that could redirect funds to a malicious vault
+  - Once an ERC4626 vault is set for a token, it cannot be changed - this prevents governance attacks that could redirect funds to a malicious vault
+  - The ERC4626 vault should also be designed to only increase in value ("monotonically increasing"). The DepositManager does not currently handle reductions in the value of vault shares.
 
 ##### What It Does
 
