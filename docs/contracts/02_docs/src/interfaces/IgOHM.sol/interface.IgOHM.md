@@ -1,6 +1,6 @@
 # IgOHM
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/interfaces/IgOHM.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/interfaces/IgOHM.sol)
 
 **Inherits:**
 [IERC20](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20)

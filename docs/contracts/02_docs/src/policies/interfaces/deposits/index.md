@@ -7,4 +7,3 @@
 - [IDepositManager](IDepositManager.sol/interface.IDepositManager.md)
 - [IDepositRedemptionVault](IDepositRedemptionVault.sol/interface.IDepositRedemptionVault.md)
 - [IReceiptTokenManager](IReceiptTokenManager.sol/interface.IReceiptTokenManager.md)
-- [IYieldDepositFacility](IYieldDepositFacility.sol/interface.IYieldDepositFacility.md)

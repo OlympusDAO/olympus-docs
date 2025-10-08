@@ -1,6 +1,6 @@
 # IBondAuctioneer
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/interfaces/IBondAuctioneer.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/interfaces/IBondAuctioneer.sol)
 
 ## Functions
 
@@ -177,6 +177,26 @@ function setCallbackAuthStatus(address creator_, bool status_) external;
 |----|----|-----------|
 |`creator_`|`address`|    Address of market creator|
 |`status_`|`bool`|     Allow callback (true) : Disallow callback (false)|
+
+### callbackAuthorized
+
+Indicates whether the provided address is allowed to use a callback address in its markets
+
+```solidity
+function callbackAuthorized(address creator_) external returns (bool isAuthorized);
+```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`creator_`|`address`|       Address of market creator|
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`isAuthorized`|`bool`|   True if the creator can use a callback|
 
 ### getMarketInfoForPurchase
 

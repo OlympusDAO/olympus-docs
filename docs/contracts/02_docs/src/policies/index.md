@@ -32,5 +32,6 @@
 - [VohmVault_NotVested](VohmVault.sol/error.VohmVault_NotVested.md)
 - [VohmVault](VohmVault.sol/contract.VohmVault.md)
 - [BurnableERC20](YieldRepurchaseFacility.sol/interface.BurnableERC20.md)
+- [Clearinghouse](YieldRepurchaseFacility.sol/interface.Clearinghouse.md)
 - [YieldRepurchaseFacility](YieldRepurchaseFacility.sol/contract.YieldRepurchaseFacility.md)
 - [pOLY](pOLY.sol/contract.pOLY.md)

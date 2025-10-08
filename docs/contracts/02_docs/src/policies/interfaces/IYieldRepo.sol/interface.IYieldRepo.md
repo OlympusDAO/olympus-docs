@@ -1,6 +1,6 @@
 # IYieldRepo
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/policies/interfaces/IYieldRepo.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/interfaces/IYieldRepo.sol)
 
 ## Functions
 
@@ -27,6 +27,14 @@ Returns the current epoch
 
 ```solidity
 function epoch() external view returns (uint48);
+```
+
+### isShutdown
+
+Returns whether the contract is shutdown
+
+```solidity
+function isShutdown() external view returns (bool);
 ```
 
 ### getReserveBalance
@@ -56,44 +64,4 @@ Returns the contract's OHM balance and the DAI balance to be returned for burnin
 
 ```solidity
 function getOhmBalanceAndBacking() external view returns (uint256, uint256);
-```
-
-## Events
-
-### RepoMarket
-
-```solidity
-event RepoMarket(uint256 marketId, uint256 bidAmount);
-```
-
-### NextYieldSet
-
-```solidity
-event NextYieldSet(uint256 nextYield);
-```
-
-## Errors
-
-### TooMuchIncrease
-
-```solidity
-error TooMuchIncrease();
-```
-
-### InvalidParam
-
-```solidity
-error InvalidParam(string param);
-```
-
-## Structs
-
-### EnableParams
-
-```solidity
-struct EnableParams {
-    uint256 initialReserveBalance;
-    uint256 initialConversionRate;
-    uint256 initialYield;
-}
 ```

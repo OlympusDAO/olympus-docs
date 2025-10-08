@@ -1,6 +1,6 @@
 # EIP712
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/external/OlympusERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/external/OlympusERC20.sol)
 
 *<https://eips.ethereum.org/EIPS/eip-712[EIP> 712] is a standard for hashing and signing of typed structured data.
 The encoding specified in the EIP is very generic, and such a generic implementation in Solidity is not feasible,

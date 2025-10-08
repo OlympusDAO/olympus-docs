@@ -7,4 +7,3 @@
 - [DepositManager](DepositManager.sol/contract.DepositManager.md)
 - [DepositRedemptionVault](DepositRedemptionVault.sol/contract.DepositRedemptionVault.md)
 - [ReceiptTokenManager](ReceiptTokenManager.sol/contract.ReceiptTokenManager.md)
-- [YieldDepositFacility](YieldDepositFacility.sol/contract.YieldDepositFacility.md)

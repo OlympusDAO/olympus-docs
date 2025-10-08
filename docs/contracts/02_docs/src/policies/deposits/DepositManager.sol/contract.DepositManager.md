@@ -1,6 +1,6 @@
 # DepositManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/policies/deposits/DepositManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/deposits/DepositManager.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IDepositManager](/main/contracts/docs/src/policies/interfaces/deposits/IDepositManager.sol/interface.IDepositManager), [BaseAssetManager](/main/contracts/docs/src/bases/BaseAssetManager.sol/abstract.BaseAssetManager)
@@ -329,7 +329,11 @@ function _getAssetLiabilitiesKey(IERC20 asset_, address operator_) internal pure
 Validates that an operator remains solvent after a withdrawal
 
 *This function ensures that operator assets + borrowed amount >= operator liabilities
-This is the core solvency constraint for the DepositManager*
+This is the core solvency constraint for the DepositManager
+Notes:
+
+- The solvency checks assume that the value of each vault share is increasing, and will not reduce.
+- In a situation where the assets per share reduces below 1 (at the appropriate decimal scale), the solvency check will fail.*
 
 ```solidity
 function _validateOperatorSolvency(IERC20 asset_, address operator_) internal view;
@@ -418,7 +422,10 @@ Adds a new asset
 - The contract is not enabled
 - The caller does not have the admin or manager role
 - asset_ is the zero address
-- minimumDeposit_> depositCap_*
+- minimumDeposit_> depositCap_
+Notes:
+- A limitation of the current implementation is that the vault is assumed to be monotonically-increasing in value.
+- The pairing of the asset and vault is immutable, to prevent a governance attack on user deposits.*
 
 ```solidity
 function addAsset(IERC20 asset_, IERC4626 vault_, uint256 depositCap_, uint256 minimumDeposit_)

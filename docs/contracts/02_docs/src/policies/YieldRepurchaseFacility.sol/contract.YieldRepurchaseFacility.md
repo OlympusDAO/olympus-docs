@@ -1,52 +1,15 @@
 # YieldRepurchaseFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/policies/YieldRepurchaseFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/YieldRepurchaseFacility.sol)
 
 **Inherits:**
-[IYieldRepo](/main/contracts/docs/src/policies/interfaces/IYieldRepo.sol/interface.IYieldRepo), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler)
+[IYieldRepo](/main/contracts/docs/src/policies/interfaces/IYieldRepo.sol/interface.IYieldRepo), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
 
 the Yield Repurchase Facility (Yield Repo) contract pulls a derived amount of yield from
 the Olympus treasury each week and uses it, along with the backing of previously purchased
 OHM, to purchase OHM off the market using a Bond Protocol SDA market.
 
 ## State Variables
-
-### epochLength
-
-The length of the epoch
-
-*3 epochs per day, 7 days = 21*
-
-```solidity
-uint48 public constant epochLength = 21;
-```
-
-### backingPerToken
-
-The backing per token
-
-*Assume backing of $11.33*
-
-```solidity
-uint256 public constant backingPerToken = 1133 * 1e7;
-```
-
-### ROLE_HEART
-
-The role assigned to the Heart contract
-This enables the Heart contract to call specific functions on this contract
-
-```solidity
-bytes32 public constant ROLE_HEART = "heart";
-```
-
-### ENABLE_PARAMS_LENGTH
-
-The length of the `EnableParams` struct in bytes
-
-```solidity
-uint256 internal constant ENABLE_PARAMS_LENGTH = 96;
-```
 
 ### sReserve
 
@@ -138,6 +101,24 @@ uint256 public lastReserveBalance;
 uint256 public lastConversionRate;
 ```
 
+### isShutdown
+
+```solidity
+bool public isShutdown;
+```
+
+### epochLength
+
+```solidity
+uint48 public constant epochLength = 21;
+```
+
+### backingPerToken
+
+```solidity
+uint256 public constant backingPerToken = 1133 * 1e7;
+```
+
 ## Functions
 
 ### constructor
@@ -146,33 +127,25 @@ uint256 public lastConversionRate;
 constructor(Kernel kernel_, address ohm_, address sReserve_, address teller_, address auctioneer_) Policy(kernel_);
 ```
 
-### configureDependencies
+### initialize
 
-Define module dependencies for this policy.
+```solidity
+function initialize(uint256 initialReserveBalance, uint256 initialConversionRate, uint256 initialYield)
+    external
+    onlyRole("loop_daddy");
+```
+
+### configureDependencies
 
 ```solidity
 function configureDependencies() external override returns (Keycode[] memory dependencies);
 ```
 
-**Returns**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
-
 ### requestPermissions
-
-Function called by kernel to set module function permissions.
 
 ```solidity
 function requestPermissions() external view override returns (Permissions[] memory permissions);
 ```
-
-**Returns**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
 
 ### VERSION
 
@@ -194,7 +167,7 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 create a new bond market at the end of the day with some portion of remaining funds
 
 ```solidity
-function endEpoch() public override onlyRole(ROLE_HEART);
+function endEpoch() public override onlyRole("heart");
 ```
 
 ### adjustNextYield
@@ -202,7 +175,7 @@ function endEpoch() public override onlyRole(ROLE_HEART);
 allow manager to increase (by maximum 10%) or decrease yield for week if contract is inaccurate
 
 ```solidity
-function adjustNextYield(uint256 newNextYield) external onlyAdminRole;
+function adjustNextYield(uint256 newNextYield) external onlyRole("loop_daddy");
 ```
 
 **Parameters**
@@ -211,37 +184,19 @@ function adjustNextYield(uint256 newNextYield) external onlyAdminRole;
 |----|----|-----------|
 |`newNextYield`|`uint256`|to fund|
 
-### _enable
+### shutdown
 
-Implementation-specific enable function
-
-*This function expects the parameters to be an abi-encoded `address[]` with the tokens to transfer*
+retire contract by burning ohm balance and transferring tokens to treasury
 
 ```solidity
-function _enable(bytes calldata params_) internal override;
+function shutdown(ERC20[] memory tokensToTransfer) external onlyRole("loop_daddy");
 ```
 
 **Parameters**
 
 |Name|Type|Description|
 |----|----|-----------|
-|`params_`|`bytes`||
-
-### _disable
-
-Implementation-specific disable function
-
-*This function expects the parameters to be an abi-encoded `address[]` with the tokens to transfer*
-
-```solidity
-function _disable(bytes calldata params_) internal override;
-```
-
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`params_`|`bytes`||
+|`tokensToTransfer`|`ERC20[]`|list of tokens to transfer back to treasury (i.e. reserves)|
 
 ### _createMarket
 
@@ -323,4 +278,24 @@ compute backing for ohm balance
 
 ```solidity
 function getOhmBalanceAndBacking() public view override returns (uint256 balance, uint256 backing);
+```
+
+## Events
+
+### RepoMarket
+
+```solidity
+event RepoMarket(uint256 marketId, uint256 bidAmount);
+```
+
+### NextYieldSet
+
+```solidity
+event NextYieldSet(uint256 nextYield);
+```
+
+### Shutdown
+
+```solidity
+event Shutdown();
 ```

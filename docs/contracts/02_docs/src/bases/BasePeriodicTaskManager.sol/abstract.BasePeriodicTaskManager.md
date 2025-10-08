@@ -1,6 +1,6 @@
 # BasePeriodicTaskManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/e211052e366afcdb61c0c2e36af4e3ba686456db/src/bases/BasePeriodicTaskManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/bases/BasePeriodicTaskManager.sol)
 
 **Inherits:**
 [IPeriodicTaskManager](/main/contracts/docs/src/bases/interfaces/IPeriodicTaskManager.sol/interface.IPeriodicTaskManager), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler)
