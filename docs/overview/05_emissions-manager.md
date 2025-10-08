@@ -33,6 +33,14 @@ The EmissionManager tracks auction performance over a defined tracking period. I
 
 All core parameters are configurable by OCG and can be adjusted as needed.
 
+### Limitations
+
+#### Limited to Stablecoins
+
+The `EmissionManager` utilises v1 of the `PRICE` module, which provides the price of OHM in terms of the configured reserve token (currently USDS). It uses that value to determine the minimum price that the `ConvertibleDepositAuctioneer` contract will sell OHM at.
+
+As a result, the `EmissionManager` cannot currently be configured to run auctions for assets that are not stablecoins, as the minimum price calculation would be incorrect.
+
 ## Example Calculation
 
 **Given:**
