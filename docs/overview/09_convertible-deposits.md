@@ -494,12 +494,13 @@ When considering convertible deposits, users should consider:
 - **Tick Size**: 150 OHM (halves when daily target is exceeded)
 - **Tick Step Multiplier**: 100.75% (0.75% increase per tick)
 - **Tracking Period**: 7 days
+- **Minimum Bid**: 100 USDS
 
 #### Emission Mechanics
 
 - **Base Emissions Rate**: 0.02% of supply/day
-- **Minimum Price**: 100% of market price
-- **Backing**: 11.74 USDS/OHM
+- **Minimum Price**: 120% of market price
+- **Backing**: 11.69 USDS/OHM
 - **Restart Timeframe**: 11 days
 
 ### Common Questions
