@@ -1,6 +1,6 @@
 # CloneableReceiptToken
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/libraries/CloneableReceiptToken.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/libraries/CloneableReceiptToken.sol)
 
 **Inherits:**
 [CloneERC20](/main/contracts/docs/src/external/clones/CloneERC20.sol/abstract.CloneERC20), [IERC20BurnableMintable](/main/contracts/docs/src/interfaces/IERC20BurnableMintable.sol/interface.IERC20BurnableMintable), [IDepositReceiptToken](/main/contracts/docs/src/interfaces/IDepositReceiptToken.sol/interface.IDepositReceiptToken)
@@ -66,6 +66,12 @@ function operator() public pure returns (address _operator);
 |----|----|-----------|
 |`_operator`|`address`|The operator address stored in immutable args|
 
+### _onlyOwner
+
+```solidity
+function _onlyOwner() internal view;
+```
+
 ### onlyOwner
 
 Only the owner can call this function
@@ -97,11 +103,9 @@ function mintFor(address to_, uint256 amount_) external onlyOwner;
 Burn tokens from the specified address
 
 *This is gated to the owner, as burning is controlled.
-Burning should be performed through the owner contract.*
-
-*This function reverts if:
-
-- The amount is greater than the allowance*
+Burning should be performed through the owner contract.
+The owner is expected to handle spending approval before calling this function.
+This function does NOT check or update allowances.*
 
 ```solidity
 function burnFrom(address from_, uint256 amount_) external onlyOwner;

@@ -1,6 +1,6 @@
 # IConvertibleDepositFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/interfaces/deposits/IConvertibleDepositFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/deposits/IConvertibleDepositFacility.sol)
 
 Interface for a contract that can perform functions related to convertible deposit (CD) tokens
 
@@ -240,6 +240,12 @@ event ConvertedDeposit(
 event ClaimedYield(address indexed asset, uint256 amount);
 ```
 
+### ClaimAllYieldFailed
+
+```solidity
+event ClaimAllYieldFailed();
+```
+
 ## Errors
 
 ### CDF_InvalidArgs
@@ -276,14 +282,6 @@ error CDF_InvalidToken(uint256 positionId_, address token_, uint8 periodMonths_)
 
 ```solidity
 error CDF_Unsupported(uint256 positionId_);
-```
-
-### CDF_ClaimAllYieldFailed
-
-*Used when the claimAllYield function fails during a periodic task*
-
-```solidity
-error CDF_ClaimAllYieldFailed();
 ```
 
 ## Structs

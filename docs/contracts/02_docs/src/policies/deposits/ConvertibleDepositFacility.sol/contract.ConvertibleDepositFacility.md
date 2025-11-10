@@ -1,9 +1,11 @@
 # ConvertibleDepositFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/deposits/ConvertibleDepositFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/ConvertibleDepositFacility.sol)
 
 **Inherits:**
 [BaseDepositFacility](/main/contracts/docs/src/policies/deposits/BaseDepositFacility.sol/abstract.BaseDepositFacility), [IConvertibleDepositFacility](/main/contracts/docs/src/policies/interfaces/deposits/IConvertibleDepositFacility.sol/interface.IConvertibleDepositFacility), [IPeriodicTask](/main/contracts/docs/src/interfaces/IPeriodicTask.sol/interface.IPeriodicTask)
+
+forge-lint: disable-start(mixed-case-function, mixed-case-variable)
 
 Implementation of the {IConvertibleDepositFacility} interface
 It is a general-purpose contract that can be used to create, mint, convert, redeem, and reclaim receipt tokens
@@ -331,7 +333,13 @@ function convertedToken() external view returns (address);
 
 Executes the periodic task
 
-*Guidelines for implementing functions:*
+*This function reverts if:
+
+- The caller is not authorized
+Notes:
+- If disabled, nothing is done
+- This will attempt to claim yield for all configured assets
+- If the claimAllYield function fails for any asset, an event will be emitted instead of reverting*
 
 ```solidity
 function execute() external onlyRole(HEART_ROLE);

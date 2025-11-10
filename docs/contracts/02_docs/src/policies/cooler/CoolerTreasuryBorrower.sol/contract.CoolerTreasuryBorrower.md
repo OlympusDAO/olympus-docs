@@ -1,6 +1,6 @@
 # CoolerTreasuryBorrower
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/cooler/CoolerTreasuryBorrower.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/cooler/CoolerTreasuryBorrower.sol)
 
 **Inherits:**
 [ICoolerTreasuryBorrower](/main/contracts/docs/src/policies/interfaces/cooler/ICoolerTreasuryBorrower.sol/interface.ICoolerTreasuryBorrower), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler)

@@ -1,6 +1,6 @@
 # ReceiptTokenManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/deposits/ReceiptTokenManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/ReceiptTokenManager.sol)
 
 **Inherits:**
 [ERC6909Wrappable](/main/contracts/docs/src/libraries/ERC6909Wrappable.sol/abstract.ERC6909Wrappable), [IReceiptTokenManager](/main/contracts/docs/src/policies/interfaces/deposits/IReceiptTokenManager.sol/interface.IReceiptTokenManager)
@@ -68,6 +68,12 @@ function createToken(IERC20 asset_, uint8 depositPeriod_, address operator_, str
 |Name|Type|Description|
 |----|----|-----------|
 |`tokenId`|`uint256`|        The created token ID|
+
+### _onlyTokenOwner
+
+```solidity
+function _onlyTokenOwner(uint256 tokenId_) internal view;
+```
 
 ### onlyTokenOwner
 

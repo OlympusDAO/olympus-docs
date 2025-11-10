@@ -1,6 +1,6 @@
 # OlympusInstructions
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/modules/INSTR/OlympusInstructions.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/INSTR/OlympusInstructions.sol)
 
 **Inherits:**
 [INSTRv1](/main/contracts/docs/src/modules/INSTR/INSTR.v1.sol/abstract.INSTRv1)

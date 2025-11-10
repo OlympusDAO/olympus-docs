@@ -1,9 +1,11 @@
 # EmissionManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/EmissionManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/EmissionManager.sol)
 
 **Inherits:**
 [IEmissionManager](/main/contracts/docs/src/policies/interfaces/IEmissionManager.sol/interface.IEmissionManager), [IPeriodicTask](/main/contracts/docs/src/interfaces/IPeriodicTask.sol/interface.IPeriodicTask), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler)
+
+forge-lint: disable-start(mixed-case-function, mixed-case-variable, screaming-snake-case-immutable)
 
 ## State Variables
 
@@ -11,6 +13,12 @@
 
 ```solidity
 uint256 internal constant ONE_HUNDRED_PERCENT = 1e18;
+```
+
+### MAX_BOND_MARKET_CAPACITY_SCALAR
+
+```solidity
+uint256 internal constant MAX_BOND_MARKET_CAPACITY_SCALAR = 2e18;
 ```
 
 ### ROLE_HEART
@@ -27,7 +35,7 @@ bytes32 public constant ROLE_HEART = "heart";
 The length of the `EnableParams` struct in bytes
 
 ```solidity
-uint256 internal constant ENABLE_PARAMS_LENGTH = 192;
+uint256 internal constant ENABLE_PARAMS_LENGTH = 224;
 ```
 
 ### rateChange
@@ -172,8 +180,20 @@ uint256 public tickSize;
 
 The multiplier applied to the price, in terms of ONE_HUNDRED_PERCENT
 
+*The value must be greater than or equal to ONE_HUNDRED_PERCENT (100%)*
+
 ```solidity
 uint256 public minPriceScalar;
+```
+
+### bondMarketCapacityScalar
+
+The multiplier applied to bond market capacity from auction remainders, in terms of ONE_HUNDRED_PERCENT
+
+*The value must be between 0 and MAX_BOND_MARKET_CAPACITY_SCALAR (0-200%)*
+
+```solidity
+uint256 public bondMarketCapacityScalar;
 ```
 
 ### _oracleDecimals
@@ -564,11 +584,28 @@ Allow governance to set the CD minimum price scalar
 
 *This function reverts if:
 
-- newScalar is 0
-- newScalar is greater than ONE_HUNDRED_PERCENT (100% in 18 decimals)*
+- newScalar is less than ONE_HUNDRED_PERCENT (100% in 18 decimals)*
 
 ```solidity
 function setMinPriceScalar(uint256 newScalar) external onlyAdminRole;
+```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`newScalar`|`uint256`|  as a percentage in 18 decimals|
+
+### setBondMarketCapacityScalar
+
+Allow governance to set the bond market capacity scalar
+
+*This function reverts if:
+
+- newScalar is greater than MAX_BOND_MARKET_CAPACITY_SCALAR (200%)*
+
+```solidity
+function setBondMarketCapacityScalar(uint256 newScalar) external onlyAdminRole;
 ```
 
 **Parameters**
@@ -672,10 +709,11 @@ Creates a bond market
 - If there is no pending capacity, no bond market will be created
 This function will revert if:
 - The caller is not this contract, or an address with the admin/manager role
+- The contract is disabled
 - The bond market cannot be created*
 
 ```solidity
-function createPendingBondMarket() external;
+function createPendingBondMarket() external onlyEnabled;
 ```
 
 ### supportsInterface

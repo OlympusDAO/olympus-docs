@@ -1,6 +1,6 @@
 # IDepositManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/interfaces/deposits/IDepositManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/deposits/IDepositManager.sol)
 
 **Inherits:**
 [IAssetManager](/main/contracts/docs/src/bases/interfaces/IAssetManager.sol/interface.IAssetManager)
@@ -881,6 +881,7 @@ struct BorrowingRepayParams {
     IERC20 asset;
     address payer;
     uint256 amount;
+    uint256 maxAmount;
 }
 ```
 
@@ -888,9 +889,10 @@ struct BorrowingRepayParams {
 
 |Name|Type|Description|
 |----|----|-----------|
-|`asset`|`IERC20`|          The underlying ERC20 asset|
-|`payer`|`address`|          The address making the repayment|
-|`amount`|`uint256`|         The amount to repay|
+|`asset`|`IERC20`|       The underlying ERC20 asset|
+|`payer`|`address`|       The address making the repayment|
+|`amount`|`uint256`|      The amount of principal to repay|
+|`maxAmount`|`uint256`|   The maximum amount that can be repaid|
 
 ### BorrowingDefaultParams
 

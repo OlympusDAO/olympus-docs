@@ -1,9 +1,11 @@
 # DepositManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/deposits/DepositManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/DepositManager.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IDepositManager](/main/contracts/docs/src/policies/interfaces/deposits/IDepositManager.sol/interface.IDepositManager), [BaseAssetManager](/main/contracts/docs/src/bases/BaseAssetManager.sol/abstract.BaseAssetManager)
+
+forge-lint: disable-start(asm-keccak256, mixed-case-function)
 
 This policy manages deposits and withdrawals for Olympus protocol contracts
 
@@ -97,12 +99,24 @@ mapping(bytes32 key => uint256 borrowedAmount) internal _borrowedAmounts;
 
 ## Functions
 
+### _onlyAssetPeriodExists
+
+```solidity
+function _onlyAssetPeriodExists(IERC20 asset_, uint8 depositPeriod_, address operator_) internal view;
+```
+
 ### onlyAssetPeriodExists
 
 Reverts if the asset period is not configured
 
 ```solidity
 modifier onlyAssetPeriodExists(IERC20 asset_, uint8 depositPeriod_, address operator_);
+```
+
+### _onlyAssetPeriodEnabled
+
+```solidity
+function _onlyAssetPeriodEnabled(IERC20 asset_, uint8 depositPeriod_, address operator_) internal view;
 ```
 
 ### onlyAssetPeriodEnabled
@@ -222,14 +236,15 @@ function maxClaimYield(IERC20 asset_, address operator_) external view returns (
 Claims the yield from the underlying asset
 This does not burn receipt tokens, but should reduce the amount of shares the caller has in the vault.
 
-*This function is only callable by addresses with the deposit operator role
-The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
-This function reverts if:
+*Notes:
 
+- This function is only callable by addresses with the deposit operator role
+- The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
+- Given a low enough amount, the actual amount withdrawn may be 0. This function will not revert in such a case.
+This function reverts if:
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The asset is not configured in BaseAssetManager
-- Zero shares would be withdrawn from the vault
 - The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)*
 
 ```solidity
@@ -259,10 +274,12 @@ function claimYield(IERC20 asset_, address recipient_, uint256 amount_)
 
 Withdraws the given amount of the underlying asset
 
-*This function is only callable by addresses with the deposit operator role
-The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
-This function reverts if:
+*Notes:
 
+- This function is only callable by addresses with the deposit operator role
+- The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
+- Given a low enough amount, the actual amount withdrawn may be 0. This function will not revert in such a case.
+This function will revert if:
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The recipient is the zero address
@@ -270,7 +287,6 @@ This function reverts if:
 - The depositor has insufficient receipt token balance
 - For wrapped tokens: depositor has not approved ReceiptTokenManager to spend the wrapped ERC20 token
 - For unwrapped tokens: depositor has not approved the caller to spend ERC6909 tokens
-- Zero shares would be withdrawn from the vault
 - The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)*
 
 ```solidity
@@ -646,15 +662,16 @@ function getAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
 
 Borrows funds from deposits
 
-*This function is only callable by addresses with the deposit operator role
-This function reverts if:
+*Notes:
 
+- This function is only callable by addresses with the deposit operator role
+- Given a low enough amount, the actual amount withdrawn may be 0. This function will not revert in such a case.
+This function reverts if:
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The recipient is the zero address
 - The asset has not been added via addAsset()
 - The amount exceeds the operator's available borrowing capacity
-- Zero shares would be withdrawn from the vault
 - The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)*
 
 ```solidity
@@ -681,13 +698,15 @@ function borrowingWithdraw(BorrowingWithdrawParams calldata params_)
 
 Repays borrowed funds
 
-*This function is only callable by addresses with the deposit operator role
-This function reverts if:
+*Notes:
 
+- This function is only callable by addresses with the deposit operator role
+- This function does not check for over-payment. It is expected to be handled by the calling contract.
+- If the actual amount repaid is greater than the maximum amount provided, updates to the state variables are capped at the maximum amount.
+This function reverts if:
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The asset has not been added via addAsset()
-- The amount exceeds the current borrowed amount for the operator
 - The payer has not approved DepositManager to spend the asset tokens
 - The payer has insufficient asset token balance
 - The asset is a fee-on-transfer token

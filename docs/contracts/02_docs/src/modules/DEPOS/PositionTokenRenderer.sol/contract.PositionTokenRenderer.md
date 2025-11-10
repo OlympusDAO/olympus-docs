@@ -1,9 +1,11 @@
 # PositionTokenRenderer
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/modules/DEPOS/PositionTokenRenderer.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/DEPOS/PositionTokenRenderer.sol)
 
 **Inherits:**
 [IPositionTokenRenderer](/main/contracts/docs/src/modules/DEPOS/IPositionTokenRenderer.sol/interface.IPositionTokenRenderer)
+
+forge-lint: disable-start(mixed-case-function)
 
 Implementation of the IPositionTokenRenderer interface
 This contract implements a custom token renderer

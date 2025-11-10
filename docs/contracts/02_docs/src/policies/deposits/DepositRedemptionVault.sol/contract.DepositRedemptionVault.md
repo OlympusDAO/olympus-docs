@@ -1,9 +1,11 @@
 # DepositRedemptionVault
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/deposits/DepositRedemptionVault.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/DepositRedemptionVault.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [IDepositRedemptionVault](/main/contracts/docs/src/policies/interfaces/deposits/IDepositRedemptionVault.sol/interface.IDepositRedemptionVault), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), ReentrancyGuard
+
+forge-lint: disable-start(asm-keccak256, mixed-case-variable)
 
 A contract that manages the redemption of receipt tokens with facility coordination and borrowing
 
@@ -330,6 +332,12 @@ function getUserRedemptions(address user_) external view returns (UserRedemption
 |----|----|-----------|
 |`<none>`|`UserRedemption[]`|redemptions The array of redemptions|
 
+### _onlyValidRedemptionId
+
+```solidity
+function _onlyValidRedemptionId(address user_, uint16 redemptionId_) internal view;
+```
+
 ### onlyValidRedemptionId
 
 ```solidity
@@ -463,7 +471,8 @@ function finishRedemption(uint16 redemptionId_)
     external
     nonReentrant
     onlyEnabled
-    onlyValidRedemptionId(msg.sender, redemptionId_);
+    onlyValidRedemptionId(msg.sender, redemptionId_)
+    returns (uint256 actualAmount);
 ```
 
 **Parameters**
@@ -471,6 +480,12 @@ function finishRedemption(uint16 redemptionId_)
 |Name|Type|Description|
 |----|----|-----------|
 |`redemptionId_`|`uint16`|  The ID of the user redemption|
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`actualAmount`|`uint256`|   The quantity of deposit tokens transferred to the caller|
 
 ### _calculateInterest
 
@@ -563,6 +578,7 @@ Repay a loan
 
 *This function will repay the outstanding loan amount.
 Interest is paid back first, followed by principal.
+To prevent irrecoverable overpayments, the maximum slippage is used to validate that a repayment is within bounds of the remaining loan principal.
 This function will revert if:
 
 - The contract is not enabled
@@ -572,7 +588,7 @@ This function will revert if:
 - The loan is expired, defaulted or fully repaid*
 
 ```solidity
-function repayLoan(uint16 redemptionId_, uint256 amount_)
+function repayLoan(uint16 redemptionId_, uint256 amount_, uint256 maxSlippage_)
     external
     nonReentrant
     onlyEnabled
@@ -585,6 +601,7 @@ function repayLoan(uint16 redemptionId_, uint256 amount_)
 |----|----|-----------|
 |`redemptionId_`|`uint16`|   The ID of the redemption|
 |`amount_`|`uint256`|         The amount to repay|
+|`maxSlippage_`|`uint256`|    The maximum slippage allowed for the repayment|
 
 ### _previewExtendLoan
 
@@ -602,10 +619,18 @@ function _previewExtendLoan(
 
 Preview the interest payable for extending a loan
 
+*This function will revert if:
+
+- The redemption ID is invalid
+- The loan is invalid
+- The loan is expired, defaulted or fully repaid
+- The months is 0*
+
 ```solidity
 function previewExtendLoan(address user_, uint16 redemptionId_, uint8 months_)
     external
     view
+    onlyValidRedemptionId(user_, redemptionId_)
     returns (uint48, uint256);
 ```
 

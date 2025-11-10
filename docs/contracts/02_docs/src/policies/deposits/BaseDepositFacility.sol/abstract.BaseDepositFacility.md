@@ -1,9 +1,11 @@
 # BaseDepositFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/deposits/BaseDepositFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/BaseDepositFacility.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IDepositFacility](/main/contracts/docs/src/policies/interfaces/deposits/IDepositFacility.sol/interface.IDepositFacility), ReentrancyGuard
+
+forge-lint: disable-start(asm-keccak256, mixed-case-variable)
 
 Abstract base contract for deposit facilities with shared functionality
 
@@ -80,6 +82,12 @@ mapping(bytes32 key => uint16 reclaimRate) private _assetPeriodReclaimRates;
 ```
 
 ## Functions
+
+### _onlyAuthorizedOperator
+
+```solidity
+function _onlyAuthorizedOperator() internal view;
+```
 
 ### onlyAuthorizedOperator
 
@@ -279,7 +287,8 @@ Allows an operator to borrow against this facility's committed funds.
 
 - This contract is not enabled
 - The caller is not an authorized operator
-- The amount is greater than the committed deposits for the operator*
+- The amount is greater than the committed deposits for the operator
+- The amount withdrawn from the vault would be zero*
 
 ```solidity
 function handleBorrow(IERC20 depositToken_, uint8, uint256 amount_, address recipient_)
@@ -312,12 +321,15 @@ Allows an operator to repay borrowed funds
 *This function performs the following:
 
 - Updates the committed deposits
+Notes:
+- This function is only callable by authorized operators
+- This function does not check for over-payment. It is expected to be handled by the calling contract.
 This function will revert if:
 - This contract is not enabled
 - The caller is not an authorized operator*
 
 ```solidity
-function handleLoanRepay(IERC20 depositToken_, uint8, uint256 amount_, address payer_)
+function handleLoanRepay(IERC20 depositToken_, uint8, uint256 amount_, uint256 maxAmount_, address payer_)
     external
     nonReentrant
     onlyEnabled
@@ -331,7 +343,8 @@ function handleLoanRepay(IERC20 depositToken_, uint8, uint256 amount_, address p
 |----|----|-----------|
 |`depositToken_`|`IERC20`|   The deposit token being repaid|
 |`<none>`|`uint8`||
-|`amount_`|`uint256`|         The amount being repaid|
+|`amount_`|`uint256`|         The amount of principal being repaid|
+|`maxAmount_`|`uint256`|      The maximum amount of principal that can be repaid|
 |`payer_`|`address`|          The address making the repayment|
 
 **Returns**
@@ -597,10 +610,10 @@ function split(uint256 positionId_, uint256 amount_, address to_, bool wrap_)
 
 Internal function to handle the splitting of a position
 
-*Inheriting contracts can implement this function to perform custom actions when a position is split. This function is called after the position is split, so beware of reentrancy.*
+*Inheriting contracts can implement this function to perform custom actions when a position is split. This function is called before the position is split in the underlying DEPOS module.*
 
 ```solidity
-function _split(uint256 oldPositionId_, uint256 newPositionId_, uint256 amount_) internal virtual;
+function _split(uint256 oldPositionId_, uint256 amount_) internal virtual;
 ```
 
 ### setAssetPeriodReclaimRate

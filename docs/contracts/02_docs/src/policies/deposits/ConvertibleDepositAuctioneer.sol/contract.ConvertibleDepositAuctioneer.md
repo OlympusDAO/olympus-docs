@@ -1,9 +1,11 @@
 # ConvertibleDepositAuctioneer
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/deposits/ConvertibleDepositAuctioneer.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/ConvertibleDepositAuctioneer.sol)
 
 **Inherits:**
 [IConvertibleDepositAuctioneer](/main/contracts/docs/src/policies/interfaces/deposits/IConvertibleDepositAuctioneer.sol/interface.IConvertibleDepositAuctioneer), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), ReentrancyGuard
+
+forge-lint: disable-start(mixed-case-function, screaming-snake-case-const)
 
 Implementation of the {IConvertibleDepositAuctioneer} interface for a specific deposit token and 1 or more deposit periods
 
@@ -44,12 +46,50 @@ uint256 internal constant _ohmScale = 1e9;
 uint24 public constant ONE_HUNDRED_PERCENT = 100e2;
 ```
 
+### WAD
+
+Fixed point scale (WAD)
+
+```solidity
+uint256 internal constant WAD = 1e18;
+```
+
+### TICK_SIZE_BASE_MIN
+
+Minimum and maximum allowed tick size base (in WAD)
+
+```solidity
+uint256 internal constant TICK_SIZE_BASE_MIN = 1e18;
+```
+
+### TICK_SIZE_BASE_MAX
+
+```solidity
+uint256 internal constant TICK_SIZE_BASE_MAX = 10e18;
+```
+
+### MAX_RPOW_EXP
+
+Maximum safe exponent for rpow to prevent overflow
+
+```solidity
+uint256 internal constant MAX_RPOW_EXP = 41;
+```
+
+### SECONDS_IN_DAY
+
+Seconds in one day
+
+```solidity
+uint256 internal constant SECONDS_IN_DAY = 1 days;
+```
+
 ### _ENABLE_PARAMS_LENGTH
 
 The length of the enable parameters
 
 ```solidity
-uint256 internal constant _ENABLE_PARAMS_LENGTH = 160;
+uint256 internal constant _ENABLE_PARAMS_LENGTH = 192;
 ```
 
 ### _TICK_SIZE_MINIMUM
@@ -136,6 +176,25 @@ The tick step
 
 ```solidity
 uint24 internal _tickStep;
+```
+
+### _minimumBid
+
+The minimum bid amount
+
+*The minimum bid amount is the minimum amount of deposit asset that can be bid
+See `getMinimumBid()` for more information*
+
+```solidity
+uint256 internal _minimumBid;
+```
+
+### _tickSizeBase
+
+The base used for exponential tick size reduction (by 1/(base^multiplier)) when the day target is crossed (WAD, 1e18 = 1.0)
+
+```solidity
+uint256 internal _tickSizeBase;
 ```
 
 ### _auctionResultsNextIndex
@@ -226,6 +285,8 @@ Submit a bid for convertible deposit tokens
 - Creates a convertible deposit position using the deposit amount, the average conversion price and the deposit period
 This function reverts if:
 - The contract is not active
+- The auction is disabled
+- The bid amount is below the minimum bid
 - Deposits are not enabled for the asset/period/operator
 - The depositor has not approved the DepositManager to spend the deposit asset
 - The depositor has an insufficient balance of the deposit asset
@@ -379,10 +440,13 @@ function _getNewTickPrice(uint256 currentPrice_, uint256 tickStep_) internal pur
 
 Internal function to calculate the new tick size based on the amount of OHM that has been converted in the current day
 
+*This implements exponential tick size reduction (by 1/(base^multiplier)) for each multiple of the day target that is reached
+If the new tick size is 0 or a calculation would result in an overflow, the tick size is set to the minimum*
+
 ```solidity
 function _getNewTickSize(uint256 ohmOut_, AuctionParameters memory auctionParams_)
     internal
-    pure
+    view
     returns (uint256 newTickSize);
 ```
 
@@ -398,6 +462,30 @@ function _getNewTickSize(uint256 ohmOut_, AuctionParameters memory auctionParams
 |Name|Type|Description|
 |----|----|-----------|
 |`newTickSize`|`uint256`|The new tick size|
+
+### _getOhmUntilNextThreshold
+
+Internal function to calculate the amount of OHM remaining until the next day target threshold is reached
+
+```solidity
+function _getOhmUntilNextThreshold(uint256 currentConvertible_, uint256 target_)
+    internal
+    pure
+    returns (uint256 ohmUntilThreshold);
+```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`currentConvertible_`|`uint256`|The current cumulative amount of OHM that has been converted|
+|`target_`|`uint256`|            The day target|
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`ohmUntilThreshold`|`uint256`|  The amount of OHM remaining until the next threshold|
 
 ### _getCurrentTick
 
@@ -524,6 +612,20 @@ function getTickStep() external view override returns (uint24);
 |Name|Type|Description|
 |----|----|-----------|
 |`<none>`|`uint24`|tickStep The tick step, in terms of `ONE_HUNDRED_PERCENT`|
+
+### getMinimumBid
+
+Get the minimum bid amount
+
+```solidity
+function getMinimumBid() external view override returns (uint256);
+```
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`<none>`|`uint256`|minimumBid The minimum bid amount required|
 
 ### getAuctionTrackingPeriod
 
@@ -699,6 +801,12 @@ function isDepositPeriodEnabled(uint8 depositPeriod_)
 |----|----|-----------|
 |`isEnabled`|`bool`|          Current state|
 |`isPendingEnabled`|`bool`|   Desired state after applying all queued changes (equals isEnabled if no changes are queued)|
+
+### _onlyDepositPeriodEnabled
+
+```solidity
+function _onlyDepositPeriodEnabled(uint8 depositPeriod_) internal view;
+```
 
 ### onlyDepositPeriodEnabled
 
@@ -879,6 +987,39 @@ function setTickStep(uint24 newStep_) public override onlyManagerOrAdminRole;
 |----|----|-----------|
 |`newStep_`|`uint24`|   The new tick step|
 
+### getTickSizeBase
+
+Get the exponent base used for determining the tick size when the day target is crossed
+
+```solidity
+function getTickSizeBase() external view override returns (uint256);
+```
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`<none>`|`uint256`|baseWad The tick size base|
+
+### setTickSizeBase
+
+Set the exponent base used for determining the tick size when the day target is crossed
+
+*This function will revert if:
+
+- The caller does not have the ROLE_ADMIN or ROLE_MANAGER role
+- The new tick size base is not within the bounds (1e18 ≤ base ≤ 10e18)*
+
+```solidity
+function setTickSizeBase(uint256 newBase_) public override onlyManagerOrAdminRole;
+```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`newBase_`|`uint256`|   The new tick size base|
+
 ### setAuctionTrackingPeriod
 
 Set the number of days that auction results are tracked for
@@ -899,6 +1040,24 @@ function setAuctionTrackingPeriod(uint8 days_) public override onlyManagerOrAdmi
 |Name|Type|Description|
 |----|----|-----------|
 |`days_`|`uint8`|   The new auction tracking period|
+
+### setMinimumBid
+
+Set the minimum bid amount
+
+*This function will revert if:
+
+- The caller does not have the ROLE_ADMIN or ROLE_MANAGER role*
+
+```solidity
+function setMinimumBid(uint256 minimumBid_) external override onlyManagerOrAdminRole;
+```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`minimumBid_`|`uint256`|   The new minimum bid amount|
 
 ### _enable
 

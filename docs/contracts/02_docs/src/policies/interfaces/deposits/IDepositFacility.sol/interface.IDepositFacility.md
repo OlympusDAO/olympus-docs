@@ -1,6 +1,6 @@
 # IDepositFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/interfaces/deposits/IDepositFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/deposits/IDepositFacility.sol)
 
 Interface for deposit facilities to coordinate with generic operators (e.g., redemption vaults)
 
@@ -185,9 +185,13 @@ function handleBorrow(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount
 Allows an operator to repay borrowed funds
 
 ```solidity
-function handleLoanRepay(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount_, address payer_)
-    external
-    returns (uint256 actualAmount);
+function handleLoanRepay(
+    IERC20 depositToken_,
+    uint8 depositPeriod_,
+    uint256 amount_,
+    uint256 maxAmount_,
+    address payer_
+) external returns (uint256 actualAmount);
 ```
 
 **Parameters**
@@ -196,7 +200,8 @@ function handleLoanRepay(IERC20 depositToken_, uint8 depositPeriod_, uint256 amo
 |----|----|-----------|
 |`depositToken_`|`IERC20`|   The deposit token being repaid|
 |`depositPeriod_`|`uint8`|  The deposit period in months|
-|`amount_`|`uint256`|         The amount being repaid|
+|`amount_`|`uint256`|         The amount of principal being repaid|
+|`maxAmount_`|`uint256`|      The maximum amount of principal that can be repaid|
 |`payer_`|`address`|          The address making the repayment|
 
 **Returns**
@@ -489,4 +494,10 @@ error DepositFacility_InsufficientDeposits(uint256 requested, uint256 available)
 
 ```solidity
 error DepositFacility_InsufficientCommitment(address operator, uint256 requested, uint256 available);
+```
+
+### DepositFacility_InvalidReclaimRate
+
+```solidity
+error DepositFacility_InvalidReclaimRate(uint16 reclaimRate, uint16 maxReclaimRate);
 ```

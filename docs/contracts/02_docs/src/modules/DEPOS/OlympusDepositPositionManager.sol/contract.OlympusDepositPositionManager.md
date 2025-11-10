@@ -1,9 +1,11 @@
 # OlympusDepositPositionManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/modules/DEPOS/OlympusDepositPositionManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/DEPOS/OlympusDepositPositionManager.sol)
 
 **Inherits:**
 [DEPOSv1](/main/contracts/docs/src/modules/DEPOS/DEPOS.v1.sol/abstract.DEPOSv1)
+
+forge-lint: disable-start(mixed-case-function, mixed-case-variable)
 
 Implementation of the {DEPOSv1} interface
 This contract is used to create, manage, and wrap/unwrap deposit positions. Positions are optionally convertible.
@@ -467,16 +469,34 @@ function getTokenRenderer() external view virtual override returns (address);
 function supportsInterface(bytes4 interfaceId_) public view virtual override returns (bool);
 ```
 
+### _onlyValidPosition
+
+```solidity
+function _onlyValidPosition(uint256 positionId_) internal view;
+```
+
 ### onlyValidPosition
 
 ```solidity
 modifier onlyValidPosition(uint256 positionId_);
 ```
 
+### _onlyPositionOperator
+
+```solidity
+function _onlyPositionOperator(uint256 positionId_) internal view;
+```
+
 ### onlyPositionOperator
 
 ```solidity
 modifier onlyPositionOperator(uint256 positionId_);
+```
+
+### _onlyPositionOwner
+
+```solidity
+function _onlyPositionOwner(uint256 positionId_) internal view;
 ```
 
 ### onlyPositionOwner

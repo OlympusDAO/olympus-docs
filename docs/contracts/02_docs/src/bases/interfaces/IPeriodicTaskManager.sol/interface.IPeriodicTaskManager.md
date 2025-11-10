@@ -1,6 +1,6 @@
 # IPeriodicTaskManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/bases/interfaces/IPeriodicTaskManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/bases/interfaces/IPeriodicTaskManager.sol)
 
 Interface for a contract that can manage periodic tasks with ordering capabilities
 

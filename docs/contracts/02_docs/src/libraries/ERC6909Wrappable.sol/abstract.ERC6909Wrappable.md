@@ -1,6 +1,6 @@
 # ERC6909Wrappable
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/libraries/ERC6909Wrappable.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/libraries/ERC6909Wrappable.sol)
 
 **Inherits:**
 ERC6909Metadata, [IERC6909Wrappable](/main/contracts/docs/src/interfaces/IERC6909Wrappable.sol/interface.IERC6909Wrappable), IERC6909TokenSupply
@@ -125,8 +125,7 @@ Burns the ERC6909 or ERC20 wrapped token from the recipient
 
 - amount_ is 0
 - onBehalfOf_ is 0
-- wrapped_== true: onBehalfOf_ has not approved this contract to spend the wrapped ERC20 token
-- wrapped_== false: onBehalfOf_ is not the caller and has not approved the caller to spend the ERC6909 tokens
+- onBehalfOf_ is not the caller and has not approved the caller to spend the ERC6909 tokens (note: ERC6909 allowances govern both wrapped and unwrapped token burns)
 - ERC6909 token handling reverts*
 
 ```solidity
@@ -225,7 +224,6 @@ This function reverts if:
 
 - The token ID does not exist
 - The amount is zero
-- The caller has not approved this contract to spend the wrapped token
 - The caller has an insufficient balance of the wrapped token*
 
 ```solidity
@@ -258,6 +256,12 @@ function isValidTokenId(uint256 tokenId_) public view returns (bool);
 |Name|Type|Description|
 |----|----|-----------|
 |`<none>`|`bool`|isValid         Whether the token ID is valid|
+
+### _onlyValidTokenId
+
+```solidity
+function _onlyValidTokenId(uint256 tokenId_) internal view;
+```
 
 ### onlyValidTokenId
 

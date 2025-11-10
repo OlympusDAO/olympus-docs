@@ -1,9 +1,11 @@
 # ReserveWrapper
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/ReserveWrapper.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/ReserveWrapper.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IPeriodicTask](/main/contracts/docs/src/interfaces/IPeriodicTask.sol/interface.IPeriodicTask), [IReserveWrapper](/main/contracts/docs/src/policies/interfaces/IReserveWrapper.sol/interface.IReserveWrapper)
+
+forge-lint: disable-start(mixed-case-function, mixed-case-variable)
 
 Periodic task to wrap the reserve tokens in the TRSRY module into sReserve tokens
 
@@ -98,7 +100,14 @@ function getSReserve() external view override returns (address);
 
 Executes the periodic task
 
-*Guidelines for implementing functions:*
+*This function reverts if:
+
+- The caller is not authorized
+Notes:
+- If this contract disabled, nothing is done
+- If the reserve balance is 0, nothing is done
+- If the previewDeposit would result in zero shares, nothing is done
+- If TRSRY is not active, nothing is done*
 
 ```solidity
 function execute() external override onlyRole(HEART_ROLE);

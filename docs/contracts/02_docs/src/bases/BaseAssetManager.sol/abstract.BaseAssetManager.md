@@ -1,6 +1,6 @@
 # BaseAssetManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/bases/BaseAssetManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/bases/BaseAssetManager.sol)
 
 **Inherits:**
 [IAssetManager](/main/contracts/docs/src/bases/interfaces/IAssetManager.sol/interface.IAssetManager)
@@ -53,7 +53,7 @@ This function will revert if:
 - Zero shares would be received from the vault*
 
 ```solidity
-function _depositAsset(IERC20 asset_, address depositor_, uint256 amount_)
+function _depositAsset(IERC20 asset_, address depositor_, uint256 amount_, bool enforceDepositChecks_)
     internal
     onlyConfiguredAsset(asset_)
     returns (uint256 actualAmount, uint256 shares);
@@ -63,9 +63,10 @@ function _depositAsset(IERC20 asset_, address depositor_, uint256 amount_)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`asset_`|`IERC20`|         The asset to deposit|
-|`depositor_`|`address`|     The depositor|
-|`amount_`|`uint256`|        The amount of assets to deposit|
+|`asset_`|`IERC20`|                 The asset to deposit|
+|`depositor_`|`address`|             The depositor|
+|`amount_`|`uint256`|                The amount of assets to deposit|
+|`enforceDepositChecks_`|`bool`|  Whether to enforce the minimum deposit requirement and deposit cap|
 
 **Returns**
 
@@ -102,8 +103,8 @@ function _withdrawAsset(IERC20 asset_, address depositor_, uint256 amount_)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`shares`|`uint256`|     The number of shares withdrawn|
-|`assetAmount`|`uint256`||
+|`shares`|`uint256`|     The number of shares withdrawn (can be 0)|
+|`assetAmount`|`uint256`|The amount of assets withdrawn (can be 0)|
 
 ### getOperatorAssets
 
@@ -214,6 +215,12 @@ function _setAssetMinimumDeposit(IERC20 asset_, uint256 minimumDeposit_) interna
 
 ```solidity
 function _isConfiguredAsset(IERC20 asset_) internal view returns (bool);
+```
+
+### _onlyConfiguredAsset
+
+```solidity
+function _onlyConfiguredAsset(IERC20 asset_) internal view;
 ```
 
 ### onlyConfiguredAsset

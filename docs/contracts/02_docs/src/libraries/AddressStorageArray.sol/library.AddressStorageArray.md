@@ -1,6 +1,6 @@
 # AddressStorageArray
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/libraries/AddressStorageArray.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/libraries/AddressStorageArray.sol)
 
 A library for managing a storage array of addresses, with support for insertion and removal at a specific index
 

@@ -1,6 +1,6 @@
 # PolicyEnabler
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/utils/PolicyEnabler.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/utils/PolicyEnabler.sol)
 
 **Inherits:**
 [IEnabler](/main/contracts/docs/src/periphery/interfaces/IEnabler.sol/interface.IEnabler), [PolicyAdmin](/main/contracts/docs/src/policies/utils/PolicyAdmin.sol/abstract.PolicyAdmin)
@@ -27,12 +27,24 @@ bool public isEnabled;
 
 ## Functions
 
+### _onlyEnabled
+
+```solidity
+function _onlyEnabled() internal view;
+```
+
 ### onlyEnabled
 
 Modifier that reverts if the policy is not enabled
 
 ```solidity
 modifier onlyEnabled();
+```
+
+### _onlyDisabled
+
+```solidity
+function _onlyDisabled() internal view;
 ```
 
 ### onlyDisabled

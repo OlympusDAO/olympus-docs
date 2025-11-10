@@ -1,6 +1,6 @@
 # IConvertibleDepositAuctioneer
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/interfaces/deposits/IConvertibleDepositAuctioneer.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/deposits/IConvertibleDepositAuctioneer.sol)
 
 Interface for a contract that runs auctions for a single deposit token to convert to a convertible deposit token
 
@@ -202,6 +202,20 @@ function getAuctionResultsNextIndex() external view returns (uint8 index);
 |----|----|-----------|
 |`index`|`uint8`|The index where the next auction result will be stored|
 
+### getMinimumBid
+
+Get the minimum bid amount
+
+```solidity
+function getMinimumBid() external view returns (uint256 minimumBid);
+```
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`minimumBid`|`uint256`|The minimum bid amount required|
+
 ### getDepositAsset
 
 Get the deposit asset
@@ -357,6 +371,52 @@ function setAuctionTrackingPeriod(uint8 days_) external;
 |----|----|-----------|
 |`days_`|`uint8`|The number of days that auction results are tracked for|
 
+### setMinimumBid
+
+Set the minimum bid amount
+
+*Only callable by the admin or manager*
+
+```solidity
+function setMinimumBid(uint256 minimumBid_) external;
+```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`minimumBid_`|`uint256`|The new minimum bid amount|
+
+### getTickSizeBase
+
+Get the exponent base used for determining the tick size when the day target is crossed
+
+```solidity
+function getTickSizeBase() external view returns (uint256 baseWad);
+```
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`baseWad`|`uint256`|The tick size base|
+
+### setTickSizeBase
+
+Set the exponent base used for determining the tick size when the day target is crossed
+
+*Only callable by the admin or manager*
+
+```solidity
+function setTickSizeBase(uint256 newBase_) external;
+```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`newBase_`|`uint256`|The new base|
+
 ## Events
 
 ### Bid
@@ -450,6 +510,36 @@ event AuctionTrackingPeriodUpdated(address indexed depositAsset, uint8 newAuctio
 |----|----|-----------|
 |`depositAsset`|`address`||
 |`newAuctionTrackingPeriod`|`uint8`|The number of days that auction results are tracked for|
+
+### MinimumBidUpdated
+
+Emitted when the minimum bid is updated
+
+```solidity
+event MinimumBidUpdated(address indexed depositAsset, uint256 newMinimumBid);
+```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`depositAsset`|`address`||
+|`newMinimumBid`|`uint256`|The new minimum bid amount|
+
+### TickSizeBaseUpdated
+
+Emitted when the tick size base is updated
+
+```solidity
+event TickSizeBaseUpdated(address indexed depositAsset, uint256 newBase);
+```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`depositAsset`|`address`||
+|`newBase`|`uint256`|The new tick size base|
 
 ### DepositPeriodEnabled
 
@@ -574,6 +664,21 @@ error ConvertibleDepositAuctioneer_DepositPeriodInvalidState(address depositAsse
 |`depositPeriod`|`uint8`||
 |`isEnabled`|`bool`|  The current enabled state: true if enabled, false if disabled|
 
+### ConvertibleDepositAuctioneer_BidBelowMinimum
+
+Emitted when the bid amount is below the minimum required
+
+```solidity
+error ConvertibleDepositAuctioneer_BidBelowMinimum(uint256 bidAmount, uint256 minimumBid);
+```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`bidAmount`|`uint256`|    The amount of the bid|
+|`minimumBid`|`uint256`|   The minimum bid amount required|
+
 ## Structs
 
 ### AuctionParameters
@@ -645,6 +750,7 @@ struct EnableParams {
     uint256 target;
     uint256 tickSize;
     uint256 minPrice;
+    uint256 tickSizeBase;
     uint24 tickStep;
     uint8 auctionTrackingPeriod;
 }
@@ -657,5 +763,6 @@ struct EnableParams {
 |`target`|`uint256`|                 Number of OHM available to sell per day|
 |`tickSize`|`uint256`|               Number of OHM in a tick|
 |`minPrice`|`uint256`|               Minimum price that OHM can be sold for, in terms of the bid token|
+|`tickSizeBase`|`uint256`|           Base for exponential tick size reduction (by 1/(base^multiplier)) when the day target is crossed|
 |`tickStep`|`uint24`|               Percentage increase (decrease) per tick|
 |`auctionTrackingPeriod`|`uint8`|  Number of days that auction results are tracked for|

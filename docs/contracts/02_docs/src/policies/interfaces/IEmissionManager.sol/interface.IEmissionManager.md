@@ -1,10 +1,12 @@
 # IEmissionManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/interfaces/IEmissionManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/IEmissionManager.sol)
 
 ## Events
 
 ### SaleCreated
+
+forge-lint: disable-next-line(mixed-case-variable)
 
 ```solidity
 event SaleCreated(uint256 marketID, uint256 saleAmount);
@@ -95,6 +97,14 @@ Emitted when the minimum price scalar is changed
 event MinPriceScalarChanged(uint256 newMinPriceScalar);
 ```
 
+### BondMarketCapacityScalarChanged
+
+Emitted when the bond market capacity scalar is changed
+
+```solidity
+event BondMarketCapacityScalarChanged(uint256 newBondMarketCapacityScalar);
+```
+
 ## Errors
 
 ### OnlyTeller
@@ -156,6 +166,7 @@ struct EnableParams {
     uint256 backing;
     uint256 tickSize;
     uint256 minPriceScalar;
+    uint256 bondMarketCapacityScalar;
     uint48 restartTimeframe;
 }
 ```
@@ -169,4 +180,5 @@ struct EnableParams {
 |`backing`|`uint256`|             backing price of OHM in reserve token, in reserve scale|
 |`tickSize`|`uint256`|            fixed tick size in OHM decimals (9)|
 |`minPriceScalar`|`uint256`|      scalar for min price|
+|`bondMarketCapacityScalar`|`uint256`|scalar for bond market capacity from auction remainders|
 |`restartTimeframe`|`uint48`|    time in seconds that the manager needs to be restarted after a shutdown, otherwise it must be re-initialized|

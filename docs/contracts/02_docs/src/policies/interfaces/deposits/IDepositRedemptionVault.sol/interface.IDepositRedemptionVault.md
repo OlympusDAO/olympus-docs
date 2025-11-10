@@ -1,6 +1,6 @@
 # IDepositRedemptionVault
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/interfaces/deposits/IDepositRedemptionVault.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/deposits/IDepositRedemptionVault.sol)
 
 Interface for a contract that can manage the redemption of receipt tokens for their deposit
 
@@ -200,7 +200,7 @@ Finishes a redemption of a quantity of deposit tokens
 *This function does not take an amount as an argument, because the amount is determined by the redemption*
 
 ```solidity
-function finishRedemption(uint16 redemptionId_) external;
+function finishRedemption(uint16 redemptionId_) external returns (uint256 actualAmount);
 ```
 
 **Parameters**
@@ -208,6 +208,12 @@ function finishRedemption(uint16 redemptionId_) external;
 |Name|Type|Description|
 |----|----|-----------|
 |`redemptionId_`|`uint16`|  The ID of the user redemption|
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`actualAmount`|`uint256`|   The quantity of deposit tokens transferred to the caller|
 
 ### borrowAgainstRedemption
 
@@ -260,7 +266,7 @@ function previewBorrowAgainstRedemption(address user_, uint16 redemptionId_)
 Repay a loan
 
 ```solidity
-function repayLoan(uint16 redemptionId_, uint256 amount_) external;
+function repayLoan(uint16 redemptionId_, uint256 amount_, uint256 maxSlippage_) external;
 ```
 
 **Parameters**
@@ -269,6 +275,7 @@ function repayLoan(uint16 redemptionId_, uint256 amount_) external;
 |----|----|-----------|
 |`redemptionId_`|`uint16`|   The ID of the redemption|
 |`amount_`|`uint256`|         The amount to repay|
+|`maxSlippage_`|`uint256`|    The maximum slippage allowed for the repayment|
 
 ### previewExtendLoan
 
@@ -621,12 +628,6 @@ error RedemptionVault_FacilityNotRegistered(address facility);
 error RedemptionVault_InterestRateNotSet(address asset, address facility);
 ```
 
-### RedemptionVault_MaxBorrowPercentageNotSet
-
-```solidity
-error RedemptionVault_MaxBorrowPercentageNotSet(address asset, address facility);
-```
-
 ### RedemptionVault_LoanAmountExceeded
 
 ```solidity
@@ -643,6 +644,12 @@ error RedemptionVault_LoanIncorrectState(address user, uint16 redemptionId);
 
 ```solidity
 error RedemptionVault_InvalidLoan(address user, uint16 redemptionId);
+```
+
+### RedemptionVault_MaxSlippageExceeded
+
+```solidity
+error RedemptionVault_MaxSlippageExceeded(address user, uint16 redemptionId, uint256 actualAmount, uint256 maxAmount);
 ```
 
 ## Structs

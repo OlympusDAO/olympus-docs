@@ -1,6 +1,6 @@
 # BLVaultLusd
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/policies/BoostedLiquidity/BLVaultLusd.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/BoostedLiquidity/BLVaultLusd.sol)
 
 **Inherits:**
 [IBLVault](/main/contracts/docs/src/policies/BoostedLiquidity/interfaces/IBLVault.sol/interface.IBLVault), Clone

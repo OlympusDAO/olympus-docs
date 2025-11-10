@@ -1,6 +1,6 @@
 # ConvertibleDepositActivator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/proposals/ConvertibleDepositActivator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/proposals/ConvertibleDepositActivator.sol)
 
 **Inherits:**
 Owned
@@ -141,6 +141,12 @@ uint256 public constant CDA_INITIAL_TICK_SIZE = 0;
 uint256 public constant CDA_INITIAL_MIN_PRICE = 0;
 ```
 
+### CDA_INITIAL_TICK_SIZE_BASE
+
+```solidity
+uint256 public constant CDA_INITIAL_TICK_SIZE_BASE = 2e18;
+```
+
 ### CDA_INITIAL_TICK_STEP_MULTIPLIER
 
 ```solidity
@@ -151,6 +157,12 @@ uint24 public constant CDA_INITIAL_TICK_STEP_MULTIPLIER = 10075;
 
 ```solidity
 uint8 public constant CDA_AUCTION_TRACKING_PERIOD = 7;
+```
+
+### CDA_MINIMUM_BID
+
+```solidity
+uint256 public constant CDA_MINIMUM_BID = 100e18;
 ```
 
 ### EM_BASE_EMISSIONS_RATE
@@ -168,7 +180,7 @@ uint256 public constant EM_MINIMUM_PREMIUM = 1e18;
 ### EM_BACKING
 
 ```solidity
-uint256 public constant EM_BACKING = 11740000000000000000;
+uint256 public constant EM_BACKING = 11690000000000000000;
 ```
 
 ### EM_TICK_SIZE
@@ -180,7 +192,13 @@ uint256 public constant EM_TICK_SIZE = 150e9;
 ### EM_MIN_PRICE_SCALAR
 
 ```solidity
-uint256 public constant EM_MIN_PRICE_SCALAR = 1e18;
+uint256 public constant EM_MIN_PRICE_SCALAR = 12e17;
+```
+
+### EM_BOND_MARKET_CAPACITY_SCALAR
+
+```solidity
+uint256 public constant EM_BOND_MARKET_CAPACITY_SCALAR = 1e18;
 ```
 
 ### EM_RESTART_TIMEFRAME

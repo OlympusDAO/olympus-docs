@@ -1,6 +1,6 @@
 # ClaimTransfer
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/0ee70b402d55937704dd3186ba661ff17d0b04df/src/external/ClaimTransfer.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/external/ClaimTransfer.sol)
 
 *This contract is used to fractionalize pOLY claims and transfer portions of a user's claim to other addresses*
 
