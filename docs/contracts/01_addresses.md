@@ -87,8 +87,8 @@
 |                              |         | Goerli    | [`0x6620592f9bdffAbadcea644a35946E7b93EaaF56`](https://goerli.etherscan.io/address/0x6620592f9bdffAbadcea644a35946E7b93EaaF56) |
 |                              |         | Sepolia   | [`0xd5405C517631b15C5814fdb7E612ba4c86fC2f75`](https://sepolia.etherscan.io/address/0xd5405C517631b15C5814fdb7E612ba4c86fC2f75) |
 | Heart                        | 1.7     | Mainnet   | [`0x5824850D8A6E46a473445a5AF214C7EbD46c5ECB`](https://etherscan.io/address/0x5824850D8A6E46a473445a5AF214C7EbD46c5ECB)        |
-|                              |         | Goerli    | [`0xbEf6550C92BB68Bd16cf1dC81F0ca8a55f678EAa`](https://goerli.etherscan.io/address/0xbEf6550C92BB68Bd16cf1dC81F0ca8a55f678EAa) |
 |                              |         | Sepolia   | [`0x1dc2c4E15189a7aa61Eff2b3DD3D5EAe8fA03377`](https://sepolia.etherscan.io/address/0x1dc2c4E15189a7aa61Eff2b3DD3D5EAe8fA03377) |
+| Heart                        | 1.4?    | Goerli    | [`0xbEf6550C92BB68Bd16cf1dC81F0ca8a55f678EAa`](https://goerli.etherscan.io/address/0xbEf6550C92BB68Bd16cf1dC81F0ca8a55f678EAa) |
 | PriceConfig                  | 1.0     | Mainnet   | [`0xf6D5d06A4e8e6904E4360108749C177692F59E90`](https://etherscan.io/address/0xf6D5d06A4e8e6904E4360108749C177692F59E90)        |
 |                              |         | Goerli    | [`0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463`](https://goerli.etherscan.io/address/0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463) |
 |                              |         | Sepolia   | [`0x68009f5e809C5A3438438312F8EEFB9F5C73d534`](https://sepolia.etherscan.io/address/0x68009f5e809C5A3438438312F8EEFB9F5C73d534) |
