@@ -379,6 +379,7 @@ While a redemption is in progress, users can borrow against the committed amount
 
 - **No Redemption While Borrowing**: Users cannot complete their redemption while they have an open loan
 - **Must Repay First**: Either repay the loan in full or wait for it to default before completing redemption
+- **Single Loan**: For a given redemption, only one loan can be taken
 
 ##### Borrowing Benefits
 
