@@ -64,13 +64,15 @@
 |          |         | Goerli    | [`0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14`](https://goerli.etherscan.io/address/0x24963bEA5a156E3dAb8aBA4FCB8a2dBE8c1Aaa14) |
 | LENDR    | 1.0     | Arbitrum  | [`0x868C3ae18Fdea85bBb7a303e379c5B7e23b30F03`](https://arbiscan.io/address/0x868C3ae18Fdea85bBb7a303e379c5B7e23b30F03)        |
 | DLGTE    | 1.0     | Mainnet   | [`0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74`](https://etherscan.io/address/0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74)        |
+| DEPOS    | 1.0     | Mainnet   | [`0x02331A4c97a4841084dF54d7c0eC04DD3f1A9F1c`](https://etherscan.io/address/0x02331A4c97a4841084dF54d7c0eC04DD3f1A9F1c)        |
+|          | 1.0     | Sepolia   | [`0xEF928e9ed1083636e34230543D4ad3B6270Fa986`](https://sepolia.etherscan.io/address/0xEF928e9ed1083636e34230543D4ad3B6270Fa986) |
 
 
 
 ### Policies
 | Contract                     | Version | Chain     | Address                                                                                                                        |
 | ---------------------------- | ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| EmissionManager              | 1.2     | Mainnet   | [`0xb4f620c39F3BA4a1E7aD264fEd6239B0C618DB50`](https://etherscan.io/address/0xb4f620c39F3BA4a1E7aD264fEd6239B0C618DB50)        |
+| EmissionManager              | 1.2     | Mainnet   | [`0xA61b846D5D8b757e3d541E0e4F80390E28f0B6Ff`](https://etherscan.io/address/0xA61b846D5D8b757e3d541E0e4F80390E28f0B6Ff)        |
 |                              |         | Sepolia   | [`0x84785E392BfD02F97A9b84F85d86DEc11933ef81`](https://sepolia.etherscan.io/address/0x84785E392BfD02F97A9b84F85d86DEc11933ef81) |
 | Cooler V2 (MonoCooler)       | 1.0     | Mainnet   | [`0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC`](https://etherscan.io/address/0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC)        |
 |                              |         | Sepolia   | [`0x19b787549A05f7a3f8f20ED55B827A6c49BaEE9c`](https://sepolia.etherscan.io/address/0x19b787549A05f7a3f8f20ED55B827A6c49BaEE9c) |
@@ -114,7 +116,6 @@
 |                              |         | Sepolia   | [`0x2C9658b32E59cC4eb5aC90e2A3795C9E7fCaa644`](https://sepolia.etherscan.io/address/0x2C9658b32E59cC4eb5aC90e2A3795C9E7fCaa644) |
 | DepositRedemptionVault       | 1.0     | Mainnet   | [`0x20a3d8510f2e1176E8Db4CeA9883a8287a9029Db`](https://etherscan.io/address/0x20a3d8510f2e1176E8Db4CeA9883a8287a9029Db)        |
 |                              |         | Sepolia   | [`0x93AcaDa86ad23C85e96869D46945fA6FFb7a4036`](https://sepolia.etherscan.io/address/0x93AcaDa86ad23C85e96869D46945fA6FFb7a4036) |
-|                              |         | Sepolia   | [`0x95F6CfFFCbdaecB76f1cA335Ceda4247c45B45E4`](https://sepolia.etherscan.io/address/0x95F6CfFFCbdaecB76f1cA335Ceda4247c45B45E4) |
 | ConvertibleDepositFacility   | 1.0     | Mainnet   | [`0xEBDe552D851DD6Dfd3D360C596D3F4aF6e5F9678`](https://etherscan.io/address/0xEBDe552D851DD6Dfd3D360C596D3F4aF6e5F9678)        |
 |                              |         | Sepolia   | [`0x0bE69702E83f06A027E6841B614f6946d1265441`](https://sepolia.etherscan.io/address/0x0bE69702E83f06A027E6841B614f6946d1265441) |
 | ConvertibleDepositAuctioneer | 1.0     | Mainnet   | [`0xF35193DA8C10e44aF10853Ba5a3a1a6F7529E39a`](https://etherscan.io/address/0xF35193DA8C10e44aF10853Ba5a3a1a6F7529E39a)        |
