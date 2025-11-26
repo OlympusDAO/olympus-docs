@@ -1,9 +1,12 @@
 # BondManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/BondManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/BondManager.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
+
+**Title:**
+Olympus Bond Manager
 
 Olympus Bond Manager (Policy) Contract
 
@@ -12,55 +15,55 @@ Olympus Bond Manager (Policy) Contract
 ### MINTR
 
 ```solidity
-MINTRv1 public MINTR;
+MINTRv1 public MINTR
 ```
 
 ### TRSRY
 
 ```solidity
-TRSRYv1 public TRSRY;
+TRSRYv1 public TRSRY
 ```
 
 ### bondCallback
 
 ```solidity
-IBondCallback public bondCallback;
+IBondCallback public bondCallback
 ```
 
 ### fixedExpiryAuctioneer
 
 ```solidity
-IBondAuctioneer public fixedExpiryAuctioneer;
+IBondAuctioneer public fixedExpiryAuctioneer
 ```
 
 ### fixedExpiryTeller
 
 ```solidity
-IBondFixedExpiryTeller public fixedExpiryTeller;
+IBondFixedExpiryTeller public fixedExpiryTeller
 ```
 
 ### gnosisEasyAuction
 
 ```solidity
-IEasyAuction public gnosisEasyAuction;
+IEasyAuction public gnosisEasyAuction
 ```
 
 ### ohm
 
 ```solidity
-OlympusERC20Token public ohm;
+OlympusERC20Token public ohm
 ```
 
 ### fixedExpiryParameters
 
 ```solidity
-FixedExpiryParameters public fixedExpiryParameters;
+FixedExpiryParameters public fixedExpiryParameters
 ```
 
 ### batchAuctionParameters
 
 ```solidity
-BatchAuctionParameters public batchAuctionParameters;
+BatchAuctionParameters public batchAuctionParameters
 ```
 
 ## Functions
@@ -251,7 +254,7 @@ function emergencyShutdownFixedExpiryMarket(uint256 marketId_) external onlyRole
 
 Increases a contract's allowance to spend the Bond Manager's OHM
 
-*This shouldn't be needed but is a safegaurd in the event of accounting errors in the market creation functions*
+This shouldn't be needed but is a safegaurd in the event of accounting errors in the market creation functions
 
 ```solidity
 function emergencySetApproval(address contract_, uint256 amount_) external onlyRole("bondmanager_admin");

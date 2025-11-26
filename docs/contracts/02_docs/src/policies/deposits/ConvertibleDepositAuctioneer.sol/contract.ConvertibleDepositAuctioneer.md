@@ -1,15 +1,18 @@
 # ConvertibleDepositAuctioneer
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/ConvertibleDepositAuctioneer.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/deposits/ConvertibleDepositAuctioneer.sol)
 
 **Inherits:**
 [IConvertibleDepositAuctioneer](/main/contracts/docs/src/policies/interfaces/deposits/IConvertibleDepositAuctioneer.sol/interface.IConvertibleDepositAuctioneer), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), ReentrancyGuard
+
+**Title:**
+Convertible Deposit Auctioneer
 
 forge-lint: disable-start(mixed-case-function, screaming-snake-case-const)
 
 Implementation of the {IConvertibleDepositAuctioneer} interface for a specific deposit token and 1 or more deposit periods
 
-*This contract implements an auction for convertible deposit tokens. It runs these auctions according to the following principles:
+This contract implements an auction for convertible deposit tokens. It runs these auctions according to the following principles:
 
 - Auctions are of infinite duration
 - Auctions are of infinite capacity
@@ -20,7 +23,7 @@ Implementation of the {IConvertibleDepositAuctioneer} interface for a specific d
 - The auction has a minimum price, below which the conversion price will not decrease
 - The auction has a target amount of convertible OHM to sell per day
 - When the target is reached, the amount of OHM required to increase the conversion price will decrease, resulting in more rapid price increases (assuming there is demand)
-- The auction parameters are able to be updated in order to tweak the auction's behaviour*
+- The auction parameters are able to be updated in order to tweak the auction's behaviour
 
 ## State Variables
 
@@ -29,7 +32,7 @@ Implementation of the {IConvertibleDepositAuctioneer} interface for a specific d
 The role that can perform periodic actions, such as updating the auction parameters
 
 ```solidity
-bytes32 public constant ROLE_EMISSION_MANAGER = "cd_emissionmanager";
+bytes32 public constant ROLE_EMISSION_MANAGER = "cd_emissionmanager"
 ```
 
 ### _ohmScale
@@ -37,13 +40,13 @@ bytes32 public constant ROLE_EMISSION_MANAGER = "cd_emissionmanager";
 Scale of the OHM token
 
 ```solidity
-uint256 internal constant _ohmScale = 1e9;
+uint256 internal constant _ohmScale = 1e9
 ```
 
 ### ONE_HUNDRED_PERCENT
 
 ```solidity
-uint24 public constant ONE_HUNDRED_PERCENT = 100e2;
+uint24 public constant ONE_HUNDRED_PERCENT = 100e2
 ```
 
 ### WAD
@@ -51,7 +54,7 @@ uint24 public constant ONE_HUNDRED_PERCENT = 100e2;
 Fixed point scale (WAD)
 
 ```solidity
-uint256 internal constant WAD = 1e18;
+uint256 internal constant WAD = 1e18
 ```
 
 ### TICK_SIZE_BASE_MIN
@@ -59,13 +62,13 @@ uint256 internal constant WAD = 1e18;
 Minimum and maximum allowed tick size base (in WAD)
 
 ```solidity
-uint256 internal constant TICK_SIZE_BASE_MIN = 1e18;
+uint256 internal constant TICK_SIZE_BASE_MIN = 1e18
 ```
 
 ### TICK_SIZE_BASE_MAX
 
 ```solidity
-uint256 internal constant TICK_SIZE_BASE_MAX = 10e18;
+uint256 internal constant TICK_SIZE_BASE_MAX = 10e18
 ```
 
 ### MAX_RPOW_EXP
@@ -73,7 +76,7 @@ uint256 internal constant TICK_SIZE_BASE_MAX = 10e18;
 Maximum safe exponent for rpow to prevent overflow
 
 ```solidity
-uint256 internal constant MAX_RPOW_EXP = 41;
+uint256 internal constant MAX_RPOW_EXP = 41
 ```
 
 ### SECONDS_IN_DAY
@@ -81,7 +84,7 @@ uint256 internal constant MAX_RPOW_EXP = 41;
 Seconds in one day
 
 ```solidity
-uint256 internal constant SECONDS_IN_DAY = 1 days;
+uint256 internal constant SECONDS_IN_DAY = 1 days
 ```
 
 ### _ENABLE_PARAMS_LENGTH
@@ -89,7 +92,7 @@ uint256 internal constant SECONDS_IN_DAY = 1 days;
 The length of the enable parameters
 
 ```solidity
-uint256 internal constant _ENABLE_PARAMS_LENGTH = 192;
+uint256 internal constant _ENABLE_PARAMS_LENGTH = 192
 ```
 
 ### _TICK_SIZE_MINIMUM
@@ -97,7 +100,7 @@ uint256 internal constant _ENABLE_PARAMS_LENGTH = 192;
 The minimum tick size
 
 ```solidity
-uint256 internal constant _TICK_SIZE_MINIMUM = 1;
+uint256 internal constant _TICK_SIZE_MINIMUM = 1
 ```
 
 ### _depositPeriodsEnabled
@@ -105,7 +108,7 @@ uint256 internal constant _TICK_SIZE_MINIMUM = 1;
 Whether the deposit period is enabled
 
 ```solidity
-mapping(uint8 depositPeriod => bool isDepositPeriodEnabled) internal _depositPeriodsEnabled;
+mapping(uint8 depositPeriod => bool isDepositPeriodEnabled) internal _depositPeriodsEnabled
 ```
 
 ### _DEPOSIT_ASSET
@@ -113,7 +116,7 @@ mapping(uint8 depositPeriod => bool isDepositPeriodEnabled) internal _depositPer
 The deposit asset
 
 ```solidity
-IERC20 internal immutable _DEPOSIT_ASSET;
+IERC20 internal immutable _DEPOSIT_ASSET
 ```
 
 ### _depositPeriods
@@ -121,17 +124,17 @@ IERC20 internal immutable _DEPOSIT_ASSET;
 Array of enabled deposit periods
 
 ```solidity
-EnumerableSet.UintSet internal _depositPeriods;
+EnumerableSet.UintSet internal _depositPeriods
 ```
 
 ### _depositPeriodPreviousTicks
 
 Previous tick for each deposit period
 
-*Use `getCurrentTick()` to recalculate and access the latest data*
+Use `getCurrentTick()` to recalculate and access the latest data
 
 ```solidity
-mapping(uint8 depositPeriod => Tick previousTick) internal _depositPeriodPreviousTicks;
+mapping(uint8 depositPeriod => Tick previousTick) internal _depositPeriodPreviousTicks
 ```
 
 ### CD_FACILITY
@@ -139,17 +142,17 @@ mapping(uint8 depositPeriod => Tick previousTick) internal _depositPeriodPreviou
 Address of the Convertible Deposit Facility
 
 ```solidity
-ConvertibleDepositFacility public immutable CD_FACILITY;
+ConvertibleDepositFacility public immutable CD_FACILITY
 ```
 
 ### _auctionParameters
 
 Auction parameters
 
-*These values should only be set through the `setAuctionParameters()` function*
+These values should only be set through the `setAuctionParameters()` function
 
 ```solidity
-AuctionParameters internal _auctionParameters;
+AuctionParameters internal _auctionParameters
 ```
 
 ### _currentTickSize
@@ -157,7 +160,7 @@ AuctionParameters internal _auctionParameters;
 The current tick size
 
 ```solidity
-uint256 internal _currentTickSize;
+uint256 internal _currentTickSize
 ```
 
 ### _dayState
@@ -165,28 +168,28 @@ uint256 internal _currentTickSize;
 Auction state for the day
 
 ```solidity
-Day internal _dayState;
+Day internal _dayState
 ```
 
 ### _tickStep
 
 The tick step
 
-*See `getTickStep()` for more information*
+See `getTickStep()` for more information
 
 ```solidity
-uint24 internal _tickStep;
+uint24 internal _tickStep
 ```
 
 ### _minimumBid
 
 The minimum bid amount
 
-*The minimum bid amount is the minimum amount of deposit asset that can be bid
-See `getMinimumBid()` for more information*
+The minimum bid amount is the minimum amount of deposit asset that can be bid
+See `getMinimumBid()` for more information
 
 ```solidity
-uint256 internal _minimumBid;
+uint256 internal _minimumBid
 ```
 
 ### _tickSizeBase
@@ -194,7 +197,7 @@ uint256 internal _minimumBid;
 The base used for exponential tick size reduction (by 1/(base^multiplier)) when the day target is crossed (WAD, 1e18 = 1.0)
 
 ```solidity
-uint256 internal _tickSizeBase;
+uint256 internal _tickSizeBase
 ```
 
 ### _auctionResultsNextIndex
@@ -202,7 +205,7 @@ uint256 internal _tickSizeBase;
 The index of the next auction result
 
 ```solidity
-uint8 internal _auctionResultsNextIndex;
+uint8 internal _auctionResultsNextIndex
 ```
 
 ### _auctionTrackingPeriod
@@ -210,17 +213,17 @@ uint8 internal _auctionResultsNextIndex;
 The number of days that auction results are tracked for
 
 ```solidity
-uint8 internal _auctionTrackingPeriod;
+uint8 internal _auctionTrackingPeriod
 ```
 
 ### _auctionResults
 
 The auction results, where a positive number indicates an over-subscription for the day.
 
-*The length of this array is equal to the auction tracking period*
+The length of this array is equal to the auction tracking period
 
 ```solidity
-int256[] internal _auctionResults;
+int256[] internal _auctionResults
 ```
 
 ### _pendingDepositPeriodChanges
@@ -228,7 +231,7 @@ int256[] internal _auctionResults;
 Queue of pending deposit period enable/disable changes
 
 ```solidity
-PendingDepositPeriodChange[] internal _pendingDepositPeriodChanges;
+PendingDepositPeriodChange[] internal _pendingDepositPeriodChanges
 ```
 
 ## Functions
@@ -277,7 +280,7 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 Submit a bid for convertible deposit tokens
 
-*This function performs the following:
+This function performs the following:
 
 - Updates the current tick based on the current state
 - Determines the amount of OHM that can be purchased for the deposit amount, and the updated tick capacity and price
@@ -291,10 +294,16 @@ This function reverts if:
 - The depositor has not approved the DepositManager to spend the deposit asset
 - The depositor has an insufficient balance of the deposit asset
 - The calculated amount of OHM out is 0
-- The calculated amount of OHM out is < minOhmOut_*
+- The calculated amount of OHM out is < minOhmOut_
 
 ```solidity
-function bid(uint8 depositPeriod_, uint256 depositAmount_, uint256 minOhmOut_, bool wrapPosition_, bool wrapReceipt_)
+function bid(
+    uint8 depositPeriod_,
+    uint256 depositAmount_,
+    uint256 minOhmOut_,
+    bool wrapPosition_,
+    bool wrapReceipt_
+)
     external
     override
     nonReentrant
@@ -326,7 +335,7 @@ function bid(uint8 depositPeriod_, uint256 depositAmount_, uint256 minOhmOut_, b
 
 Internal function to submit an auction bid on the given deposit asset and period
 
-*This function expects the calling function to have already validated the contract state and deposit asset and period*
+This function expects the calling function to have already validated the contract state and deposit asset and period
 
 ```solidity
 function _bid(BidParams memory params) internal returns (uint256, uint256, uint256, uint256);
@@ -336,7 +345,7 @@ function _bid(BidParams memory params) internal returns (uint256, uint256, uint2
 
 Internal function to preview the quantity of OHM tokens that can be purchased for a given deposit amount
 
-*This function performs the following:
+This function performs the following:
 
 - Cycles through ticks until the deposit is fully converted
 - If the current tick has enough capacity, it will be used
@@ -344,7 +353,7 @@ Internal function to preview the quantity of OHM tokens that can be purchased fo
 Notes:
 - This function assumes that the auction is active (i.e. the target is non-zero) and the tick size is non-zero
 - The function returns the updated tick capacity and price after the bid
-- If the capacity of a tick is depleted (but does not cross into the next tick), the current tick will be shifted to the next one. This ensures that `getCurrentTick()` will not return a tick that has been depleted.*
+- If the capacity of a tick is depleted (but does not cross into the next tick), the current tick will be shifted to the next one. This ensures that `getCurrentTick()` will not return a tick that has been depleted.
 
 ```solidity
 function _previewBid(uint256 deposit_, Tick memory tick_) internal view returns (BidOutput memory output);
@@ -394,7 +403,7 @@ function previewBid(uint8 depositPeriod_, uint256 bidAmount_)
 
 Internal function to preview the quantity of OHM tokens that can be purchased for a given deposit amount
 
-*This function does not take into account the capacity of the current tick*
+This function does not take into account the capacity of the current tick
 
 ```solidity
 function _getConvertedDeposit(uint256 deposit_, uint256 price_) internal pure returns (uint256 convertibleAmount);
@@ -417,7 +426,7 @@ function _getConvertedDeposit(uint256 deposit_, uint256 price_) internal pure re
 
 Internal function to preview the new price of the current tick after applying the tick step
 
-*This function does not take into account the capacity of the current tick*
+This function does not take into account the capacity of the current tick
 
 ```solidity
 function _getNewTickPrice(uint256 currentPrice_, uint256 tickStep_) internal pure returns (uint256 newPrice);
@@ -440,8 +449,8 @@ function _getNewTickPrice(uint256 currentPrice_, uint256 tickStep_) internal pur
 
 Internal function to calculate the new tick size based on the amount of OHM that has been converted in the current day
 
-*This implements exponential tick size reduction (by 1/(base^multiplier)) for each multiple of the day target that is reached
-If the new tick size is 0 or a calculation would result in an overflow, the tick size is set to the minimum*
+This implements exponential tick size reduction (by 1/(base^multiplier)) for each multiple of the day target that is reached
+If the new tick size is 0 or a calculation would result in an overflow, the tick size is set to the minimum
 
 ```solidity
 function _getNewTickSize(uint256 ohmOut_, AuctionParameters memory auctionParams_)
@@ -497,7 +506,7 @@ function _getCurrentTick(uint8 depositPeriod_) internal view returns (Tick memor
 
 Calculate the current tick of the auction
 
-*This function calculates the tick at the current time.
+This function calculates the tick at the current time.
 It uses the following approach:
 
 - Calculate the added capacity based on the time passed since the last bid, and add it to the current capacity to get the new capacity
@@ -506,7 +515,7 @@ It uses the following approach:
 Notes:
 - If the target is 0, the price will not decay and the capacity will not change. It will only decay when a target is set again to a non-zero value.
 This function reverts if:
-- The deposit asset and period are not enabled*
+- The deposit asset and period are not enabled
 
 ```solidity
 function getCurrentTick(uint8 depositPeriod_)
@@ -526,8 +535,8 @@ function getCurrentTick(uint8 depositPeriod_)
 
 Get the previous tick of the auction
 
-*This function returns the previous tick for the deposit period
-If the deposit period is not configured, all values will be 0*
+This function returns the previous tick for the deposit period
+If the deposit period is not configured, all values will be 0
 
 ```solidity
 function getPreviousTick(uint8 depositPeriod_) public view override returns (Tick memory tick);
@@ -571,7 +580,7 @@ function getAuctionParameters() external view override returns (AuctionParameter
 
 Check if the auction is currently active
 
-*The auction is considered active when target > 0*
+The auction is considered active when target > 0
 
 ```solidity
 function isAuctionActive() external view override returns (bool);
@@ -601,7 +610,7 @@ function getDayState() external view override returns (Day memory);
 
 The multiplier applied to the conversion price at every tick, in terms of `ONE_HUNDRED_PERCENT`
 
-*This is stored as a percentage, where 100e2 = 100% (no increase)*
+This is stored as a percentage, where 100e2 = 100% (no increase)
 
 ```solidity
 function getTickStep() external view override returns (uint24);
@@ -813,14 +822,14 @@ function _onlyDepositPeriodEnabled(uint8 depositPeriod_) internal view;
 Modifier to check if a deposit period is enabled
 
 ```solidity
-modifier onlyDepositPeriodEnabled(uint8 depositPeriod_);
+modifier onlyDepositPeriodEnabled(uint8 depositPeriod_) ;
 ```
 
 ### enableDepositPeriod
 
 Enables a deposit period
 
-*Notes:
+Notes:
 
 - Enabling a deposit period will queue the change to be processed at the next setAuctionParameters call
 - Can be called while the contract is disabled (changes will be processed when contract is enabled)
@@ -828,7 +837,7 @@ Enables a deposit period
 This function will revert if:
 - The caller is not a manager or admin
 - The deposit period is 0
-- The effective state would result in enabling an already enabled period*
+- The effective state would result in enabling an already enabled period
 
 ```solidity
 function enableDepositPeriod(uint8 depositPeriod_) external override onlyManagerOrAdminRole;
@@ -844,14 +853,14 @@ function enableDepositPeriod(uint8 depositPeriod_) external override onlyManager
 
 Disables a deposit period
 
-*Notes:
+Notes:
 
 - Disabling a deposit period will queue the change to be processed at the next setAuctionParameters call
 - Can be called while the contract is disabled (changes will be processed when contract is enabled)
 This function will revert if:
 - The caller is not a manager or admin
 - The deposit period is 0
-- The effective state would result in disabling an already disabled period*
+- The effective state would result in disabling an already disabled period
 
 ```solidity
 function disableDepositPeriod(uint8 depositPeriod_) external override onlyManagerOrAdminRole;
@@ -939,7 +948,7 @@ function _updateCurrentTicks(uint8 excludedDepositPeriod_) internal;
 
 Update the auction parameters
 
-*This function assumes that the the caller is only calling once per period (day), as the contract does not track epochs or timestamps.
+This function assumes that the the caller is only calling once per period (day), as the contract does not track epochs or timestamps.
 This function performs the following:
 
 - Performs validation of the inputs
@@ -951,7 +960,7 @@ This function performs the following:
 This function reverts if:
 - The caller does not have the ROLE_EMISSION_MANAGER role
 - The new tick size is 0
-- The new min price is 0*
+- The new min price is 0
 
 ```solidity
 function setAuctionParameters(uint256 target_, uint256 tickSize_, uint256 minPrice_)
@@ -972,10 +981,10 @@ function setAuctionParameters(uint256 target_, uint256 tickSize_, uint256 minPri
 
 Sets the multiplier applied to the conversion price at every tick, in terms of `ONE_HUNDRED_PERCENT`
 
-*This function will revert if:
+This function will revert if:
 
 - The caller does not have the ROLE_ADMIN role
-- The new tick step is < 100e2*
+- The new tick step is < 100e2
 
 ```solidity
 function setTickStep(uint24 newStep_) public override onlyManagerOrAdminRole;
@@ -1005,10 +1014,10 @@ function getTickSizeBase() external view override returns (uint256);
 
 Set the exponent base used for determining the tick size when the day target is crossed
 
-*This function will revert if:
+This function will revert if:
 
 - The caller does not have the ROLE_ADMIN or ROLE_MANAGER role
-- The new tick size base is not within the bounds (1e18 ≤ base ≤ 10e18)*
+- The new tick size base is not within the bounds (1e18 ≤ base ≤ 10e18)
 
 ```solidity
 function setTickSizeBase(uint256 newBase_) public override onlyManagerOrAdminRole;
@@ -1024,12 +1033,12 @@ function setTickSizeBase(uint256 newBase_) public override onlyManagerOrAdminRol
 
 Set the number of days that auction results are tracked for
 
-*Notes:
+Notes:
 
 - Calling this function will erase the previous auction results, which in turn may affect the bond markets created to sell under-sold OHM capacity
 This function will revert if:
 - The caller does not have the ROLE_ADMIN role
-- The new auction tracking period is 0*
+- The new auction tracking period is 0
 
 ```solidity
 function setAuctionTrackingPeriod(uint8 days_) public override onlyManagerOrAdminRole;
@@ -1045,9 +1054,9 @@ function setAuctionTrackingPeriod(uint8 days_) public override onlyManagerOrAdmi
 
 Set the minimum bid amount
 
-*This function will revert if:
+This function will revert if:
 
-- The caller does not have the ROLE_ADMIN or ROLE_MANAGER role*
+- The caller does not have the ROLE_ADMIN or ROLE_MANAGER role
 
 ```solidity
 function setMinimumBid(uint256 minimumBid_) external override onlyManagerOrAdminRole;
@@ -1063,7 +1072,7 @@ function setMinimumBid(uint256 minimumBid_) external override onlyManagerOrAdmin
 
 Implementation-specific enable function
 
-*This function will revert if:
+This function will revert if:
 
 - The enable data is not the correct length
 - The enable data is not an encoded `EnableParams` struct
@@ -1077,7 +1086,7 @@ This function performs the following:
 - Ensures all existing ticks have the current parameters
 - Processes any pending deposit period changes with the new parameters (including any that were pending prior to disabling)
 - Resets the day state
-- Resets the auction results*
+- Resets the auction results
 
 ```solidity
 function _enable(bytes calldata enableData_) internal override;

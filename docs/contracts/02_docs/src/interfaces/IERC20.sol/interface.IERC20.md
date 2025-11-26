@@ -1,10 +1,10 @@
 # IERC20
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/interfaces/IERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/IERC20.sol)
 
-*Interface of the ERC20 standard as defined in the EIP.*
+Interface of the ERC20 standard as defined in the EIP.
 
-*This includes the optional name, symbol, and decimals metadata.*
+This includes the optional name, symbol, and decimals metadata.
 
 ## Functions
 
@@ -45,7 +45,7 @@ function allowance(address owner, address spender) external view returns (uint25
 
 Sets `amount` as the allowance of `spender` over the caller's tokens.
 
-*Be aware of front-running risks: <https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729>*
+Be aware of front-running risks: <https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729>
 
 ```solidity
 function approve(address spender, uint256 amount) external returns (bool);
@@ -88,7 +88,7 @@ function decimals() external view returns (uint8);
 
 ### Transfer
 
-*Emitted when `value` tokens are moved from one account (`from`) to another (`to`).*
+Emitted when `value` tokens are moved from one account (`from`) to another (`to`).
 
 ```solidity
 event Transfer(address indexed from, address indexed to, uint256 value);
@@ -96,8 +96,8 @@ event Transfer(address indexed from, address indexed to, uint256 value);
 
 ### Approval
 
-*Emitted when the allowance of a `spender` for an `owner` is set, where `value`
-is the new allowance.*
+Emitted when the allowance of a `spender` for an `owner` is set, where `value`
+is the new allowance.
 
 ```solidity
 event Approval(address indexed owner, address indexed spender, uint256 value);

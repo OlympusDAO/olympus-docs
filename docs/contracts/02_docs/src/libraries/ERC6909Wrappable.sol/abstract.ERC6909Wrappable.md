@@ -1,9 +1,12 @@
 # ERC6909Wrappable
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/libraries/ERC6909Wrappable.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/libraries/ERC6909Wrappable.sol)
 
 **Inherits:**
 ERC6909Metadata, [IERC6909Wrappable](/main/contracts/docs/src/interfaces/IERC6909Wrappable.sol/interface.IERC6909Wrappable), IERC6909TokenSupply
+
+**Title:**
+ERC6909Wrappable
 
 This abstract contract extends ERC6909 to allow for wrapping and unwrapping of the token to an ERC20 token.
 It extends the ERC6909Metadata contract, and additionally implements the IERC6909TokenSupply interface.
@@ -15,7 +18,7 @@ It extends the ERC6909Metadata contract, and additionally implements the IERC690
 The address of the implementation of the ERC20 contract
 
 ```solidity
-address private immutable _ERC20_IMPLEMENTATION;
+address private immutable _ERC20_IMPLEMENTATION
 ```
 
 ### _wrappableTokenIds
@@ -23,7 +26,7 @@ address private immutable _ERC20_IMPLEMENTATION;
 The set of all token IDs
 
 ```solidity
-EnumerableSet.UintSet internal _wrappableTokenIds;
+EnumerableSet.UintSet internal _wrappableTokenIds
 ```
 
 ### _totalSupplies
@@ -31,7 +34,7 @@ EnumerableSet.UintSet internal _wrappableTokenIds;
 The total supply of each token
 
 ```solidity
-mapping(uint256 tokenId => uint256) private _totalSupplies;
+mapping(uint256 tokenId => uint256) private _totalSupplies
 ```
 
 ### _tokenMetadataAdditional
@@ -39,7 +42,7 @@ mapping(uint256 tokenId => uint256) private _totalSupplies;
 Additional metadata for each token
 
 ```solidity
-mapping(uint256 tokenId => bytes) private _tokenMetadataAdditional;
+mapping(uint256 tokenId => bytes) private _tokenMetadataAdditional
 ```
 
 ### _wrappedTokens
@@ -47,7 +50,7 @@ mapping(uint256 tokenId => bytes) private _tokenMetadataAdditional;
 The address of the wrapped ERC20 token for each token
 
 ```solidity
-mapping(uint256 tokenId => address) internal _wrappedTokens;
+mapping(uint256 tokenId => address) internal _wrappedTokens
 ```
 
 ## Functions
@@ -55,7 +58,7 @@ mapping(uint256 tokenId => address) internal _wrappedTokens;
 ### constructor
 
 ```solidity
-constructor(address erc20Implementation_);
+constructor(address erc20Implementation_) ;
 ```
 
 ### _getTokenData
@@ -121,12 +124,12 @@ function _mint(address onBehalfOf_, uint256 tokenId_, uint256 amount_, bool shou
 
 Burns the ERC6909 or ERC20 wrapped token from the recipient
 
-*This function reverts if:
+This function reverts if:
 
 - amount_ is 0
 - onBehalfOf_ is 0
 - onBehalfOf_ is not the caller and has not approved the caller to spend the ERC6909 tokens (note: ERC6909 allowances govern both wrapped and unwrapped token burns)
-- ERC6909 token handling reverts*
+- ERC6909 token handling reverts
 
 ```solidity
 function _burn(address onBehalfOf_, uint256 tokenId_, uint256 amount_, bool wrapped_)
@@ -145,7 +148,7 @@ function _burn(address onBehalfOf_, uint256 tokenId_, uint256 amount_, bool wrap
 
 ### totalSupply
 
-*Returns the total supply of the token of type `id`.*
+Returns the total supply of the token of type `id`.
 
 ```solidity
 function totalSupply(uint256 tokenId_) public view virtual override returns (uint256);
@@ -153,7 +156,7 @@ function totalSupply(uint256 tokenId_) public view virtual override returns (uin
 
 ### _update
 
-*Copied from draft-ERC6909TokenSupply.sol*
+Copied from draft-ERC6909TokenSupply.sol
 
 ```solidity
 function _update(address from, address to, uint256 id, uint256 amount) internal virtual override;
@@ -161,7 +164,7 @@ function _update(address from, address to, uint256 id, uint256 amount) internal 
 
 ### _getWrappedToken
 
-*Returns the address of the wrapped ERC20 token for a given token ID, or creates a new one if it does not exist*
+Returns the address of the wrapped ERC20 token for a given token ID, or creates a new one if it does not exist
 
 ```solidity
 function _getWrappedToken(uint256 tokenId_) internal returns (IERC20BurnableMintable wrappedToken);
@@ -191,12 +194,12 @@ function getWrappedToken(uint256 tokenId_) public view returns (address wrappedT
 
 Wraps an ERC6909 token to an ERC20 token
 
-*This function will burn the ERC6909 token from the caller and mint the wrapped ERC20 token to the same address.
+This function will burn the ERC6909 token from the caller and mint the wrapped ERC20 token to the same address.
 This function reverts if:
 
 - The token ID does not exist
 - The amount is zero
-- The caller has an insufficient balance of the token*
+- The caller has an insufficient balance of the token
 
 ```solidity
 function wrap(uint256 tokenId_, uint256 amount_) public returns (address wrappedToken);
@@ -219,12 +222,12 @@ function wrap(uint256 tokenId_, uint256 amount_) public returns (address wrapped
 
 Unwraps an ERC20 token to an ERC6909 token
 
-*This function will burn the wrapped ERC20 token from the caller and mint the ERC6909 token to the same address.
+This function will burn the wrapped ERC20 token from the caller and mint the ERC6909 token to the same address.
 This function reverts if:
 
 - The token ID does not exist
 - The amount is zero
-- The caller has an insufficient balance of the wrapped token*
+- The caller has an insufficient balance of the wrapped token
 
 ```solidity
 function unwrap(uint256 tokenId_, uint256 amount_) public;
@@ -266,14 +269,14 @@ function _onlyValidTokenId(uint256 tokenId_) internal view;
 ### onlyValidTokenId
 
 ```solidity
-modifier onlyValidTokenId(uint256 tokenId_);
+modifier onlyValidTokenId(uint256 tokenId_) ;
 ```
 
 ### _createWrappableToken
 
 Creates a new wrappable token
 
-*Reverts if the token ID already exists*
+Reverts if the token ID already exists
 
 ```solidity
 function _createWrappableToken(

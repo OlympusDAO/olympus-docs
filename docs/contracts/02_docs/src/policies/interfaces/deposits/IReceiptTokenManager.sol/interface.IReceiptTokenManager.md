@@ -1,9 +1,12 @@
 # IReceiptTokenManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/deposits/IReceiptTokenManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/deposits/IReceiptTokenManager.sol)
 
 **Inherits:**
 IERC6909, [IERC6909Wrappable](/main/contracts/docs/src/interfaces/IERC6909Wrappable.sol/interface.IERC6909Wrappable)
+
+**Title:**
+IReceiptTokenManager
 
 Interface for the contract that creates and manages receipt tokens
 
@@ -13,7 +16,7 @@ Interface for the contract that creates and manages receipt tokens
 
 Creates a new receipt token
 
-*The caller (msg.sender) becomes the owner of the token for security*
+The caller (msg.sender) becomes the owner of the token for security
 
 ```solidity
 function createToken(IERC20 asset_, uint8 depositPeriod_, address operator_, string memory operatorName_)
@@ -40,7 +43,7 @@ function createToken(IERC20 asset_, uint8 depositPeriod_, address operator_, str
 
 Mints tokens to a recipient
 
-*Gated to the owner (creator) of the token*
+Gated to the owner (creator) of the token
 
 ```solidity
 function mint(address to_, uint256 tokenId_, uint256 amount_, bool shouldWrap_) external;
@@ -59,7 +62,7 @@ function mint(address to_, uint256 tokenId_, uint256 amount_, bool shouldWrap_) 
 
 Burns tokens from a holder
 
-*Gated to the owner (creator) of the token*
+Gated to the owner (creator) of the token
 
 ```solidity
 function burn(address from_, uint256 tokenId_, uint256 amount_, bool isWrapped_) external;

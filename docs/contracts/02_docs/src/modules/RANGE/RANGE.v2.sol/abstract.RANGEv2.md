@@ -1,6 +1,6 @@
 # RANGEv2
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/RANGE/RANGE.v2.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/RANGE/RANGE.v2.sol)
 
 **Inherits:**
 [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
@@ -10,17 +10,17 @@
 ### _range
 
 ```solidity
-Range internal _range;
+Range internal _range
 ```
 
 ### thresholdFactor
 
 Threshold factor for the change, a percent in 2 decimals (i.e. 1000 = 10%). Determines how much of the capacity must be spent before the side is taken down.
 
-*A threshold is required so that a wall is not "active" with a capacity near zero, but unable to be depleted practically (dust).*
+A threshold is required so that a wall is not "active" with a capacity near zero, but unable to be depleted practically (dust).
 
 ```solidity
-uint256 public thresholdFactor;
+uint256 public thresholdFactor
 ```
 
 ### ohm
@@ -28,7 +28,7 @@ uint256 public thresholdFactor;
 OHM token contract address
 
 ```solidity
-ERC20 public ohm;
+ERC20 public ohm
 ```
 
 ### reserve
@@ -36,7 +36,7 @@ ERC20 public ohm;
 Reserve token contract address
 
 ```solidity
-ERC20 public reserve;
+ERC20 public reserve
 ```
 
 ## Functions
@@ -115,7 +115,7 @@ Set the wall and cushion spreads.
 
 Access restricted to activated policies.
 
-*The new spreads will not go into effect until the next time updatePrices() is called.*
+The new spreads will not go into effect until the next time updatePrices() is called.
 
 ```solidity
 function setSpreads(bool high_, uint256 cushionSpread_, uint256 wallSpread_) external virtual;
@@ -135,7 +135,7 @@ Set the threshold factor for when a wall is considered "down".
 
 Access restricted to activated policies.
 
-*The new threshold factor will not go into effect until the next time regenerate() is called for each side of the wall.*
+The new threshold factor will not go into effect until the next time regenerate() is called for each side of the wall.
 
 ```solidity
 function setThresholdFactor(uint256 thresholdFactor_) external virtual;
@@ -270,7 +270,9 @@ event CushionDown(bool high_, uint256 timestamp_);
 ### PricesChanged
 
 ```solidity
-event PricesChanged(uint256 wallLowPrice_, uint256 cushionLowPrice_, uint256 cushionHighPrice_, uint256 wallHighPrice_);
+event PricesChanged(
+    uint256 wallLowPrice_, uint256 cushionLowPrice_, uint256 cushionHighPrice_, uint256 wallHighPrice_
+);
 ```
 
 ### SpreadsChanged
@@ -299,8 +301,8 @@ error RANGE_InvalidParams();
 
 ```solidity
 struct Line {
-    uint256 price;
-    uint256 spread;
+    uint256 price; // Price for the specified level
+    uint256 spread; // Spread of the level, percent with 2 decimal places (i.e. 1000 = 10% spread)
 }
 ```
 
@@ -308,13 +310,13 @@ struct Line {
 
 ```solidity
 struct Side {
-    bool active;
-    uint48 lastActive;
-    uint256 capacity;
-    uint256 threshold;
-    uint256 market;
-    Line cushion;
-    Line wall;
+    bool active; // Whether or not the side is active (i.e. the Operator is performing market operations on this side, true = active, false = inactive)
+    uint48 lastActive; // Unix timestamp when the side was last active (in seconds)
+    uint256 capacity; // Amount of tokens that can be used to defend the side of the range. Specified in OHM tokens on the high side and Reserve tokens on the low side.
+    uint256 threshold; // Minimum number of tokens required in capacity to maintain an active side. Specified in OHM tokens on the high side and Reserve tokens on the low side.
+    uint256 market; // Market ID of the cushion bond market for the side. If no market is active, the market ID is set to max uint256 value.
+    Line cushion; // Cushion data for the side
+    Line wall; // Wall data for the side
 }
 ```
 
@@ -322,7 +324,7 @@ struct Side {
 
 ```solidity
 struct Range {
-    Side low;
-    Side high;
+    Side low; // Data specific to the low side of the range
+    Side high; // Data specific to the high side of the range
 }
 ```

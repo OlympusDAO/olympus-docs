@@ -1,12 +1,15 @@
 # DelegateEscrowFactory
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/external/cooler/DelegateEscrowFactory.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/cooler/DelegateEscrowFactory.sol)
+
+**Title:**
+Delegate Escrow Factory.
 
 The Delegate Escrow Factory creates new escrow contracts, each holding the delegated
 gOHM from other accounts
 
-*This contract uses Clones (<https://github.com/wighawag/clones-with-immutable-args>)
-to save gas on deployment.*
+This contract uses Clones (<https://github.com/wighawag/clones-with-immutable-args>)
+to save gas on deployment.
 
 ## State Variables
 
@@ -15,7 +18,7 @@ to save gas on deployment.*
 Reference implementation (deployed on creation to clone from).
 
 ```solidity
-DelegateEscrow public immutable escrowImplementation;
+DelegateEscrow public immutable escrowImplementation
 ```
 
 ### created
@@ -23,7 +26,7 @@ DelegateEscrow public immutable escrowImplementation;
 Mapping to validate deployed escrows.
 
 ```solidity
-mapping(address => bool) public created;
+mapping(address => bool) public created
 ```
 
 ### escrowFor
@@ -31,7 +34,7 @@ mapping(address => bool) public created;
 Mapping to query escrows for a given delegate.
 
 ```solidity
-mapping(address => DelegateEscrow) public escrowFor;
+mapping(address => DelegateEscrow) public escrowFor
 ```
 
 ## Functions
@@ -39,7 +42,7 @@ mapping(address => DelegateEscrow) public escrowFor;
 ### constructor
 
 ```solidity
-constructor(address gohm_);
+constructor(address gohm_) ;
 ```
 
 ### create
@@ -63,7 +66,7 @@ function logDelegate(address caller, address onBehalfOf, int256 delegationAmount
 Ensure that the called is a Cooler.
 
 ```solidity
-modifier onlyFromFactory();
+modifier onlyFromFactory() ;
 ```
 
 ## Events
@@ -81,7 +84,7 @@ event DelegateEscrowCreated(address indexed caller, address indexed delegate, ad
 A `caller` has (un)delegated their gOHM amount from `escrow` on behalf of a user
 
 delegationAmountDelta > 0: It has been delegated to this escrow
-delegationAmountDelta < 0: It has been undelegated from this escrow*
+delegationAmountDelta < 0: It has been undelegated from this escrow
 
 ```solidity
 event Delegate(

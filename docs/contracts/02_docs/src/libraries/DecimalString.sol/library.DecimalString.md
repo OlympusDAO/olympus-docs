@@ -1,6 +1,6 @@
 # DecimalString
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/libraries/DecimalString.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/libraries/DecimalString.sol)
 
 ## Functions
 
@@ -10,7 +10,7 @@ Converts a uint256 value to a string with a specified number of decimal places.
 The value is adjusted by the scale factor and then formatted to the specified number of decimal places.
 The decimal places are not zero-padded, so the result is not always the same length.
 
-*This is inspired by code in [FixedStrikeOptionTeller](https://github.com/Bond-Protocol/option-contracts/blob/b8ce2ca2bae3bd06f0e7665c3aa8d827e4d8ca2c/src/fixed-strike/FixedStrikeOptionTeller.sol#L722).*
+This is inspired by code in [FixedStrikeOptionTeller](https://github.com/Bond-Protocol/option-contracts/blob/b8ce2ca2bae3bd06f0e7665c3aa8d827e4d8ca2c/src/fixed-strike/FixedStrikeOptionTeller.sol#L722).
 
 ```solidity
 function toDecimalString(uint256 value_, uint8 valueDecimals_, uint8 decimalPlaces_)

@@ -1,6 +1,6 @@
 # Distributor
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/Distributor/Distributor.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/Distributor/Distributor.sol)
 
 **Inherits:**
 [IDistributor](/main/contracts/docs/src/policies/interfaces/IDistributor.sol/interface.IDistributor), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
@@ -16,13 +16,13 @@ Import external interfaces
 Modules
 
 ```solidity
-TRSRYv1 public TRSRY;
+TRSRYv1 public TRSRY
 ```
 
 ### MINTR
 
 ```solidity
-MINTRv1 public MINTR;
+MINTRv1 public MINTR
 ```
 
 ### ohm
@@ -30,13 +30,13 @@ MINTRv1 public MINTR;
 Olympus contract dependencies
 
 ```solidity
-ERC20 private immutable ohm;
+ERC20 private immutable ohm
 ```
 
 ### staking
 
 ```solidity
-IStaking public immutable staking;
+IStaking public immutable staking
 ```
 
 ### pools
@@ -44,25 +44,25 @@ IStaking public immutable staking;
 Policy state
 
 ```solidity
-address[] public pools;
+address[] public pools
 ```
 
 ### rewardRate
 
 ```solidity
-uint256 public rewardRate;
+uint256 public rewardRate
 ```
 
 ### bounty
 
 ```solidity
-uint256 public bounty;
+uint256 public bounty
 ```
 
 ### unlockRebase
 
 ```solidity
-bool private unlockRebase;
+bool private unlockRebase
 ```
 
 ### DENOMINATOR
@@ -70,7 +70,7 @@ bool private unlockRebase;
 Constants
 
 ```solidity
-uint256 private constant DENOMINATOR = 1e9;
+uint256 private constant DENOMINATOR = 1e9
 ```
 
 ## Functions
@@ -171,7 +171,7 @@ function nextRewardFor(address who_) public view returns (uint256);
 
 Adjusts the bounty
 
-*This function is only available to an authorized user.*
+This function is only available to an authorized user.
 
 ```solidity
 function setBounty(uint256 bounty_) external onlyRole("distributor_admin");
@@ -187,7 +187,7 @@ function setBounty(uint256 bounty_) external onlyRole("distributor_admin");
 
 Sets the Uniswap V2 pools to be minted into
 
-*This function is only available to an authorized user.*
+This function is only available to an authorized user.
 
 ```solidity
 function setPools(address[] calldata pools_) external onlyRole("distributor_admin");
@@ -203,7 +203,7 @@ function setPools(address[] calldata pools_) external onlyRole("distributor_admi
 
 Removes a liquidity pool from the list of pools to be minted into
 
-*This function is only available to an authorized user.*
+This function is only available to an authorized user.
 
 ```solidity
 function removePool(uint256 index_, address pool_) external onlyRole("distributor_admin");

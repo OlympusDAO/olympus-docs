@@ -1,9 +1,12 @@
 # PositionTokenRenderer
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/DEPOS/PositionTokenRenderer.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/DEPOS/PositionTokenRenderer.sol)
 
 **Inherits:**
 [IPositionTokenRenderer](/main/contracts/docs/src/modules/DEPOS/IPositionTokenRenderer.sol/interface.IPositionTokenRenderer)
+
+**Title:**
+Position Token Renderer
 
 forge-lint: disable-start(mixed-case-function)
 
@@ -18,13 +21,13 @@ for the Olympus Deposit Position Manager
 The number of decimal places to display when rendering values as decimal strings
 
 ```solidity
-uint8 public constant DISPLAY_DECIMALS = 2;
+uint8 public constant DISPLAY_DECIMALS = 2
 ```
 
 ### OHM_DECIMALS
 
 ```solidity
-uint8 public constant OHM_DECIMALS = 9;
+uint8 public constant OHM_DECIMALS = 9
 ```
 
 ## Functions
@@ -33,7 +36,7 @@ uint8 public constant OHM_DECIMALS = 9;
 
 Renders the token URI for a given position
 
-*This function should return a valid JSON metadata string that follows the ERC721 metadata standard*
+This function should return a valid JSON metadata string that follows the ERC721 metadata standard
 
 ```solidity
 function tokenURI(address positionManager_, uint256 positionId_) external view override returns (string memory);

@@ -1,17 +1,20 @@
 # DelegateEscrow
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/external/cooler/DelegateEscrow.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/cooler/DelegateEscrow.sol)
 
 **Inherits:**
 Clone
 
+**Title:**
+Delegate Escrow Account
+
 An escrow to hold gOHM and delegate that amount to exactly one account.
 
-*Any caller (eg MonoCooler) can delegate on behalf of a `delegator` address, but only that same caller
+Any caller (eg MonoCooler) can delegate on behalf of a `delegator` address, but only that same caller
 can rescind the delegation to pull the gOHM back.
 This contract uses Clones (<https://github.com/wighawag/clones-with-immutable-args>)
 to save gas on deployment.
-Note: Any donated gOHM (transferred directly rather than using `delegate()`) cannot be recovered.*
+Note: Any donated gOHM (transferred directly rather than using `delegate()`) cannot be recovered.
 
 ## State Variables
 
@@ -20,18 +23,18 @@ Note: Any donated gOHM (transferred directly rather than using `delegate()`) can
 OHM governance token
 
 ```solidity
-ERC20 public immutable gohm;
+ERC20 public immutable gohm
 ```
 
 ### delegations
 
 The mapping of delegation amounts.
 
-*Partitioned by the calling address, and also by
-the address on behalf it is delegating for.*
+Partitioned by the calling address, and also by
+the address on behalf it is delegating for.
 
 ```solidity
-mapping(address => mapping(address => uint256)) public delegations;
+mapping(address /* caller */ => mapping(address /* onBehalfOf */ => uint256 /* amount */)) public delegations
 ```
 
 ## Functions
@@ -39,7 +42,7 @@ mapping(address => mapping(address => uint256)) public delegations;
 ### constructor
 
 ```solidity
-constructor(address gohm_);
+constructor(address gohm_) ;
 ```
 
 ### initialize
@@ -68,8 +71,8 @@ function factory() public pure returns (DelegateEscrowFactory _factory);
 
 Delegate an amount of gOHM to the predefined `delegateAccount`
 
-*gOHM is pulled from the caller (which must provide allowance), and only that
-same caller may rescind the delegation to recall the gOHM at a future date.*
+gOHM is pulled from the caller (which must provide allowance), and only that
+same caller may rescind the delegation to recall the gOHM at a future date.
 
 ```solidity
 function delegate(address onBehalfOf, uint256 gohmAmount) external returns (uint256 delegatedAmount);
@@ -96,7 +99,7 @@ function totalDelegated() external view returns (uint256);
 Ensure that the caller is the factory which created this contract only.
 
 ```solidity
-modifier onlyFactory();
+modifier onlyFactory() ;
 ```
 
 ## Errors

@@ -1,6 +1,6 @@
 # IStaking
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/interfaces/IStaking.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/IStaking.sol)
 
 ## Functions
 
@@ -40,9 +40,9 @@ function epoch() external view returns (uint256, uint256, uint256, uint256);
 
 ```solidity
 struct Epoch {
-    uint256 length;
-    uint256 number;
-    uint256 end;
-    uint256 distribute;
+    uint256 length; // in seconds
+    uint256 number; // since inception
+    uint256 end; // timestamp
+    uint256 distribute; // amount
 }
 ```

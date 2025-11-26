@@ -1,9 +1,12 @@
 # OlympusDepositPositionManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/DEPOS/OlympusDepositPositionManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/DEPOS/OlympusDepositPositionManager.sol)
 
 **Inherits:**
 [DEPOSv1](/main/contracts/docs/src/modules/DEPOS/DEPOS.v1.sol/abstract.DEPOSv1)
+
+**Title:**
+Olympus Deposit Position Manager
 
 forge-lint: disable-start(mixed-case-function, mixed-case-variable)
 
@@ -16,16 +19,16 @@ This contract is used to create, manage, and wrap/unwrap deposit positions. Posi
 
 The address of the token renderer contract
 
-*If set, tokenURI() will delegate to this contract. If not set, tokenURI() returns an empty string.*
+If set, tokenURI() will delegate to this contract. If not set, tokenURI() returns an empty string.
 
 ```solidity
-address internal _tokenRenderer;
+address internal _tokenRenderer
 ```
 
 ### _OHM_SCALE
 
 ```solidity
-uint256 internal constant _OHM_SCALE = 1e9;
+uint256 internal constant _OHM_SCALE = 1e9
 ```
 
 ## Functions
@@ -66,12 +69,12 @@ function VERSION() public pure override returns (uint8 major, uint8 minor);
 Wraps a position into an ERC721 token
 This is useful if the position owner wants a tokenized representation of their position. It is functionally equivalent to the position itself.
 
-*This function reverts if:
+This function reverts if:
 
 - The position ID is invalid
 - The caller is not the owner of the position
 - The position is already wrapped
-This is a public function that can be called by any address holding a position*
+This is a public function that can be called by any address holding a position
 
 ```solidity
 function wrap(uint256 positionId_)
@@ -93,12 +96,12 @@ function wrap(uint256 positionId_)
 Unwraps/burns an ERC721 position token
 This is useful if the position owner wants to unwrap their token back into the position.
 
-*This function reverts if:
+This function reverts if:
 
 - The position ID is invalid
 - The caller is not the owner of the position
 - The position is not wrapped
-This is a public function that can be called by any address holding a position*
+This is a public function that can be called by any address holding a position
 
 ```solidity
 function unwrap(uint256 positionId_)
@@ -125,9 +128,7 @@ function _create(address operator_, IDepositPositionManager.MintParams memory pa
 
 ### mint
 
-Creates a new deposit position
-
-*This function reverts if:
+This function reverts if:
 
 - The caller is not permissioned
 - The owner is the zero address
@@ -135,7 +136,7 @@ Creates a new deposit position
 - The remaining deposit is 0
 - The conversion price is 0
 - The conversion expiry is in the past
-This is a permissioned function that can only be called by approved policies*
+This is a permissioned function that can only be called by approved policies
 
 ```solidity
 function mint(IDepositPositionManager.MintParams calldata params_)
@@ -146,28 +147,16 @@ function mint(IDepositPositionManager.MintParams calldata params_)
     returns (uint256 positionId);
 ```
 
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`params_`|`IDepositPositionManager.MintParams`|                    The parameters for the position creation|
-
-**Returns**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId`|`uint256`|_positionId                 The ID of the new position|
-
 ### setRemainingDeposit
 
 Updates the remaining deposit of a position
 
-*This function reverts if:
+This function reverts if:
 
 - The caller is not permissioned
 - The position ID is invalid
 - The caller is not the operator that created the position
-This is a permissioned function that can only be called by approved policies*
+This is a permissioned function that can only be called by approved policies
 
 ```solidity
 function setRemainingDeposit(uint256 positionId_, uint256 amount_)
@@ -190,12 +179,12 @@ function setRemainingDeposit(uint256 positionId_, uint256 amount_)
 
 Updates the additional data of a position
 
-*This function reverts if:
+This function reverts if:
 
 - The caller is not permissioned
 - The position ID is invalid
 - The caller is not the operator that created the position
-This is a permissioned function that can only be called by approved policies*
+This is a permissioned function that can only be called by approved policies
 
 ```solidity
 function setAdditionalData(uint256 positionId_, bytes calldata additionalData_)
@@ -219,14 +208,14 @@ function setAdditionalData(uint256 positionId_, bytes calldata additionalData_)
 Splits the specified amount of the position into a new position
 This is useful if the position owner wants to split their position into multiple smaller positions.
 
-*This function reverts if:
+This function reverts if:
 
 - The caller is not permissioned
 - The caller is not the operator that created the position
 - The amount is 0
 - The amount is greater than the remaining deposit
 - `to_` is the zero address
-This is a permissioned function that can only be called by approved policies*
+This is a permissioned function that can only be called by approved policies
 
 ```solidity
 function split(uint256 positionId_, uint256 amount_, address to_, bool wrap_)
@@ -256,18 +245,16 @@ function split(uint256 positionId_, uint256 amount_, address to_, bool wrap_)
 
 ### tokenURI
 
-*See {IERC721Metadata-tokenURI}.*
-
 ```solidity
 function tokenURI(uint256 id_) public view virtual override returns (string memory);
 ```
 
 ### transferFrom
 
-*This function performs the following:
+This function performs the following:
 
 - Updates the owner of the position
-- Calls `transferFrom` on the parent contract*
+- Calls `transferFrom` on the parent contract
 
 ```solidity
 function transferFrom(address from_, address to_, uint256 tokenId_) public override;
@@ -317,9 +304,9 @@ function getUserPositionIds(address user_) external view virtual override return
 
 Get the position for a given ID
 
-*This function reverts if:
+This function reverts if:
 
-- The position ID is invalid*
+- The position ID is invalid
 
 ```solidity
 function getPosition(uint256 positionId_) external view virtual override returns (Position memory);
@@ -341,9 +328,9 @@ function getPosition(uint256 positionId_) external view virtual override returns
 
 Check if a position is expired
 
-*This function reverts if:
+This function reverts if:
 
-- The position ID is invalid*
+- The position ID is invalid
 
 ```solidity
 function isExpired(uint256 positionId_) external view virtual override returns (bool);
@@ -371,9 +358,9 @@ function _isConvertible(Position memory position_) internal pure returns (bool);
 
 Check if a position is convertible
 
-*This function reverts if:
+This function reverts if:
 
-- The position ID is invalid*
+- The position ID is invalid
 
 ```solidity
 function isConvertible(uint256 positionId_) external view virtual override returns (bool);
@@ -434,10 +421,10 @@ function _setTokenRenderer(address renderer_) internal;
 
 Set the token renderer contract
 
-*This function reverts if:
+This function reverts if:
 
 - The caller is not permissioned
-- The renderer contract does not implement the required interface*
+- The renderer contract does not implement the required interface
 
 ```solidity
 function setTokenRenderer(address renderer_) external virtual override permissioned;
@@ -478,7 +465,7 @@ function _onlyValidPosition(uint256 positionId_) internal view;
 ### onlyValidPosition
 
 ```solidity
-modifier onlyValidPosition(uint256 positionId_);
+modifier onlyValidPosition(uint256 positionId_) ;
 ```
 
 ### _onlyPositionOperator
@@ -490,7 +477,7 @@ function _onlyPositionOperator(uint256 positionId_) internal view;
 ### onlyPositionOperator
 
 ```solidity
-modifier onlyPositionOperator(uint256 positionId_);
+modifier onlyPositionOperator(uint256 positionId_) ;
 ```
 
 ### _onlyPositionOwner
@@ -502,5 +489,5 @@ function _onlyPositionOwner(uint256 positionId_) internal view;
 ### onlyPositionOwner
 
 ```solidity
-modifier onlyPositionOwner(uint256 positionId_);
+modifier onlyPositionOwner(uint256 positionId_) ;
 ```

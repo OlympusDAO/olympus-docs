@@ -1,6 +1,6 @@
 # TRSRYv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/TRSRY/TRSRY.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/TRSRY/TRSRY.v1.sol)
 
 **Inherits:**
 [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
@@ -14,27 +14,27 @@ Treasury holds all other assets under the control of the protocol.
 Status of the treasury. If false, no withdrawals or debt can be incurred.
 
 ```solidity
-bool public active;
+bool public active
 ```
 
 ### withdrawApproval
 
 Mapping of who is approved for withdrawal.
 
-*withdrawer -> token -> amount. Infinite approval is max(uint256).*
+withdrawer -> token -> amount. Infinite approval is max(uint256).
 
 ```solidity
-mapping(address => mapping(ERC20 => uint256)) public withdrawApproval;
+mapping(address => mapping(ERC20 => uint256)) public withdrawApproval
 ```
 
 ### debtApproval
 
 Mapping of who is approved to incur debt.
 
-*debtor -> token -> amount. Infinite approval is max(uint256).*
+debtor -> token -> amount. Infinite approval is max(uint256).
 
 ```solidity
-mapping(address => mapping(ERC20 => uint256)) public debtApproval;
+mapping(address => mapping(ERC20 => uint256)) public debtApproval
 ```
 
 ### totalDebt
@@ -42,7 +42,7 @@ mapping(address => mapping(ERC20 => uint256)) public debtApproval;
 Total debt for token across all withdrawals.
 
 ```solidity
-mapping(ERC20 => uint256) public totalDebt;
+mapping(ERC20 => uint256) public totalDebt
 ```
 
 ### reserveDebt
@@ -50,7 +50,7 @@ mapping(ERC20 => uint256) public totalDebt;
 Debt for particular token and debtor address
 
 ```solidity
-mapping(ERC20 => mapping(address => uint256)) public reserveDebt;
+mapping(ERC20 => mapping(address => uint256)) public reserveDebt
 ```
 
 ## Functions
@@ -58,7 +58,7 @@ mapping(ERC20 => mapping(address => uint256)) public reserveDebt;
 ### onlyWhileActive
 
 ```solidity
-modifier onlyWhileActive();
+modifier onlyWhileActive() ;
 ```
 
 ### increaseWithdrawApproval
@@ -89,7 +89,7 @@ function withdrawReserves(address to_, ERC20 token_, uint256 amount_) external v
 
 Increase approval for someone to accrue debt in order to withdraw reserves.
 
-*Debt will generally be taken by contracts to allocate treasury funds in yield sources.*
+Debt will generally be taken by contracts to allocate treasury funds in yield sources.
 
 ```solidity
 function increaseDebtorApproval(address debtor_, ERC20 token_, uint256 amount_) external virtual;
@@ -115,9 +115,9 @@ function incurDebt(ERC20 token_, uint256 amount_) external virtual;
 
 Repay a debtor debt.
 
-*Only confirmed to safely handle standard and non-standard ERC20s.*
+Only confirmed to safely handle standard and non-standard ERC20s.
 
-*Can have unforeseen consequences with ERC777. Be careful with ERC777 as reserve.*
+Can have unforeseen consequences with ERC777. Be careful with ERC777 as reserve.
 
 ```solidity
 function repayDebt(address debtor_, ERC20 token_, uint256 amount_) external virtual;

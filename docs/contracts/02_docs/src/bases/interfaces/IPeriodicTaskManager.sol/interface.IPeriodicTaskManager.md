@@ -1,6 +1,9 @@
 # IPeriodicTaskManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/bases/interfaces/IPeriodicTaskManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/bases/interfaces/IPeriodicTaskManager.sol)
+
+**Title:**
+IPeriodicTaskManager
 
 Interface for a contract that can manage periodic tasks with ordering capabilities
 
@@ -10,7 +13,7 @@ Interface for a contract that can manage periodic tasks with ordering capabiliti
 
 Adds a periodic task to the end of the task list
 
-*This function should be protected by a role check for the "admin" role*
+This function should be protected by a role check for the "admin" role
 
 ```solidity
 function addPeriodicTask(address task_) external;
@@ -26,9 +29,9 @@ function addPeriodicTask(address task_) external;
 
 Adds a periodic task at a specific index in the task list
 
-*This function should be protected by a role check for the "admin" role*
+This function should be protected by a role check for the "admin" role
 
-*If the index is greater than the current length, the task will be added at the end*
+If the index is greater than the current length, the task will be added at the end
 
 ```solidity
 function addPeriodicTaskAtIndex(address task_, bytes4 customSelector_, uint256 index_) external;
@@ -46,7 +49,7 @@ function addPeriodicTaskAtIndex(address task_, bytes4 customSelector_, uint256 i
 
 Removes a periodic task from the task list
 
-*This function should be protected by a role check for the "admin" role*
+This function should be protected by a role check for the "admin" role
 
 ```solidity
 function removePeriodicTask(address task_) external;
@@ -62,7 +65,7 @@ function removePeriodicTask(address task_) external;
 
 Removes a periodic task at a specific index
 
-*This function should be protected by a role check for the "admin" role*
+This function should be protected by a role check for the "admin" role
 
 ```solidity
 function removePeriodicTaskAtIndex(uint256 index_) external;

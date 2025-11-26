@@ -1,6 +1,9 @@
 # ICoolerV2Migrator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/periphery/interfaces/ICoolerV2Migrator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/periphery/interfaces/ICoolerV2Migrator.sol)
+
+**Title:**
+Cooler V2 Migrator
 
 Interface for contracts that migrate Cooler V1 loans to Cooler V2
 
@@ -37,13 +40,13 @@ This function supports consolidation of loans from multiple Clearinghouses and C
 The funds for paying interest owed and fees will be borrowed from Cooler V2.
 It is expected that the caller will have already provided approval for this contract to spend the required tokens. See `previewConsolidate()` for more details.
 
-*The implementing function is expected to handle the following:
+The implementing function is expected to handle the following:
 
 - Ensure that `coolers_` are valid
 - Ensure that the caller is the owner of the Coolers
 - Repay all loans in the Coolers
 - Deposit the collateral into Cooler V2
-- Borrow the required amount from Cooler V2 to repay the Cooler V1 loans*
+- Borrow the required amount from Cooler V2 to repay the Cooler V1 loans
 
 ```solidity
 function consolidate(

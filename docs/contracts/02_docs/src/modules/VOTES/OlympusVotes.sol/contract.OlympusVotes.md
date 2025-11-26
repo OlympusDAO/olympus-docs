@@ -1,6 +1,6 @@
 # OlympusVotes
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/VOTES/OlympusVotes.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/VOTES/OlympusVotes.sol)
 
 **Inherits:**
 [VOTESv1](/main/contracts/docs/src/modules/VOTES/VOTES.v1.sol/abstract.VOTESv1)
@@ -53,7 +53,11 @@ function mint(uint256 shares_, address receiver_) public override permissioned r
 ### withdraw
 
 ```solidity
-function withdraw(uint256 assets_, address receiver_, address owner_) public override permissioned returns (uint256);
+function withdraw(uint256 assets_, address receiver_, address owner_)
+    public
+    override
+    permissioned
+    returns (uint256);
 ```
 
 ### redeem

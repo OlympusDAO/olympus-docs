@@ -1,6 +1,6 @@
 # String
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/libraries/String.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/libraries/String.sol)
 
 ## Functions
 
@@ -17,7 +17,10 @@ function truncate32(string memory str_) internal pure returns (string memory);
 Returns a substring of a string
 
 ```solidity
-function substring(string memory str_, uint256 startIndex_, uint256 endIndex_) internal pure returns (string memory);
+function substring(string memory str_, uint256 startIndex_, uint256 endIndex_)
+    internal
+    pure
+    returns (string memory);
 ```
 
 **Parameters**

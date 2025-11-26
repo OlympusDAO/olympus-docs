@@ -1,12 +1,12 @@
 # IERC4626
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/interfaces/IERC4626.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/IERC4626.sol)
 
 **Inherits:**
 [IERC20](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20)
 
-*Interface of the ERC4626 "Tokenized Vault Standard", as defined in
-<https://eips.ethereum.org/EIPS/eip-4626>*
+Interface of the ERC4626 "Tokenized Vault Standard", as defined in
+<https://eips.ethereum.org/EIPS/eip-4626>
 
 ## Functions
 
@@ -15,7 +15,7 @@
 Returns the address of the underlying token used for the Vault for accounting, depositing, and withdrawing.
 
 - MUST be an ERC-20 token contract.
-- MUST NOT revert.*
+- MUST NOT revert.
 
 ```solidity
 function asset() external view returns (address assetTokenAddress);
@@ -27,7 +27,7 @@ Returns the total amount of the underlying asset that is “managed” by Vault.
 
 - SHOULD include any compounding that occurs from yield.
 - MUST be inclusive of any fees that are charged against assets in the Vault.
-- MUST NOT revert.*
+- MUST NOT revert.
 
 ```solidity
 function totalAssets() external view returns (uint256 totalManagedAssets);
@@ -44,7 +44,7 @@ scenario where all the conditions are met.
 - MUST NOT revert.
 NOTE: This calculation MAY NOT reflect the “per-user” price-per-share, and instead should reflect the
 “average-user’s” price-per-share, meaning what the average user should expect to see when exchanging to and
-from.*
+from.
 
 ```solidity
 function convertToShares(uint256 assets) external view returns (uint256 shares);
@@ -61,7 +61,7 @@ scenario where all the conditions are met.
 - MUST NOT revert.
 NOTE: This calculation MAY NOT reflect the “per-user” price-per-share, and instead should reflect the
 “average-user’s” price-per-share, meaning what the average user should expect to see when exchanging to and
-from.*
+from.
 
 ```solidity
 function convertToAssets(uint256 shares) external view returns (uint256 assets);
@@ -74,7 +74,7 @@ through a deposit call.
 
 - MUST return a limited value if receiver is subject to some deposit limit.
 - MUST return 2 ** 256 - 1 if there is no limit on the maximum amount of assets that may be deposited.
-- MUST NOT revert.*
+- MUST NOT revert.
 
 ```solidity
 function maxDeposit(address receiver) external view returns (uint256 maxAssets);
@@ -93,7 +93,7 @@ deposit would be accepted, regardless if the user has enough tokens approved, et
 - MUST be inclusive of deposit fees. Integrators should be aware of the existence of deposit fees.
 - MUST NOT revert.
 NOTE: any unfavorable discrepancy between convertToShares and previewDeposit SHOULD be considered slippage in
-share price or some other type of condition, meaning the depositor will lose assets by depositing.*
+share price or some other type of condition, meaning the depositor will lose assets by depositing.
 
 ```solidity
 function previewDeposit(uint256 assets) external view returns (uint256 shares);
@@ -108,7 +108,7 @@ Mints shares Vault shares to receiver by depositing exactly amount of underlying
 deposit execution, and are accounted for during deposit.
 - MUST revert if all of assets cannot be deposited (due to deposit limit being reached, slippage, the user not
 approving enough underlying tokens to the Vault contract, etc).
-NOTE: most implementations will require pre-approval of the Vault with the Vault’s underlying asset token.*
+NOTE: most implementations will require pre-approval of the Vault with the Vault’s underlying asset token.
 
 ```solidity
 function deposit(uint256 assets, address receiver) external returns (uint256 shares);
@@ -120,7 +120,7 @@ Returns the maximum amount of the Vault shares that can be minted for the receiv
 
 - MUST return a limited value if receiver is subject to some mint limit.
 - MUST return 2 ** 256 - 1 if there is no limit on the maximum amount of shares that may be minted.
-- MUST NOT revert.*
+- MUST NOT revert.
 
 ```solidity
 function maxMint(address receiver) external view returns (uint256 maxShares);
@@ -139,7 +139,7 @@ would be accepted, regardless if the user has enough tokens approved, etc.
 - MUST be inclusive of deposit fees. Integrators should be aware of the existence of deposit fees.
 - MUST NOT revert.
 NOTE: any unfavorable discrepancy between convertToAssets and previewMint SHOULD be considered slippage in
-share price or some other type of condition, meaning the depositor will lose assets by minting.*
+share price or some other type of condition, meaning the depositor will lose assets by minting.
 
 ```solidity
 function previewMint(uint256 shares) external view returns (uint256 assets);
@@ -154,7 +154,7 @@ Mints exactly shares Vault shares to receiver by depositing amount of underlying
 execution, and are accounted for during mint.
 - MUST revert if all of shares cannot be minted (due to deposit limit being reached, slippage, the user not
 approving enough underlying tokens to the Vault contract, etc).
-NOTE: most implementations will require pre-approval of the Vault with the Vault’s underlying asset token.*
+NOTE: most implementations will require pre-approval of the Vault with the Vault’s underlying asset token.
 
 ```solidity
 function mint(uint256 shares, address receiver) external returns (uint256 assets);
@@ -166,7 +166,7 @@ Returns the maximum amount of the underlying asset that can be withdrawn from th
 Vault, through a withdraw call.
 
 - MUST return a limited value if owner is subject to some withdrawal limit or timelock.
-- MUST NOT revert.*
+- MUST NOT revert.
 
 ```solidity
 function maxWithdraw(address owner) external view returns (uint256 maxAssets);
@@ -186,7 +186,7 @@ the withdrawal would be accepted, regardless if the user has enough shares, etc.
 - MUST be inclusive of withdrawal fees. Integrators should be aware of the existence of withdrawal fees.
 - MUST NOT revert.
 NOTE: any unfavorable discrepancy between convertToShares and previewWithdraw SHOULD be considered slippage in
-share price or some other type of condition, meaning the depositor will lose assets by depositing.*
+share price or some other type of condition, meaning the depositor will lose assets by depositing.
 
 ```solidity
 function previewWithdraw(uint256 assets) external view returns (uint256 shares);
@@ -202,7 +202,7 @@ withdraw execution, and are accounted for during withdraw.
 - MUST revert if all of assets cannot be withdrawn (due to withdrawal limit being reached, slippage, the owner
 not having enough shares, etc).
 Note that some implementations will require pre-requesting to the Vault before a withdrawal may be performed.
-Those methods should be performed separately.*
+Those methods should be performed separately.
 
 ```solidity
 function withdraw(uint256 assets, address receiver, address owner) external returns (uint256 shares);
@@ -215,7 +215,7 @@ through a redeem call.
 
 - MUST return a limited value if owner is subject to some withdrawal limit or timelock.
 - MUST return balanceOf(owner) if owner is not subject to any withdrawal limit or timelock.
-- MUST NOT revert.*
+- MUST NOT revert.
 
 ```solidity
 function maxRedeem(address owner) external view returns (uint256 maxShares);
@@ -234,7 +234,7 @@ redemption would be accepted, regardless if the user has enough shares, etc.
 - MUST be inclusive of withdrawal fees. Integrators should be aware of the existence of withdrawal fees.
 - MUST NOT revert.
 NOTE: any unfavorable discrepancy between convertToAssets and previewRedeem SHOULD be considered slippage in
-share price or some other type of condition, meaning the depositor will lose assets by redeeming.*
+share price or some other type of condition, meaning the depositor will lose assets by redeeming.
 
 ```solidity
 function previewRedeem(uint256 shares) external view returns (uint256 assets);
@@ -250,7 +250,7 @@ redeem execution, and are accounted for during redeem.
 - MUST revert if all of shares cannot be redeemed (due to withdrawal limit being reached, slippage, the owner
 not having enough shares, etc).
 NOTE: some implementations will require pre-requesting to the Vault before a withdrawal may be performed.
-Those methods should be performed separately.*
+Those methods should be performed separately.
 
 ```solidity
 function redeem(uint256 shares, address receiver, address owner) external returns (uint256 assets);
@@ -267,5 +267,7 @@ event Deposit(address indexed sender, address indexed owner, uint256 assets, uin
 ### Withdraw
 
 ```solidity
-event Withdraw(address indexed sender, address indexed receiver, address indexed owner, uint256 assets, uint256 shares);
+event Withdraw(
+    address indexed sender, address indexed receiver, address indexed owner, uint256 assets, uint256 shares
+);
 ```

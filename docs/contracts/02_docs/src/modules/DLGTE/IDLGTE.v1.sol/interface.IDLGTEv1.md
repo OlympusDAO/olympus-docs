@@ -1,6 +1,6 @@
 # IDLGTEv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/DLGTE/IDLGTE.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/DLGTE/IDLGTE.v1.sol)
 
 ## Functions
 
@@ -18,7 +18,7 @@ function setMaxDelegateAddresses(address account, uint32 maxDelegateAddresses) e
 gOHM is pulled from the calling policy and added to the undelegated balance.
 
 - This gOHM cannot be used for governance voting until it is delegated.
-- Deposted gOHM balances are tracked per policy. policyA cannot withdraw gOHM that policyB deposited*
+- Deposted gOHM balances are tracked per policy. policyA cannot withdraw gOHM that policyB deposited
 
 ```solidity
 function depositUndelegatedGohm(address onBehalfOf, uint256 amount) external;
@@ -32,7 +32,7 @@ Undelegated gOHM is transferred to the calling policy.
 from up to `autoRescindMaxNumDelegates` number of delegate escrows. See `rescindDelegations()` for details
 - Will revert if there is still not enough undelegated gOHM for `onBehalfOf` OR
 if policy is attempting to withdraw more gOHM than it deposited
-Deposted gOHM balances are tracked per policy. policyA cannot withdraw gOHM that policyB deposited*
+Deposted gOHM balances are tracked per policy. policyA cannot withdraw gOHM that policyB deposited
 
 ```solidity
 function withdrawUndelegatedGohm(address onBehalfOf, uint256 amount, uint256 autoRescindMaxNumDelegates) external;
@@ -66,7 +66,7 @@ removed
 however the policy cannot then withdraw an amount higher than what it deposited.
 - If the full `requestedUndelegatedBalance` cannot be fulfilled the `actualUndelegatedBalance`
 return parameter may be less than `requestedUndelegatedBalance`. The caller must decide
-on how to handle that.*
+on how to handle that.
 
 ```solidity
 function rescindDelegations(address onBehalfOf, uint256 requestedUndelegatedBalance, uint256 maxNumDelegates)
@@ -87,9 +87,9 @@ function policyAccountBalances(address policy, address account) external view re
 
 Paginated view of an account's delegations
 
-*This can be called sequentially, increasing the `startIndex` each time by the number of items
+This can be called sequentially, increasing the `startIndex` each time by the number of items
 returned in the previous call, until number of items returned is less than `maxItems`
-The `totalAmount` delegated within the return struct is across all policies for that account delegate*
+The `totalAmount` delegated within the return struct is across all policies for that account delegate
 
 ```solidity
 function accountDelegationsList(address account, uint256 startIndex, uint256 maxItems)
@@ -217,7 +217,10 @@ error DLGTE_ExceededPolicyAccountBalance(uint256 balance, uint256 requested);
 
 ```solidity
 struct DelegationRequest {
+    /// @dev The address of the delegate
     address delegate;
+    /// @dev The amount to (un)delegate.
+    /// positive means delegate, negative undelegate.
     int256 amount;
 }
 ```
@@ -226,8 +229,11 @@ struct DelegationRequest {
 
 ```solidity
 struct AccountDelegation {
+    /// @dev The delegate address - the receiver account of the gOHM voting power.
     address delegate;
+    /// @dev The amount of gOHM delegated to `delegate`
     uint256 amount;
+    /// @dev The DelegateEscrow contract address for this `delegate`
     address escrow;
 }
 ```

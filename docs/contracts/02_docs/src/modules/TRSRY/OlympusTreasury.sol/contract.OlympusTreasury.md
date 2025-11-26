@@ -1,6 +1,6 @@
 # OlympusTreasury
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/TRSRY/OlympusTreasury.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/TRSRY/OlympusTreasury.sol)
 
 **Inherits:**
 [TRSRYv1](/main/contracts/docs/src/modules/TRSRY/TRSRY.v1.sol/abstract.TRSRYv1), ReentrancyGuard
@@ -43,7 +43,10 @@ function VERSION() external pure override returns (uint8 major, uint8 minor);
 Increase approval for specific withdrawer addresses
 
 ```solidity
-function increaseWithdrawApproval(address withdrawer_, ERC20 token_, uint256 amount_) external override permissioned;
+function increaseWithdrawApproval(address withdrawer_, ERC20 token_, uint256 amount_)
+    external
+    override
+    permissioned;
 ```
 
 ### decreaseWithdrawApproval
@@ -51,7 +54,10 @@ function increaseWithdrawApproval(address withdrawer_, ERC20 token_, uint256 amo
 Decrease approval for specific withdrawer addresses
 
 ```solidity
-function decreaseWithdrawApproval(address withdrawer_, ERC20 token_, uint256 amount_) external override permissioned;
+function decreaseWithdrawApproval(address withdrawer_, ERC20 token_, uint256 amount_)
+    external
+    override
+    permissioned;
 ```
 
 ### withdrawReserves
@@ -66,7 +72,7 @@ function withdrawReserves(address to_, ERC20 token_, uint256 amount_) public ove
 
 Increase approval for someone to accrue debt in order to withdraw reserves.
 
-*Debt will generally be taken by contracts to allocate treasury funds in yield sources.*
+Debt will generally be taken by contracts to allocate treasury funds in yield sources.
 
 ```solidity
 function increaseDebtorApproval(address debtor_, ERC20 token_, uint256 amount_) external override permissioned;
@@ -92,7 +98,7 @@ function incurDebt(ERC20 token_, uint256 amount_) external override permissioned
 
 Repay a debtor debt.
 
-*Only confirmed to safely handle standard and non-standard ERC20s.*
+Only confirmed to safely handle standard and non-standard ERC20s.
 
 ```solidity
 function repayDebt(address debtor_, ERC20 token_, uint256 amount_) external override permissioned nonReentrant;

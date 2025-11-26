@@ -1,6 +1,6 @@
 # BasePeriodicTaskManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/bases/BasePeriodicTaskManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/bases/BasePeriodicTaskManager.sol)
 
 **Inherits:**
 [IPeriodicTaskManager](/main/contracts/docs/src/bases/interfaces/IPeriodicTaskManager.sol/interface.IPeriodicTaskManager), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler)
@@ -12,18 +12,18 @@
 The periodic tasks
 
 ```solidity
-address[] internal _periodicTaskAddresses;
+address[] internal _periodicTaskAddresses
 ```
 
 ### _periodicTaskCustomSelectors
 
 An optional custom selector for each periodic task
 
-*If the selector is set (non-zero), the task will be executed using the custom selector
-instead of the `IPeriodicTask.execute` function*
+If the selector is set (non-zero), the task will be executed using the custom selector
+instead of the `IPeriodicTask.execute` function
 
 ```solidity
-mapping(address => bytes4) internal _periodicTaskCustomSelectors;
+mapping(address => bytes4) internal _periodicTaskCustomSelectors
 ```
 
 ## Functions
@@ -38,11 +38,11 @@ function _addPeriodicTask(address task_, bytes4 customSelector_, uint256 index_)
 
 Adds a periodic task to the end of the task list
 
-*This function reverts if:
+This function reverts if:
 
 - The caller is not the admin
 - The task is already added
-- The task is not a valid periodic task*
+- The task is not a valid periodic task
 
 ```solidity
 function addPeriodicTask(address task_) external override onlyAdminRole;
@@ -58,14 +58,14 @@ function addPeriodicTask(address task_) external override onlyAdminRole;
 
 Adds a periodic task at a specific index in the task list
 
-*This function reverts if:
+This function reverts if:
 
 - The caller is not the admin
 - The task is already added
 - The task is not a valid periodic task
 - The index is out of bounds
 If a custom selector is provided, care must be taken to ensure that the selector exists on {task_}.
-If the selector does not exist, all of the periodic tasks will revert.*
+If the selector does not exist, all of the periodic tasks will revert.
 
 ```solidity
 function addPeriodicTaskAtIndex(address task_, bytes4 customSelector_, uint256 index_)
@@ -92,10 +92,10 @@ function _removePeriodicTask(uint256 index_) internal;
 
 Removes a periodic task from the task list
 
-*This function reverts if:
+This function reverts if:
 
 - The caller is not the admin
-- The task is not added*
+- The task is not added
 
 ```solidity
 function removePeriodicTask(address task_) external override onlyAdminRole;
@@ -111,10 +111,10 @@ function removePeriodicTask(address task_) external override onlyAdminRole;
 
 Removes a periodic task at a specific index
 
-*This function reverts if:
+This function reverts if:
 
 - The caller is not the admin
-- The index is out of bounds*
+- The index is out of bounds
 
 ```solidity
 function removePeriodicTaskAtIndex(uint256 index_) external override onlyAdminRole;
@@ -128,11 +128,11 @@ function removePeriodicTaskAtIndex(uint256 index_) external override onlyAdminRo
 
 ### _executePeriodicTasks
 
-*This function does not implement any logic to catch errors from the periodic tasks.*
+This function does not implement any logic to catch errors from the periodic tasks.
 
-*The logic is that if a periodic task fails, it should fail loudly and revert.*
+The logic is that if a periodic task fails, it should fail loudly and revert.
 
-*Any tasks that are non-essential can include a try-catch block to handle the error internally.*
+Any tasks that are non-essential can include a try-catch block to handle the error internally.
 
 ```solidity
 function _executePeriodicTasks() internal;

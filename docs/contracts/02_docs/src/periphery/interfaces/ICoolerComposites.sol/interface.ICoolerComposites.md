@@ -1,6 +1,6 @@
 # ICoolerComposites
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/periphery/interfaces/ICoolerComposites.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/periphery/interfaces/ICoolerComposites.sol)
 
 ## Functions
 
@@ -8,7 +8,7 @@
 
 Allow user to add collateral and borrow from Cooler V2
 
-*User must provide authorization signature before using function*
+User must provide authorization signature before using function
 
 ```solidity
 function addCollateralAndBorrow(
@@ -34,7 +34,7 @@ function addCollateralAndBorrow(
 
 Allow user to add collateral and borrow from Cooler V2
 
-*User must provide authorization signature before using function*
+User must provide authorization signature before using function
 
 ```solidity
 function repayAndRemoveCollateral(

@@ -1,6 +1,9 @@
 # IDepositFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/deposits/IDepositFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/deposits/IDepositFacility.sol)
+
+**Title:**
+IDepositFacility
 
 Interface for deposit facilities to coordinate with generic operators (e.g., redemption vaults)
 
@@ -231,9 +234,9 @@ function handleLoanDefault(IERC20 depositToken_, uint8 depositPeriod_, uint256 a
 
 Preview the amount of deposit token that would be reclaimed
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
-- Returning the total amount of deposit tokens that would be reclaimed*
+- Returning the total amount of deposit tokens that would be reclaimed
 
 ```solidity
 function previewReclaim(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount_)
@@ -262,11 +265,11 @@ Reclaims deposit tokens, after applying a discount
 Deposit tokens can be reclaimed at any time.
 The caller is not required to have a position in the facility.
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Burning the receipt tokens
 - Transferring the deposit token to `recipient_`
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function reclaim(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount_) external returns (uint256 reclaimed);

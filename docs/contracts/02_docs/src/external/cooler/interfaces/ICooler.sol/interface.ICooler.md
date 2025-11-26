@@ -1,6 +1,6 @@
 # ICooler
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/external/cooler/interfaces/ICooler.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/cooler/interfaces/ICooler.sol)
 
 ## Functions
 
@@ -80,9 +80,9 @@ function rescindRequest(uint256 requestId_) external;
 
 Repay a loan to get the collateral back.
 
-*Despite a malicious lender could reenter with the callback, the
+Despite a malicious lender could reenter with the callback, the
 usage of `msg.sender` prevents any economical benefit to the
-attacker, since they would be repaying the loan themselves.*
+attacker, since they would be repaying the loan themselves.
 
 ```solidity
 function repayLoan(uint256 loanId_, uint256 repayment_) external returns (uint256 collateral);
@@ -128,8 +128,8 @@ function clearRequest(uint256 reqID_, address recipient_, bool isCallback_) exte
 Allow lender to extend a loan for the borrower. Doesn't require
 borrower permission because it doesn't have a negative impact for them.
 
-*Since this function solely impacts the expiration day, the lender
-should ensure that extension interest payments are done beforehand.*
+Since this function solely impacts the expiration day, the lender
+should ensure that extension interest payments are done beforehand.
 
 ```solidity
 function extendLoanTerms(uint256 loanId_, uint8 times_) external;
@@ -330,12 +330,12 @@ A loan begins with a borrow request.
 
 ```solidity
 struct Request {
-    uint256 amount;
-    uint256 interest;
-    uint256 loanToCollateral;
-    uint256 duration;
-    bool active;
-    address requester;
+    uint256 amount; // Amount to be borrowed.
+    uint256 interest; // Annualized percentage to be paid as interest.
+    uint256 loanToCollateral; // Requested loan-to-collateral ratio.
+    uint256 duration; // Time to repay the loan before it defaults.
+    bool active; // Any lender can clear an active loan request.
+    address requester; // The address that created the request.
 }
 ```
 
@@ -345,13 +345,13 @@ A request is converted to a loan when a lender clears it.
 
 ```solidity
 struct Loan {
-    Request request;
-    uint256 principal;
-    uint256 interestDue;
-    uint256 collateral;
-    uint256 expiry;
-    address lender;
-    address recipient;
-    bool callback;
+    Request request; // Loan terms specified in the request.
+    uint256 principal; // Amount of principal debt owed to the lender.
+    uint256 interestDue; // Interest owed to the lender.
+    uint256 collateral; // Amount of collateral pledged.
+    uint256 expiry; // Time when the loan defaults.
+    address lender; // Lender's address.
+    address recipient; // Recipient of repayments.
+    bool callback; // If this is true, the lender must inherit CoolerCallback.
 }
 ```

@@ -1,6 +1,6 @@
 # IBondAuctioneer
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/interfaces/IBondAuctioneer.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/IBondAuctioneer.sol)
 
 ## Functions
 
@@ -8,7 +8,7 @@
 
 Creates a new bond market
 
-*See specific auctioneer implementations for details on encoding the parameters.*
+See specific auctioneer implementations for details on encoding the parameters.
 
 ```solidity
 function createMarket(bytes memory params_) external returns (uint256);
@@ -72,8 +72,8 @@ Set market intervals to different values than the defaults
 
 Must be market owner
 
-*Changing the intervals could cause markets to behave in unexpected way
-tuneInterval should be greater than tuneAdjustmentDelay*
+Changing the intervals could cause markets to behave in unexpected way
+tuneInterval should be greater than tuneAdjustmentDelay
 
 ```solidity
 function setIntervals(uint256 id_, uint32[3] calldata intervals_) external;
@@ -92,7 +92,7 @@ Designate a new owner of a market
 
 Must be market owner
 
-*Doesn't change permissions until newOwner calls pullOwnership*
+Doesn't change permissions until newOwner calls pullOwnership
 
 ```solidity
 function pushOwnership(uint256 id_, address newOwner_) external;
@@ -111,7 +111,7 @@ Accept ownership of a market
 
 Must be market newOwner
 
-*The existing owner must call pushOwnership prior to the newOwner calling this function*
+The existing owner must call pushOwnership prior to the newOwner calling this function
 
 ```solidity
 function pullOwnership(uint256 id_) external;
@@ -129,9 +129,9 @@ Set the auctioneer defaults
 
 Must be policy
 
-*The defaults set here are important to avoid edge cases in market behavior, e.g. a very short market reacts doesn't tune well*
+The defaults set here are important to avoid edge cases in market behavior, e.g. a very short market reacts doesn't tune well
 
-*Only applies to new markets that are created after the change*
+Only applies to new markets that are created after the change
 
 ```solidity
 function setDefaults(uint32[6] memory defaults_) external;
@@ -147,7 +147,7 @@ function setDefaults(uint32[6] memory defaults_) external;
 
 Change the status of the auctioneer to allow creation of new markets
 
-*Setting to false and allowing active markets to end will sunset the auctioneer*
+Setting to false and allowing active markets to end will sunset the auctioneer
 
 ```solidity
 function setAllowNewMarkets(bool status_) external;
@@ -165,7 +165,7 @@ Change whether a market creator is allowed to use a callback address in their ma
 
 Must be guardian
 
-*Callback is believed to be safe, but a whitelist is implemented to prevent abuse*
+Callback is believed to be safe, but a whitelist is implemented to prevent abuse
 
 ```solidity
 function setCallbackAuthStatus(address creator_, bool status_) external;
@@ -277,7 +277,7 @@ function marketScale(uint256 id_) external view returns (uint256);
 
 Payout due for amount of quote tokens
 
-*Accounts for debt and control variable decay so it is up to date*
+Accounts for debt and control variable decay so it is up to date
 
 ```solidity
 function payoutFor(uint256 amount_, uint256 id_, address referrer_) external view returns (uint256);

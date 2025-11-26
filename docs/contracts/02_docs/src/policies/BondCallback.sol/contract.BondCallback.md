@@ -1,64 +1,67 @@
 # BondCallback
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/BondCallback.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/BondCallback.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), ReentrancyGuard, [IBondCallback](/main/contracts/docs/src/interfaces/IBondCallback.sol/interface.IBondCallback), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
+
+**Title:**
+Olympus Bond Callback
 
 ## State Variables
 
 ### approvedMarkets
 
 ```solidity
-mapping(address => mapping(uint256 => bool)) public approvedMarkets;
+mapping(address => mapping(uint256 => bool)) public approvedMarkets
 ```
 
 ### _amountsPerMarket
 
 ```solidity
-mapping(uint256 => uint256[2]) internal _amountsPerMarket;
+mapping(uint256 => uint256[2]) internal _amountsPerMarket
 ```
 
 ### priorBalances
 
 ```solidity
-mapping(ERC20 => uint256) public priorBalances;
+mapping(ERC20 => uint256) public priorBalances
 ```
 
 ### wrapped
 
 ```solidity
-mapping(address => address) public wrapped;
+mapping(address => address) public wrapped
 ```
 
 ### TRSRY
 
 ```solidity
-TRSRYv1 public TRSRY;
+TRSRYv1 public TRSRY
 ```
 
 ### MINTR
 
 ```solidity
-MINTRv1 public MINTR;
+MINTRv1 public MINTR
 ```
 
 ### operator
 
 ```solidity
-Operator public operator;
+Operator public operator
 ```
 
 ### aggregator
 
 ```solidity
-IBondAggregator public aggregator;
+IBondAggregator public aggregator
 ```
 
 ### ohm
 
 ```solidity
-ERC20 public ohm;
+ERC20 public ohm
 ```
 
 ## Functions
@@ -116,7 +119,7 @@ function whitelist(address teller_, uint256 id_) external override onlyRole("cal
 
 Remove a market ID on a teller from the whitelist
 
-*Shutdown function in case there's an issue with the teller*
+Shutdown function in case there's an issue with the teller
 
 ```solidity
 function blacklist(address teller_, uint256 id_) external override onlyRole("callback_whitelist");
@@ -133,7 +136,7 @@ function blacklist(address teller_, uint256 id_) external override onlyRole("cal
 
 Send payout tokens to Teller while allowing market owners to perform custom logic on received or paid out tokens
 
-*Must transfer the output amount of payout tokens back to the Teller*
+Must transfer the output amount of payout tokens back to the Teller
 
 ```solidity
 function callback(uint256 id_, uint256 inputAmount_, uint256 outputAmount_) external override nonReentrant;
@@ -181,7 +184,7 @@ function setOperator(Operator operator_) external onlyRole("callback_admin");
 
 Inform whether the TRSRY holds the payout token in a naked or a wrapped version
 
-*Must be called before whitelisting to ensure a proper TRSRY withdraw approval*
+Must be called before whitelisting to ensure a proper TRSRY withdraw approval
 
 ```solidity
 function useWrappedVersion(address payoutToken_, address wrappedToken_) external onlyRole("callback_admin");

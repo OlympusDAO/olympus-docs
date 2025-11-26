@@ -1,6 +1,6 @@
 # EmissionManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/EmissionManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/EmissionManager.sol)
 
 **Inherits:**
 [IEmissionManager](/main/contracts/docs/src/policies/interfaces/IEmissionManager.sol/interface.IEmissionManager), [IPeriodicTask](/main/contracts/docs/src/interfaces/IPeriodicTask.sol/interface.IPeriodicTask), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler)
@@ -12,13 +12,13 @@ forge-lint: disable-start(mixed-case-function, mixed-case-variable, screaming-sn
 ### ONE_HUNDRED_PERCENT
 
 ```solidity
-uint256 internal constant ONE_HUNDRED_PERCENT = 1e18;
+uint256 internal constant ONE_HUNDRED_PERCENT = 1e18
 ```
 
 ### MAX_BOND_MARKET_CAPACITY_SCALAR
 
 ```solidity
-uint256 internal constant MAX_BOND_MARKET_CAPACITY_SCALAR = 2e18;
+uint256 internal constant MAX_BOND_MARKET_CAPACITY_SCALAR = 2e18
 ```
 
 ### ROLE_HEART
@@ -27,7 +27,15 @@ The role assigned to the Heart contract.
 This enables the Heart contract to call specific functions on this contract.
 
 ```solidity
-bytes32 public constant ROLE_HEART = "heart";
+bytes32 public constant ROLE_HEART = "heart"
+```
+
+### ROLE_EM_MANAGER
+
+The role defined for the manager of this contract
+
+```solidity
+bytes32 public constant ROLE_EM_MANAGER = "em_manager"
 ```
 
 ### ENABLE_PARAMS_LENGTH
@@ -35,113 +43,113 @@ bytes32 public constant ROLE_HEART = "heart";
 The length of the `EnableParams` struct in bytes
 
 ```solidity
-uint256 internal constant ENABLE_PARAMS_LENGTH = 224;
+uint256 internal constant ENABLE_PARAMS_LENGTH = 224
 ```
 
 ### rateChange
 
 active base emissions rate change information
 
-*active until daysLeft is 0*
+active until daysLeft is 0
 
 ```solidity
-BaseRateChange public rateChange;
+BaseRateChange public rateChange
 ```
 
 ### TRSRY
 
 ```solidity
-TRSRYv1 public TRSRY;
+TRSRYv1 public TRSRY
 ```
 
 ### PRICE
 
 ```solidity
-PRICEv1 public PRICE;
+PRICEv1 public PRICE
 ```
 
 ### MINTR
 
 ```solidity
-MINTRv1 public MINTR;
+MINTRv1 public MINTR
 ```
 
 ### CHREG
 
 ```solidity
-CHREGv1 public CHREG;
+CHREGv1 public CHREG
 ```
 
 ### ohm
 
 ```solidity
-ERC20 public immutable ohm;
+ERC20 public immutable ohm
 ```
 
 ### gohm
 
 ```solidity
-IgOHM public immutable gohm;
+IgOHM public immutable gohm
 ```
 
 ### reserve
 
 ```solidity
-ERC20 public immutable reserve;
+ERC20 public immutable reserve
 ```
 
 ### sReserve
 
 ```solidity
-ERC4626 public immutable sReserve;
+ERC4626 public immutable sReserve
 ```
 
 ### bondAuctioneer
 
 ```solidity
-IBondSDA public bondAuctioneer;
+IBondSDA public bondAuctioneer
 ```
 
 ### teller
 
 ```solidity
-address public teller;
+address public teller
 ```
 
 ### cdAuctioneer
 
 ```solidity
-IConvertibleDepositAuctioneer public cdAuctioneer;
+IConvertibleDepositAuctioneer public cdAuctioneer
 ```
 
 ### baseEmissionRate
 
 The base emission rate, in OHM scale.
 
-*e.g. 2e5 = 0.02%*
+e.g. 2e5 = 0.02%
 
 ```solidity
-uint256 public baseEmissionRate;
+uint256 public baseEmissionRate
 ```
 
 ### minimumPremium
 
 The minimum premium for bond markets created by the manager, in terms of ONE_HUNDRED_PERCENT.
 
-*A minimum premium of 1e18 would require the market price to be 100% above the backing price (i.e. double).*
+A minimum premium of 1e18 would require the market price to be 100% above the backing price (i.e. double).
 
 ```solidity
-uint256 public minimumPremium;
+uint256 public minimumPremium
 ```
 
 ### vestingPeriod
 
 The vesting period for bond markets created by the manager, in seconds.
 
-*Initialized at 0, which means no vesting.*
+Initialized at 0, which means no vesting.
 
 ```solidity
-uint48 public vestingPeriod;
+uint48 public vestingPeriod
 ```
 
 ### backing
@@ -149,7 +157,7 @@ uint48 public vestingPeriod;
 The backed price of OHM, in reserve scale.
 
 ```solidity
-uint256 public backing;
+uint256 public backing
 ```
 
 ### beatCounter
@@ -157,7 +165,7 @@ uint256 public backing;
 Used to track the number of beats that have occurred.
 
 ```solidity
-uint8 public beatCounter;
+uint8 public beatCounter
 ```
 
 ### activeMarketId
@@ -165,7 +173,7 @@ uint8 public beatCounter;
 The ID of the active bond market (or 0)
 
 ```solidity
-uint256 public activeMarketId;
+uint256 public activeMarketId
 ```
 
 ### tickSize
@@ -173,51 +181,51 @@ uint256 public activeMarketId;
 The fixed tick size for CD auctions, in OHM scale (9 decimals)
 
 ```solidity
-uint256 public tickSize;
+uint256 public tickSize
 ```
 
 ### minPriceScalar
 
 The multiplier applied to the price, in terms of ONE_HUNDRED_PERCENT
 
-*The value must be greater than or equal to ONE_HUNDRED_PERCENT (100%)*
+The value must be greater than or equal to ONE_HUNDRED_PERCENT (100%)
 
 ```solidity
-uint256 public minPriceScalar;
+uint256 public minPriceScalar
 ```
 
 ### bondMarketCapacityScalar
 
 The multiplier applied to bond market capacity from auction remainders, in terms of ONE_HUNDRED_PERCENT
 
-*The value must be between 0 and MAX_BOND_MARKET_CAPACITY_SCALAR (0-200%)*
+The value must be between 0 and MAX_BOND_MARKET_CAPACITY_SCALAR (0-200%)
 
 ```solidity
-uint256 public bondMarketCapacityScalar;
+uint256 public bondMarketCapacityScalar
 ```
 
 ### _oracleDecimals
 
 ```solidity
-uint8 internal _oracleDecimals;
+uint8 internal _oracleDecimals
 ```
 
 ### _ohmDecimals
 
 ```solidity
-uint8 internal immutable _ohmDecimals;
+uint8 internal immutable _ohmDecimals
 ```
 
 ### _gohmDecimals
 
 ```solidity
-uint8 internal immutable _gohmDecimals;
+uint8 internal immutable _gohmDecimals
 ```
 
 ### _reserveDecimals
 
 ```solidity
-uint8 internal immutable _reserveDecimals;
+uint8 internal immutable _reserveDecimals
 ```
 
 ### shutdownTimestamp
@@ -225,7 +233,7 @@ uint8 internal immutable _reserveDecimals;
 timestamp of last shutdown
 
 ```solidity
-uint48 public shutdownTimestamp;
+uint48 public shutdownTimestamp
 ```
 
 ### restartTimeframe
@@ -233,7 +241,7 @@ uint48 public shutdownTimestamp;
 time in seconds that the manager needs to be restarted after a shutdown, otherwise it must be re-initialized
 
 ```solidity
-uint48 public restartTimeframe;
+uint48 public restartTimeframe
 ```
 
 ### bondMarketPendingCapacity
@@ -241,7 +249,7 @@ uint48 public restartTimeframe;
 In situations where a bond market cannot be created, this variable is used to record the OHM capacity for the bond market that needs to be created
 
 ```solidity
-uint256 public bondMarketPendingCapacity;
+uint256 public bondMarketPendingCapacity
 ```
 
 ## Functions
@@ -299,7 +307,7 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 Executes the periodic task
 
-*This function performs the following:
+This function performs the following:
 
 - Adjusts the beat counter
 - Exits if the beat counter is not 0
@@ -308,7 +316,7 @@ Executes the periodic task
 - If market creation fails (external dependency), emits BondMarketCreationFailed and continues execution
 Notes:
 - If the CD auction is not running (e.g. the auctioneer contract is disabled), this function will consider OHM to have been under-sold across the auction tracking period. This will result in a bond market being created at the end of the auction tracking period in an attempt to sell the remaining OHM.
-- If there are delays in the heartbeat (which calls this function), auction result tracking will be affected.*
+- If there are delays in the heartbeat (which calls this function), auction result tracking will be affected.
 
 ```solidity
 function execute() external onlyRole(ROLE_HEART);
@@ -318,7 +326,7 @@ function execute() external onlyRole(ROLE_HEART);
 
 Implementation-specific enable function
 
-*This function expects the parameters to be an abi-encoded `EnableParams` struct*
+This function expects the parameters to be an abi-encoded `EnableParams` struct
 
 ```solidity
 function _enable(bytes calldata params_) internal override;
@@ -387,15 +395,29 @@ function _getPriceDecimals(uint256 price_) internal view returns (int8);
 |----|----|-----------|
 |`<none>`|`int8`|The number of decimals|
 
+### _onlyAdminOrEmManagerRole
+
+Reverts if the caller does not have the admin or em_manager role
+
+```solidity
+function _onlyAdminOrEmManagerRole() internal view;
+```
+
+### onlyAdminOrEmManagerRole
+
+```solidity
+modifier onlyAdminOrEmManagerRole() ;
+```
+
 ### _disable
 
 Implementation-specific disable function
 
-*This function performs the following:
+This function performs the following:
 
 - Sets the shutdown timestamp
 - Closes the active bond market (if it is active)
-- Disables the convertible deposit auction*
+- Disables the convertible deposit auction
 
 ```solidity
 function _disable(bytes calldata) internal override;
@@ -411,6 +433,11 @@ function _disable(bytes calldata) internal override;
 
 Restart the emission manager
 
+This function reverts if:
+
+- The caller does not have the admin role
+- The restart timeframe has passed since shutdown
+
 ```solidity
 function restart() external onlyAdminRole;
 ```
@@ -419,7 +446,7 @@ function restart() external onlyAdminRole;
 
 Rescue any ERC20 token sent to this contract and send it to the TRSRY
 
-*This function is restricted to the ADMIN role*
+This function is restricted to the ADMIN role
 
 ```solidity
 function rescue(address token_) external onlyAdminRole;
@@ -435,8 +462,13 @@ function rescue(address token_) external onlyAdminRole;
 
 Set the base emissions rate
 
+This function reverts if:
+
+- The caller does not have the admin or em_manager role
+- There is an underflow or overflow on adjustments
+
 ```solidity
-function changeBaseRate(uint256 changeBy_, uint48 forNumBeats_, bool add) external onlyAdminRole;
+function changeBaseRate(uint256 changeBy_, uint48 forNumBeats_, bool add) external onlyAdminOrEmManagerRole;
 ```
 
 **Parameters**
@@ -451,12 +483,13 @@ function changeBaseRate(uint256 changeBy_, uint48 forNumBeats_, bool add) extern
 
 Set the minimum premium for emissions
 
-*This function reverts if:
+This function reverts if:
 
-- newMinimumPremium_ is 0*
+- The caller does not have the admin or em_manager role
+- newMinimumPremium_ is 0
 
 ```solidity
-function setMinimumPremium(uint256 newMinimumPremium_) external onlyAdminRole;
+function setMinimumPremium(uint256 newMinimumPremium_) external onlyAdminOrEmManagerRole;
 ```
 
 **Parameters**
@@ -469,9 +502,10 @@ function setMinimumPremium(uint256 newMinimumPremium_) external onlyAdminRole;
 
 Set the new bond vesting period in seconds
 
-*This function reverts if:
+This function reverts if:
 
-- newVestingPeriod_ is more than 31536000 (1 year in seconds)*
+- The caller does not have the admin role
+- newVestingPeriod_ is more than 31536000 (1 year in seconds)
 
 ```solidity
 function setVestingPeriod(uint48 newVestingPeriod_) external onlyAdminRole;
@@ -487,11 +521,12 @@ function setVestingPeriod(uint48 newVestingPeriod_) external onlyAdminRole;
 
 Allow governance to adjust backing price if deviated from reality
 
-*This function reverts if:
+This function reverts if:
 
+- The caller does not have the admin role
 - newBacking is 0
 - newBacking is less than 90% of current backing (to prevent large sudden drops)
-Note: if adjustment is more than 33% down, contract should be redeployed*
+Note: if adjustment is more than 33% down, contract should be redeployed
 
 ```solidity
 function setBacking(uint256 newBacking) external onlyAdminRole;
@@ -507,9 +542,10 @@ function setBacking(uint256 newBacking) external onlyAdminRole;
 
 Allow governance to adjust the timeframe for restart after shutdown
 
-*This function reverts if:
+This function reverts if:
 
-- newTimeframe is 0*
+- The caller does not have the admin role
+- newTimeframe is 0
 
 ```solidity
 function setRestartTimeframe(uint48 newTimeframe) external onlyAdminRole;
@@ -525,10 +561,11 @@ function setRestartTimeframe(uint48 newTimeframe) external onlyAdminRole;
 
 allow governance to set the bond contracts used by the emission manager
 
-*This function reverts if:
+This function reverts if:
 
+- The caller does not have the admin role
 - bondAuctioneer_ is the zero address
-- teller_ is the zero address*
+- teller_ is the zero address
 
 ```solidity
 function setBondContracts(address bondAuctioneer_, address teller_) external onlyAdminRole;
@@ -545,10 +582,11 @@ function setBondContracts(address bondAuctioneer_, address teller_) external onl
 
 Allow governance to set the CD contract used by the emission manager
 
-*This function reverts if:
+This function reverts if:
 
+- The caller does not have the admin role
 - cdAuctioneer_ is the zero address
-- The deposit asset of the CDAuctioneer is not the same as the reserve asset in this contract*
+- The deposit asset of the CDAuctioneer is not the same as the reserve asset in this contract
 
 ```solidity
 function setCDAuctionContract(address cdAuctioneer_) external onlyAdminRole;
@@ -564,12 +602,13 @@ function setCDAuctionContract(address cdAuctioneer_) external onlyAdminRole;
 
 Allow governance to set the CD tick size
 
-*This function reverts if:
+This function reverts if:
 
-- newTickSize_ is 0*
+- The caller does not have the admin or em_manager role
+- newTickSize_ is 0
 
 ```solidity
-function setTickSize(uint256 newTickSize_) external onlyAdminRole;
+function setTickSize(uint256 newTickSize_) external onlyAdminOrEmManagerRole;
 ```
 
 **Parameters**
@@ -582,12 +621,13 @@ function setTickSize(uint256 newTickSize_) external onlyAdminRole;
 
 Allow governance to set the CD minimum price scalar
 
-*This function reverts if:
+This function reverts if:
 
-- newScalar is less than ONE_HUNDRED_PERCENT (100% in 18 decimals)*
+- The caller does not have the admin or em_manager role
+- newScalar is less than ONE_HUNDRED_PERCENT (100% in 18 decimals)
 
 ```solidity
-function setMinPriceScalar(uint256 newScalar) external onlyAdminRole;
+function setMinPriceScalar(uint256 newScalar) external onlyAdminOrEmManagerRole;
 ```
 
 **Parameters**
@@ -598,14 +638,15 @@ function setMinPriceScalar(uint256 newScalar) external onlyAdminRole;
 
 ### setBondMarketCapacityScalar
 
-Allow governance to set the bond market capacity scalar
+Allow governance to set the bond market capacity scalar, which acts as a multiplier for the bond market capacity
 
-*This function reverts if:
+This function reverts if:
 
-- newScalar is greater than MAX_BOND_MARKET_CAPACITY_SCALAR (200%)*
+- The caller does not have the admin or em_manager role
+- newScalar is greater than MAX_BOND_MARKET_CAPACITY_SCALAR (200%)
 
 ```solidity
-function setBondMarketCapacityScalar(uint256 newScalar) external onlyAdminRole;
+function setBondMarketCapacityScalar(uint256 newScalar) external onlyAdminOrEmManagerRole;
 ```
 
 **Parameters**
@@ -650,8 +691,8 @@ function getNextEmission() public view returns (uint256 premium, uint256 emissio
 
 Get the auction tick size for a given target
 
-*Returns the standard tick size if the target emission is at least the standard tick size.
-Otherwise, 0 is returned to indicate that the auction should be disabled.*
+Returns the standard tick size if the target emission is at least the standard tick size.
+Otherwise, 0 is returned to indicate that the auction should be disabled.
 
 ```solidity
 function getSizeFor(uint256 target) public view returns (uint256 size);
@@ -673,8 +714,8 @@ function getSizeFor(uint256 target) public view returns (uint256 size);
 
 Get CD auction minimum price for a given price input
 
-*Expects `price` to already be expressed in the reserve asset's decimal scale.
-This function does not adjust/convert decimal scales.*
+Expects `price` to already be expressed in the reserve asset's decimal scale.
+This function does not adjust/convert decimal scales.
 
 ```solidity
 function getMinPriceFor(uint256 price) public view returns (uint256);
@@ -704,13 +745,13 @@ function _getCurrentPrice() internal view returns (uint256);
 
 Creates a bond market
 
-*Notes:
+Notes:
 
 - If there is no pending capacity, no bond market will be created
 This function will revert if:
 - The caller is not this contract, or an address with the admin/manager role
 - The contract is disabled
-- The bond market cannot be created*
+- The bond market cannot be created
 
 ```solidity
 function createPendingBondMarket() external onlyEnabled;

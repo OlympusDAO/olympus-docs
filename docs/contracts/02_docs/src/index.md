@@ -20,6 +20,6 @@
 - [Policy](Kernel.sol/abstract.Policy.md)
 - [Kernel](Kernel.sol/contract.Kernel.md)
 - [ensureValidKeycode](Kernel.sol/function.ensureValidKeycode.md)
-- [ensureContract](Kernel.sol/function.ensureContract.md)
 - [fromKeycode](Kernel.sol/function.fromKeycode.md)
 - [toKeycode](Kernel.sol/function.toKeycode.md)
+- [ensureContract](Kernel.sol/function.ensureContract.md)

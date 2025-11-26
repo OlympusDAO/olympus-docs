@@ -1,6 +1,9 @@
 # IConvertibleDepositAuctioneer
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/deposits/IConvertibleDepositAuctioneer.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/deposits/IConvertibleDepositAuctioneer.sol)
+
+**Title:**
+IConvertibleDepositAuctioneer
 
 Interface for a contract that runs auctions for a single deposit token to convert to a convertible deposit token
 
@@ -11,9 +14,13 @@ Interface for a contract that runs auctions for a single deposit token to conver
 Submit a bid for convertible deposit tokens
 
 ```solidity
-function bid(uint8 depositPeriod_, uint256 depositAmount_, uint256 minOhmOut_, bool wrapPosition_, bool wrapReceipt_)
-    external
-    returns (uint256 ohmOut, uint256 positionId, uint256 receiptTokenId, uint256 actualAmount);
+function bid(
+    uint8 depositPeriod_,
+    uint256 depositAmount_,
+    uint256 minOhmOut_,
+    bool wrapPosition_,
+    bool wrapReceipt_
+) external returns (uint256 ohmOut, uint256 positionId, uint256 receiptTokenId, uint256 actualAmount);
 ```
 
 **Parameters**
@@ -74,7 +81,7 @@ function getPreviousTick(uint8 depositPeriod_) external view returns (Tick memor
 
 Calculate the current tick of the auction
 
-*This function should calculate the current tick based on the previous tick and the time passed since the last update*
+This function should calculate the current tick based on the previous tick and the time passed since the last update
 
 ```solidity
 function getCurrentTick(uint8 depositPeriod_) external view returns (Tick memory tick);
@@ -118,7 +125,7 @@ function getAuctionParameters() external view returns (AuctionParameters memory 
 
 Check if the auction is currently active
 
-*The auction is considered active when target > 0*
+The auction is considered active when target > 0
 
 ```solidity
 function isAuctionActive() external view returns (bool isActive);
@@ -148,7 +155,7 @@ function getDayState() external view returns (Day memory day);
 
 The multiplier applied to the conversion price at every tick, in terms of `ONE_HUNDRED_PERCENT`
 
-*This is stored as a percentage, where 100e2 = 100% (no increase)*
+This is stored as a percentage, where 100e2 = 100% (no increase)
 
 ```solidity
 function getTickStep() external view returns (uint24 tickStep);
@@ -283,11 +290,11 @@ function isDepositPeriodEnabled(uint8 depositPeriod_) external view returns (boo
 
 Enables a deposit period
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Enabling the deposit period
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function enableDepositPeriod(uint8 depositPeriod_) external;
@@ -303,11 +310,11 @@ function enableDepositPeriod(uint8 depositPeriod_) external;
 
 Disables a deposit period
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Disabling the deposit period
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function disableDepositPeriod(uint8 depositPeriod_) external;
@@ -323,8 +330,8 @@ function disableDepositPeriod(uint8 depositPeriod_) external;
 
 Update the auction parameters
 
-*This function is expected to be called periodically.
-Only callable by the auction admin*
+This function is expected to be called periodically.
+Only callable by the auction admin
 
 ```solidity
 function setAuctionParameters(uint256 target_, uint256 tickSize_, uint256 minPrice_) external;
@@ -342,8 +349,8 @@ function setAuctionParameters(uint256 target_, uint256 tickSize_, uint256 minPri
 
 Sets the multiplier applied to the conversion price at every tick, in terms of `ONE_HUNDRED_PERCENT`
 
-*See `getTickStep()` for more information
-Only callable by the admin*
+See `getTickStep()` for more information
+Only callable by the admin
 
 ```solidity
 function setTickStep(uint24 tickStep_) external;
@@ -359,7 +366,7 @@ function setTickStep(uint24 tickStep_) external;
 
 Set the number of days that auction results are tracked for
 
-*Only callable by the admin*
+Only callable by the admin
 
 ```solidity
 function setAuctionTrackingPeriod(uint8 days_) external;
@@ -375,7 +382,7 @@ function setAuctionTrackingPeriod(uint8 days_) external;
 
 Set the minimum bid amount
 
-*Only callable by the admin or manager*
+Only callable by the admin or manager
 
 ```solidity
 function setMinimumBid(uint256 minimumBid_) external;
@@ -405,7 +412,7 @@ function getTickSizeBase() external view returns (uint256 baseWad);
 
 Set the exponent base used for determining the tick size when the day target is crossed
 
-*Only callable by the admin or manager*
+Only callable by the admin or manager
 
 ```solidity
 function setTickSizeBase(uint256 newBase_) external;
@@ -653,7 +660,9 @@ error ConvertibleDepositAuctioneer_DepositPeriodNotEnabled(address depositAsset,
 Emitted when the deposit period is in an invalid state for the requested operation
 
 ```solidity
-error ConvertibleDepositAuctioneer_DepositPeriodInvalidState(address depositAsset, uint8 depositPeriod, bool isEnabled);
+error ConvertibleDepositAuctioneer_DepositPeriodInvalidState(
+    address depositAsset, uint8 depositPeriod, bool isEnabled
+);
 ```
 
 **Parameters**
@@ -685,7 +694,7 @@ error ConvertibleDepositAuctioneer_BidBelowMinimum(uint256 bidAmount, uint256 mi
 
 Auction parameters
 
-*These values should only be set through the `setAuctionParameters()` function*
+These values should only be set through the `setAuctionParameters()` function
 
 ```solidity
 struct AuctionParameters {

@@ -1,9 +1,12 @@
 # IDepositManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/deposits/IDepositManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/deposits/IDepositManager.sol)
 
 **Inherits:**
 [IAssetManager](/main/contracts/docs/src/bases/interfaces/IAssetManager.sol/interface.IAssetManager)
+
+**Title:**
+Deposit Manager
 
 Defines an interface for a policy that manages deposits on behalf of other contracts. It is meant to be used by the facilities, and is not an end-user policy.
 Key terms for the contract:
@@ -18,13 +21,13 @@ Key terms for the contract:
 
 Borrows funds from deposits
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Validating borrowing limits and capacity
 - Transferring the underlying asset from the contract to the recipient
 - Updating borrowing state
-- Checking solvency*
+- Checking solvency
 
 ```solidity
 function borrowingWithdraw(BorrowingWithdrawParams calldata params_) external returns (uint256 actualAmount);
@@ -46,12 +49,12 @@ function borrowingWithdraw(BorrowingWithdrawParams calldata params_) external re
 
 Repays borrowed funds
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Transferring the underlying asset from the payer to the contract
 - Updating borrowing state
-- Checking solvency*
+- Checking solvency
 
 ```solidity
 function borrowingRepay(BorrowingRepayParams calldata params_) external returns (uint256 actualAmount);
@@ -73,12 +76,12 @@ function borrowingRepay(BorrowingRepayParams calldata params_) external returns 
 
 Defaults on a borrowed amount
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Burning the receipt tokens from the payer for the default amount
 - Updating borrowing state
-- Updating liabilities*
+- Updating liabilities
 
 ```solidity
 function borrowingDefault(BorrowingDefaultParams calldata params_) external;
@@ -130,12 +133,12 @@ function getBorrowingCapacity(IERC20 asset_, address operator_) external view re
 
 Deposits the given amount of the underlying asset in exchange for a receipt token
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Transferring the underlying asset from the depositor to the contract
 - Minting the receipt token to the depositor
-- Updating the amount of deposited funds*
+- Updating the amount of deposited funds
 
 ```solidity
 function deposit(DepositParams calldata params_) external returns (uint256 receiptTokenId, uint256 actualAmount);
@@ -180,12 +183,12 @@ function maxClaimYield(IERC20 asset_, address operator_) external view returns (
 Claims the yield from the underlying asset
 This does not burn receipt tokens, but should reduce the amount of shares the caller has in the vault.
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Transferring the underlying asset from the contract to the recipient
 - Updating the amount of deposited funds
-- Checking solvency*
+- Checking solvency
 
 ```solidity
 function claimYield(IERC20 asset_, address recipient_, uint256 amount_) external returns (uint256 actualAmount);
@@ -209,12 +212,12 @@ function claimYield(IERC20 asset_, address recipient_, uint256 amount_) external
 
 Withdraws the given amount of the underlying asset
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Burning the receipt token
 - Transferring the underlying asset from the contract to the recipient
-- Updating the amount of deposited funds*
+- Updating the amount of deposited funds
 
 ```solidity
 function withdraw(WithdrawParams calldata params_) external returns (uint256 actualAmount);
@@ -257,11 +260,11 @@ function getOperatorLiabilities(IERC20 asset_, address operator_) external view 
 
 Sets the name of an operator. This is included in the name and symbol of receipt tokens.
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Setting the operator name
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function setOperatorName(address operator_, string calldata name_) external;
@@ -291,11 +294,11 @@ function getOperatorName(address operator_) external view returns (string memory
 
 Adds a new asset
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Configuring the asset
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function addAsset(IERC20 asset_, IERC4626 vault_, uint256 depositCap_, uint256 minimumDeposit_) external;
@@ -314,11 +317,11 @@ function addAsset(IERC20 asset_, IERC4626 vault_, uint256 depositCap_, uint256 m
 
 Sets the deposit cap for an asset
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Setting the deposit cap for the asset
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function setAssetDepositCap(IERC20 asset_, uint256 depositCap_) external;
@@ -335,11 +338,11 @@ function setAssetDepositCap(IERC20 asset_, uint256 depositCap_) external;
 
 Sets the minimum deposit for an asset
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Setting the minimum deposit for the asset
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function setAssetMinimumDeposit(IERC20 asset_, uint256 minimumDeposit_) external;
@@ -356,11 +359,11 @@ function setAssetMinimumDeposit(IERC20 asset_, uint256 minimumDeposit_) external
 
 Adds a new asset period
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Creating a new receipt token
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function addAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
@@ -386,11 +389,11 @@ function addAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
 
 Disables an asset period, which prevents new deposits
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Disabling the asset period
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function disableAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_) external;
@@ -408,11 +411,11 @@ function disableAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operato
 
 Enables an asset period, which allows new deposits
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller has the correct role
 - Enabling the asset period
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function enableAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_) external;
@@ -475,7 +478,7 @@ function getAssetPeriod(uint256 tokenId_) external view returns (AssetPeriod mem
 
 Returns whether a deposit asset, period and operator combination are configured
 
-*A asset period that is disabled will not accept further deposits*
+A asset period that is disabled will not accept further deposits
 
 ```solidity
 function isAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
@@ -516,7 +519,7 @@ function getAssetPeriods() external view returns (AssetPeriod[] memory assetPeri
 
 Returns the ID of the receipt token for an asset period and operator
 
-*The ID returned is not a guarantee that the asset period is configured or enabled. [isAssetPeriod](/main/contracts/docs/src/policies/interfaces/deposits/IDepositManager.sol/interface.IDepositManager#isassetperiod) should be used for that purpose.*
+The ID returned is not a guarantee that the asset period is configured or enabled. [isAssetPeriod](/main/contracts/docs/src/policies/interfaces/deposits/IDepositManager.sol/interface.IDepositManager#isassetperiod) should be used for that purpose.
 
 ```solidity
 function getReceiptTokenId(IERC20 asset_, uint8 depositPeriod_, address operator_)
@@ -598,7 +601,9 @@ function getReceiptTokenIds() external view returns (uint256[] memory tokenIds);
 ### OperatorYieldClaimed
 
 ```solidity
-event OperatorYieldClaimed(address indexed asset, address indexed depositor, address indexed operator, uint256 amount);
+event OperatorYieldClaimed(
+    address indexed asset, address indexed depositor, address indexed operator, uint256 amount
+);
 ```
 
 ### OperatorNameSet
@@ -640,7 +645,9 @@ event TokenRescued(address indexed token, uint256 amount);
 ### BorrowingWithdrawal
 
 ```solidity
-event BorrowingWithdrawal(address indexed asset, address indexed operator, address indexed recipient, uint256 amount);
+event BorrowingWithdrawal(
+    address indexed asset, address indexed operator, address indexed recipient, uint256 amount
+);
 ```
 
 ### BorrowingRepayment

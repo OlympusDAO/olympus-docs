@@ -1,6 +1,6 @@
 # IPOLY
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/IPOLY.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/IPOLY.sol)
 
 ## Functions
 
@@ -190,9 +190,9 @@ Migrates claim data from the Genesis Claim contract to this one
 
 Can only be called by the poly_admin role
 
-*The Genesis Claim contract originally did not count the full claimed amount as staked,
+The Genesis Claim contract originally did not count the full claimed amount as staked,
 only 90% of it, given that there is no longer a staking rate, we can combine the two
-claim contracts by counting the 10% that wasn't considered staked as staked at the current index*
+claim contracts by counting the 10% that wasn't considered staked as staked at the current index
 
 ```solidity
 function migrateGenesis(address[] calldata accounts_) external;
@@ -293,10 +293,10 @@ error POLY_ClaimMoreThanMax(uint256 max_);
 
 ```solidity
 struct GenesisTerm {
-    uint256 percent;
-    uint256 claimed;
-    uint256 gClaimed;
-    uint256 max;
+    uint256 percent; // PRECISION = 1_000_000 (i.e. 5000 = 0.5%)
+    uint256 claimed; // Static number
+    uint256 gClaimed; // Rebasing agnostic # of tokens claimed
+    uint256 max; // Maximum nominal OHM amount can claim
 }
 ```
 
@@ -304,8 +304,8 @@ struct GenesisTerm {
 
 ```solidity
 struct Term {
-    uint256 percent;
-    uint256 gClaimed;
-    uint256 max;
+    uint256 percent; // PRECISION = 1_000_000 (i.e. 5000 = 0.5%)
+    uint256 gClaimed; // Rebase agnostic # of tokens claimed
+    uint256 max; // Maximum nominal OHM amount claimable
 }
 ```

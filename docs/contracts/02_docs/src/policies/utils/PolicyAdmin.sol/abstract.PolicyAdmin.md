@@ -1,6 +1,6 @@
 # PolicyAdmin
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/utils/PolicyAdmin.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/utils/PolicyAdmin.sol)
 
 **Inherits:**
 [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
@@ -12,7 +12,7 @@
 Modifier that reverts if the caller does not have the emergency or admin role
 
 ```solidity
-modifier onlyEmergencyOrAdminRole();
+modifier onlyEmergencyOrAdminRole() ;
 ```
 
 ### onlyManagerOrAdminRole
@@ -20,7 +20,7 @@ modifier onlyEmergencyOrAdminRole();
 Modifier that reverts if the caller does not have the manager or admin role
 
 ```solidity
-modifier onlyManagerOrAdminRole();
+modifier onlyManagerOrAdminRole() ;
 ```
 
 ### onlyAdminRole
@@ -28,7 +28,7 @@ modifier onlyManagerOrAdminRole();
 Modifier that reverts if the caller does not have the admin role
 
 ```solidity
-modifier onlyAdminRole();
+modifier onlyAdminRole() ;
 ```
 
 ### onlyEmergencyRole
@@ -36,7 +36,7 @@ modifier onlyAdminRole();
 Modifier that reverts if the caller does not have the emergency role
 
 ```solidity
-modifier onlyEmergencyRole();
+modifier onlyEmergencyRole() ;
 ```
 
 ### onlyManagerRole
@@ -44,7 +44,7 @@ modifier onlyEmergencyRole();
 Modifier that reverts if the caller does not have the manager role
 
 ```solidity
-modifier onlyManagerRole();
+modifier onlyManagerRole() ;
 ```
 
 ### _isAdmin

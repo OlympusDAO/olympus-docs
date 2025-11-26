@@ -1,9 +1,12 @@
 # DepositRedemptionVault
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/DepositRedemptionVault.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/deposits/DepositRedemptionVault.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [IDepositRedemptionVault](/main/contracts/docs/src/policies/interfaces/deposits/IDepositRedemptionVault.sol/interface.IDepositRedemptionVault), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), ReentrancyGuard
+
+**Title:**
+DepositRedemptionVault
 
 forge-lint: disable-start(asm-keccak256, mixed-case-variable)
 
@@ -16,7 +19,7 @@ A contract that manages the redemption of receipt tokens with facility coordinat
 The number representing 100%
 
 ```solidity
-uint16 public constant ONE_HUNDRED_PERCENT = 100e2;
+uint16 public constant ONE_HUNDRED_PERCENT = 100e2
 ```
 
 ### _MONTHS_IN_YEAR
@@ -24,7 +27,7 @@ uint16 public constant ONE_HUNDRED_PERCENT = 100e2;
 The number of months in a year
 
 ```solidity
-uint8 internal constant _MONTHS_IN_YEAR = 12;
+uint8 internal constant _MONTHS_IN_YEAR = 12
 ```
 
 ### _ONE_MONTH
@@ -32,7 +35,7 @@ uint8 internal constant _MONTHS_IN_YEAR = 12;
 Constant for one month
 
 ```solidity
-uint48 internal constant _ONE_MONTH = 30 days;
+uint48 internal constant _ONE_MONTH = 30 days
 ```
 
 ### _NO_POSITION
@@ -40,7 +43,7 @@ uint48 internal constant _ONE_MONTH = 30 days;
 Used to denote no position ID
 
 ```solidity
-uint256 internal constant _NO_POSITION = type(uint256).max;
+uint256 internal constant _NO_POSITION = type(uint256).max
 ```
 
 ### _assetFacilityMaxBorrowPercentages
@@ -48,7 +51,7 @@ uint256 internal constant _NO_POSITION = type(uint256).max;
 Per-asset-facility max borrow percentage (in 100e2, e.g. 8500 = 85%)
 
 ```solidity
-mapping(bytes32 => uint16) internal _assetFacilityMaxBorrowPercentages;
+mapping(bytes32 => uint16) internal _assetFacilityMaxBorrowPercentages
 ```
 
 ### _assetFacilityAnnualInterestRates
@@ -56,7 +59,7 @@ mapping(bytes32 => uint16) internal _assetFacilityMaxBorrowPercentages;
 Per-asset-facility interest rate (annual, in 100e2, e.g. 500 = 5%)
 
 ```solidity
-mapping(bytes32 => uint16) internal _assetFacilityAnnualInterestRates;
+mapping(bytes32 => uint16) internal _assetFacilityAnnualInterestRates
 ```
 
 ### _claimDefaultRewardPercentage
@@ -64,7 +67,7 @@ mapping(bytes32 => uint16) internal _assetFacilityAnnualInterestRates;
 Keeper reward percentage (in 100e2, e.g. 500 = 5%)
 
 ```solidity
-uint16 internal _claimDefaultRewardPercentage;
+uint16 internal _claimDefaultRewardPercentage
 ```
 
 ### DEPOSIT_MANAGER
@@ -72,7 +75,7 @@ uint16 internal _claimDefaultRewardPercentage;
 The address of the token manager
 
 ```solidity
-IDepositManager public immutable DEPOSIT_MANAGER;
+IDepositManager public immutable DEPOSIT_MANAGER
 ```
 
 ### TRSRY
@@ -80,7 +83,7 @@ IDepositManager public immutable DEPOSIT_MANAGER;
 The TRSRY module.
 
 ```solidity
-TRSRYv1 public TRSRY;
+TRSRYv1 public TRSRY
 ```
 
 ### DEPOS
@@ -88,7 +91,7 @@ TRSRYv1 public TRSRY;
 The DEPOS module.
 
 ```solidity
-DEPOSv1 public DEPOS;
+DEPOSv1 public DEPOS
 ```
 
 ### _userRedemptionCount
@@ -96,18 +99,18 @@ DEPOSv1 public DEPOS;
 The number of redemptions per user
 
 ```solidity
-mapping(address => uint16) internal _userRedemptionCount;
+mapping(address => uint16) internal _userRedemptionCount
 ```
 
 ### _userRedemptions
 
 The redemption for each user and redemption ID
 
-*Use `_getUserRedemptionKey()` to calculate the key for the mapping.
-A complex key is used to save gas compared to a nested mapping.*
+Use `_getUserRedemptionKey()` to calculate the key for the mapping.
+A complex key is used to save gas compared to a nested mapping.
 
 ```solidity
-mapping(bytes32 => UserRedemption) internal _userRedemptions;
+mapping(bytes32 => UserRedemption) internal _userRedemptions
 ```
 
 ### _authorizedFacilities
@@ -115,18 +118,18 @@ mapping(bytes32 => UserRedemption) internal _userRedemptions;
 Registered facilities
 
 ```solidity
-EnumerableSet.AddressSet internal _authorizedFacilities;
+EnumerableSet.AddressSet internal _authorizedFacilities
 ```
 
 ### _redemptionLoan
 
 Loan for each redemption
 
-*Use `_getUserRedemptionKey()` to calculate the key for the mapping.
-A complex key is used to save gas compared to a nested mapping.*
+Use `_getUserRedemptionKey()` to calculate the key for the mapping.
+A complex key is used to save gas compared to a nested mapping.
 
 ```solidity
-mapping(bytes32 => Loan) internal _redemptionLoan;
+mapping(bytes32 => Loan) internal _redemptionLoan
 ```
 
 ## Functions
@@ -232,7 +235,8 @@ function getAuthorizedFacilities() external view returns (address[] memory);
 Pull the receipt tokens from the caller
 
 ```solidity
-function _pullReceiptToken(IERC20 depositToken_, uint8 depositPeriod_, address facility_, uint256 amount_) internal;
+function _pullReceiptToken(IERC20 depositToken_, uint8 depositPeriod_, address facility_, uint256 amount_)
+    internal;
 ```
 
 ### _getUserRedemptionKey
@@ -310,11 +314,11 @@ function getUserRedemption(address user_, uint16 redemptionId_)
 
 Gets all redemptions for a user
 
-*Notes:
+Notes:
 
 - This function is gas-intensive for users with many redemptions.
 - The index of an element in the returned array is the redemption ID.
-- Redemptions with an amount of 0 (fully redeemed) are included in the array.*
+- Redemptions with an amount of 0 (fully redeemed) are included in the array.
 
 ```solidity
 function getUserRedemptions(address user_) external view returns (UserRedemption[] memory);
@@ -341,7 +345,7 @@ function _onlyValidRedemptionId(address user_, uint16 redemptionId_) internal vi
 ### onlyValidRedemptionId
 
 ```solidity
-modifier onlyValidRedemptionId(address user_, uint16 redemptionId_);
+modifier onlyValidRedemptionId(address user_, uint16 redemptionId_) ;
 ```
 
 ### _validateFacility
@@ -353,19 +357,19 @@ function _validateFacility(address facility_) internal view;
 ### onlyValidFacility
 
 ```solidity
-modifier onlyValidFacility(address facility_);
+modifier onlyValidFacility(address facility_) ;
 ```
 
 ### startRedemption
 
 Starts a redemption of a quantity of deposit tokens
 
-*This function expects receipt tokens to be unwrapped (i.e. native ERC6909 tokens)
+This function expects receipt tokens to be unwrapped (i.e. native ERC6909 tokens)
 This function reverts if:
 
 - The contract is disabled
 - The amount is 0
-- The provided facility is not authorized*
+- The provided facility is not authorized
 
 ```solidity
 function startRedemption(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount_, address facility_)
@@ -393,16 +397,16 @@ function startRedemption(IERC20 depositToken_, uint8 depositPeriod_, uint256 amo
 
 ### startRedemption
 
-Starts a redemption of a quantity of deposit tokens
+Starts a redemption based on a position ID, using the position's conversion expiry
 
-*This function expects receipt tokens to be unwrapped (i.e. native ERC6909 tokens)
+This function expects receipt tokens to be unwrapped (i.e. native ERC6909 tokens)
 This function reverts if:
 
 - The contract is disabled
 - The amount is 0
 - The caller is not the owner of the position
 - The amount is greater than the remainingDeposit of the position
-- The facility that created the position is not authorized*
+- The facility that created the position is not authorized
 
 ```solidity
 function startRedemption(uint256 positionId_, uint256 amount_)
@@ -416,7 +420,7 @@ function startRedemption(uint256 positionId_, uint256 amount_)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`positionId_`|`uint256`||
+|`positionId_`|`uint256`|    The ID of the position to redeem from|
 |`amount_`|`uint256`|        The amount of deposit tokens to redeem|
 
 **Returns**
@@ -429,14 +433,14 @@ function startRedemption(uint256 positionId_, uint256 amount_)
 
 Cancels a redemption of a quantity of deposit tokens
 
-*This function reverts if:
+This function reverts if:
 
 - The contract is disabled
 - The caller is not the owner of the redemption ID
 - The facility in the redemption record is not authorized
 - The amount is 0
 - The amount is greater than the redemption amount
-- There is an unpaid loan*
+- There is an unpaid loan
 
 ```solidity
 function cancelRedemption(uint16 redemptionId_, uint256 amount_)
@@ -457,14 +461,14 @@ function cancelRedemption(uint16 redemptionId_, uint256 amount_)
 
 Finishes a redemption of a quantity of deposit tokens
 
-*This function reverts if:
+This function reverts if:
 
 - The contract is disabled
 - The caller is not the owner of the redemption ID
 - The facility in the redemption record is not authorized
 - The redemption amount is 0
 - It is too early for redemption
-- There is an unpaid loan*
+- There is an unpaid loan
 
 ```solidity
 function finishRedemption(uint16 redemptionId_)
@@ -509,9 +513,9 @@ function _previewBorrowAgainstRedemption(address user_, uint16 redemptionId_)
 
 Preview the maximum amount that can be borrowed against an active redemption
 
-*Notes:
+Notes:
 
-- The calculated amount may differ from the actual amount borrowed (using `borrowAgainstRedemption()`) by a few wei, due to rounding behaviour in ERC4626 vaults.*
+- The calculated amount may differ from the actual amount borrowed (using `borrowAgainstRedemption()`) by a few wei, due to rounding behaviour in ERC4626 vaults.
 
 ```solidity
 function previewBorrowAgainstRedemption(address user_, uint16 redemptionId_)
@@ -539,7 +543,7 @@ function previewBorrowAgainstRedemption(address user_, uint16 redemptionId_)
 
 Borrow the maximum amount against an active redemption
 
-*Borrows the maximum possible amount against an existing redemption.
+Borrows the maximum possible amount against an existing redemption.
 The loan will be for a fixed-term. The interest is calculated on the
 basis of that term, and the full amount will be payable in order to
 close the loan.
@@ -549,7 +553,7 @@ This function will revert if:
 - The redemption ID is invalid
 - The facility is not authorized
 - The amount is 0
-- The interest rate is not set*
+- The interest rate is not set
 
 ```solidity
 function borrowAgainstRedemption(uint16 redemptionId_)
@@ -576,7 +580,7 @@ function borrowAgainstRedemption(uint16 redemptionId_)
 
 Repay a loan
 
-*This function will repay the outstanding loan amount.
+This function will repay the outstanding loan amount.
 Interest is paid back first, followed by principal.
 To prevent irrecoverable overpayments, the maximum slippage is used to validate that a repayment is within bounds of the remaining loan principal.
 This function will revert if:
@@ -585,7 +589,7 @@ This function will revert if:
 - The redemption ID is invalid
 - The redemption has no loan
 - The amount is 0
-- The loan is expired, defaulted or fully repaid*
+- The loan is expired, defaulted or fully repaid
 
 ```solidity
 function repayLoan(uint16 redemptionId_, uint256 amount_, uint256 maxSlippage_)
@@ -619,12 +623,12 @@ function _previewExtendLoan(
 
 Preview the interest payable for extending a loan
 
-*This function will revert if:
+This function will revert if:
 
 - The redemption ID is invalid
 - The loan is invalid
 - The loan is expired, defaulted or fully repaid
-- The months is 0*
+- The months is 0
 
 ```solidity
 function previewExtendLoan(address user_, uint16 redemptionId_, uint8 months_)
@@ -653,13 +657,13 @@ function previewExtendLoan(address user_, uint16 redemptionId_, uint8 months_)
 
 Extend a loan's due date
 
-*This function will revert if:
+This function will revert if:
 
 - The contract is not enabled
 - The redemption ID is invalid
 - The loan is invalid
 - The loan is expired, defaulted or fully repaid
-- The months is 0*
+- The months is 0
 
 ```solidity
 function extendLoan(uint16 redemptionId_, uint8 months_)
@@ -680,13 +684,13 @@ function extendLoan(uint16 redemptionId_, uint8 months_)
 
 Claim a defaulted loan and collect the reward
 
-*This function will revert if:
+This function will revert if:
 
 - The contract is not enabled
 - The redemption ID is invalid
 - The loan is invalid
 - The loan is not expired
-- The loan is already defaulted*
+- The loan is already defaulted
 
 ```solidity
 function claimDefaultedLoan(address user_, uint16 redemptionId_)
@@ -728,7 +732,7 @@ function getRedemptionLoan(address user_, uint16 redemptionId_) external view re
 
 Set the maximum borrow percentage for an asset-facility combination
 
-*Notes:
+Notes:
 
 - When setting the max borrow percentage, keep in mind the annual interest rate and claim default reward percentage, as the three configuration values can create incentives for borrowers to not repay their loans (e.g. claim default on their own loan)
 - This function allows setting the value even if the asset or facility are not registered
@@ -737,7 +741,7 @@ This function reverts if:
 - The caller does not have the admin or manager role
 - asset_ is the zero address
 - facility_ is the zero address
-- percent_ is out of range*
+- percent_ is out of range
 
 ```solidity
 function setMaxBorrowPercentage(IERC20 asset_, address facility_, uint16 percent_)
@@ -779,7 +783,7 @@ function getMaxBorrowPercentage(IERC20 asset_, address facility_) external view 
 
 Set the annual interest rate for an asset-facility combination
 
-*Notes:
+Notes:
 
 - When setting the annual interest rate, keep in mind the max borrow percentage and claim default reward percentage, as the three configuration values can create incentives for borrowers to not repay their loans (e.g. claim default on their own loan)
 - This function allows setting the value even if the asset or facility are not registered
@@ -788,7 +792,7 @@ This function reverts if:
 - The caller does not have the admin or manager role
 - asset_ is the zero address
 - facility_ is the zero address
-- percent_ is out of range*
+- percent_ is out of range
 
 ```solidity
 function setAnnualInterestRate(IERC20 asset_, address facility_, uint16 rate_)
@@ -830,9 +834,9 @@ function getAnnualInterestRate(IERC20 asset_, address facility_) external view r
 
 Set the reward percentage when a claiming a defaulted loan
 
-*Notes:
+Notes:
 
-- When setting the claim default reward percentage, keep in mind the annual interest rate and max borrow percentage, as the three configuration values can create incentives for borrowers to not repay their loans (e.g. claim default on their own loan)*
+- When setting the claim default reward percentage, keep in mind the annual interest rate and max borrow percentage, as the three configuration values can create incentives for borrowers to not repay their loans (e.g. claim default on their own loan)
 
 ```solidity
 function setClaimDefaultRewardPercentage(uint16 percent_) external onlyEnabled onlyManagerOrAdminRole;

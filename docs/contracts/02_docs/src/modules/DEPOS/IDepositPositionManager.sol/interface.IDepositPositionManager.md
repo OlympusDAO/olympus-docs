@@ -1,6 +1,9 @@
 # IDepositPositionManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/DEPOS/IDepositPositionManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/DEPOS/IDepositPositionManager.sol)
+
+**Title:**
+IDepositPositionManager
 
 This interface defines the functions for the DEPOS module.
 The objective of this module is to track the terms of a deposit position.
@@ -12,11 +15,11 @@ The objective of this module is to track the terms of a deposit position.
 Wraps a position into an ERC721 token
 This is useful if the position owner wants a tokenized representation of their position. It is functionally equivalent to the position itself.
 
-*The implementing function should do the following:
+The implementing function should do the following:
 
 - Validate that the caller is the owner of the position
 - Validate that the position is not already wrapped
-- Mint an ERC721 token to the position owner*
+- Mint an ERC721 token to the position owner
 
 ```solidity
 function wrap(uint256 positionId_) external;
@@ -33,11 +36,11 @@ function wrap(uint256 positionId_) external;
 Unwraps/burns an ERC721 position token
 This is useful if the position owner wants to unwrap their token back into the position.
 
-*The implementing function should do the following:
+The implementing function should do the following:
 
 - Validate that the caller is the owner of the position
 - Validate that the position is already wrapped
-- Burn the ERC721 token*
+- Burn the ERC721 token
 
 ```solidity
 function unwrap(uint256 positionId_) external;
@@ -53,7 +56,7 @@ function unwrap(uint256 positionId_) external;
 
 Creates a new deposit position
 
-*The implementing function should do the following:
+The implementing function should do the following:
 
 - Validate that the caller is permissioned
 - Validate that the owner is not the zero address
@@ -62,7 +65,7 @@ Creates a new deposit position
 - Validate that the conversion price is greater than 0
 - Validate that the expiry is in the future
 - Create the position record
-- Wrap the position if requested*
+- Wrap the position if requested
 
 ```solidity
 function mint(MintParams calldata params_) external returns (uint256 _positionId);
@@ -84,11 +87,11 @@ function mint(MintParams calldata params_) external returns (uint256 _positionId
 
 Updates the remaining deposit of a position
 
-*The implementing function should do the following:
+The implementing function should do the following:
 
 - Validate that the caller is permissioned
 - Validate that the position ID is valid
-- Update the remaining deposit of the position*
+- Update the remaining deposit of the position
 
 ```solidity
 function setRemainingDeposit(uint256 positionId_, uint256 amount_) external;
@@ -105,11 +108,11 @@ function setRemainingDeposit(uint256 positionId_, uint256 amount_) external;
 
 Updates the additional data of a position
 
-*The implementing function should do the following:
+The implementing function should do the following:
 
 - Validate that the caller is permissioned
 - Validate that the position ID is valid
-- Update the additional data of the position*
+- Update the additional data of the position
 
 ```solidity
 function setAdditionalData(uint256 positionId_, bytes calldata additionalData_) external;
@@ -127,7 +130,7 @@ function setAdditionalData(uint256 positionId_, bytes calldata additionalData_) 
 Splits the specified amount of the position into a new position
 This is useful if the position owner wants to split their position into multiple smaller positions.
 
-*The implementing function should do the following:
+The implementing function should do the following:
 
 - Validate that the caller is the owner of the position
 - Validate that the amount is greater than 0
@@ -135,7 +138,7 @@ This is useful if the position owner wants to split their position into multiple
 - Validate that `to_` is not the zero address
 - Update the remaining deposit of the original position
 - Create the new position record
-- Wrap the new position if requested*
+- Wrap the new position if requested
 
 ```solidity
 function split(uint256 positionId_, uint256 amount_, address to_, bool wrap_)
@@ -277,12 +280,12 @@ function previewConvert(uint256 positionId_, uint256 amount_) external view retu
 
 Set the token renderer contract
 
-*The implementing function should do the following:
+The implementing function should do the following:
 
 - Validate that the caller is permissioned
 - Validate that the renderer contract implements the required interface
 - Set the renderer contract
-- Emit an event*
+- Emit an event
 
 ```solidity
 function setTokenRenderer(address renderer_) external;

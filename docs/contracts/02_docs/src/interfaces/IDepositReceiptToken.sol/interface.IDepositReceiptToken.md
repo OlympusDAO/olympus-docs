@@ -1,13 +1,16 @@
 # IDepositReceiptToken
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/interfaces/IDepositReceiptToken.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/IDepositReceiptToken.sol)
 
 **Inherits:**
 [IERC20](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20)
 
+**Title:**
+IDepositReceiptToken
+
 Interface for a deposit receipt token
 
-*This interface adds additional metadata to the IERC20 interface that is necessary for deposit receipt tokens.*
+This interface adds additional metadata to the IERC20 interface that is necessary for deposit receipt tokens.
 
 ## Functions
 

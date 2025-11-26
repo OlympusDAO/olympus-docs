@@ -1,104 +1,107 @@
 # Clearinghouse
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/Clearinghouse.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/Clearinghouse.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer), [CoolerCallback](/main/contracts/docs/src/external/cooler/CoolerCallback.sol/abstract.CoolerCallback)
 
+**Title:**
+Olympus Clearinghouse.
+
 Olympus Clearinghouse (Policy) Contract.
 
-*The Olympus Clearinghouse is a lending facility built on top of Cooler Loans. The Clearinghouse
+The Olympus Clearinghouse is a lending facility built on top of Cooler Loans. The Clearinghouse
 ensures that OHM holders can take loans against their gOHM holdings according to the parameters
 approved by the community in OIP-144 and its subsequent RFCs. The Clearinghouse parameters are
 immutable, because of that, if backing was to increase substantially, a new governance process
 to fork this implementation with upgraded parameters should take place.
 Although the Cooler contracts allow lenders to transfer ownership of their repayment rights, the
-Clearinghouse doesn't implement any functions to use that feature.*
+Clearinghouse doesn't implement any functions to use that feature.
 
 ## State Variables
 
 ### reserve
 
 ```solidity
-ERC20 public immutable reserve;
+ERC20 public immutable reserve
 ```
 
 ### sReserve
 
 ```solidity
-ERC4626 public immutable sReserve;
+ERC4626 public immutable sReserve
 ```
 
 ### gohm
 
 ```solidity
-ERC20 public immutable gohm;
+ERC20 public immutable gohm
 ```
 
 ### ohm
 
 ```solidity
-ERC20 public immutable ohm;
+ERC20 public immutable ohm
 ```
 
 ### staking
 
 ```solidity
-IStaking public immutable staking;
+IStaking public immutable staking
 ```
 
 ### CHREG
 
 ```solidity
-CHREGv1 public CHREG;
+CHREGv1 public CHREG
 ```
 
 ### MINTR
 
 ```solidity
-MINTRv1 public MINTR;
+MINTRv1 public MINTR
 ```
 
 ### TRSRY
 
 ```solidity
-TRSRYv1 public TRSRY;
+TRSRYv1 public TRSRY
 ```
 
 ### INTEREST_RATE
 
 ```solidity
-uint256 public constant INTEREST_RATE = 5e15;
+uint256 public constant INTEREST_RATE = 5e15
 ```
 
 ### LOAN_TO_COLLATERAL
 
 ```solidity
-uint256 public constant LOAN_TO_COLLATERAL = 289292e16;
+uint256 public constant LOAN_TO_COLLATERAL = 289292e16
 ```
 
 ### DURATION
 
 ```solidity
-uint256 public constant DURATION = 121 days;
+uint256 public constant DURATION = 121 days
 ```
 
 ### FUND_CADENCE
 
 ```solidity
-uint256 public constant FUND_CADENCE = 7 days;
+uint256 public constant FUND_CADENCE = 7 days
 ```
 
 ### FUND_AMOUNT
 
 ```solidity
-uint256 public constant FUND_AMOUNT = 18_000_000e18;
+uint256 public constant FUND_AMOUNT = 18_000_000e18
 ```
 
 ### MAX_REWARD
 
 ```solidity
-uint256 public constant MAX_REWARD = 1e17;
+uint256 public constant MAX_REWARD = 1e17
 ```
 
 ### active
@@ -106,7 +109,7 @@ uint256 public constant MAX_REWARD = 1e17;
 determines whether the contract can be funded or not.
 
 ```solidity
-bool public active;
+bool public active
 ```
 
 ### fundTime
@@ -114,7 +117,7 @@ bool public active;
 timestamp at which the next rebalance can occur.
 
 ```solidity
-uint256 public fundTime;
+uint256 public fundTime
 ```
 
 ### interestReceivables
@@ -124,13 +127,13 @@ Incremented when a loan is taken or rolled.
 Decremented when a loan is repaid or collateral is burned.
 
 ```solidity
-uint256 public interestReceivables;
+uint256 public interestReceivables
 ```
 
 ### principalReceivables
 
 ```solidity
-uint256 public principalReceivables;
+uint256 public principalReceivables
 ```
 
 ## Functions
@@ -138,17 +141,22 @@ uint256 public principalReceivables;
 ### constructor
 
 ```solidity
-constructor(address ohm_, address gohm_, address staking_, address sReserve_, address coolerFactory_, address kernel_)
-    Policy(Kernel(kernel_))
-    CoolerCallback(coolerFactory_);
+constructor(
+    address ohm_,
+    address gohm_,
+    address staking_,
+    address sReserve_,
+    address coolerFactory_,
+    address kernel_
+) Policy(Kernel(kernel_)) CoolerCallback(coolerFactory_);
 ```
 
 ### configureDependencies
 
 Default framework setup. Configure dependencies for olympus-v3 modules.
 
-*This function will be called when the `executor` installs the Clearinghouse
-policy in the olympus-v3 `Kernel`.*
+This function will be called when the `executor` installs the Clearinghouse
+policy in the olympus-v3 `Kernel`.
 
 ```solidity
 function configureDependencies() external override returns (Keycode[] memory dependencies);
@@ -158,8 +166,8 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 Default framework setup. Request permissions for interacting with olympus-v3 modules.
 
-*This function will be called when the `executor` installs the Clearinghouse
-policy in the olympus-v3 `Kernel`.*
+This function will be called when the `executor` installs the Clearinghouse
+policy in the olympus-v3 `Kernel`.
 
 ```solidity
 function requestPermissions() external view override returns (Permissions[] memory requests);
@@ -184,8 +192,8 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 Lend to a cooler.
 
-*To simplify the UX and easily ensure that all holders get the same terms,
-this function requests a new loan and clears it in the same transaction.*
+To simplify the UX and easily ensure that all holders get the same terms,
+this function requests a new loan and clears it in the same transaction.
 
 ```solidity
 function lendToCooler(Cooler cooler_, uint256 amount_) external returns (uint256);
@@ -227,7 +235,7 @@ function extendLoan(Cooler cooler_, uint256 loanID_, uint8 times_) external;
 Batch several default claims to save gas.
 The elements on both arrays must be paired based on their index.
 
-*Implements an auction style reward system that linearly increases up to a max reward.*
+Implements an auction style reward system that linearly increases up to a max reward.
 
 ```solidity
 function claimDefaulted(address[] calldata coolers_, uint256[] calldata loans_) external;
@@ -260,7 +268,7 @@ function _onRepay(uint256, uint256 principalPaid_, uint256 interestPaid_) intern
 
 Unused callback since defaults are handled by the clearinghouse.
 
-*Overriden and left empty to save gas.*
+Overriden and left empty to save gas.
 
 ```solidity
 function _onDefault(uint256, uint256, uint256, uint256) internal override;
@@ -270,11 +278,11 @@ function _onDefault(uint256, uint256, uint256, uint256) internal override;
 
 Fund loan liquidity from treasury.
 
-*Exposure is always capped at FUND_AMOUNT and rebalanced at up to FUND_CADANCE.
+Exposure is always capped at FUND_AMOUNT and rebalanced at up to FUND_CADANCE.
 If several rebalances are available (because some were missed), calling this
 function several times won't impact the funds controlled by the contract.
 If the emergency shutdown is triggered, a rebalance will send funds back to
-the treasury.*
+the treasury.
 
 ```solidity
 function rebalance() public returns (bool);
@@ -306,7 +314,7 @@ function _sweepIntoSavingsVault(uint256 amount_) internal;
 
 Public function to burn gOHM.
 
-*Can be used to burn any gOHM defaulted using the Cooler instead of the Clearinghouse.*
+Can be used to burn any gOHM defaulted using the Cooler instead of the Clearinghouse.
 
 ```solidity
 function burn() public;

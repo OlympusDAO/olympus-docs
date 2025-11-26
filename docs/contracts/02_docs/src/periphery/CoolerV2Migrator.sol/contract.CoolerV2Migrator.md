@@ -1,15 +1,18 @@
 # CoolerV2Migrator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/periphery/CoolerV2Migrator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/periphery/CoolerV2Migrator.sol)
 
 **Inherits:**
 [IERC3156FlashBorrower](/main/contracts/docs/src/interfaces/maker-dao/IERC3156FlashBorrower.sol/interface.IERC3156FlashBorrower), [ICoolerV2Migrator](/main/contracts/docs/src/periphery/interfaces/ICoolerV2Migrator.sol/interface.ICoolerV2Migrator), ReentrancyGuard, Owned, [IEnabler](/main/contracts/docs/src/periphery/interfaces/IEnabler.sol/interface.IEnabler)
 
+**Title:**
+CoolerV2Migrator
+
 A contract that migrates debt from Olympus Cooler V1 facilities to Cooler V2.
 This is compatible with all three versions of Cooler V1.
 
-*This contract uses the `IERC3156FlashBorrower` interface to interact with Maker flashloans.
-The debt token of MonoCooler is assumed to be USDS. If that is changed in the future, this contract will need to be re-deployed.*
+This contract uses the `IERC3156FlashBorrower` interface to interact with Maker flashloans.
+The debt token of MonoCooler is assumed to be USDS. If that is changed in the future, this contract will need to be re-deployed.
 
 ## State Variables
 
@@ -18,7 +21,7 @@ The debt token of MonoCooler is assumed to be USDS. If that is changed in the fu
 Whether the contract is enabled
 
 ```solidity
-bool public isEnabled;
+bool public isEnabled
 ```
 
 ### CHREG
@@ -26,7 +29,7 @@ bool public isEnabled;
 The Clearinghouse registry module
 
 ```solidity
-CHREGv1 public immutable CHREG;
+CHREGv1 public immutable CHREG
 ```
 
 ### DAI
@@ -34,7 +37,7 @@ CHREGv1 public immutable CHREG;
 The DAI token
 
 ```solidity
-ERC20 public immutable DAI;
+ERC20 public immutable DAI
 ```
 
 ### USDS
@@ -42,7 +45,7 @@ ERC20 public immutable DAI;
 The USDS token
 
 ```solidity
-ERC20 public immutable USDS;
+ERC20 public immutable USDS
 ```
 
 ### GOHM
@@ -50,7 +53,7 @@ ERC20 public immutable USDS;
 The gOHM token
 
 ```solidity
-ERC20 public immutable GOHM;
+ERC20 public immutable GOHM
 ```
 
 ### MIGRATOR
@@ -58,7 +61,7 @@ ERC20 public immutable GOHM;
 The DAI \\<\\> USDS Migrator
 
 ```solidity
-IDaiUsdsMigrator public immutable MIGRATOR;
+IDaiUsdsMigrator public immutable MIGRATOR
 ```
 
 ### FLASH
@@ -66,7 +69,7 @@ IDaiUsdsMigrator public immutable MIGRATOR;
 The ERC3156 flash loan provider
 
 ```solidity
-IERC3156FlashLender public immutable FLASH;
+IERC3156FlashLender public immutable FLASH
 ```
 
 ### COOLERV2
@@ -74,7 +77,7 @@ IERC3156FlashLender public immutable FLASH;
 The Cooler V2 contract
 
 ```solidity
-IMonoCooler public immutable COOLERV2;
+IMonoCooler public immutable COOLERV2
 ```
 
 ### _COOLER_FACTORIES
@@ -82,18 +85,18 @@ IMonoCooler public immutable COOLERV2;
 The list of CoolerFactories
 
 ```solidity
-address[] internal _COOLER_FACTORIES;
+address[] internal _COOLER_FACTORIES
 ```
 
 ### MAX_LOANS
 
 This constant is used when iterating through the loans of a Cooler
 
-*This is used to prevent infinite loops, and is an appropriate upper bound
-as the maximum number of loans seen per Cooler is less than 50.*
+This is used to prevent infinite loops, and is an appropriate upper bound
+as the maximum number of loans seen per Cooler is less than 50.
 
 ```solidity
-uint8 internal constant MAX_LOANS = type(uint8).max;
+uint8 internal constant MAX_LOANS = type(uint8).max
 ```
 
 ## Functions
@@ -146,7 +149,7 @@ This function supports consolidation of loans from multiple Clearinghouses and C
 The funds for paying interest owed and fees will be borrowed from Cooler V2.
 It is expected that the caller will have already provided approval for this contract to spend the required tokens. See `previewConsolidate()` for more details.
 
-*This function will revert if:
+This function will revert if:
 
 - Any of the Coolers are not owned by the caller.
 - Any of the Coolers have not been created by the CoolerFactory.
@@ -155,7 +158,7 @@ It is expected that the caller will have already provided approval for this cont
 - The owner of the destination Cooler V2 has not provided authorization for this contract to manage their Cooler V2 position.
 - The caller has not approved this contract to spend the collateral token, gOHM.
 - The contract is not active.
-- Re-entrancy is detected.*
+- Re-entrancy is detected.
 
 ```solidity
 function consolidate(
@@ -179,13 +182,19 @@ function consolidate(
 
 ### onFlashLoan
 
-*This function reverts if:
+This function reverts if:
 
 - The caller is not the flash loan provider
-- The initiator is not this contract*
+- The initiator is not this contract
 
 ```solidity
-function onFlashLoan(address initiator_, address, uint256 amount_, uint256, bytes calldata params_)
+function onFlashLoan(
+    address initiator_,
+    address, // flashloan token is only DAI
+    uint256 amount_,
+    uint256, // lender fee is 0
+    bytes calldata params_
+)
     external
     override
     returns (bytes32);
@@ -315,14 +324,14 @@ function getCoolerFactories() external view returns (address[] memory coolerFact
 ### onlyEnabled
 
 ```solidity
-modifier onlyEnabled();
+modifier onlyEnabled() ;
 ```
 
 ### enable
 
 Enables the contract
 
-*Implementing contracts should implement permissioning logic*
+Implementing contracts should implement permissioning logic
 
 ```solidity
 function enable(bytes calldata) external onlyOwner;
@@ -338,7 +347,7 @@ function enable(bytes calldata) external onlyOwner;
 
 Disables the contract
 
-*Implementing contracts should implement permissioning logic*
+Implementing contracts should implement permissioning logic
 
 ```solidity
 function disable(bytes calldata) external onlyEnabled onlyOwner;
@@ -366,7 +375,7 @@ struct CoolerData {
 
 ### CoolerTotal
 
-*Temporary storage for the principal and interest for each debt token*
+Temporary storage for the principal and interest for each debt token
 
 ```solidity
 struct CoolerTotal {

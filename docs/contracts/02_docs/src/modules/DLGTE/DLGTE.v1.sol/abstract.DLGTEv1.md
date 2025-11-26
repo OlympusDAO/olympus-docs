@@ -1,25 +1,28 @@
 # DLGTEv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/DLGTE/DLGTE.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/DLGTE/DLGTE.v1.sol)
 
 **Inherits:**
 [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module), [IDLGTEv1](/main/contracts/docs/src/modules/DLGTE/IDLGTE.v1.sol/interface.IDLGTEv1)
 
+**Title:**
+Olympus Governance Delegation
+
 Olympus Governance Delegation (Module) Contract
 
-*The Olympus Governance Delegation Module enables policies to delegate gOHM on behalf of accounts.
+The Olympus Governance Delegation Module enables policies to delegate gOHM on behalf of accounts.
 If the gOHM is undelegated, this module acts as an escrow for the gOHM.
 When the gOHM is delegated, new individual escrows are created for those delegates, and that
 portion of gOHM is transferred to that escrow.
 gOHM balances are tracked per (policy, account) separately such that one policy cannot pull the
-gOHM from another policy (eg policy B pulling collateral out of the Cooler policy).*
+gOHM from another policy (eg policy B pulling collateral out of the Cooler policy).
 
 ## State Variables
 
 ### _gOHM
 
 ```solidity
-ERC20 internal immutable _gOHM;
+ERC20 internal immutable _gOHM
 ```
 
 ### DEFAULT_MAX_DELEGATE_ADDRESSES
@@ -27,7 +30,7 @@ ERC20 internal immutable _gOHM;
 The default maximum number of addresses an account can delegate to
 
 ```solidity
-uint32 public constant override DEFAULT_MAX_DELEGATE_ADDRESSES = 10;
+uint32 public constant override DEFAULT_MAX_DELEGATE_ADDRESSES = 10
 ```
 
 ## Functions
@@ -35,7 +38,7 @@ uint32 public constant override DEFAULT_MAX_DELEGATE_ADDRESSES = 10;
 ### constructor
 
 ```solidity
-constructor(address gohm_);
+constructor(address gohm_) ;
 ```
 
 ### setMaxDelegateAddresses
@@ -52,7 +55,7 @@ function setMaxDelegateAddresses(address account, uint32 maxDelegateAddresses) e
 gOHM is pulled from the calling policy and added to the undelegated balance.
 
 - This gOHM cannot be used for governance voting until it is delegated.
-- Deposted gOHM balances are tracked per policy. policyA cannot withdraw gOHM that policyB deposited*
+- Deposted gOHM balances are tracked per policy. policyA cannot withdraw gOHM that policyB deposited
 
 ```solidity
 function depositUndelegatedGohm(address onBehalfOf, uint256 amount) external virtual override;
@@ -66,7 +69,7 @@ Undelegated gOHM is transferred to the calling policy.
 from up to `autoRescindMaxNumDelegates` number of delegate escrows. See `rescindDelegations()` for details
 - Will revert if there is still not enough undelegated gOHM for `onBehalfOf` OR
 if policy is attempting to withdraw more gOHM than it deposited
-Deposted gOHM balances are tracked per policy. policyA cannot withdraw gOHM that policyB deposited*
+Deposted gOHM balances are tracked per policy. policyA cannot withdraw gOHM that policyB deposited
 
 ```solidity
 function withdrawUndelegatedGohm(address onBehalfOf, uint256 amount, uint256 autoRescindMaxNumDelegates)
@@ -105,7 +108,7 @@ removed
 however the policy cannot then withdraw an amount higher than what it deposited.
 - If the full `requestedUndelegatedBalance` cannot be fulfilled the `actualUndelegatedBalance`
 return parameter may be less than `requestedUndelegatedBalance`. The caller must decide
-on how to handle that.*
+on how to handle that.
 
 ```solidity
 function rescindDelegations(address onBehalfOf, uint256 requestedUndelegatedBalance, uint256 maxNumDelegates)
@@ -133,9 +136,9 @@ function policyAccountBalances(address policy, address account)
 
 Paginated view of an account's delegations
 
-*This can be called sequentially, increasing the `startIndex` each time by the number of items
+This can be called sequentially, increasing the `startIndex` each time by the number of items
 returned in the previous call, until number of items returned is less than `maxItems`
-The `totalAmount` delegated within the return struct is across all policies for that account delegate*
+The `totalAmount` delegated within the return struct is across all policies for that account delegate
 
 ```solidity
 function accountDelegationsList(address account, uint256 startIndex, uint256 maxItems)

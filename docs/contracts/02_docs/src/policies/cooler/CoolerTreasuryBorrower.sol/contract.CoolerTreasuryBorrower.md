@@ -1,9 +1,12 @@
 # CoolerTreasuryBorrower
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/cooler/CoolerTreasuryBorrower.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/cooler/CoolerTreasuryBorrower.sol)
 
 **Inherits:**
 [ICoolerTreasuryBorrower](/main/contracts/docs/src/policies/interfaces/cooler/ICoolerTreasuryBorrower.sol/interface.ICoolerTreasuryBorrower), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler)
+
+**Title:**
+Cooler Treasury Borrower - USDS borrows, sUSDS at rest
 
 Policy which can borrow from Treasury on behalf of Cooler
 
@@ -21,10 +24,10 @@ eg USDC, then borrow() and repay() will need to do the conversion.
 
 The decimal precision of the `amountInWad` used in borrow and repay functions.
 
-*A constant of 18*
+A constant of 18
 
 ```solidity
-uint8 public constant override DECIMALS = 18;
+uint8 public constant override DECIMALS = 18
 ```
 
 ### TRSRY
@@ -32,7 +35,7 @@ uint8 public constant override DECIMALS = 18;
 Olympus V3 Treasury Module
 
 ```solidity
-TRSRYv1 public TRSRY;
+TRSRYv1 public TRSRY
 ```
 
 ### SUSDS
@@ -40,21 +43,21 @@ TRSRYv1 public TRSRY;
 sUSDS is used within TRSRY to generate yield on idle USDS
 
 ```solidity
-ERC4626 public immutable SUSDS;
+ERC4626 public immutable SUSDS
 ```
 
 ### _USDS
 
-*The SKY USDS token*
+The SKY USDS token
 
 ```solidity
-ERC20 private immutable _USDS;
+ERC20 private immutable _USDS
 ```
 
 ### COOLER_ROLE
 
 ```solidity
-bytes32 public constant COOLER_ROLE = bytes32("treasuryborrower_cooler");
+bytes32 public constant COOLER_ROLE = bytes32("treasuryborrower_cooler")
 ```
 
 ## Functions
@@ -97,7 +100,7 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 Cooler borrows `amount` of `debtToken` from treasury, sent to `recipient`
 
-*If the debtToken is 6dp (eg USDC) then this contract needs to handle the conversion internally*
+If the debtToken is 6dp (eg USDC) then this contract needs to handle the conversion internally
 
 ```solidity
 function borrow(uint256 amountInWad, address recipient) external override onlyEnabled onlyRole(COOLER_ROLE);
@@ -114,7 +117,7 @@ function borrow(uint256 amountInWad, address recipient) external override onlyEn
 
 Repay any `debtToken` in this contract back to treasury.
 
-*Cooler is expected to transfer the amount to this contract prior to calling*
+Cooler is expected to transfer the amount to this contract prior to calling
 
 ```solidity
 function repay() external override onlyEnabled onlyRole(COOLER_ROLE);
@@ -124,7 +127,7 @@ function repay() external override onlyEnabled onlyRole(COOLER_ROLE);
 
 Cooler may write off debt in the case of liquidations.
 
-*This reduces the policies debt to TRSRY*
+This reduces the policies debt to TRSRY
 
 ```solidity
 function writeOffDebt(uint256 debtTokenAmount) external override onlyEnabled onlyRole(COOLER_ROLE);
@@ -168,7 +171,7 @@ function convertToDebtTokenAmount(uint256 amountInWad)
 
 ### _reduceDebtToTreasury
 
-*Decrease the debt to TRSRY, floored at zero*
+Decrease the debt to TRSRY, floored at zero
 
 ```solidity
 function _reduceDebtToTreasury(uint256 debtTokenAmount) private;

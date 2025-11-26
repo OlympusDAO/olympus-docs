@@ -1,13 +1,16 @@
 # ReceiptTokenManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/ReceiptTokenManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/deposits/ReceiptTokenManager.sol)
 
 **Inherits:**
 [ERC6909Wrappable](/main/contracts/docs/src/libraries/ERC6909Wrappable.sol/abstract.ERC6909Wrappable), [IReceiptTokenManager](/main/contracts/docs/src/policies/interfaces/deposits/IReceiptTokenManager.sol/interface.IReceiptTokenManager)
 
+**Title:**
+ReceiptTokenManager
+
 Manager contract for creating and managing ERC6909 receipt tokens for deposits
 
-*Extracted from DepositManager to reduce contract size.
+Extracted from DepositManager to reduce contract size.
 Key Features:
 
 - Creator-only minting/burning: Only the contract that creates a token can mint/burn it
@@ -17,7 +20,7 @@ Key Features:
 Security Model:
 - Token ownership is immutable and set to msg.sender during creation
 - All mint/burn operations are gated by onlyTokenOwner modifier
-- Token IDs include owner address to prevent collision attacks*
+- Token IDs include owner address to prevent collision attacks
 
 ## State Variables
 
@@ -26,7 +29,7 @@ Security Model:
 Maps token ID to the authorized owner (for mint/burn operations)
 
 ```solidity
-mapping(uint256 tokenId => address authorizedOwner) internal _tokenOwners;
+mapping(uint256 tokenId => address authorizedOwner) internal _tokenOwners
 ```
 
 ## Functions
@@ -41,12 +44,12 @@ constructor() ERC6909Wrappable(address(new CloneableReceiptToken()));
 
 Creates a new receipt token
 
-*This function reverts if:
+This function reverts if:
 
 - The asset is the zero address
 - The deposit period is 0
 - The operator is the zero address
-- A token with the same parameters already exists*
+- A token with the same parameters already exists
 
 ```solidity
 function createToken(IERC20 asset_, uint8 depositPeriod_, address operator_, string memory operatorName_)
@@ -78,19 +81,19 @@ function _onlyTokenOwner(uint256 tokenId_) internal view;
 ### onlyTokenOwner
 
 ```solidity
-modifier onlyTokenOwner(uint256 tokenId_);
+modifier onlyTokenOwner(uint256 tokenId_) ;
 ```
 
 ### mint
 
 Mints tokens to a recipient
 
-*This function reverts if:
+This function reverts if:
 
 - The token ID is invalid (not created)
 - The caller is not the token owner
 - The recipient is the zero address
-- The amount is 0*
+- The amount is 0
 
 ```solidity
 function mint(address to_, uint256 tokenId_, uint256 amount_, bool shouldWrap_)
@@ -112,7 +115,7 @@ function mint(address to_, uint256 tokenId_, uint256 amount_, bool shouldWrap_)
 
 Burns tokens from a holder
 
-*This function reverts if:
+This function reverts if:
 
 - The token ID is invalid (not created)
 - The caller is not the token owner
@@ -120,7 +123,7 @@ Burns tokens from a holder
 - The amount is 0
 - For wrapped tokens: account has not approved ReceiptTokenManager to spend the wrapped ERC20 token
 - For unwrapped tokens: account has not approved the caller to spend ERC6909 tokens
-- The account has insufficient token balance*
+- The account has insufficient token balance
 
 ```solidity
 function burn(address from_, uint256 tokenId_, uint256 amount_, bool isWrapped_)
@@ -308,5 +311,10 @@ function getTokenOperator(uint256 tokenId_) external view override returns (addr
 ### supportsInterface
 
 ```solidity
-function supportsInterface(bytes4 interfaceId) public view virtual override(ERC6909Wrappable, IERC165) returns (bool);
+function supportsInterface(bytes4 interfaceId)
+    public
+    view
+    virtual
+    override(ERC6909Wrappable, IERC165)
+    returns (bool);
 ```

@@ -1,19 +1,22 @@
 # OlympusHeart
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/Heart.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/Heart.sol)
 
 **Inherits:**
 [IHeart](/main/contracts/docs/src/policies/interfaces/IHeart.sol/interface.IHeart), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), ReentrancyGuard, [BasePeriodicTaskManager](/main/contracts/docs/src/bases/BasePeriodicTaskManager.sol/abstract.BasePeriodicTaskManager)
+
+**Title:**
+Olympus Heart
 
 forge-lint: disable-start(mixed-case-variable)
 
 Olympus Heart (Policy) Contract
 
-*The Olympus Heart contract provides keeper rewards to call the heart beat function which fuels
+The Olympus Heart contract provides keeper rewards to call the heart beat function which fuels
 Olympus market operations. The Heart orchestrates state updates in the correct order to ensure
 market operations use up to date information.
 This version implements an auction style reward system where the reward is linearly increasing up to a max reward.
-Rewards are issued in OHM.*
+Rewards are issued in OHM.
 
 ## State Variables
 
@@ -22,7 +25,7 @@ Rewards are issued in OHM.*
 Timestamp of the last beat (UTC, in seconds)
 
 ```solidity
-uint48 public lastBeat;
+uint48 public lastBeat
 ```
 
 ### auctionDuration
@@ -30,7 +33,7 @@ uint48 public lastBeat;
 Duration of the reward auction (in seconds)
 
 ```solidity
-uint48 public auctionDuration;
+uint48 public auctionDuration
 ```
 
 ### maxReward
@@ -38,36 +41,37 @@ uint48 public auctionDuration;
 Max reward for beating the Heart (in reward token decimals)
 
 ```solidity
-uint256 public maxReward;
+uint256 public maxReward
 ```
 
 ### PRICE
 
 ```solidity
-PRICEv1 internal PRICE;
+PRICEv1 internal PRICE
 ```
 
 ### MINTR
 
 ```solidity
-MINTRv1 internal MINTR;
+MINTRv1 internal MINTR
 ```
 
 ### distributor
 
 ```solidity
-IDistributor public distributor;
+IDistributor public distributor
 ```
 
 ## Functions
 
 ### constructor
 
-*Auction duration must be less than or equal to frequency, but we cannot validate that in the constructor because PRICE is not yet set.
-Therefore, manually ensure that the value is valid when deploying the contract.*
+Auction duration must be less than or equal to frequency, but we cannot validate that in the constructor because PRICE is not yet set.
+Therefore, manually ensure that the value is valid when deploying the contract.
 
 ```solidity
-constructor(Kernel kernel_, IDistributor distributor_, uint256 maxReward_, uint48 auctionDuration_) Policy(kernel_);
+constructor(Kernel kernel_, IDistributor distributor_, uint256 maxReward_, uint48 auctionDuration_)
+    Policy(kernel_);
 ```
 
 ### configureDependencies
@@ -117,7 +121,7 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 Beats the heart
 
-*Triggers price oracle update and market operations*
+Triggers price oracle update and market operations
 
 ```solidity
 function beat() external nonReentrant;
@@ -139,7 +143,7 @@ function _resetBeat() internal;
 
 Unlocks the cycle if stuck on one side, eject function
 
-*This function is gated to the ADMIN or MANAGER roles*
+This function is gated to the ADMIN or MANAGER roles
 
 ```solidity
 function resetBeat() external onlyManagerOrAdminRole;
@@ -149,12 +153,12 @@ function resetBeat() external onlyManagerOrAdminRole;
 
 Implementation-specific enable function
 
-*This function is called by the `enable()` function
+This function is called by the `enable()` function
 The implementing contract can override this function and perform the following:
 
 1. Validate any parameters (if needed) or revert
 2. Validate state (if needed) or revert
-3. Perform any necessary actions, apart from modifying the `isEnabled` state variable*
+3. Perform any necessary actions, apart from modifying the `isEnabled` state variable
 
 ```solidity
 function _enable(bytes calldata) internal override;
@@ -170,7 +174,7 @@ function _enable(bytes calldata) internal override;
 
 Updates the Distributor contract address that the Heart calls on a beat
 
-*This function is gated to the ADMIN role*
+This function is gated to the ADMIN role
 
 ```solidity
 function setDistributor(address distributor_) external onlyAdminRole;
@@ -185,14 +189,14 @@ function setDistributor(address distributor_) external onlyAdminRole;
 ### notWhileBeatAvailable
 
 ```solidity
-modifier notWhileBeatAvailable();
+modifier notWhileBeatAvailable() ;
 ```
 
 ### setRewardAuctionParams
 
 Sets the max reward amount, and auction duration for the beat function
 
-*This function is gated to the ADMIN role*
+This function is gated to the ADMIN role
 
 ```solidity
 function setRewardAuctionParams(uint256 maxReward_, uint48 auctionDuration_)

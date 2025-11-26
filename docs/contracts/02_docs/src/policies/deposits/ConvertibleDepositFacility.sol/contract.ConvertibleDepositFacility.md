@@ -1,9 +1,12 @@
 # ConvertibleDepositFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/ConvertibleDepositFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/deposits/ConvertibleDepositFacility.sol)
 
 **Inherits:**
 [BaseDepositFacility](/main/contracts/docs/src/policies/deposits/BaseDepositFacility.sol/abstract.BaseDepositFacility), [IConvertibleDepositFacility](/main/contracts/docs/src/policies/interfaces/deposits/IConvertibleDepositFacility.sol/interface.IConvertibleDepositFacility), [IPeriodicTask](/main/contracts/docs/src/interfaces/IPeriodicTask.sol/interface.IPeriodicTask)
+
+**Title:**
+Convertible Deposit Facility
 
 forge-lint: disable-start(mixed-case-function, mixed-case-variable)
 
@@ -15,7 +18,7 @@ It is a general-purpose contract that can be used to create, mint, convert, rede
 ### ROLE_AUCTIONEER
 
 ```solidity
-bytes32 public constant ROLE_AUCTIONEER = "cd_auctioneer";
+bytes32 public constant ROLE_AUCTIONEER = "cd_auctioneer"
 ```
 
 ### MINTR
@@ -23,13 +26,13 @@ bytes32 public constant ROLE_AUCTIONEER = "cd_auctioneer";
 The MINTR module.
 
 ```solidity
-MINTRv1 public MINTR;
+MINTRv1 public MINTR
 ```
 
 ### _OHM_SCALE
 
 ```solidity
-uint256 internal constant _OHM_SCALE = 1e9;
+uint256 internal constant _OHM_SCALE = 1e9
 ```
 
 ## Functions
@@ -78,11 +81,11 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 Creates a convertible deposit position
 
-*This function reverts if:
+This function reverts if:
 
 - The caller does not have the ROLE_AUCTIONEER role
 - The contract is not enabled
-- The asset and period are not supported*
+- The asset and period are not supported
 
 ```solidity
 function createPosition(CreatePositionParams calldata params_)
@@ -171,7 +174,7 @@ function _previewConvert(
 
 Preview the amount of receipt tokens and OHM that would be converted
 
-*This function reverts if:
+This function reverts if:
 
 - The contract is not enabled
 - The length of the positionIds_array does not match the length of the amounts_ array
@@ -182,7 +185,7 @@ Preview the amount of receipt tokens and OHM that would be converted
 - Any position has reached the conversion expiry
 - Any conversion amount is greater than the remaining deposit
 - The amount of deposits to convert is 0
-- The converted amount is 0*
+- The converted amount is 0
 
 ```solidity
 function previewConvert(address depositor_, uint256[] memory positionIds_, uint256[] memory amounts_)
@@ -211,7 +214,7 @@ function previewConvert(address depositor_, uint256[] memory positionIds_, uint2
 
 Converts receipt tokens to OHM before conversion expiry
 
-*This function reverts if:
+This function reverts if:
 
 - The contract is not enabled
 - No positions are provided
@@ -223,7 +226,7 @@ Converts receipt tokens to OHM before conversion expiry
 - Any position has reached the conversion expiry
 - Any position has a conversion amount greater than the remaining deposit
 - The amount of deposits to convert is 0
-- The converted amount is 0*
+- The converted amount is 0
 
 ```solidity
 function convert(uint256[] memory positionIds_, uint256[] memory amounts_, bool wrappedReceipt_)
@@ -252,7 +255,7 @@ function convert(uint256[] memory positionIds_, uint256[] memory amounts_, bool 
 
 Preview the amount of yield that would be claimed for the given asset
 
-*This returns the value from DepositManager.maxClaimYield(), which is a theoretical value.*
+This returns the value from DepositManager.maxClaimYield(), which is a theoretical value.
 
 ```solidity
 function previewClaimYield(IERC20 asset_) public view returns (uint256 yieldAssets);
@@ -294,7 +297,7 @@ function claimYield(IERC20 asset_) public returns (uint256);
 
 Claim the yield accrued for the given asset
 
-*This function mainly serves as a backup for claiming protocol yield, in case the max yield cannot be claimed.*
+This function mainly serves as a backup for claiming protocol yield, in case the max yield cannot be claimed.
 
 ```solidity
 function claimYield(IERC20 asset_, uint256 amount_) public returns (uint256);
@@ -305,7 +308,7 @@ function claimYield(IERC20 asset_, uint256 amount_) public returns (uint256);
 |Name|Type|Description|
 |----|----|-----------|
 |`asset_`|`IERC20`|         The address of the asset|
-|`amount_`|`uint256`||
+|`amount_`|`uint256`|        The amount to claim|
 
 **Returns**
 
@@ -333,13 +336,13 @@ function convertedToken() external view returns (address);
 
 Executes the periodic task
 
-*This function reverts if:
+This function reverts if:
 
 - The caller is not authorized
 Notes:
 - If disabled, nothing is done
 - This will attempt to claim yield for all configured assets
-- If the claimAllYield function fails for any asset, an event will be emitted instead of reverting*
+- If the claimAllYield function fails for any asset, an event will be emitted instead of reverting
 
 ```solidity
 function execute() external onlyRole(HEART_ROLE);

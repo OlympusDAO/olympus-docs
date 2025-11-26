@@ -1,32 +1,35 @@
 # Operator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/Operator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/Operator.sol)
 
 **Inherits:**
 [IOperator](/main/contracts/docs/src/policies/interfaces/IOperator.sol/interface.IOperator), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer), ReentrancyGuard
 
+**Title:**
+Olympus Range Operator
+
 Olympus Range Operator (Policy) Contract
 
-*The Olympus Range Operator performs market operations to enforce OlympusDAO's OHM price range
+The Olympus Range Operator performs market operations to enforce OlympusDAO's OHM price range
 guidance policies against a specific reserve asset. The Operator is maintained by a keeper-triggered
 function on the Olympus Heart contract, which orchestrates state updates in the correct order to ensure
 market operations use up to date information. When the price of OHM against the reserve asset exceeds
 the cushion spread, the Operator deploys bond markets to support the price. The Operator also offers
 zero slippage swaps at prices dictated by the wall spread from the moving average. These market operations
-are performed up to a specific capacity before the market must stabilize to regenerate the capacity.*
+are performed up to a specific capacity before the market must stabilize to regenerate the capacity.
 
 ## State Variables
 
 ### _status
 
 ```solidity
-Status internal _status;
+Status internal _status
 ```
 
 ### _config
 
 ```solidity
-Config internal _config;
+Config internal _config
 ```
 
 ### initialized
@@ -34,7 +37,7 @@ Config internal _config;
 Whether the Operator has been initialized
 
 ```solidity
-bool public initialized;
+bool public initialized
 ```
 
 ### active
@@ -42,31 +45,31 @@ bool public initialized;
 Whether the Operator is active
 
 ```solidity
-bool public active;
+bool public active
 ```
 
 ### PRICE
 
 ```solidity
-PRICEv1 internal PRICE;
+PRICEv1 internal PRICE
 ```
 
 ### RANGE
 
 ```solidity
-RANGEv2 internal RANGE;
+RANGEv2 internal RANGE
 ```
 
 ### TRSRY
 
 ```solidity
-TRSRYv1 internal TRSRY;
+TRSRYv1 internal TRSRY
 ```
 
 ### MINTR
 
 ```solidity
-MINTRv1 internal MINTR;
+MINTRv1 internal MINTR
 ```
 
 ### auctioneer
@@ -74,7 +77,7 @@ MINTRv1 internal MINTR;
 Auctioneer contract used for cushion bond market deployments
 
 ```solidity
-IBondSDA public auctioneer;
+IBondSDA public auctioneer
 ```
 
 ### callback
@@ -82,7 +85,7 @@ IBondSDA public auctioneer;
 Callback contract used for cushion bond market payouts
 
 ```solidity
-IBondCallback public callback;
+IBondCallback public callback
 ```
 
 ### ohm
@@ -90,13 +93,13 @@ IBondCallback public callback;
 OHM token contract
 
 ```solidity
-ERC20 public immutable ohm;
+ERC20 public immutable ohm
 ```
 
 ### _ohmDecimals
 
 ```solidity
-uint8 internal immutable _ohmDecimals;
+uint8 internal immutable _ohmDecimals
 ```
 
 ### reserve
@@ -104,51 +107,51 @@ uint8 internal immutable _ohmDecimals;
 Reserve token contract
 
 ```solidity
-ERC20 public immutable reserve;
+ERC20 public immutable reserve
 ```
 
 ### _reserveDecimals
 
 ```solidity
-uint8 internal immutable _reserveDecimals;
+uint8 internal immutable _reserveDecimals
 ```
 
 ### _oracleDecimals
 
 ```solidity
-uint8 internal _oracleDecimals;
+uint8 internal _oracleDecimals
 ```
 
 ### sReserve
 
-*_sReserveDecimals == _reserveDecimals*
+_sReserveDecimals ==_reserveDecimals
 
 ```solidity
-ERC4626 public immutable sReserve;
+ERC4626 public immutable sReserve
 ```
 
 ### oldReserve
 
 ```solidity
-ERC20 public immutable oldReserve;
+ERC20 public immutable oldReserve
 ```
 
 ### ONE_HUNDRED_PERCENT
 
 ```solidity
-uint32 internal constant ONE_HUNDRED_PERCENT = 100e2;
+uint32 internal constant ONE_HUNDRED_PERCENT = 100e2
 ```
 
 ### OPERATOR_POLICY_ROLE
 
 ```solidity
-bytes32 internal constant OPERATOR_POLICY_ROLE = "operator_policy";
+bytes32 internal constant OPERATOR_POLICY_ROLE = "operator_policy"
 ```
 
 ### OPERATOR_ADMIN_ROLE
 
 ```solidity
-bytes32 internal constant OPERATOR_ADMIN_ROLE = "operator_admin";
+bytes32 internal constant OPERATOR_ADMIN_ROLE = "operator_admin"
 ```
 
 ## Functions
@@ -160,8 +163,8 @@ constructor(
     Kernel kernel_,
     IBondSDA auctioneer_,
     IBondCallback callback_,
-    address[4] memory tokens_,
-    uint32[8] memory configParams
+    address[4] memory tokens_, // [ohm, reserve, sReserve, oldReserve]
+    uint32[8] memory configParams // [cushionFactor, cushionDuration, cushionDebtBuffer, cushionDepositInterval, reserveFactor, regenWait, regenThreshold, regenObserve] ensure the following holds: regenWait / PRICE.observationFrequency() >= regenObserve - regenThreshold
 ) Policy(kernel_);
 ```
 
@@ -195,10 +198,10 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 ### _onlyWhileActive
 
-*Checks to see if the policy is active and ensures the range data isn't stale before performing market operations.
+Checks to see if the policy is active and ensures the range data isn't stale before performing market operations.
 This check is different from the price feed staleness checks in the PRICE module.
 The PRICE module checks new price feed data for staleness when storing a new observations,
-whereas this check ensures that the range data is using a recent observation.*
+whereas this check ensures that the range data is using a recent observation.
 
 ```solidity
 function _onlyWhileActive() internal view;
@@ -208,7 +211,7 @@ function _onlyWhileActive() internal view;
 
 Executes market operations logic.
 
-*This function is triggered by a keeper on the Heart contract.*
+This function is triggered by a keeper on the Heart contract.
 
 ```solidity
 function operate() external override onlyRole("heart");
@@ -374,10 +377,12 @@ function _checkCushion(bool high_) internal;
 
 Set the wall and cushion spreads
 
-*Interface for externally setting these values on the RANGE module*
+Interface for externally setting these values on the RANGE module
 
 ```solidity
-function setSpreads(bool high_, uint256 cushionSpread_, uint256 wallSpread_) external onlyRole(OPERATOR_POLICY_ROLE);
+function setSpreads(bool high_, uint256 cushionSpread_, uint256 wallSpread_)
+    external
+    onlyRole(OPERATOR_POLICY_ROLE);
 ```
 
 **Parameters**
@@ -392,7 +397,7 @@ function setSpreads(bool high_, uint256 cushionSpread_, uint256 wallSpread_) ext
 
 Set the threshold factor for when a wall is considered "down"
 
-*Interface for externally setting this value on the RANGE module*
+Interface for externally setting this value on the RANGE module
 
 ```solidity
 function setThresholdFactor(uint256 thresholdFactor_) external onlyRole(OPERATOR_POLICY_ROLE);
@@ -454,7 +459,7 @@ function setReserveFactor(uint32 reserveFactor_) external onlyRole(OPERATOR_POLI
 
 Set the wall regeneration parameters
 
-*We must see Threshold number of price points that meet our criteria within the last Observe number of price points to regenerate a wall.*
+We must see Threshold number of price points that meet our criteria within the last Observe number of price points to regenerate a wall.
 
 ```solidity
 function setRegenParams(uint32 wait_, uint32 threshold_, uint32 observe_) external onlyRole(OPERATOR_POLICY_ROLE);
@@ -487,7 +492,7 @@ function setBondContracts(IBondSDA auctioneer_, IBondCallback callback_) externa
 
 Initialize the Operator to begin market operations
 
-*This function executes actions required to start operations that cannot be done prior to the Operator policy being approved by the Kernel.*
+This function executes actions required to start operations that cannot be done prior to the Operator policy being approved by the Kernel.
 
 ```solidity
 function initialize() external onlyRole(OPERATOR_ADMIN_ROLE);
@@ -497,7 +502,7 @@ function initialize() external onlyRole(OPERATOR_ADMIN_ROLE);
 
 Regenerate the wall for a side
 
-*This function is an escape hatch to trigger out of cycle regenerations and may be useful when doing migrations of Treasury funds*
+This function is an escape hatch to trigger out of cycle regenerations and may be useful when doing migrations of Treasury funds
 
 ```solidity
 function regenerate(bool high_) external onlyRole(OPERATOR_POLICY_ROLE);
@@ -513,7 +518,7 @@ function regenerate(bool high_) external onlyRole(OPERATOR_POLICY_ROLE);
 
 Activate the Operator
 
-*Restart function for the Operator after a pause.*
+Restart function for the Operator after a pause.
 
 ```solidity
 function activate() external onlyRole(OPERATOR_POLICY_ROLE);
@@ -523,7 +528,7 @@ function activate() external onlyRole(OPERATOR_POLICY_ROLE);
 
 Deactivate the Operator
 
-*Emergency pause function for the Operator. Prevents market operations from occurring.*
+Emergency pause function for the Operator. Prevents market operations from occurring.
 
 ```solidity
 function deactivate() external onlyRole(OPERATOR_POLICY_ROLE);
@@ -533,7 +538,7 @@ function deactivate() external onlyRole(OPERATOR_POLICY_ROLE);
 
 Manually close a cushion bond market
 
-*Emergency shutdown function for Cushions*
+Emergency shutdown function for Cushions
 
 ```solidity
 function deactivateCushion(bool high_) external onlyRole(OPERATOR_POLICY_ROLE);
@@ -576,7 +581,7 @@ function getAmountOut(ERC20 tokenIn_, uint256 amountIn_) public view returns (ui
 
 Returns the full capacity of the specified wall (if it was regenerated now)
 
-*Calculates the capacity to deploy for a wall based on the amount of reserves owned by the treasury and the reserve factor.*
+Calculates the capacity to deploy for a wall based on the amount of reserves owned by the treasury and the reserve factor.
 
 ```solidity
 function fullCapacity(bool high_) public view override returns (uint256);

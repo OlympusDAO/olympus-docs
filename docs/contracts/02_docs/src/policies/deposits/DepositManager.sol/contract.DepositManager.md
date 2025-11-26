@@ -1,20 +1,23 @@
 # DepositManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/DepositManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/deposits/DepositManager.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IDepositManager](/main/contracts/docs/src/policies/interfaces/deposits/IDepositManager.sol/interface.IDepositManager), [BaseAssetManager](/main/contracts/docs/src/bases/BaseAssetManager.sol/abstract.BaseAssetManager)
+
+**Title:**
+Deposit Manager
 
 forge-lint: disable-start(asm-keccak256, mixed-case-function)
 
 This policy manages deposits and withdrawals for Olympus protocol contracts
 
-*Key Features:
+Key Features:
 
 - ERC6909 receipt tokens with optional ERC20 wrapping, using ReceiptTokenManager
 - Operator isolation preventing cross-operator fund access
 - Borrowing functionality
-- Configurable reclaim rates for risk management*
+- Configurable reclaim rates for risk management
 
 ## State Variables
 
@@ -23,7 +26,7 @@ This policy manages deposits and withdrawals for Olympus protocol contracts
 The role that is allowed to deposit and withdraw funds
 
 ```solidity
-bytes32 public constant ROLE_DEPOSIT_OPERATOR = "deposit_operator";
+bytes32 public constant ROLE_DEPOSIT_OPERATOR = "deposit_operator"
 ```
 
 ### _RECEIPT_TOKEN_MANAGER
@@ -31,18 +34,18 @@ bytes32 public constant ROLE_DEPOSIT_OPERATOR = "deposit_operator";
 The receipt token manager for creating receipt tokens
 
 ```solidity
-ReceiptTokenManager internal immutable _RECEIPT_TOKEN_MANAGER;
+ReceiptTokenManager internal immutable _RECEIPT_TOKEN_MANAGER
 ```
 
 ### _assetLiabilities
 
 Maps asset liabilities key to the number of receipt tokens that have been minted
 
-*This is used to ensure that the receipt tokens are solvent
-As with the BaseAssetManager, deposited asset tokens with different deposit periods are co-mingled.*
+This is used to ensure that the receipt tokens are solvent
+As with the BaseAssetManager, deposited asset tokens with different deposit periods are co-mingled.
 
 ```solidity
-mapping(bytes32 key => uint256 receiptTokenSupply) internal _assetLiabilities;
+mapping(bytes32 key => uint256 receiptTokenSupply) internal _assetLiabilities
 ```
 
 ### _assetPeriods
@@ -50,7 +53,7 @@ mapping(bytes32 key => uint256 receiptTokenSupply) internal _assetLiabilities;
 Maps token ID to the asset period
 
 ```solidity
-mapping(uint256 tokenId => AssetPeriod) internal _assetPeriods;
+mapping(uint256 tokenId => AssetPeriod) internal _assetPeriods
 ```
 
 ### _ownedTokenIds
@@ -58,7 +61,7 @@ mapping(uint256 tokenId => AssetPeriod) internal _assetPeriods;
 Set of token IDs that this DepositManager owns
 
 ```solidity
-EnumerableSet.UintSet internal _ownedTokenIds;
+EnumerableSet.UintSet internal _ownedTokenIds
 ```
 
 ### ONE_HUNDRED_PERCENT
@@ -66,7 +69,7 @@ EnumerableSet.UintSet internal _ownedTokenIds;
 Constant equivalent to 100%
 
 ```solidity
-uint16 public constant ONE_HUNDRED_PERCENT = 100e2;
+uint16 public constant ONE_HUNDRED_PERCENT = 100e2
 ```
 
 ### _operatorToName
@@ -74,27 +77,27 @@ uint16 public constant ONE_HUNDRED_PERCENT = 100e2;
 Maps operator address to its name
 
 ```solidity
-mapping(address operator => bytes3 name) internal _operatorToName;
+mapping(address operator => bytes3 name) internal _operatorToName
 ```
 
 ### _operatorNames
 
 A set of operator names
 
-*This contains unique values*
+This contains unique values
 
 ```solidity
-mapping(bytes3 name => bool isRegistered) internal _operatorNames;
+mapping(bytes3 name => bool isRegistered) internal _operatorNames
 ```
 
 ### _borrowedAmounts
 
 Maps asset-operator key to current borrowed amounts
 
-*The key is the keccak256 of the asset address and the operator address*
+The key is the keccak256 of the asset address and the operator address
 
 ```solidity
-mapping(bytes32 key => uint256 borrowedAmount) internal _borrowedAmounts;
+mapping(bytes32 key => uint256 borrowedAmount) internal _borrowedAmounts
 ```
 
 ## Functions
@@ -110,7 +113,7 @@ function _onlyAssetPeriodExists(IERC20 asset_, uint8 depositPeriod_, address ope
 Reverts if the asset period is not configured
 
 ```solidity
-modifier onlyAssetPeriodExists(IERC20 asset_, uint8 depositPeriod_, address operator_);
+modifier onlyAssetPeriodExists(IERC20 asset_, uint8 depositPeriod_, address operator_) ;
 ```
 
 ### _onlyAssetPeriodEnabled
@@ -124,7 +127,7 @@ function _onlyAssetPeriodEnabled(IERC20 asset_, uint8 depositPeriod_, address op
 Reverts if the asset period is not enabled
 
 ```solidity
-modifier onlyAssetPeriodEnabled(IERC20 asset_, uint8 depositPeriod_, address operator_);
+modifier onlyAssetPeriodEnabled(IERC20 asset_, uint8 depositPeriod_, address operator_) ;
 ```
 
 ### constructor
@@ -171,7 +174,7 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 Deposits the given amount of the underlying asset in exchange for a receipt token
 
-*This function is only callable by addresses with the deposit operator role
+This function is only callable by addresses with the deposit operator role
 The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
 This function reverts if:
 
@@ -183,7 +186,7 @@ This function reverts if:
 - The depositor has not approved the DepositManager to spend the asset tokens
 - The depositor has insufficient asset token balance
 - The asset is a fee-on-transfer token
-- Zero shares would be received from the vault*
+- Zero shares would be received from the vault
 
 ```solidity
 function deposit(DepositParams calldata params_)
@@ -211,8 +214,8 @@ function deposit(DepositParams calldata params_)
 
 Returns the maximum yield that can be claimed for an asset and operator pair
 
-*The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
-Note that the returned value is a theoretical maximum. The theoretical value may not be accurate or possible due to rounding and other behaviours in an ERC4626 vault.*
+The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
+Note that the returned value is a theoretical maximum. The theoretical value may not be accurate or possible due to rounding and other behaviours in an ERC4626 vault.
 
 ```solidity
 function maxClaimYield(IERC20 asset_, address operator_) external view returns (uint256);
@@ -236,7 +239,7 @@ function maxClaimYield(IERC20 asset_, address operator_) external view returns (
 Claims the yield from the underlying asset
 This does not burn receipt tokens, but should reduce the amount of shares the caller has in the vault.
 
-*Notes:
+Notes:
 
 - This function is only callable by addresses with the deposit operator role
 - The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
@@ -245,7 +248,7 @@ This function reverts if:
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The asset is not configured in BaseAssetManager
-- The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)*
+- The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)
 
 ```solidity
 function claimYield(IERC20 asset_, address recipient_, uint256 amount_)
@@ -274,7 +277,7 @@ function claimYield(IERC20 asset_, address recipient_, uint256 amount_)
 
 Withdraws the given amount of the underlying asset
 
-*Notes:
+Notes:
 
 - This function is only callable by addresses with the deposit operator role
 - The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
@@ -287,7 +290,7 @@ This function will revert if:
 - The depositor has insufficient receipt token balance
 - For wrapped tokens: depositor has not approved ReceiptTokenManager to spend the wrapped ERC20 token
 - For unwrapped tokens: depositor has not approved the caller to spend ERC6909 tokens
-- The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)*
+- The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)
 
 ```solidity
 function withdraw(WithdrawParams calldata params_)
@@ -334,7 +337,7 @@ function getOperatorLiabilities(IERC20 asset_, address operator_) external view 
 
 Get the key for the asset liabilities mapping
 
-*The key is the keccak256 of the asset address and the operator address*
+The key is the keccak256 of the asset address and the operator address
 
 ```solidity
 function _getAssetLiabilitiesKey(IERC20 asset_, address operator_) internal pure returns (bytes32);
@@ -344,12 +347,12 @@ function _getAssetLiabilitiesKey(IERC20 asset_, address operator_) internal pure
 
 Validates that an operator remains solvent after a withdrawal
 
-*This function ensures that operator assets + borrowed amount >= operator liabilities
+This function ensures that operator assets + borrowed amount >= operator liabilities
 This is the core solvency constraint for the DepositManager
 Notes:
 
 - The solvency checks assume that the value of each vault share is increasing, and will not reduce.
-- In a situation where the assets per share reduces below 1 (at the appropriate decimal scale), the solvency check will fail.*
+- In a situation where the assets per share reduces below 1 (at the appropriate decimal scale), the solvency check will fail.
 
 ```solidity
 function _validateOperatorSolvency(IERC20 asset_, address operator_) internal view;
@@ -366,7 +369,7 @@ function _validateOperatorSolvency(IERC20 asset_, address operator_) internal vi
 
 Sets the name of an operator. This is included in the name and symbol of receipt tokens.
 
-*Note that once set, an operator name cannot be changed.
+Note that once set, an operator name cannot be changed.
 This function reverts if:
 
 - The contract is not enabled
@@ -375,7 +378,7 @@ This function reverts if:
 - The name is already in use by another operator
 - The operator name is empty
 - The operator name is not exactly 3 characters long
-- The operator name contains characters that are not a-z or 0-9*
+- The operator name contains characters that are not a-z or 0-9
 
 ```solidity
 function setOperatorName(address operator_, string calldata name_) external onlyEnabled onlyManagerOrAdminRole;
@@ -405,7 +408,7 @@ function getOperatorName(address operator_) public view returns (string memory);
 
 Returns whether a deposit asset, period and operator combination are configured
 
-*A asset period that is disabled will not accept further deposits*
+A asset period that is disabled will not accept further deposits
 
 ```solidity
 function isAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
@@ -433,7 +436,7 @@ function isAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
 
 Adds a new asset
 
-*This function reverts if:
+This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the admin or manager role
@@ -441,7 +444,7 @@ Adds a new asset
 - minimumDeposit_> depositCap_
 Notes:
 - A limitation of the current implementation is that the vault is assumed to be monotonically-increasing in value.
-- The pairing of the asset and vault is immutable, to prevent a governance attack on user deposits.*
+- The pairing of the asset and vault is immutable, to prevent a governance attack on user deposits.
 
 ```solidity
 function addAsset(IERC20 asset_, IERC4626 vault_, uint256 depositCap_, uint256 minimumDeposit_)
@@ -463,12 +466,12 @@ function addAsset(IERC20 asset_, IERC4626 vault_, uint256 depositCap_, uint256 m
 
 Sets the deposit cap for an asset
 
-*This function reverts if:
+This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the admin or manager role
 - asset_ is not configured
-- The existing minimum deposit > depositCap_*
+- The existing minimum deposit > depositCap_
 
 ```solidity
 function setAssetDepositCap(IERC20 asset_, uint256 depositCap_) external onlyEnabled onlyManagerOrAdminRole;
@@ -485,15 +488,18 @@ function setAssetDepositCap(IERC20 asset_, uint256 depositCap_) external onlyEna
 
 Sets the minimum deposit for an asset
 
-*This function reverts if:
+This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the admin or manager role
 - asset_ is not configured
-- minimumDeposit_ > the existing deposit cap*
+- minimumDeposit_ > the existing deposit cap
 
 ```solidity
-function setAssetMinimumDeposit(IERC20 asset_, uint256 minimumDeposit_) external onlyEnabled onlyManagerOrAdminRole;
+function setAssetMinimumDeposit(IERC20 asset_, uint256 minimumDeposit_)
+    external
+    onlyEnabled
+    onlyManagerOrAdminRole;
 ```
 
 **Parameters**
@@ -507,7 +513,7 @@ function setAssetMinimumDeposit(IERC20 asset_, uint256 minimumDeposit_) external
 
 Adds a new asset period
 
-*This function is only callable by the manager or admin role
+This function is only callable by the manager or admin role
 This function reverts if:
 
 - The contract is not enabled
@@ -517,7 +523,7 @@ This function reverts if:
 - The deposit period is 0
 - The asset/deposit period/operator combination is already configured
 - The operator name has not been set
-- Receipt token creation fails (invalid parameters in ReceiptTokenManager)*
+- Receipt token creation fails (invalid parameters in ReceiptTokenManager)
 
 ```solidity
 function addAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
@@ -546,13 +552,13 @@ function addAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
 
 Enables an asset period, which allows new deposits
 
-*This function is only callable by the manager or admin role
+This function is only callable by the manager or admin role
 This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the manager or admin role
 - The asset/deposit period/operator combination does not exist
-- The asset period is already enabled*
+- The asset period is already enabled
 
 ```solidity
 function enableAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
@@ -574,13 +580,13 @@ function enableAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator
 
 Disables an asset period, which prevents new deposits
 
-*This function is only callable by the manager or admin role
+This function is only callable by the manager or admin role
 This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the manager or admin role
 - The asset/deposit period/operator combination does not exist
-- The asset period is already disabled*
+- The asset period is already disabled
 
 ```solidity
 function disableAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
@@ -614,7 +620,7 @@ function getAssetPeriods() external view override returns (AssetPeriod[] memory 
 
 ### getAssetPeriod
 
-Returns the asset period for an asset, period and operator
+Returns the asset period from a receipt token ID
 
 ```solidity
 function getAssetPeriod(uint256 tokenId_) public view override returns (AssetPeriod memory);
@@ -624,7 +630,7 @@ function getAssetPeriod(uint256 tokenId_) public view override returns (AssetPer
 
 |Name|Type|Description|
 |----|----|-----------|
-|`tokenId_`|`uint256`||
+|`tokenId_`|`uint256`|       The ID of the receipt token|
 
 **Returns**
 
@@ -662,7 +668,7 @@ function getAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
 
 Borrows funds from deposits
 
-*Notes:
+Notes:
 
 - This function is only callable by addresses with the deposit operator role
 - Given a low enough amount, the actual amount withdrawn may be 0. This function will not revert in such a case.
@@ -672,7 +678,7 @@ This function reverts if:
 - The recipient is the zero address
 - The asset has not been added via addAsset()
 - The amount exceeds the operator's available borrowing capacity
-- The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)*
+- The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)
 
 ```solidity
 function borrowingWithdraw(BorrowingWithdrawParams calldata params_)
@@ -698,7 +704,7 @@ function borrowingWithdraw(BorrowingWithdrawParams calldata params_)
 
 Repays borrowed funds
 
-*Notes:
+Notes:
 
 - This function is only callable by addresses with the deposit operator role
 - This function does not check for over-payment. It is expected to be handled by the calling contract.
@@ -711,7 +717,7 @@ This function reverts if:
 - The payer has insufficient asset token balance
 - The asset is a fee-on-transfer token
 - Zero shares would be deposited into the vault
-- The operator becomes insolvent after the repayment (assets + borrowed < liabilities)*
+- The operator becomes insolvent after the repayment (assets + borrowed < liabilities)
 
 ```solidity
 function borrowingRepay(BorrowingRepayParams calldata params_)
@@ -737,7 +743,7 @@ function borrowingRepay(BorrowingRepayParams calldata params_)
 
 Defaults on a borrowed amount
 
-*This function is only callable by addresses with the deposit operator role
+This function is only callable by addresses with the deposit operator role
 This function reverts if:
 
 - The contract is not enabled
@@ -746,7 +752,7 @@ This function reverts if:
 - The amount exceeds the current borrowed amount for the operator
 - The payer has insufficient receipt token balance
 - The payer has not approved the caller to spend ERC6909 tokens
-- The operator becomes insolvent after the default (assets + borrowed < liabilities)*
+- The operator becomes insolvent after the default (assets + borrowed < liabilities)
 
 ```solidity
 function borrowingDefault(BorrowingDefaultParams calldata params_)
@@ -809,7 +815,7 @@ function _setReceiptTokenData(IERC20 asset_, uint8 depositPeriod_, address opera
 
 Returns the ID of the receipt token for an asset period and operator
 
-*The ID returned is not a guarantee that the asset period is configured or enabled. {isAssetPeriod} should be used for that purpose.*
+The ID returned is not a guarantee that the asset period is configured or enabled. {isAssetPeriod} should be used for that purpose.
 
 ```solidity
 function getReceiptTokenId(IERC20 asset_, uint8 depositPeriod_, address operator_)
@@ -903,11 +909,11 @@ function supportsInterface(bytes4 interfaceId)
 
 Rescue any ERC20 token sent to this contract and send it to the TRSRY
 
-*This function reverts if:
+This function reverts if:
 
 - The caller does not have the admin role
 - token_ is a managed asset or vault
-- token_ is the zero address*
+- token_ is the zero address
 
 ```solidity
 function rescue(address token_) external onlyEnabled onlyAdminRole;

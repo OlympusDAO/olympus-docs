@@ -1,6 +1,6 @@
 # YieldRepurchaseFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/YieldRepurchaseFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/YieldRepurchaseFacility.sol)
 
 **Inherits:**
 [IYieldRepo](/main/contracts/docs/src/policies/interfaces/IYieldRepo.sol/interface.IYieldRepo), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
@@ -14,109 +14,109 @@ OHM, to purchase OHM off the market using a Bond Protocol SDA market.
 ### sReserve
 
 ```solidity
-ERC4626 public immutable sReserve;
+ERC4626 public immutable sReserve
 ```
 
 ### reserve
 
 ```solidity
-ERC20 public immutable reserve;
+ERC20 public immutable reserve
 ```
 
 ### _reserveDecimals
 
 ```solidity
-uint8 internal immutable _reserveDecimals;
+uint8 internal immutable _reserveDecimals
 ```
 
 ### ohm
 
 ```solidity
-ERC20 public immutable ohm;
+ERC20 public immutable ohm
 ```
 
 ### _ohmDecimals
 
 ```solidity
-uint8 internal immutable _ohmDecimals;
+uint8 internal immutable _ohmDecimals
 ```
 
 ### _oracleDecimals
 
 ```solidity
-uint8 internal _oracleDecimals;
+uint8 internal _oracleDecimals
 ```
 
 ### TRSRY
 
 ```solidity
-TRSRYv1 public TRSRY;
+TRSRYv1 public TRSRY
 ```
 
 ### PRICE
 
 ```solidity
-PRICEv1 public PRICE;
+PRICEv1 public PRICE
 ```
 
 ### CHREG
 
 ```solidity
-CHREGv1 public CHREG;
+CHREGv1 public CHREG
 ```
 
 ### teller
 
 ```solidity
-address public immutable teller;
+address public immutable teller
 ```
 
 ### auctioneer
 
 ```solidity
-IBondSDA public immutable auctioneer;
+IBondSDA public immutable auctioneer
 ```
 
 ### epoch
 
 ```solidity
-uint48 public epoch;
+uint48 public epoch
 ```
 
 ### nextYield
 
 ```solidity
-uint256 public nextYield;
+uint256 public nextYield
 ```
 
 ### lastReserveBalance
 
 ```solidity
-uint256 public lastReserveBalance;
+uint256 public lastReserveBalance
 ```
 
 ### lastConversionRate
 
 ```solidity
-uint256 public lastConversionRate;
+uint256 public lastConversionRate
 ```
 
 ### isShutdown
 
 ```solidity
-bool public isShutdown;
+bool public isShutdown
 ```
 
 ### epochLength
 
 ```solidity
-uint48 public constant epochLength = 21;
+uint48 public constant epochLength = 21
 ```
 
 ### backingPerToken
 
 ```solidity
-uint256 public constant backingPerToken = 1133 * 1e7;
+uint256 public constant backingPerToken = 1133 * 1e7
 ```
 
 ## Functions
@@ -224,7 +224,7 @@ function _getBackingForPurchased() internal;
 
 internal function to withdraw sReserve from treasury
 
-*note amount given is in reserve, not sReserve*
+note amount given is in reserve, not sReserve
 
 ```solidity
 function _withdraw(uint256 amount) internal;

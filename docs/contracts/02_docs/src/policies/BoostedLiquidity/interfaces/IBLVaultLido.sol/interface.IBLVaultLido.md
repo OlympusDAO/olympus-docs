@@ -1,6 +1,6 @@
 # IBLVaultLido
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/BoostedLiquidity/interfaces/IBLVaultLido.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/BoostedLiquidity/interfaces/IBLVaultLido.sol)
 
 ## Functions
 
@@ -8,7 +8,7 @@
 
 Mints OHM against a wstETH deposit and uses the OHM and wstETH to add liquidity to a Balancer pool
 
-*Can only be called by the owner of the vault*
+Can only be called by the owner of the vault
 
 ```solidity
 function deposit(uint256 amount_, uint256 minLpAmount_) external returns (uint256 lpAmountOut);
@@ -31,7 +31,7 @@ function deposit(uint256 amount_, uint256 minLpAmount_) external returns (uint25
 
 Withdraws LP tokens from Aura and Balancer, burns the OHM side, and returns the wstETH side to the user
 
-*Can only be called by the owner of the vault*
+Can only be called by the owner of the vault
 
 ```solidity
 function withdraw(
@@ -62,7 +62,7 @@ function withdraw(
 
 Withdraws LP tokens from Aura and Balancer, returns the wstETH to the user
 
-*Can only be called by the owner of the vault. Can only be called when the vault is paused*
+Can only be called by the owner of the vault. Can only be called when the vault is paused
 
 ```solidity
 function emergencyWithdraw(uint256 lpAmount_, uint256[] calldata minTokenAmounts_)
@@ -88,7 +88,7 @@ function emergencyWithdraw(uint256 lpAmount_, uint256[] calldata minTokenAmounts
 
 Claims outstanding rewards from Aura
 
-*Can only be called by the owner of the vault*
+Can only be called by the owner of the vault
 
 ```solidity
 function claimRewards() external;

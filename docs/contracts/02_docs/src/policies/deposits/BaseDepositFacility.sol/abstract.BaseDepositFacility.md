@@ -1,9 +1,12 @@
 # BaseDepositFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/deposits/BaseDepositFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/deposits/BaseDepositFacility.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IDepositFacility](/main/contracts/docs/src/policies/interfaces/deposits/IDepositFacility.sol/interface.IDepositFacility), ReentrancyGuard
+
+**Title:**
+Base Deposit Facility
 
 forge-lint: disable-start(asm-keccak256, mixed-case-variable)
 
@@ -16,7 +19,7 @@ Abstract base contract for deposit facilities with shared functionality
 The number representing 100%
 
 ```solidity
-uint16 public constant ONE_HUNDRED_PERCENT = 100e2;
+uint16 public constant ONE_HUNDRED_PERCENT = 100e2
 ```
 
 ### DEPOSIT_MANAGER
@@ -24,7 +27,7 @@ uint16 public constant ONE_HUNDRED_PERCENT = 100e2;
 The deposit manager
 
 ```solidity
-IDepositManager public immutable DEPOSIT_MANAGER;
+IDepositManager public immutable DEPOSIT_MANAGER
 ```
 
 ### _authorizedOperators
@@ -32,7 +35,7 @@ IDepositManager public immutable DEPOSIT_MANAGER;
 Set of authorized operators
 
 ```solidity
-EnumerableSet.AddressSet private _authorizedOperators;
+EnumerableSet.AddressSet private _authorizedOperators
 ```
 
 ### _assetCommittedDeposits
@@ -40,7 +43,7 @@ EnumerableSet.AddressSet private _authorizedOperators;
 The amount of assets committed, excluding the assets that have been lent out
 
 ```solidity
-mapping(IERC20 asset => uint256 committedDeposits) private _assetCommittedDeposits;
+mapping(IERC20 asset => uint256 committedDeposits) private _assetCommittedDeposits
 ```
 
 ### _assetOperatorCommittedDeposits
@@ -48,37 +51,37 @@ mapping(IERC20 asset => uint256 committedDeposits) private _assetCommittedDeposi
 The amount of assets committed per operator, excluding the assets that have been lent out
 
 ```solidity
-mapping(bytes32 assetOperatorKey => uint256 committedDeposits) private _assetOperatorCommittedDeposits;
+mapping(bytes32 assetOperatorKey => uint256 committedDeposits) private _assetOperatorCommittedDeposits
 ```
 
 ### TRSRY
 
 The TRSRY module
 
-*Must be populated by the inheriting contract in `configureDependencies()`*
+Must be populated by the inheriting contract in `configureDependencies()`
 
 ```solidity
-TRSRYv1 public TRSRY;
+TRSRYv1 public TRSRY
 ```
 
 ### DEPOS
 
 The DEPOS module.
 
-*Must be populated by the inheriting contract in `configureDependencies()`*
+Must be populated by the inheriting contract in `configureDependencies()`
 
 ```solidity
-DEPOSv1 public DEPOS;
+DEPOSv1 public DEPOS
 ```
 
 ### _assetPeriodReclaimRates
 
 Maps asset-period key to reclaim rate
 
-*The key is the keccak256 of the asset address and the deposit period*
+The key is the keccak256 of the asset address and the deposit period
 
 ```solidity
-mapping(bytes32 key => uint16 reclaimRate) private _assetPeriodReclaimRates;
+mapping(bytes32 key => uint16 reclaimRate) private _assetPeriodReclaimRates
 ```
 
 ## Functions
@@ -94,7 +97,7 @@ function _onlyAuthorizedOperator() internal view;
 Reverts if the caller is not an authorized operator
 
 ```solidity
-modifier onlyAuthorizedOperator();
+modifier onlyAuthorizedOperator() ;
 ```
 
 ### constructor
@@ -196,12 +199,12 @@ function _getAssetPeriodKey(IERC20 asset_, uint8 depositPeriod_) internal pure r
 
 Allows an operator to commit funds. This will ensure that enough funds are available to honour the commitments.
 
-*This function will revert if:
+This function will revert if:
 
 - This contract is not enabled
 - The caller is not an authorized operator
 - The deposit token or period are not supported for this facility in the DepositManager
-- There are not enough available deposits in the DepositManager*
+- There are not enough available deposits in the DepositManager
 
 ```solidity
 function handleCommit(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount_)
@@ -223,11 +226,11 @@ function handleCommit(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount
 
 Allows an operator to cancel committed funds.
 
-*This function will revert if:
+This function will revert if:
 
 - This contract is not enabled
 - The caller is not an authorized operator
-- The amount is greater than the committed deposits for the operator*
+- The amount is greater than the committed deposits for the operator
 
 ```solidity
 function handleCommitCancel(IERC20 depositToken_, uint8, uint256 amount_)
@@ -249,11 +252,11 @@ function handleCommitCancel(IERC20 depositToken_, uint8, uint256 amount_)
 
 Allows an operator to withdraw committed funds. This will withdraw deposit tokens to the recipient.
 
-*This function will revert if:
+This function will revert if:
 
 - This contract is not enabled
 - The caller is not an authorized operator
-- The amount is greater than the committed deposits for the operator*
+- The amount is greater than the committed deposits for the operator
 
 ```solidity
 function handleCommitWithdraw(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount_, address recipient_)
@@ -283,12 +286,12 @@ function handleCommitWithdraw(IERC20 depositToken_, uint8 depositPeriod_, uint25
 
 Allows an operator to borrow against this facility's committed funds.
 
-*This function will revert if:
+This function will revert if:
 
 - This contract is not enabled
 - The caller is not an authorized operator
 - The amount is greater than the committed deposits for the operator
-- The amount withdrawn from the vault would be zero*
+- The amount withdrawn from the vault would be zero
 
 ```solidity
 function handleBorrow(IERC20 depositToken_, uint8, uint256 amount_, address recipient_)
@@ -318,7 +321,7 @@ function handleBorrow(IERC20 depositToken_, uint8, uint256 amount_, address reci
 
 Allows an operator to repay borrowed funds
 
-*This function performs the following:
+This function performs the following:
 
 - Updates the committed deposits
 Notes:
@@ -326,7 +329,7 @@ Notes:
 - This function does not check for over-payment. It is expected to be handled by the calling contract.
 This function will revert if:
 - This contract is not enabled
-- The caller is not an authorized operator*
+- The caller is not an authorized operator
 
 ```solidity
 function handleLoanRepay(IERC20 depositToken_, uint8, uint256 amount_, uint256 maxAmount_, address payer_)
@@ -357,10 +360,10 @@ function handleLoanRepay(IERC20 depositToken_, uint8, uint256 amount_, uint256 m
 
 Allows an operator to default on a loan
 
-*This function will revert if:
+This function will revert if:
 
 - This contract is not enabled
-- The caller is not an authorized operator*
+- The caller is not an authorized operator
 
 ```solidity
 function handleLoanDefault(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount_, address payer_)
@@ -440,14 +443,14 @@ function getAvailableDeposits(IERC20 depositToken_) public view returns (uint256
 
 ### getCommittedDeposits
 
-Get the committed deposits for a specific token.
+Get the committed deposits for a specific token and operator.
 The committed deposits value represents the amount of the deposit token
-that this contract ensures will be available for all operators to use.
+that this contract ensures will be available for the specific operator to use.
 
-*The amount is calculated as:
+The amount is calculated as:
 
 - The amount of deposits that have been committed (via `handleCommit()`) for the deposit token and operator
-- Minus: the amount of loan principal currently outstanding for the operator*
+- Minus: the amount of loan principal currently outstanding for the operator
 
 ```solidity
 function getCommittedDeposits(IERC20 depositToken_, address operator_) public view returns (uint256);
@@ -458,13 +461,13 @@ function getCommittedDeposits(IERC20 depositToken_, address operator_) public vi
 |Name|Type|Description|
 |----|----|-----------|
 |`depositToken_`|`IERC20`|   The deposit token to query|
-|`operator_`|`address`||
+|`operator_`|`address`|       The operator|
 
 **Returns**
 
 |Name|Type|Description|
 |----|----|-----------|
-|`<none>`|`uint256`|committed       The total committed deposits|
+|`<none>`|`uint256`|committed       The committed deposits for the operator|
 
 ### getCommittedDeposits
 
@@ -472,10 +475,10 @@ Get the committed deposits for a specific token.
 The committed deposits value represents the amount of the deposit token
 that this contract ensures will be available for all operators to use.
 
-*The amount returned is calculated as:
+The amount returned is calculated as:
 
 - The amount of deposits that have been committed (via `handleCommit()`) for the deposit token
-- Minus: the amount of loan principal currently outstanding*
+- Minus: the amount of loan principal currently outstanding
 
 ```solidity
 function getCommittedDeposits(IERC20 depositToken_) public view returns (uint256);
@@ -512,9 +515,9 @@ function _previewReclaim(IERC20 depositToken_, uint8 depositPeriod_, uint256 amo
 
 Preview the amount of deposit token that would be reclaimed
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
-- Returning the total amount of deposit tokens that would be reclaimed*
+- Returning the total amount of deposit tokens that would be reclaimed
 
 ```solidity
 function previewReclaim(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount_)
@@ -544,12 +547,12 @@ Reclaims deposit tokens, after applying a discount
 Deposit tokens can be reclaimed at any time.
 The caller is not required to have a position in the facility.
 
-*This function reverts if:
+This function reverts if:
 
 - The contract is not active
 - Deposits are not enabled for the asset/period
 - The depositor has not approved the DepositManager to spend the receipt token
-- The depositor has an insufficient balance of the receipt token*
+- The depositor has an insufficient balance of the receipt token
 
 ```solidity
 function reclaim(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount_)
@@ -577,11 +580,11 @@ function reclaim(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount_)
 
 Splits the specified amount of the position into a new position
 
-*This function reverts if:
+This function reverts if:
 
 - The position does not exist
 - The position was not created by this facility
-- The caller is not the owner of the position*
+- The caller is not the owner of the position
 
 ```solidity
 function split(uint256 positionId_, uint256 amount_, address to_, bool wrap_)
@@ -610,7 +613,7 @@ function split(uint256 positionId_, uint256 amount_, address to_, bool wrap_)
 
 Internal function to handle the splitting of a position
 
-*Inheriting contracts can implement this function to perform custom actions when a position is split. This function is called before the position is split in the underlying DEPOS module.*
+Inheriting contracts can implement this function to perform custom actions when a position is split. This function is called before the position is split in the underlying DEPOS module.
 
 ```solidity
 function _split(uint256 oldPositionId_, uint256 amount_) internal virtual;
@@ -620,11 +623,11 @@ function _split(uint256 oldPositionId_, uint256 amount_) internal virtual;
 
 Sets the reclaim rate for an asset period
 
-*This function reverts if:
+This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the manager or admin role
-- The reclaim rate exceeds 100%*
+- The reclaim rate exceeds 100%
 
 ```solidity
 function setAssetPeriodReclaimRate(IERC20 asset_, uint8 depositPeriod_, uint16 reclaimRate_)

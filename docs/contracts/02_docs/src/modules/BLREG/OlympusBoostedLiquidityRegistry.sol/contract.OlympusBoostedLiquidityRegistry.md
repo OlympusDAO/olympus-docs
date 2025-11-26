@@ -1,15 +1,18 @@
 # OlympusBoostedLiquidityRegistry
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/BLREG/OlympusBoostedLiquidityRegistry.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/BLREG/OlympusBoostedLiquidityRegistry.sol)
 
 **Inherits:**
 [BLREGv1](/main/contracts/docs/src/modules/BLREG/BLREG.v1.sol/abstract.BLREGv1)
 
+**Title:**
+Olympus Boosted Liquidity Vault Registry
+
 Olympus Boosted Liquidity Vault Registry (Module) Contract
 
-*The Olympus Boosted Liquidity Vault Registry Module tracks the boosted liquidity vaults
+The Olympus Boosted Liquidity Vault Registry Module tracks the boosted liquidity vaults
 that are approved to be used by the Olympus protocol. This allows for a single-soure
-of truth for reporting purposes around total OHM deployed and net emissions.*
+of truth for reporting purposes around total OHM deployed and net emissions.
 
 ## Functions
 

@@ -1,6 +1,6 @@
 # Timestamp
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/libraries/Timestamp.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/libraries/Timestamp.sol)
 
 ## Functions
 
@@ -8,7 +8,7 @@
 
 Convert a timestamp to a padded string of the form "YYYY-MM-DD"
 
-*This has only been tested up to year 2345.*
+This has only been tested up to year 2345.
 
 ```solidity
 function toPaddedString(uint48 timestamp) internal pure returns (string memory, string memory, string memory);

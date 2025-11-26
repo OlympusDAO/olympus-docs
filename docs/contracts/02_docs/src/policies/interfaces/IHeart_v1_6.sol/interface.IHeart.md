@@ -1,8 +1,8 @@
 # IHeart
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/IHeart_v1_6.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/IHeart_v1_6.sol)
 
-*Interface for the Heart policy as of v1.6*
+Interface for the Heart policy as of v1.6
 
 ## Functions
 
@@ -14,7 +14,7 @@ Only callable when enough time has passed since last beat (determined by frequen
 
 This function is incentivized with a token reward (see rewardToken and reward variables).
 
-*Triggers price oracle update and market operations*
+Triggers price oracle update and market operations
 
 ```solidity
 function beat() external;
@@ -36,7 +36,7 @@ Turns the heart on and resets the beat
 
 Access restricted
 
-*This function is used to restart the heart after a pause*
+This function is used to restart the heart after a pause
 
 ```solidity
 function activate() external;
@@ -48,7 +48,7 @@ Turns the heart off
 
 Access restricted
 
-*Emergency stop function for the heart*
+Emergency stop function for the heart
 
 ```solidity
 function deactivate() external;
@@ -165,6 +165,14 @@ Current reward amount based on linear auction
 
 ```solidity
 function currentReward() external view returns (uint256);
+```
+
+### active
+
+Whether the contract is active
+
+```solidity
+function active() external view returns (bool);
 ```
 
 ## Events

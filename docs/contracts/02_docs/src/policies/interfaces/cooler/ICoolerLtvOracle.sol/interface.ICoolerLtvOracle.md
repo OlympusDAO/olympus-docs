@@ -1,6 +1,9 @@
 # ICoolerLtvOracle
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/cooler/ICoolerLtvOracle.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/cooler/ICoolerLtvOracle.sol)
+
+**Title:**
+Cooler LTV Oracle
 
 It is a custom oracle (not dependant on external markets/AMMs/dependencies) to give the
 serve both the Origination LTV and Liquidation LTV
@@ -57,8 +60,8 @@ function currentLiquidationLtv() external view returns (uint96);
 The maximum allowed Origination LTV change on any single `setOriginationLtvAt()`, in absolute terms
 between the Origination LTV as of now and the targetOriginationLtv
 
-*18 decimal places, 0.20e18 == $0.20.
-Used as a bound to avoid unintended/fat fingering when updating Origination LTV*
+18 decimal places, 0.20e18 == $0.20.
+Used as a bound to avoid unintended/fat fingering when updating Origination LTV
 
 ```solidity
 function maxOriginationLtvDelta() external view returns (uint96);
@@ -69,8 +72,8 @@ function maxOriginationLtvDelta() external view returns (uint96);
 The minimum time delta required for Origination LTV to reach it's target value when
 `setOriginationLtvAt()` is called.
 
-*In seconds.
-Used as a bound to avoid unintended/fat fingering when updating Origination LTV*
+In seconds.
+Used as a bound to avoid unintended/fat fingering when updating Origination LTV
 
 ```solidity
 function minOriginationLtvTargetTimeDelta() external view returns (uint32);
@@ -81,7 +84,7 @@ function minOriginationLtvTargetTimeDelta() external view returns (uint32);
 The maximum (positive) rate of change of Origination LTV allowed, when
 `setOriginationLtvAt()` is called.
 
-*Units: [Origination LTV / second]*
+Units: [Origination LTV / second]
 
 ```solidity
 function maxOriginationLtvRateOfChange() external view returns (uint96);
@@ -137,7 +140,7 @@ function setMaxLiquidationLtvPremiumBps(uint16 premiumBps) external;
 Set the maximum allowed Origination LTV change on any single `setOriginationLtvAt()`, in absolute terms
 between the Origination LTV as of now and the targetOriginationLtv
 
-*18 decimal places, 0.20e18 == $0.20*
+18 decimal places, 0.20e18 == $0.20
 
 ```solidity
 function setMaxOriginationLtvDelta(uint96 maxDelta) external;
@@ -148,7 +151,7 @@ function setMaxOriginationLtvDelta(uint96 maxDelta) external;
 Set the minimum time delta required for Origination LTV to reach it's target value when
 `setOriginationLtvAt()` is called.
 
-*In seconds.*
+In seconds.
 
 ```solidity
 function setMinOriginationLtvTargetTimeDelta(uint32 minTargetTimeDelta) external;
@@ -159,7 +162,7 @@ function setMinOriginationLtvTargetTimeDelta(uint32 minTargetTimeDelta) external
 Set the maximum (positive) rate of change of Origination LTV allowed, when
 `setOriginationLtvAt()` is called.
 
-*Units: [Origination LTV / second]*
+Units: [Origination LTV / second]
 
 ```solidity
 function setMaxOriginationLtvRateOfChange(uint96 originationLtvDelta, uint32 timeDelta) external;
@@ -170,7 +173,7 @@ function setMaxOriginationLtvRateOfChange(uint96 originationLtvDelta, uint32 tim
 Set the target Origination LTV which will incrementally increase from it's current value to `targetOriginationLtv`
 between now and `targetTime`.
 
-*targetTime is unixtime, targetOriginationLtv is 18 decimal places, 1.05e18 == $1.05*
+targetTime is unixtime, targetOriginationLtv is 18 decimal places, 1.05e18 == $1.05
 
 ```solidity
 function setOriginationLtvAt(uint96 targetOriginationLtv, uint40 targetTime) external;

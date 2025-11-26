@@ -1,6 +1,6 @@
 # IBLVaultManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/BoostedLiquidity/interfaces/IBLVaultManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/BoostedLiquidity/interfaces/IBLVaultManager.sol)
 
 ## Functions
 
@@ -16,7 +16,7 @@ function minWithdrawalDelay() external returns (uint48);
 
 Deploys a personal single sided vault for the user
 
-*The vault is deployed with the user as the owner*
+The vault is deployed with the user as the owner
 
 ```solidity
 function deployVault() external returns (address);
@@ -32,7 +32,7 @@ function deployVault() external returns (address);
 
 Mints OHM to the caller
 
-*Can only be called by an approved vault*
+Can only be called by an approved vault
 
 ```solidity
 function mintOhmToVault(uint256 amount_) external;
@@ -48,7 +48,7 @@ function mintOhmToVault(uint256 amount_) external;
 
 Burns OHM from the caller
 
-*Can only be called by an approved vault. The caller must have an OHM approval for the MINTR.*
+Can only be called by an approved vault. The caller must have an OHM approval for the MINTR.
 
 ```solidity
 function burnOhmFromVault(uint256 amount_) external;
@@ -64,7 +64,7 @@ function burnOhmFromVault(uint256 amount_) external;
 
 Increases the tracked value for totalLP
 
-*Can only be called by an approved vault*
+Can only be called by an approved vault
 
 ```solidity
 function increaseTotalLp(uint256 amount_) external;
@@ -80,7 +80,7 @@ function increaseTotalLp(uint256 amount_) external;
 
 Decreases the tracked value for totalLP
 
-*Can only be called by an approved vault*
+Can only be called by an approved vault
 
 ```solidity
 function decreaseTotalLp(uint256 amount_) external;
@@ -350,7 +350,7 @@ function getOhmTknPoolPrice() external view returns (uint256);
 
 Emergency burns OHM that has been sent to the manager in the event a user had to emergency withdraw
 
-*Can only be called by the admin*
+Can only be called by the admin
 
 ```solidity
 function emergencyBurnOhm(uint256 amount_) external;
@@ -366,7 +366,7 @@ function emergencyBurnOhm(uint256 amount_) external;
 
 Updates the limit on minting OHM
 
-*Can only be called by the admin. Cannot be set lower than the current outstanding minted OHM.*
+Can only be called by the admin. Cannot be set lower than the current outstanding minted OHM.
 
 ```solidity
 function setLimit(uint256 newLimit_) external;
@@ -382,7 +382,7 @@ function setLimit(uint256 newLimit_) external;
 
 Updates the fee on reward tokens
 
-*Can only be called by the admin. Cannot be set beyond 10_000 (100%). Only is used by vaults deployed after the update.*
+Can only be called by the admin. Cannot be set beyond 10_000 (100%). Only is used by vaults deployed after the update.
 
 ```solidity
 function setFee(uint64 newFee_) external;
@@ -398,7 +398,7 @@ function setFee(uint64 newFee_) external;
 
 Updates the minimum holding period before a user can withdraw
 
-*Can only be called by the admin*
+Can only be called by the admin
 
 ```solidity
 function setWithdrawalDelay(uint48 newDelay_) external;
@@ -414,7 +414,7 @@ function setWithdrawalDelay(uint48 newDelay_) external;
 
 Activates the vault manager and all approved vaults
 
-*Can only be called by the admin*
+Can only be called by the admin
 
 ```solidity
 function activate() external;
@@ -424,7 +424,7 @@ function activate() external;
 
 Deactivates the vault manager and all approved vaults
 
-*Can only be called by the admin*
+Can only be called by the admin
 
 ```solidity
 function deactivate() external;

@@ -1,16 +1,16 @@
 # PRICEv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/PRICE/PRICE.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/PRICE/PRICE.v1.sol)
 
 **Inherits:**
 [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
 
 Price oracle data storage
 
-*The Olympus Price Oracle contract provides a standard interface for OHM price data against a reserve asset.
+The Olympus Price Oracle contract provides a standard interface for OHM price data against a reserve asset.
 It also implements a moving average price calculation (same as a TWAP) on the price feed data over a configured
 duration and observation frequency. The data provided by this contract is used by the Olympus Range Operator to
-perform market operations. The Olympus Price Oracle is updated each epoch by the Olympus Heart contract.*
+perform market operations. The Olympus Price Oracle is updated each epoch by the Olympus Heart contract.
 
 ## State Variables
 
@@ -18,12 +18,12 @@ perform market operations. The Olympus Price Oracle is updated each epoch by the
 
 OHM/ETH price feed
 
-*Price feeds. Chainlink typically provides price feeds for an asset in ETH. Therefore, we use two price feeds against ETH, one for OHM and one for the Reserve asset, to calculate the relative price of OHM in the Reserve asset.*
+Price feeds. Chainlink typically provides price feeds for an asset in ETH. Therefore, we use two price feeds against ETH, one for OHM and one for the Reserve asset, to calculate the relative price of OHM in the Reserve asset.
 
-*Update thresholds are the maximum amount of time that can pass between price feed updates before the price oracle is considered stale. These should be set based on the parameters of the price feed.*
+Update thresholds are the maximum amount of time that can pass between price feed updates before the price oracle is considered stale. These should be set based on the parameters of the price feed.
 
 ```solidity
-AggregatorV2V3Interface public ohmEthPriceFeed;
+AggregatorV2V3Interface public ohmEthPriceFeed
 ```
 
 ### ohmEthUpdateThreshold
@@ -31,7 +31,7 @@ AggregatorV2V3Interface public ohmEthPriceFeed;
 Maximum expected time between OHM/ETH price feed updates
 
 ```solidity
-uint48 public ohmEthUpdateThreshold;
+uint48 public ohmEthUpdateThreshold
 ```
 
 ### reserveEthPriceFeed
@@ -39,7 +39,7 @@ uint48 public ohmEthUpdateThreshold;
 Reserve/ETH price feed
 
 ```solidity
-AggregatorV2V3Interface public reserveEthPriceFeed;
+AggregatorV2V3Interface public reserveEthPriceFeed
 ```
 
 ### reserveEthUpdateThreshold
@@ -47,28 +47,28 @@ AggregatorV2V3Interface public reserveEthPriceFeed;
 Maximum expected time between OHM/ETH price feed updates
 
 ```solidity
-uint48 public reserveEthUpdateThreshold;
+uint48 public reserveEthUpdateThreshold
 ```
 
 ### cumulativeObs
 
 Running sum of observations to calculate the moving average price from
 
-*See getMovingAverage()*
+See getMovingAverage()
 
 ```solidity
-uint256 public cumulativeObs;
+uint256 public cumulativeObs
 ```
 
 ### observations
 
 Array of price observations. Check nextObsIndex to determine latest data point.
 
-*Observations are stored in a ring buffer where the moving average is the sum of all observations divided by the number of observations.
-Observations can be cleared by changing the movingAverageDuration or observationFrequency and must be re-initialized.*
+Observations are stored in a ring buffer where the moving average is the sum of all observations divided by the number of observations.
+Observations can be cleared by changing the movingAverageDuration or observationFrequency and must be re-initialized.
 
 ```solidity
-uint256[] public observations;
+uint256[] public observations
 ```
 
 ### nextObsIndex
@@ -76,7 +76,7 @@ uint256[] public observations;
 Index of the next observation to make. The current value at this index is the oldest observation.
 
 ```solidity
-uint32 public nextObsIndex;
+uint32 public nextObsIndex
 ```
 
 ### numObservations
@@ -84,7 +84,7 @@ uint32 public nextObsIndex;
 Number of observations used in the moving average calculation. Computed from movingAverageDuration / observationFrequency.
 
 ```solidity
-uint32 public numObservations;
+uint32 public numObservations
 ```
 
 ### observationFrequency
@@ -92,7 +92,7 @@ uint32 public numObservations;
 Frequency (in seconds) that observations should be stored.
 
 ```solidity
-uint48 public observationFrequency;
+uint48 public observationFrequency
 ```
 
 ### movingAverageDuration
@@ -100,7 +100,7 @@ uint48 public observationFrequency;
 Duration (in seconds) over which the moving average is calculated.
 
 ```solidity
-uint48 public movingAverageDuration;
+uint48 public movingAverageDuration
 ```
 
 ### lastObservationTime
@@ -108,7 +108,7 @@ uint48 public movingAverageDuration;
 Unix timestamp of last observation (in seconds).
 
 ```solidity
-uint48 public lastObservationTime;
+uint48 public lastObservationTime
 ```
 
 ### initialized
@@ -116,7 +116,7 @@ uint48 public lastObservationTime;
 Whether the price module is initialized (and therefore active).
 
 ```solidity
-bool public initialized;
+bool public initialized
 ```
 
 ### decimals
@@ -124,7 +124,7 @@ bool public initialized;
 Number of decimals in the price values provided by the contract.
 
 ```solidity
-uint8 public constant decimals = 18;
+uint8 public constant decimals = 18
 ```
 
 ### minimumTargetPrice
@@ -132,7 +132,7 @@ uint8 public constant decimals = 18;
 Minimum target price for RBS system. Set manually to correspond to the liquid backing of OHM.
 
 ```solidity
-uint256 public minimumTargetPrice;
+uint256 public minimumTargetPrice
 ```
 
 ## Functions
@@ -141,8 +141,8 @@ uint256 public minimumTargetPrice;
 
 Trigger an update of the moving average. Permissioned.
 
-*This function does not have a time-gating on the observationFrequency on this contract. It is set on the Heart policy contract.
-The Heart beat frequency should be set to the same value as the observationFrequency.*
+This function does not have a time-gating on the observationFrequency on this contract. It is set on the Heart policy contract.
+The Heart beat frequency should be set to the same value as the observationFrequency.
 
 ```solidity
 function updateMovingAverage() external virtual;
@@ -154,8 +154,8 @@ Initialize the price module
 
 Access restricted to activated policies
 
-*This function must be called after the Price module is deployed to activate it and after updating the observationFrequency
-or movingAverageDuration (in certain cases) in order for the Price module to function properly.*
+This function must be called after the Price module is deployed to activate it and after updating the observationFrequency
+or movingAverageDuration (in certain cases) in order for the Price module to function properly.
 
 ```solidity
 function initialize(uint256[] memory startObservations_, uint48 lastObservationTime_) external virtual;
@@ -172,9 +172,9 @@ function initialize(uint256[] memory startObservations_, uint48 lastObservationT
 
 Change the moving average window (duration)
 
-*Changing the moving average duration will erase the current observations array
+Changing the moving average duration will erase the current observations array
 and require the initialize function to be called again. Ensure that you have saved
-the existing data and can re-populate before calling this function.*
+the existing data and can re-populate before calling this function.
 
 ```solidity
 function changeMovingAverageDuration(uint48 movingAverageDuration_) external virtual;
@@ -190,8 +190,8 @@ function changeMovingAverageDuration(uint48 movingAverageDuration_) external vir
 
 Change the observation frequency of the moving average (i.e. how often a new observation is taken)
 
-*Changing the observation frequency clears existing observation data since it will not be taken at the right time intervals.
-Ensure that you have saved the existing data and/or can re-populate before calling this function.*
+Changing the observation frequency clears existing observation data since it will not be taken at the right time intervals.
+Ensure that you have saved the existing data and/or can re-populate before calling this function.
 
 ```solidity
 function changeObservationFrequency(uint48 observationFrequency_) external virtual;
@@ -207,7 +207,7 @@ function changeObservationFrequency(uint48 observationFrequency_) external virtu
 
 Change the update thresholds for the price feeds
 
-*The update thresholds should be set based on the update threshold of the chainlink oracles.*
+The update thresholds should be set based on the update threshold of the chainlink oracles.
 
 ```solidity
 function changeUpdateThresholds(uint48 ohmEthUpdateThreshold_, uint48 reserveEthUpdateThreshold_) external virtual;
@@ -224,7 +224,7 @@ function changeUpdateThresholds(uint48 ohmEthUpdateThreshold_, uint48 reserveEth
 
 Change the minimum target price
 
-*The minimum target price should be set based on the liquid backing of OHM.*
+The minimum target price should be set based on the liquid backing of OHM.
 
 ```solidity
 function changeMinimumTargetPrice(uint256 minimumTargetPrice_) external virtual;
@@ -264,7 +264,7 @@ function getMovingAverage() external view virtual returns (uint256);
 
 Get target price of OHM in the Reserve asset for the RBS system
 
-*Returns the maximum of the moving average and the minimum target price*
+Returns the maximum of the moving average and the minimum target price
 
 ```solidity
 function getTargetPrice() external view virtual returns (uint256);

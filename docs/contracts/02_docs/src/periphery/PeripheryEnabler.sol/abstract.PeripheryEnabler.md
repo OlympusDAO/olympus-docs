@@ -1,15 +1,18 @@
 # PeripheryEnabler
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/periphery/PeripheryEnabler.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/periphery/PeripheryEnabler.sol)
 
 **Inherits:**
 [IEnabler](/main/contracts/docs/src/periphery/interfaces/IEnabler.sol/interface.IEnabler)
 
+**Title:**
+PeripheryEnabler
+
 Abstract contract that implements the `IEnabler` interface
 
-*This contract is designed to be used as a base contract for periphery contracts that need to be enabled and disabled.
+This contract is designed to be used as a base contract for periphery contracts that need to be enabled and disabled.
 It additionally is not opionated about whether a caller is permitted to enable/disable the contract, and delegates it to a virtual function.
-It is a periphery contract, as it does not require any privileged access to the Olympus protocol.*
+It is a periphery contract, as it does not require any privileged access to the Olympus protocol.
 
 ## State Variables
 
@@ -18,7 +21,7 @@ It is a periphery contract, as it does not require any privileged access to the 
 Whether the contract is enabled
 
 ```solidity
-bool public isEnabled;
+bool public isEnabled
 ```
 
 ## Functions
@@ -32,7 +35,7 @@ function _onlyEnabled() internal view;
 ### onlyEnabled
 
 ```solidity
-modifier onlyEnabled();
+modifier onlyEnabled() ;
 ```
 
 ### _onlyDisabled
@@ -44,14 +47,14 @@ function _onlyDisabled() internal view;
 ### onlyDisabled
 
 ```solidity
-modifier onlyDisabled();
+modifier onlyDisabled() ;
 ```
 
 ### _onlyOwner
 
 Implementation-specific validation of ownership
 
-*Implementing contracts should override this function to perform the appropriate validation and revert if the caller is not permitted to enable/disable the contract.*
+Implementing contracts should override this function to perform the appropriate validation and revert if the caller is not permitted to enable/disable the contract.
 
 ```solidity
 function _onlyOwner() internal view virtual;
@@ -61,12 +64,12 @@ function _onlyOwner() internal view virtual;
 
 Implementation-specific enable function
 
-*This function is called by the `enable()` function
+This function is called by the `enable()` function
 The implementing contract can override this function and perform the following:
 
 1. Validate any parameters (if needed) or revert
 2. Validate state (if needed) or revert
-3. Perform any necessary actions, apart from modifying the `isEnabled` state variable*
+3. Perform any necessary actions, apart from modifying the `isEnabled` state variable
 
 ```solidity
 function _enable(bytes calldata enableData_) internal virtual;
@@ -82,7 +85,7 @@ function _enable(bytes calldata enableData_) internal virtual;
 
 Enables the contract
 
-*Implementing contracts should implement permissioning logic*
+Implementing contracts should implement permissioning logic
 
 ```solidity
 function enable(bytes calldata enableData_) external onlyDisabled;
@@ -98,12 +101,12 @@ function enable(bytes calldata enableData_) external onlyDisabled;
 
 Implementation-specific disable function
 
-*This function is called by the `disable()` function
+This function is called by the `disable()` function
 The implementing contract can override this function and perform the following:
 
 1. Validate any parameters (if needed) or revert
 2. Validate state (if needed) or revert
-3. Perform any necessary actions, apart from modifying the `isEnabled` state variable*
+3. Perform any necessary actions, apart from modifying the `isEnabled` state variable
 
 ```solidity
 function _disable(bytes calldata disableData_) internal virtual;
@@ -119,7 +122,7 @@ function _disable(bytes calldata disableData_) internal virtual;
 
 Disables the contract
 
-*Implementing contracts should implement permissioning logic*
+Implementing contracts should implement permissioning logic
 
 ```solidity
 function disable(bytes calldata disableData_) external onlyEnabled;

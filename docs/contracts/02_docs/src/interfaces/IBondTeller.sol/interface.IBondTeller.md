@@ -1,6 +1,6 @@
 # IBondTeller
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/interfaces/IBondTeller.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/IBondTeller.sol)
 
 ## Functions
 
@@ -71,8 +71,8 @@ function setProtocolFee(uint48 fee_) external;
 
 Set the discount for creating bond tokens from the base protocol fee
 
-*The discount is subtracted from the protocol fee to determine the fee
-when using create() to mint bond tokens without using an Auctioneer*
+The discount is subtracted from the protocol fee to determine the fee
+when using create() to mint bond tokens without using an Auctioneer
 
 ```solidity
 function setCreateFeeDiscount(uint48 discount_) external;

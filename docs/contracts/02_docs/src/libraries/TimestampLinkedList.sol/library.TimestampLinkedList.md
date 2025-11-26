@@ -1,10 +1,13 @@
 # TimestampLinkedList
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/libraries/TimestampLinkedList.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/libraries/TimestampLinkedList.sol)
+
+**Title:**
+TimestampLinkedList
 
 A library for managing linked lists of uint48 timestamps in descending order
 
-*Each list maintains timestamps in descending chronological order (newest first)*
+Each list maintains timestamps in descending chronological order (newest first)
 
 ## Functions
 
@@ -12,11 +15,11 @@ A library for managing linked lists of uint48 timestamps in descending order
 
 Adds a new timestamp to the list in descending order
 
-*Does nothing if timestamp already exists*
+Does nothing if timestamp already exists
 
-*This function will revert if:*
+This function will revert if:
 
-*- The timestamp is 0*
+- The timestamp is 0
 
 ```solidity
 function add(List storage list, uint48 timestamp) internal;
@@ -33,7 +36,7 @@ function add(List storage list, uint48 timestamp) internal;
 
 Finds the largest timestamp that is less than or equal to the target
 
-*Returns 0 if no such timestamp exists*
+Returns 0 if no such timestamp exists
 
 ```solidity
 function findLastBefore(List storage list, uint48 target) internal view returns (uint48);
@@ -56,7 +59,7 @@ function findLastBefore(List storage list, uint48 target) internal view returns 
 
 Finds the smallest timestamp that is greater than the target
 
-*Returns 0 if no such timestamp exists*
+Returns 0 if no such timestamp exists
 
 ```solidity
 function findFirstAfter(List storage list, uint48 target) internal view returns (uint48);
@@ -161,7 +164,7 @@ function isEmpty(List storage list) internal view returns (bool);
 
 Returns the number of elements in the list
 
-*This is an O(n) operation, use sparingly*
+This is an O(n) operation, use sparingly
 
 ```solidity
 function length(List storage list) internal view returns (uint256);
@@ -183,7 +186,7 @@ function length(List storage list) internal view returns (uint256);
 
 Returns all timestamps in the list in descending order
 
-*This is an O(n) operation with O(n) memory allocation, use sparingly*
+This is an O(n) operation with O(n) memory allocation, use sparingly
 
 ```solidity
 function toArray(List storage list) internal view returns (uint48[] memory timestamps);

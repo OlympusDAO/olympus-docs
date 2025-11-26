@@ -1,29 +1,29 @@
 # OlympusRange
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/RANGE/OlympusRange.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/RANGE/OlympusRange.sol)
 
 **Inherits:**
 [RANGEv2](/main/contracts/docs/src/modules/RANGE/RANGE.v2.sol/abstract.RANGEv2)
 
 Olympus Range data storage module
 
-*The Olympus Range contract stores information about the Olympus Range market operations status.
+The Olympus Range contract stores information about the Olympus Range market operations status.
 It provides a standard interface for Range data, including range prices and capacities of each range side.
 The data provided by this contract is used by the Olympus Range Operator to perform market operations.
-The Olympus Range Data is updated each epoch by the Olympus Range Operator contract.*
+The Olympus Range Data is updated each epoch by the Olympus Range Operator contract.
 
 ## State Variables
 
 ### ONE_HUNDRED_PERCENT
 
 ```solidity
-uint256 public constant ONE_HUNDRED_PERCENT = 100e2;
+uint256 public constant ONE_HUNDRED_PERCENT = 100e2
 ```
 
 ### ONE_PERCENT
 
 ```solidity
-uint256 public constant ONE_PERCENT = 1e2;
+uint256 public constant ONE_PERCENT = 1e2
 ```
 
 ## Functions
@@ -36,8 +36,8 @@ constructor(
     ERC20 ohm_,
     ERC20 reserve_,
     uint256 thresholdFactor_,
-    uint256[2] memory lowSpreads_,
-    uint256[2] memory highSpreads_
+    uint256[2] memory lowSpreads_, // [cushion, wall]
+    uint256[2] memory highSpreads_ // [cushion, wall]
 ) Module(kernel_);
 ```
 
@@ -128,7 +128,7 @@ function updateMarket(bool high_, uint256 market_, uint256 marketCapacity_) publ
 
 Set the wall and cushion spreads.
 
-*The new spreads will not go into effect until the next time updatePrices() is called.*
+The new spreads will not go into effect until the next time updatePrices() is called.
 
 ```solidity
 function setSpreads(bool high_, uint256 cushionSpread_, uint256 wallSpread_) external override permissioned;
@@ -146,7 +146,7 @@ function setSpreads(bool high_, uint256 cushionSpread_, uint256 wallSpread_) ext
 
 Set the threshold factor for when a wall is considered "down".
 
-*The new threshold factor will not go into effect until the next time regenerate() is called for each side of the wall.*
+The new threshold factor will not go into effect until the next time regenerate() is called for each side of the wall.
 
 ```solidity
 function setThresholdFactor(uint256 thresholdFactor_) external override permissioned;

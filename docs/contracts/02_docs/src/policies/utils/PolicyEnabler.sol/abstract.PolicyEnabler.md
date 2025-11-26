@@ -1,19 +1,22 @@
 # PolicyEnabler
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/utils/PolicyEnabler.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/utils/PolicyEnabler.sol)
 
 **Inherits:**
 [IEnabler](/main/contracts/docs/src/periphery/interfaces/IEnabler.sol/interface.IEnabler), [PolicyAdmin](/main/contracts/docs/src/policies/utils/PolicyAdmin.sol/abstract.PolicyAdmin)
 
+**Title:**
+PolicyEnabler
+
 This contract is designed to be inherited by contracts that need to be enabled or disabled. It replaces the inconsistent usage of `active` and `locallyActive` state variables across the codebase.
 
-*A contract that inherits from this contract should use the `onlyEnabled` and `onlyDisabled` modifiers to gate access to certain functions.
+A contract that inherits from this contract should use the `onlyEnabled` and `onlyDisabled` modifiers to gate access to certain functions.
 Inheriting contracts must do the following:
 
 - In `configureDependencies()`, assign the module address to the `ROLES` state variable, e.g. `ROLES = ROLESv1(getModuleAddress(toKeycode("ROLES")));`
 The following are optional:
 - Override the `_enable()` and `_disable()` functions if custom logic and/or parameters are needed for the enable/disable functions.
-- For example, `enable()` could be called with initialisation data that is decoded, validated and assigned in `_enable()`.*
+- For example, `enable()` could be called with initialisation data that is decoded, validated and assigned in `_enable()`.
 
 ## State Variables
 
@@ -22,7 +25,7 @@ The following are optional:
 Whether the policy functionality is enabled
 
 ```solidity
-bool public isEnabled;
+bool public isEnabled
 ```
 
 ## Functions
@@ -38,7 +41,7 @@ function _onlyEnabled() internal view;
 Modifier that reverts if the policy is not enabled
 
 ```solidity
-modifier onlyEnabled();
+modifier onlyEnabled() ;
 ```
 
 ### _onlyDisabled
@@ -52,20 +55,20 @@ function _onlyDisabled() internal view;
 Modifier that reverts if the policy is enabled
 
 ```solidity
-modifier onlyDisabled();
+modifier onlyDisabled() ;
 ```
 
 ### enable
 
 Enable the contract
 
-*This function performs the following steps:
+This function performs the following steps:
 
 1. Validates that the caller has the admin role
 2. Validates that the contract is disabled
 3. Calls the implementation-specific `_enable()` function
 4. Changes the state of the contract to enabled
-5. Emits the `Enabled` event*
+5. Emits the `Enabled` event
 
 ```solidity
 function enable(bytes calldata enableData_) public onlyAdminRole onlyDisabled;
@@ -81,12 +84,12 @@ function enable(bytes calldata enableData_) public onlyAdminRole onlyDisabled;
 
 Implementation-specific enable function
 
-*This function is called by the `enable()` function
+This function is called by the `enable()` function
 The implementing contract can override this function and perform the following:
 
 1. Validate any parameters (if needed) or revert
 2. Validate state (if needed) or revert
-3. Perform any necessary actions, apart from modifying the `isEnabled` state variable*
+3. Perform any necessary actions, apart from modifying the `isEnabled` state variable
 
 ```solidity
 function _enable(bytes calldata enableData_) internal virtual;
@@ -102,13 +105,13 @@ function _enable(bytes calldata enableData_) internal virtual;
 
 Disable the contract
 
-*This function performs the following steps:
+This function performs the following steps:
 
 1. Validates that the caller has the admin or emergency role
 2. Validates that the contract is enabled
 3. Calls the implementation-specific `_disable()` function
 4. Changes the state of the contract to disabled
-5. Emits the `Disabled` event*
+5. Emits the `Disabled` event
 
 ```solidity
 function disable(bytes calldata disableData_) public onlyEmergencyOrAdminRole onlyEnabled;
@@ -124,12 +127,12 @@ function disable(bytes calldata disableData_) public onlyEmergencyOrAdminRole on
 
 Implementation-specific disable function
 
-*This function is called by the `disable()` function.
+This function is called by the `disable()` function.
 The implementing contract can override this function and perform the following:
 
 1. Validate any parameters (if needed) or revert
 2. Validate state (if needed) or revert
-3. Perform any necessary actions, apart from modifying the `isEnabled` state variable*
+3. Perform any necessary actions, apart from modifying the `isEnabled` state variable
 
 ```solidity
 function _disable(bytes calldata disableData_) internal virtual;

@@ -1,6 +1,6 @@
 # IBondAggregator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/interfaces/IBondAggregator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/IBondAggregator.sol)
 
 ## Functions
 
@@ -10,7 +10,7 @@ Register a auctioneer with the aggregator
 
 Only Guardian
 
-*A auctioneer must be registered with an aggregator to create markets*
+A auctioneer must be registered with an aggregator to create markets
 
 ```solidity
 function registerAuctioneer(IBondAuctioneer auctioneer_) external;
@@ -57,7 +57,7 @@ function getAuctioneer(uint256 id_) external view returns (IBondAuctioneer);
 
 Calculate current market price of payout token in quote tokens
 
-*Accounts for debt and control variable decay since last deposit (vs _marketPrice())*
+Accounts for debt and control variable decay since last deposit (vs _marketPrice())
 
 ```solidity
 function marketPrice(uint256 id_) external view returns (uint256);
@@ -99,7 +99,7 @@ function marketScale(uint256 id_) external view returns (uint256);
 
 Payout due for amount of quote tokens
 
-*Accounts for debt and control variable decay so it is up to date*
+Accounts for debt and control variable decay so it is up to date
 
 ```solidity
 function payoutFor(uint256 amount_, uint256 id_, address referrer_) external view returns (uint256);
@@ -166,7 +166,7 @@ function isLive(uint256 id_) external view returns (bool);
 
 Returns array of active market IDs within a range
 
-*Should be used if length exceeds max to query entire array*
+Should be used if length exceeds max to query entire array
 
 ```solidity
 function liveMarketsBetween(uint256 firstIndex_, uint256 lastIndex_) external view returns (uint256[] memory);
@@ -226,10 +226,13 @@ function marketsFor(address payout_, address quote_) external view returns (uint
 Returns the market ID with the highest current payoutToken payout for depositing quoteToken
 
 ```solidity
-function findMarketFor(address payout_, address quote_, uint256 amountIn_, uint256 minAmountOut_, uint256 maxExpiry_)
-    external
-    view
-    returns (uint256 id);
+function findMarketFor(
+    address payout_,
+    address quote_,
+    uint256 amountIn_,
+    uint256 minAmountOut_,
+    uint256 maxExpiry_
+) external view returns (uint256 id);
 ```
 
 **Parameters**

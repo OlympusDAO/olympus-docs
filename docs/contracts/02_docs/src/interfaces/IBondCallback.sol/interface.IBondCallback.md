@@ -1,6 +1,6 @@
 # IBondCallback
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/interfaces/IBondCallback.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/IBondCallback.sol)
 
 ## Functions
 
@@ -10,9 +10,9 @@ Send payout tokens to Teller while allowing market owners to perform custom logi
 
 Market ID on Teller must be whitelisted
 
-*Must transfer the output amount of payout tokens back to the Teller*
+Must transfer the output amount of payout tokens back to the Teller
 
-*Should check that the quote tokens have been transferred to the contract in the _callback function*
+Should check that the quote tokens have been transferred to the contract in the _callback function
 
 ```solidity
 function callback(uint256 id_, uint256 inputAmount_, uint256 outputAmount_) external;
@@ -68,7 +68,7 @@ function whitelist(address teller_, uint256 id_) external;
 
 Remove a market ID on a teller from the whitelist
 
-*Shutdown function in case there's an issue with the teller*
+Shutdown function in case there's an issue with the teller
 
 ```solidity
 function blacklist(address teller_, uint256 id_) external;

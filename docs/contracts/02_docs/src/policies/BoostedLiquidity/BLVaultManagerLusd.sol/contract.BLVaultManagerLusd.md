@@ -1,6 +1,6 @@
 # BLVaultManagerLusd
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/BoostedLiquidity/BLVaultManagerLusd.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/BoostedLiquidity/BLVaultManagerLusd.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [IBLVaultManager](/main/contracts/docs/src/policies/BoostedLiquidity/interfaces/IBLVaultManager.sol/interface.IBLVaultManager), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
@@ -10,163 +10,163 @@
 ### MINTR
 
 ```solidity
-MINTRv1 public MINTR;
+MINTRv1 public MINTR
 ```
 
 ### TRSRY
 
 ```solidity
-TRSRYv1 public TRSRY;
+TRSRYv1 public TRSRY
 ```
 
 ### BLREG
 
 ```solidity
-BLREGv1 public BLREG;
+BLREGv1 public BLREG
 ```
 
 ### ohm
 
 ```solidity
-address public ohm;
+address public ohm
 ```
 
 ### pairToken
 
 ```solidity
-address public pairToken;
+address public pairToken
 ```
 
 ### aura
 
 ```solidity
-address public aura;
+address public aura
 ```
 
 ### bal
 
 ```solidity
-address public bal;
+address public bal
 ```
 
 ### exchangeName
 
 ```solidity
-string public exchangeName;
+string public exchangeName
 ```
 
 ### balancerData
 
 ```solidity
-BalancerData public balancerData;
+BalancerData public balancerData
 ```
 
 ### auraData
 
 ```solidity
-AuraData public auraData;
+AuraData public auraData
 ```
 
 ### auraMiningLib
 
 ```solidity
-IAuraMiningLib public auraMiningLib;
+IAuraMiningLib public auraMiningLib
 ```
 
 ### ohmEthPriceFeed
 
 ```solidity
-OracleFeed public ohmEthPriceFeed;
+OracleFeed public ohmEthPriceFeed
 ```
 
 ### ethUsdPriceFeed
 
 ```solidity
-OracleFeed public ethUsdPriceFeed;
+OracleFeed public ethUsdPriceFeed
 ```
 
 ### lusdUsdPriceFeed
 
 ```solidity
-OracleFeed public lusdUsdPriceFeed;
+OracleFeed public lusdUsdPriceFeed
 ```
 
 ### implementation
 
 ```solidity
-BLVaultLusd public implementation;
+BLVaultLusd public implementation
 ```
 
 ### vaultOwners
 
 ```solidity
-mapping(BLVaultLusd => address) public vaultOwners;
+mapping(BLVaultLusd => address) public vaultOwners
 ```
 
 ### userVaults
 
 ```solidity
-mapping(address => BLVaultLusd) public userVaults;
+mapping(address => BLVaultLusd) public userVaults
 ```
 
 ### totalLp
 
 ```solidity
-uint256 public totalLp;
+uint256 public totalLp
 ```
 
 ### deployedOhm
 
 ```solidity
-uint256 public deployedOhm;
+uint256 public deployedOhm
 ```
 
 ### circulatingOhmBurned
 
 ```solidity
-uint256 public circulatingOhmBurned;
+uint256 public circulatingOhmBurned
 ```
 
 ### ohmLimit
 
 ```solidity
-uint256 public ohmLimit;
+uint256 public ohmLimit
 ```
 
 ### currentFee
 
 ```solidity
-uint64 public currentFee;
+uint64 public currentFee
 ```
 
 ### minWithdrawalDelay
 
 ```solidity
-uint48 public minWithdrawalDelay;
+uint48 public minWithdrawalDelay
 ```
 
 ### isLusdBLVaultActive
 
 ```solidity
-bool public isLusdBLVaultActive;
+bool public isLusdBLVaultActive
 ```
 
 ### MAX_FEE
 
 ```solidity
-uint32 public constant MAX_FEE = 10_000;
+uint32 public constant MAX_FEE = 10_000
 ```
 
 ### _ohmIndex
 
 ```solidity
-uint8 private constant _ohmIndex = 1;
+uint8 private constant _ohmIndex = 1
 ```
 
 ### _lusdIndex
 
 ```solidity
-uint8 private constant _lusdIndex = 0;
+uint8 private constant _lusdIndex = 0
 ```
 
 ## Functions
@@ -221,20 +221,20 @@ function requestPermissions() external view override returns (Permissions[] memo
 ### onlyWhileActive
 
 ```solidity
-modifier onlyWhileActive();
+modifier onlyWhileActive() ;
 ```
 
 ### onlyVault
 
 ```solidity
-modifier onlyVault();
+modifier onlyVault() ;
 ```
 
 ### deployVault
 
 Deploys a personal single sided vault for the user
 
-*The vault is deployed with the user as the owner*
+The vault is deployed with the user as the owner
 
 ```solidity
 function deployVault() external override onlyWhileActive returns (address vault);
@@ -250,7 +250,7 @@ function deployVault() external override onlyWhileActive returns (address vault)
 
 Mints OHM to the caller
 
-*Can only be called by an approved vault*
+Can only be called by an approved vault
 
 ```solidity
 function mintOhmToVault(uint256 amount_) external override onlyWhileActive onlyVault;
@@ -266,7 +266,7 @@ function mintOhmToVault(uint256 amount_) external override onlyWhileActive onlyV
 
 Burns OHM from the caller
 
-*Can only be called by an approved vault. The caller must have an OHM approval for the MINTR.*
+Can only be called by an approved vault. The caller must have an OHM approval for the MINTR.
 
 ```solidity
 function burnOhmFromVault(uint256 amount_) external override onlyWhileActive onlyVault;
@@ -282,7 +282,7 @@ function burnOhmFromVault(uint256 amount_) external override onlyWhileActive onl
 
 Increases the tracked value for totalLP
 
-*Can only be called by an approved vault*
+Can only be called by an approved vault
 
 ```solidity
 function increaseTotalLp(uint256 amount_) external override onlyWhileActive onlyVault;
@@ -298,7 +298,7 @@ function increaseTotalLp(uint256 amount_) external override onlyWhileActive only
 
 Decreases the tracked value for totalLP
 
-*Can only be called by an approved vault*
+Can only be called by an approved vault
 
 ```solidity
 function decreaseTotalLp(uint256 amount_) external override onlyWhileActive onlyVault;
@@ -408,8 +408,8 @@ function getMaxDeposit() external view override returns (uint256);
 
 Calculates the amount of LP tokens that will be generated for a given amount of pair tokens
 
-*This is an external function but should only be used in a callstatic from an external
-source like the frontend.*
+This is an external function but should only be used in a callstatic from an external
+source like the frontend.
 
 ```solidity
 function getExpectedLpAmount(uint256 amount_) external override returns (uint256 bptAmount);
@@ -431,8 +431,8 @@ function getExpectedLpAmount(uint256 amount_) external override returns (uint256
 
 Calculates the amount of OHM and pair tokens that should be received by the vault for withdrawing a given amount of LP tokens
 
-*This is an external function but should only be used in a callstatic from an external
-source like the frontend.*
+This is an external function but should only be used in a callstatic from an external
+source like the frontend.
 
 ```solidity
 function getExpectedTokensOutProtocol(uint256 lpAmount_)
@@ -457,8 +457,8 @@ function getExpectedTokensOutProtocol(uint256 lpAmount_)
 
 Calculates the amount of pair tokens that should be received by the user for withdrawing a given amount of LP tokens after the treasury takes any arbs
 
-*This is an external function but should only be used in a callstatic from an external
-source like the frontend.*
+This is an external function but should only be used in a callstatic from an external
+source like the frontend.
 
 ```solidity
 function getExpectedPairTokenOutUser(uint256 lpAmount_) external override returns (uint256 expectedTknAmount);
@@ -584,7 +584,7 @@ function getOhmTknPoolPrice() public view override returns (uint256);
 
 Emergency burns OHM that has been sent to the manager in the event a user had to emergency withdraw
 
-*Can only be called by the admin*
+Can only be called by the admin
 
 ```solidity
 function emergencyBurnOhm(uint256 amount_) external override onlyRole("liquidityvault_admin");
@@ -600,7 +600,7 @@ function emergencyBurnOhm(uint256 amount_) external override onlyRole("liquidity
 
 Updates the limit on minting OHM
 
-*Can only be called by the admin. Cannot be set lower than the current outstanding minted OHM.*
+Can only be called by the admin. Cannot be set lower than the current outstanding minted OHM.
 
 ```solidity
 function setLimit(uint256 newLimit_) external override onlyRole("liquidityvault_admin");
@@ -616,7 +616,7 @@ function setLimit(uint256 newLimit_) external override onlyRole("liquidityvault_
 
 Updates the fee on reward tokens
 
-*Can only be called by the admin. Cannot be set beyond 10_000 (100%). Only is used by vaults deployed after the update.*
+Can only be called by the admin. Cannot be set beyond 10_000 (100%). Only is used by vaults deployed after the update.
 
 ```solidity
 function setFee(uint64 newFee_) external override onlyRole("liquidityvault_admin");
@@ -632,7 +632,7 @@ function setFee(uint64 newFee_) external override onlyRole("liquidityvault_admin
 
 Updates the minimum holding period before a user can withdraw
 
-*Can only be called by the admin*
+Can only be called by the admin
 
 ```solidity
 function setWithdrawalDelay(uint48 newDelay_) external override onlyRole("liquidityvault_admin");
@@ -658,7 +658,7 @@ function changeUpdateThresholds(
 
 Activates the vault manager and all approved vaults
 
-*Can only be called by the admin*
+Can only be called by the admin
 
 ```solidity
 function activate() external override onlyRole("liquidityvault_admin");
@@ -668,7 +668,7 @@ function activate() external override onlyRole("liquidityvault_admin");
 
 Deactivates the vault manager and all approved vaults
 
-*Can only be called by the admin*
+Can only be called by the admin
 
 ```solidity
 function deactivate() external override onlyRole("emergency_admin");

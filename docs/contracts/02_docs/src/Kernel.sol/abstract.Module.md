@@ -1,6 +1,6 @@
 # Module
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/Kernel.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/Kernel.sol)
 
 **Inherits:**
 [KernelAdapter](/main/contracts/docs/src/Kernel.sol/abstract.KernelAdapter)
@@ -8,7 +8,7 @@
 Base level extension of the kernel. Modules act as independent state components to be
 interacted with and mutated through policies.
 
-*Modules are installed and uninstalled via the executor.*
+Modules are installed and uninstalled via the executor.
 
 ## Functions
 
@@ -23,7 +23,7 @@ constructor(Kernel kernel_) KernelAdapter(kernel_);
 Modifier to restrict which policies have access to module functions.
 
 ```solidity
-modifier permissioned();
+modifier permissioned() ;
 ```
 
 ### KEYCODE
@@ -53,9 +53,9 @@ function VERSION() external pure virtual returns (uint8 major, uint8 minor);
 
 Initialization function for the module
 
-*This function is called when the module is installed or upgraded by the kernel.*
+This function is called when the module is installed or upgraded by the kernel.
 
-*MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.*
+MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.
 
 ```solidity
 function INIT() external virtual onlyKernel;

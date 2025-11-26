@@ -1,6 +1,6 @@
 # ConvertibleDepositActivator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/proposals/ConvertibleDepositActivator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/proposals/ConvertibleDepositActivator.sol)
 
 **Inherits:**
 Owned
@@ -12,199 +12,199 @@ Single-use contract to activate the Convertible Deposits system
 ### RESERVE_MIGRATOR
 
 ```solidity
-address public constant RESERVE_MIGRATOR = 0x986b99579BEc7B990331474b66CcDB94Fa2419F5;
+address public constant RESERVE_MIGRATOR = 0x986b99579BEc7B990331474b66CcDB94Fa2419F5
 ```
 
 ### OPERATOR
 
 ```solidity
-address public constant OPERATOR = 0x6417F206a0a6628Da136C0Faa39026d0134D2b52;
+address public constant OPERATOR = 0x6417F206a0a6628Da136C0Faa39026d0134D2b52
 ```
 
 ### YIELD_REPURCHASE_FACILITY
 
 ```solidity
-address public constant YIELD_REPURCHASE_FACILITY = 0x271e35a8555a62F6bA76508E85dfD76D580B0692;
+address public constant YIELD_REPURCHASE_FACILITY = 0x271e35a8555a62F6bA76508E85dfD76D580B0692
 ```
 
 ### DEPOSIT_MANAGER
 
 ```solidity
-address public immutable DEPOSIT_MANAGER;
+address public immutable DEPOSIT_MANAGER
 ```
 
 ### CD_FACILITY
 
 ```solidity
-address public immutable CD_FACILITY;
+address public immutable CD_FACILITY
 ```
 
 ### REDEMPTION_VAULT
 
 ```solidity
-address public immutable REDEMPTION_VAULT;
+address public immutable REDEMPTION_VAULT
 ```
 
 ### CD_AUCTIONEER
 
 ```solidity
-address public immutable CD_AUCTIONEER;
+address public immutable CD_AUCTIONEER
 ```
 
 ### EMISSION_MANAGER
 
 ```solidity
-address public immutable EMISSION_MANAGER;
+address public immutable EMISSION_MANAGER
 ```
 
 ### HEART
 
 ```solidity
-address public immutable HEART;
+address public immutable HEART
 ```
 
 ### RESERVE_WRAPPER
 
 ```solidity
-address public immutable RESERVE_WRAPPER;
+address public immutable RESERVE_WRAPPER
 ```
 
 ### CD_NAME
 
 ```solidity
-string public constant CD_NAME = "cdf";
+string public constant CD_NAME = "cdf"
 ```
 
 ### USDS
 
 ```solidity
-address public constant USDS = 0xdC035D45d973E3EC169d2276DDab16f1e407384F;
+address public constant USDS = 0xdC035D45d973E3EC169d2276DDab16f1e407384F
 ```
 
 ### SUSDS
 
 ```solidity
-address public constant SUSDS = 0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD;
+address public constant SUSDS = 0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD
 ```
 
 ### USDS_MAX_CAPACITY
 
 ```solidity
-uint256 public constant USDS_MAX_CAPACITY = 1_000_000e18;
+uint256 public constant USDS_MAX_CAPACITY = 1_000_000e18
 ```
 
 ### USDS_MIN_DEPOSIT
 
 ```solidity
-uint256 public constant USDS_MIN_DEPOSIT = 1e18;
+uint256 public constant USDS_MIN_DEPOSIT = 1e18
 ```
 
 ### PERIOD_1M
 
 ```solidity
-uint8 public constant PERIOD_1M = 1;
+uint8 public constant PERIOD_1M = 1
 ```
 
 ### PERIOD_2M
 
 ```solidity
-uint8 public constant PERIOD_2M = 2;
+uint8 public constant PERIOD_2M = 2
 ```
 
 ### PERIOD_3M
 
 ```solidity
-uint8 public constant PERIOD_3M = 3;
+uint8 public constant PERIOD_3M = 3
 ```
 
 ### RECLAIM_RATE
 
 ```solidity
-uint16 public constant RECLAIM_RATE = 90e2;
+uint16 public constant RECLAIM_RATE = 90e2
 ```
 
 ### CDA_INITIAL_TARGET
 
 ```solidity
-uint256 public constant CDA_INITIAL_TARGET = 0;
+uint256 public constant CDA_INITIAL_TARGET = 0
 ```
 
 ### CDA_INITIAL_TICK_SIZE
 
 ```solidity
-uint256 public constant CDA_INITIAL_TICK_SIZE = 0;
+uint256 public constant CDA_INITIAL_TICK_SIZE = 0
 ```
 
 ### CDA_INITIAL_MIN_PRICE
 
 ```solidity
-uint256 public constant CDA_INITIAL_MIN_PRICE = 0;
+uint256 public constant CDA_INITIAL_MIN_PRICE = 0
 ```
 
 ### CDA_INITIAL_TICK_SIZE_BASE
 
 ```solidity
-uint256 public constant CDA_INITIAL_TICK_SIZE_BASE = 2e18;
+uint256 public constant CDA_INITIAL_TICK_SIZE_BASE = 2e18
 ```
 
 ### CDA_INITIAL_TICK_STEP_MULTIPLIER
 
 ```solidity
-uint24 public constant CDA_INITIAL_TICK_STEP_MULTIPLIER = 10075;
+uint24 public constant CDA_INITIAL_TICK_STEP_MULTIPLIER = 10075
 ```
 
 ### CDA_AUCTION_TRACKING_PERIOD
 
 ```solidity
-uint8 public constant CDA_AUCTION_TRACKING_PERIOD = 7;
+uint8 public constant CDA_AUCTION_TRACKING_PERIOD = 7
 ```
 
 ### CDA_MINIMUM_BID
 
 ```solidity
-uint256 public constant CDA_MINIMUM_BID = 100e18;
+uint256 public constant CDA_MINIMUM_BID = 100e18
 ```
 
 ### EM_BASE_EMISSIONS_RATE
 
 ```solidity
-uint256 public constant EM_BASE_EMISSIONS_RATE = 200000;
+uint256 public constant EM_BASE_EMISSIONS_RATE = 200000
 ```
 
 ### EM_MINIMUM_PREMIUM
 
 ```solidity
-uint256 public constant EM_MINIMUM_PREMIUM = 1e18;
+uint256 public constant EM_MINIMUM_PREMIUM = 5e17
 ```
 
 ### EM_BACKING
 
 ```solidity
-uint256 public constant EM_BACKING = 11690000000000000000;
+uint256 public constant EM_BACKING = 11690000000000000000
 ```
 
 ### EM_TICK_SIZE
 
 ```solidity
-uint256 public constant EM_TICK_SIZE = 150e9;
+uint256 public constant EM_TICK_SIZE = 150e9
 ```
 
 ### EM_MIN_PRICE_SCALAR
 
 ```solidity
-uint256 public constant EM_MIN_PRICE_SCALAR = 12e17;
+uint256 public constant EM_MIN_PRICE_SCALAR = 12e17
 ```
 
 ### EM_BOND_MARKET_CAPACITY_SCALAR
 
 ```solidity
-uint256 public constant EM_BOND_MARKET_CAPACITY_SCALAR = 1e18;
+uint256 public constant EM_BOND_MARKET_CAPACITY_SCALAR = 0
 ```
 
 ### EM_RESTART_TIMEFRAME
 
 ```solidity
-uint48 public constant EM_RESTART_TIMEFRAME = 950400;
+uint48 public constant EM_RESTART_TIMEFRAME = 950400
 ```
 
 ### isActivated
@@ -212,7 +212,7 @@ uint48 public constant EM_RESTART_TIMEFRAME = 950400;
 True if the activation has been performed
 
 ```solidity
-bool public isActivated = false;
+bool public isActivated = false
 ```
 
 ## Functions
@@ -260,12 +260,12 @@ function _configurePeriodicTasks() internal;
 
 Activates the Convertible Deposits system
 
-*This function assumes:
+This function assumes:
 
 - The "admin" role has been granted to the contract
 This function reverts if:
 - The caller is not the owner
-- The function has already been run*
+- The function has already been run
 
 ```solidity
 function activate() external onlyOwner;

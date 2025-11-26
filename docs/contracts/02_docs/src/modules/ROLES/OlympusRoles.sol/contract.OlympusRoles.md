@@ -1,6 +1,6 @@
 # OlympusRoles
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/modules/ROLES/OlympusRoles.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/ROLES/OlympusRoles.sol)
 
 **Inherits:**
 [ROLESv1](/main/contracts/docs/src/modules/ROLES/ROLES.v1.sol/abstract.ROLESv1)
@@ -58,7 +58,7 @@ function removeRole(bytes32 role_, address addr_) external override permissioned
 
 "Modifier" to restrict policy function access to certain addresses with a role.
 
-*Roles are defined in the policy and granted by the ROLES admin.*
+Roles are defined in the policy and granted by the ROLES admin.
 
 ```solidity
 function requireRole(bytes32 role_, address caller_) external view override;

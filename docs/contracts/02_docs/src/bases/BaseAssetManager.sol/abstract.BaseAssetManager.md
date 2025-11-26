@@ -1,9 +1,12 @@
 # BaseAssetManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/bases/BaseAssetManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/bases/BaseAssetManager.sol)
 
 **Inherits:**
 [IAssetManager](/main/contracts/docs/src/bases/interfaces/IAssetManager.sol/interface.IAssetManager)
+
+**Title:**
+BaseAssetManager
 
 This is a base contract for managing asset deposits and withdrawals. It is designed to be inherited by another contract.
 This contract supports multiple assets, and can store them idle or in an ERC4626 vault (specified at the time of configuration). Once an approach is specified, it cannot be changed. This is to avoid the threat of a governance attack that shifts the deposited funds to a different vault in order to steal them.
@@ -16,7 +19,7 @@ Future versions of the contract could add support for more complex strategies an
 Array of configured assets
 
 ```solidity
-IERC20[] internal _configuredAssets;
+IERC20[] internal _configuredAssets
 ```
 
 ### _assetConfigurations
@@ -24,7 +27,7 @@ IERC20[] internal _configuredAssets;
 Mapping of assets to a configuration
 
 ```solidity
-mapping(IERC20 asset => AssetConfiguration) internal _assetConfigurations;
+mapping(IERC20 asset => AssetConfiguration) internal _assetConfigurations
 ```
 
 ### _operatorShares
@@ -32,7 +35,7 @@ mapping(IERC20 asset => AssetConfiguration) internal _assetConfigurations;
 Mapping of assets and operators to the number of shares they have deposited
 
 ```solidity
-mapping(bytes32 operatorKey => uint256 shares) internal _operatorShares;
+mapping(bytes32 operatorKey => uint256 shares) internal _operatorShares
 ```
 
 ## Functions
@@ -41,7 +44,7 @@ mapping(bytes32 operatorKey => uint256 shares) internal _operatorShares;
 
 Deposit assets into the configured vault
 
-*This function will pull the assets from the depositor and deposit them into the vault. If the vault is the zero address, the assets will be kept idle.
+This function will pull the assets from the depositor and deposit them into the vault. If the vault is the zero address, the assets will be kept idle.
 To avoid susceptibility to ERC777 re-entrancy, this function should be called before any state changes.
 When an ERC4626 vault is configured for an asset, the amount of assets that can be withdrawn may be 1 less than what was originally deposited. To be conservative, this function returns the actual amount.
 This function will revert if:
@@ -50,7 +53,7 @@ This function will revert if:
 - It is unable to pull the assets from the depositor
 - The minimum deposit requirement is not met
 - Adding the deposit would exceed the deposit cap
-- Zero shares would be received from the vault*
+- Zero shares would be received from the vault
 
 ```solidity
 function _depositAsset(IERC20 asset_, address depositor_, uint256 amount_, bool enforceDepositChecks_)
@@ -79,10 +82,10 @@ function _depositAsset(IERC20 asset_, address depositor_, uint256 amount_, bool 
 
 Withdraw assets from the configured vault
 
-*This function will withdraw the assets from the vault and send them to the depositor. If the vault is the zero address, the assets will be kept idle.
+This function will withdraw the assets from the vault and send them to the depositor. If the vault is the zero address, the assets will be kept idle.
 This function will revert if:
 
-- The vault is not approved*
+- The vault is not approved
 
 ```solidity
 function _withdrawAsset(IERC20 asset_, address depositor_, uint256 amount_)
@@ -144,13 +147,13 @@ function _getOperatorKey(IERC20 asset_, address operator_) internal pure returns
 
 Configure an asset to be deposited into a vault
 
-*This function will configure an asset to be deposited into a vault. If the vault is the zero address, the assets will be kept idle.
+This function will configure an asset to be deposited into a vault. If the vault is the zero address, the assets will be kept idle.
 Note that the asset can only be configured once. This is to prevent the assets from being moved between vaults and exposing the deposited assets to the risk of theft.
 This function will revert if:
 
 - The asset is already configured
 - The vault asset does not match the asset
-- The minimum deposit exceeds the deposit cap*
+- The minimum deposit exceeds the deposit cap
 
 ```solidity
 function _addAsset(IERC20 asset_, IERC4626 vault_, uint256 depositCap_, uint256 minimumDeposit_) internal;
@@ -169,11 +172,11 @@ function _addAsset(IERC20 asset_, IERC4626 vault_, uint256 depositCap_, uint256 
 
 Set the deposit cap for an asset
 
-*This function will set the deposit cap for an asset.
+This function will set the deposit cap for an asset.
 This function will revert if:
 
 - The asset is not configured
-- The deposit cap is less than the minimum deposit*
+- The deposit cap is less than the minimum deposit
 
 ```solidity
 function _setAssetDepositCap(IERC20 asset_, uint256 depositCap_) internal;
@@ -190,7 +193,7 @@ function _setAssetDepositCap(IERC20 asset_, uint256 depositCap_) internal;
 
 Set the minimum deposit for an asset
 
-*This function will set the minimum deposit for an asset.
+This function will set the minimum deposit for an asset.
 The minimum deposit prevents insolvency issues that can occur when small deposits
 accrue large amounts of yield. When claiming yield on such deposits, all vault shares
 may be burned while liabilities remain, causing the DepositManager_Insolvent error
@@ -198,7 +201,7 @@ and blocking subsequent yield claims.
 This function will revert if:
 
 - The asset is not configured
-- The minimum deposit exceeds the deposit cap*
+- The minimum deposit exceeds the deposit cap
 
 ```solidity
 function _setAssetMinimumDeposit(IERC20 asset_, uint256 minimumDeposit_) internal;
@@ -226,7 +229,7 @@ function _onlyConfiguredAsset(IERC20 asset_) internal view;
 ### onlyConfiguredAsset
 
 ```solidity
-modifier onlyConfiguredAsset(IERC20 asset_);
+modifier onlyConfiguredAsset(IERC20 asset_) ;
 ```
 
 ### getAssetConfiguration
@@ -234,7 +237,11 @@ modifier onlyConfiguredAsset(IERC20 asset_);
 Get the configuration for an asset
 
 ```solidity
-function getAssetConfiguration(IERC20 asset_) public view override returns (AssetConfiguration memory configuration);
+function getAssetConfiguration(IERC20 asset_)
+    public
+    view
+    override
+    returns (AssetConfiguration memory configuration);
 ```
 
 **Parameters**

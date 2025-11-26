@@ -1,15 +1,15 @@
 # Policy
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/Kernel.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/Kernel.sol)
 
 **Inherits:**
 [KernelAdapter](/main/contracts/docs/src/Kernel.sol/abstract.KernelAdapter)
 
 Policies are application logic and external interface for the kernel and installed modules.
 
-*Policies are activated and deactivated in the kernel by the executor.*
+Policies are activated and deactivated in the kernel by the executor.
 
-*Module dependencies and function permissions must be defined in appropriate functions.*
+Module dependencies and function permissions must be defined in appropriate functions.
 
 ## Functions
 

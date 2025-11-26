@@ -1,6 +1,6 @@
 # SolanaCCIPBridgeProposal
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/proposals/CCIPBridgeSolana.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/proposals/CCIPBridgeSolana.sol)
 
 **Inherits:**
 GovernorBravoProposal
@@ -12,7 +12,7 @@ Proposal for activation of the CCIP Bridge for Solana
 ### _kernel
 
 ```solidity
-address public _kernel;
+address public _kernel
 ```
 
 ## Functions

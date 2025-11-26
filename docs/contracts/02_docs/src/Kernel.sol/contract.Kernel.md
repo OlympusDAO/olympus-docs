@@ -1,12 +1,12 @@
 # Kernel
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/Kernel.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/Kernel.sol)
 
 Main contract that acts as a central component registry for the protocol.
 
-*The kernel manages modules and policies. The kernel is mutated via predefined Actions,*
+The kernel manages modules and policies. The kernel is mutated via predefined Actions,
 
-*which are input from any address assigned as the executor. The executor can be changed as needed.*
+which are input from any address assigned as the executor. The executor can be changed as needed.
 
 ## State Variables
 
@@ -15,7 +15,7 @@ Main contract that acts as a central component registry for the protocol.
 Address that is able to initiate Actions in the kernel. Can be assigned to a multisig or governance contract.
 
 ```solidity
-address public executor;
+address public executor
 ```
 
 ### allKeycodes
@@ -23,7 +23,7 @@ address public executor;
 Array of all modules currently installed.
 
 ```solidity
-Keycode[] public allKeycodes;
+Keycode[] public allKeycodes
 ```
 
 ### getModuleForKeycode
@@ -31,7 +31,7 @@ Keycode[] public allKeycodes;
 Mapping of module address to keycode.
 
 ```solidity
-mapping(Keycode => Module) public getModuleForKeycode;
+mapping(Keycode => Module) public getModuleForKeycode
 ```
 
 ### getKeycodeForModule
@@ -39,7 +39,7 @@ mapping(Keycode => Module) public getModuleForKeycode;
 Mapping of keycode to module address.
 
 ```solidity
-mapping(Module => Keycode) public getKeycodeForModule;
+mapping(Module => Keycode) public getKeycodeForModule
 ```
 
 ### moduleDependents
@@ -47,7 +47,7 @@ mapping(Module => Keycode) public getKeycodeForModule;
 Mapping of a keycode to all of its policy dependents. Used to efficiently reconfigure policy dependencies.
 
 ```solidity
-mapping(Keycode => Policy[]) public moduleDependents;
+mapping(Keycode => Policy[]) public moduleDependents
 ```
 
 ### getDependentIndex
@@ -55,17 +55,17 @@ mapping(Keycode => Policy[]) public moduleDependents;
 Helper for module dependent arrays. Prevents the need to loop through array.
 
 ```solidity
-mapping(Keycode => mapping(Policy => uint256)) public getDependentIndex;
+mapping(Keycode => mapping(Policy => uint256)) public getDependentIndex
 ```
 
 ### modulePermissions
 
 Module \\<\\> Policy Permissions.
 
-*Keycode -> Policy -> Function Selector -> bool for permission*
+Keycode -> Policy -> Function Selector -> bool for permission
 
 ```solidity
-mapping(Keycode => mapping(Policy => mapping(bytes4 => bool))) public modulePermissions;
+mapping(Keycode => mapping(Policy => mapping(bytes4 => bool))) public modulePermissions
 ```
 
 ### activePolicies
@@ -73,7 +73,7 @@ mapping(Keycode => mapping(Policy => mapping(bytes4 => bool))) public modulePerm
 List of all active policies
 
 ```solidity
-Policy[] public activePolicies;
+Policy[] public activePolicies
 ```
 
 ### getPolicyIndex
@@ -81,7 +81,7 @@ Policy[] public activePolicies;
 Helper to get active policy quickly. Prevents need to loop through array.
 
 ```solidity
-mapping(Policy => uint256) public getPolicyIndex;
+mapping(Policy => uint256) public getPolicyIndex
 ```
 
 ## Functions
@@ -89,7 +89,7 @@ mapping(Policy => uint256) public getPolicyIndex;
 ### constructor
 
 ```solidity
-constructor();
+constructor() ;
 ```
 
 ### onlyExecutor
@@ -97,7 +97,7 @@ constructor();
 Modifier to check if caller is the executor.
 
 ```solidity
-modifier onlyExecutor();
+modifier onlyExecutor() ;
 ```
 
 ### isPolicyActive
@@ -142,9 +142,9 @@ function _deactivatePolicy(Policy policy_) internal;
 
 All functionality will move to the new kernel. WARNING: ACTION WILL BRICK THIS KERNEL.
 
-*New kernel must add in all of the modules and policies via executeAction.*
+New kernel must add in all of the modules and policies via executeAction.
 
-*NOTE: Data does not get cleared from this kernel.*
+NOTE: Data does not get cleared from this kernel.
 
 ```solidity
 function _migrateKernel(Kernel newKernel_) internal;

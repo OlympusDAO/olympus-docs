@@ -1,6 +1,9 @@
 # IConvertibleDepositFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/deposits/IConvertibleDepositFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/deposits/IConvertibleDepositFacility.sol)
+
+**Title:**
+IConvertibleDepositFacility
 
 Interface for a contract that can perform functions related to convertible deposit (CD) tokens
 
@@ -10,14 +13,14 @@ Interface for a contract that can perform functions related to convertible depos
 
 Creates a convertible deposit position
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the asset is supported
 - Validating that the caller has the correct role
 - Depositing the asset
 - Minting the receipt token
 - Creating a new position in the DEPOS module
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function createPosition(CreatePositionParams calldata params_)
@@ -69,7 +72,7 @@ function deposit(IERC20 asset_, uint8 periodMonths_, uint256 amount_, bool wrapR
 
 Converts receipt tokens to OHM before conversion expiry
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that the caller is the owner of all of the positions
 - Validating that the token in the position is a supported receipt token
@@ -78,7 +81,7 @@ Converts receipt tokens to OHM before conversion expiry
 - Burning the receipt tokens
 - Minting OHM to `account_`
 - Transferring the deposit token to the treasury
-- Emitting an event*
+- Emitting an event
 
 ```solidity
 function convert(uint256[] memory positionIds_, uint256[] memory amounts_, bool wrappedReceipt_)
@@ -105,13 +108,13 @@ function convert(uint256[] memory positionIds_, uint256[] memory amounts_, bool 
 
 Preview the amount of receipt tokens and OHM that would be converted
 
-*The implementing contract is expected to handle the following:
+The implementing contract is expected to handle the following:
 
 - Validating that `account_` is the owner of all of the positions
 - Validating that token in the position is a supported receipt token
 - Validating that all of the positions are valid
 - Validating that the conversion expiry for all of the positions has not passed
-- Returning the total amount of receipt tokens and OHM that would be converted*
+- Returning the total amount of receipt tokens and OHM that would be converted
 
 ```solidity
 function previewConvert(address account_, uint256[] memory positionIds_, uint256[] memory amounts_)
@@ -230,7 +233,11 @@ event CreatedDeposit(
 
 ```solidity
 event ConvertedDeposit(
-    address indexed asset, address indexed depositor, uint8 periodMonths, uint256 depositAmount, uint256 convertedAmount
+    address indexed asset,
+    address indexed depositor,
+    uint8 periodMonths,
+    uint256 depositAmount,
+    uint256 convertedAmount
 );
 ```
 

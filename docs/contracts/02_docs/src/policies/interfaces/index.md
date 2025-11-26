@@ -7,6 +7,7 @@
 - [ICCIPTokenPool](ICCIPTokenPool.sol/interface.ICCIPTokenPool.md)
 - [IDistributor](IDistributor.sol/interface.IDistributor.md)
 - [IEmissionManager](IEmissionManager.sol/interface.IEmissionManager.md)
+- [IEmissionManager](IEmissionManager_v1_1.sol/interface.IEmissionManager.md)
 - [IGenericClearinghouse](IGenericClearinghouse.sol/interface.IGenericClearinghouse.md)
 - [IHeart](IHeart.sol/interface.IHeart.md)
 - [IHeart](IHeart_v1_6.sol/interface.IHeart.md)

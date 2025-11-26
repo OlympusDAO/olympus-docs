@@ -1,6 +1,6 @@
 # ZeroDistributor
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/Distributor/ZeroDistributor.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/Distributor/ZeroDistributor.sol)
 
 **Inherits:**
 [IDistributor](/main/contracts/docs/src/policies/interfaces/IDistributor.sol/interface.IDistributor)
@@ -10,13 +10,13 @@
 ### staking
 
 ```solidity
-IStaking public immutable staking;
+IStaking public immutable staking
 ```
 
 ### unlockRebase
 
 ```solidity
-bool private unlockRebase;
+bool private unlockRebase
 ```
 
 ## Functions
@@ -24,7 +24,7 @@ bool private unlockRebase;
 ### constructor
 
 ```solidity
-constructor(address staking_);
+constructor(address staking_) ;
 ```
 
 ### triggerRebase

@@ -1,6 +1,6 @@
 # CloneERC20
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/external/clones/CloneERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/clones/CloneERC20.sol)
 
 **Inherits:**
 Clone, [IERC20](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20)
@@ -10,26 +10,26 @@ Solmate (<https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol
 
 Modern and gas efficient ERC20 implementation.
 
-*Do not manually set balances without updating totalSupply, as the sum of all user balances must not exceed it.*
+Do not manually set balances without updating totalSupply, as the sum of all user balances must not exceed it.
 
 ## State Variables
 
 ### totalSupply
 
 ```solidity
-uint256 public totalSupply;
+uint256 public totalSupply
 ```
 
 ### balanceOf
 
 ```solidity
-mapping(address => uint256) public balanceOf;
+mapping(address => uint256) public balanceOf
 ```
 
 ### allowance
 
 ```solidity
-mapping(address => mapping(address => uint256)) public allowance;
+mapping(address => mapping(address => uint256)) public allowance
 ```
 
 ## Functions

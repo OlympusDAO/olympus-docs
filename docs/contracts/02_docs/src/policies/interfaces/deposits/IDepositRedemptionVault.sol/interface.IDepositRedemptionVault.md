@@ -1,6 +1,9 @@
 # IDepositRedemptionVault
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/06cd3728b58af36639dea8a6f0a3c4d79f557b65/src/policies/interfaces/deposits/IDepositRedemptionVault.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/deposits/IDepositRedemptionVault.sol)
+
+**Title:**
+IDepositRedemptionVault
 
 Interface for a contract that can manage the redemption of receipt tokens for their deposit
 
@@ -197,7 +200,7 @@ function cancelRedemption(uint16 redemptionId_, uint256 amount_) external;
 
 Finishes a redemption of a quantity of deposit tokens
 
-*This function does not take an amount as an argument, because the amount is determined by the redemption*
+This function does not take an amount as an argument, because the amount is determined by the redemption
 
 ```solidity
 function finishRedemption(uint16 redemptionId_) external returns (uint256 actualAmount);
@@ -475,7 +478,11 @@ event RedemptionStarted(
 
 ```solidity
 event RedemptionFinished(
-    address indexed user, uint16 indexed redemptionId, address indexed depositToken, uint8 depositPeriod, uint256 amount
+    address indexed user,
+    uint16 indexed redemptionId,
+    address indexed depositToken,
+    uint8 depositPeriod,
+    uint256 amount
 );
 ```
 
@@ -514,7 +521,11 @@ event LoanExtended(address indexed user, uint16 indexed redemptionId, uint256 ne
 
 ```solidity
 event LoanDefaulted(
-    address indexed user, uint16 indexed redemptionId, uint256 principal, uint256 interest, uint256 remainingCollateral
+    address indexed user,
+    uint16 indexed redemptionId,
+    uint256 principal,
+    uint256 interest,
+    uint256 remainingCollateral
 );
 ```
 
@@ -649,7 +660,9 @@ error RedemptionVault_InvalidLoan(address user, uint16 redemptionId);
 ### RedemptionVault_MaxSlippageExceeded
 
 ```solidity
-error RedemptionVault_MaxSlippageExceeded(address user, uint16 redemptionId, uint256 actualAmount, uint256 maxAmount);
+error RedemptionVault_MaxSlippageExceeded(
+    address user, uint16 redemptionId, uint256 actualAmount, uint256 maxAmount
+);
 ```
 
 ## Structs
