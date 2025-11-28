@@ -196,7 +196,8 @@ For a 1,000 USDS bid:
 
 - The protocol sets a target amount of OHM to sell per day
 - Capacity is added proportionally throughout each day
-- When daily targets are exceeded, tick sizes progressively halve (causing faster price increases)
+- When daily targets are exceeded, the tick size will adjust according to the tick size base and multiple of the daily target that has been achieved
+  - For example, with a tick size base of 2, day target of 2000 OHM and tick size of 1600 OHM: at 6000 OHM sold in the day, there is a multiplier of 3 (`6000/2000`). The tick size will be adjusted to `standardTickSize / tickSizeBase^multiplier`, which is `1600 / 2^3 = 200` in this scenario.
 - Day targets and tick sizes are reset once per day when the auction parameters are tuned by the [Emissions Manager](05_emissions-manager.md)
 
 #### Minimum Price Protection
@@ -494,6 +495,7 @@ When considering convertible deposits, users should consider:
 
 - **Tick Size**: 150 OHM (halves when daily target is exceeded)
 - **Tick Step Multiplier**: 100.75% (0.75% increase per tick)
+- **Tick Size Base**: 2
 - **Tracking Period**: 7 days
 - **Minimum Bid**: 100 USDS
 
@@ -502,7 +504,9 @@ When considering convertible deposits, users should consider:
 - **Base Emissions Rate**: 0.02% of supply/day
 - **Minimum Price**: 120% of market price
 - **Backing**: 11.69 USDS/OHM
+- **Minimum Premium**: 50% (the market price of OHM must be >= 17.535 USDS/OHM)
 - **Restart Timeframe**: 11 days
+- **Bond Market Capacity**: 0% (there will be no bond market for undersold OHM)
 
 ### Common Questions
 
@@ -525,6 +529,11 @@ A: USDS deposits are deposited into the sUSDS vault to earn the Sky Savings Rate
 
 **Q: How can I deposit large amounts?**
 A: For large deposits, consider breaking up bids over time to give the price time to decay between bids. Large bids that consume multiple ticks will result in a weighted average conversion price.
+
+**Q: What happens if the auction target is not reached?**
+A: The auction tracking period defines a number of days that the auction results (relative to the target, e.g. `sold - target`) will be tracked. At the end of the tracking period, if the sum of those results is negative (meaning that less OHM was sold through auctions than the target emissions) a bond market will be created to instantaneously sell the under-sold OHM. This increases the likelihood of the target emissions being reached.
+
+Note that the bond market capacity is affected by the bond market capacity scalar.
 
 #### Managing Positions
 
@@ -578,7 +587,13 @@ A: No, conversion price and expiry are immutable once set. Governance can change
 A: No, bids are processed through the tick system where each tick has a different price. Large bids may consume multiple ticks at different prices, resulting in a weighted average conversion price.
 
 **Q: Where does the auction price start relative to market price?**
-A: The auction starts at market price and won't go below that minimum price floor.
+A: The auction starts at the minimum price and won't go below that floor. The minimum price is set once per day at the time of auction tuning, with the following formula:
+
+```math
+minimumPrice = marketPrice * minimumPriceScalar
+```
+
+`minimumPriceScalar` must be greater than 100%.
 
 **Q: How does price decay work in the auction?**
 A: Price decay occurs only after an auction has started and no bids have come in at a certain tick for a period of time. The price will decay continuously while there are no bids, but it cannot go below the minimum price floor.
@@ -593,7 +608,11 @@ A: No, positions are not auto-redeemed. You must manually start the redemption p
 A: There are no plans to seed the market at launch. Anyone could create liquidity pools on decentralized exchanges like Uniswap. Once receipt tokens are wrapped to ERC20, any ERC20 AMM could be used.
 
 **Q: Can you explain how CD pricing works relative to market price?**
-A: 1. Starting price is market price. 2. As bids come in, the convertible price of OHM in the CD position goes up (amount depends on bid size). 3. If there are no bids for some time, the price will decay with a floor of the minimum price.
+A:
+
+1. Starting price is the minimum price price.
+2. As bids come in, the convertible price of OHM in the CD position goes up (amount depends on bid size).
+3. If there are no bids for some time, the price will decay with a floor of the minimum price.
 
 **Q: Is tick capacity first come first serve to bidders?**
 A: Yes, the auction system processes bids on a first-come-first-serve basis within each tick. When a tick is filled, the system moves to the next higher-priced tick.
