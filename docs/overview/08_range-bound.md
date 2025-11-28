@@ -2,6 +2,14 @@
 
 ## Overview
 
+:::info
+
+Range Bound Stability (RBS) is currently disabled. The functionality has been replaced by:
+- [Yield Repurchase Facility](./06_yield-repurchase-facility) handles lower bounds (buying OHM when price is low)
+- [Emissions Manager](./05_emissions-manager) handles upper bounds (selling OHM when price is high)
+
+:::
+
 The Olympus Protocol automatically executes market operations to absorb volatility in the market price of OHM in relation to its reserve assets. This system is called Range-Bound Stability (RBS). The initial system design operates against individual reserve assets in isolation, and has been deployed to stabilize the price of OHM against DAI. The mechanism was originally defined in the [Stabilizing Currency Through a Protocol-Enforced Range](https://docs.google.com/document/u/2/d/e/2PACX-1vSIufbgAxAAtZkITd_s57o5AmyhAnk6iYbLYvN-ATL59hQ5nC2t2BTPvA8X9DYzFa-i3PRw9ARrAS9E/pub) white paper by Zeus et al.
 
 ![Visualization of Range](/gitbook/assets/range-denoted.png)
