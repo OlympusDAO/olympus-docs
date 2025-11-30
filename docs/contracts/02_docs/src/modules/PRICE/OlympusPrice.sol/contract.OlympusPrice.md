@@ -1,6 +1,6 @@
 # OlympusPrice
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/modules/PRICE/OlympusPrice.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/PRICE/OlympusPrice.sol)
 
 **Inherits:**
 [PRICEv1](/main/contracts/docs/src/modules/PRICE/PRICE.v1.sol/abstract.PRICEv1)
@@ -12,7 +12,7 @@ Price oracle data storage contract.
 ### _scaleFactor
 
 ```solidity
-uint256 internal immutable _scaleFactor;
+uint256 internal immutable _scaleFactor
 ```
 
 ## Functions
@@ -59,8 +59,8 @@ function VERSION() external pure override returns (uint8 major, uint8 minor);
 
 Trigger an update of the moving average. Permissioned.
 
-*This function does not have a time-gating on the observationFrequency on this contract. It is set on the Heart policy contract.
-The Heart beat frequency should be set to the same value as the observationFrequency.*
+This function does not have a time-gating on the observationFrequency on this contract. It is set on the Heart policy contract.
+The Heart beat frequency should be set to the same value as the observationFrequency.
 
 ```solidity
 function updateMovingAverage() external override permissioned;
@@ -70,11 +70,14 @@ function updateMovingAverage() external override permissioned;
 
 Initialize the price module
 
-*This function must be called after the Price module is deployed to activate it and after updating the observationFrequency
-or movingAverageDuration (in certain cases) in order for the Price module to function properly.*
+This function must be called after the Price module is deployed to activate it and after updating the observationFrequency
+or movingAverageDuration (in certain cases) in order for the Price module to function properly.
 
 ```solidity
-function initialize(uint256[] memory startObservations_, uint48 lastObservationTime_) external override permissioned;
+function initialize(uint256[] memory startObservations_, uint48 lastObservationTime_)
+    external
+    override
+    permissioned;
 ```
 
 **Parameters**
@@ -88,9 +91,9 @@ function initialize(uint256[] memory startObservations_, uint48 lastObservationT
 
 Change the moving average window (duration)
 
-*Changing the moving average duration will erase the current observations array
+Changing the moving average duration will erase the current observations array
 and require the initialize function to be called again. Ensure that you have saved
-the existing data and can re-populate before calling this function.*
+the existing data and can re-populate before calling this function.
 
 ```solidity
 function changeMovingAverageDuration(uint48 movingAverageDuration_) external override permissioned;
@@ -106,8 +109,8 @@ function changeMovingAverageDuration(uint48 movingAverageDuration_) external ove
 
 Change the observation frequency of the moving average (i.e. how often a new observation is taken)
 
-*Changing the observation frequency clears existing observation data since it will not be taken at the right time intervals.
-Ensure that you have saved the existing data and/or can re-populate before calling this function.*
+Changing the observation frequency clears existing observation data since it will not be taken at the right time intervals.
+Ensure that you have saved the existing data and/or can re-populate before calling this function.
 
 ```solidity
 function changeObservationFrequency(uint48 observationFrequency_) external override permissioned;
@@ -162,7 +165,7 @@ function getMovingAverage() public view override returns (uint256);
 
 Get target price of OHM in the Reserve asset for the RBS system
 
-*Returns the maximum of the moving average and the minimum target price*
+Returns the maximum of the moving average and the minimum target price
 
 ```solidity
 function getTargetPrice() external view override returns (uint256);

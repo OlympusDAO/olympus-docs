@@ -1,6 +1,6 @@
 # BLVaultLido
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/BoostedLiquidity/BLVaultLido.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/BoostedLiquidity/BLVaultLido.sol)
 
 **Inherits:**
 [IBLVaultLido](/main/contracts/docs/src/policies/BoostedLiquidity/interfaces/IBLVaultLido.sol/interface.IBLVaultLido), Clone
@@ -12,25 +12,25 @@
 The last timestamp a deposit was made. Used for enforcing minimum deposit lengths.
 
 ```solidity
-uint256 public lastDeposit;
+uint256 public lastDeposit
 ```
 
 ### _OHM_DECIMALS
 
 ```solidity
-uint256 private constant _OHM_DECIMALS = 1e9;
+uint256 private constant _OHM_DECIMALS = 1e9
 ```
 
 ### _WSTETH_DECIMALS
 
 ```solidity
-uint256 private constant _WSTETH_DECIMALS = 1e18;
+uint256 private constant _WSTETH_DECIMALS = 1e18
 ```
 
 ### _reentrancyStatus
 
 ```solidity
-uint256 private _reentrancyStatus;
+uint256 private _reentrancyStatus
 ```
 
 ## Functions
@@ -38,7 +38,7 @@ uint256 private _reentrancyStatus;
 ### constructor
 
 ```solidity
-constructor();
+constructor() ;
 ```
 
 ### initializeClone
@@ -134,32 +134,32 @@ function fee() public pure returns (uint64);
 ### onlyOwner
 
 ```solidity
-modifier onlyOwner();
+modifier onlyOwner() ;
 ```
 
 ### onlyWhileActive
 
 ```solidity
-modifier onlyWhileActive();
+modifier onlyWhileActive() ;
 ```
 
 ### onlyWhileInactive
 
 ```solidity
-modifier onlyWhileInactive();
+modifier onlyWhileInactive() ;
 ```
 
 ### nonReentrant
 
 ```solidity
-modifier nonReentrant();
+modifier nonReentrant() ;
 ```
 
 ### deposit
 
 Mints OHM against a wstETH deposit and uses the OHM and wstETH to add liquidity to a Balancer pool
 
-*Can only be called by the owner of the vault*
+Can only be called by the owner of the vault
 
 ```solidity
 function deposit(uint256 amount_, uint256 minLpAmount_)
@@ -188,7 +188,7 @@ function deposit(uint256 amount_, uint256 minLpAmount_)
 
 Withdraws LP tokens from Aura and Balancer, burns the OHM side, and returns the wstETH side to the user
 
-*Can only be called by the owner of the vault*
+Can only be called by the owner of the vault
 
 ```solidity
 function withdraw(
@@ -219,7 +219,7 @@ function withdraw(
 
 Withdraws LP tokens from Aura and Balancer, returns the wstETH to the user
 
-*Can only be called by the owner of the vault. Can only be called when the vault is paused*
+Can only be called by the owner of the vault. Can only be called when the vault is paused
 
 ```solidity
 function emergencyWithdraw(uint256 lpAmount_, uint256[] calldata minTokenAmounts_)
@@ -249,7 +249,7 @@ function emergencyWithdraw(uint256 lpAmount_, uint256[] calldata minTokenAmounts
 
 Claims outstanding rewards from Aura
 
-*Can only be called by the owner of the vault*
+Can only be called by the owner of the vault
 
 ```solidity
 function claimRewards() external override onlyWhileActive onlyOwner nonReentrant;

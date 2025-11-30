@@ -1,6 +1,6 @@
 # IReserveMigrator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/interfaces/IReserveMigrator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/IReserveMigrator.sol)
 
 ## Functions
 
@@ -8,9 +8,9 @@
 
 migrate reserves and wrapped reserves in the treasury to the new reserve token
 
-*this function is restricted to the heart role to avoid complications with opportunistic conversions*
+this function is restricted to the heart role to avoid complications with opportunistic conversions
 
-*if no migration is required or it is deactivated, the function does nothing*
+if no migration is required or it is deactivated, the function does nothing
 
 ```solidity
 function migrate() external;

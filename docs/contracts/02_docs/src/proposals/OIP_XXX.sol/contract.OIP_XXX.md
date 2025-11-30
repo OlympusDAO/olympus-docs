@@ -1,6 +1,6 @@
 # OIP_XXX
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/proposals/OIP_XXX.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/proposals/OIP_XXX.sol)
 
 **Inherits:**
 GovernorBravoProposal
@@ -12,19 +12,19 @@ OIP_XXX proposal performs all the necessary steps to upgrade the Clearinghouse.
 ### cacheCH0
 
 ```solidity
-Cache public cacheCH0;
+Cache public cacheCH0
 ```
 
 ### cacheTRSRY
 
 ```solidity
-Cache public cacheTRSRY;
+Cache public cacheTRSRY
 ```
 
 ### _kernel
 
 ```solidity
-Kernel internal _kernel;
+Kernel internal _kernel
 ```
 
 ## Functions

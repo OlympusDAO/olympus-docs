@@ -1,27 +1,21 @@
 # IEmissionManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/interfaces/IEmissionManager.sol)
-
-## Functions
-
-### execute
-
-calculate and execute sale, if applicable, once per day (every 3 beats)
-
-*this function is restricted to the heart role and is called on each heart beat*
-
-*if the contract is not active, the function does nothing*
-
-```solidity
-function execute() external;
-```
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/IEmissionManager.sol)
 
 ## Events
 
 ### SaleCreated
 
+forge-lint: disable-next-line(mixed-case-variable)
+
 ```solidity
 event SaleCreated(uint256 marketID, uint256 saleAmount);
+```
+
+### BondMarketCreationFailed
+
+```solidity
+event BondMarketCreationFailed(uint256 saleAmount);
 ```
 
 ### BackingUpdated
@@ -79,20 +73,36 @@ Emitted when the bond contracts are set
 event BondContractsSet(address auctioneer, address teller);
 ```
 
-### Activated
+### ConvertibleDepositAuctioneerSet
 
-Emitted when the contract is activated
+Emitted when the CD auctionner contract is set
 
 ```solidity
-event Activated();
+event ConvertibleDepositAuctioneerSet(address auctioneer);
 ```
 
-### Deactivated
+### TickSizeChanged
 
-Emitted when the contract is deactivated
+Emitted when the tick size is changed
 
 ```solidity
-event Deactivated();
+event TickSizeChanged(uint256 newTickSize);
+```
+
+### MinPriceScalarChanged
+
+Emitted when the minimum price scalar is changed
+
+```solidity
+event MinPriceScalarChanged(uint256 newMinPriceScalar);
+```
+
+### BondMarketCapacityScalarChanged
+
+Emitted when the bond market capacity scalar is changed
+
+```solidity
+event BondMarketCapacityScalarChanged(uint256 newBondMarketCapacityScalar);
 ```
 
 ## Errors
@@ -133,18 +143,6 @@ error CannotRestartYet(uint48 availableAt);
 error RestartTimeframePassed();
 ```
 
-### NotActive
-
-```solidity
-error NotActive();
-```
-
-### AlreadyActive
-
-```solidity
-error AlreadyActive();
-```
-
 ## Structs
 
 ### BaseRateChange
@@ -156,3 +154,31 @@ struct BaseRateChange {
     bool addition;
 }
 ```
+
+### EnableParams
+
+Parameters for the `enable` function
+
+```solidity
+struct EnableParams {
+    uint256 baseEmissionsRate;
+    uint256 minimumPremium;
+    uint256 backing;
+    uint256 tickSize;
+    uint256 minPriceScalar;
+    uint256 bondMarketCapacityScalar;
+    uint48 restartTimeframe;
+}
+```
+
+**Properties**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`baseEmissionsRate`|`uint256`|   percent of OHM supply to issue per day at the minimum premium, in OHM scale, i.e. 1e9 = 100%|
+|`minimumPremium`|`uint256`|      minimum premium at which to issue OHM, a percentage where 1e18 is 100%|
+|`backing`|`uint256`|             backing price of OHM in reserve token, in reserve scale|
+|`tickSize`|`uint256`|            fixed tick size in OHM decimals (9)|
+|`minPriceScalar`|`uint256`|      scalar for min price|
+|`bondMarketCapacityScalar`|`uint256`|scalar for bond market capacity from auction remainders|
+|`restartTimeframe`|`uint48`|    time in seconds that the manager needs to be restarted after a shutdown, otherwise it must be re-initialized|

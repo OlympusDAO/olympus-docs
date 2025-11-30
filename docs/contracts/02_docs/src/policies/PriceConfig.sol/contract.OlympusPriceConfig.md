@@ -1,6 +1,6 @@
 # OlympusPriceConfig
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/PriceConfig.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/PriceConfig.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
@@ -10,7 +10,7 @@
 ### PRICE
 
 ```solidity
-PRICEv1 internal PRICE;
+PRICEv1 internal PRICE
 ```
 
 ## Functions
@@ -39,8 +39,8 @@ Initialize the price module
 
 Access restricted to approved policies
 
-*This function must be called after the Price module is deployed to activate it and after updating the observationFrequency
-or movingAverageDuration (in certain cases) in order for the Price module to function properly.*
+This function must be called after the Price module is deployed to activate it and after updating the observationFrequency
+or movingAverageDuration (in certain cases) in order for the Price module to function properly.
 
 ```solidity
 function initialize(uint256[] memory startObservations_, uint48 lastObservationTime_)
@@ -59,10 +59,10 @@ function initialize(uint256[] memory startObservations_, uint48 lastObservationT
 
 Change the moving average window (duration)
 
-*Setting the window to a larger number of observations than the current window will clear
+Setting the window to a larger number of observations than the current window will clear
 the data in the current window and require the initialize function to be called again.
 Ensure that you have saved the existing data and can re-populate before calling this
-function with a number of observations larger than have been recorded.*
+function with a number of observations larger than have been recorded.
 
 ```solidity
 function changeMovingAverageDuration(uint48 movingAverageDuration_) external onlyRole("price_admin");
@@ -78,8 +78,8 @@ function changeMovingAverageDuration(uint48 movingAverageDuration_) external onl
 
 Change the observation frequency of the moving average (i.e. how often a new observation is taken)
 
-*Changing the observation frequency clears existing observation data since it will not be taken at the right time intervals.
-Ensure that you have saved the existing data and/or can re-populate before calling this function.*
+Changing the observation frequency clears existing observation data since it will not be taken at the right time intervals.
+Ensure that you have saved the existing data and/or can re-populate before calling this function.
 
 ```solidity
 function changeObservationFrequency(uint48 observationFrequency_) external onlyRole("price_admin");
@@ -95,7 +95,7 @@ function changeObservationFrequency(uint48 observationFrequency_) external onlyR
 
 Change the update thresholds for the price feeds
 
-*The update thresholds should be set based on the update threshold of the chainlink oracles.*
+The update thresholds should be set based on the update threshold of the chainlink oracles.
 
 ```solidity
 function changeUpdateThresholds(uint48 ohmEthUpdateThreshold_, uint48 reserveEthUpdateThreshold_)
@@ -114,7 +114,7 @@ function changeUpdateThresholds(uint48 ohmEthUpdateThreshold_, uint48 reserveEth
 
 Change the minimum target price
 
-*The minimum target price should be set based on liquid backing of OHM.*
+The minimum target price should be set based on liquid backing of OHM.
 
 ```solidity
 function changeMinimumTargetPrice(uint256 minimumTargetPrice_) external onlyRole("price_admin");

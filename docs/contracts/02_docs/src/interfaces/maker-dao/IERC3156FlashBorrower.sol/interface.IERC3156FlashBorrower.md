@@ -1,12 +1,12 @@
 # IERC3156FlashBorrower
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/interfaces/maker-dao/IERC3156FlashBorrower.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/maker-dao/IERC3156FlashBorrower.sol)
 
 ## Functions
 
 ### onFlashLoan
 
-*Receive a flash loan.*
+Receive a flash loan.
 
 ```solidity
 function onFlashLoan(address initiator, address token, uint256 amount, uint256 fee, bytes calldata data)

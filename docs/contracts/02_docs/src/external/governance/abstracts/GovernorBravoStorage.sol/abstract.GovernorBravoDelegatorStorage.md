@@ -1,6 +1,6 @@
 # GovernorBravoDelegatorStorage
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/external/governance/abstracts/GovernorBravoStorage.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/governance/abstracts/GovernorBravoStorage.sol)
 
 ## State Variables
 
@@ -9,7 +9,7 @@
 Administrator for this contract
 
 ```solidity
-address public admin;
+address public admin
 ```
 
 ### pendingAdmin
@@ -17,7 +17,7 @@ address public admin;
 Pending administrator for this contract
 
 ```solidity
-address public pendingAdmin;
+address public pendingAdmin
 ```
 
 ### implementation
@@ -25,5 +25,5 @@ address public pendingAdmin;
 Active brains of Governor
 
 ```solidity
-address public implementation;
+address public implementation
 ```

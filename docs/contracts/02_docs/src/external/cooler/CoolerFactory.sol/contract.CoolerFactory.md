@@ -1,11 +1,14 @@
 # CoolerFactory
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/external/cooler/CoolerFactory.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/cooler/CoolerFactory.sol)
+
+**Title:**
+Cooler Loans Factory.
 
 The Cooler Factory creates new Cooler escrow contracts.
 
-*This contract uses Clones (<https://github.com/wighawag/clones-with-immutable-args>)
-to save gas on deployment.*
+This contract uses Clones (<https://github.com/wighawag/clones-with-immutable-args>)
+to save gas on deployment.
 
 ## State Variables
 
@@ -14,7 +17,7 @@ to save gas on deployment.*
 Cooler reference implementation (deployed on creation to clone from).
 
 ```solidity
-Cooler public immutable coolerImplementation;
+Cooler public immutable coolerImplementation
 ```
 
 ### created
@@ -22,7 +25,7 @@ Cooler public immutable coolerImplementation;
 Mapping to validate deployed coolers.
 
 ```solidity
-mapping(address => bool) public created;
+mapping(address => bool) public created
 ```
 
 ### coolerFor
@@ -30,7 +33,7 @@ mapping(address => bool) public created;
 Mapping to prevent duplicate coolers.
 
 ```solidity
-mapping(address => mapping(ERC20 => mapping(ERC20 => address))) private coolerFor;
+mapping(address => mapping(ERC20 => mapping(ERC20 => address))) private coolerFor
 ```
 
 ### coolersFor
@@ -38,7 +41,7 @@ mapping(address => mapping(ERC20 => mapping(ERC20 => address))) private coolerFo
 Mapping to query Coolers for Collateral-Debt pair.
 
 ```solidity
-mapping(ERC20 => mapping(ERC20 => address[])) public coolersFor;
+mapping(ERC20 => mapping(ERC20 => address[])) public coolersFor
 ```
 
 ## Functions
@@ -46,7 +49,7 @@ mapping(ERC20 => mapping(ERC20 => address[])) public coolersFor;
 ### constructor
 
 ```solidity
-constructor();
+constructor() ;
 ```
 
 ### generateCooler
@@ -75,7 +78,7 @@ function generateCooler(ERC20 collateral_, ERC20 debt_) external returns (addres
 Ensure that the called is a Cooler.
 
 ```solidity
-modifier onlyFromFactory();
+modifier onlyFromFactory() ;
 ```
 
 ### logRequestLoan

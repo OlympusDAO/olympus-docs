@@ -1,6 +1,6 @@
 # RolesAdmin
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/RolesAdmin.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/RolesAdmin.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy)
@@ -14,7 +14,7 @@ The RolesAdmin Policy grants and revokes Roles in the ROLES module.
 Special role that is responsible for assigning policy-defined roles to addresses.
 
 ```solidity
-address public admin;
+address public admin
 ```
 
 ### newAdmin
@@ -22,13 +22,13 @@ address public admin;
 Proposed new admin. Address must call `pullRolesAdmin` to become the new roles admin.
 
 ```solidity
-address public newAdmin;
+address public newAdmin
 ```
 
 ### ROLES
 
 ```solidity
-ROLESv1 public ROLES;
+ROLESv1 public ROLES
 ```
 
 ## Functions
@@ -54,7 +54,7 @@ function requestPermissions() external view override returns (Permissions[] memo
 ### onlyAdmin
 
 ```solidity
-modifier onlyAdmin();
+modifier onlyAdmin() ;
 ```
 
 ### grantRole

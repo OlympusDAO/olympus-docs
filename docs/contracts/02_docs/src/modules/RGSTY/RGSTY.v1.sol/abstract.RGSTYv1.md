@@ -1,9 +1,12 @@
 # RGSTYv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/modules/RGSTY/RGSTY.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/RGSTY/RGSTY.v1.sol)
 
 **Inherits:**
 [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
+
+**Title:**
+Contract Registry
 
 Interface for a module that can track the addresses of contracts
 
@@ -14,7 +17,7 @@ Interface for a module that can track the addresses of contracts
 Stores the names of the registered immutable contracts
 
 ```solidity
-bytes5[] internal _immutableContractNames;
+bytes5[] internal _immutableContractNames
 ```
 
 ### _contractNames
@@ -22,27 +25,27 @@ bytes5[] internal _immutableContractNames;
 Stores the names of the registered contracts
 
 ```solidity
-bytes5[] internal _contractNames;
+bytes5[] internal _contractNames
 ```
 
 ### _immutableContracts
 
 Mapping to store the immutable address of a contract
 
-*The address of an immutable contract can be retrieved by `getImmutableContract()`, and the names of all immutable contracts can be retrieved by `getImmutableContractNames()`.*
+The address of an immutable contract can be retrieved by `getImmutableContract()`, and the names of all immutable contracts can be retrieved by `getImmutableContractNames()`.
 
 ```solidity
-mapping(bytes5 => address) internal _immutableContracts;
+mapping(bytes5 => address) internal _immutableContracts
 ```
 
 ### _contracts
 
 Mapping to store the address of a contract
 
-*The address of a registered contract can be retrieved by `getContract()`, and the names of all registered contracts can be retrieved by `getContractNames()`.*
+The address of a registered contract can be retrieved by `getContract()`, and the names of all registered contracts can be retrieved by `getContractNames()`.
 
 ```solidity
-mapping(bytes5 => address) internal _contracts;
+mapping(bytes5 => address) internal _contracts
 ```
 
 ## Functions
@@ -51,7 +54,7 @@ mapping(bytes5 => address) internal _contracts;
 
 Register an immutable contract name and address
 
-*This function should be permissioned to prevent arbitrary contracts from being registered.*
+This function should be permissioned to prevent arbitrary contracts from being registered.
 
 ```solidity
 function registerImmutableContract(bytes5 name_, address contractAddress_) external virtual;
@@ -68,7 +71,7 @@ function registerImmutableContract(bytes5 name_, address contractAddress_) exter
 
 Register a new contract name and address
 
-*This function should be permissioned to prevent arbitrary contracts from being registered.*
+This function should be permissioned to prevent arbitrary contracts from being registered.
 
 ```solidity
 function registerContract(bytes5 name_, address contractAddress_) external virtual;
@@ -85,7 +88,7 @@ function registerContract(bytes5 name_, address contractAddress_) external virtu
 
 Update the address of an existing contract name
 
-*This function should be permissioned to prevent arbitrary contracts from being updated.*
+This function should be permissioned to prevent arbitrary contracts from being updated.
 
 ```solidity
 function updateContract(bytes5 name_, address contractAddress_) external virtual;
@@ -102,7 +105,7 @@ function updateContract(bytes5 name_, address contractAddress_) external virtual
 
 Deregister an existing contract name
 
-*This function should be permissioned to prevent arbitrary contracts from being deregistered.*
+This function should be permissioned to prevent arbitrary contracts from being deregistered.
 
 ```solidity
 function deregisterContract(bytes5 name_) external virtual;

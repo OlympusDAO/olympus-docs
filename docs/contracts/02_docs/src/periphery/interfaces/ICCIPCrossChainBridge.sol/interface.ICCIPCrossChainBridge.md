@@ -1,6 +1,6 @@
 # ICCIPCrossChainBridge
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/periphery/interfaces/ICCIPCrossChainBridge.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/periphery/interfaces/ICCIPCrossChainBridge.sol)
 
 ## Functions
 
@@ -8,7 +8,7 @@
 
 Gets the fee for sending OHM to the specified destination SVM chain
 
-*This can be used to send to an address on any chain supported by CCIP*
+This can be used to send to an address on any chain supported by CCIP
 
 ```solidity
 function getFeeSVM(uint64 dstChainSelector_, bytes32 to_, uint256 amount_) external view returns (uint256 fee_);
@@ -32,7 +32,7 @@ function getFeeSVM(uint64 dstChainSelector_, bytes32 to_, uint256 amount_) exter
 
 Gets the fee for sending OHM to the specified destination EVM chain
 
-*This can be used to send to an address on any EVM chain supported by CCIP*
+This can be used to send to an address on any EVM chain supported by CCIP
 
 ```solidity
 function getFeeEVM(uint64 dstChainSelector_, address to_, uint256 amount_) external view returns (uint256 fee_);
@@ -56,7 +56,7 @@ function getFeeEVM(uint64 dstChainSelector_, address to_, uint256 amount_) exter
 
 Sends OHM to the specified destination SVM chain
 
-*This can be used to send to an address on any chain supported by CCIP*
+This can be used to send to an address on any chain supported by CCIP
 
 ```solidity
 function sendToSVM(uint64 dstChainSelector_, bytes32 to_, uint256 amount_)
@@ -83,7 +83,7 @@ function sendToSVM(uint64 dstChainSelector_, bytes32 to_, uint256 amount_)
 
 Sends OHM to the specified destination EVM chain
 
-*This can be used to send to an address on any EVM chain supported by CCIP*
+This can be used to send to an address on any EVM chain supported by CCIP
 
 ```solidity
 function sendToEVM(uint64 dstChainSelector_, address to_, uint256 amount_)
@@ -144,7 +144,7 @@ function retryFailedMessage(bytes32 messageId_) external;
 
 Allows the owner to withdraw the native token from the contract
 
-*This is needed as senders may provide more native token than needed to cover fees*
+This is needed as senders may provide more native token than needed to cover fees
 
 ```solidity
 function withdraw(address recipient_) external;
@@ -160,7 +160,7 @@ function withdraw(address recipient_) external;
 
 Sets the trusted remote for the specified destination EVM chain
 
-*This is needed to send/receive messages to/from the specified destination EVM chain*
+This is needed to send/receive messages to/from the specified destination EVM chain
 
 ```solidity
 function setTrustedRemoteEVM(uint64 dstChainSelector_, address to_) external;
@@ -177,7 +177,7 @@ function setTrustedRemoteEVM(uint64 dstChainSelector_, address to_) external;
 
 Unsets the trusted remote for the specified destination EVM chain
 
-*This is needed to stop sending/receiving messages to/from the specified destination EVM chain*
+This is needed to stop sending/receiving messages to/from the specified destination EVM chain
 
 ```solidity
 function unsetTrustedRemoteEVM(uint64 dstChainSelector_) external;
@@ -213,7 +213,7 @@ function getTrustedRemoteEVM(uint64 dstChainSelector_) external view returns (Tr
 
 Sets the trusted remote for the specified destination SVM chain
 
-*This is needed to send/receive messages to/from the specified destination SVM chain*
+This is needed to send/receive messages to/from the specified destination SVM chain
 
 ```solidity
 function setTrustedRemoteSVM(uint64 dstChainSelector_, bytes32 to_) external;
@@ -230,7 +230,7 @@ function setTrustedRemoteSVM(uint64 dstChainSelector_, bytes32 to_) external;
 
 Unsets the trusted remote for the specified destination SVM chain
 
-*This is needed to stop sending/receiving messages to/from the specified destination SVM chain*
+This is needed to stop sending/receiving messages to/from the specified destination SVM chain
 
 ```solidity
 function unsetTrustedRemoteSVM(uint64 dstChainSelector_) external;
@@ -316,7 +316,9 @@ function getCCIPRouter() external view returns (address);
 ### Bridged
 
 ```solidity
-event Bridged(bytes32 messageId, uint64 destinationChainSelector, address indexed sender, uint256 amount, uint256 fees);
+event Bridged(
+    bytes32 messageId, uint64 destinationChainSelector, address indexed sender, uint256 amount, uint256 fees
+);
 ```
 
 ### Received

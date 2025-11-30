@@ -1,9 +1,12 @@
 # MonoCooler
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/cooler/MonoCooler.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/cooler/MonoCooler.sol)
 
 **Inherits:**
 [IMonoCooler](/main/contracts/docs/src/policies/interfaces/cooler/IMonoCooler.sol/interface.IMonoCooler), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyAdmin](/main/contracts/docs/src/policies/utils/PolicyAdmin.sol/abstract.PolicyAdmin)
+
+**Title:**
+Mono Cooler
 
 A borrow/lend market where users can deposit their gOHM as collateral and then
 borrow a stablecoin debt token up to a certain LTV
@@ -21,64 +24,64 @@ ie 18 decimal places
 
 ### _COLLATERAL_TOKEN
 
-*The collateral token, eg gOHM*
+The collateral token, eg gOHM
 
 ```solidity
-ERC20 private immutable _COLLATERAL_TOKEN;
+ERC20 private immutable _COLLATERAL_TOKEN
 ```
 
 ### _OHM
 
-*The OHM token*
+The OHM token
 
 ```solidity
-ERC20 private immutable _OHM;
+ERC20 private immutable _OHM
 ```
 
 ### _STAKING
 
-*The OHM staking contract*
+The OHM staking contract
 
 ```solidity
-IStaking private immutable _STAKING;
+IStaking private immutable _STAKING
 ```
 
 ### _MIN_DEBT_REQUIRED
 
-*The minimum debt a user needs to maintain*
+The minimum debt a user needs to maintain
 
 ```solidity
-uint256 private immutable _MIN_DEBT_REQUIRED;
+uint256 private immutable _MIN_DEBT_REQUIRED
 ```
 
 ### DOMAIN_SEPARATOR
 
-*Returns the domain separator used in the encoding of the signature for `setAuthorizationWithSig()`, as defined by {EIP712}.*
+Returns the domain separator used in the encoding of the signature for `setAuthorizationWithSig()`, as defined by {EIP712}.
 
 ```solidity
-bytes32 public immutable override DOMAIN_SEPARATOR;
+bytes32 public immutable override DOMAIN_SEPARATOR
 ```
 
 ### MINTR
 
 ```solidity
-MINTRv1 public MINTR;
+MINTRv1 public MINTR
 ```
 
 ### DLGTE
 
 ```solidity
-DLGTEv1 public DLGTE;
+DLGTEv1 public DLGTE
 ```
 
 ### totalCollateral
 
 The total amount of collateral posted across all accounts.
 
-*To 18 decimal places*
+To 18 decimal places
 
 ```solidity
-uint128 public override totalCollateral;
+uint128 public override totalCollateral
 ```
 
 ### totalDebt
@@ -86,30 +89,30 @@ uint128 public override totalCollateral;
 The total amount of debt which has been borrowed across all users
 as of the latest checkpoint
 
-*To 18 decimal places*
+To 18 decimal places
 
 ```solidity
-uint128 public override totalDebt;
+uint128 public override totalDebt
 ```
 
 ### interestAccumulatorRay
 
 The accumulator index used to track the compounding of debt, starting at 1e27 at genesis
 
-*To RAY (1e27) precision*
+To RAY (1e27) precision
 
 ```solidity
-uint256 public override interestAccumulatorRay;
+uint256 public override interestAccumulatorRay
 ```
 
 ### interestRateWad
 
 The flat interest rate (APR).
 
-*Interest (approximately) continuously compounds at this rate.*
+Interest (approximately) continuously compounds at this rate.
 
 ```solidity
-uint96 public override interestRateWad;
+uint96 public override interestRateWad
 ```
 
 ### ltvOracle
@@ -117,7 +120,7 @@ uint96 public override interestRateWad;
 The oracle serving both the Max Origination LTV and the Liquidation LTV
 
 ```solidity
-ICoolerLtvOracle public override ltvOracle;
+ICoolerLtvOracle public override ltvOracle
 ```
 
 ### liquidationsPaused
@@ -126,7 +129,7 @@ Liquidations may be paused in order for users to recover/repay debt after
 emergency actions or interest rate changes
 
 ```solidity
-bool public override liquidationsPaused;
+bool public override liquidationsPaused
 ```
 
 ### borrowsPaused
@@ -134,7 +137,7 @@ bool public override liquidationsPaused;
 Borrows may be paused for emergency actions or deprecating the facility
 
 ```solidity
-bool public override borrowsPaused;
+bool public override borrowsPaused
 ```
 
 ### interestAccumulatorUpdatedAt
@@ -142,7 +145,7 @@ bool public override borrowsPaused;
 The last time the global debt accumulator was updated
 
 ```solidity
-uint40 public override interestAccumulatorUpdatedAt;
+uint40 public override interestAccumulatorUpdatedAt
 ```
 
 ### treasuryBorrower
@@ -150,34 +153,29 @@ uint40 public override interestAccumulatorUpdatedAt;
 The policy which borrows/repays from Treasury on behalf of Cooler
 
 ```solidity
-ICoolerTreasuryBorrower public override treasuryBorrower;
+ICoolerTreasuryBorrower public override treasuryBorrower
 ```
 
 ### allAccountState
 
-*A per account store, tracking collateral/debt as of their latest checkpoint.*
+A per account store, tracking collateral/debt as of their latest checkpoint.
 
 ```solidity
-mapping(address => AccountState) private allAccountState;
+mapping(address /* account */ => AccountState) private allAccountState
 ```
 
 ### authorizations
 
-Whether `authorized` is authorized to act on `authorizer`'s behalf for all user actions
-up until the `authorizationDeadline` unix timestamp.
-
-*Anyone is authorized to modify their own positions, regardless of this variable.*
-
 ```solidity
-mapping(address => mapping(address => uint96)) public override authorizations;
+mapping(address /* account */ => mapping(address /* authorized */ => uint96 /* authorizationDeadline */))
+    public
+    override authorizations
 ```
 
 ### authorizationNonces
 
-The `authorizer`'s current nonce. Used to prevent replay attacks with EIP-712 signatures.
-
 ```solidity
-mapping(address => uint256) public override authorizationNonces;
+mapping(address /* account */ => uint256) public override authorizationNonces
 ```
 
 ### _RAY
@@ -185,41 +183,41 @@ mapping(address => uint256) public override authorizationNonces;
 Extra precision scalar
 
 ```solidity
-uint256 private constant _RAY = 1e27;
+uint256 private constant _RAY = 1e27
 ```
 
 ### _DOMAIN_TYPEHASH
 
-*The EIP-712 typeHash for EIP712Domain.*
+The EIP-712 typeHash for EIP712Domain.
 
 ```solidity
-bytes32 private constant _DOMAIN_TYPEHASH = keccak256("EIP712Domain(uint256 chainId,address verifyingContract)");
+bytes32 private constant _DOMAIN_TYPEHASH = keccak256("EIP712Domain(uint256 chainId,address verifyingContract)")
 ```
 
 ### _AUTHORIZATION_TYPEHASH
 
-*The EIP-712 typeHash for Authorization.*
+The EIP-712 typeHash for Authorization.
 
 ```solidity
 bytes32 private constant _AUTHORIZATION_TYPEHASH = keccak256(
     "Authorization(address account,address authorized,uint96 authorizationDeadline,uint256 nonce,uint256 signatureDeadline)"
-);
+)
 ```
 
 ### _EXPECTED_DECIMALS
 
-*expected decimals for the `_COLLATERAL_TOKEN` and `treasuryBorrower`*
+expected decimals for the `_COLLATERAL_TOKEN` and `treasuryBorrower`
 
 ```solidity
-uint8 private constant _EXPECTED_DECIMALS = 18;
+uint8 private constant _EXPECTED_DECIMALS = 18
 ```
 
 ### MAX_INTEREST_RATE
 
-*Cannot set an interest rate higher than 10%*
+Cannot set an interest rate higher than 10%
 
 ```solidity
-uint96 private constant MAX_INTEREST_RATE = 0.1e18;
+uint96 private constant MAX_INTEREST_RATE = 0.1e18
 ```
 
 ## Functions
@@ -270,7 +268,7 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 Sets the authorization for `authorized` to manage `msg.sender`'s positions until `authorizationDeadline`
 
-*Authorization can be revoked by setting the `authorizationDeadline` into the past*
+Authorization can be revoked by setting the `authorizationDeadline` into the past
 
 ```solidity
 function setAuthorization(address authorized, uint96 authorizationDeadline) external override;
@@ -288,10 +286,12 @@ function setAuthorization(address authorized, uint96 authorizationDeadline) exte
 Sets the authorization for `authorization.authorized` to manage `authorization.authorizer`'s positions
 until `authorization.authorizationDeadline`.
 
-*Warning: Reverts if the signature has already been submitted.*
+Warning: Reverts if the signature has already been submitted.
 
 ```solidity
-function setAuthorizationWithSig(Authorization memory authorization, Signature calldata signature) external override;
+function setAuthorizationWithSig(Authorization memory authorization, Signature calldata signature)
+    external
+    override;
 ```
 
 **Parameters**
@@ -303,7 +303,7 @@ function setAuthorizationWithSig(Authorization memory authorization, Signature c
 
 ### isSenderAuthorized
 
-*Returns whether the `sender` is authorized to manage `onBehalf`'s positions.*
+Returns whether the `sender` is authorized to manage `onBehalf`'s positions.
 
 ```solidity
 function isSenderAuthorized(address sender, address onBehalfOf) public view override returns (bool);
@@ -452,7 +452,7 @@ Liquidate one or more accounts which have exceeded the `liquidationLtv`
 The gOHM collateral is seized (unstaked to OHM and burned), and the accounts debt is wiped.
 
 - If one of the provided accounts in the batch hasn't exceeded the max LTV then it is skipped.
-- Delegations are auto-rescinded if required. Ordering of this is not guaranteed.*
+- Delegations are auto-rescinded if required. Ordering of this is not guaranteed.
 
 ```solidity
 function batchLiquidate(address[] calldata accounts)
@@ -481,7 +481,7 @@ function setTreasuryBorrower(address newTreasuryBorrower) external override;
 
 Liquidation may be paused in order for users to recover/repay debt after emergency actions
 
-*Can only be called by emergency or admin roles*
+Can only be called by emergency or admin roles
 
 ```solidity
 function setLiquidationsPaused(bool isPaused) external override onlyEmergencyOrAdminRole;
@@ -491,7 +491,7 @@ function setLiquidationsPaused(bool isPaused) external override onlyEmergencyOrA
 
 Pause any new borrows of `debtToken`
 
-*Can only be called by emergency or admin roles*
+Can only be called by emergency or admin roles
 
 ```solidity
 function setBorrowPaused(bool isPaused) external override onlyEmergencyOrAdminRole;
@@ -502,7 +502,7 @@ function setBorrowPaused(bool isPaused) external override onlyEmergencyOrAdminRo
 Update the interest rate (APR), specified in Wad (18 decimals)
 
 - Cannot be set higher than 10% APR
-- Interest (approximately) continuously compounds at this rate.*
+- Interest (approximately) continuously compounds at this rate.
 
 ```solidity
 function setInterestRateWad(uint96 newInterestRate) external override onlyAdminRole;
@@ -521,10 +521,16 @@ function setMaxDelegateAddresses(address account, uint32 maxDelegateAddresses) e
 
 Update and checkpoint the total debt up until now
 
-*May be useful in case there are no new user actions for some time.*
+May be useful in case there are no new user actions for some time.
 
 ```solidity
-function checkpointDebt() external override returns (uint128, uint256);
+function checkpointDebt()
+    external
+    override
+    returns (
+        uint128, /*totalDebt*/
+        uint256 /*interestAccumulatorRay*/
+    );
 ```
 
 ### collateralToken
@@ -563,8 +569,8 @@ function staking() external view override returns (IStaking);
 
 The minimum debt a user needs to maintain
 
-*It costs gas to liquidate users, so we don't want dust amounts.
-To 18 decimal places*
+It costs gas to liquidate users, so we don't want dust amounts.
+To 18 decimal places
 
 ```solidity
 function minDebtRequired() external view override returns (uint256);
@@ -574,7 +580,7 @@ function minDebtRequired() external view override returns (uint256);
 
 The current Max Origination LTV and Liquidation LTV from the `ltvOracle()`
 
-*Both to 18 decimal places*
+Both to 18 decimal places
 
 ```solidity
 function loanToValues() external view override returns (uint96 maxOriginationLtv, uint96 liquidationLtv);
@@ -588,7 +594,7 @@ from the current position.
 A positive `debtDeltaInWad` means the account can borrow that amount after adding that `collateralDelta` collateral
 A negative `debtDeltaInWad` means it needs to repay that amount in order to withdraw that `collateralDelta` collateral
 
-*debtDeltaInWad is always to 18 decimal places*
+debtDeltaInWad is always to 18 decimal places
 
 ```solidity
 function debtDeltaForMaxOriginationLtv(address account, int128 collateralDelta)
@@ -616,7 +622,7 @@ function accountPosition(address account) external view override returns (Accoun
 
 Compute the liquidity status for a set of accounts.
 
-*This can be used to verify if accounts can be liquidated or not.*
+This can be used to verify if accounts can be liquidated or not.
 
 ```solidity
 function computeLiquidity(address[] calldata accounts)
@@ -636,8 +642,8 @@ function computeLiquidity(address[] calldata accounts)
 
 Paginated view of an account's delegations
 
-*Can call sequentially increasing the `startIndex` each time by the number of items returned in the previous call,
-until number of items returned is less than `maxItems`*
+Can call sequentially increasing the `startIndex` each time by the number of items returned in the previous call,
+until number of items returned is less than `maxItems`
 
 ```solidity
 function accountDelegationsList(address account, uint256 startIndex, uint256 maxItems)
@@ -659,7 +665,7 @@ function accountState(address account) external view override returns (AccountSt
 
 An account's current collateral
 
-*to 18 decimal places*
+to 18 decimal places
 
 ```solidity
 function accountCollateral(address account) external view override returns (uint128);
@@ -678,13 +684,20 @@ function accountDebt(address account) external view override returns (uint128);
 A view of the derived/internal cache data.
 
 ```solidity
-function globalState() external view override returns (uint128, uint256);
+function globalState()
+    external
+    view
+    override
+    returns (
+        uint128, /*totalDebt*/
+        uint256 /*interestAccumulatorRay*/
+    );
 ```
 
 ### _globalStateRW
 
-*Setup and refresh the global state
-Update storage if and only if the timestamp has changed since last updated.*
+Setup and refresh the global state
+Update storage if and only if the timestamp has changed since last updated.
 
 ```solidity
 function _globalStateRW() private returns (GlobalStateCache memory gStateCache);
@@ -692,8 +705,8 @@ function _globalStateRW() private returns (GlobalStateCache memory gStateCache);
 
 ### _globalStateRO
 
-*Setup the GlobalStateCache for a given token
-read only -- storage isn't updated.*
+Setup the GlobalStateCache for a given token
+read only -- storage isn't updated.
 
 ```solidity
 function _globalStateRO() private view returns (GlobalStateCache memory gStateCache);
@@ -701,7 +714,7 @@ function _globalStateRO() private view returns (GlobalStateCache memory gStateCa
 
 ### _initGlobalStateCache
 
-*Initialize the global state cache from storage to this block, for a given token.*
+Initialize the global state cache from storage to this block, for a given token.
 
 ```solidity
 function _initGlobalStateCache(GlobalStateCache memory gStateCache) private view returns (bool dirty);
@@ -709,10 +722,10 @@ function _initGlobalStateCache(GlobalStateCache memory gStateCache) private view
 
 ### _reduceTotalDebt
 
-*Reduce the total debt in storage by a repayment amount.
+Reduce the total debt in storage by a repayment amount.
 NB: The sum of all users debt may be slightly more than the recorded total debt
 because users debt is rounded up for dust.
-The total debt is floored at 0.*
+The total debt is floored at 0.
 
 ```solidity
 function _reduceTotalDebt(GlobalStateCache memory gStateCache, uint128 repayAmount) private;
@@ -720,8 +733,8 @@ function _reduceTotalDebt(GlobalStateCache memory gStateCache, uint128 repayAmou
 
 ### _maxDebt
 
-*Calculate the maximum amount which can be borrowed up to the maxOriginationLtv, given
-a collateral amount*
+Calculate the maximum amount which can be borrowed up to the maxOriginationLtv, given
+a collateral amount
 
 ```solidity
 function _maxDebt(uint128 collateral, uint256 maxOriginationLtv) private pure returns (uint128);
@@ -729,8 +742,8 @@ function _maxDebt(uint128 collateral, uint256 maxOriginationLtv) private pure re
 
 ### _minCollateral
 
-*Calculate the maximum collateral amount which can be withdrawn up to the maxOriginationLtv, given
-a current debt amount*
+Calculate the maximum collateral amount which can be withdrawn up to the maxOriginationLtv, given
+a current debt amount
 
 ```solidity
 function _minCollateral(uint128 debt, uint256 maxOriginationLtv) private pure returns (uint128);
@@ -738,7 +751,7 @@ function _minCollateral(uint128 debt, uint256 maxOriginationLtv) private pure re
 
 ### _validateOriginationLtv
 
-*Ensure the LTV isn't higher than the maxOriginationLtv*
+Ensure the LTV isn't higher than the maxOriginationLtv
 
 ```solidity
 function _validateOriginationLtv(uint128 ltv, uint256 maxOriginationLtv) private pure;
@@ -746,7 +759,7 @@ function _validateOriginationLtv(uint128 ltv, uint256 maxOriginationLtv) private
 
 ### _calculateCurrentLtv
 
-*Calculate the current LTV based on the latest debt*
+Calculate the current LTV based on the latest debt
 
 ```solidity
 function _calculateCurrentLtv(uint128 currentDebt, uint128 collateral) private pure returns (uint128);
@@ -754,8 +767,8 @@ function _calculateCurrentLtv(uint128 currentDebt, uint128 collateral) private p
 
 ### _computeLiquidity
 
-*Generate the LiquidationStatus struct with current details
-for this account.*
+Generate the LiquidationStatus struct with current details
+for this account.
 
 ```solidity
 function _computeLiquidity(AccountState memory aStateCache, GlobalStateCache memory gStateCache)
@@ -766,8 +779,8 @@ function _computeLiquidity(AccountState memory aStateCache, GlobalStateCache mem
 
 ### _currentAccountDebt
 
-*Calculate the latest debt for a given account & token.
-Derived from the prior debt checkpoint, and the interest accumulator.*
+Calculate the latest debt for a given account & token.
+Derived from the prior debt checkpoint, and the interest accumulator.
 
 ```solidity
 function _currentAccountDebt(
@@ -795,9 +808,25 @@ function _requireAddressNonZero(address addr_) internal pure;
 
 ```solidity
 struct GlobalStateCache {
+    /**
+     * @notice The total amount that has already been borrowed by all accounts.
+     * This increases as interest accrues or new borrows.
+     * Decreases on repays or liquidations.
+     */
     uint128 totalDebt;
+    /**
+     * @notice Internal tracking of the accumulated interest as an index starting from 1.0e27
+     * When this accumulator is compunded by the interest rate, the total debt can be calculated as
+     * `updatedTotalDebt = prevTotalDebt * latestInterestAccumulator / prevInterestAccumulator
+     */
     uint256 interestAccumulatorRay;
+    /**
+     * @notice The current Liquidation LTV, served from the `ltvOracle`
+     */
     uint96 liquidationLtv;
+    /**
+     * @notice The current Max Origination LTV, served from the `ltvOracle`
+     */
     uint96 maxOriginationLtv;
 }
 ```

@@ -1,35 +1,35 @@
 # CrossChainBridge
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/CrossChainBridge.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/CrossChainBridge.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer), ILayerZeroReceiver, ILayerZeroUserApplicationConfig
 
 Message bridge for cross-chain OHM transfers.
 
-*Uses LayerZero as communication protocol.*
+Uses LayerZero as communication protocol.
 
-*Each chain needs to `setTrustedRemoteAddress` for each remote address
-it intends to receive from.*
+Each chain needs to `setTrustedRemoteAddress` for each remote address
+it intends to receive from.
 
 ## State Variables
 
 ### MINTR
 
 ```solidity
-MINTRv1 public MINTR;
+MINTRv1 public MINTR
 ```
 
 ### lzEndpoint
 
 ```solidity
-ILayerZeroEndpoint public immutable lzEndpoint;
+ILayerZeroEndpoint public immutable lzEndpoint
 ```
 
 ### ohm
 
 ```solidity
-ERC20 public ohm;
+ERC20 public ohm
 ```
 
 ### bridgeActive
@@ -37,7 +37,7 @@ ERC20 public ohm;
 Flag to determine if bridge is allowed to send messages or not
 
 ```solidity
-bool public bridgeActive;
+bool public bridgeActive
 ```
 
 ### failedMessages
@@ -47,7 +47,7 @@ Storage for failed messages on receive.
 chainID => source address => endpoint nonce
 
 ```solidity
-mapping(uint16 => mapping(bytes => mapping(uint64 => bytes32))) public failedMessages;
+mapping(uint16 => mapping(bytes => mapping(uint64 => bytes32))) public failedMessages
 ```
 
 ### trustedRemoteLookup
@@ -55,7 +55,7 @@ mapping(uint16 => mapping(bytes => mapping(uint64 => bytes32))) public failedMes
 Trusted remote paths. Must be set by admin.
 
 ```solidity
-mapping(uint16 => bytes) public trustedRemoteLookup;
+mapping(uint16 => bytes) public trustedRemoteLookup
 ```
 
 ### precrime
@@ -63,7 +63,7 @@ mapping(uint16 => bytes) public trustedRemoteLookup;
 LZ precrime address. Currently unused.
 
 ```solidity
-address public precrime;
+address public precrime
 ```
 
 ## Functions
@@ -114,7 +114,7 @@ function sendOhm(uint16 dstChainId_, address to_, uint256 amount_) external paya
 
 Implementation of receiving an LZ message
 
-*Function must be public to be called by low-level call in lzReceive*
+Function must be public to be called by low-level call in lzReceive
 
 ```solidity
 function _receiveMessage(uint16 srcChainId_, bytes memory, uint64, bytes memory payload_) internal;
@@ -133,7 +133,7 @@ function lzReceive(uint16 srcChainId_, bytes calldata srcAddress_, uint64 nonce_
 
 Implementation of receiving an LZ message
 
-*Function must be public to be called by low-level call in lzReceive*
+Function must be public to be called by low-level call in lzReceive
 
 ```solidity
 function receiveMessage(uint16 srcChainId_, bytes memory srcAddress_, uint64 nonce_, bytes memory payload_) public;
@@ -154,7 +154,7 @@ function retryMessage(uint16 srcChainId_, bytes calldata srcAddress_, uint64 non
 
 Internal function for sending a message across chains.
 
-*Params defined in ILayerZeroEndpoint `send` function.*
+Params defined in ILayerZeroEndpoint `send` function.
 
 ```solidity
 function _sendMessage(
@@ -171,7 +171,7 @@ function _sendMessage(
 
 Function to estimate how much gas is needed to send OHM
 
-*Should be called by frontend before making sendOhm call.*
+Should be called by frontend before making sendOhm call.
 
 ```solidity
 function estimateSendFee(uint16 dstChainId_, address to_, uint256 amount_, bytes calldata adapterParams_)
@@ -218,7 +218,7 @@ function setReceiveVersion(uint16 version_) external override onlyRole("bridge_a
 
 Retries a received message. Used as last resort if retryPayload fails.
 
-*Unblocks queue and DESTROYS transaction forever. USE WITH CAUTION.*
+Unblocks queue and DESTROYS transaction forever. USE WITH CAUTION.
 
 ```solidity
 function forceResumeReceive(uint16 srcChainId_, bytes calldata srcAddress_)
@@ -231,7 +231,7 @@ function forceResumeReceive(uint16 srcChainId_, bytes calldata srcAddress_)
 
 Sets the trusted path for the cross-chain communication
 
-*path_ = abi.encodePacked(remoteAddress, localAddress)*
+path_ = abi.encodePacked(remoteAddress, localAddress)
 
 ```solidity
 function setTrustedRemote(uint16 srcChainId_, bytes calldata path_) external onlyRole("bridge_admin");

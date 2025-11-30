@@ -1,6 +1,6 @@
 # OlympusAuthority
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/external/OlympusAuthority.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/OlympusAuthority.sol)
 
 **Inherits:**
 [IOlympusAuthority](/main/contracts/docs/src/external/OlympusAuthority.sol/interface.IOlympusAuthority), [OlympusAccessControlled](/main/contracts/docs/src/external/OlympusAuthority.sol/abstract.OlympusAccessControlled)
@@ -10,49 +10,49 @@
 ### governor
 
 ```solidity
-address public override governor;
+address public override governor
 ```
 
 ### guardian
 
 ```solidity
-address public override guardian;
+address public override guardian
 ```
 
 ### policy
 
 ```solidity
-address public override policy;
+address public override policy
 ```
 
 ### vault
 
 ```solidity
-address public override vault;
+address public override vault
 ```
 
 ### newGovernor
 
 ```solidity
-address public newGovernor;
+address public newGovernor
 ```
 
 ### newGuardian
 
 ```solidity
-address public newGuardian;
+address public newGuardian
 ```
 
 ### newPolicy
 
 ```solidity
-address public newPolicy;
+address public newPolicy
 ```
 
 ### newVault
 
 ```solidity
-address public newVault;
+address public newVault
 ```
 
 ## Functions

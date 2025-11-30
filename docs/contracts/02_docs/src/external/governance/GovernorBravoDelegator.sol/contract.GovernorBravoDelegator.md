@@ -1,6 +1,6 @@
 # GovernorBravoDelegator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/external/governance/GovernorBravoDelegator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/governance/GovernorBravoDelegator.sol)
 
 **Inherits:**
 [GovernorBravoDelegatorStorage](/main/contracts/docs/src/external/governance/abstracts/GovernorBravoStorage.sol/abstract.GovernorBravoDelegatorStorage), [IGovernorBravoEventsAndErrors](/main/contracts/docs/src/external/governance/interfaces/IGovernorBravoEvents.sol/interface.IGovernorBravoEventsAndErrors)
@@ -20,7 +20,7 @@ constructor(
     uint256 votingDelay_,
     uint256 activationGracePeriod_,
     uint256 proposalThreshold_
-);
+) ;
 ```
 
 ### _setImplementation
@@ -41,7 +41,7 @@ function _setImplementation(address implementation_) public;
 
 Internal method to delegate execution to another contract
 
-*It returns to the external caller whatever the implementation returns or forwards reverts*
+It returns to the external caller whatever the implementation returns or forwards reverts
 
 ```solidity
 function delegateTo(address callee, bytes memory data) internal;
@@ -56,9 +56,9 @@ function delegateTo(address callee, bytes memory data) internal;
 
 ### fallback
 
-*Delegates execution to an implementation contract.
+Delegates execution to an implementation contract.
 It returns to the external caller whatever the implementation returns
-or forwards reverts.*
+or forwards reverts.
 
 ```solidity
 fallback() external payable;

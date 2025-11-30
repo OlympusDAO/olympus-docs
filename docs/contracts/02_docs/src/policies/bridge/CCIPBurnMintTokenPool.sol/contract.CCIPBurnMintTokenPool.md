@@ -1,14 +1,17 @@
 # CCIPBurnMintTokenPool
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/bridge/CCIPBurnMintTokenPool.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/bridge/CCIPBurnMintTokenPool.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [BurnMintTokenPoolBase](/main/contracts/docs/src/policies/bridge/BurnMintTokenPoolBase.sol/abstract.BurnMintTokenPoolBase), [ICCIPTokenPool](/main/contracts/docs/src/policies/interfaces/ICCIPTokenPool.sol/interface.ICCIPTokenPool), ITypeAndVersion
 
+**Title:**
+CCIPBurnMintTokenPool
+
 Bophades policy to handling minting and burning of OHM using Chainlink CCIP on non-canonical chains
 
-*As the CCIP contracts have a minimum solidity version of 0.8.24, this policy is also compiled with 0.8.24
-Despite being a policy, the admin functions inherited from `TokenPool` are not virtual and cannot be overriden, and so remain gated to the owner.*
+As the CCIP contracts have a minimum solidity version of 0.8.24, this policy is also compiled with 0.8.24
+Despite being a policy, the admin functions inherited from `TokenPool` are not virtual and cannot be overriden, and so remain gated to the owner.
 
 ## State Variables
 
@@ -17,17 +20,17 @@ Despite being a policy, the admin functions inherited from `TokenPool` are not v
 Bophades module for minting and burning OHM
 
 ```solidity
-MINTRv1 public MINTR;
+MINTRv1 public MINTR
 ```
 
 ### _typeAndVersion
 
 Unique identifier for the TokenPool
 
-*This is used to identify the TokenPool to CCIP*
+This is used to identify the TokenPool to CCIP
 
 ```solidity
-string internal constant _typeAndVersion = "BurnMintTokenPool 1.5.1";
+string internal constant _typeAndVersion = "BurnMintTokenPool 1.5.1"
 ```
 
 ## Functions
@@ -87,7 +90,7 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 Burns the specified amount of OHM
 
-*Implementation of the `_burn` function from the `BurnMintTokenPoolAbstract` contract*
+Implementation of the `_burn` function from the `BurnMintTokenPoolAbstract` contract
 
 ```solidity
 function _burn(uint256 amount_) internal override onlyEnabled;
@@ -97,7 +100,7 @@ function _burn(uint256 amount_) internal override onlyEnabled;
 
 Mints the specified amount of OHM
 
-*Implementation of the `_mint` function from the `BurnMintTokenPoolBase` contract*
+Implementation of the `_mint` function from the `BurnMintTokenPoolBase` contract
 
 ```solidity
 function _mint(address receiver_, uint256 amount_) internal override onlyEnabled;
@@ -107,7 +110,7 @@ function _mint(address receiver_, uint256 amount_) internal override onlyEnabled
 
 Returns the amount of OHM that has been bridged from mainnet
 
-*This function is not used in this policy, so it returns 0*
+This function is not used in this policy, so it returns 0
 
 ```solidity
 function getBridgedSupply() external pure returns (uint256);
@@ -122,5 +125,5 @@ function typeAndVersion() external pure override returns (string memory);
 ### supportsInterface
 
 ```solidity
-function supportsInterface(bytes4 interfaceId) public pure override returns (bool);
+function supportsInterface(bytes4 interfaceId) public pure override(TokenPool, PolicyEnabler) returns (bool);
 ```

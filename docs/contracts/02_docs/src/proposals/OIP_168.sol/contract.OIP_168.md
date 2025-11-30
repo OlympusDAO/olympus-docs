@@ -1,6 +1,6 @@
 # OIP_168
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/proposals/OIP_168.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/proposals/OIP_168.sol)
 
 **Inherits:**
 GovernorBravoProposal
@@ -12,7 +12,7 @@ OIP-168 migrates the reserve used in the Olympus protocol from DAI to USDS.
 ### _kernel
 
 ```solidity
-Kernel internal _kernel;
+Kernel internal _kernel
 ```
 
 ## Functions

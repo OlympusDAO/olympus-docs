@@ -1,6 +1,6 @@
 # GovernorBravoDelegate
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/external/governance/GovernorBravoDelegate.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/governance/GovernorBravoDelegate.sol)
 
 **Inherits:**
 [GovernorBravoDelegateStorageV2](/main/contracts/docs/src/external/governance/abstracts/GovernorBravoStorage.sol/abstract.GovernorBravoDelegateStorageV2), [IGovernorBravoEventsAndErrors](/main/contracts/docs/src/external/governance/interfaces/IGovernorBravoEvents.sol/interface.IGovernorBravoEventsAndErrors)
@@ -12,7 +12,7 @@
 The name of this contract
 
 ```solidity
-string public constant name = "Olympus Governor Bravo";
+string public constant name = "Olympus Governor Bravo"
 ```
 
 ### MIN_PROPOSAL_THRESHOLD_PCT
@@ -20,7 +20,7 @@ string public constant name = "Olympus Governor Bravo";
 The minimum setable proposal threshold
 
 ```solidity
-uint256 public constant MIN_PROPOSAL_THRESHOLD_PCT = 15_000;
+uint256 public constant MIN_PROPOSAL_THRESHOLD_PCT = 15_000
 ```
 
 ### MAX_PROPOSAL_THRESHOLD_PCT
@@ -28,7 +28,7 @@ uint256 public constant MIN_PROPOSAL_THRESHOLD_PCT = 15_000;
 The maximum setable proposal threshold
 
 ```solidity
-uint256 public constant MAX_PROPOSAL_THRESHOLD_PCT = 1_000_000;
+uint256 public constant MAX_PROPOSAL_THRESHOLD_PCT = 1_000_000
 ```
 
 ### MIN_VOTING_PERIOD
@@ -36,7 +36,7 @@ uint256 public constant MAX_PROPOSAL_THRESHOLD_PCT = 1_000_000;
 The minimum setable voting period
 
 ```solidity
-uint256 public constant MIN_VOTING_PERIOD = 21600;
+uint256 public constant MIN_VOTING_PERIOD = 21600
 ```
 
 ### MAX_VOTING_PERIOD
@@ -44,7 +44,7 @@ uint256 public constant MIN_VOTING_PERIOD = 21600;
 The max setable voting period
 
 ```solidity
-uint256 public constant MAX_VOTING_PERIOD = 100800;
+uint256 public constant MAX_VOTING_PERIOD = 100800
 ```
 
 ### MIN_VOTING_DELAY
@@ -52,7 +52,7 @@ uint256 public constant MAX_VOTING_PERIOD = 100800;
 The min setable voting delay
 
 ```solidity
-uint256 public constant MIN_VOTING_DELAY = 7200;
+uint256 public constant MIN_VOTING_DELAY = 7200
 ```
 
 ### MAX_VOTING_DELAY
@@ -60,7 +60,7 @@ uint256 public constant MIN_VOTING_DELAY = 7200;
 The max setable voting delay
 
 ```solidity
-uint256 public constant MAX_VOTING_DELAY = 50400;
+uint256 public constant MAX_VOTING_DELAY = 50400
 ```
 
 ### MIN_GOHM_SUPPLY
@@ -68,18 +68,18 @@ uint256 public constant MAX_VOTING_DELAY = 50400;
 The minimum level of gOHM supply acceptable for OCG operations
 
 ```solidity
-uint256 public constant MIN_GOHM_SUPPLY = 1_000e18;
+uint256 public constant MIN_GOHM_SUPPLY = 1_000e18
 ```
 
 ### quorumPct
 
 The percentage of total supply in support of a proposal required in order for a quorum to be reached and for a vote to succeed
 
-*Olympus has a variable supply system, that actively fluctuates fairly significantly, so it is better to use
-a percentage of total supply, rather than a fixed number of tokens.*
+Olympus has a variable supply system, that actively fluctuates fairly significantly, so it is better to use
+a percentage of total supply, rather than a fixed number of tokens.
 
 ```solidity
-uint256 public constant quorumPct = 20_000_000;
+uint256 public constant quorumPct = 20_000_000
 ```
 
 ### highRiskQuorum
@@ -87,11 +87,11 @@ uint256 public constant quorumPct = 20_000_000;
 The percentage of total supply in support of a proposal related to a high risk module in the Default system required
 in order for a quorum to be reached and for a vote to succeed
 
-*Olympus has a variable supply system, that actively fluctuates fairly significantly, so it is better to use
-a percentage of total supply, rather than a fixed number of tokens.*
+Olympus has a variable supply system, that actively fluctuates fairly significantly, so it is better to use
+a percentage of total supply, rather than a fixed number of tokens.
 
 ```solidity
-uint256 public constant highRiskQuorum = 20_000_000;
+uint256 public constant highRiskQuorum = 20_000_000
 ```
 
 ### approvalThresholdPct
@@ -99,7 +99,7 @@ uint256 public constant highRiskQuorum = 20_000_000;
 The percentage of votes that must be in favor of a proposal for it to succeed
 
 ```solidity
-uint256 public constant approvalThresholdPct = 60_000_000;
+uint256 public constant approvalThresholdPct = 60_000_000
 ```
 
 ### proposalMaxOperations
@@ -107,7 +107,7 @@ uint256 public constant approvalThresholdPct = 60_000_000;
 The maximum number of actions that can be included in a proposal
 
 ```solidity
-uint256 public constant proposalMaxOperations = 15;
+uint256 public constant proposalMaxOperations = 15
 ```
 
 ### DOMAIN_TYPEHASH
@@ -116,7 +116,7 @@ The EIP-712 typehash for the contract's domain
 
 ```solidity
 bytes32 public constant DOMAIN_TYPEHASH =
-    keccak256("EIP712Domain(string name,uint256 chainId,address verifyingContract)");
+    keccak256("EIP712Domain(string name,uint256 chainId,address verifyingContract)")
 ```
 
 ### BALLOT_TYPEHASH
@@ -124,7 +124,7 @@ bytes32 public constant DOMAIN_TYPEHASH =
 The EIP-712 typehash for the ballot struct used by the contract
 
 ```solidity
-bytes32 public constant BALLOT_TYPEHASH = keccak256("Ballot(uint256 proposalId,uint8 support)");
+bytes32 public constant BALLOT_TYPEHASH = keccak256("Ballot(uint256 proposalId,uint8 support)")
 ```
 
 ## Functions
@@ -193,7 +193,7 @@ function propose(
 
 Create proposal in case of emergency
 
-*Can only be called by the veto guardian in the event of an emergency*
+Can only be called by the veto guardian in the event of an emergency
 
 ```solidity
 function emergencyPropose(
@@ -217,7 +217,7 @@ function emergencyPropose(
 
 Activates voting for a proposal
 
-*This also captures quorum based on total supply to ensure it's as close as possible to the proposal start time*
+This also captures quorum based on total supply to ensure it's as close as possible to the proposal start time
 
 ```solidity
 function activate(uint256 proposalId) external;
@@ -327,7 +327,7 @@ function castVoteWithReason(uint256 proposalId, uint8 support, string calldata r
 
 Cast a vote for a proposal by signature
 
-*External function that accepts EIP-712 signatures for voting on proposals.*
+External function that accepts EIP-712 signatures for voting on proposals.
 
 ```solidity
 function castVoteBySig(uint256 proposalId, uint8 support, uint8 v, bytes32 r, bytes32 s) external;
@@ -387,7 +387,7 @@ function _setVotingPeriod(uint256 newVotingPeriod) external;
 
 Admin function for setting the proposal threshold
 
-*newProposalThreshold must be greater than the hardcoded min*
+newProposalThreshold must be greater than the hardcoded min
 
 ```solidity
 function _setProposalThreshold(uint256 newProposalThreshold) external;
@@ -417,7 +417,7 @@ function _setVetoGuardian(address account) external;
 
 Begins transfer of admin rights. The newPendingAdmin must call `_acceptAdmin` to finalize the transfer.
 
-*Admin function to begin change of admin. The newPendingAdmin must call `_acceptAdmin` to finalize the transfer.*
+Admin function to begin change of admin. The newPendingAdmin must call `_acceptAdmin` to finalize the transfer.
 
 ```solidity
 function _setPendingAdmin(address newPendingAdmin) external;
@@ -433,7 +433,7 @@ function _setPendingAdmin(address newPendingAdmin) external;
 
 Accepts transfer of admin rights. msg.sender must be pendingAdmin
 
-*Admin function for pending admin to accept role and update admin*
+Admin function for pending admin to accept role and update admin
 
 ```solidity
 function _acceptAdmin() external;
@@ -443,7 +443,7 @@ function _acceptAdmin() external;
 
 Sets whether a module is considered high risk
 
-*Admin function to set whether a module in the Default Framework is considered high risk*
+Admin function to set whether a module in the Default Framework is considered high risk
 
 ```solidity
 function _setModuleRiskLevel(bytes5 module_, bool isHighRisk_) external;
@@ -458,7 +458,7 @@ function _setModuleRiskLevel(bytes5 module_, bool isHighRisk_) external;
 
 ### _isEmergency
 
-*Checks if the system should be set to an emergency state due to a collapsing supply of gOHM*
+Checks if the system should be set to an emergency state due to a collapsing supply of gOHM
 
 ```solidity
 function _isEmergency() internal view returns (bool);
@@ -466,10 +466,10 @@ function _isEmergency() internal view returns (bool);
 
 ### _isHighRiskProposal
 
-*Checks if a proposal is high risk by identifying actions where the Default Framework kernel
+Checks if a proposal is high risk by identifying actions where the Default Framework kernel
 is the target, if so, checking if it's installing or deactivating a policy, and if so,
 checking if the policy is touching a high risk module. This makes external calls, so when
-for future updates to the Governor, make sure that functions where it is used cannot be re-entered.*
+for future updates to the Governor, make sure that functions where it is used cannot be re-entered.
 
 ```solidity
 function _isHighRiskProposal(address[] memory targets, string[] memory signatures, bytes[] memory calldatas)
@@ -623,7 +623,12 @@ Gets actions of a proposal
 function getActions(uint256 proposalId)
     external
     view
-    returns (address[] memory targets, uint256[] memory values, string[] memory signatures, bytes[] memory calldatas);
+    returns (
+        address[] memory targets,
+        uint256[] memory values,
+        string[] memory signatures,
+        bytes[] memory calldatas
+    );
 ```
 
 **Parameters**

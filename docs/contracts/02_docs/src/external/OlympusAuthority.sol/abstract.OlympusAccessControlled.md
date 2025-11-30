@@ -1,19 +1,19 @@
 # OlympusAccessControlled
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/external/OlympusAuthority.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/OlympusAuthority.sol)
 
 ## State Variables
 
 ### UNAUTHORIZED
 
 ```solidity
-string internal UNAUTHORIZED = "UNAUTHORIZED";
+string internal UNAUTHORIZED = "UNAUTHORIZED"
 ```
 
 ### authority
 
 ```solidity
-IOlympusAuthority public authority;
+IOlympusAuthority public authority
 ```
 
 ## Functions
@@ -21,31 +21,31 @@ IOlympusAuthority public authority;
 ### constructor
 
 ```solidity
-constructor(IOlympusAuthority _authority);
+constructor(IOlympusAuthority _authority) ;
 ```
 
 ### onlyGovernor
 
 ```solidity
-modifier onlyGovernor();
+modifier onlyGovernor() ;
 ```
 
 ### onlyGuardian
 
 ```solidity
-modifier onlyGuardian();
+modifier onlyGuardian() ;
 ```
 
 ### onlyPermitted
 
 ```solidity
-modifier onlyPermitted();
+modifier onlyPermitted() ;
 ```
 
 ### onlyVault
 
 ```solidity
-modifier onlyVault();
+modifier onlyVault() ;
 ```
 
 ### setAuthority

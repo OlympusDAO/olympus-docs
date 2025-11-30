@@ -1,17 +1,17 @@
 # CoolerCallback
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/external/cooler/CoolerCallback.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/cooler/CoolerCallback.sol)
 
 Allows for debt issuers to execute logic when a loan is repaid, rolled, or defaulted.
 
-*The three callback functions must be implemented if `isCoolerCallback()` is set to true.*
+The three callback functions must be implemented if `isCoolerCallback()` is set to true.
 
 ## State Variables
 
 ### factory
 
 ```solidity
-CoolerFactory public immutable factory;
+CoolerFactory public immutable factory
 ```
 
 ## Functions
@@ -19,7 +19,7 @@ CoolerFactory public immutable factory;
 ### constructor
 
 ```solidity
-constructor(address coolerFactory_);
+constructor(address coolerFactory_) ;
 ```
 
 ### isCoolerCallback

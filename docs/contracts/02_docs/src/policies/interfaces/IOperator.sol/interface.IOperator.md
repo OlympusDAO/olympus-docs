@@ -1,6 +1,6 @@
 # IOperator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/interfaces/IOperator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/IOperator.sol)
 
 ## Functions
 
@@ -10,7 +10,7 @@ Executes market operations logic.
 
 Access restricted
 
-*This function is triggered by a keeper on the Heart contract.*
+This function is triggered by a keeper on the Heart contract.
 
 ```solidity
 function operate() external;
@@ -65,7 +65,7 @@ Set the wall and cushion spreads
 
 Access restricted
 
-*Interface for externally setting these values on the RANGE module*
+Interface for externally setting these values on the RANGE module
 
 ```solidity
 function setSpreads(bool high_, uint256 cushionSpread_, uint256 wallSpread_) external;
@@ -85,7 +85,7 @@ Set the threshold factor for when a wall is considered "down"
 
 Access restricted
 
-*Interface for externally setting this value on the RANGE module*
+Interface for externally setting this value on the RANGE module
 
 ```solidity
 function setThresholdFactor(uint256 thresholdFactor_) external;
@@ -153,7 +153,7 @@ Set the wall regeneration parameters
 
 Access restricted
 
-*We must see Threshold number of price points that meet our criteria within the last Observe number of price points to regenerate a wall.*
+We must see Threshold number of price points that meet our criteria within the last Observe number of price points to regenerate a wall.
 
 ```solidity
 function setRegenParams(uint32 wait_, uint32 threshold_, uint32 observe_) external;
@@ -192,7 +192,7 @@ Access restricted
 
 Can only be called once
 
-*This function executes actions required to start operations that cannot be done prior to the Operator policy being approved by the Kernel.*
+This function executes actions required to start operations that cannot be done prior to the Operator policy being approved by the Kernel.
 
 ```solidity
 function initialize() external;
@@ -204,7 +204,7 @@ Regenerate the wall for a side
 
 Access restricted
 
-*This function is an escape hatch to trigger out of cycle regenerations and may be useful when doing migrations of Treasury funds*
+This function is an escape hatch to trigger out of cycle regenerations and may be useful when doing migrations of Treasury funds
 
 ```solidity
 function regenerate(bool high_) external;
@@ -222,7 +222,7 @@ Deactivate the Operator
 
 Access restricted
 
-*Emergency pause function for the Operator. Prevents market operations from occurring.*
+Emergency pause function for the Operator. Prevents market operations from occurring.
 
 ```solidity
 function deactivate() external;
@@ -234,7 +234,7 @@ Activate the Operator
 
 Access restricted
 
-*Restart function for the Operator after a pause.*
+Restart function for the Operator after a pause.
 
 ```solidity
 function activate() external;
@@ -246,7 +246,7 @@ Manually close a cushion bond market
 
 Access restricted
 
-*Emergency shutdown function for Cushions*
+Emergency shutdown function for Cushions
 
 ```solidity
 function deactivateCushion(bool high_) external;
@@ -262,7 +262,7 @@ function deactivateCushion(bool high_) external;
 
 Returns the full capacity of the specified wall (if it was regenerated now)
 
-*Calculates the capacity to deploy for a wall based on the amount of reserves owned by the treasury and the reserve factor.*
+Calculates the capacity to deploy for a wall based on the amount of reserves owned by the treasury and the reserve factor.
 
 ```solidity
 function fullCapacity(bool high_) external view returns (uint256);
@@ -374,14 +374,14 @@ Configuration variables for the Operator
 
 ```solidity
 struct Config {
-    uint32 cushionFactor;
-    uint32 cushionDuration;
-    uint32 cushionDebtBuffer;
-    uint32 cushionDepositInterval;
-    uint32 reserveFactor;
-    uint32 regenWait;
-    uint32 regenThreshold;
-    uint32 regenObserve;
+    uint32 cushionFactor; // percent of capacity to be used for a single cushion deployment, assumes 2 decimals (i.e. 1000 = 10%)
+    uint32 cushionDuration; // duration of a single cushion deployment in seconds
+    uint32 cushionDebtBuffer; // Percentage over the initial debt to allow the market to accumulate at any one time. Percent with 3 decimals, e.g. 1_000 = 1 %. See IBondSDA for more info.
+    uint32 cushionDepositInterval; // Target frequency of deposits. Determines max payout of the bond market. See IBondSDA for more info.
+    uint32 reserveFactor; // percent of reserves in treasury to be used for a single wall, assumes 2 decimals (i.e. 1000 = 10%)
+    uint32 regenWait; // minimum duration to wait to reinstate a wall in seconds
+    uint32 regenThreshold; // number of price points on other side of moving average to reinstate a wall
+    uint32 regenObserve; // number of price points to observe to determine regeneration
 }
 ```
 
@@ -391,8 +391,8 @@ Combines regeneration status for low and high sides of the range
 
 ```solidity
 struct Status {
-    Regen low;
-    Regen high;
+    Regen low; // regeneration status for the low side of the range
+    Regen high; // regeneration status for the high side of the range
 }
 ```
 
@@ -402,9 +402,9 @@ Tracks status of when a specific side of the range can be regenerated by the Ope
 
 ```solidity
 struct Regen {
-    uint32 count;
-    uint48 lastRegen;
-    uint32 nextObservation;
-    bool[] observations;
+    uint32 count; // current number of price points that count towards regeneration
+    uint48 lastRegen; // timestamp of the last regeneration
+    uint32 nextObservation; // index of the next observation in the observations array
+    bool[] observations; // individual observations: true = price on other side of average, false = price on same side of average
 }
 ```

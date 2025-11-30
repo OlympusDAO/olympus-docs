@@ -1,28 +1,31 @@
 # Burner
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/Burner.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/Burner.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
 
+**Title:**
+Olympus Burner Policy
+
 Olympus Burner Policy Contract
 
-*This policy is to enable burning of OHM by the DAO MS to support test runs of new products which have not been automated yet.
+This policy is to enable burning of OHM by the DAO MS to support test runs of new products which have not been automated yet.
 This policy will be removed once the protocol completes feature development and the DAO no longer needs to test products.
-This policy requires categories to be created to designate the purpose for burned OHM, which can be tracked externally from automated systems.*
+This policy requires categories to be created to designate the purpose for burned OHM, which can be tracked externally from automated systems.
 
 ## State Variables
 
 ### TRSRY
 
 ```solidity
-TRSRYv1 internal TRSRY;
+TRSRYv1 internal TRSRY
 ```
 
 ### MINTR
 
 ```solidity
-MINTRv1 internal MINTR;
+MINTRv1 internal MINTR
 ```
 
 ### ohm
@@ -30,7 +33,7 @@ MINTRv1 internal MINTR;
 OHM token
 
 ```solidity
-ERC20 public immutable ohm;
+ERC20 public immutable ohm
 ```
 
 ### categories
@@ -38,17 +41,17 @@ ERC20 public immutable ohm;
 List of approved categories for logging OHM burns
 
 ```solidity
-bytes32[] public categories;
+bytes32[] public categories
 ```
 
 ### categoryApproved
 
 Whether a category is approved for logging
 
-*This is used to prevent logging of burn events that are not consistent with standardized names*
+This is used to prevent logging of burn events that are not consistent with standardized names
 
 ```solidity
-mapping(bytes32 => bool) public categoryApproved;
+mapping(bytes32 => bool) public categoryApproved
 ```
 
 ## Functions
@@ -90,7 +93,7 @@ function requestPermissions() external view override returns (Permissions[] memo
 ### onlyApproved
 
 ```solidity
-modifier onlyApproved(bytes32 category_);
+modifier onlyApproved(bytes32 category_) ;
 ```
 
 ### burnFromTreasury
@@ -115,9 +118,9 @@ function burnFromTreasury(uint256 amount_, bytes32 category_)
 
 Burn OHM from an address
 
-*Burning OHM from an address requires it to have approved the MINTR for their OHM.
+Burning OHM from an address requires it to have approved the MINTR for their OHM.
 Here, we transfer from the user and burn from this address to avoid approving a
-a different contract.*
+a different contract.
 
 ```solidity
 function burnFrom(address from_, uint256 amount_, bytes32 category_)

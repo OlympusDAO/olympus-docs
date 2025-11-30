@@ -1,9 +1,12 @@
 # CoolerLtvOracle
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/cooler/CoolerLtvOracle.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/cooler/CoolerLtvOracle.sol)
 
 **Inherits:**
 [ICoolerLtvOracle](/main/contracts/docs/src/policies/interfaces/cooler/ICoolerLtvOracle.sol/interface.ICoolerLtvOracle), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyAdmin](/main/contracts/docs/src/policies/utils/PolicyAdmin.sol/abstract.PolicyAdmin)
+
+**Title:**
+Cooler LTV Oracle
 
 It is a custom oracle (not dependant on external markets/AMMs/dependencies) to give the
 serve both the Origination LTV and Liquidation LTV
@@ -17,18 +20,18 @@ serve both the Origination LTV and Liquidation LTV
 
 ### _DEBT_TOKEN
 
-*The debt token*
+The debt token
 
 ```solidity
-ERC20 private immutable _DEBT_TOKEN;
+ERC20 private immutable _DEBT_TOKEN
 ```
 
 ### _COLLATERAL_TOKEN
 
-*The collateral token*
+The collateral token
 
 ```solidity
-ERC20 private immutable _COLLATERAL_TOKEN;
+ERC20 private immutable _COLLATERAL_TOKEN
 ```
 
 ### originationLtvData
@@ -36,7 +39,7 @@ ERC20 private immutable _COLLATERAL_TOKEN;
 The current Origination LTV state data
 
 ```solidity
-OriginationLtvData public override originationLtvData;
+OriginationLtvData public override originationLtvData
 ```
 
 ### maxOriginationLtvDelta
@@ -44,11 +47,11 @@ OriginationLtvData public override originationLtvData;
 The maximum allowed Origination LTV change on any single `setOriginationLtvAt()`, in absolute terms
 between the Origination LTV as of now and the targetOriginationLtv
 
-*18 decimal places, 0.20e18 == $0.20.
-Used as a bound to avoid unintended/fat fingering when updating Origination LTV*
+18 decimal places, 0.20e18 == $0.20.
+Used as a bound to avoid unintended/fat fingering when updating Origination LTV
 
 ```solidity
-uint96 public override maxOriginationLtvDelta;
+uint96 public override maxOriginationLtvDelta
 ```
 
 ### minOriginationLtvTargetTimeDelta
@@ -56,11 +59,11 @@ uint96 public override maxOriginationLtvDelta;
 The minimum time delta required for Origination LTV to reach it's target value when
 `setOriginationLtvAt()` is called.
 
-*In seconds.
-Used as a bound to avoid unintended/fat fingering when updating Origination LTV*
+In seconds.
+Used as a bound to avoid unintended/fat fingering when updating Origination LTV
 
 ```solidity
-uint32 public override minOriginationLtvTargetTimeDelta;
+uint32 public override minOriginationLtvTargetTimeDelta
 ```
 
 ### maxOriginationLtvRateOfChange
@@ -68,10 +71,10 @@ uint32 public override minOriginationLtvTargetTimeDelta;
 The maximum (positive) rate of change of Origination LTV allowed, when
 `setOriginationLtvAt()` is called.
 
-*Units: [Origination LTV / second]*
+Units: [Origination LTV / second]
 
 ```solidity
-uint96 public override maxOriginationLtvRateOfChange;
+uint96 public override maxOriginationLtvRateOfChange
 ```
 
 ### maxLiquidationLtvPremiumBps
@@ -80,7 +83,7 @@ The maximum Liquidation LTV premium (in basis points) which is allowed to be set
 `setLiquidationLtvPremiumBps()`
 
 ```solidity
-uint16 public override maxLiquidationLtvPremiumBps;
+uint16 public override maxLiquidationLtvPremiumBps
 ```
 
 ### liquidationLtvPremiumBps
@@ -88,7 +91,7 @@ uint16 public override maxLiquidationLtvPremiumBps;
 The premium (in basis points) of the Liquidation LTV above the Origination LTV
 
 ```solidity
-uint16 public override liquidationLtvPremiumBps;
+uint16 public override liquidationLtvPremiumBps
 ```
 
 ### DECIMALS
@@ -96,13 +99,13 @@ uint16 public override liquidationLtvPremiumBps;
 The decimal precision of both the Origination LTV and Liquidation LTV
 
 ```solidity
-uint8 public constant override DECIMALS = 18;
+uint8 public constant override DECIMALS = 18
 ```
 
 ### BASIS_POINTS_DIVISOR
 
 ```solidity
-uint96 public constant BASIS_POINTS_DIVISOR = 10_000;
+uint96 public constant BASIS_POINTS_DIVISOR = 10_000
 ```
 
 ## Functions
@@ -142,7 +145,7 @@ function configureDependencies() external override returns (Keycode[] memory dep
 Set the maximum allowed Origination LTV change on any single `setOriginationLtvAt()`, in absolute terms
 between the Origination LTV as of now and the targetOriginationLtv
 
-*18 decimal places, 0.20e18 == $0.20*
+18 decimal places, 0.20e18 == $0.20
 
 ```solidity
 function setMaxOriginationLtvDelta(uint96 maxDelta) external override onlyAdminRole;
@@ -153,7 +156,7 @@ function setMaxOriginationLtvDelta(uint96 maxDelta) external override onlyAdminR
 Set the minimum time delta required for Origination LTV to reach it's target value when
 `setOriginationLtvAt()` is called.
 
-*In seconds.*
+In seconds.
 
 ```solidity
 function setMinOriginationLtvTargetTimeDelta(uint32 minTargetTimeDelta) external override onlyAdminRole;
@@ -164,7 +167,7 @@ function setMinOriginationLtvTargetTimeDelta(uint32 minTargetTimeDelta) external
 Set the maximum (positive) rate of change of Origination LTV allowed, when
 `setOriginationLtvAt()` is called.
 
-*Units: [Origination LTV / second]*
+Units: [Origination LTV / second]
 
 ```solidity
 function setMaxOriginationLtvRateOfChange(uint96 originationLtvDelta, uint32 timeDelta)
@@ -178,7 +181,7 @@ function setMaxOriginationLtvRateOfChange(uint96 originationLtvDelta, uint32 tim
 Set the target Origination LTV which will incrementally increase from it's current value to `targetOriginationLtv`
 between now and `targetTime`.
 
-*targetTime is unixtime, targetOriginationLtv is 18 decimal places, 1.05e18 == $1.05*
+targetTime is unixtime, targetOriginationLtv is 18 decimal places, 1.05e18 == $1.05
 
 ```solidity
 function setOriginationLtvAt(uint96 targetValue, uint40 targetTime) external override onlyAdminRole;
@@ -251,10 +254,15 @@ function _currentLiquidationLtv(uint96 oltv) private view returns (uint96);
 
 ```solidity
 struct OriginationLtvData {
+    /// @notice The Origination LTV at the time `setOriginationLtvAt()` was last called
     uint96 startingValue;
+    /// @notice The time at which Origination LTV was last updated via `setOriginationLtvAt()`
     uint40 startTime;
+    /// @notice The target Origination LTV at the `targetTime`
     uint96 targetValue;
+    /// @notice The date which the `targetValue` will be reached.
     uint40 targetTime;
+    /// @notice The rate at which the `startingValue` will change over time from `startTime` until `targetTime`.
     uint96 slope;
 }
 ```

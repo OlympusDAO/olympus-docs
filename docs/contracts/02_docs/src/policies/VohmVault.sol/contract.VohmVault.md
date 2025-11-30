@@ -1,6 +1,6 @@
 # VohmVault
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/VohmVault.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/VohmVault.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy)
@@ -12,19 +12,19 @@ Policy to mint and burn VOTES to arbitrary addresses
 ### gOHM
 
 ```solidity
-ERC20 public gOHM;
+ERC20 public gOHM
 ```
 
 ### VESTING_PERIOD
 
 ```solidity
-uint256 public constant VESTING_PERIOD = 1 hours;
+uint256 public constant VESTING_PERIOD = 1 hours
 ```
 
 ### VOTES
 
 ```solidity
-VOTESv1 public VOTES;
+VOTESv1 public VOTES
 ```
 
 ## Functions
@@ -66,7 +66,7 @@ function requestPermissions() external view override returns (Permissions[] memo
 ### onlyVested
 
 ```solidity
-modifier onlyVested();
+modifier onlyVested() ;
 ```
 
 ### deposit

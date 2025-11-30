@@ -1,19 +1,22 @@
 # LoanConsolidator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/LoanConsolidator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/LoanConsolidator.sol)
 
 **Inherits:**
 [IERC3156FlashBorrower](/main/contracts/docs/src/interfaces/maker-dao/IERC3156FlashBorrower.sol/interface.IERC3156FlashBorrower), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer), ReentrancyGuard
+
+**Title:**
+Loan Consolidator
 
 A policy that consolidates loans taken with a single Cooler contract into a single loan using Maker flashloans.
 This policy can be used to consolidate loans within the same Clearinghouse, or from one Clearinghouse to another.
 This also enables migration between debt denominated in different assets (such as DAI and USDS).
 
-*This policy uses the `IERC3156FlashBorrower` interface to interact with Maker flashloans.
+This policy uses the `IERC3156FlashBorrower` interface to interact with Maker flashloans.
 This contract utilises the following roles:
 
 - `loan_consolidator_admin`: Can set the fee percentage
-- `emergency_shutdown`: Can activate and deactivate the contract*
+- `emergency_shutdown`: Can activate and deactivate the contract
 
 ## State Variables
 
@@ -21,80 +24,80 @@ This contract utilises the following roles:
 
 The Clearinghouse registry module
 
-*The value is set when the policy is activated*
+The value is set when the policy is activated
 
 ```solidity
-CHREGv1 internal CHREG;
+CHREGv1 internal CHREG
 ```
 
 ### TRSRY
 
 The treasury module
 
-*The value is set when the policy is activated*
+The value is set when the policy is activated
 
 ```solidity
-TRSRYv1 internal TRSRY;
+TRSRYv1 internal TRSRY
 ```
 
 ### RGSTY
 
 The contract registry module
 
-*The value is set when the policy is activated*
+The value is set when the policy is activated
 
 ```solidity
-RGSTYv1 internal RGSTY;
+RGSTYv1 internal RGSTY
 ```
 
 ### DAI
 
 The DAI token
 
-*The value is set when the policy is activated*
+The value is set when the policy is activated
 
 ```solidity
-IERC20 internal DAI;
+IERC20 internal DAI
 ```
 
 ### USDS
 
 The USDS token
 
-*The value is set when the policy is activated*
+The value is set when the policy is activated
 
 ```solidity
-IERC20 internal USDS;
+IERC20 internal USDS
 ```
 
 ### GOHM
 
 The gOHM token
 
-*The value is set when the policy is activated*
+The value is set when the policy is activated
 
 ```solidity
-IERC20 internal GOHM;
+IERC20 internal GOHM
 ```
 
 ### MIGRATOR
 
 The DAI \\<\\> USDS Migrator
 
-*The value is set when the policy is activated*
+The value is set when the policy is activated
 
 ```solidity
-IDaiUsdsMigrator internal MIGRATOR;
+IDaiUsdsMigrator internal MIGRATOR
 ```
 
 ### FLASH
 
 The ERC3156 flash loan provider
 
-*The value is set when the policy is activated*
+The value is set when the policy is activated
 
 ```solidity
-IERC3156FlashLender internal FLASH;
+IERC3156FlashLender internal FLASH
 ```
 
 ### ONE_HUNDRED_PERCENT
@@ -102,27 +105,27 @@ IERC3156FlashLender internal FLASH;
 The denominator for percentage calculations
 
 ```solidity
-uint256 public constant ONE_HUNDRED_PERCENT = 100e2;
+uint256 public constant ONE_HUNDRED_PERCENT = 100e2
 ```
 
 ### feePercentage
 
 Percentage of the debt to be paid as a fee
 
-*In terms of `ONE_HUNDRED_PERCENT`*
+In terms of `ONE_HUNDRED_PERCENT`
 
 ```solidity
-uint256 public feePercentage;
+uint256 public feePercentage
 ```
 
 ### consolidatorActive
 
 Whether the contract is active
 
-*Note that this is different to the policy activation status*
+Note that this is different to the policy activation status
 
 ```solidity
-bool public consolidatorActive;
+bool public consolidatorActive
 ```
 
 ### ROLE_ADMIN
@@ -130,7 +133,7 @@ bool public consolidatorActive;
 The role required to call admin functions
 
 ```solidity
-bytes32 public constant ROLE_ADMIN = "loan_consolidator_admin";
+bytes32 public constant ROLE_ADMIN = "loan_consolidator_admin"
 ```
 
 ### ROLE_EMERGENCY_SHUTDOWN
@@ -138,7 +141,7 @@ bytes32 public constant ROLE_ADMIN = "loan_consolidator_admin";
 The role required to call emergency shutdown functions
 
 ```solidity
-bytes32 public constant ROLE_EMERGENCY_SHUTDOWN = "emergency_shutdown";
+bytes32 public constant ROLE_EMERGENCY_SHUTDOWN = "emergency_shutdown"
 ```
 
 ## Functions
@@ -147,10 +150,10 @@ bytes32 public constant ROLE_EMERGENCY_SHUTDOWN = "emergency_shutdown";
 
 Constructor for the Loan Consolidator
 
-*This function will revert if:
+This function will revert if:
 
 - The fee percentage is above `ONE_HUNDRED_PERCENT`
-- The kernel address is zero*
+- The kernel address is zero
 
 ```solidity
 constructor(address kernel_, uint256 feePercentage_) Policy(Kernel(kernel_));
@@ -174,7 +177,7 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 Function called by kernel to set module function permissions.
 
-*This policy does not require any permissions*
+This policy does not require any permissions
 
 ```solidity
 function requestPermissions() external pure override returns (Permissions[] memory requests);
@@ -193,7 +196,7 @@ Unlike `consolidateWithNewOwner()`, the owner of the new Cooler must be the same
 The caller will be required to provide additional funds to cover accrued interest on the Cooler loans and the lender and protocol fees (if applicable). Use the `requiredApprovals()` function to determine the amount of funds and approvals required.
 It is expected that the caller will have already provided approval for this contract to spend the required tokens. See `requiredApprovals()` for more details.
 
-*This function will revert if:
+This function will revert if:
 
 - The caller is not the 'coolerFrom' and 'coolerTo' owner.
 - The caller has not approved this contract to spend the reserve token of `clearinghouseTo_` in order to pay the interest, lender and protocol fees.
@@ -204,7 +207,7 @@ It is expected that the caller will have already provided approval for this cont
 - The available funds are less than the required flashloan amount.
 - The contract is not active.
 - The contract has not been activated as a policy.
-- Re-entrancy is detected.*
+- Re-entrancy is detected.
 
 ```solidity
 function consolidate(
@@ -233,7 +236,7 @@ Unlike `consolidate()`, the owner of the new Cooler can be different from the Co
 The caller will be required to provide additional funds to cover accrued interest on the Cooler loans and the lender and protocol fees (if applicable). Use the `requiredApprovals()` function to determine the amount of funds and approvals required.
 It is expected that the caller will have already provided approval for this contract to spend the required tokens. See `requiredApprovals()` for more details.
 
-*This function will revert if:
+This function will revert if:
 
 - The caller is not the `coolerFrom_` owner.
 - `coolerFrom_` is the same as `coolerTo_` (in which case `consolidate()` should be used).
@@ -246,7 +249,7 @@ It is expected that the caller will have already provided approval for this cont
 - The available funds are less than the required flashloan amount.
 - The contract is not active.
 - The contract has not been activated as a policy.
-- Re-entrancy is detected.*
+- Re-entrancy is detected.
 
 ```solidity
 function consolidateWithNewOwner(
@@ -272,10 +275,10 @@ function consolidateWithNewOwner(
 
 Internal logic for loan consolidation
 
-*Utilized by `consolidate()` and `consolidateWithNewOwner()`
+Utilized by `consolidate()` and `consolidateWithNewOwner()`
 This function assumes:
 
-- The calling external-facing function has checked that the caller is permitted to operate on `coolerFrom_`.*
+- The calling external-facing function has checked that the caller is permitted to operate on `coolerFrom_`.
 
 ```solidity
 function _consolidateWithFlashLoan(
@@ -299,13 +302,19 @@ function _consolidateWithFlashLoan(
 
 ### onFlashLoan
 
-*This function reverts if:
+This function reverts if:
 
 - The caller is not the flash loan provider
-- The initiator is not this contract*
+- The initiator is not this contract
 
 ```solidity
-function onFlashLoan(address initiator_, address, uint256 amount_, uint256 lenderFee_, bytes calldata params_)
+function onFlashLoan(
+    address initiator_,
+    address, // flashloan token is only DAI
+    uint256 amount_,
+    uint256 lenderFee_,
+    bytes calldata params_
+)
     external
     override
     returns (bytes32);
@@ -331,11 +340,11 @@ function onFlashLoan(address initiator_, address, uint256 amount_, uint256 lende
 
 Set the fee percentage
 
-*This function will revert if:
+This function will revert if:
 
 - The contract has not been activated as a policy.
 - The fee percentage is above `ONE_HUNDRED_PERCENT`
-- The caller does not have the `ROLE_ADMIN` role*
+- The caller does not have the `ROLE_ADMIN` role
 
 ```solidity
 function setFeePercentage(uint256 feePercentage_) external onlyPolicyActive onlyRole(ROLE_ADMIN);
@@ -345,11 +354,11 @@ function setFeePercentage(uint256 feePercentage_) external onlyPolicyActive only
 
 Activate the contract
 
-*This function will revert if:
+This function will revert if:
 
 - The contract has not been activated as a policy.
 - The caller does not have the `ROLE_EMERGENCY_SHUTDOWN` role
-If the contract is already active, it will do nothing.*
+If the contract is already active, it will do nothing.
 
 ```solidity
 function activate() external onlyPolicyActive onlyRole(ROLE_EMERGENCY_SHUTDOWN);
@@ -359,11 +368,11 @@ function activate() external onlyPolicyActive onlyRole(ROLE_EMERGENCY_SHUTDOWN);
 
 Deactivate the contract
 
-*This function will revert if:
+This function will revert if:
 
 - The contract has not been activated as a policy.
 - The caller does not have the `ROLE_EMERGENCY_SHUTDOWN` role
-If the contract is already deactivated, it will do nothing.*
+If the contract is already deactivated, it will do nothing.
 
 ```solidity
 function deactivate() external onlyPolicyActive onlyRole(ROLE_EMERGENCY_SHUTDOWN);
@@ -374,7 +383,7 @@ function deactivate() external onlyPolicyActive onlyRole(ROLE_EMERGENCY_SHUTDOWN
 Modifier to check that the contract is active
 
 ```solidity
-modifier onlyConsolidatorActive();
+modifier onlyConsolidatorActive() ;
 ```
 
 ### onlyPolicyActive
@@ -382,7 +391,7 @@ modifier onlyConsolidatorActive();
 Modifier to check that the contract is activated as a policy
 
 ```solidity
-modifier onlyPolicyActive();
+modifier onlyPolicyActive() ;
 ```
 
 ### _getDebtForLoans
@@ -411,9 +420,9 @@ function _getDebtForLoans(address cooler_, uint256[] calldata ids_) internal vie
 
 Repay the debt for a given set of loans and collect the collateral.
 
-*This function assumes:
+This function assumes:
 
-- The cooler owner has granted approval for this contract to spend the gOHM collateral*
+- The cooler owner has granted approval for this contract to spend the gOHM collateral
 
 ```solidity
 function _repayDebtForLoans(address cooler_, uint256[] memory ids_) internal;
@@ -436,7 +445,7 @@ function _isValidClearinghouse(address clearinghouse_) internal view returns (bo
 
 Check if a given cooler was created by the CoolerFactory for a Clearinghouse
 
-*This function assumes that the authenticity of the Clearinghouse is already verified*
+This function assumes that the authenticity of the Clearinghouse is already verified
 
 ```solidity
 function _isValidCooler(address clearinghouse_, address cooler_) internal view returns (bool);
@@ -459,7 +468,7 @@ function _isValidCooler(address clearinghouse_, address cooler_) internal view r
 
 Get the reserve token for a given Clearinghouse
 
-*This function will revert if the reserve token cannot be determined*
+This function will revert if the reserve token cannot be determined
 
 ```solidity
 function _getClearinghouseReserveToken(address clearinghouse_) internal view returns (address);
@@ -481,7 +490,7 @@ function _getClearinghouseReserveToken(address clearinghouse_) internal view ret
 
 Get the migration type for a given pair of Clearinghouses
 
-*This function will revert if the migration type cannot be determined*
+This function will revert if the migration type cannot be determined
 
 ```solidity
 function _getMigrationType(address clearinghouseFrom_, address clearinghouseTo_)
@@ -555,9 +564,9 @@ function getProtocolFee(uint256 totalDebt_) public view returns (uint256);
 View function to compute the required approval amounts that the owner of a given Cooler
 must give to this contract in order to consolidate the loans.
 
-*This function will revert if:
+This function will revert if:
 
-- The contract has not been activated as a policy.*
+- The contract has not been activated as a policy.
 
 ```solidity
 function requiredApprovals(address clearinghouseTo_, address coolerFrom_, uint256[] calldata ids_)
@@ -589,8 +598,8 @@ function requiredApprovals(address clearinghouseTo_, address coolerFrom_, uint25
 
 Calculates the collateral required to consolidate a set of loans.
 
-*Due to rounding, the collateral required for the consolidated loan may be greater than the collateral of the loans being consolidated.
-This function calculates the additional collateral required.*
+Due to rounding, the collateral required for the consolidated loan may be greater than the collateral of the loans being consolidated.
+This function calculates the additional collateral required.
 
 ```solidity
 function collateralRequired(address clearinghouse_, address cooler_, uint256[] memory ids_)
@@ -665,7 +674,7 @@ function VERSION() external pure returns (uint256);
 
 Emitted when the contract is activated
 
-*Note that this is different to activation of the contract as a policy*
+Note that this is different to activation of the contract as a policy
 
 ```solidity
 event ConsolidatorActivated();
@@ -675,7 +684,7 @@ event ConsolidatorActivated();
 
 Emitted when the contract is deactivated
 
-*Note that this is different to deactivation of the contract as a policy*
+Note that this is different to deactivation of the contract as a policy
 
 ```solidity
 event ConsolidatorDeactivated();
@@ -735,7 +744,7 @@ error OnlyPolicyActive();
 
 Thrown when the fee percentage is out of range.
 
-*Valid values are 0 <= feePercentage <= 100e2*
+Valid values are 0 <= feePercentage <= 100e2
 
 ```solidity
 error Params_FeePercentageOutOfRange();

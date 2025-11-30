@@ -1,12 +1,12 @@
 # IERC3156FlashLender
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/interfaces/maker-dao/IERC3156FlashLender.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/maker-dao/IERC3156FlashLender.sol)
 
 ## Functions
 
 ### maxFlashLoan
 
-*The amount of currency available to be lent.*
+The amount of currency available to be lent.
 
 ```solidity
 function maxFlashLoan(address token) external view returns (uint256);
@@ -26,7 +26,7 @@ function maxFlashLoan(address token) external view returns (uint256);
 
 ### flashFee
 
-*The fee to be charged for a given loan.*
+The fee to be charged for a given loan.
 
 ```solidity
 function flashFee(address token, uint256 amount) external view returns (uint256);
@@ -47,7 +47,7 @@ function flashFee(address token, uint256 amount) external view returns (uint256)
 
 ### flashLoan
 
-*Initiate a flash loan.*
+Initiate a flash loan.
 
 ```solidity
 function flashLoan(IERC3156FlashBorrower receiver, address token, uint256 amount, bytes calldata data)

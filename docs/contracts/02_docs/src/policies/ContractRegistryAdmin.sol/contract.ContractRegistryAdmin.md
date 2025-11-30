@@ -1,16 +1,19 @@
 # ContractRegistryAdmin
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/ContractRegistryAdmin.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/ContractRegistryAdmin.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
 
+**Title:**
+ContractRegistryAdmin
+
 This policy is used to register and deregister contracts in the RGSTY module.
 
-*This contract utilises the following roles:
+This contract utilises the following roles:
 
 - `contract_registry_admin`: Can register and deregister contracts
-This policy provides permissioned access to the state-changing functions on the RGSTY module. The view functions can be called directly on the module.*
+This policy provides permissioned access to the state-changing functions on the RGSTY module. The view functions can be called directly on the module.
 
 ## State Variables
 
@@ -18,10 +21,10 @@ This policy provides permissioned access to the state-changing functions on the 
 
 The RGSTY module
 
-*The value is set when the policy is activated*
+The value is set when the policy is activated
 
 ```solidity
-RGSTYv1 internal RGSTY;
+RGSTYv1 internal RGSTY
 ```
 
 ### CONTRACT_REGISTRY_ADMIN_ROLE
@@ -29,7 +32,7 @@ RGSTYv1 internal RGSTY;
 The role for the contract registry admin
 
 ```solidity
-bytes32 public constant CONTRACT_REGISTRY_ADMIN_ROLE = "contract_registry_admin";
+bytes32 public constant CONTRACT_REGISTRY_ADMIN_ROLE = "contract_registry_admin"
 ```
 
 ## Functions
@@ -81,18 +84,18 @@ function VERSION() external pure returns (uint8);
 Modifier to check that the contract is activated as a policy
 
 ```solidity
-modifier onlyPolicyActive();
+modifier onlyPolicyActive() ;
 ```
 
 ### registerImmutableContract
 
 Register an immutable contract in the contract registry
 
-*This function will revert if:
+This function will revert if:
 
 - This contract is not activated as a policy
 - The caller does not have the required role
-- The RGSTY module reverts*
+- The RGSTY module reverts
 
 ```solidity
 function registerImmutableContract(bytes5 name_, address contractAddress_)
@@ -112,11 +115,11 @@ function registerImmutableContract(bytes5 name_, address contractAddress_)
 
 Register a contract in the contract registry
 
-*This function will revert if:
+This function will revert if:
 
 - This contract is not activated as a policy
 - The caller does not have the required role
-- The RGSTY module reverts*
+- The RGSTY module reverts
 
 ```solidity
 function registerContract(bytes5 name_, address contractAddress_)
@@ -136,11 +139,11 @@ function registerContract(bytes5 name_, address contractAddress_)
 
 Update a contract in the contract registry
 
-*This function will revert if:
+This function will revert if:
 
 - This contract is not activated as a policy
 - The caller does not have the required role
-- The RGSTY module reverts*
+- The RGSTY module reverts
 
 ```solidity
 function updateContract(bytes5 name_, address contractAddress_)
@@ -160,11 +163,11 @@ function updateContract(bytes5 name_, address contractAddress_)
 
 Deregister a contract in the contract registry
 
-*This function will revert if:
+This function will revert if:
 
 - This contract is not activated as a policy
 - The caller does not have the required role
-- The RGSTY module reverts*
+- The RGSTY module reverts
 
 ```solidity
 function deregisterContract(bytes5 name_) external onlyPolicyActive onlyRole(CONTRACT_REGISTRY_ADMIN_ROLE);

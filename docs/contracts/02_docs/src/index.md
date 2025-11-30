@@ -1,6 +1,7 @@
 
 # Src
 
+- [bases](/main/contracts/docs/src/bases)
 - [external](/main/contracts/docs/src/external)
 - [interfaces](/main/contracts/docs/src/interfaces)
 - [libraries](/main/contracts/docs/src/libraries)
@@ -18,7 +19,7 @@
 - [Module](Kernel.sol/abstract.Module.md)
 - [Policy](Kernel.sol/abstract.Policy.md)
 - [Kernel](Kernel.sol/contract.Kernel.md)
-- [toKeycode](Kernel.sol/function.toKeycode.md)
 - [ensureValidKeycode](Kernel.sol/function.ensureValidKeycode.md)
-- [ensureContract](Kernel.sol/function.ensureContract.md)
 - [fromKeycode](Kernel.sol/function.fromKeycode.md)
+- [toKeycode](Kernel.sol/function.toKeycode.md)
+- [ensureContract](Kernel.sol/function.ensureContract.md)

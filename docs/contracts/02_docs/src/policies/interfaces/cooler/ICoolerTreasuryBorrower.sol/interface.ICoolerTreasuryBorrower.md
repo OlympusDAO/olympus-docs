@@ -1,6 +1,9 @@
 # ICoolerTreasuryBorrower
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/interfaces/cooler/ICoolerTreasuryBorrower.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/interfaces/cooler/ICoolerTreasuryBorrower.sol)
+
+**Title:**
+Cooler Treasury Borrower
 
 Policy which can borrow from Treasury on behalf of Cooler
 
@@ -17,7 +20,7 @@ eg USDC, then borrow() and repay() will need to do the conversion.
 
 Cooler borrows `amount` of `debtToken` from treasury, sent to `recipient`
 
-*If the debtToken is 6dp (eg USDC) then this contract needs to handle the conversion internally*
+If the debtToken is 6dp (eg USDC) then this contract needs to handle the conversion internally
 
 ```solidity
 function borrow(uint256 amountInWad, address recipient) external;
@@ -34,7 +37,7 @@ function borrow(uint256 amountInWad, address recipient) external;
 
 Repay any `debtToken` in this contract back to treasury.
 
-*Cooler is expected to transfer the amount to this contract prior to calling*
+Cooler is expected to transfer the amount to this contract prior to calling
 
 ```solidity
 function repay() external;
@@ -44,7 +47,7 @@ function repay() external;
 
 Cooler may write off debt in the case of liquidations.
 
-*This reduces the policies debt to TRSRY*
+This reduces the policies debt to TRSRY
 
 ```solidity
 function writeOffDebt(uint256 debtTokenAmount) external;
@@ -86,7 +89,7 @@ function convertToDebtTokenAmount(uint256 amountInWad) external view returns (IE
 
 The decimal precision of the `amountInWad` used in borrow and repay functions.
 
-*A constant of 18*
+A constant of 18
 
 ```solidity
 function DECIMALS() external view returns (uint8);

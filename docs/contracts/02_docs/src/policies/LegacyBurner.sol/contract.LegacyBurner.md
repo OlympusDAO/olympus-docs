@@ -1,52 +1,55 @@
 # LegacyBurner
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/LegacyBurner.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/LegacyBurner.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy)
+
+**Title:**
+Olympus Legacy Burner Policy
 
 ## State Variables
 
 ### MINTR
 
 ```solidity
-MINTRv1 internal MINTR;
+MINTRv1 internal MINTR
 ```
 
 ### ohm
 
 ```solidity
-OlympusERC20Token public immutable ohm;
+OlympusERC20Token public immutable ohm
 ```
 
 ### bondManager
 
 ```solidity
-address public bondManager;
+address public bondManager
 ```
 
 ### inverseBondDepo
 
 ```solidity
-address public inverseBondDepo;
+address public inverseBondDepo
 ```
 
 ### reward
 
 ```solidity
-uint256 public reward;
+uint256 public reward
 ```
 
 ### rewardClaimed
 
 ```solidity
-bool public rewardClaimed;
+bool public rewardClaimed
 ```
 
 ### DENOMINATOR
 
 ```solidity
-uint256 internal constant DENOMINATOR = 100_000_000;
+uint256 internal constant DENOMINATOR = 100_000_000
 ```
 
 ## Functions
@@ -54,7 +57,13 @@ uint256 internal constant DENOMINATOR = 100_000_000;
 ### constructor
 
 ```solidity
-constructor(Kernel kernel_, address ohm_, address bondManager_, address inverseBondDepo_, uint256 reward_)
+constructor(
+    Kernel kernel_,
+    address ohm_,
+    address bondManager_,
+    address inverseBondDepo_,
+    uint256 reward_ // in OHM, 9 decimals
+)
     Policy(kernel_);
 ```
 
@@ -90,11 +99,11 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 Burn OHM from desired sources, send rewards to the caller
 
-*Calculates linearly increasing reward (up to cap) for the amount of OHM burned, burns OHM from
+Calculates linearly increasing reward (up to cap) for the amount of OHM burned, burns OHM from
 BondManager and InverseBondDepo, and mints rewards to the caller. We use this approach of burning
 everything and then reminting the rewards because the InverseBondDepo does not allow partial burns
 or the transfer of OHM to another address. We have to burn the entire amount of OHM in the contract.
-So we burn everything, then mint the rewards to the caller.*
+So we burn everything, then mint the rewards to the caller.
 
 ```solidity
 function burn() external;
@@ -104,7 +113,7 @@ function burn() external;
 
 Burns OHM from the bond manager
 
-*An infinite approval (via Policy MS) for this contract to spend OHM from the bond manager is required*
+An infinite approval (via Policy MS) for this contract to spend OHM from the bond manager is required
 
 ```solidity
 function _burnBondManagerOhm(uint256 amount_) internal;
@@ -114,11 +123,11 @@ function _burnBondManagerOhm(uint256 amount_) internal;
 
 Burns OHM from the legacy inverse bond depository
 
-*The only way to burn is to burn the entire amount of OHM in the contract, cannot transfer here first.
+The only way to burn is to burn the entire amount of OHM in the contract, cannot transfer here first.
 The burn function requires the caller to be specified as the `policy` address on an OlympusAuthority
 contract. So in order for this to work we have to also deploy a mock OlympusAuthority contract that
 specifies this contract as the policy address and then update the authority address on the inverse
-bond depository contract.*
+bond depository contract.
 
 ```solidity
 function _burnInverseBondDepoOhm() internal;

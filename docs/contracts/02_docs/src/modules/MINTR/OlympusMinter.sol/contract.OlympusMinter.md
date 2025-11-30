@@ -1,6 +1,6 @@
 # OlympusMinter
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/modules/MINTR/OlympusMinter.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/MINTR/OlympusMinter.sol)
 
 **Inherits:**
 [MINTRv1](/main/contracts/docs/src/modules/MINTR/MINTR.v1.sol/abstract.MINTRv1)
@@ -58,7 +58,7 @@ function burnOhm(address from_, uint256 amount_) external override permissioned 
 
 Increase approval for specific withdrawer addresses
 
-*Policies must explicity request how much they want approved before withdrawing.*
+Policies must explicity request how much they want approved before withdrawing.
 
 ```solidity
 function increaseMintApproval(address policy_, uint256 amount_) external override permissioned;

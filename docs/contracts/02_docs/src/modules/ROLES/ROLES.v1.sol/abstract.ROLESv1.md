@@ -1,6 +1,6 @@
 # ROLESv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/modules/ROLES/ROLES.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/ROLES/ROLES.v1.sol)
 
 **Inherits:**
 [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
@@ -12,7 +12,7 @@
 Mapping for if an address has a policy-defined role.
 
 ```solidity
-mapping(address => mapping(bytes32 => bool)) public hasRole;
+mapping(address => mapping(bytes32 => bool)) public hasRole
 ```
 
 ## Functions
@@ -37,7 +37,7 @@ function removeRole(bytes32 role_, address addr_) external virtual;
 
 "Modifier" to restrict policy function access to certain addresses with a role.
 
-*Roles are defined in the policy and granted by the ROLES admin.*
+Roles are defined in the policy and granted by the ROLES admin.
 
 ```solidity
 function requireRole(bytes32 role_, address caller_) external virtual;

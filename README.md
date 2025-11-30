@@ -12,8 +12,8 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 
 ## How to Edit these docs
 
-- Full Editing functionality is possible by following `Installation`, `Local Development` and `Build` steps below.
-- CMS based editing is possible via Netlify CMS, though there are some functionality gaps / tradeoffs. See `Partial Editing with Netlify CMS` below.
+* Full Editing functionality is possible by following `Installation`, `Local Development` and `Build` steps below.
+* CMS based editing is possible via Netlify CMS, though there are some functionality gaps / tradeoffs. See `Partial Editing with Netlify CMS` below.
 
 ### Full Editing
 
@@ -68,19 +68,19 @@ The contract documentation is generated from the `olympus-v3` repository. To upd
 
 The `yarn run build:contracts` command (which runs `contracts.sh`):
 
-- Builds the olympus-v3 project
-- Generates forge documentation
-- Cleans up unnecessary directories (scripts, tests)
-- Fixes markdown issues and broken links
-- Updates the contract documentation in `docs/contracts/02_docs/`
+* Builds the olympus-v3 project
+* Generates forge documentation
+* Cleans up unnecessary directories (scripts, tests)
+* Fixes markdown issues and broken links
+* Updates the contract documentation in `docs/contracts/02_docs/`
 
 ### Partial Editing with Netlify CMS
 
-- Netlify CMS is available at [https://admin-docs.olympusdao.finance/](https://admin-docs.olympusdao.finance/).
-- Netlify CMS is served from the `netlify-cms` branch. All changes to Netlify CMS config happen in `static/admin`. If you make a change here you need to push that change first to `main` and then merge that change down to `netlify-cms` branch.
-- it requires login with github credentials
-- all changes will read/write against the `main` branch
-- all submitted changes will be submitted as pull requests
-- Netlify CMS ONLY READS and WRITES DATA to/from github... it does not read/write any local changes you might have on your local machine
-- Netlify CMS does not parse mdx files, so none of the mdx files appear
-- Netlify CMS parses each docs directory separately, so a new directory would require updates to config.yml
+* Netlify CMS is available at [https://admin-docs.olympusdao.finance/](https://admin-docs.olympusdao.finance/).
+* Netlify CMS is served from the `netlify-cms` branch. All changes to Netlify CMS config happen in `static/admin`. If you make a change here you need to push that change first to `main` and then merge that change down to `netlify-cms` branch.
+* it requires login with github credentials
+* all changes will read/write against the `main` branch
+* all submitted changes will be submitted as pull requests
+* Netlify CMS ONLY READS and WRITES DATA to/from github... it does not read/write any local changes you might have on your local machine
+* Netlify CMS does not parse mdx files, so none of the mdx files appear
+* Netlify CMS parses each docs directory separately, so a new directory would require updates to config.yml

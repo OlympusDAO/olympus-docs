@@ -1,6 +1,6 @@
 # IBondFixedExpiryTeller
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/interfaces/IBondFixedExpiryTeller.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/IBondFixedExpiryTeller.sol)
 
 **Inherits:**
 [IBondTeller](/main/contracts/docs/src/interfaces/IBondTeller.sol/interface.IBondTeller)
@@ -31,9 +31,9 @@ function getBondTokenForMarket(uint256 id_) external view returns (ERC20);
 
 Deploy a new ERC20 bond token for an (underlying, expiry) pair and return its address
 
-*ERC20 used for fixed-expiry*
+ERC20 used for fixed-expiry
 
-*If a bond token exists for the (underlying, expiry) pair, it returns that address*
+If a bond token exists for the (underlying, expiry) pair, it returns that address
 
 ```solidity
 function deploy(ERC20 underlying_, uint48 expiry_) external returns (ERC20);

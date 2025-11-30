@@ -2,6 +2,15 @@
 
 ## Overview
 
+:::info
+
+Range Bound Stability (RBS) is currently disabled. The functionality has been replaced by:
+
+- [Yield Repurchase Facility](./06_yield-repurchase-facility) handles lower bounds (buying OHM when price is low)
+- [Emissions Manager](./05_emissions-manager) handles upper bounds (selling OHM when price is high)
+
+:::
+
 The Olympus Protocol automatically executes market operations to absorb volatility in the market price of OHM in relation to its reserve assets. This system is called Range-Bound Stability (RBS). The initial system design operates against individual reserve assets in isolation, and has been deployed to stabilize the price of OHM against DAI. The mechanism was originally defined in the [Stabilizing Currency Through a Protocol-Enforced Range](https://docs.google.com/document/u/2/d/e/2PACX-1vSIufbgAxAAtZkITd_s57o5AmyhAnk6iYbLYvN-ATL59hQ5nC2t2BTPvA8X9DYzFa-i3PRw9ARrAS9E/pub) white paper by Zeus et al.
 
 ![Visualization of Range](/gitbook/assets/range-denoted.png)
@@ -12,9 +21,11 @@ Liquidity is a key aspect of the Olympus system and the vast majority of OHM liq
 
 :::info
 Details can be found in these resources:
+
 - [Whitepaper](https://ohm.fyi/gentle-pegging)
 - [Initial spec](https://docs.google.com/document/d/1AdPex_lMpSC_3U8UEU4hiSZIT1O1FekoCujRtYEJ0ig)
 - [Video overview](https://www.loom.com/share/f3b053ad02674383908d53783eccb37e)
+
 :::
 
 ## RBS System Specification and Requirements
@@ -30,16 +41,16 @@ The following specification was used to implement the RBS V1 system. It provides
         Upper Wall = MA * (1 + Wall Spread)
 
         where Cushion Spread < Wall Spread
-  
+
         such that LW < LC < MA < UC < UW
 
 3. Allow users to swap OHM for reserves at the lower wall price (WL) and reserves for OHM at the upper wall price (WH) up to the specified capacity of the current walls.
 
-    a. Capacity of the lower wall (bid) in reserves should be the amount of reserves in the Olympus Treasury multiplied by a configured bid factor (percent of reserves to use for each wall).  
+    a. Capacity of the lower wall (bid) in reserves should be the amount of reserves in the Olympus Treasury multiplied by a configured bid factor (percent of reserves to use for each wall).
 
         Bid Capacity = Bid Factor * Reserves
 
-    b. Capacity of the upper wall (ask) in OHM should be the capacity of the lower wall (bid) divided by the upper wall price and scaled up by the difference in spread from the lower wall to the upper wall. 
+    b. Capacity of the upper wall (ask) in OHM should be the capacity of the lower wall (bid) divided by the upper wall price and scaled up by the difference in spread from the lower wall to the upper wall.
 
         Ask Capacity = Bid Capacity * (1 + 2 * Wall Spread) / Upper Wall Price
 

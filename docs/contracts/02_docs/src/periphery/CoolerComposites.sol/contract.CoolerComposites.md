@@ -1,9 +1,12 @@
 # CoolerComposites
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/periphery/CoolerComposites.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/periphery/CoolerComposites.sol)
 
 **Inherits:**
 [ICoolerComposites](/main/contracts/docs/src/periphery/interfaces/ICoolerComposites.sol/interface.ICoolerComposites), Owned, [IEnabler](/main/contracts/docs/src/periphery/interfaces/IEnabler.sol/interface.IEnabler)
+
+**Title:**
+Cooler Composites
 
 The CoolerComposites contract enables users to combine multiple operations into a single call
 
@@ -14,25 +17,25 @@ The CoolerComposites contract enables users to combine multiple operations into 
 Whether the contract is enabled
 
 ```solidity
-bool public isEnabled;
+bool public isEnabled
 ```
 
 ### COOLER
 
 ```solidity
-IMonoCooler public immutable COOLER;
+IMonoCooler public immutable COOLER
 ```
 
 ### _COLLATERAL_TOKEN
 
 ```solidity
-ERC20 internal immutable _COLLATERAL_TOKEN;
+ERC20 internal immutable _COLLATERAL_TOKEN
 ```
 
 ### _DEBT_TOKEN
 
 ```solidity
-ERC20 internal immutable _DEBT_TOKEN;
+ERC20 internal immutable _DEBT_TOKEN
 ```
 
 ## Functions
@@ -47,7 +50,7 @@ constructor(IMonoCooler cooler_, address owner_) Owned(owner_);
 
 Allow user to add collateral and borrow from Cooler V2
 
-*User must provide authorization signature before using function*
+User must provide authorization signature before using function
 
 ```solidity
 function addCollateralAndBorrow(
@@ -73,7 +76,7 @@ function addCollateralAndBorrow(
 
 Allow user to add collateral and borrow from Cooler V2
 
-*User must provide authorization signature before using function*
+User must provide authorization signature before using function
 
 ```solidity
 function repayAndRemoveCollateral(
@@ -114,14 +117,14 @@ function debtToken() external view returns (IERC20);
 ### onlyEnabled
 
 ```solidity
-modifier onlyEnabled();
+modifier onlyEnabled() ;
 ```
 
 ### enable
 
 Enables the contract
 
-*Implementing contracts should implement permissioning logic*
+Implementing contracts should implement permissioning logic
 
 ```solidity
 function enable(bytes calldata) external onlyOwner;
@@ -137,7 +140,7 @@ function enable(bytes calldata) external onlyOwner;
 
 Disables the contract
 
-*Implementing contracts should implement permissioning logic*
+Implementing contracts should implement permissioning logic
 
 ```solidity
 function disable(bytes calldata) external onlyEnabled onlyOwner;

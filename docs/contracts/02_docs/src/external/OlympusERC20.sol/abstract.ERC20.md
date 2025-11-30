@@ -1,6 +1,6 @@
 # ERC20
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/external/OlympusERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/OlympusERC20.sol)
 
 **Inherits:**
 [IERC20](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20)
@@ -10,43 +10,43 @@
 ### ERC20TOKEN_ERC1820_INTERFACE_ID
 
 ```solidity
-bytes32 private constant ERC20TOKEN_ERC1820_INTERFACE_ID = keccak256("ERC20Token");
+bytes32 private constant ERC20TOKEN_ERC1820_INTERFACE_ID = keccak256("ERC20Token")
 ```
 
 ### _balances
 
 ```solidity
-mapping(address => uint256) internal _balances;
+mapping(address => uint256) internal _balances
 ```
 
 ### _allowances
 
 ```solidity
-mapping(address => mapping(address => uint256)) internal _allowances;
+mapping(address => mapping(address => uint256)) internal _allowances
 ```
 
 ### _totalSupply
 
 ```solidity
-uint256 internal _totalSupply;
+uint256 internal _totalSupply
 ```
 
 ### _name
 
 ```solidity
-string internal _name;
+string internal _name
 ```
 
 ### _symbol
 
 ```solidity
-string internal _symbol;
+string internal _symbol
 ```
 
 ### _decimals
 
 ```solidity
-uint8 internal immutable _decimals;
+uint8 internal immutable _decimals
 ```
 
 ## Functions
@@ -54,7 +54,7 @@ uint8 internal immutable _decimals;
 ### constructor
 
 ```solidity
-constructor(string memory name_, string memory symbol_, uint8 decimals_);
+constructor(string memory name_, string memory symbol_, uint8 decimals_) ;
 ```
 
 ### name

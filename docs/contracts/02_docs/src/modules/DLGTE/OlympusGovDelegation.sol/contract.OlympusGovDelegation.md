@@ -1,47 +1,50 @@
 # OlympusGovDelegation
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/modules/DLGTE/OlympusGovDelegation.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/DLGTE/OlympusGovDelegation.sol)
 
 **Inherits:**
 [DLGTEv1](/main/contracts/docs/src/modules/DLGTE/DLGTE.v1.sol/abstract.DLGTEv1)
 
+**Title:**
+Olympus Governance Delegation
+
 Olympus Governance Delegation (Module) Contract
 
-*The Olympus Governance Delegation Module enables policies to delegate gOHM on behalf of users.
+The Olympus Governance Delegation Module enables policies to delegate gOHM on behalf of users.
 If the gOHM is undelegated, this module acts as an escrow for the gOHM.
 When the gOHM is delegated, new individual escrows are created for those delegates, and that
 portion of gOHM is transferred to that escrow.
 gOHM balances are tracked per (policy, account) separately such that one policy cannot pull the
-gOHM from another policy (eg policy B pulling collateral out of the Cooler policy).*
+gOHM from another policy (eg policy B pulling collateral out of the Cooler policy).
 
 ## State Variables
 
 ### delegateEscrowFactory
 
 ```solidity
-DelegateEscrowFactory public immutable delegateEscrowFactory;
+DelegateEscrowFactory public immutable delegateEscrowFactory
 ```
 
 ### _accountState
 
-*The mapping of a delegate's address to their escrow contract*
+The mapping of a delegate's address to their escrow contract
 
-*An account's current state across all policies
+An account's current state across all policies
 A given account is allowed up to 10 delegates. This is capped because to avoid gas griefing,
-eg within Cooler, upon a liquidation, the gOHM needs to be pulled from all delegates.*
+eg within Cooler, upon a liquidation, the gOHM needs to be pulled from all delegates.
 
 ```solidity
-mapping(address => AccountState) private _accountState;
+mapping(address /*account*/ => AccountState /*delegations*/) private _accountState
 ```
 
 ### _policyAccountBalances
 
-*The per policy balances of (delegated and undelegated) gOHM for each end user account
+The per policy balances of (delegated and undelegated) gOHM for each end user account
 One policy isn't allowed to deposit/withdraw to another policy's tracked balances
-Eg policy B cannot withdraw gOHM from the collateral held here by the Cooler policy*
+Eg policy B cannot withdraw gOHM from the collateral held here by the Cooler policy
 
 ```solidity
-mapping(address => mapping(address => uint256)) private _policyAccountBalances;
+mapping(address /*policy*/ => mapping(address /*account*/ => uint256 /*totalGOhm*/)) private _policyAccountBalances
 ```
 
 ## Functions
@@ -121,7 +124,11 @@ function setMaxDelegateAddresses(address account, uint32 maxDelegates) external 
 ### policyAccountBalances
 
 ```solidity
-function policyAccountBalances(address policy, address account) external view override returns (uint256 gOhmBalance);
+function policyAccountBalances(address policy, address account)
+    external
+    view
+    override
+    returns (uint256 gOhmBalance);
 ```
 
 ### accountDelegationsList
@@ -147,7 +154,12 @@ function accountDelegationSummary(address account)
     external
     view
     override
-    returns (uint256, uint256, uint256, uint256);
+    returns (
+        uint256, /*totalGOhm*/
+        uint256, /*delegatedGOhm*/
+        uint256, /*numDelegateAddresses*/
+        uint256 /*maxAllowedDelegateAddresses*/
+    );
 ```
 
 ### maxDelegateAddresses
@@ -229,9 +241,15 @@ function _rescindDelegation(
 
 ```solidity
 struct AccountState {
+    /// @dev A regular account is allowed to delegate up to 10 different addresses.
+    /// The account may be whitelisted to delegate more than that.
     EnumerableMap.AddressToUintMap delegatedAmounts;
+    /// @dev The total gOHM undelegated and delegated gOHM for this account across all delegates.
     uint112 totalGOhm;
+    /// @dev The total gOhm delegated for this account across all delegates
     uint112 delegatedGOhm;
+    /// @dev By default an account can only delegate to 10 addresses.
+    /// This may be increased on a per account basis by governance.
     uint32 maxDelegateAddresses;
 }
 ```

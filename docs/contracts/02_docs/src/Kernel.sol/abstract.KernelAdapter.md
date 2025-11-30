@@ -1,6 +1,6 @@
 # KernelAdapter
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/Kernel.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/Kernel.sol)
 
 Generic adapter interface for kernel access in modules and policies.
 
@@ -9,7 +9,7 @@ Generic adapter interface for kernel access in modules and policies.
 ### kernel
 
 ```solidity
-Kernel public kernel;
+Kernel public kernel
 ```
 
 ## Functions
@@ -17,7 +17,7 @@ Kernel public kernel;
 ### constructor
 
 ```solidity
-constructor(Kernel kernel_);
+constructor(Kernel kernel_) ;
 ```
 
 ### onlyKernel
@@ -25,7 +25,7 @@ constructor(Kernel kernel_);
 Modifier to restrict functions to be called only by kernel.
 
 ```solidity
-modifier onlyKernel();
+modifier onlyKernel() ;
 ```
 
 ### changeKernel

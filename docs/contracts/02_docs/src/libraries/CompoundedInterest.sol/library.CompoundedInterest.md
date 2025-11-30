@@ -1,13 +1,13 @@
 # CompoundedInterest
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/libraries/CompoundedInterest.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/libraries/CompoundedInterest.sol)
 
 ## State Variables
 
 ### ONE_YEAR
 
 ```solidity
-uint96 internal constant ONE_YEAR = 365 days;
+uint96 internal constant ONE_YEAR = 365 days
 ```
 
 ## Functions

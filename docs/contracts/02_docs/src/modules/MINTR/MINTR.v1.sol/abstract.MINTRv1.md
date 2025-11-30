@@ -1,6 +1,6 @@
 # MINTRv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/modules/MINTR/MINTR.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/MINTR/MINTR.v1.sol)
 
 **Inherits:**
 [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
@@ -12,7 +12,7 @@ Wrapper for minting and burning functions of OHM token.
 ### ohm
 
 ```solidity
-OHM public ohm;
+OHM public ohm
 ```
 
 ### active
@@ -20,17 +20,17 @@ OHM public ohm;
 Status of the minter. If false, minting and burning OHM is disabled.
 
 ```solidity
-bool public active;
+bool public active
 ```
 
 ### mintApproval
 
 Mapping of who is approved for minting.
 
-*minter -> amount. Infinite approval is max(uint256).*
+minter -> amount. Infinite approval is max(uint256).
 
 ```solidity
-mapping(address => uint256) public mintApproval;
+mapping(address => uint256) public mintApproval
 ```
 
 ## Functions
@@ -38,7 +38,7 @@ mapping(address => uint256) public mintApproval;
 ### onlyWhileActive
 
 ```solidity
-modifier onlyWhileActive();
+modifier onlyWhileActive() ;
 ```
 
 ### mintOhm
@@ -61,7 +61,7 @@ function burnOhm(address from_, uint256 amount_) external virtual;
 
 Increase approval for specific withdrawer addresses
 
-*Policies must explicity request how much they want approved before withdrawing.*
+Policies must explicity request how much they want approved before withdrawing.
 
 ```solidity
 function increaseMintApproval(address policy_, uint256 amount_) external virtual;

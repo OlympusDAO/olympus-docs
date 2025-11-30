@@ -1,6 +1,6 @@
 # Timelock
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/external/governance/Timelock.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/governance/Timelock.sol)
 
 **Inherits:**
 [ITimelock](/main/contracts/docs/src/external/governance/interfaces/ITimelock.sol/interface.ITimelock)
@@ -10,49 +10,49 @@
 ### GRACE_PERIOD
 
 ```solidity
-uint256 public constant GRACE_PERIOD = 1 days;
+uint256 public constant GRACE_PERIOD = 1 days
 ```
 
 ### MINIMUM_DELAY
 
 ```solidity
-uint256 public constant MINIMUM_DELAY = 1 days;
+uint256 public constant MINIMUM_DELAY = 1 days
 ```
 
 ### MAXIMUM_DELAY
 
 ```solidity
-uint256 public constant MAXIMUM_DELAY = 3 days;
+uint256 public constant MAXIMUM_DELAY = 3 days
 ```
 
 ### admin
 
 ```solidity
-address public admin;
+address public admin
 ```
 
 ### pendingAdmin
 
 ```solidity
-address public pendingAdmin;
+address public pendingAdmin
 ```
 
 ### delay
 
 ```solidity
-uint256 public delay;
+uint256 public delay
 ```
 
 ### initialized
 
 ```solidity
-bool public initialized;
+bool public initialized
 ```
 
 ### queuedTransactions
 
 ```solidity
-mapping(bytes32 => bool) public queuedTransactions;
+mapping(bytes32 => bool) public queuedTransactions
 ```
 
 ## Functions
@@ -60,7 +60,7 @@ mapping(bytes32 => bool) public queuedTransactions;
 ### constructor
 
 ```solidity
-constructor(address admin_, uint256 delay_);
+constructor(address admin_, uint256 delay_) ;
 ```
 
 ### setFirstAdmin

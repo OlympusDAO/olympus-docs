@@ -1,6 +1,6 @@
 # ReserveMigrator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/ReserveMigrator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/ReserveMigrator.sol)
 
 **Inherits:**
 [IReserveMigrator](/main/contracts/docs/src/policies/interfaces/IReserveMigrator.sol/interface.IReserveMigrator), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
@@ -10,43 +10,43 @@
 ### TRSRY
 
 ```solidity
-TRSRYv1 internal TRSRY;
+TRSRYv1 internal TRSRY
 ```
 
 ### from
 
 ```solidity
-ERC20 public immutable from;
+ERC20 public immutable from
 ```
 
 ### sFrom
 
 ```solidity
-ERC4626 public immutable sFrom;
+ERC4626 public immutable sFrom
 ```
 
 ### to
 
 ```solidity
-ERC20 public immutable to;
+ERC20 public immutable to
 ```
 
 ### sTo
 
 ```solidity
-ERC4626 public immutable sTo;
+ERC4626 public immutable sTo
 ```
 
 ### migrator
 
 ```solidity
-IDaiUsds public migrator;
+IDaiUsds public migrator
 ```
 
 ### locallyActive
 
 ```solidity
-bool public locallyActive;
+bool public locallyActive
 ```
 
 ## Functions
@@ -73,7 +73,7 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 migrate reserves and wrapped reserves in the treasury to the new reserve token
 
-*this function is restricted to the heart role to avoid complications with opportunistic conversions*
+this function is restricted to the heart role to avoid complications with opportunistic conversions
 
 ```solidity
 function migrate() external override onlyRole("heart");
@@ -98,7 +98,7 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 Activate the policy locally, if it has been deactivated
 
-*This function is restricted to the reserve_migrator admin role*
+This function is restricted to the reserve_migrator admin role
 
 ```solidity
 function activate() external onlyRole("reserve_migrator_admin");
@@ -108,7 +108,7 @@ function activate() external onlyRole("reserve_migrator_admin");
 
 Deactivate the policy locally, preventing it from migrating reserves
 
-*This function is restricted to the reserve_migrator admin role*
+This function is restricted to the reserve_migrator admin role
 
 ```solidity
 function deactivate() external onlyRole("reserve_migrator_admin");
@@ -118,7 +118,7 @@ function deactivate() external onlyRole("reserve_migrator_admin");
 
 Rescue any ERC20 token sent to this contract and send it to the TRSRY
 
-*This function is restricted to the reserve_migrator admin role*
+This function is restricted to the reserve_migrator admin role
 
 ```solidity
 function rescue(address token_) external onlyRole("reserve_migrator_admin");

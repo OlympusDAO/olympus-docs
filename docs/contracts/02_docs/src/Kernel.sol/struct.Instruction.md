@@ -1,12 +1,12 @@
 # Instruction
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/Kernel.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/Kernel.sol)
 
 Used by executor to select an action and a target contract for a kernel action
 
 ```solidity
 struct Instruction {
-    Actions action;
-    address target;
+Actions action;
+address target;
 }
 ```

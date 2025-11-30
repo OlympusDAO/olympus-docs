@@ -1,13 +1,16 @@
 # BurnMintTokenPoolBase
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/policies/bridge/BurnMintTokenPoolBase.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/bridge/BurnMintTokenPoolBase.sol)
 
 **Inherits:**
 BurnMintTokenPoolAbstract
 
+**Title:**
+BurnMintTokenPoolBase
+
 Base contract for creating BurnMintTokenPools.
 
-*This extends the `BurnMintTokenPoolAbstract` contract to allow for a customisable mint call.*
+This extends the `BurnMintTokenPoolAbstract` contract to allow for a customisable mint call.
 
 ## Functions
 
@@ -15,7 +18,7 @@ Base contract for creating BurnMintTokenPools.
 
 Specific mint call for a pool.
 
-*Overriding this method allows us to create pools with different mint signatures without duplicating the underlying logic.*
+Overriding this method allows us to create pools with different mint signatures without duplicating the underlying logic.
 
 ```solidity
 function _mint(address receiver_, uint256 amount_) internal virtual;
@@ -32,7 +35,7 @@ function _mint(address receiver_, uint256 amount_) internal virtual;
 
 Releases or mints tokens to the receiver address.
 
-*This is the same as the `releaseOrMint` function in the `BurnMintTokenPoolAbstract` contract, with the direct `mint()` call replaced by the call to the virtual `_mint()` function.*
+This is the same as the `releaseOrMint` function in the `BurnMintTokenPoolAbstract` contract, with the direct `mint()` call replaced by the call to the virtual `_mint()` function.
 
 ```solidity
 function releaseOrMint(Pool.ReleaseOrMintInV1 calldata releaseOrMintIn)

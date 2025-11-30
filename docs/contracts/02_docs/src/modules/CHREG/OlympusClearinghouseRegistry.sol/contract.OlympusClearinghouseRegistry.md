@@ -1,15 +1,18 @@
 # OlympusClearinghouseRegistry
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/modules/CHREG/OlympusClearinghouseRegistry.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/CHREG/OlympusClearinghouseRegistry.sol)
 
 **Inherits:**
 [CHREGv1](/main/contracts/docs/src/modules/CHREG/CHREG.v1.sol/abstract.CHREGv1)
 
+**Title:**
+Olympus Clearinghouse Registry
+
 Olympus Clearinghouse Registry (Module) Contract
 
-*The Olympus Clearinghouse Registry Module tracks the lending facilities that the Olympus
+The Olympus Clearinghouse Registry Module tracks the lending facilities that the Olympus
 protocol deploys to satisfy the Cooler Loan demand. This allows for a single-source of truth
-for reporting purposes around the total Treasury holdings as well as its projected receivables.*
+for reporting purposes around the total Treasury holdings as well as its projected receivables.
 
 ## Functions
 

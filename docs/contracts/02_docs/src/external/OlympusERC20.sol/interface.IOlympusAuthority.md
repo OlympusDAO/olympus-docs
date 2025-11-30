@@ -1,11 +1,11 @@
 # IOlympusAuthority
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/b214bbf24fd3cf5d2d9c92dfcdc682d8721bf8db/src/external/OlympusERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/OlympusERC20.sol)
 
 Olympus OHM token
 
-*This contract is the legacy v2 OHM token. Included in the repo for completeness,
-since it is not being changed and is imported in some contracts.*
+This contract is the legacy v2 OHM token. Included in the repo for completeness,
+since it is not being changed and is imported in some contracts.
 
 ## Functions
 
