@@ -1,6 +1,6 @@
 # Timelock
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/governance/Timelock.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/08cb07a6ec9482918b69760e0bdfbf4b788e34ea/src/external/governance/Timelock.sol)
 
 **Inherits:**
 [ITimelock](/main/contracts/docs/src/external/governance/interfaces/ITimelock.sol/interface.ITimelock)

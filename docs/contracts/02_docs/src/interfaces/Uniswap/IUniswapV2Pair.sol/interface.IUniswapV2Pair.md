@@ -1,6 +1,6 @@
 # IUniswapV2Pair
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/interfaces/Uniswap/IUniswapV2Pair.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/08cb07a6ec9482918b69760e0bdfbf4b788e34ea/src/interfaces/Uniswap/IUniswapV2Pair.sol)
 
 **Inherits:**
 [IUniswapV2ERC20](/main/contracts/docs/src/interfaces/Uniswap/IUniswapV2ERC20.sol/interface.IUniswapV2ERC20)

@@ -1,6 +1,6 @@
 # ConvertibleDepositAuctioneer
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/deposits/ConvertibleDepositAuctioneer.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/08cb07a6ec9482918b69760e0bdfbf4b788e34ea/src/policies/deposits/ConvertibleDepositAuctioneer.sol)
 
 **Inherits:**
 [IConvertibleDepositAuctioneer](/main/contracts/docs/src/policies/interfaces/deposits/IConvertibleDepositAuctioneer.sol/interface.IConvertibleDepositAuctioneer), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), ReentrancyGuard

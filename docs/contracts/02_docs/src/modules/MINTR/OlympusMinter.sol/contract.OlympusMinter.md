@@ -1,6 +1,6 @@
 # OlympusMinter
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/MINTR/OlympusMinter.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/08cb07a6ec9482918b69760e0bdfbf4b788e34ea/src/modules/MINTR/OlympusMinter.sol)
 
 **Inherits:**
 [MINTRv1](/main/contracts/docs/src/modules/MINTR/MINTR.v1.sol/abstract.MINTRv1)

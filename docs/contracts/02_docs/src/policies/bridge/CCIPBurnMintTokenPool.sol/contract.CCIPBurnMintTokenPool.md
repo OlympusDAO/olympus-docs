@@ -1,6 +1,6 @@
 # CCIPBurnMintTokenPool
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/bridge/CCIPBurnMintTokenPool.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/08cb07a6ec9482918b69760e0bdfbf4b788e34ea/src/policies/bridge/CCIPBurnMintTokenPool.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [BurnMintTokenPoolBase](/main/contracts/docs/src/policies/bridge/BurnMintTokenPoolBase.sol/abstract.BurnMintTokenPoolBase), [ICCIPTokenPool](/main/contracts/docs/src/policies/interfaces/ICCIPTokenPool.sol/interface.ICCIPTokenPool), ITypeAndVersion
