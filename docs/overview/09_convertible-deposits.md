@@ -650,7 +650,8 @@ When considering convertible deposits, users should consider:
 - **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
 - **Minimum Deposit**: 1 USDS
 - **Deposit Cap**: 1,000,000 USDS
-- **Borrowing Configuration**: 0% (disabled at launch, will be enabled in future update)
+- **Maximum Borrow Percentage**: 0% (disabled at launch, will be enabled in future update)
+- **Annual Borrow Interest Rate**: 0% (disabled at launch, will be enabled in future update)
 - **Reclaim Rate**: 90% (90% of the deposited amount will be returned upon reclaim)
 
 ##### Auction
@@ -665,6 +666,36 @@ When considering convertible deposits, users should consider:
 
 - **Base Emissions Rate**: 0.02% of supply/day
 - **Minimum Price**: 120% of market price
+- **Backing**: 11.69 USDS/OHM
+- **Minimum Premium**: 50% (the market price of OHM must be >= 17.535 USDS/OHM)
+- **Restart Timeframe**: 11 days
+- **Bond Market Capacity**: 0% (there will be no bond market for undersold OHM)
+
+#### Parameters (January 2026)
+
+##### Assets (January 2026)
+
+- **Supported Asset**: USDS
+- **Deposit Periods**: 3 months *(changed from: 1, 2, and 3 months)*
+- **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
+- **Minimum Deposit**: 1 USDS
+- **Deposit Cap**: 1,000,000 USDS
+- **Max Borrow Percentage**: 96.7% (maximum borrow percentage of redemption amount) *(changed from: 0%)*
+- **Annual Borrow Interest Rate**: 5.5% (fixed interest rate for borrowing) *(changed from: 0%)*
+- **Reclaim Rate**: 97.5% (97.5% of the deposited amount will be returned upon reclaim for 3-month deposits) *(changed from: 90%)*
+
+##### Auction (January 2026)
+
+- **Tick Size**: 150 OHM (halves when daily target is exceeded)
+- **Tick Step Multiplier**: 100.75% (0.75% increase per tick)
+- **Tick Size Base**: 2
+- **Tracking Period**: 7 days
+- **Minimum Bid**: 100 USDS
+
+##### Emission Mechanics (January 2026)
+
+- **Base Emissions Rate**: 0.04% of supply/day *(changed from: 0.02% of supply/day)*
+- **Minimum Price**: 110% of market price *(changed from: 120% of market price)*
 - **Backing**: 11.69 USDS/OHM
 - **Minimum Premium**: 50% (the market price of OHM must be >= 17.535 USDS/OHM)
 - **Restart Timeframe**: 11 days
