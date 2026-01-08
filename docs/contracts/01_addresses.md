@@ -120,6 +120,8 @@
 |                              |         | Sepolia   | [`0x0bE69702E83f06A027E6841B614f6946d1265441`](https://sepolia.etherscan.io/address/0x0bE69702E83f06A027E6841B614f6946d1265441) |
 | ConvertibleDepositAuctioneer | 1.0     | Mainnet   | [`0xF35193DA8C10e44aF10853Ba5a3a1a6F7529E39a`](https://etherscan.io/address/0xF35193DA8C10e44aF10853Ba5a3a1a6F7529E39a)        |
 |                              |         | Sepolia   | [`0x247f1989aDc0F63D07b91Bf645De879b9de06fbB`](https://sepolia.etherscan.io/address/0x247f1989aDc0F63D07b91Bf645De879b9de06fbB) |
+| ConvertibleDepositAuctioneerLimitOrders | 1.0     | Mainnet   | [`0x7d8f82A0D5B67d5FDd1B77A899FF517818FaFc2e`](https://etherscan.io/address/0x7d8f82A0D5B67d5FDd1B77A899FF517818FaFc2e)        |
+|                              |         | Sepolia   | [`0xeF64baB08c3431BbC527B063354b95D1C5b549B0`](https://sepolia.etherscan.io/address/0xeF64baB08c3431BbC527B063354b95D1C5b549B0) |
 | CrossChainBridge             | 1.0     | Mainnet   | [`0x45e563c39cddba8699a90078f42353a57509543a`](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a)        |
 |                              |         | Arbitrum  | [`0x20B3834091f038Ce04D8686FAC99CA44A0FB285c`](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c)         |
 |                              |         | Optimism  | [`0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0`](https://optimistic.etherscan.io/address/0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0) |
