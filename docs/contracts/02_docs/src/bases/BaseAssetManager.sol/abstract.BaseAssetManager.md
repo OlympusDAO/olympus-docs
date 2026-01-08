@@ -1,6 +1,6 @@
 # BaseAssetManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/08cb07a6ec9482918b69760e0bdfbf4b788e34ea/src/bases/BaseAssetManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a33d3e5c59822df96ec00f47c9c19aefe3ceb9cb/src/bases/BaseAssetManager.sol)
 
 **Inherits:**
 [IAssetManager](/main/contracts/docs/src/bases/interfaces/IAssetManager.sol/interface.IAssetManager)

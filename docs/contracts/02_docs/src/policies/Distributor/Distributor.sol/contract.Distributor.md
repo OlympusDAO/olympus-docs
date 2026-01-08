@@ -1,6 +1,6 @@
 # Distributor
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/08cb07a6ec9482918b69760e0bdfbf4b788e34ea/src/policies/Distributor/Distributor.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a33d3e5c59822df96ec00f47c9c19aefe3ceb9cb/src/policies/Distributor/Distributor.sol)
 
 **Inherits:**
 [IDistributor](/main/contracts/docs/src/policies/interfaces/IDistributor.sol/interface.IDistributor), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
