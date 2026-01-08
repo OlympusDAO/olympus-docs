@@ -21,5 +21,6 @@
 - [IEasyAuction](IEasyAuction.sol/interface.IEasyAuction.md)
 - [IPeriodicTask](IPeriodicTask.sol/interface.IPeriodicTask.md)
 - [IStaking](IStaking.sol/interface.IStaking.md)
+- [IVersioned](IVersioned.sol/interface.IVersioned.md)
 - [IWETH9](IWETH9.sol/interface.IWETH9.md)
 - [IgOHM](IgOHM.sol/interface.IgOHM.md)

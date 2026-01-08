@@ -1,6 +1,6 @@
 # ConvertibleDepositFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/deposits/ConvertibleDepositFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a33d3e5c59822df96ec00f47c9c19aefe3ceb9cb/src/policies/deposits/ConvertibleDepositFacility.sol)
 
 **Inherits:**
 [BaseDepositFacility](/main/contracts/docs/src/policies/deposits/BaseDepositFacility.sol/abstract.BaseDepositFacility), [IConvertibleDepositFacility](/main/contracts/docs/src/policies/interfaces/deposits/IConvertibleDepositFacility.sol/interface.IConvertibleDepositFacility), [IPeriodicTask](/main/contracts/docs/src/interfaces/IPeriodicTask.sol/interface.IPeriodicTask)

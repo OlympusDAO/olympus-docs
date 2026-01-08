@@ -1,6 +1,6 @@
 # ReceiptTokenManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/policies/deposits/ReceiptTokenManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a33d3e5c59822df96ec00f47c9c19aefe3ceb9cb/src/policies/deposits/ReceiptTokenManager.sol)
 
 **Inherits:**
 [ERC6909Wrappable](/main/contracts/docs/src/libraries/ERC6909Wrappable.sol/abstract.ERC6909Wrappable), [IReceiptTokenManager](/main/contracts/docs/src/policies/interfaces/deposits/IReceiptTokenManager.sol/interface.IReceiptTokenManager)

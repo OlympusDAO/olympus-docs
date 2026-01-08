@@ -1,6 +1,6 @@
 # OlympusDepositPositionManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/DEPOS/OlympusDepositPositionManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a33d3e5c59822df96ec00f47c9c19aefe3ceb9cb/src/modules/DEPOS/OlympusDepositPositionManager.sol)
 
 **Inherits:**
 [DEPOSv1](/main/contracts/docs/src/modules/DEPOS/DEPOS.v1.sol/abstract.DEPOSv1)
@@ -244,6 +244,8 @@ function split(uint256 positionId_, uint256 amount_, address to_, bool wrap_)
 |`newPositionId`|`uint256`|  The ID of the new position|
 
 ### tokenURI
+
+See {IERC721Metadata-tokenURI}.
 
 ```solidity
 function tokenURI(uint256 id_) public view virtual override returns (string memory);

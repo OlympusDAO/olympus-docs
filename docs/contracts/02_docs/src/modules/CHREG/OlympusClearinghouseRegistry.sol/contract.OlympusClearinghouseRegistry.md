@@ -1,6 +1,6 @@
 # OlympusClearinghouseRegistry
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/modules/CHREG/OlympusClearinghouseRegistry.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a33d3e5c59822df96ec00f47c9c19aefe3ceb9cb/src/modules/CHREG/OlympusClearinghouseRegistry.sol)
 
 **Inherits:**
 [CHREGv1](/main/contracts/docs/src/modules/CHREG/CHREG.v1.sol/abstract.CHREGv1)

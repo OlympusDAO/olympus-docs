@@ -1,6 +1,6 @@
 # ECDSA
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/afb0b906736ae1fb0a1c7b073969ad005255fc15/src/external/OlympusERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a33d3e5c59822df96ec00f47c9c19aefe3ceb9cb/src/external/OlympusERC20.sol)
 
 Elliptic Curve Digital Signature Algorithm (ECDSA) operations.
 These functions can be used to verify that a message was signed by the holder

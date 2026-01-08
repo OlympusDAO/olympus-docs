@@ -388,7 +388,169 @@ While a redemption is in progress, users can borrow against the committed amount
 - **No Early Exit**: Avoid reclaim discounts while still getting funds
 - **Flexible Terms**: Extend as needed based on the situation
 
-## 5. Practical Guidance
+## 5. Limit Orders
+
+### Overview
+
+Limit orders provide an automated way to participate in the Convertible Deposit auction without actively monitoring prices. Users can create persistent buy orders that execute automatically when the auction price reaches their specified maximum, enabling a "set-and-forget" approach to acquiring convertible deposits.
+
+### How Limit Orders Work
+
+Limit orders operate through a separate contract (`CDAuctioneerLimitOrders`) that interfaces with the Convertible Deposit Auctioneer. Users create orders with specific parameters, and permissionless solvers (typically MEV bots) monitor the auction and fill orders when conditions are favorable.
+
+#### Limit Order Key Components
+
+- **Deposit Budget**: The amount of deposit asset allocated for purchasing convertible deposits
+- **Incentive Budget**: Additional deposit asset allocated to reward solvers for filling the order
+- **Maximum Price**: The highest price (deposit asset per OHM) the user is willing to pay
+- **Minimum Fill Size**: The smallest fill amount allowed per transaction (except for the final fill)
+- **Deposit Period**: The term length for the convertible deposit position
+
+### Creating a Limit Order
+
+When creating a limit order, users specify:
+
+1. **Deposit Period**: Choose from available periods (1, 2, or 3 months)
+2. **Deposit Budget**: Total deposit asset to spend on convertible deposits
+3. **Incentive Budget**: Deposit asset to pay solvers as rewards for filling the order
+4. **Maximum Price**: Highest acceptable execution price (deposit asset per OHM)
+5. **Minimum Fill Size**: Smallest acceptable fill per transaction
+
+#### Order Creation Process
+
+1. **Approve Deposit Asset**: Users must approve the limit orders contract to spend their deposit asset
+2. **Submit Order**: Call `createOrder()` with the desired parameters
+3. **Funds Deposited**: Total funds (deposit budget + incentive budget) are deposited into the configured yield vault to generate yield while waiting
+4. **Order Active**: The order remains active until fully filled or cancelled
+
+#### Yield Generation
+
+While orders await execution, the deposited assets are held in the configured yield vault, generating yield. This yield accrues to a configurable recipient address (typically the protocol treasury) and can be swept periodically via `sweepYield()`.
+
+### Order Filling
+
+Orders are filled by permissionless solvers (MEV bots or other automated systems) that monitor the auction and execute fills when profitable.
+
+#### How Solvers Fill Orders
+
+1. **Monitor Orders**: Solvers monitor `getFillableOrders()` or index `OrderCreated` events
+2. **Check Fillability**: Use `canFillOrder()` to verify the order can be filled at the current price. Use `getRemaining()` to check remaining deposit and incentive budgets, and `calculateIncentive()` to determine the expected incentive amount and rate for a given fill amount
+3. **Execute Fill**: Call `fillOrder()` with the order ID and desired fill amount
+4. **Receive Incentive**: Solvers receive a proportional share of the incentive budget based on fill size
+
+#### Incentive Distribution
+
+Incentives are paid proportionally to fill size:
+
+- Filling 20% of an order pays 20% of the incentive budget
+- The final fill receives all remaining incentive (avoids rounding dust)
+- This proportional system prevents gaming by splitting fills into minimum-sized chunks
+
+#### Partial Fills
+
+Orders support partial fills, allowing multiple solvers to fill the same order incrementally:
+
+- Each fill must meet the minimum fill size (unless it's the final fill)
+- Fills are processed sequentially, updating the order's spent amounts
+- Users receive position NFTs and receipt tokens for each fill
+
+### Price Validation
+
+The limit orders system uses `previewBid()` to check the actual execution price, including slippage across ticks. Orders only fill if the effective price is less than or equal to the user's maximum price, ensuring users never pay more than their specified limit.
+
+### Managing Limit Orders
+
+#### Canceling Orders
+
+Users can cancel their active orders at any time to reclaim remaining funds:
+
+1. **Call `cancelOrder()`**: Provide the order ID
+2. **Receive Refund**: Remaining deposit budget and incentive budget are returned
+3. **Order Deactivated**: The order is marked inactive and cannot be filled
+
+**Important Notes:**
+
+- Only the order owner can cancel their order
+- Fully filled orders cannot be cancelled
+- Cancellation works even if the contract is disabled (allows fund recovery)
+
+#### Viewing Orders
+
+Users can query their orders using:
+
+- `getOrder(orderId)`: Get full details of a specific order
+- `getOrdersForUser(user)`: Get all order IDs for a user
+- `getRemaining(orderId)`: Check remaining deposit and incentive budgets
+
+### Benefits of Limit Orders
+
+#### For Users
+
+- **Passive Participation**: Set orders and let solvers execute when prices are favorable
+- **Price Protection**: Never pay more than your specified maximum price
+- **Yield on Idle Funds**: Deposits earn yield while awaiting execution
+- **Flexible Sizing**: Set minimum fill sizes to control execution granularity
+- **No Active Monitoring**: Orders execute automatically without constant price watching
+
+#### For Solvers
+
+- **Permissionless Execution**: Anyone can fill orders and earn incentives
+- **Proportional Rewards**: Incentives scale with fill size, encouraging larger fills
+- **Transparent System**: All orders are publicly viewable and fillable
+- **MEV Opportunities**: Solvers can capture value from price movements
+
+### Technical Details
+
+#### Contract Architecture
+
+The limit orders system consists of:
+
+- **CDAuctioneerLimitOrders**: Main contract managing orders and execution
+- **Integration with CDAuctioneer**: Uses existing auctioneer for bid execution
+- **Yield Vault**: Holds deposits and generates yield (e.g., sUSDS for USDS deposits)
+- **Position NFT**: Receives position NFTs from filled orders
+
+#### Security Features
+
+- **Reentrancy Protection**: All state-modifying functions use `nonReentrant`
+- **Access Control**: Owner-only functions for yield recipient management
+- **Price Validation**: Uses `previewBid()` for accurate price checking
+- **Yield Accounting**: Tracks `totalUsdsOwed` to isolate user principal from yield
+
+#### Yield Management
+
+- Yield accrues on all idle deposits held in the yield vault
+- Yield is tracked separately from user principal to ensure proper accounting
+- Yield can be swept to a configurable recipient address
+- Yield recipient can be updated by the contract owner
+
+### Common Use Cases
+
+#### Set-and-Forget Strategy
+
+Users who want to acquire convertible deposits at favorable prices without active monitoring can:
+
+1. Set a maximum price based on their target
+2. Allocate an incentive budget to attract solvers
+3. Wait for automatic execution when prices dip
+
+#### Large Order Execution
+
+For users placing large orders:
+
+- Break up orders into smaller limit orders to give prices time to decay between fills
+- Set appropriate minimum fill sizes to control execution pace
+- Monitor order status periodically rather than actively bidding
+
+#### Price Target Strategy
+
+Users with specific price targets can:
+
+- Set maximum prices at their desired entry points
+- Use incentive budgets to ensure timely execution
+- Cancel and adjust orders if market conditions change
+
+## 6. Practical Guidance
 
 ### Choosing Your Strategy
 
@@ -404,7 +566,7 @@ When considering convertible deposits, users should consider:
 #### Strategy Matrix
 
 | OHM Outlook | Liquidity Need | Recommended Approach |
-|-------------|----------------|---------------------|
+| ----------- | -------------- | -------------------- |
 | Bullish | Low | Longer periods, plan to convert |
 | Bullish | High | Shorter periods or borrowing strategy |
 | Uncertain | Low | Full redemption with position timing |
@@ -451,7 +613,7 @@ When considering convertible deposits, users should consider:
 - **Ignoring Opportunity Costs**: Consider what else could be done with the funds
 - **Single Strategy**: Markets change - be prepared to adapt the approach
 
-## 6. Technical Details & FAQ
+## 7. Technical Details & FAQ
 
 ### Fee Structures
 
@@ -488,7 +650,8 @@ When considering convertible deposits, users should consider:
 - **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
 - **Minimum Deposit**: 1 USDS
 - **Deposit Cap**: 1,000,000 USDS
-- **Borrowing Configuration**: 0% (disabled at launch, will be enabled in future update)
+- **Maximum Borrow Percentage**: 0% (disabled at launch, will be enabled in future update)
+- **Annual Borrow Interest Rate**: 0% (disabled at launch, will be enabled in future update)
 - **Reclaim Rate**: 90% (90% of the deposited amount will be returned upon reclaim)
 
 ##### Auction
@@ -503,6 +666,36 @@ When considering convertible deposits, users should consider:
 
 - **Base Emissions Rate**: 0.02% of supply/day
 - **Minimum Price**: 120% of market price
+- **Backing**: 11.69 USDS/OHM
+- **Minimum Premium**: 50% (the market price of OHM must be >= 17.535 USDS/OHM)
+- **Restart Timeframe**: 11 days
+- **Bond Market Capacity**: 0% (there will be no bond market for undersold OHM)
+
+#### Parameters (January 2026)
+
+##### Assets (January 2026)
+
+- **Supported Asset**: USDS
+- **Deposit Periods**: 3 months *(changed from: 1, 2, and 3 months)*
+- **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
+- **Minimum Deposit**: 1 USDS
+- **Deposit Cap**: 1,000,000 USDS
+- **Max Borrow Percentage**: 96.7% (maximum borrow percentage of redemption amount) *(changed from: 0%)*
+- **Annual Borrow Interest Rate**: 5.5% (fixed interest rate for borrowing) *(changed from: 0%)*
+- **Reclaim Rate**: 97.5% (97.5% of the deposited amount will be returned upon reclaim for 3-month deposits) *(changed from: 90%)*
+
+##### Auction (January 2026)
+
+- **Tick Size**: 150 OHM (halves when daily target is exceeded)
+- **Tick Step Multiplier**: 100.75% (0.75% increase per tick)
+- **Tick Size Base**: 2
+- **Tracking Period**: 7 days
+- **Minimum Bid**: 100 USDS
+
+##### Emission Mechanics (January 2026)
+
+- **Base Emissions Rate**: 0.04% of supply/day *(changed from: 0.02% of supply/day)*
+- **Minimum Price**: 110% of market price *(changed from: 120% of market price)*
 - **Backing**: 11.69 USDS/OHM
 - **Minimum Premium**: 50% (the market price of OHM must be >= 17.535 USDS/OHM)
 - **Restart Timeframe**: 11 days
@@ -571,6 +764,38 @@ A: Borrowing functionality is disabled in the initial rollout and will be enable
 
 **Q: What happens if I default on a borrowing loan?**
 A: Third parties can claim the default for a reward. Users keep any principal repaid, but lose the remainder to the protocol.
+
+#### Limit Orders
+
+**Q: How do limit orders work?**
+A: Limit orders allow you to set a maximum price and deposit budget, then let permissionless solvers (MEV bots) automatically fill your order when the auction price reaches your target. Your funds are held in the configured yield vault earning yield while waiting.
+
+**Q: What is an incentive budget?**
+A: The incentive budget is additional deposit asset you allocate to reward solvers for filling your order. Incentives are paid proportionally to fill size - filling 20% of your order pays 20% of the incentive budget. This encourages solvers to monitor and execute your order.
+
+**Q: How do I know if my order will be filled?**
+A: Solvers monitor fillable orders and execute fills when the auction price is at or below your maximum price. You can check if your order is fillable using `canFillOrder()`. Higher incentive budgets generally lead to faster execution.
+
+**Q: Can I cancel a limit order?**
+A: Yes, you can cancel your order at any time to reclaim remaining funds. Only the order owner can cancel, and fully filled orders cannot be cancelled. Cancellation works even if the contract is disabled.
+
+**Q: What happens to yield generated on my deposits?**
+A: While your order awaits execution, deposits are held in the configured yield vault and generate yield. This yield accrues to a configurable recipient (typically the protocol treasury) and can be swept periodically. Your principal is protected and returned when the order is filled or cancelled.
+
+**Q: Can orders be partially filled?**
+A: Yes, orders support partial fills. Multiple solvers can fill the same order incrementally. Each fill must meet your minimum fill size (except the final fill). You receive position NFTs and receipt tokens for each fill.
+
+**Q: What happens if my order never fills?**
+A: If your order doesn't fill, you can cancel it at any time to reclaim your full deposit budget and incentive budget. There's no time limit on orders - they remain active until filled or cancelled.
+
+**Q: How is the execution price determined?**
+A: The system uses `previewBid()` to check the actual execution price including slippage across ticks. Your order only fills if the effective price is at or below your maximum price, ensuring you never pay more than your limit.
+
+**Q: What's a good incentive budget?**
+A: Incentive budgets depend on your urgency and order size. Higher incentives attract more solver attention and faster execution. Consider the opportunity cost of waiting versus the cost of incentives.
+
+**Q: Can I modify an existing order?**
+A: No, orders cannot be modified once created. You would need to cancel the existing order and create a new one with updated parameters. This ensures order integrity and prevents front-running.
 
 #### Technical Issues
 
@@ -665,9 +890,9 @@ For additional support:
 - **Verify Contracts**: Always interact with official Olympus contracts
 - **Stay Informed**: Keep up with protocol updates and security announcements
 
-## 7. Adding Support for New Assets
+## 8. Adding Support for New Assets
 
-### Overview
+### New Assets Overview
 
 The Convertible Deposits system is designed to be extensible, allowing the protocol to add support for new assets over time through the standard Olympus governance process.
 
