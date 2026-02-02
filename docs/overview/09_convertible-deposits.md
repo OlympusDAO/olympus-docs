@@ -701,6 +701,12 @@ When considering convertible deposits, users should consider:
 - **Restart Timeframe**: 11 days
 - **Bond Market Capacity**: 0% (there will be no bond market for undersold OHM)
 
+#### Parameters (January 26, 2026)
+
+##### Assets (January 26, 2026)
+
+- **Deposit Cap**: 2,000,000 USDS *(increased from: 1,000,000 USDS)*
+
 ### Common Questions
 
 #### Getting Started
