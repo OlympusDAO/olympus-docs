@@ -127,6 +127,8 @@
 |                              |         | Optimism  | [`0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0`](https://optimistic.etherscan.io/address/0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0) |
 |                              |         | Base      | [`0x6CA1a916e883c7ce2BFBcF59dc70F2c1EF9dac6e`](https://basescan.org/address/0x6ca1a916e883c7ce2bfbcf59dc70f2c1ef9dac6e#code)   |
 |                              |         | Bera      | [`0xBA42BE149e5260EbA4B82418A6306f55D532eA47`](https://berascan.com/address/0xBA42BE149e5260EbA4B82418A6306f55D532eA47)        |
+| CCIPCrossChainBridge           | 1.0     | Mainnet   | [`0xFbf6383dC3F6010d403Ecdf12DDC1311701D143D`](https://etherscan.io/address/0xFbf6383dC3F6010d403Ecdf12DDC1311701D143D)        |
+| CCIPLockReleaseTokenPool       | 1.0     | Mainnet   | [`0xa5588e518CE5ee0e4628C005E4edAbD5e87de3aD`](https://etherscan.io/address/0xa5588e518CE5ee0e4628C005E4edAbD5e87de3aD)        |
 | Faucet (testnet only)        | 1.0     | Goerli    | [`0xA247156a39169c0FAFf979F57361CC734e82e3d0`](https://goerli.etherscan.io/address/0xA247156a39169c0FAFf979F57361CC734e82e3d0) |
 | Burner                       | 1.0     | Goerli    | [`0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853`](https://goerli.etherscan.io/address/0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853) |
 
