@@ -109,24 +109,24 @@ if you can't see it.
 
 ## How to Migrate to V2
 
-With our V2 migration tool, you can migrate OHM V1, sOHM V1, and wsOHM V1 to
-[gOHM](../contracts/tokens#gohm).
+:::info
+The old TokenMigrator contract has been defunded and is no longer functional. Migration is now handled by the **V1Migrator policy**, which uses an allowlist system.
+:::
 
-1\. Go to the [Stake section of Olympus App](https://app.olympusdao.finance/#/stake).
-You will see a notification on top if you have assets to migrate.
+With the V1Migrator policy, eligible users can migrate their OHM v1 tokens to OHM v2.
 
-![There are assets to migrate](/gitbook/assets/using-the-website/migration_v2/notification.png)
+**To migrate:**
 
-2\. Click "Migrate" and you will see the following UI:
+1. Check if you are eligible for migration through the Olympus app or governance announcements.
 
-![Migration UI](/gitbook/assets/using-the-website/migration_v2/ui2.png)
+2. Go to the [Stake section of Olympus App](https://app.olympusdao.finance/#/stake) to access the migration tool.
 
-3\. Approve each of the available tokens and sign the transaction in your wallet.
+3. Approve the migration contract to transfer your OHM v1 tokens.
 
-4\. Once all the tokens have been approved, click "Migrate" and sign the transaction.
+4. Execute the migration. The frontend will handle the allowlist verification automatically.
 
-![Ready to migrate](/gitbook/assets/using-the-website/migration_v2/approve_complete2.png)
+5. You will receive OHM v2 directly—no additional steps required.
 
-5\. When the transaction is confirmed, you are all set!
-
-![Migration complete](/gitbook/assets/using-the-website/migration_v2/migrate_complete.png)
+:::note
+Only users on the allowlist can migrate. Contact the Olympus team on Discord if you believe you should be eligible.
+:::
