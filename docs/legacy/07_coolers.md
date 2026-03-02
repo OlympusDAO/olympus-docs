@@ -13,7 +13,8 @@ Cooler Loans differentiates itself from existing lending markets:
 - **Oracle-free** - since Cooler Loans does not have liquidations and origination is based on a fixed value, it doesn’t depend on any external oracles.
 - **Isolated risk architecture** - whereas most lending markets socialize borrower risk through shared pool architecture, Cooler Loans isolates risk via user-specific debt-collateral contracts called Coolers.
 - **Predictable Terms** - Capacity, Loan-to-backing amount, tenor, and interest rates are all fixed parameters.
-- **Ability to roll** - Users can roll their loans at any time prior to the loan's expiration, keeping the same fixed terms.  
+- **Ability to roll** - Users can roll their loans at any time prior to the loan's expiration, keeping the same fixed terms.
+
 ## Architecture
 
 Cooler Loans is built on top of three smart contracts and two structs:
@@ -177,6 +178,7 @@ Interest payments are directed to Liquid Backing.
 ### Can a user vote with their Cooler collateral?
 
 To participate in governance, users MUST self-delegate in order to be able to use Cooler collateral to vote on snapshot proposals. Undelegated collateral is unable to be recognized by snapshot. Users can either delegate to their own address, or delegate their voting power to another address.
+
 - Delegation can be completed via the Cooler page on the app once a user has an active loan.
 - Delegation must be completed prior to a snapshot proposal going live or the user will be unable to vote for that proposal.
 - ALL of the collateral in your Cooler is delegated when calling this function, it is not on a per loan basis.
@@ -186,7 +188,7 @@ To participate in governance, users MUST self-delegate in order to be able to us
 
 ## Contracts
 
-| Contract      | Address                                                                                                               |
-| ------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Clearinghouse v1| [0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880) |
-| Clearinghouse v2| [0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c ](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c) |
+| Contract | Address |
+| -------- | ------- |
+| Clearinghouse v1 | [0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880) |
+| Clearinghouse v2 | [0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c) |
