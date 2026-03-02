@@ -1,6 +1,6 @@
 # CoolerComposites
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a33d3e5c59822df96ec00f47c9c19aefe3ceb9cb/src/periphery/CoolerComposites.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/periphery/CoolerComposites.sol)
 
 **Inherits:**
 [ICoolerComposites](/main/contracts/docs/src/periphery/interfaces/ICoolerComposites.sol/interface.ICoolerComposites), Owned, [IEnabler](/main/contracts/docs/src/periphery/interfaces/IEnabler.sol/interface.IEnabler)

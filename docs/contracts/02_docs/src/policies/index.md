@@ -29,6 +29,7 @@
 - [ReserveWrapper](ReserveWrapper.sol/contract.ReserveWrapper.md)
 - [RolesAdmin](RolesAdmin.sol/contract.RolesAdmin.md)
 - [TreasuryCustodian](TreasuryCustodian.sol/contract.TreasuryCustodian.md)
+- [V1Migrator](V1Migrator.sol/contract.V1Migrator.md)
 - [VohmVault_NotVested](VohmVault.sol/error.VohmVault_NotVested.md)
 - [VohmVault](VohmVault.sol/contract.VohmVault.md)
 - [BurnableERC20](YieldRepurchaseFacility.sol/interface.BurnableERC20.md)

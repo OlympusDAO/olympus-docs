@@ -1,12 +1,14 @@
 # Burner
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a33d3e5c59822df96ec00f47c9c19aefe3ceb9cb/src/policies/Burner.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/policies/Burner.sol)
 
 **Inherits:**
-[Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
+[Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IVersioned](/main/contracts/docs/src/interfaces/IVersioned.sol/interface.IVersioned)
 
 **Title:**
 Olympus Burner Policy
+
+forge-lint: disable-start(mixed-case-function,mixed-case-variable)
 
 Olympus Burner Policy Contract
 
@@ -18,6 +20,8 @@ This policy requires categories to be created to designate the purpose for burne
 
 ### TRSRY
 
+forge-lint: disable-start(mixed-case-variable)
+
 ```solidity
 TRSRYv1 internal TRSRY
 ```
@@ -28,12 +32,12 @@ TRSRYv1 internal TRSRY
 MINTRv1 internal MINTR
 ```
 
-### ohm
+### OHM
 
 OHM token
 
 ```solidity
-ERC20 public immutable ohm
+ERC20 public immutable OHM
 ```
 
 ### categories
@@ -57,6 +61,8 @@ mapping(bytes32 => bool) public categoryApproved
 ## Functions
 
 ### constructor
+
+forge-lint: disable-end(mixed-case-variable)
 
 ```solidity
 constructor(Kernel kernel_, ERC20 ohm_) Policy(kernel_);
@@ -96,6 +102,12 @@ function requestPermissions() external view override returns (Permissions[] memo
 modifier onlyApproved(bytes32 category_) ;
 ```
 
+### _onlyApproved
+
+```solidity
+function _onlyApproved(bytes32 category_) internal view;
+```
+
 ### burnFromTreasury
 
 Burn OHM from the treasury
@@ -103,6 +115,7 @@ Burn OHM from the treasury
 ```solidity
 function burnFromTreasury(uint256 amount_, bytes32 category_)
     external
+    onlyEnabled
     onlyRole("burner_admin")
     onlyApproved(category_);
 ```
@@ -125,6 +138,7 @@ a different contract.
 ```solidity
 function burnFrom(address from_, uint256 amount_, bytes32 category_)
     external
+    onlyEnabled
     onlyRole("burner_admin")
     onlyApproved(category_);
 ```
@@ -142,7 +156,11 @@ function burnFrom(address from_, uint256 amount_, bytes32 category_)
 Burn OHM in this contract
 
 ```solidity
-function burn(uint256 amount_, bytes32 category_) external onlyRole("burner_admin") onlyApproved(category_);
+function burn(uint256 amount_, bytes32 category_)
+    external
+    onlyEnabled
+    onlyRole("burner_admin")
+    onlyApproved(category_);
 ```
 
 **Parameters**
@@ -157,7 +175,7 @@ function burn(uint256 amount_, bytes32 category_) external onlyRole("burner_admi
 Add a category to the list of approved burn categories
 
 ```solidity
-function addCategory(bytes32 category_) external onlyRole("burner_admin");
+function addCategory(bytes32 category_) external onlyEnabled onlyRole("burner_admin");
 ```
 
 **Parameters**
@@ -171,7 +189,7 @@ function addCategory(bytes32 category_) external onlyRole("burner_admin");
 Remove a category from the list of approved burn categories
 
 ```solidity
-function removeCategory(bytes32 category_) external onlyRole("burner_admin");
+function removeCategory(bytes32 category_) external onlyEnabled onlyRole("burner_admin");
 ```
 
 **Parameters**
@@ -179,6 +197,31 @@ function removeCategory(bytes32 category_) external onlyRole("burner_admin");
 |Name|Type|Description|
 |----|----|-----------|
 |`category_`|`bytes32`|Category to remove|
+
+### VERSION
+
+Returns the version of the contract
+
+```solidity
+function VERSION() external pure returns (uint8, uint8);
+```
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`<none>`|`uint8`|major - Major version upgrade indicates breaking change to the interface.|
+|`<none>`|`uint8`|minor - Minor version change retains backward-compatible interface.|
+
+### supportsInterface
+
+ERC165 interface support
+
+Supports IERC165, IVersioned, and IEnabler (via PolicyEnabler)
+
+```solidity
+function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool);
+```
 
 ### getCategories
 
