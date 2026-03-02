@@ -23,7 +23,7 @@ cd dependencies/olympus-v3-1.0.0
 
 # Build the project
 echo "🔨 Building the project..."
-pnpm run build
+pnpm install
 
 # Generate forge documentation
 echo "📝 Generating forge documentation..."
