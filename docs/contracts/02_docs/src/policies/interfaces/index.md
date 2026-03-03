@@ -17,4 +17,5 @@
 - [IGenesisClaim](IPOLY.sol/interface.IGenesisClaim.md)
 - [IReserveMigrator](IReserveMigrator.sol/interface.IReserveMigrator.md)
 - [IReserveWrapper](IReserveWrapper.sol/interface.IReserveWrapper.md)
+- [IV1Migrator](IV1Migrator.sol/interface.IV1Migrator.md)
 - [IYieldRepo](IYieldRepo.sol/interface.IYieldRepo.md)

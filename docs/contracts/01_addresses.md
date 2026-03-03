@@ -130,7 +130,9 @@
 | CCIPCrossChainBridge           | 1.0     | Mainnet   | [`0xFbf6383dC3F6010d403Ecdf12DDC1311701D143D`](https://etherscan.io/address/0xFbf6383dC3F6010d403Ecdf12DDC1311701D143D)        |
 | CCIPLockReleaseTokenPool       | 1.0     | Mainnet   | [`0xa5588e518CE5ee0e4628C005E4edAbD5e87de3aD`](https://etherscan.io/address/0xa5588e518CE5ee0e4628C005E4edAbD5e87de3aD)        |
 | Faucet (testnet only)        | 1.0     | Goerli    | [`0xA247156a39169c0FAFf979F57361CC734e82e3d0`](https://goerli.etherscan.io/address/0xA247156a39169c0FAFf979F57361CC734e82e3d0) |
-| Burner                       | 1.0     | Goerli    | [`0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853`](https://goerli.etherscan.io/address/0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853) |
+| V1Migrator                   | 1.0     | Mainnet   | [`0x5131654eFCd63f7b797e00118792e0d0dD90B8B0`](https://etherscan.io/address/0x5131654eFCd63f7b797e00118792e0d0dD90B8B0)        |
+| Burner                       | 1.0     | Mainnet   | [`0x9f08c2603e919a46d6D98289C9ADA5250b310558`](https://etherscan.io/address/0x9f08c2603e919a46d6D98289C9ADA5250b310558)        |
+|                              |         | Goerli    | [`0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853`](https://goerli.etherscan.io/address/0x0cA928E9E75BE317E8C83FbD8397AdcFa06B4853) |
 
 ### Policies (deprecated)
 | Contract                       | Version | Chain     | Address                                                                                                                        |

@@ -19,6 +19,8 @@
 - [IERC4626](IERC4626.sol/interface.IERC4626.md)
 - [IERC6909Wrappable](IERC6909Wrappable.sol/interface.IERC6909Wrappable.md)
 - [IEasyAuction](IEasyAuction.sol/interface.IEasyAuction.md)
+- [IOlympusTokenMigrator](IOlympusTokenMigrator.sol/interface.IOlympusTokenMigrator.md)
+- [IOlympusTreasury](IOlympusTreasury.sol/interface.IOlympusTreasury.md)
 - [IPeriodicTask](IPeriodicTask.sol/interface.IPeriodicTask.md)
 - [IStaking](IStaking.sol/interface.IStaking.md)
 - [IVersioned](IVersioned.sol/interface.IVersioned.md)

@@ -1,6 +1,6 @@
 # ProposalScript
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a33d3e5c59822df96ec00f47c9c19aefe3ceb9cb/src/proposals/ProposalScript.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/proposals/ProposalScript.sol)
 
 **Inherits:**
 ScriptSuite
@@ -38,8 +38,14 @@ function run() public override;
 function printProposalInputs() public;
 ```
 
-### executeOnTestnet
+### executeOnTenderly
 
 ```solidity
-function executeOnTestnet() public;
+function executeOnTenderly() public;
+```
+
+### executeOnAnvilFork
+
+```solidity
+function executeOnAnvilFork() public;
 ```

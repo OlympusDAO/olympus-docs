@@ -21,3 +21,4 @@
 - [ERC20](OlympusERC20.sol/abstract.ERC20.md)
 - [ERC20Permit](OlympusERC20.sol/abstract.ERC20Permit.md)
 - [OlympusERC20Token](OlympusERC20.sol/contract.OlympusERC20Token.md)
+- [OwnedERC20](OwnedERC20.sol/contract.OwnedERC20.md)
