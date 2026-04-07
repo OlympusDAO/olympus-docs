@@ -21,7 +21,7 @@ Cache public cacheCH0
 Cache public cacheTRSRY
 ```
 
-### _kernel
+### \_kernel
 
 ```solidity
 Kernel internal _kernel
@@ -47,31 +47,31 @@ function name() public pure override returns (string memory);
 function description() public pure override returns (string memory);
 ```
 
-### _deploy
+### \_deploy
 
 ```solidity
 function _deploy(Addresses addresses, address) internal override;
 ```
 
-### _afterDeploy
+### \_afterDeploy
 
 ```solidity
 function _afterDeploy(Addresses addresses, address) internal override;
 ```
 
-### _build
+### \_build
 
 ```solidity
 function _build(Addresses addresses) internal override;
 ```
 
-### _run
+### \_run
 
 ```solidity
 function _run(Addresses addresses, address) internal override;
 ```
 
-### _validate
+### \_validate
 
 ```solidity
 function _validate(Addresses addresses, address) internal override;

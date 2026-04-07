@@ -26,7 +26,7 @@ bool public isEnabled
 
 ## Functions
 
-### _onlyEnabled
+### \_onlyEnabled
 
 ```solidity
 function _onlyEnabled() internal view;
@@ -38,7 +38,7 @@ function _onlyEnabled() internal view;
 modifier onlyEnabled() ;
 ```
 
-### _onlyDisabled
+### \_onlyDisabled
 
 ```solidity
 function _onlyDisabled() internal view;
@@ -50,7 +50,7 @@ function _onlyDisabled() internal view;
 modifier onlyDisabled() ;
 ```
 
-### _onlyOwner
+### \_onlyOwner
 
 Implementation-specific validation of ownership
 
@@ -60,7 +60,7 @@ Implementing contracts should override this function to perform the appropriate 
 function _onlyOwner() internal view virtual;
 ```
 
-### _enable
+### \_enable
 
 Implementation-specific enable function
 
@@ -77,9 +77,9 @@ function _enable(bytes calldata enableData_) internal virtual;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`enableData_`|`bytes`|Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation.|
+| Name          | Type    | Description                                                                                                                  |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `enableData_` | `bytes` | Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation. |
 
 ### enable
 
@@ -93,11 +93,11 @@ function enable(bytes calldata enableData_) external onlyDisabled;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`enableData_`|`bytes`| Optional data to pass to a custom enable function|
+| Name          | Type    | Description                                       |
+| ------------- | ------- | ------------------------------------------------- |
+| `enableData_` | `bytes` | Optional data to pass to a custom enable function |
 
-### _disable
+### \_disable
 
 Implementation-specific disable function
 
@@ -114,9 +114,9 @@ function _disable(bytes calldata disableData_) internal virtual;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`disableData_`|`bytes`|Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation.|
+| Name           | Type    | Description                                                                                                                  |
+| -------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `disableData_` | `bytes` | Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation. |
 
 ### disable
 
@@ -130,9 +130,9 @@ function disable(bytes calldata disableData_) external onlyEnabled;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`disableData_`|`bytes`|Optional data to pass to a custom disable function|
+| Name           | Type    | Description                                        |
+| -------------- | ------- | -------------------------------------------------- |
+| `disableData_` | `bytes` | Optional data to pass to a custom disable function |
 
 ### supportsInterface
 

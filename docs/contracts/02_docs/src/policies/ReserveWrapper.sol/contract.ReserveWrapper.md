@@ -20,13 +20,13 @@ Periodic task to wrap the reserve tokens in the TRSRY module into sReserve token
 TRSRYv1 public TRSRY
 ```
 
-### _RESERVE
+### \_RESERVE
 
 ```solidity
 ERC20 internal immutable _RESERVE
 ```
 
-### _SRESERVE
+### \_SRESERVE
 
 ```solidity
 ERC4626 internal immutable _SRESERVE
@@ -50,9 +50,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -64,9 +64,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### VERSION
 
@@ -78,10 +78,10 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|The major version of the policy.|
-|`minor`|`uint8`|The minor version of the policy.|
+| Name    | Type    | Description                      |
+| ------- | ------- | -------------------------------- |
+| `major` | `uint8` | The major version of the policy. |
+| `minor` | `uint8` | The minor version of the policy. |
 
 ### getReserve
 
@@ -106,7 +106,7 @@ Executes the periodic task
 This function reverts if:
 
 - The caller is not authorized
-Notes:
+  Notes:
 - If this contract disabled, nothing is done
 - If the reserve balance is 0, nothing is done
 - If the previewDeposit would result in zero shares, nothing is done

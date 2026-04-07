@@ -169,9 +169,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -185,9 +185,9 @@ function requestPermissions() external pure override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`requests`|`Permissions[]`|- Array of keycodes and function selectors for requested permissions.|
+| Name       | Type            | Description                                                           |
+| ---------- | --------------- | --------------------------------------------------------------------- |
+| `requests` | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
 
 ### consolidate
 
@@ -221,13 +221,13 @@ function consolidate(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouseFrom_`|`address`|Olympus Clearinghouse that issued the existing loans.|
-|`clearinghouseTo_`|`address`|Olympus Clearinghouse to be used to issue the consolidated loan.|
-|`coolerFrom_`|`address`|    Cooler from which the loans will be consolidated.|
-|`coolerTo_`|`address`|    Cooler to which the loans will be consolidated|
-|`ids_`|`uint256[]`|          Array containing the ids of the loans to be consolidated.|
+| Name                 | Type        | Description                                                      |
+| -------------------- | ----------- | ---------------------------------------------------------------- |
+| `clearinghouseFrom_` | `address`   | Olympus Clearinghouse that issued the existing loans.            |
+| `clearinghouseTo_`   | `address`   | Olympus Clearinghouse to be used to issue the consolidated loan. |
+| `coolerFrom_`        | `address`   | Cooler from which the loans will be consolidated.                |
+| `coolerTo_`          | `address`   | Cooler to which the loans will be consolidated                   |
+| `ids_`               | `uint256[]` | Array containing the ids of the loans to be consolidated.        |
 
 ### consolidateWithNewOwner
 
@@ -263,15 +263,15 @@ function consolidateWithNewOwner(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouseFrom_`|`address`|Olympus Clearinghouse that issued the existing loans.|
-|`clearinghouseTo_`|`address`|Olympus Clearinghouse to be used to issue the consolidated loan.|
-|`coolerFrom_`|`address`|    Cooler from which the loans will be consolidated.|
-|`coolerTo_`|`address`|    Cooler to which the loans will be consolidated|
-|`ids_`|`uint256[]`|          Array containing the ids of the loans to be consolidated.|
+| Name                 | Type        | Description                                                      |
+| -------------------- | ----------- | ---------------------------------------------------------------- |
+| `clearinghouseFrom_` | `address`   | Olympus Clearinghouse that issued the existing loans.            |
+| `clearinghouseTo_`   | `address`   | Olympus Clearinghouse to be used to issue the consolidated loan. |
+| `coolerFrom_`        | `address`   | Cooler from which the loans will be consolidated.                |
+| `coolerTo_`          | `address`   | Cooler to which the loans will be consolidated                   |
+| `ids_`               | `uint256[]` | Array containing the ids of the loans to be consolidated.        |
 
-### _consolidateWithFlashLoan
+### \_consolidateWithFlashLoan
 
 Internal logic for loan consolidation
 
@@ -292,13 +292,13 @@ function _consolidateWithFlashLoan(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouseFrom_`|`address`|Olympus Clearinghouse that issued the existing loans.|
-|`clearinghouseTo_`|`address`|Olympus Clearinghouse to be used to issue the consolidated loan.|
-|`coolerFrom_`|`address`|    Cooler from which the loans will be consolidated.|
-|`coolerTo_`|`address`|    Cooler to which the loans will be consolidated|
-|`ids_`|`uint256[]`|          Array containing the ids of the loans to be consolidated.|
+| Name                 | Type        | Description                                                      |
+| -------------------- | ----------- | ---------------------------------------------------------------- |
+| `clearinghouseFrom_` | `address`   | Olympus Clearinghouse that issued the existing loans.            |
+| `clearinghouseTo_`   | `address`   | Olympus Clearinghouse to be used to issue the consolidated loan. |
+| `coolerFrom_`        | `address`   | Cooler from which the loans will be consolidated.                |
+| `coolerTo_`          | `address`   | Cooler to which the loans will be consolidated                   |
+| `ids_`               | `uint256[]` | Array containing the ids of the loans to be consolidated.        |
 
 ### onFlashLoan
 
@@ -322,19 +322,19 @@ function onFlashLoan(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`initiator_`|`address`||
-|`<none>`|`address`||
-|`amount_`|`uint256`||
-|`lenderFee_`|`uint256`||
-|`params_`|`bytes`||
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| `initiator_` | `address` |             |
+| `<none>`     | `address` |             |
+| `amount_`    | `uint256` |             |
+| `lenderFee_` | `uint256` |             |
+| `params_`    | `bytes`   |             |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes32`|The keccak256 hash of "ERC3156FlashBorrower.onFlashLoan"|
+| Name     | Type      | Description                                              |
+| -------- | --------- | -------------------------------------------------------- |
+| `<none>` | `bytes32` | The keccak256 hash of "ERC3156FlashBorrower.onFlashLoan" |
 
 ### setFeePercentage
 
@@ -358,7 +358,7 @@ This function will revert if:
 
 - The contract has not been activated as a policy.
 - The caller does not have the `ROLE_EMERGENCY_SHUTDOWN` role
-If the contract is already active, it will do nothing.
+  If the contract is already active, it will do nothing.
 
 ```solidity
 function activate() external onlyPolicyActive onlyRole(ROLE_EMERGENCY_SHUTDOWN);
@@ -372,7 +372,7 @@ This function will revert if:
 
 - The contract has not been activated as a policy.
 - The caller does not have the `ROLE_EMERGENCY_SHUTDOWN` role
-If the contract is already deactivated, it will do nothing.
+  If the contract is already deactivated, it will do nothing.
 
 ```solidity
 function deactivate() external onlyPolicyActive onlyRole(ROLE_EMERGENCY_SHUTDOWN);
@@ -394,7 +394,7 @@ Modifier to check that the contract is activated as a policy
 modifier onlyPolicyActive() ;
 ```
 
-### _getDebtForLoans
+### \_getDebtForLoans
 
 Get the total principal and interest for a given set of loans
 
@@ -404,19 +404,19 @@ function _getDebtForLoans(address cooler_, uint256[] calldata ids_) internal vie
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cooler_`|`address`|        Cooler contract that issued the loans|
-|`ids_`|`uint256[]`|           Array of loan ids to be consolidated|
+| Name      | Type        | Description                           |
+| --------- | ----------- | ------------------------------------- |
+| `cooler_` | `address`   | Cooler contract that issued the loans |
+| `ids_`    | `uint256[]` | Array of loan ids to be consolidated  |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|totalPrincipal_ Total principal|
-|`<none>`|`uint256`|totalInterest_  Total interest|
+| Name     | Type      | Description                      |
+| -------- | --------- | -------------------------------- |
+| `<none>` | `uint256` | totalPrincipal\_ Total principal |
+| `<none>` | `uint256` | totalInterest\_ Total interest   |
 
-### _repayDebtForLoans
+### \_repayDebtForLoans
 
 Repay the debt for a given set of loans and collect the collateral.
 
@@ -430,18 +430,18 @@ function _repayDebtForLoans(address cooler_, uint256[] memory ids_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cooler_`|`address`|Cooler contract that issued the loans|
-|`ids_`|`uint256[]`|   Array of loan ids to be repaid|
+| Name      | Type        | Description                           |
+| --------- | ----------- | ------------------------------------- |
+| `cooler_` | `address`   | Cooler contract that issued the loans |
+| `ids_`    | `uint256[]` | Array of loan ids to be repaid        |
 
-### _isValidClearinghouse
+### \_isValidClearinghouse
 
 ```solidity
 function _isValidClearinghouse(address clearinghouse_) internal view returns (bool);
 ```
 
-### _isValidCooler
+### \_isValidCooler
 
 Check if a given cooler was created by the CoolerFactory for a Clearinghouse
 
@@ -453,18 +453,18 @@ function _isValidCooler(address clearinghouse_, address cooler_) internal view r
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouse_`|`address`|Clearinghouse contract|
-|`cooler_`|`address`|      Cooler contract|
+| Name             | Type      | Description            |
+| ---------------- | --------- | ---------------------- |
+| `clearinghouse_` | `address` | Clearinghouse contract |
+| `cooler_`        | `address` | Cooler contract        |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool          Whether the cooler was created by the CoolerFactory for the Clearinghouse|
+| Name     | Type   | Description                                                                    |
+| -------- | ------ | ------------------------------------------------------------------------------ |
+| `<none>` | `bool` | bool Whether the cooler was created by the CoolerFactory for the Clearinghouse |
 
-### _getClearinghouseReserveToken
+### \_getClearinghouseReserveToken
 
 Get the reserve token for a given Clearinghouse
 
@@ -476,17 +476,17 @@ function _getClearinghouseReserveToken(address clearinghouse_) internal view ret
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouse_`|`address`| Clearinghouse contract|
+| Name             | Type      | Description            |
+| ---------------- | --------- | ---------------------- |
+| `clearinghouse_` | `address` | Clearinghouse contract |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|address         Reserve token|
+| Name     | Type      | Description           |
+| -------- | --------- | --------------------- |
+| `<none>` | `address` | address Reserve token |
 
-### _getMigrationType
+### \_getMigrationType
 
 Get the migration type for a given pair of Clearinghouses
 
@@ -501,20 +501,20 @@ function _getMigrationType(address clearinghouseFrom_, address clearinghouseTo_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouseFrom_`|`address`| Clearinghouse that issued the existing loans|
-|`clearinghouseTo_`|`address`|   Clearinghouse to be used to issue the consolidated loan|
+| Name                 | Type      | Description                                             |
+| -------------------- | --------- | ------------------------------------------------------- |
+| `clearinghouseFrom_` | `address` | Clearinghouse that issued the existing loans            |
+| `clearinghouseTo_`   | `address` | Clearinghouse to be used to issue the consolidated loan |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`migrationType`|`MigrationType`|      Migration type|
-|`reserveFrom`|`IERC20`|        Reserve token for the existing loans|
-|`reserveTo`|`IERC20`|          Reserve token for the consolidated loan|
+| Name            | Type            | Description                             |
+| --------------- | --------------- | --------------------------------------- |
+| `migrationType` | `MigrationType` | Migration type                          |
+| `reserveFrom`   | `IERC20`        | Reserve token for the existing loans    |
+| `reserveTo`     | `IERC20`        | Reserve token for the consolidated loan |
 
-### _getFlashloanParameters
+### \_getFlashloanParameters
 
 Assembles the parameters for a flashloan
 
@@ -533,23 +533,23 @@ function _getFlashloanParameters(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouseFrom_`|`Clearinghouse`| Clearinghouse that issued the existing loans|
-|`clearinghouseTo_`|`Clearinghouse`|   Clearinghouse to be used to issue the consolidated loan|
-|`coolerFrom_`|`Cooler`|        Cooler contract that issued the existing loans|
-|`coolerTo_`|`Cooler`|          Cooler contract to be used to issue the consolidated loan|
-|`ids_`|`uint256[]`|               Array of loan ids to be consolidated|
-|`migrationType_`|`MigrationType`|     Migration type|
-|`reserveFrom_`|`IERC20`|       Reserve token for the existing loans|
-|`reserveTo_`|`IERC20`|         Reserve token for the consolidated loan|
+| Name                 | Type            | Description                                               |
+| -------------------- | --------------- | --------------------------------------------------------- |
+| `clearinghouseFrom_` | `Clearinghouse` | Clearinghouse that issued the existing loans              |
+| `clearinghouseTo_`   | `Clearinghouse` | Clearinghouse to be used to issue the consolidated loan   |
+| `coolerFrom_`        | `Cooler`        | Cooler contract that issued the existing loans            |
+| `coolerTo_`          | `Cooler`        | Cooler contract to be used to issue the consolidated loan |
+| `ids_`               | `uint256[]`     | Array of loan ids to be consolidated                      |
+| `migrationType_`     | `MigrationType` | Migration type                                            |
+| `reserveFrom_`       | `IERC20`        | Reserve token for the existing loans                      |
+| `reserveTo_`         | `IERC20`        | Reserve token for the consolidated loan                   |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`flashloanAmount`|`uint256`|    Amount of the flashloan|
-|`flashloanParams`|`FlashLoanData`|    Flashloan parameters|
+| Name              | Type            | Description             |
+| ----------------- | --------------- | ----------------------- |
+| `flashloanAmount` | `uint256`       | Amount of the flashloan |
+| `flashloanParams` | `FlashLoanData` | Flashloan parameters    |
 
 ### getProtocolFee
 
@@ -578,21 +578,21 @@ function requiredApprovals(address clearinghouseTo_, address coolerFrom_, uint25
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouseTo_`|`address`|   Clearinghouse contract used to issue the consolidated loan.|
-|`coolerFrom_`|`address`|        Cooler contract that issued the loans.|
-|`ids_`|`uint256[]`|               Array of loan ids to be consolidated.|
+| Name               | Type        | Description                                                 |
+| ------------------ | ----------- | ----------------------------------------------------------- |
+| `clearinghouseTo_` | `address`   | Clearinghouse contract used to issue the consolidated loan. |
+| `coolerFrom_`      | `address`   | Cooler contract that issued the loans.                      |
+| `ids_`             | `uint256[]` | Array of loan ids to be consolidated.                       |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|owner               Owner of the Cooler (address that should grant the approval).|
-|`<none>`|`uint256`|gOhmAmount          Amount of gOHM to be approved by the Cooler owner.|
-|`<none>`|`address`|reserveTo           Token that the approval is in terms of|
-|`<none>`|`uint256`|ownerReserveTo      Amount of `reserveTo` to be approved by the Cooler owner. This will be the principal of the consolidated loan.|
-|`<none>`|`uint256`|callerReserveTo     Amount of `reserveTo` that the caller will need to provide.|
+| Name     | Type      | Description                                                                                                                   |
+| -------- | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `<none>` | `address` | owner Owner of the Cooler (address that should grant the approval).                                                           |
+| `<none>` | `uint256` | gOhmAmount Amount of gOHM to be approved by the Cooler owner.                                                                 |
+| `<none>` | `address` | reserveTo Token that the approval is in terms of                                                                              |
+| `<none>` | `uint256` | ownerReserveTo Amount of `reserveTo` to be approved by the Cooler owner. This will be the principal of the consolidated loan. |
+| `<none>` | `uint256` | callerReserveTo Amount of `reserveTo` that the caller will need to provide.                                                   |
 
 ### collateralRequired
 
@@ -610,19 +610,19 @@ function collateralRequired(address clearinghouse_, address cooler_, uint256[] m
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouse_`|`address`|     Clearinghouse contract used to issue the consolidated loan.|
-|`cooler_`|`address`|            Cooler contract that issued the loans.|
-|`ids_`|`uint256[]`|               Array of loan ids to be consolidated.|
+| Name             | Type        | Description                                                 |
+| ---------------- | ----------- | ----------------------------------------------------------- |
+| `clearinghouse_` | `address`   | Clearinghouse contract used to issue the consolidated loan. |
+| `cooler_`        | `address`   | Cooler contract that issued the loans.                      |
+| `ids_`           | `uint256[]` | Array of loan ids to be consolidated.                       |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`consolidatedLoanCollateral`|`uint256`| Collateral required for the consolidated loan.|
-|`existingLoanCollateral`|`uint256`|     Collateral of the existing loans.|
-|`additionalCollateral`|`uint256`|       Additional collateral required to consolidate the loans. This will need to be supplied by the Cooler owner.|
+| Name                         | Type      | Description                                                                                                 |
+| ---------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
+| `consolidatedLoanCollateral` | `uint256` | Collateral required for the consolidated loan.                                                              |
+| `existingLoanCollateral`     | `uint256` | Collateral of the existing loans.                                                                           |
+| `additionalCollateral`       | `uint256` | Additional collateral required to consolidate the loans. This will need to be supplied by the Cooler owner. |
 
 ### fundsRequired
 
@@ -639,20 +639,20 @@ function fundsRequired(address clearinghouseTo_, address coolerFrom_, uint256[] 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouseTo_`|`address`|   Clearinghouse contract to be used to issue the consolidated loan.|
-|`coolerFrom_`|`address`|        Cooler contract that issued the loans.|
-|`ids_`|`uint256[]`|               Array of loan ids to be consolidated.|
+| Name               | Type        | Description                                                       |
+| ------------------ | ----------- | ----------------------------------------------------------------- |
+| `clearinghouseTo_` | `address`   | Clearinghouse contract to be used to issue the consolidated loan. |
+| `coolerFrom_`      | `address`   | Cooler contract that issued the loans.                            |
+| `ids_`             | `uint256[]` | Array of loan ids to be consolidated.                             |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`reserveTo`|`address`|          Token the fund amounts are in terms of|
-|`interest`|`uint256`|           Total interest|
-|`lenderFee`|`uint256`|          Lender fee|
-|`protocolFee`|`uint256`|        Protocol fee|
+| Name          | Type      | Description                            |
+| ------------- | --------- | -------------------------------------- |
+| `reserveTo`   | `address` | Token the fund amounts are in terms of |
+| `interest`    | `uint256` | Total interest                         |
+| `lenderFee`   | `uint256` | Lender fee                             |
+| `protocolFee` | `uint256` | Protocol fee                           |
 
 ### VERSION
 
@@ -664,9 +664,9 @@ function VERSION() external pure returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|Version number|
+| Name     | Type      | Description    |
+| -------- | --------- | -------------- |
+| `<none>` | `uint256` | Version number |
 
 ## Events
 

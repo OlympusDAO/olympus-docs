@@ -23,9 +23,9 @@ function owner() public pure returns (address _owner);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_owner`|`address`|The owner address stored in immutable args|
+| Name     | Type      | Description                                |
+| -------- | --------- | ------------------------------------------ |
+| `_owner` | `address` | The owner address stored in immutable args |
 
 ### asset
 
@@ -37,9 +37,9 @@ function asset() public pure returns (IERC20 _asset);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_asset`|`IERC20`|The asset address stored in immutable args|
+| Name     | Type     | Description                                |
+| -------- | -------- | ------------------------------------------ |
+| `_asset` | `IERC20` | The asset address stored in immutable args |
 
 ### depositPeriod
 
@@ -51,9 +51,9 @@ function depositPeriod() public pure returns (uint8 _depositPeriod);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_depositPeriod`|`uint8`|The deposit period stored in immutable args|
+| Name             | Type    | Description                                 |
+| ---------------- | ------- | ------------------------------------------- |
+| `_depositPeriod` | `uint8` | The deposit period stored in immutable args |
 
 ### operator
 
@@ -65,11 +65,11 @@ function operator() public pure returns (address _operator);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_operator`|`address`|The operator address stored in immutable args|
+| Name        | Type      | Description                                   |
+| ----------- | --------- | --------------------------------------------- |
+| `_operator` | `address` | The operator address stored in immutable args |
 
-### _onlyOwner
+### \_onlyOwner
 
 ```solidity
 function _onlyOwner() internal view;
@@ -96,10 +96,10 @@ function mintFor(address to_, uint256 amount_) external onlyOwner;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`to_`|`address`|The address to mint tokens to|
-|`amount_`|`uint256`|The amount of tokens to mint|
+| Name      | Type      | Description                   |
+| --------- | --------- | ----------------------------- |
+| `to_`     | `address` | The address to mint tokens to |
+| `amount_` | `uint256` | The amount of tokens to mint  |
 
 ### burnFrom
 
@@ -116,10 +116,10 @@ function burnFrom(address from_, uint256 amount_) external onlyOwner;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`from_`|`address`|The address to burn tokens from|
-|`amount_`|`uint256`|The amount of tokens to burn|
+| Name      | Type      | Description                     |
+| --------- | --------- | ------------------------------- |
+| `from_`   | `address` | The address to burn tokens from |
+| `amount_` | `uint256` | The amount of tokens to burn    |
 
 ### supportsInterface
 

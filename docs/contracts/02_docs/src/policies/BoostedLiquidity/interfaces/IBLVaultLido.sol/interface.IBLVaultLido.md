@@ -16,16 +16,16 @@ function deposit(uint256 amount_, uint256 minLpAmount_) external returns (uint25
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of wstETH to deposit|
-|`minLpAmount_`|`uint256`|            The minimum acceptable amount of LP tokens to receive back|
+| Name           | Type      | Description                                                |
+| -------------- | --------- | ---------------------------------------------------------- |
+| `amount_`      | `uint256` | The amount of wstETH to deposit                            |
+| `minLpAmount_` | `uint256` | The minimum acceptable amount of LP tokens to receive back |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`lpAmountOut`|`uint256`|            The amount of LP tokens received by the transaction|
+| Name          | Type      | Description                                         |
+| ------------- | --------- | --------------------------------------------------- |
+| `lpAmountOut` | `uint256` | The amount of LP tokens received by the transaction |
 
 ### withdraw
 
@@ -44,19 +44,19 @@ function withdraw(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`lpAmount_`|`uint256`|               The amount of LP tokens to withdraw from Balancer|
-|`minTokenAmountsBalancer_`|`uint256[]`|The minimum acceptable amounts of OHM (first entry), and wstETH (second entry) to receive back from Balancer|
-|`minTokenAmountUser_`|`uint256`|     The minimum acceptable amount of wstETH to receive back from the vault|
-|`claim_`|`bool`|                  Whether to claim outstanding rewards from Aura|
+| Name                       | Type        | Description                                                                                                  |
+| -------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------ |
+| `lpAmount_`                | `uint256`   | The amount of LP tokens to withdraw from Balancer                                                            |
+| `minTokenAmountsBalancer_` | `uint256[]` | The minimum acceptable amounts of OHM (first entry), and wstETH (second entry) to receive back from Balancer |
+| `minTokenAmountUser_`      | `uint256`   | The minimum acceptable amount of wstETH to receive back from the vault                                       |
+| `claim_`                   | `bool`      | Whether to claim outstanding rewards from Aura                                                               |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The amount of OHM received|
-|`<none>`|`uint256`|uint256                 The amount of wstETH received|
+| Name     | Type      | Description                           |
+| -------- | --------- | ------------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM received    |
+| `<none>` | `uint256` | uint256 The amount of wstETH received |
 
 ### emergencyWithdraw
 
@@ -72,17 +72,17 @@ function emergencyWithdraw(uint256 lpAmount_, uint256[] calldata minTokenAmounts
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`lpAmount_`|`uint256`|               The amount of LP tokens to withdraw from Balancer|
-|`minTokenAmounts_`|`uint256[]`|        The minimum acceptable amounts of OHM (first entry), and wstETH (second entry) to receive back from Balancer|
+| Name               | Type        | Description                                                                                                  |
+| ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------ |
+| `lpAmount_`        | `uint256`   | The amount of LP tokens to withdraw from Balancer                                                            |
+| `minTokenAmounts_` | `uint256[]` | The minimum acceptable amounts of OHM (first entry), and wstETH (second entry) to receive back from Balancer |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The amount of OHM received|
-|`<none>`|`uint256`|uint256                 The amount of wstETH received|
+| Name     | Type      | Description                           |
+| -------- | --------- | ------------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM received    |
+| `<none>` | `uint256` | uint256 The amount of wstETH received |
 
 ### claimRewards
 
@@ -104,9 +104,9 @@ function canWithdraw() external view returns (bool);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool                    Whether enough time has passed since the last deposit for the user to be ale to withdraw|
+| Name     | Type   | Description                                                                                   |
+| -------- | ------ | --------------------------------------------------------------------------------------------- |
+| `<none>` | `bool` | bool Whether enough time has passed since the last deposit for the user to be ale to withdraw |
 
 ### getLpBalance
 
@@ -118,9 +118,9 @@ function getLpBalance() external view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 LP balance deposited into Aura|
+| Name     | Type      | Description                            |
+| -------- | --------- | -------------------------------------- |
+| `<none>` | `uint256` | uint256 LP balance deposited into Aura |
 
 ### getUserPairShare
 
@@ -132,9 +132,9 @@ function getUserPairShare() external view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 Claim on wstETH|
+| Name     | Type      | Description             |
+| -------- | --------- | ----------------------- |
+| `<none>` | `uint256` | uint256 Claim on wstETH |
 
 ### getOutstandingRewards
 
@@ -146,6 +146,6 @@ function getOutstandingRewards() external view returns (RewardsData[] memory);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`RewardsData[]`|RewardsData[]           The vault's unclaimed rewards in Aura|
+| Name     | Type            | Description                                         |
+| -------- | --------------- | --------------------------------------------------- |
+| `<none>` | `RewardsData[]` | RewardsData[] The vault's unclaimed rewards in Aura |

@@ -17,15 +17,15 @@ function getBondTokenForMarket(uint256 id_) external view returns (ERC20);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|     ID of the market|
+| Name  | Type      | Description      |
+| ----- | --------- | ---------------- |
+| `id_` | `uint256` | ID of the market |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`ERC20`|ERC20BondToken contract address|
+| Name     | Type    | Description                     |
+| -------- | ------- | ------------------------------- |
+| `<none>` | `ERC20` | ERC20BondToken contract address |
 
 ### deploy
 
@@ -41,16 +41,16 @@ function deploy(ERC20 underlying_, uint48 expiry_) external returns (ERC20);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`underlying_`|`ERC20`| ERC20 token redeemable when the bond token vests|
-|`expiry_`|`uint48`|     Timestamp at which the bond token can be redeemed for the underlying token|
+| Name          | Type     | Description                                                                |
+| ------------- | -------- | -------------------------------------------------------------------------- |
+| `underlying_` | `ERC20`  | ERC20 token redeemable when the bond token vests                           |
+| `expiry_`     | `uint48` | Timestamp at which the bond token can be redeemed for the underlying token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`ERC20`|Address of the ERC20 bond token being created|
+| Name     | Type    | Description                                   |
+| -------- | ------- | --------------------------------------------- |
+| `<none>` | `ERC20` | Address of the ERC20 bond token being created |
 
 ### create
 
@@ -62,15 +62,15 @@ function create(ERC20 underlying_, uint48 expiry_, uint256 amount_) external ret
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`underlying_`|`ERC20`|  ERC20 token redeemable when the bond token vests|
-|`expiry_`|`uint48`|      Timestamp at which the bond token can be redeemed for the underlying token|
-|`amount_`|`uint256`|      Amount of underlying tokens to deposit|
+| Name          | Type      | Description                                                                |
+| ------------- | --------- | -------------------------------------------------------------------------- |
+| `underlying_` | `ERC20`   | ERC20 token redeemable when the bond token vests                           |
+| `expiry_`     | `uint48`  | Timestamp at which the bond token can be redeemed for the underlying token |
+| `amount_`     | `uint256` | Amount of underlying tokens to deposit                                     |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`ERC20`|Address of the ERC20 bond token received|
-|`<none>`|`uint256`|Amount of the ERC20 bond token received|
+| Name     | Type      | Description                              |
+| -------- | --------- | ---------------------------------------- |
+| `<none>` | `ERC20`   | Address of the ERC20 bond token received |
+| `<none>` | `uint256` | Amount of the ERC20 bond token received  |

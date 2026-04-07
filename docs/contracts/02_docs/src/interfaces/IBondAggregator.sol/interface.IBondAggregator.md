@@ -18,9 +18,9 @@ function registerAuctioneer(IBondAuctioneer auctioneer_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`auctioneer_`|`IBondAuctioneer`| Address of the Auctioneer to register|
+| Name          | Type              | Description                           |
+| ------------- | ----------------- | ------------------------------------- |
+| `auctioneer_` | `IBondAuctioneer` | Address of the Auctioneer to register |
 
 ### registerMarket
 
@@ -34,10 +34,10 @@ function registerMarket(ERC20 payoutToken_, ERC20 quoteToken_) external returns 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`payoutToken_`|`ERC20`|Token to be paid out by the market|
-|`quoteToken_`|`ERC20`| Token to be accepted by the market|
+| Name           | Type    | Description                        |
+| -------------- | ------- | ---------------------------------- |
+| `payoutToken_` | `ERC20` | Token to be paid out by the market |
+| `quoteToken_`  | `ERC20` | Token to be accepted by the market |
 
 ### getAuctioneer
 
@@ -49,15 +49,15 @@ function getAuctioneer(uint256 id_) external view returns (IBondAuctioneer);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`| ID of Market|
+| Name  | Type      | Description  |
+| ----- | --------- | ------------ |
+| `id_` | `uint256` | ID of Market |
 
 ### marketPrice
 
 Calculate current market price of payout token in quote tokens
 
-Accounts for debt and control variable decay since last deposit (vs _marketPrice())
+Accounts for debt and control variable decay since last deposit (vs \_marketPrice())
 
 ```solidity
 function marketPrice(uint256 id_) external view returns (uint256);
@@ -65,15 +65,15 @@ function marketPrice(uint256 id_) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
+| Name  | Type      | Description  |
+| ----- | --------- | ------------ |
+| `id_` | `uint256` | ID of market |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|Price for market (see the specific auctioneer for units)|
+| Name     | Type      | Description                                              |
+| -------- | --------- | -------------------------------------------------------- |
+| `<none>` | `uint256` | Price for market (see the specific auctioneer for units) |
 
 ### marketScale
 
@@ -85,15 +85,15 @@ function marketScale(uint256 id_) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
+| Name  | Type      | Description  |
+| ----- | --------- | ------------ |
+| `id_` | `uint256` | ID of market |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|Scaling factor for market in configured decimals|
+| Name     | Type      | Description                                      |
+| -------- | --------- | ------------------------------------------------ |
+| `<none>` | `uint256` | Scaling factor for market in configured decimals |
 
 ### payoutFor
 
@@ -107,17 +107,17 @@ function payoutFor(uint256 amount_, uint256 id_, address referrer_) external vie
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|     Amount of quote tokens to spend|
-|`id_`|`uint256`|         ID of market|
-|`referrer_`|`address`|   Address of referrer, used to get fees to calculate accurate payout amount. Inputting the zero address will take into account just the protocol fee.|
+| Name        | Type      | Description                                                                                                                                         |
+| ----------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `amount_`   | `uint256` | Amount of quote tokens to spend                                                                                                                     |
+| `id_`       | `uint256` | ID of market                                                                                                                                        |
+| `referrer_` | `address` | Address of referrer, used to get fees to calculate accurate payout amount. Inputting the zero address will take into account just the protocol fee. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|amount of payout tokens to be paid|
+| Name     | Type      | Description                        |
+| -------- | --------- | ---------------------------------- |
+| `<none>` | `uint256` | amount of payout tokens to be paid |
 
 ### maxAmountAccepted
 
@@ -129,10 +129,10 @@ function maxAmountAccepted(uint256 id_, address referrer_) external view returns
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
-|`referrer_`|`address`|   Address of referrer, used to get fees to calculate accurate payout amount. Inputting the zero address will take into account just the protocol fee.|
+| Name        | Type      | Description                                                                                                                                         |
+| ----------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id_`       | `uint256` | ID of market                                                                                                                                        |
+| `referrer_` | `address` | Address of referrer, used to get fees to calculate accurate payout amount. Inputting the zero address will take into account just the protocol fee. |
 
 ### isInstantSwap
 
@@ -144,9 +144,9 @@ function isInstantSwap(uint256 id_) external view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         Market ID to search for|
+| Name  | Type      | Description             |
+| ----- | --------- | ----------------------- |
+| `id_` | `uint256` | Market ID to search for |
 
 ### isLive
 
@@ -158,9 +158,9 @@ function isLive(uint256 id_) external view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
+| Name  | Type      | Description  |
+| ----- | --------- | ------------ |
+| `id_` | `uint256` | ID of market |
 
 ### liveMarketsBetween
 
@@ -182,10 +182,10 @@ function liveMarketsFor(address token_, bool isPayout_) external view returns (u
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token_`|`address`|      Address of token to query by|
-|`isPayout_`|`bool`|   If true, search by payout token, else search for quote token|
+| Name        | Type      | Description                                                  |
+| ----------- | --------- | ------------------------------------------------------------ |
+| `token_`    | `address` | Address of token to query by                                 |
+| `isPayout_` | `bool`    | If true, search by payout token, else search for quote token |
 
 ### liveMarketsBy
 
@@ -200,11 +200,11 @@ function liveMarketsBy(address owner_, uint256 firstIndex_, uint256 lastIndex_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`owner_`|`address`|      Address of owner to query by|
-|`firstIndex_`|`uint256`| Market ID to start at|
-|`lastIndex_`|`uint256`|  Market ID to end at (non-inclusive)|
+| Name          | Type      | Description                         |
+| ------------- | --------- | ----------------------------------- |
+| `owner_`      | `address` | Address of owner to query by        |
+| `firstIndex_` | `uint256` | Market ID to start at               |
+| `lastIndex_`  | `uint256` | Market ID to end at (non-inclusive) |
 
 ### marketsFor
 
@@ -216,10 +216,10 @@ function marketsFor(address payout_, address quote_) external view returns (uint
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`payout_`|`address`|     Address of payout token|
-|`quote_`|`address`|      Address of quote token|
+| Name      | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| `payout_` | `address` | Address of payout token |
+| `quote_`  | `address` | Address of quote token  |
 
 ### findMarketFor
 
@@ -237,13 +237,13 @@ function findMarketFor(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`payout_`|`address`|         Address of payout token|
-|`quote_`|`address`|          Address of quote token|
-|`amountIn_`|`uint256`|       Amount of quote tokens to deposit|
-|`minAmountOut_`|`uint256`|   Minimum amount of payout tokens to receive as payout|
-|`maxExpiry_`|`uint256`|      Latest acceptable vesting timestamp for bond Inputting the zero address will take into account just the protocol fee.|
+| Name            | Type      | Description                                                                                                           |
+| --------------- | --------- | --------------------------------------------------------------------------------------------------------------------- |
+| `payout_`       | `address` | Address of payout token                                                                                               |
+| `quote_`        | `address` | Address of quote token                                                                                                |
+| `amountIn_`     | `uint256` | Amount of quote tokens to deposit                                                                                     |
+| `minAmountOut_` | `uint256` | Minimum amount of payout tokens to receive as payout                                                                  |
+| `maxExpiry_`    | `uint256` | Latest acceptable vesting timestamp for bond Inputting the zero address will take into account just the protocol fee. |
 
 ### getTeller
 

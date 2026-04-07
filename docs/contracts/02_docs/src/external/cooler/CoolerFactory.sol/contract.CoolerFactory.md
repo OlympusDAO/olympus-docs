@@ -62,16 +62,16 @@ function generateCooler(ERC20 collateral_, ERC20 debt_) external returns (addres
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`collateral_`|`ERC20`|the token given as collateral.|
-|`debt_`|`ERC20`|the token to be lent. Interest is denominated in debt tokens.|
+| Name          | Type    | Description                                                   |
+| ------------- | ------- | ------------------------------------------------------------- |
+| `collateral_` | `ERC20` | the token given as collateral.                                |
+| `debt_`       | `ERC20` | the token to be lent. Interest is denominated in debt tokens. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cooler`|`address`|address of the contract.|
+| Name     | Type      | Description              |
+| -------- | --------- | ------------------------ |
+| `cooler` | `address` | address of the contract. |
 
 ### onlyFromFactory
 

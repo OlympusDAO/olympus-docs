@@ -114,31 +114,31 @@ Main kernel function. Initiates state changes to kernel depending on Action pass
 function executeAction(Actions action_, address target_) external onlyExecutor;
 ```
 
-### _installModule
+### \_installModule
 
 ```solidity
 function _installModule(Module newModule_) internal;
 ```
 
-### _upgradeModule
+### \_upgradeModule
 
 ```solidity
 function _upgradeModule(Module newModule_) internal;
 ```
 
-### _activatePolicy
+### \_activatePolicy
 
 ```solidity
 function _activatePolicy(Policy policy_) internal;
 ```
 
-### _deactivatePolicy
+### \_deactivatePolicy
 
 ```solidity
 function _deactivatePolicy(Policy policy_) internal;
 ```
 
-### _migrateKernel
+### \_migrateKernel
 
 All functionality will move to the new kernel. WARNING: ACTION WILL BRICK THIS KERNEL.
 
@@ -150,19 +150,19 @@ NOTE: Data does not get cleared from this kernel.
 function _migrateKernel(Kernel newKernel_) internal;
 ```
 
-### _reconfigurePolicies
+### \_reconfigurePolicies
 
 ```solidity
 function _reconfigurePolicies(Keycode keycode_) internal;
 ```
 
-### _setPolicyPermissions
+### \_setPolicyPermissions
 
 ```solidity
 function _setPolicyPermissions(Policy policy_, Permissions[] memory requests_, bool grant_) internal;
 ```
 
-### _pruneFromDependents
+### \_pruneFromDependents
 
 ```solidity
 function _pruneFromDependents(Policy policy_) internal;

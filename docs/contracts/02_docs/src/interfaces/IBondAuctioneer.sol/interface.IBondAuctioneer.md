@@ -16,15 +16,15 @@ function createMarket(bytes memory params_) external returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`params_`|`bytes`|         Configuration data needed for market creation, encoded in a bytes array|
+| Name      | Type    | Description                                                             |
+| --------- | ------- | ----------------------------------------------------------------------- |
+| `params_` | `bytes` | Configuration data needed for market creation, encoded in a bytes array |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|id              ID of new bond market|
+| Name     | Type      | Description              |
+| -------- | --------- | ------------------------ |
+| `<none>` | `uint256` | id ID of new bond market |
 
 ### closeMarket
 
@@ -38,9 +38,9 @@ function closeMarket(uint256 id_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|             ID of market to close|
+| Name  | Type      | Description           |
+| ----- | --------- | --------------------- |
+| `id_` | `uint256` | ID of market to close |
 
 ### purchaseBond
 
@@ -54,17 +54,17 @@ function purchaseBond(uint256 id_, uint256 amount_, uint256 minAmountOut_) exter
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|             ID of the Market the bond is being purchased from|
-|`amount_`|`uint256`|         Amount to deposit in exchange for bond (after fee has been deducted)|
-|`minAmountOut_`|`uint256`|   Minimum acceptable amount of bond to receive. Prevents frontrunning|
+| Name            | Type      | Description                                                          |
+| --------------- | --------- | -------------------------------------------------------------------- |
+| `id_`           | `uint256` | ID of the Market the bond is being purchased from                    |
+| `amount_`       | `uint256` | Amount to deposit in exchange for bond (after fee has been deducted) |
+| `minAmountOut_` | `uint256` | Minimum acceptable amount of bond to receive. Prevents frontrunning  |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`payout`|`uint256`|         Amount of payout token to be received from the bond|
+| Name     | Type      | Description                                         |
+| -------- | --------- | --------------------------------------------------- |
+| `payout` | `uint256` | Amount of payout token to be received from the bond |
 
 ### setIntervals
 
@@ -81,10 +81,10 @@ function setIntervals(uint256 id_, uint32[3] calldata intervals_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|                     Market ID|
-|`intervals_`|`uint32[3]`|              Array of intervals (3) 1. Tune interval - Frequency of tuning 2. Tune adjustment delay - Time to implement downward tuning adjustments 3. Debt decay interval - Interval over which debt should decay completely|
+| Name         | Type        | Description                                                                                                                                                                                                      |
+| ------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id_`        | `uint256`   | Market ID                                                                                                                                                                                                        |
+| `intervals_` | `uint32[3]` | Array of intervals (3) 1. Tune interval - Frequency of tuning 2. Tune adjustment delay - Time to implement downward tuning adjustments 3. Debt decay interval - Interval over which debt should decay completely |
 
 ### pushOwnership
 
@@ -100,10 +100,10 @@ function pushOwnership(uint256 id_, address newOwner_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|                  Market ID|
-|`newOwner_`|`address`|            New address to give ownership to|
+| Name        | Type      | Description                      |
+| ----------- | --------- | -------------------------------- |
+| `id_`       | `uint256` | Market ID                        |
+| `newOwner_` | `address` | New address to give ownership to |
 
 ### pullOwnership
 
@@ -119,9 +119,9 @@ function pullOwnership(uint256 id_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|                  Market ID|
+| Name  | Type      | Description |
+| ----- | --------- | ----------- |
+| `id_` | `uint256` | Market ID   |
 
 ### setDefaults
 
@@ -139,9 +139,9 @@ function setDefaults(uint32[6] memory defaults_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`defaults_`|`uint32[6]`|   Array of default values 1. Tune interval - amount of time between tuning adjustments 2. Tune adjustment delay - amount of time to apply downward tuning adjustments 3. Minimum debt decay interval - minimum amount of time to let debt decay to zero 4. Minimum deposit interval - minimum amount of time to wait between deposits 5. Minimum market duration - minimum amount of time a market can be created for 6. Minimum debt buffer - the minimum amount of debt over the initial debt to trigger a market shutdown|
+| Name        | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ----------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `defaults_` | `uint32[6]` | Array of default values 1. Tune interval - amount of time between tuning adjustments 2. Tune adjustment delay - amount of time to apply downward tuning adjustments 3. Minimum debt decay interval - minimum amount of time to let debt decay to zero 4. Minimum deposit interval - minimum amount of time to wait between deposits 5. Minimum market duration - minimum amount of time a market can be created for 6. Minimum debt buffer - the minimum amount of debt over the initial debt to trigger a market shutdown |
 
 ### setAllowNewMarkets
 
@@ -155,9 +155,9 @@ function setAllowNewMarkets(bool status_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`status_`|`bool`|     Allow market creation (true) : Disallow market creation (false)|
+| Name      | Type   | Description                                                     |
+| --------- | ------ | --------------------------------------------------------------- |
+| `status_` | `bool` | Allow market creation (true) : Disallow market creation (false) |
 
 ### setCallbackAuthStatus
 
@@ -173,10 +173,10 @@ function setCallbackAuthStatus(address creator_, bool status_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`creator_`|`address`|    Address of market creator|
-|`status_`|`bool`|     Allow callback (true) : Disallow callback (false)|
+| Name       | Type      | Description                                       |
+| ---------- | --------- | ------------------------------------------------- |
+| `creator_` | `address` | Address of market creator                         |
+| `status_`  | `bool`    | Allow callback (true) : Disallow callback (false) |
 
 ### callbackAuthorized
 
@@ -188,15 +188,15 @@ function callbackAuthorized(address creator_) external view returns (bool isAuth
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`creator_`|`address`|       Address of market creator|
+| Name       | Type      | Description               |
+| ---------- | --------- | ------------------------- |
+| `creator_` | `address` | Address of market creator |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`isAuthorized`|`bool`|   True if the creator can use a callback|
+| Name           | Type   | Description                            |
+| -------------- | ------ | -------------------------------------- |
+| `isAuthorized` | `bool` | True if the creator can use a callback |
 
 ### getMarketInfoForPurchase
 
@@ -218,20 +218,20 @@ function getMarketInfoForPurchase(uint256 id_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|             Market ID|
+| Name  | Type      | Description |
+| ----- | --------- | ----------- |
+| `id_` | `uint256` | Market ID   |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`owner`|`address`|          Address of the market owner (tokens transferred from this address if no callback)|
-|`callbackAddr`|`address`|   Address of the callback contract to get tokens for payouts|
-|`payoutToken`|`ERC20`|    Payout Token (token paid out) for the Market|
-|`quoteToken`|`ERC20`|     Quote Token (token received) for the Market|
-|`vesting`|`uint48`|        Timestamp or duration for vesting, implementation-dependent|
-|`maxPayout`|`uint256`|      Maximum amount of payout tokens you can purchase in one transaction|
+| Name           | Type      | Description                                                                       |
+| -------------- | --------- | --------------------------------------------------------------------------------- |
+| `owner`        | `address` | Address of the market owner (tokens transferred from this address if no callback) |
+| `callbackAddr` | `address` | Address of the callback contract to get tokens for payouts                        |
+| `payoutToken`  | `ERC20`   | Payout Token (token paid out) for the Market                                      |
+| `quoteToken`   | `ERC20`   | Quote Token (token received) for the Market                                       |
+| `vesting`      | `uint48`  | Timestamp or duration for vesting, implementation-dependent                       |
+| `maxPayout`    | `uint256` | Maximum amount of payout tokens you can purchase in one transaction               |
 
 ### marketPrice
 
@@ -243,15 +243,15 @@ function marketPrice(uint256 id_) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
+| Name  | Type      | Description  |
+| ----- | --------- | ------------ |
+| `id_` | `uint256` | ID of market |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|Price for market in configured decimals|
+| Name     | Type      | Description                             |
+| -------- | --------- | --------------------------------------- |
+| `<none>` | `uint256` | Price for market in configured decimals |
 
 ### marketScale
 
@@ -263,15 +263,15 @@ function marketScale(uint256 id_) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
+| Name  | Type      | Description  |
+| ----- | --------- | ------------ |
+| `id_` | `uint256` | ID of market |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|Scaling factor for market in configured decimals|
+| Name     | Type      | Description                                      |
+| -------- | --------- | ------------------------------------------------ |
+| `<none>` | `uint256` | Scaling factor for market in configured decimals |
 
 ### payoutFor
 
@@ -285,17 +285,17 @@ function payoutFor(uint256 amount_, uint256 id_, address referrer_) external vie
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|     Amount of quote tokens to spend|
-|`id_`|`uint256`|         ID of market|
-|`referrer_`|`address`|   Address of referrer, used to get fees to calculate accurate payout amount. Inputting the zero address will take into account just the protocol fee.|
+| Name        | Type      | Description                                                                                                                                         |
+| ----------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `amount_`   | `uint256` | Amount of quote tokens to spend                                                                                                                     |
+| `id_`       | `uint256` | ID of market                                                                                                                                        |
+| `referrer_` | `address` | Address of referrer, used to get fees to calculate accurate payout amount. Inputting the zero address will take into account just the protocol fee. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|amount of payout tokens to be paid|
+| Name     | Type      | Description                        |
+| -------- | --------- | ---------------------------------- |
+| `<none>` | `uint256` | amount of payout tokens to be paid |
 
 ### maxAmountAccepted
 
@@ -307,10 +307,10 @@ function maxAmountAccepted(uint256 id_, address referrer_) external view returns
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
-|`referrer_`|`address`|   Address of referrer, used to get fees to calculate accurate payout amount. Inputting the zero address will take into account just the protocol fee.|
+| Name        | Type      | Description                                                                                                                                         |
+| ----------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id_`       | `uint256` | ID of market                                                                                                                                        |
+| `referrer_` | `address` | Address of referrer, used to get fees to calculate accurate payout amount. Inputting the zero address will take into account just the protocol fee. |
 
 ### isInstantSwap
 
@@ -322,9 +322,9 @@ function isInstantSwap(uint256 id_) external view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         Market ID to search for|
+| Name  | Type      | Description             |
+| ----- | --------- | ----------------------- |
+| `id_` | `uint256` | Market ID to search for |
 
 ### isLive
 
@@ -336,9 +336,9 @@ function isLive(uint256 id_) external view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
+| Name  | Type      | Description  |
+| ----- | --------- | ------------ |
+| `id_` | `uint256` | ID of market |
 
 ### ownerOf
 
@@ -350,9 +350,9 @@ function ownerOf(uint256 id_) external view returns (address);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
+| Name  | Type      | Description  |
+| ----- | --------- | ------------ |
+| `id_` | `uint256` | ID of market |
 
 ### getTeller
 

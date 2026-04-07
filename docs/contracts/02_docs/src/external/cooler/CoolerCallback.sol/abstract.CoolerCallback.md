@@ -46,7 +46,7 @@ Callback function that handles defaults.
 function onDefault(uint256 loanID_, uint256 principle, uint256 interest, uint256 collateral) external;
 ```
 
-### _onRepay
+### \_onRepay
 
 Callback function that handles repayments. Override for custom logic.
 
@@ -54,7 +54,7 @@ Callback function that handles repayments. Override for custom logic.
 function _onRepay(uint256 loanID_, uint256 principlePaid_, uint256 interestPaid_) internal virtual;
 ```
 
-### _onDefault
+### \_onDefault
 
 Callback function that handles defaults.
 

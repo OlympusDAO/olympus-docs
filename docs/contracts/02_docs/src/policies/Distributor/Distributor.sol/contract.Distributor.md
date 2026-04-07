@@ -91,9 +91,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -105,9 +105,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### triggerRebase
 
@@ -143,9 +143,9 @@ function retrieveBounty() external returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 The amount of OHM minted as a bounty.|
+| Name     | Type      | Description                                   |
+| -------- | --------- | --------------------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM minted as a bounty. |
 
 ### nextRewardFor
 
@@ -157,15 +157,15 @@ function nextRewardFor(address who_) public view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`who_`|`address`|The address to get the next reward for.|
+| Name   | Type      | Description                             |
+| ------ | --------- | --------------------------------------- |
+| `who_` | `address` | The address to get the next reward for. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 The next reward for the given address.|
+| Name     | Type      | Description                                    |
+| -------- | --------- | ---------------------------------------------- |
+| `<none>` | `uint256` | uint256 The next reward for the given address. |
 
 ### setBounty
 
@@ -179,9 +179,9 @@ function setBounty(uint256 bounty_) external onlyRole("distributor_admin");
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`bounty_`|`uint256`|The new bounty amount in OHM (9 decimals).|
+| Name      | Type      | Description                                |
+| --------- | --------- | ------------------------------------------ |
+| `bounty_` | `uint256` | The new bounty amount in OHM (9 decimals). |
 
 ### setPools
 
@@ -195,9 +195,9 @@ function setPools(address[] calldata pools_) external onlyRole("distributor_admi
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`pools_`|`address[]`|The array of Uniswap V2 pools.|
+| Name     | Type        | Description                    |
+| -------- | ----------- | ------------------------------ |
+| `pools_` | `address[]` | The array of Uniswap V2 pools. |
 
 ### removePool
 
@@ -211,10 +211,10 @@ function removePool(uint256 index_, address pool_) external onlyRole("distributo
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`index_`|`uint256`|The index in the pools array of the liquidity pool to remove.|
-|`pool_`|`address`|The address of the liquidity pool to remove.|
+| Name     | Type      | Description                                                   |
+| -------- | --------- | ------------------------------------------------------------- |
+| `index_` | `uint256` | The index in the pools array of the liquidity pool to remove. |
+| `pool_`  | `address` | The address of the liquidity pool to remove.                  |
 
 ### addPool
 
@@ -226,10 +226,10 @@ function addPool(uint256 index_, address pool_) external onlyRole("distributor_a
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`index_`|`uint256`|The index in the pools array to add the liquidity pool to.|
-|`pool_`|`address`|The address of the liquidity pool to add.|
+| Name     | Type      | Description                                                |
+| -------- | --------- | ---------------------------------------------------------- |
+| `index_` | `uint256` | The index in the pools array to add the liquidity pool to. |
+| `pool_`  | `address` | The address of the liquidity pool to add.                  |
 
 ### setRewardRate
 
@@ -241,9 +241,9 @@ function setRewardRate(uint256 newRewardRate_) external onlyRole("distributor_ad
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newRewardRate_`|`uint256`|The new rate to set (9 decimals, i.e. 10_000_000 / 1_000_000_000 = 1%)|
+| Name             | Type      | Description                                                            |
+| ---------------- | --------- | ---------------------------------------------------------------------- |
+| `newRewardRate_` | `uint256` | The new rate to set (9 decimals, i.e. 10_000_000 / 1_000_000_000 = 1%) |
 
 ## Errors
 

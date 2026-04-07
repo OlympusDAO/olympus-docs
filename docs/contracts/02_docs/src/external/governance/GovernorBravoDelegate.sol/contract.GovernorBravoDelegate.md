@@ -148,16 +148,16 @@ function initialize(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`timelock_`|`address`|The address of the Timelock|
-|`gohm_`|`address`|The address of the gOHM token|
-|`kernel_`|`address`|The address of the kernel|
-|`vetoGuardian_`|`address`|The address of the veto guardian|
-|`votingPeriod_`|`uint256`|The initial voting period|
-|`votingDelay_`|`uint256`|The initial voting delay|
-|`activationGracePeriod_`|`uint256`||
-|`proposalThreshold_`|`uint256`|The initial proposal threshold (percentage of total supply. out of 1000)|
+| Name                     | Type      | Description                                                              |
+| ------------------------ | --------- | ------------------------------------------------------------------------ |
+| `timelock_`              | `address` | The address of the Timelock                                              |
+| `gohm_`                  | `address` | The address of the gOHM token                                            |
+| `kernel_`                | `address` | The address of the kernel                                                |
+| `vetoGuardian_`          | `address` | The address of the veto guardian                                         |
+| `votingPeriod_`          | `uint256` | The initial voting period                                                |
+| `votingDelay_`           | `uint256` | The initial voting delay                                                 |
+| `activationGracePeriod_` | `uint256` |                                                                          |
+| `proposalThreshold_`     | `uint256` | The initial proposal threshold (percentage of total supply. out of 1000) |
 
 ### propose
 
@@ -175,19 +175,19 @@ function propose(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`targets`|`address[]`|Target addresses for proposal calls|
-|`values`|`uint256[]`|Eth values for proposal calls|
-|`signatures`|`string[]`|Function signatures for proposal calls|
-|`calldatas`|`bytes[]`|Calldatas for proposal calls|
-|`description`|`string`|String description of the proposal|
+| Name          | Type        | Description                            |
+| ------------- | ----------- | -------------------------------------- |
+| `targets`     | `address[]` | Target addresses for proposal calls    |
+| `values`      | `uint256[]` | Eth values for proposal calls          |
+| `signatures`  | `string[]`  | Function signatures for proposal calls |
+| `calldatas`   | `bytes[]`   | Calldatas for proposal calls           |
+| `description` | `string`    | String description of the proposal     |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|Proposal id of new proposal|
+| Name     | Type      | Description                 |
+| -------- | --------- | --------------------------- |
+| `<none>` | `uint256` | Proposal id of new proposal |
 
 ### emergencyPropose
 
@@ -206,12 +206,12 @@ function emergencyPropose(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`targets`|`address[]`|Target addresses for proposal calls|
-|`values`|`uint256[]`|Eth values for proposal calls|
-|`signatures`|`string[]`|Function signatures for proposal calls|
-|`calldatas`|`bytes[]`|Calldatas for proposal calls|
+| Name         | Type        | Description                            |
+| ------------ | ----------- | -------------------------------------- |
+| `targets`    | `address[]` | Target addresses for proposal calls    |
+| `values`     | `uint256[]` | Eth values for proposal calls          |
+| `signatures` | `string[]`  | Function signatures for proposal calls |
+| `calldatas`  | `bytes[]`   | Calldatas for proposal calls           |
 
 ### activate
 
@@ -233,11 +233,11 @@ function queue(uint256 proposalId) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|The id of the proposal to queue|
+| Name         | Type      | Description                     |
+| ------------ | --------- | ------------------------------- |
+| `proposalId` | `uint256` | The id of the proposal to queue |
 
-### _queueOrRevertInternal
+### \_queueOrRevertInternal
 
 ```solidity
 function _queueOrRevertInternal(
@@ -260,9 +260,9 @@ function execute(uint256 proposalId) external payable;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|The id of the proposal to execute|
+| Name         | Type      | Description                       |
+| ------------ | --------- | --------------------------------- |
+| `proposalId` | `uint256` | The id of the proposal to execute |
 
 ### cancel
 
@@ -274,9 +274,9 @@ function cancel(uint256 proposalId) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|The id of the proposal to cancel|
+| Name         | Type      | Description                      |
+| ------------ | --------- | -------------------------------- |
+| `proposalId` | `uint256` | The id of the proposal to cancel |
 
 ### veto
 
@@ -288,9 +288,9 @@ function veto(uint256 proposalId) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|The id of the proposal to veto|
+| Name         | Type      | Description                    |
+| ------------ | --------- | ------------------------------ |
+| `proposalId` | `uint256` | The id of the proposal to veto |
 
 ### castVote
 
@@ -302,10 +302,10 @@ function castVote(uint256 proposalId, uint8 support) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|The id of the proposal to vote on|
-|`support`|`uint8`|The support value for the vote. 0=against, 1=for, 2=abstain|
+| Name         | Type      | Description                                                 |
+| ------------ | --------- | ----------------------------------------------------------- |
+| `proposalId` | `uint256` | The id of the proposal to vote on                           |
+| `support`    | `uint8`   | The support value for the vote. 0=against, 1=for, 2=abstain |
 
 ### castVoteWithReason
 
@@ -317,11 +317,11 @@ function castVoteWithReason(uint256 proposalId, uint8 support, string calldata r
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|The id of the proposal to vote on|
-|`support`|`uint8`|The support value for the vote. 0=against, 1=for, 2=abstain|
-|`reason`|`string`|The reason given for the vote by the voter|
+| Name         | Type      | Description                                                 |
+| ------------ | --------- | ----------------------------------------------------------- |
+| `proposalId` | `uint256` | The id of the proposal to vote on                           |
+| `support`    | `uint8`   | The support value for the vote. 0=against, 1=for, 2=abstain |
+| `reason`     | `string`  | The reason given for the vote by the voter                  |
 
 ### castVoteBySig
 
@@ -343,19 +343,19 @@ function castVoteInternal(address voter, uint256 proposalId, uint8 support) inte
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`voter`|`address`|The voter that is casting their vote|
-|`proposalId`|`uint256`|The id of the proposal to vote on|
-|`support`|`uint8`|The support value for the vote. 0=against, 1=for, 2=abstain|
+| Name         | Type      | Description                                                 |
+| ------------ | --------- | ----------------------------------------------------------- |
+| `voter`      | `address` | The voter that is casting their vote                        |
+| `proposalId` | `uint256` | The id of the proposal to vote on                           |
+| `support`    | `uint8`   | The support value for the vote. 0=against, 1=for, 2=abstain |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The number of votes cast|
+| Name     | Type      | Description              |
+| -------- | --------- | ------------------------ |
+| `<none>` | `uint256` | The number of votes cast |
 
-### _setVotingDelay
+### \_setVotingDelay
 
 Admin function for setting the voting delay
 
@@ -365,11 +365,11 @@ function _setVotingDelay(uint256 newVotingDelay) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newVotingDelay`|`uint256`|new voting delay, in blocks|
+| Name             | Type      | Description                 |
+| ---------------- | --------- | --------------------------- |
+| `newVotingDelay` | `uint256` | new voting delay, in blocks |
 
-### _setVotingPeriod
+### \_setVotingPeriod
 
 Admin function for setting the voting period
 
@@ -379,11 +379,11 @@ function _setVotingPeriod(uint256 newVotingPeriod) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newVotingPeriod`|`uint256`|new voting period, in blocks|
+| Name              | Type      | Description                  |
+| ----------------- | --------- | ---------------------------- |
+| `newVotingPeriod` | `uint256` | new voting period, in blocks |
 
-### _setProposalThreshold
+### \_setProposalThreshold
 
 Admin function for setting the proposal threshold
 
@@ -395,11 +395,11 @@ function _setProposalThreshold(uint256 newProposalThreshold) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newProposalThreshold`|`uint256`|new proposal threshold|
+| Name                   | Type      | Description            |
+| ---------------------- | --------- | ---------------------- |
+| `newProposalThreshold` | `uint256` | new proposal threshold |
 
-### _setVetoGuardian
+### \_setVetoGuardian
 
 Admin function for setting the vetoGuardian. vetoGuardian can veto any proposal
 
@@ -409,11 +409,11 @@ function _setVetoGuardian(address account) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account`|`address`|Account to set vetoGuardian to (0x0 to remove vetoGuardian)|
+| Name      | Type      | Description                                                 |
+| --------- | --------- | ----------------------------------------------------------- |
+| `account` | `address` | Account to set vetoGuardian to (0x0 to remove vetoGuardian) |
 
-### _setPendingAdmin
+### \_setPendingAdmin
 
 Begins transfer of admin rights. The newPendingAdmin must call `_acceptAdmin` to finalize the transfer.
 
@@ -425,11 +425,11 @@ function _setPendingAdmin(address newPendingAdmin) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newPendingAdmin`|`address`|New pending admin.|
+| Name              | Type      | Description        |
+| ----------------- | --------- | ------------------ |
+| `newPendingAdmin` | `address` | New pending admin. |
 
-### _acceptAdmin
+### \_acceptAdmin
 
 Accepts transfer of admin rights. msg.sender must be pendingAdmin
 
@@ -439,7 +439,7 @@ Admin function for pending admin to accept role and update admin
 function _acceptAdmin() external;
 ```
 
-### _setModuleRiskLevel
+### \_setModuleRiskLevel
 
 Sets whether a module is considered high risk
 
@@ -451,12 +451,12 @@ function _setModuleRiskLevel(bytes5 module_, bool isHighRisk_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`module_`|`bytes5`|The module to set the risk of|
-|`isHighRisk_`|`bool`|If the module is high risk|
+| Name          | Type     | Description                   |
+| ------------- | -------- | ----------------------------- |
+| `module_`     | `bytes5` | The module to set the risk of |
+| `isHighRisk_` | `bool`   | If the module is high risk    |
 
-### _isEmergency
+### \_isEmergency
 
 Checks if the system should be set to an emergency state due to a collapsing supply of gOHM
 
@@ -464,7 +464,7 @@ Checks if the system should be set to an emergency state due to a collapsing sup
 function _isEmergency() internal view returns (bool);
 ```
 
-### _isHighRiskProposal
+### \_isHighRiskProposal
 
 Checks if a proposal is high risk by identifying actions where the Default Framework kernel
 is the target, if so, checking if it's installing or deactivating a policy, and if so,
@@ -487,9 +487,9 @@ function getChainIdInternal() internal view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The chain ID|
+| Name     | Type      | Description  |
+| -------- | --------- | ------------ |
+| `<none>` | `uint256` | The chain ID |
 
 ### getProposalThresholdVotes
 
@@ -501,9 +501,9 @@ function getProposalThresholdVotes() public view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The proposal threshold in number of gOHM|
+| Name     | Type      | Description                              |
+| -------- | --------- | ---------------------------------------- |
+| `<none>` | `uint256` | The proposal threshold in number of gOHM |
 
 ### getQuorumVotes
 
@@ -515,9 +515,9 @@ function getQuorumVotes() public view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The quorum in number of gOHM|
+| Name     | Type      | Description                  |
+| -------- | --------- | ---------------------------- |
+| `<none>` | `uint256` | The quorum in number of gOHM |
 
 ### getHighRiskQuorumVotes
 
@@ -529,9 +529,9 @@ function getHighRiskQuorumVotes() public view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The high risk quorum in number of gOHM|
+| Name     | Type      | Description                            |
+| -------- | --------- | -------------------------------------- |
+| `<none>` | `uint256` | The high risk quorum in number of gOHM |
 
 ### getProposalQuorum
 
@@ -543,15 +543,15 @@ function getProposalQuorum(uint256 proposalId) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|the id of the proposal|
+| Name         | Type      | Description            |
+| ------------ | --------- | ---------------------- |
+| `proposalId` | `uint256` | the id of the proposal |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The quorum required for the given proposal|
+| Name     | Type      | Description                                |
+| -------- | --------- | ------------------------------------------ |
+| `<none>` | `uint256` | The quorum required for the given proposal |
 
 ### getProposalThreshold
 
@@ -563,15 +563,15 @@ function getProposalThreshold(uint256 proposalId) external view returns (uint256
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|the id of the proposal|
+| Name         | Type      | Description            |
+| ------------ | --------- | ---------------------- |
+| `proposalId` | `uint256` | the id of the proposal |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The proposer votes threshold required for the given proposal|
+| Name     | Type      | Description                                                  |
+| -------- | --------- | ------------------------------------------------------------ |
+| `<none>` | `uint256` | The proposer votes threshold required for the given proposal |
 
 ### getProposalEta
 
@@ -583,15 +583,15 @@ function getProposalEta(uint256 proposalId) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|the id of the proposal|
+| Name         | Type      | Description            |
+| ------------ | --------- | ---------------------- |
+| `proposalId` | `uint256` | the id of the proposal |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The eta value for the given proposal|
+| Name     | Type      | Description                          |
+| -------- | --------- | ------------------------------------ |
+| `<none>` | `uint256` | The eta value for the given proposal |
 
 ### getProposalVotes
 
@@ -603,17 +603,17 @@ function getProposalVotes(uint256 proposalId) external view returns (uint256, ui
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|the id of the proposal|
+| Name         | Type      | Description            |
+| ------------ | --------- | ---------------------- |
+| `proposalId` | `uint256` | the id of the proposal |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The against, for, and abstain votes for the given proposal|
-|`<none>`|`uint256`||
-|`<none>`|`uint256`||
+| Name     | Type      | Description                                                |
+| -------- | --------- | ---------------------------------------------------------- |
+| `<none>` | `uint256` | The against, for, and abstain votes for the given proposal |
+| `<none>` | `uint256` |                                                            |
+| `<none>` | `uint256` |                                                            |
 
 ### getActions
 
@@ -633,18 +633,18 @@ function getActions(uint256 proposalId)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|the id of the proposal|
+| Name         | Type      | Description            |
+| ------------ | --------- | ---------------------- |
+| `proposalId` | `uint256` | the id of the proposal |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`targets`|`address[]`|of the proposal actions|
-|`values`|`uint256[]`|of the proposal actions|
-|`signatures`|`string[]`|of the proposal actions|
-|`calldatas`|`bytes[]`|of the proposal actions|
+| Name         | Type        | Description             |
+| ------------ | ----------- | ----------------------- |
+| `targets`    | `address[]` | of the proposal actions |
+| `values`     | `uint256[]` | of the proposal actions |
+| `signatures` | `string[]`  | of the proposal actions |
+| `calldatas`  | `bytes[]`   | of the proposal actions |
 
 ### getReceipt
 
@@ -656,16 +656,16 @@ function getReceipt(uint256 proposalId, address voter) external view returns (Re
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|the id of proposal|
-|`voter`|`address`|The address of the voter|
+| Name         | Type      | Description              |
+| ------------ | --------- | ------------------------ |
+| `proposalId` | `uint256` | the id of proposal       |
+| `voter`      | `address` | The address of the voter |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`Receipt`|The voting receipt|
+| Name     | Type      | Description        |
+| -------- | --------- | ------------------ |
+| `<none>` | `Receipt` | The voting receipt |
 
 ### getVoteOutcome
 
@@ -677,15 +677,15 @@ function getVoteOutcome(uint256 proposalId) public view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|the id of proposal|
+| Name         | Type      | Description        |
+| ------------ | --------- | ------------------ |
+| `proposalId` | `uint256` | the id of proposal |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|The voting outcome|
+| Name     | Type   | Description        |
+| -------- | ------ | ------------------ |
+| `<none>` | `bool` | The voting outcome |
 
 ### state
 
@@ -697,12 +697,12 @@ function state(uint256 proposalId) public view returns (ProposalState);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`proposalId`|`uint256`|The id of the proposal|
+| Name         | Type      | Description            |
+| ------------ | --------- | ---------------------- |
+| `proposalId` | `uint256` | The id of the proposal |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`ProposalState`|Proposal state|
+| Name     | Type            | Description    |
+| -------- | --------------- | -------------- |
+| `<none>` | `ProposalState` | Proposal state |

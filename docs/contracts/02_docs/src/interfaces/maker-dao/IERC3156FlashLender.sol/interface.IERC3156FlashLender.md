@@ -14,15 +14,15 @@ function maxFlashLoan(address token) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token`|`address`|The loan currency.|
+| Name    | Type      | Description        |
+| ------- | --------- | ------------------ |
+| `token` | `address` | The loan currency. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The amount of `token` that can be borrowed.|
+| Name     | Type      | Description                                 |
+| -------- | --------- | ------------------------------------------- |
+| `<none>` | `uint256` | The amount of `token` that can be borrowed. |
 
 ### flashFee
 
@@ -34,16 +34,16 @@ function flashFee(address token, uint256 amount) external view returns (uint256)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token`|`address`|The loan currency.|
-|`amount`|`uint256`|The amount of tokens lent.|
+| Name     | Type      | Description                |
+| -------- | --------- | -------------------------- |
+| `token`  | `address` | The loan currency.         |
+| `amount` | `uint256` | The amount of tokens lent. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The amount of `token` to be charged for the loan, on top of the returned principal.|
+| Name     | Type      | Description                                                                         |
+| -------- | --------- | ----------------------------------------------------------------------------------- |
+| `<none>` | `uint256` | The amount of `token` to be charged for the loan, on top of the returned principal. |
 
 ### flashLoan
 
@@ -57,9 +57,9 @@ function flashLoan(IERC3156FlashBorrower receiver, address token, uint256 amount
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`receiver`|`IERC3156FlashBorrower`|The receiver of the tokens in the loan, and the receiver of the callback.|
-|`token`|`address`|The loan currency.|
-|`amount`|`uint256`|The amount of tokens lent.|
-|`data`|`bytes`|Arbitrary data structure, intended to contain user-defined parameters.|
+| Name       | Type                    | Description                                                               |
+| ---------- | ----------------------- | ------------------------------------------------------------------------- |
+| `receiver` | `IERC3156FlashBorrower` | The receiver of the tokens in the loan, and the receiver of the callback. |
+| `token`    | `address`               | The loan currency.                                                        |
+| `amount`   | `uint256`               | The amount of tokens lent.                                                |
+| `data`     | `bytes`                 | Arbitrary data structure, intended to contain user-defined parameters.    |

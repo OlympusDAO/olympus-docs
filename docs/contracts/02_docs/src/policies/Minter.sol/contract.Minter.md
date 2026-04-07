@@ -58,9 +58,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -72,9 +72,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`requests`|`Permissions[]`|- Array of keycodes and function selectors for requested permissions.|
+| Name       | Type            | Description                                                           |
+| ---------- | --------------- | --------------------------------------------------------------------- |
+| `requests` | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
 
 ### onlyApproved
 
@@ -95,11 +95,11 @@ function mint(address to_, uint256 amount_, bytes32 category_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`to_`|`address`|Address to mint OHM to|
-|`amount_`|`uint256`|Amount of OHM to mint|
-|`category_`|`bytes32`||
+| Name        | Type      | Description            |
+| ----------- | --------- | ---------------------- |
+| `to_`       | `address` | Address to mint OHM to |
+| `amount_`   | `uint256` | Amount of OHM to mint  |
+| `category_` | `bytes32` |                        |
 
 ### addCategory
 
@@ -111,9 +111,9 @@ function addCategory(bytes32 category_) external onlyRole("minter_admin");
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`category_`|`bytes32`|Category to add|
+| Name        | Type      | Description     |
+| ----------- | --------- | --------------- |
+| `category_` | `bytes32` | Category to add |
 
 ### removeCategory
 
@@ -125,9 +125,9 @@ function removeCategory(bytes32 category_) external onlyRole("minter_admin");
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`category_`|`bytes32`|Category to remove|
+| Name        | Type      | Description        |
+| ----------- | --------- | ------------------ |
+| `category_` | `bytes32` | Category to remove |
 
 ### getCategories
 

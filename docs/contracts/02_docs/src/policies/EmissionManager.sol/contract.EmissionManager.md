@@ -204,25 +204,25 @@ The value must be between 0 and MAX_BOND_MARKET_CAPACITY_SCALAR (0-200%)
 uint256 public bondMarketCapacityScalar
 ```
 
-### _oracleDecimals
+### \_oracleDecimals
 
 ```solidity
 uint8 internal _oracleDecimals
 ```
 
-### _ohmDecimals
+### \_ohmDecimals
 
 ```solidity
 uint8 internal immutable _ohmDecimals
 ```
 
-### _gohmDecimals
+### \_gohmDecimals
 
 ```solidity
 uint8 internal immutable _gohmDecimals
 ```
 
-### _reserveDecimals
+### \_reserveDecimals
 
 ```solidity
 uint8 internal immutable _reserveDecimals
@@ -279,9 +279,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -293,9 +293,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### VERSION
 
@@ -314,7 +314,7 @@ This function performs the following:
 - Sets the parameters for the auction
 - If the auction tracking period has finished and there is a deficit of OHM sold, attempts to create a bond market
 - If market creation fails (external dependency), emits BondMarketCreationFailed and continues execution
-Notes:
+  Notes:
 - If the CD auction is not running (e.g. the auctioneer contract is disabled), this function will consider OHM to have been under-sold across the auction tracking period. This will result in a bond market being created at the end of the auction tracking period in an attempt to sell the remaining OHM.
 - If there are delays in the heartbeat (which calls this function), auction result tracking will be affected.
 
@@ -322,7 +322,7 @@ Notes:
 function execute() external onlyRole(ROLE_HEART);
 ```
 
-### _enable
+### \_enable
 
 Implementation-specific enable function
 
@@ -334,9 +334,9 @@ function _enable(bytes calldata params_) internal override;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`params_`|`bytes`||
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| `params_` | `bytes` |             |
 
 ### callback
 
@@ -346,7 +346,7 @@ callback function for bond market, only callable by the teller
 function callback(uint256 id_, uint256 inputAmount_, uint256 outputAmount_) external;
 ```
 
-### _createMarket
+### \_createMarket
 
 create bond protocol market with given budget
 
@@ -356,11 +356,11 @@ function _createMarket(uint256 saleAmount) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`saleAmount`|`uint256`|amount of DAI to fund bond market with|
+| Name         | Type      | Description                            |
+| ------------ | --------- | -------------------------------------- |
+| `saleAmount` | `uint256` | amount of DAI to fund bond market with |
 
-### _updateBacking
+### \_updateBacking
 
 allow emission manager to update backing price based on new supply and reserves added
 
@@ -370,12 +370,12 @@ function _updateBacking(uint256 supplyAdded, uint256 reservesAdded) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`supplyAdded`|`uint256`|number of new OHM minted|
-|`reservesAdded`|`uint256`|number of new DAI added|
+| Name            | Type      | Description              |
+| --------------- | --------- | ------------------------ |
+| `supplyAdded`   | `uint256` | number of new OHM minted |
+| `reservesAdded` | `uint256` | number of new DAI added  |
 
-### _getPriceDecimals
+### \_getPriceDecimals
 
 Helper function to calculate number of price decimals based on the value returned from the price feed.
 
@@ -385,17 +385,17 @@ function _getPriceDecimals(uint256 price_) internal view returns (int8);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`price_`|`uint256`|  The price to calculate the number of decimals for|
+| Name     | Type      | Description                                       |
+| -------- | --------- | ------------------------------------------------- |
+| `price_` | `uint256` | The price to calculate the number of decimals for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`int8`|The number of decimals|
+| Name     | Type   | Description            |
+| -------- | ------ | ---------------------- |
+| `<none>` | `int8` | The number of decimals |
 
-### _onlyAdminOrEmManagerRole
+### \_onlyAdminOrEmManagerRole
 
 Reverts if the caller does not have the admin or em_manager role
 
@@ -409,7 +409,7 @@ function _onlyAdminOrEmManagerRole() internal view;
 modifier onlyAdminOrEmManagerRole() ;
 ```
 
-### _disable
+### \_disable
 
 Implementation-specific disable function
 
@@ -425,9 +425,9 @@ function _disable(bytes calldata) internal override;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes`||
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| `<none>` | `bytes` |             |
 
 ### restart
 
@@ -454,9 +454,9 @@ function rescue(address token_) external onlyAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token_`|`address`|The address of the ERC20 token to rescue|
+| Name     | Type      | Description                              |
+| -------- | --------- | ---------------------------------------- |
+| `token_` | `address` | The address of the ERC20 token to rescue |
 
 ### changeBaseRate
 
@@ -473,11 +473,11 @@ function changeBaseRate(uint256 changeBy_, uint48 forNumBeats_, bool add) extern
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`changeBy_`|`uint256`|      uint256 added or subtracted from baseEmissionRate|
-|`forNumBeats_`|`uint48`|   uint256 number of times to change baseEmissionRate by changeBy_|
-|`add`|`bool`|            bool determining addition or subtraction to baseEmissionRate|
+| Name           | Type      | Description                                                      |
+| -------------- | --------- | ---------------------------------------------------------------- |
+| `changeBy_`    | `uint256` | uint256 added or subtracted from baseEmissionRate                |
+| `forNumBeats_` | `uint48`  | uint256 number of times to change baseEmissionRate by changeBy\_ |
+| `add`          | `bool`    | bool determining addition or subtraction to baseEmissionRate     |
 
 ### setMinimumPremium
 
@@ -486,7 +486,7 @@ Set the minimum premium for emissions
 This function reverts if:
 
 - The caller does not have the admin or em_manager role
-- newMinimumPremium_ is 0
+- newMinimumPremium\_ is 0
 
 ```solidity
 function setMinimumPremium(uint256 newMinimumPremium_) external onlyAdminOrEmManagerRole;
@@ -494,9 +494,9 @@ function setMinimumPremium(uint256 newMinimumPremium_) external onlyAdminOrEmMan
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newMinimumPremium_`|`uint256`| The new minimum premium, in terms of ONE_HUNDRED_PERCENT|
+| Name                 | Type      | Description                                              |
+| -------------------- | --------- | -------------------------------------------------------- |
+| `newMinimumPremium_` | `uint256` | The new minimum premium, in terms of ONE_HUNDRED_PERCENT |
 
 ### setVestingPeriod
 
@@ -505,7 +505,7 @@ Set the new bond vesting period in seconds
 This function reverts if:
 
 - The caller does not have the admin role
-- newVestingPeriod_ is more than 31536000 (1 year in seconds)
+- newVestingPeriod\_ is more than 31536000 (1 year in seconds)
 
 ```solidity
 function setVestingPeriod(uint48 newVestingPeriod_) external onlyAdminRole;
@@ -513,9 +513,9 @@ function setVestingPeriod(uint48 newVestingPeriod_) external onlyAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newVestingPeriod_`|`uint48`|uint48|
+| Name                | Type     | Description |
+| ------------------- | -------- | ----------- |
+| `newVestingPeriod_` | `uint48` | uint48      |
 
 ### setBacking
 
@@ -526,7 +526,7 @@ This function reverts if:
 - The caller does not have the admin role
 - newBacking is 0
 - newBacking is less than 90% of current backing (to prevent large sudden drops)
-Note: if adjustment is more than 33% down, contract should be redeployed
+  Note: if adjustment is more than 33% down, contract should be redeployed
 
 ```solidity
 function setBacking(uint256 newBacking) external onlyAdminRole;
@@ -534,9 +534,9 @@ function setBacking(uint256 newBacking) external onlyAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newBacking`|`uint256`| to adjust to TODO maybe put in a timespan arg so it can be smoothed over time if desirable|
+| Name         | Type      | Description                                                                                |
+| ------------ | --------- | ------------------------------------------------------------------------------------------ |
+| `newBacking` | `uint256` | to adjust to TODO maybe put in a timespan arg so it can be smoothed over time if desirable |
 
 ### setRestartTimeframe
 
@@ -553,9 +553,9 @@ function setRestartTimeframe(uint48 newTimeframe) external onlyAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newTimeframe`|`uint48`|   to adjust it to|
+| Name           | Type     | Description     |
+| -------------- | -------- | --------------- |
+| `newTimeframe` | `uint48` | to adjust it to |
 
 ### setBondContracts
 
@@ -564,8 +564,8 @@ allow governance to set the bond contracts used by the emission manager
 This function reverts if:
 
 - The caller does not have the admin role
-- bondAuctioneer_ is the zero address
-- teller_ is the zero address
+- bondAuctioneer\_ is the zero address
+- teller\_ is the zero address
 
 ```solidity
 function setBondContracts(address bondAuctioneer_, address teller_) external onlyAdminRole;
@@ -573,10 +573,10 @@ function setBondContracts(address bondAuctioneer_, address teller_) external onl
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`bondAuctioneer_`|`address`|address of the bond auctioneer contract|
-|`teller_`|`address`|        address of the bond teller contract|
+| Name              | Type      | Description                             |
+| ----------------- | --------- | --------------------------------------- |
+| `bondAuctioneer_` | `address` | address of the bond auctioneer contract |
+| `teller_`         | `address` | address of the bond teller contract     |
 
 ### setCDAuctionContract
 
@@ -585,7 +585,7 @@ Allow governance to set the CD contract used by the emission manager
 This function reverts if:
 
 - The caller does not have the admin role
-- cdAuctioneer_ is the zero address
+- cdAuctioneer\_ is the zero address
 - The deposit asset of the CDAuctioneer is not the same as the reserve asset in this contract
 
 ```solidity
@@ -594,9 +594,9 @@ function setCDAuctionContract(address cdAuctioneer_) external onlyAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cdAuctioneer_`|`address`|  address of the cd auctioneer contract|
+| Name            | Type      | Description                           |
+| --------------- | --------- | ------------------------------------- |
+| `cdAuctioneer_` | `address` | address of the cd auctioneer contract |
 
 ### setTickSize
 
@@ -605,7 +605,7 @@ Allow governance to set the CD tick size
 This function reverts if:
 
 - The caller does not have the admin or em_manager role
-- newTickSize_ is 0
+- newTickSize\_ is 0
 
 ```solidity
 function setTickSize(uint256 newTickSize_) external onlyAdminOrEmManagerRole;
@@ -613,9 +613,9 @@ function setTickSize(uint256 newTickSize_) external onlyAdminOrEmManagerRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newTickSize_`|`uint256`|   as a fixed amount in OHM decimals (9)|
+| Name           | Type      | Description                           |
+| -------------- | --------- | ------------------------------------- |
+| `newTickSize_` | `uint256` | as a fixed amount in OHM decimals (9) |
 
 ### setMinPriceScalar
 
@@ -632,9 +632,9 @@ function setMinPriceScalar(uint256 newScalar) external onlyAdminOrEmManagerRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newScalar`|`uint256`|  as a percentage in 18 decimals|
+| Name        | Type      | Description                    |
+| ----------- | --------- | ------------------------------ |
+| `newScalar` | `uint256` | as a percentage in 18 decimals |
 
 ### setBondMarketCapacityScalar
 
@@ -651,9 +651,9 @@ function setBondMarketCapacityScalar(uint256 newScalar) external onlyAdminOrEmMa
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newScalar`|`uint256`|  as a percentage in 18 decimals|
+| Name        | Type      | Description                    |
+| ----------- | --------- | ------------------------------ |
+| `newScalar` | `uint256` | as a percentage in 18 decimals |
 
 ### getReserves
 
@@ -700,15 +700,15 @@ function getSizeFor(uint256 target) public view returns (uint256 size);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`target`|`uint256`|size of day's CD auction|
+| Name     | Type      | Description              |
+| -------- | --------- | ------------------------ |
+| `target` | `uint256` | size of day's CD auction |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`size`|`uint256`|of tick|
+| Name   | Type      | Description |
+| ------ | --------- | ----------- |
+| `size` | `uint256` | of tick     |
 
 ### getMinPriceFor
 
@@ -723,11 +723,11 @@ function getMinPriceFor(uint256 price) public view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`price`|`uint256`|Price of OHM in reserve token terms, scaled to the reserve asset's decimals|
+| Name    | Type      | Description                                                                 |
+| ------- | --------- | --------------------------------------------------------------------------- |
+| `price` | `uint256` | Price of OHM in reserve token terms, scaled to the reserve asset's decimals |
 
-### _getCurrentPrice
+### \_getCurrentPrice
 
 Returns the current price from the PRICE module
 
@@ -737,9 +737,9 @@ function _getCurrentPrice() internal view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|currentPrice with decimal scale of the reserve asset|
+| Name     | Type      | Description                                          |
+| -------- | --------- | ---------------------------------------------------- |
+| `<none>` | `uint256` | currentPrice with decimal scale of the reserve asset |
 
 ### createPendingBondMarket
 
@@ -748,7 +748,7 @@ Creates a bond market
 Notes:
 
 - If there is no pending capacity, no bond market will be created
-This function will revert if:
+  This function will revert if:
 - The caller is not this contract, or an address with the admin/manager role
 - The contract is disabled
 - The bond market cannot be created

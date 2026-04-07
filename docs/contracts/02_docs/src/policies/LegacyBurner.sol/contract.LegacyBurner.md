@@ -77,9 +77,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -91,9 +91,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`requests`|`Permissions[]`|- Array of keycodes and function selectors for requested permissions.|
+| Name       | Type            | Description                                                           |
+| ---------- | --------------- | --------------------------------------------------------------------- |
+| `requests` | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
 
 ### burn
 
@@ -109,7 +109,7 @@ So we burn everything, then mint the rewards to the caller.
 function burn() external;
 ```
 
-### _burnBondManagerOhm
+### \_burnBondManagerOhm
 
 Burns OHM from the bond manager
 
@@ -119,7 +119,7 @@ An infinite approval (via Policy MS) for this contract to spend OHM from the bon
 function _burnBondManagerOhm(uint256 amount_) internal;
 ```
 
-### _burnInverseBondDepoOhm
+### \_burnInverseBondDepoOhm
 
 Burns OHM from the legacy inverse bond depository
 

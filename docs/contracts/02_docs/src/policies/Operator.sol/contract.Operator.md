@@ -20,13 +20,13 @@ are performed up to a specific capacity before the market must stabilize to rege
 
 ## State Variables
 
-### _status
+### \_status
 
 ```solidity
 Status internal _status
 ```
 
-### _config
+### \_config
 
 ```solidity
 Config internal _config
@@ -96,7 +96,7 @@ OHM token contract
 ERC20 public immutable ohm
 ```
 
-### _ohmDecimals
+### \_ohmDecimals
 
 ```solidity
 uint8 internal immutable _ohmDecimals
@@ -110,13 +110,13 @@ Reserve token contract
 ERC20 public immutable reserve
 ```
 
-### _reserveDecimals
+### \_reserveDecimals
 
 ```solidity
 uint8 internal immutable _reserveDecimals
 ```
 
-### _oracleDecimals
+### \_oracleDecimals
 
 ```solidity
 uint8 internal _oracleDecimals
@@ -124,7 +124,7 @@ uint8 internal _oracleDecimals
 
 ### sReserve
 
-_sReserveDecimals ==_reserveDecimals
+\_sReserveDecimals ==\_reserveDecimals
 
 ```solidity
 ERC4626 public immutable sReserve
@@ -178,9 +178,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -192,11 +192,11 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`requests`|`Permissions[]`|- Array of keycodes and function selectors for requested permissions.|
+| Name       | Type            | Description                                                           |
+| ---------- | --------------- | --------------------------------------------------------------------- |
+| `requests` | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
 
-### _onlyWhileActive
+### \_onlyWhileActive
 
 Checks to see if the policy is active and ensures the range data isn't stale before performing market operations.
 This check is different from the price feed staleness checks in the PRICE module.
@@ -231,17 +231,17 @@ function swap(ERC20 tokenIn_, uint256 amountIn_, uint256 minAmountOut_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenIn_`|`ERC20`|- Token to swap into the wall - OHM: swap at the low wall price for Reserve - Reserve: swap at the high wall price for OHM|
-|`amountIn_`|`uint256`|- Amount of tokenIn to swap|
-|`minAmountOut_`|`uint256`|- Minimum amount of opposite token to receive|
+| Name            | Type      | Description                                                                                                                |
+| --------------- | --------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `tokenIn_`      | `ERC20`   | - Token to swap into the wall - OHM: swap at the low wall price for Reserve - Reserve: swap at the high wall price for OHM |
+| `amountIn_`     | `uint256` | - Amount of tokenIn to swap                                                                                                |
+| `minAmountOut_` | `uint256` | - Minimum amount of opposite token to receive                                                                              |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amountOut`|`uint256`|- Amount of opposite token received|
+| Name        | Type      | Description                         |
+| ----------- | --------- | ----------------------------------- |
+| `amountOut` | `uint256` | - Amount of opposite token received |
 
 ### bondPurchase
 
@@ -255,12 +255,12 @@ function bondPurchase(uint256 id_, uint256 amountOut_) external onlyRole("operat
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of the bond market|
-|`amountOut_`|`uint256`|  Amount of capacity expended|
+| Name         | Type      | Description                 |
+| ------------ | --------- | --------------------------- |
+| `id_`        | `uint256` | ID of the bond market       |
+| `amountOut_` | `uint256` | Amount of capacity expended |
 
-### _activate
+### \_activate
 
 Activate a cushion by deploying a bond market
 
@@ -270,11 +270,11 @@ function _activate(bool high_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|Whether the cushion is for the high or low side of the range (true = high, false = low)|
+| Name    | Type   | Description                                                                             |
+| ------- | ------ | --------------------------------------------------------------------------------------- |
+| `high_` | `bool` | Whether the cushion is for the high or low side of the range (true = high, false = low) |
 
-### _deactivate
+### \_deactivate
 
 Deactivate a cushion by closing a bond market (if it is active)
 
@@ -284,11 +284,11 @@ function _deactivate(bool high_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|Whether the cushion is for the high or low side of the range (true = high, false = low)|
+| Name    | Type   | Description                                                                             |
+| ------- | ------ | --------------------------------------------------------------------------------------- |
+| `high_` | `bool` | Whether the cushion is for the high or low side of the range (true = high, false = low) |
 
-### _getPriceDecimals
+### \_getPriceDecimals
 
 Helper function to calculate number of price decimals based on the value returned from the price feed.
 
@@ -298,17 +298,17 @@ function _getPriceDecimals(uint256 price_) internal view returns (int8);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`price_`|`uint256`|  The price to calculate the number of decimals for|
+| Name     | Type      | Description                                       |
+| -------- | --------- | ------------------------------------------------- |
+| `price_` | `uint256` | The price to calculate the number of decimals for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`int8`|The number of decimals|
+| Name     | Type   | Description            |
+| -------- | ------ | ---------------------- |
+| `<none>` | `int8` | The number of decimals |
 
-### _updateCapacity
+### \_updateCapacity
 
 Update the capacity on the RANGE module.
 
@@ -318,12 +318,12 @@ function _updateCapacity(bool high_, uint256 reduceBy_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|    Whether to update the high side or low side capacity (true = high, false = low).|
-|`reduceBy_`|`uint256`|The amount to reduce the capacity by (OHM tokens for high side, Reserve tokens for low side).|
+| Name        | Type      | Description                                                                                   |
+| ----------- | --------- | --------------------------------------------------------------------------------------------- |
+| `high_`     | `bool`    | Whether to update the high side or low side capacity (true = high, false = low).              |
+| `reduceBy_` | `uint256` | The amount to reduce the capacity by (OHM tokens for high side, Reserve tokens for low side). |
 
-### _updateRangePrices
+### \_updateRangePrices
 
 Update the prices on the RANGE module
 
@@ -331,7 +331,7 @@ Update the prices on the RANGE module
 function _updateRangePrices() internal;
 ```
 
-### _addObservation
+### \_addObservation
 
 Add an observation to the regeneration status variables for each side
 
@@ -339,13 +339,13 @@ Add an observation to the regeneration status variables for each side
 function _addObservation() internal;
 ```
 
-### _updateRegenOnObservation
+### \_updateRegenOnObservation
 
 ```solidity
 function _updateRegenOnObservation(Regen storage regen_, bool positive_, uint32 observe_) internal;
 ```
 
-### _regenerate
+### \_regenerate
 
 Regenerate the wall for a side
 
@@ -355,11 +355,11 @@ function _regenerate(bool high_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|Whether to regenerate the high side or low side (true = high, false = low)|
+| Name    | Type   | Description                                                                |
+| ------- | ------ | -------------------------------------------------------------------------- |
+| `high_` | `bool` | Whether to regenerate the high side or low side (true = high, false = low) |
 
-### _checkCushion
+### \_checkCushion
 
 Takes down cushions (if active) when a wall is taken down or if available capacity drops below cushion capacity
 
@@ -369,9 +369,9 @@ function _checkCushion(bool high_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|Whether to check the high side or low side cushion (true = high, false = low)|
+| Name    | Type   | Description                                                                   |
+| ------- | ------ | ----------------------------------------------------------------------------- |
+| `high_` | `bool` | Whether to check the high side or low side cushion (true = high, false = low) |
 
 ### setSpreads
 
@@ -387,11 +387,11 @@ function setSpreads(bool high_, uint256 cushionSpread_, uint256 wallSpread_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Whether to set the spreads for the high or low side (true = high, false = low)|
-|`cushionSpread_`|`uint256`|- Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%)|
-|`wallSpread_`|`uint256`|- Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%)|
+| Name             | Type      | Description                                                                                                  |
+| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| `high_`          | `bool`    | - Whether to set the spreads for the high or low side (true = high, false = low)                             |
+| `cushionSpread_` | `uint256` | - Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%) |
+| `wallSpread_`    | `uint256` | - Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%)    |
 
 ### setThresholdFactor
 
@@ -405,9 +405,9 @@ function setThresholdFactor(uint256 thresholdFactor_) external onlyRole(OPERATOR
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`thresholdFactor_`|`uint256`|- Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%)|
+| Name               | Type      | Description                                                                                  |
+| ------------------ | --------- | -------------------------------------------------------------------------------------------- |
+| `thresholdFactor_` | `uint256` | - Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%) |
 
 ### setCushionFactor
 
@@ -419,9 +419,9 @@ function setCushionFactor(uint32 cushionFactor_) external onlyRole(OPERATOR_POLI
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cushionFactor_`|`uint32`|- Percent of wall capacity that the operator will deploy in the cushion, assumes 2 decimals (i.e. 1000 = 10%)|
+| Name             | Type     | Description                                                                                                   |
+| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| `cushionFactor_` | `uint32` | - Percent of wall capacity that the operator will deploy in the cushion, assumes 2 decimals (i.e. 1000 = 10%) |
 
 ### setCushionParams
 
@@ -435,11 +435,11 @@ function setCushionParams(uint32 duration_, uint32 debtBuffer_, uint32 depositIn
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`duration_`|`uint32`|- Duration of cushion bond markets in seconds|
-|`debtBuffer_`|`uint32`|- Percentage over the initial debt to allow the market to accumulate at any one time. Percent with 3 decimals, e.g. 1_000 = 1 %. See IBondSDA for more info.|
-|`depositInterval_`|`uint32`|- Target frequency of deposits in seconds. Determines max payout of the bond market. See IBondSDA for more info.|
+| Name               | Type     | Description                                                                                                                                                  |
+| ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `duration_`        | `uint32` | - Duration of cushion bond markets in seconds                                                                                                                |
+| `debtBuffer_`      | `uint32` | - Percentage over the initial debt to allow the market to accumulate at any one time. Percent with 3 decimals, e.g. 1_000 = 1 %. See IBondSDA for more info. |
+| `depositInterval_` | `uint32` | - Target frequency of deposits in seconds. Determines max payout of the bond market. See IBondSDA for more info.                                             |
 
 ### setReserveFactor
 
@@ -451,9 +451,9 @@ function setReserveFactor(uint32 reserveFactor_) external onlyRole(OPERATOR_POLI
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`reserveFactor_`|`uint32`|- Percent of treasury reserves to deploy as capacity for market operations, assumes 2 decimals (i.e. 1000 = 10%)|
+| Name             | Type     | Description                                                                                                      |
+| ---------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| `reserveFactor_` | `uint32` | - Percent of treasury reserves to deploy as capacity for market operations, assumes 2 decimals (i.e. 1000 = 10%) |
 
 ### setRegenParams
 
@@ -467,11 +467,11 @@ function setRegenParams(uint32 wait_, uint32 threshold_, uint32 observe_) extern
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`wait_`|`uint32`|- Minimum duration to wait to reinstate a wall in seconds|
-|`threshold_`|`uint32`|- Number of price points on other side of moving average to reinstate a wall|
-|`observe_`|`uint32`|- Number of price points to observe to determine regeneration|
+| Name         | Type     | Description                                                                  |
+| ------------ | -------- | ---------------------------------------------------------------------------- |
+| `wait_`      | `uint32` | - Minimum duration to wait to reinstate a wall in seconds                    |
+| `threshold_` | `uint32` | - Number of price points on other side of moving average to reinstate a wall |
+| `observe_`   | `uint32` | - Number of price points to observe to determine regeneration                |
 
 ### setBondContracts
 
@@ -483,10 +483,10 @@ function setBondContracts(IBondSDA auctioneer_, IBondCallback callback_) externa
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`auctioneer_`|`IBondSDA`|- Address of the bond auctioneer to use.|
-|`callback_`|`IBondCallback`|- Address of the callback to use.|
+| Name          | Type            | Description                              |
+| ------------- | --------------- | ---------------------------------------- |
+| `auctioneer_` | `IBondSDA`      | - Address of the bond auctioneer to use. |
+| `callback_`   | `IBondCallback` | - Address of the callback to use.        |
 
 ### initialize
 
@@ -510,9 +510,9 @@ function regenerate(bool high_) external onlyRole(OPERATOR_POLICY_ROLE);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|Whether to regenerate the high side or low side (true = high, false = low)|
+| Name    | Type   | Description                                                                |
+| ------- | ------ | -------------------------------------------------------------------------- |
+| `high_` | `bool` | Whether to regenerate the high side or low side (true = high, false = low) |
 
 ### activate
 
@@ -546,11 +546,11 @@ function deactivateCushion(bool high_) external onlyRole(OPERATOR_POLICY_ROLE);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|Whether to deactivate the high or low side cushion (true = high, false = low)|
+| Name    | Type   | Description                                                                   |
+| ------- | ------ | ----------------------------------------------------------------------------- |
+| `high_` | `bool` | Whether to deactivate the high or low side cushion (true = high, false = low) |
 
-### _checkFactor
+### \_checkFactor
 
 ```solidity
 function _checkFactor(uint32 factor_) internal pure;
@@ -566,16 +566,16 @@ function getAmountOut(ERC20 tokenIn_, uint256 amountIn_) public view returns (ui
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenIn_`|`ERC20`|- Token to swap into the wall - If OHM: swap at the low wall price for Reserve - If Reserve: swap at the high wall price for OHM|
-|`amountIn_`|`uint256`|- Amount of tokenIn to swap|
+| Name        | Type      | Description                                                                                                                      |
+| ----------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `tokenIn_`  | `ERC20`   | - Token to swap into the wall - If OHM: swap at the low wall price for Reserve - If Reserve: swap at the high wall price for OHM |
+| `amountIn_` | `uint256` | - Amount of tokenIn to swap                                                                                                      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|Amount of opposite token received|
+| Name     | Type      | Description                       |
+| -------- | --------- | --------------------------------- |
+| `<none>` | `uint256` | Amount of opposite token received |
 
 ### fullCapacity
 
@@ -589,9 +589,9 @@ function fullCapacity(bool high_) public view override returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Whether to return the full capacity for the high or low wall|
+| Name    | Type   | Description                                                    |
+| ------- | ------ | -------------------------------------------------------------- |
+| `high_` | `bool` | - Whether to return the full capacity for the high or low wall |
 
 ### status
 

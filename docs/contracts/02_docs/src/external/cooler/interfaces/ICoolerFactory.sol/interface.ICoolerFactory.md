@@ -14,16 +14,16 @@ function generateCooler(IERC20 collateral_, IERC20 debt_) external returns (addr
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`collateral_`|`IERC20`|The collateral token.|
-|`debt_`|`IERC20`|      The debt token.|
+| Name          | Type     | Description           |
+| ------------- | -------- | --------------------- |
+| `collateral_` | `IERC20` | The collateral token. |
+| `debt_`       | `IERC20` | The debt token.       |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cooler`|`address`|     The address of the new cooler.|
+| Name     | Type      | Description                    |
+| -------- | --------- | ------------------------------ |
+| `cooler` | `address` | The address of the new cooler. |
 
 ### getCoolerFor
 
@@ -35,17 +35,17 @@ function getCoolerFor(address user_, address collateral_, address debt_) externa
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|      The user address.|
-|`collateral_`|`address`|The collateral token.|
-|`debt_`|`address`|      The debt token.|
+| Name          | Type      | Description           |
+| ------------- | --------- | --------------------- |
+| `user_`       | `address` | The user address.     |
+| `collateral_` | `address` | The collateral token. |
+| `debt_`       | `address` | The debt token.       |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cooler`|`address`|     The address of the cooler.|
+| Name     | Type      | Description                |
+| -------- | --------- | -------------------------- |
+| `cooler` | `address` | The address of the cooler. |
 
 ### created
 
@@ -57,15 +57,15 @@ function created(address cooler_) external view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cooler_`|`address`|The cooler address.|
+| Name      | Type      | Description         |
+| --------- | --------- | ------------------- |
+| `cooler_` | `address` | The cooler address. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool    Whether the cooler was created by the factory.|
+| Name     | Type   | Description                                         |
+| -------- | ------ | --------------------------------------------------- |
+| `<none>` | `bool` | bool Whether the cooler was created by the factory. |
 
 ## Events
 

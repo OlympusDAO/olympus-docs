@@ -78,9 +78,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -92,9 +92,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`requests`|`Permissions[]`|- Array of keycodes and function selectors for requested permissions.|
+| Name       | Type            | Description                                                           |
+| ---------- | --------------- | --------------------------------------------------------------------- |
+| `requests` | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
 
 ### onlyApproved
 
@@ -102,7 +102,7 @@ function requestPermissions() external view override returns (Permissions[] memo
 modifier onlyApproved(bytes32 category_) ;
 ```
 
-### _onlyApproved
+### \_onlyApproved
 
 ```solidity
 function _onlyApproved(bytes32 category_) internal view;
@@ -122,10 +122,10 @@ function burnFromTreasury(uint256 amount_, bytes32 category_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|Amount of OHM to burn|
-|`category_`|`bytes32`||
+| Name        | Type      | Description           |
+| ----------- | --------- | --------------------- |
+| `amount_`   | `uint256` | Amount of OHM to burn |
+| `category_` | `bytes32` |                       |
 
 ### burnFrom
 
@@ -145,11 +145,11 @@ function burnFrom(address from_, uint256 amount_, bytes32 category_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`from_`|`address`|Address to burn OHM from|
-|`amount_`|`uint256`|Amount of OHM to burn|
-|`category_`|`bytes32`||
+| Name        | Type      | Description              |
+| ----------- | --------- | ------------------------ |
+| `from_`     | `address` | Address to burn OHM from |
+| `amount_`   | `uint256` | Amount of OHM to burn    |
+| `category_` | `bytes32` |                          |
 
 ### burn
 
@@ -165,10 +165,10 @@ function burn(uint256 amount_, bytes32 category_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|Amount of OHM to burn|
-|`category_`|`bytes32`||
+| Name        | Type      | Description           |
+| ----------- | --------- | --------------------- |
+| `amount_`   | `uint256` | Amount of OHM to burn |
+| `category_` | `bytes32` |                       |
 
 ### addCategory
 
@@ -180,9 +180,9 @@ function addCategory(bytes32 category_) external onlyEnabled onlyRole("burner_ad
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`category_`|`bytes32`|Category to add|
+| Name        | Type      | Description     |
+| ----------- | --------- | --------------- |
+| `category_` | `bytes32` | Category to add |
 
 ### removeCategory
 
@@ -194,9 +194,9 @@ function removeCategory(bytes32 category_) external onlyEnabled onlyRole("burner
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`category_`|`bytes32`|Category to remove|
+| Name        | Type      | Description        |
+| ----------- | --------- | ------------------ |
+| `category_` | `bytes32` | Category to remove |
 
 ### VERSION
 
@@ -208,10 +208,10 @@ function VERSION() external pure returns (uint8, uint8);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint8`|major - Major version upgrade indicates breaking change to the interface.|
-|`<none>`|`uint8`|minor - Minor version change retains backward-compatible interface.|
+| Name     | Type    | Description                                                               |
+| -------- | ------- | ------------------------------------------------------------------------- |
+| `<none>` | `uint8` | major - Major version upgrade indicates breaking change to the interface. |
+| `<none>` | `uint8` | minor - Minor version change retains backward-compatible interface.       |
 
 ### supportsInterface
 

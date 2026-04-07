@@ -1,4 +1,3 @@
-
 # Deposits
 
 - [BaseDepositFacility](BaseDepositFacility.sol/abstract.BaseDepositFacility.md)

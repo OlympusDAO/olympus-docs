@@ -21,9 +21,9 @@ function isEnabled() external view returns (bool enabled);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`enabled`|`bool`|True if the contract is enabled, false otherwise|
+| Name      | Type   | Description                                      |
+| --------- | ------ | ------------------------------------------------ |
+| `enabled` | `bool` | True if the contract is enabled, false otherwise |
 
 ### enable
 
@@ -37,9 +37,9 @@ function enable(bytes calldata enableData_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`enableData_`|`bytes`| Optional data to pass to a custom enable function|
+| Name          | Type    | Description                                       |
+| ------------- | ------- | ------------------------------------------------- |
+| `enableData_` | `bytes` | Optional data to pass to a custom enable function |
 
 ### disable
 
@@ -53,9 +53,9 @@ function disable(bytes calldata disableData_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`disableData_`|`bytes`|Optional data to pass to a custom disable function|
+| Name           | Type    | Description                                        |
+| -------------- | ------- | -------------------------------------------------- |
+| `disableData_` | `bytes` | Optional data to pass to a custom disable function |
 
 ## Events
 

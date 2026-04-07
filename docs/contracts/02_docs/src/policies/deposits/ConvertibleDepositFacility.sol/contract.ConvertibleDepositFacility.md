@@ -29,7 +29,7 @@ The MINTR module.
 MINTRv1 public MINTR
 ```
 
-### _OHM_SCALE
+### \_OHM_SCALE
 
 ```solidity
 uint256 internal constant _OHM_SCALE = 1e9
@@ -53,9 +53,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -67,9 +67,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### VERSION
 
@@ -98,17 +98,17 @@ function createPosition(CreatePositionParams calldata params_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`params_`|`CreatePositionParams`|            The parameters for the position creation|
+| Name      | Type                   | Description                              |
+| --------- | ---------------------- | ---------------------------------------- |
+| `params_` | `CreatePositionParams` | The parameters for the position creation |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId`|`uint256`|         The ID of the new position|
-|`receiptTokenId`|`uint256`||
-|`actualAmount`|`uint256`||
+| Name             | Type      | Description                |
+| ---------------- | --------- | -------------------------- |
+| `positionId`     | `uint256` | The ID of the new position |
+| `receiptTokenId` | `uint256` |                            |
+| `actualAmount`   | `uint256` |                            |
 
 ### deposit
 
@@ -124,21 +124,21 @@ function deposit(IERC20 asset_, uint8 periodMonths_, uint256 amount_, bool wrapR
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|             The address of the asset|
-|`periodMonths_`|`uint8`|      The period of the deposit|
-|`amount_`|`uint256`|            The amount of asset to deposit|
-|`wrapReceipt_`|`bool`|       Whether the receipt token should be wrapped|
+| Name            | Type      | Description                                 |
+| --------------- | --------- | ------------------------------------------- |
+| `asset_`        | `IERC20`  | The address of the asset                    |
+| `periodMonths_` | `uint8`   | The period of the deposit                   |
+| `amount_`       | `uint256` | The amount of asset to deposit              |
+| `wrapReceipt_`  | `bool`    | Whether the receipt token should be wrapped |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`receiptTokenId`|`uint256`|     The ID of the receipt token|
-|`actualAmount`|`uint256`|       The quantity of receipt tokens minted to the depositor|
+| Name             | Type      | Description                                            |
+| ---------------- | --------- | ------------------------------------------------------ |
+| `receiptTokenId` | `uint256` | The ID of the receipt token                            |
+| `actualAmount`   | `uint256` | The quantity of receipt tokens minted to the depositor |
 
-### _previewConvert
+### \_previewConvert
 
 Determines the conversion output
 
@@ -154,21 +154,21 @@ function _previewConvert(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositor_`|`address`|           The depositor of the position|
-|`positionId_`|`uint256`|          The ID of the position|
-|`amount_`|`uint256`|              The amount of receipt tokens to convert|
-|`previousAsset_`|`address`|       Used to validate that the asset is the same across positions (zero if the first position)|
-|`previousPeriodMonths_`|`uint8`|Used to validate that the period is the same across positions (0 if the first position)|
+| Name                    | Type      | Description                                                                               |
+| ----------------------- | --------- | ----------------------------------------------------------------------------------------- |
+| `depositor_`            | `address` | The depositor of the position                                                             |
+| `positionId_`           | `uint256` | The ID of the position                                                                    |
+| `amount_`               | `uint256` | The amount of receipt tokens to convert                                                   |
+| `previousAsset_`        | `address` | Used to validate that the asset is the same across positions (zero if the first position) |
+| `previousPeriodMonths_` | `uint8`   | Used to validate that the period is the same across positions (0 if the first position)   |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`convertedTokenOut`|`uint256`|    The amount of converted tokens|
-|`currentAsset`|`address`|         The asset of the current position|
-|`currentPeriodMonths`|`uint8`|  The period of the current position|
+| Name                  | Type      | Description                        |
+| --------------------- | --------- | ---------------------------------- |
+| `convertedTokenOut`   | `uint256` | The amount of converted tokens     |
+| `currentAsset`        | `address` | The asset of the current position  |
+| `currentPeriodMonths` | `uint8`   | The period of the current position |
 
 ### previewConvert
 
@@ -177,8 +177,8 @@ Preview the amount of receipt tokens and OHM that would be converted
 This function reverts if:
 
 - The contract is not enabled
-- The length of the positionIds_array does not match the length of the amounts_ array
-- depositor_ is not the owner of all of the positions
+- The length of the positionIds*array does not match the length of the amounts* array
+- depositor\_ is not the owner of all of the positions
 - Any position is not valid
 - Any position is not a supported asset
 - Any position has a different asset or deposit period
@@ -197,18 +197,18 @@ function previewConvert(address depositor_, uint256[] memory positionIds_, uint2
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositor_`|`address`||
-|`positionIds_`|`uint256[]`|       An array of position ids that will be converted|
-|`amounts_`|`uint256[]`|           An array of amounts of receipt tokens to convert|
+| Name           | Type        | Description                                      |
+| -------------- | ----------- | ------------------------------------------------ |
+| `depositor_`   | `address`   |                                                  |
+| `positionIds_` | `uint256[]` | An array of position ids that will be converted  |
+| `amounts_`     | `uint256[]` | An array of amounts of receipt tokens to convert |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`receiptTokenIn`|`uint256`|     The total amount of receipt tokens converted|
-|`convertedTokenOut`|`uint256`|  The amount of OHM minted during conversion|
+| Name                | Type      | Description                                  |
+| ------------------- | --------- | -------------------------------------------- |
+| `receiptTokenIn`    | `uint256` | The total amount of receipt tokens converted |
+| `convertedTokenOut` | `uint256` | The amount of OHM minted during conversion   |
 
 ### convert
 
@@ -218,7 +218,7 @@ This function reverts if:
 
 - The contract is not enabled
 - No positions are provided
-- The length of the positionIds_array does not match the length of the amounts_ array
+- The length of the positionIds*array does not match the length of the amounts* array
 - The caller is not the owner of all of the positions
 - Any position is not valid
 - Any position is not a supported asset
@@ -238,18 +238,18 @@ function convert(uint256[] memory positionIds_, uint256[] memory amounts_, bool 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionIds_`|`uint256[]`|       An array of position ids that will be converted|
-|`amounts_`|`uint256[]`|           An array of amounts of receipt tokens to convert|
-|`wrappedReceipt_`|`bool`|    Whether the receipt tokens to use are wrapped as ERC20s|
+| Name              | Type        | Description                                             |
+| ----------------- | ----------- | ------------------------------------------------------- |
+| `positionIds_`    | `uint256[]` | An array of position ids that will be converted         |
+| `amounts_`        | `uint256[]` | An array of amounts of receipt tokens to convert        |
+| `wrappedReceipt_` | `bool`      | Whether the receipt tokens to use are wrapped as ERC20s |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`receiptTokenIn`|`uint256`|     The total amount of receipt tokens converted|
-|`convertedTokenOut`|`uint256`|  The amount of OHM minted during conversion|
+| Name                | Type      | Description                                  |
+| ------------------- | --------- | -------------------------------------------- |
+| `receiptTokenIn`    | `uint256` | The total amount of receipt tokens converted |
+| `convertedTokenOut` | `uint256` | The amount of OHM minted during conversion   |
 
 ### previewClaimYield
 
@@ -263,15 +263,15 @@ function previewClaimYield(IERC20 asset_) public view returns (uint256 yieldAsse
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the asset|
+| Name     | Type     | Description              |
+| -------- | -------- | ------------------------ |
+| `asset_` | `IERC20` | The address of the asset |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`yieldAssets`|`uint256`|assets          The amount of assets that would be claimed|
+| Name          | Type      | Description                                       |
+| ------------- | --------- | ------------------------------------------------- |
+| `yieldAssets` | `uint256` | assets The amount of assets that would be claimed |
 
 ### claimYield
 
@@ -283,15 +283,15 @@ function claimYield(IERC20 asset_) public returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the asset|
+| Name     | Type     | Description              |
+| -------- | -------- | ------------------------ |
+| `asset_` | `IERC20` | The address of the asset |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|assets          The amount of assets that were claimed|
+| Name     | Type      | Description                                   |
+| -------- | --------- | --------------------------------------------- |
+| `<none>` | `uint256` | assets The amount of assets that were claimed |
 
 ### claimYield
 
@@ -305,16 +305,16 @@ function claimYield(IERC20 asset_, uint256 amount_) public returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the asset|
-|`amount_`|`uint256`|        The amount to claim|
+| Name      | Type      | Description              |
+| --------- | --------- | ------------------------ |
+| `asset_`  | `IERC20`  | The address of the asset |
+| `amount_` | `uint256` | The amount to claim      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|assets          The amount of assets that were claimed|
+| Name     | Type      | Description                                   |
+| -------- | --------- | --------------------------------------------- |
+| `<none>` | `uint256` | assets The amount of assets that were claimed |
 
 ### claimAllYield
 
@@ -339,7 +339,7 @@ Executes the periodic task
 This function reverts if:
 
 - The caller is not authorized
-Notes:
+  Notes:
 - If disabled, nothing is done
 - This will attempt to claim yield for all configured assets
 - If the claimAllYield function fails for any asset, an event will be emitted instead of reverting

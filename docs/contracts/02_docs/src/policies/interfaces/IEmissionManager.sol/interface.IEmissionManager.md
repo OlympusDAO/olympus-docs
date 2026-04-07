@@ -173,12 +173,12 @@ struct EnableParams {
 
 **Properties**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`baseEmissionsRate`|`uint256`|   percent of OHM supply to issue per day at the minimum premium, in OHM scale, i.e. 1e9 = 100%|
-|`minimumPremium`|`uint256`|      minimum premium at which to issue OHM, a percentage where 1e18 is 100%|
-|`backing`|`uint256`|             backing price of OHM in reserve token, in reserve scale|
-|`tickSize`|`uint256`|            fixed tick size in OHM decimals (9)|
-|`minPriceScalar`|`uint256`|      scalar for min price|
-|`bondMarketCapacityScalar`|`uint256`|scalar for bond market capacity from auction remainders|
-|`restartTimeframe`|`uint48`|    time in seconds that the manager needs to be restarted after a shutdown, otherwise it must be re-initialized|
+| Name                       | Type      | Description                                                                                                  |
+| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| `baseEmissionsRate`        | `uint256` | percent of OHM supply to issue per day at the minimum premium, in OHM scale, i.e. 1e9 = 100%                 |
+| `minimumPremium`           | `uint256` | minimum premium at which to issue OHM, a percentage where 1e18 is 100%                                       |
+| `backing`                  | `uint256` | backing price of OHM in reserve token, in reserve scale                                                      |
+| `tickSize`                 | `uint256` | fixed tick size in OHM decimals (9)                                                                          |
+| `minPriceScalar`           | `uint256` | scalar for min price                                                                                         |
+| `bondMarketCapacityScalar` | `uint256` | scalar for bond market capacity from auction remainders                                                      |
+| `restartTimeframe`         | `uint48`  | time in seconds that the manager needs to be restarted after a shutdown, otherwise it must be re-initialized |

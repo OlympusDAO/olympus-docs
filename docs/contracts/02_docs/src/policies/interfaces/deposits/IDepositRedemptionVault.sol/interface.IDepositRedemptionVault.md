@@ -19,9 +19,9 @@ function authorizeFacility(address facility_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`facility_`|`address`|   The address of the facility to authorize|
+| Name        | Type      | Description                              |
+| ----------- | --------- | ---------------------------------------- |
+| `facility_` | `address` | The address of the facility to authorize |
 
 ### deauthorizeFacility
 
@@ -33,9 +33,9 @@ function deauthorizeFacility(address facility_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`facility_`|`address`|   The address of the facility to deauthorize|
+| Name        | Type      | Description                                |
+| ----------- | --------- | ------------------------------------------ |
+| `facility_` | `address` | The address of the facility to deauthorize |
 
 ### isAuthorizedFacility
 
@@ -47,15 +47,15 @@ function isAuthorizedFacility(address facility_) external view returns (bool isA
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`facility_`|`address`|       The address of the facility to check|
+| Name        | Type      | Description                          |
+| ----------- | --------- | ------------------------------------ |
+| `facility_` | `address` | The address of the facility to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`isAuthorized`|`bool`|   True if the facility is authorized|
+| Name           | Type   | Description                        |
+| -------------- | ------ | ---------------------------------- |
+| `isAuthorized` | `bool` | True if the facility is authorized |
 
 ### getAuthorizedFacilities
 
@@ -67,9 +67,9 @@ function getAuthorizedFacilities() external view returns (address[] memory facil
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`facilities`|`address[]`| Array of authorized facility addresses|
+| Name         | Type        | Description                            |
+| ------------ | ----------- | -------------------------------------- |
+| `facilities` | `address[]` | Array of authorized facility addresses |
 
 ### getUserRedemption
 
@@ -84,16 +84,16 @@ function getUserRedemption(address user_, uint16 redemptionId_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|           The address of the user|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
+| Name            | Type      | Description              |
+| --------------- | --------- | ------------------------ |
+| `user_`         | `address` | The address of the user  |
+| `redemptionId_` | `uint16`  | The ID of the redemption |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemption`|`UserRedemption`|      The details of the redemption|
+| Name         | Type             | Description                   |
+| ------------ | ---------------- | ----------------------------- |
+| `redemption` | `UserRedemption` | The details of the redemption |
 
 ### getUserRedemptionCount
 
@@ -105,15 +105,15 @@ function getUserRedemptionCount(address user_) external view returns (uint16 cou
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|The address of the user|
+| Name    | Type      | Description             |
+| ------- | --------- | ----------------------- |
+| `user_` | `address` | The address of the user |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`count`|`uint16`|The number of redemptions|
+| Name    | Type     | Description               |
+| ------- | -------- | ------------------------- |
+| `count` | `uint16` | The number of redemptions |
 
 ### getUserRedemptions
 
@@ -125,15 +125,15 @@ function getUserRedemptions(address user_) external view returns (UserRedemption
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|The address of the user|
+| Name    | Type      | Description             |
+| ------- | --------- | ----------------------- |
+| `user_` | `address` | The address of the user |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`UserRedemption[]`|redemptions The array of redemptions|
+| Name     | Type               | Description                          |
+| -------- | ------------------ | ------------------------------------ |
+| `<none>` | `UserRedemption[]` | redemptions The array of redemptions |
 
 ### startRedemption
 
@@ -147,18 +147,18 @@ function startRedemption(IERC20 depositToken_, uint8 depositPeriod_, uint256 amo
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|  The address of the deposit token|
-|`depositPeriod_`|`uint8`| The period of the deposit in months|
-|`amount_`|`uint256`|        The amount of deposit tokens to redeem|
-|`facility_`|`address`|      The facility to handle this redemption|
+| Name             | Type      | Description                            |
+| ---------------- | --------- | -------------------------------------- |
+| `depositToken_`  | `IERC20`  | The address of the deposit token       |
+| `depositPeriod_` | `uint8`   | The period of the deposit in months    |
+| `amount_`        | `uint256` | The amount of deposit tokens to redeem |
+| `facility_`      | `address` | The facility to handle this redemption |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId`|`uint16`|   The ID of the user redemption|
+| Name           | Type     | Description                   |
+| -------------- | -------- | ----------------------------- |
+| `redemptionId` | `uint16` | The ID of the user redemption |
 
 ### startRedemption
 
@@ -170,16 +170,16 @@ function startRedemption(uint256 positionId_, uint256 amount_) external returns 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|    The ID of the position to redeem from|
-|`amount_`|`uint256`|        The amount of deposit tokens to redeem|
+| Name          | Type      | Description                            |
+| ------------- | --------- | -------------------------------------- |
+| `positionId_` | `uint256` | The ID of the position to redeem from  |
+| `amount_`     | `uint256` | The amount of deposit tokens to redeem |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId`|`uint16`|   The ID of the user redemption|
+| Name           | Type     | Description                   |
+| -------------- | -------- | ----------------------------- |
+| `redemptionId` | `uint16` | The ID of the user redemption |
 
 ### cancelRedemption
 
@@ -191,10 +191,10 @@ function cancelRedemption(uint16 redemptionId_, uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId_`|`uint16`|The ID of the user redemption|
-|`amount_`|`uint256`|      The amount of deposit tokens to cancel|
+| Name            | Type      | Description                            |
+| --------------- | --------- | -------------------------------------- |
+| `redemptionId_` | `uint16`  | The ID of the user redemption          |
+| `amount_`       | `uint256` | The amount of deposit tokens to cancel |
 
 ### finishRedemption
 
@@ -208,15 +208,15 @@ function finishRedemption(uint16 redemptionId_) external returns (uint256 actual
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId_`|`uint16`|  The ID of the user redemption|
+| Name            | Type     | Description                   |
+| --------------- | -------- | ----------------------------- |
+| `redemptionId_` | `uint16` | The ID of the user redemption |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualAmount`|`uint256`|   The quantity of deposit tokens transferred to the caller|
+| Name           | Type      | Description                                              |
+| -------------- | --------- | -------------------------------------------------------- |
+| `actualAmount` | `uint256` | The quantity of deposit tokens transferred to the caller |
 
 ### borrowAgainstRedemption
 
@@ -228,15 +228,15 @@ function borrowAgainstRedemption(uint16 redemptionId_) external returns (uint256
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId_`|`uint16`|   The ID of the redemption to borrow against|
+| Name            | Type     | Description                                |
+| --------------- | -------- | ------------------------------------------ |
+| `redemptionId_` | `uint16` | The ID of the redemption to borrow against |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualAmount`|`uint256`|   The quantity of underlying assets transferred to the recipient|
+| Name           | Type      | Description                                                    |
+| -------------- | --------- | -------------------------------------------------------------- |
+| `actualAmount` | `uint256` | The quantity of underlying assets transferred to the recipient |
 
 ### previewBorrowAgainstRedemption
 
@@ -251,18 +251,18 @@ function previewBorrowAgainstRedemption(address user_, uint16 redemptionId_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|           The address of the user|
-|`redemptionId_`|`uint16`|   The ID of the redemption to borrow against|
+| Name            | Type      | Description                                |
+| --------------- | --------- | ------------------------------------------ |
+| `user_`         | `address` | The address of the user                    |
+| `redemptionId_` | `uint16`  | The ID of the redemption to borrow against |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`principal`|`uint256`|      The principal amount that can be borrowed|
-|`interest`|`uint256`|       The interest amount that will be charged|
-|`dueDate`|`uint48`|        The due date of the loan|
+| Name        | Type      | Description                               |
+| ----------- | --------- | ----------------------------------------- |
+| `principal` | `uint256` | The principal amount that can be borrowed |
+| `interest`  | `uint256` | The interest amount that will be charged  |
+| `dueDate`   | `uint48`  | The due date of the loan                  |
 
 ### repayLoan
 
@@ -274,11 +274,11 @@ function repayLoan(uint16 redemptionId_, uint256 amount_, uint256 maxSlippage_) 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
-|`amount_`|`uint256`|         The amount to repay|
-|`maxSlippage_`|`uint256`|    The maximum slippage allowed for the repayment|
+| Name            | Type      | Description                                    |
+| --------------- | --------- | ---------------------------------------------- |
+| `redemptionId_` | `uint16`  | The ID of the redemption                       |
+| `amount_`       | `uint256` | The amount to repay                            |
+| `maxSlippage_`  | `uint256` | The maximum slippage allowed for the repayment |
 
 ### previewExtendLoan
 
@@ -293,18 +293,18 @@ function previewExtendLoan(address user_, uint16 redemptionId_, uint8 months_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|           The address of the user|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
-|`months_`|`uint8`|         The number of months to extend the loan|
+| Name            | Type      | Description                             |
+| --------------- | --------- | --------------------------------------- |
+| `user_`         | `address` | The address of the user                 |
+| `redemptionId_` | `uint16`  | The ID of the redemption                |
+| `months_`       | `uint8`   | The number of months to extend the loan |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newDueDate`|`uint48`|     The new due date|
-|`interestPayable`|`uint256`|The interest payable upon extension|
+| Name              | Type      | Description                         |
+| ----------------- | --------- | ----------------------------------- |
+| `newDueDate`      | `uint48`  | The new due date                    |
+| `interestPayable` | `uint256` | The interest payable upon extension |
 
 ### extendLoan
 
@@ -316,10 +316,10 @@ function extendLoan(uint16 redemptionId_, uint8 months_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
-|`months_`|`uint8`|         The number of months to extend the loan|
+| Name            | Type     | Description                             |
+| --------------- | -------- | --------------------------------------- |
+| `redemptionId_` | `uint16` | The ID of the redemption                |
+| `months_`       | `uint8`  | The number of months to extend the loan |
 
 ### claimDefaultedLoan
 
@@ -331,10 +331,10 @@ function claimDefaultedLoan(address user_, uint16 redemptionId_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|           The address of the user|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
+| Name            | Type      | Description              |
+| --------------- | --------- | ------------------------ |
+| `user_`         | `address` | The address of the user  |
+| `redemptionId_` | `uint16`  | The ID of the redemption |
 
 ### getRedemptionLoan
 
@@ -346,16 +346,16 @@ function getRedemptionLoan(address user_, uint16 redemptionId_) external view re
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|           The address of the user|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
+| Name            | Type      | Description              |
+| --------------- | --------- | ------------------------ |
+| `user_`         | `address` | The address of the user  |
+| `redemptionId_` | `uint16`  | The ID of the redemption |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`loan`|`Loan`|           The loan|
+| Name   | Type   | Description |
+| ------ | ------ | ----------- |
+| `loan` | `Loan` | The loan    |
 
 ### setMaxBorrowPercentage
 
@@ -367,11 +367,11 @@ function setMaxBorrowPercentage(IERC20 asset_, address facility_, uint16 percent
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|   The address of the asset|
-|`facility_`|`address`|The address of the facility|
-|`percent_`|`uint16`| The maximum borrow percentage|
+| Name        | Type      | Description                   |
+| ----------- | --------- | ----------------------------- |
+| `asset_`    | `IERC20`  | The address of the asset      |
+| `facility_` | `address` | The address of the facility   |
+| `percent_`  | `uint16`  | The maximum borrow percentage |
 
 ### getMaxBorrowPercentage
 
@@ -383,16 +383,16 @@ function getMaxBorrowPercentage(IERC20 asset_, address facility_) external view 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|   The address of the asset|
-|`facility_`|`address`|The address of the facility|
+| Name        | Type      | Description                 |
+| ----------- | --------- | --------------------------- |
+| `asset_`    | `IERC20`  | The address of the asset    |
+| `facility_` | `address` | The address of the facility |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`percent`|`uint16`| The maximum borrow percentage (100e2 == 100%)|
+| Name      | Type     | Description                                   |
+| --------- | -------- | --------------------------------------------- |
+| `percent` | `uint16` | The maximum borrow percentage (100e2 == 100%) |
 
 ### setAnnualInterestRate
 
@@ -404,11 +404,11 @@ function setAnnualInterestRate(IERC20 asset_, address facility_, uint16 rate_) e
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|   The address of the asset|
-|`facility_`|`address`|The address of the facility|
-|`rate_`|`uint16`|    The annual interest rate (100e2 == 100%)|
+| Name        | Type      | Description                              |
+| ----------- | --------- | ---------------------------------------- |
+| `asset_`    | `IERC20`  | The address of the asset                 |
+| `facility_` | `address` | The address of the facility              |
+| `rate_`     | `uint16`  | The annual interest rate (100e2 == 100%) |
 
 ### getAnnualInterestRate
 
@@ -420,16 +420,16 @@ function getAnnualInterestRate(IERC20 asset_, address facility_) external view r
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|   The address of the asset|
-|`facility_`|`address`|The address of the facility|
+| Name        | Type      | Description                 |
+| ----------- | --------- | --------------------------- |
+| `asset_`    | `IERC20`  | The address of the asset    |
+| `facility_` | `address` | The address of the facility |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`rate`|`uint16`|    The annual interest rate, in terms of 100e2|
+| Name   | Type     | Description                                 |
+| ------ | -------- | ------------------------------------------- |
+| `rate` | `uint16` | The annual interest rate, in terms of 100e2 |
 
 ### setClaimDefaultRewardPercentage
 
@@ -441,9 +441,9 @@ function setClaimDefaultRewardPercentage(uint16 percent_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`percent_`|`uint16`| The claim default reward percentage|
+| Name       | Type     | Description                         |
+| ---------- | -------- | ----------------------------------- |
+| `percent_` | `uint16` | The claim default reward percentage |
 
 ### getClaimDefaultRewardPercentage
 
@@ -455,9 +455,9 @@ function getClaimDefaultRewardPercentage() external view returns (uint16 percent
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`percent`|`uint16`|The claim default reward percentage, in terms of 100e2|
+| Name      | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| `percent` | `uint16` | The claim default reward percentage, in terms of 100e2 |
 
 ## Events
 
@@ -684,14 +684,14 @@ struct UserRedemption {
 
 **Properties**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken`|`address`|   The address of the deposit token|
-|`depositPeriod`|`uint8`|  The period of the deposit in months|
-|`redeemableAt`|`uint48`|   The timestamp at which the redemption can be finished|
-|`amount`|`uint256`|         The amount of deposit tokens to redeem|
-|`facility`|`address`|       The facility that handles this redemption|
-|`positionId`|`uint256`|     The position ID for position-based redemptions (type(uint256).max without a position)|
+| Name            | Type      | Description                                                                           |
+| --------------- | --------- | ------------------------------------------------------------------------------------- |
+| `depositToken`  | `address` | The address of the deposit token                                                      |
+| `depositPeriod` | `uint8`   | The period of the deposit in months                                                   |
+| `redeemableAt`  | `uint48`  | The timestamp at which the redemption can be finished                                 |
+| `amount`        | `uint256` | The amount of deposit tokens to redeem                                                |
+| `facility`      | `address` | The facility that handles this redemption                                             |
+| `positionId`    | `uint256` | The position ID for position-based redemptions (type(uint256).max without a position) |
 
 ### Loan
 
@@ -709,10 +709,10 @@ struct Loan {
 
 **Properties**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`initialPrincipal`|`uint256`|   The initial principal amount borrowed|
-|`principal`|`uint256`|          The principal owed|
-|`interest`|`uint256`|           The interest owed|
-|`dueDate`|`uint48`|            The timestamp when the loan is due|
-|`isDefaulted`|`bool`|        Whether the loan has defaulted|
+| Name               | Type      | Description                           |
+| ------------------ | --------- | ------------------------------------- |
+| `initialPrincipal` | `uint256` | The initial principal amount borrowed |
+| `principal`        | `uint256` | The principal owed                    |
+| `interest`         | `uint256` | The interest owed                     |
+| `dueDate`          | `uint48`  | The timestamp when the loan is due    |
+| `isDefaulted`      | `bool`    | Whether the loan has defaulted        |

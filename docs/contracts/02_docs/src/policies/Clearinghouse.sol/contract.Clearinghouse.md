@@ -183,10 +183,10 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|The major version of the policy.|
-|`minor`|`uint8`|The minor version of the policy.|
+| Name    | Type    | Description                      |
+| ------- | ------- | -------------------------------- |
+| `major` | `uint8` | The major version of the policy. |
+| `minor` | `uint8` | The minor version of the policy. |
 
 ### lendToCooler
 
@@ -201,16 +201,16 @@ function lendToCooler(Cooler cooler_, uint256 amount_) external returns (uint256
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cooler_`|`Cooler`|to lend to.|
-|`amount_`|`uint256`|of reserve to lend.|
+| Name      | Type      | Description         |
+| --------- | --------- | ------------------- |
+| `cooler_` | `Cooler`  | to lend to.         |
+| `amount_` | `uint256` | of reserve to lend. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|the id of the granted loan.|
+| Name     | Type      | Description                 |
+| -------- | --------- | --------------------------- |
+| `<none>` | `uint256` | the id of the granted loan. |
 
 ### extendLoan
 
@@ -224,11 +224,11 @@ function extendLoan(Cooler cooler_, uint256 loanID_, uint8 times_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cooler_`|`Cooler`|holding the loan to be extended.|
-|`loanID_`|`uint256`|index of loan in loans[].|
-|`times_`|`uint8`|Amount of times that the fixed-term loan duration is extended.|
+| Name      | Type      | Description                                                    |
+| --------- | --------- | -------------------------------------------------------------- |
+| `cooler_` | `Cooler`  | holding the loan to be extended.                               |
+| `loanID_` | `uint256` | index of loan in loans[].                                      |
+| `times_`  | `uint8`   | Amount of times that the fixed-term loan duration is extended. |
 
 ### claimDefaulted
 
@@ -243,12 +243,12 @@ function claimDefaulted(address[] calldata coolers_, uint256[] calldata loans_) 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolers_`|`address[]`|Array of contracts where the default must be claimed.|
-|`loans_`|`uint256[]`|Array of defaulted loan ids.|
+| Name       | Type        | Description                                           |
+| ---------- | ----------- | ----------------------------------------------------- |
+| `coolers_` | `address[]` | Array of contracts where the default must be claimed. |
+| `loans_`   | `uint256[]` | Array of defaulted loan ids.                          |
 
-### _onRepay
+### \_onRepay
 
 Overridden callback to decrement loan receivables.
 
@@ -258,13 +258,13 @@ function _onRepay(uint256, uint256 principalPaid_, uint256 interestPaid_) intern
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`||
-|`principalPaid_`|`uint256`|in reserve.|
-|`interestPaid_`|`uint256`|in reserve.|
+| Name             | Type      | Description |
+| ---------------- | --------- | ----------- |
+| `<none>`         | `uint256` |             |
+| `principalPaid_` | `uint256` | in reserve. |
+| `interestPaid_`  | `uint256` | in reserve. |
 
-### _onDefault
+### \_onDefault
 
 Unused callback since defaults are handled by the clearinghouse.
 
@@ -290,9 +290,9 @@ function rebalance() public returns (bool);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|False if too early to rebalance. Otherwise, true.|
+| Name     | Type   | Description                                       |
+| -------- | ------ | ------------------------------------------------- |
+| `<none>` | `bool` | False if too early to rebalance. Otherwise, true. |
 
 ### sweepIntoSavingsVault
 
@@ -302,7 +302,7 @@ Sweep excess reserve into savings vault.
 function sweepIntoSavingsVault() public;
 ```
 
-### _sweepIntoSavingsVault
+### \_sweepIntoSavingsVault
 
 Sweep excess reserve into vault.
 
@@ -346,12 +346,12 @@ function defund(ERC20 token_, uint256 amount_) external onlyRole("cooler_oversee
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token_`|`ERC20`|to transfer.|
-|`amount_`|`uint256`|to transfer.|
+| Name      | Type      | Description  |
+| --------- | --------- | ------------ |
+| `token_`  | `ERC20`   | to transfer. |
+| `amount_` | `uint256` | to transfer. |
 
-### _defund
+### \_defund
 
 Internal function to return funds to treasury.
 
@@ -361,10 +361,10 @@ function _defund(ERC20 token_, uint256 amount_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token_`|`ERC20`|to transfer.|
-|`amount_`|`uint256`|to transfer.|
+| Name      | Type      | Description  |
+| --------- | --------- | ------------ |
+| `token_`  | `ERC20`   | to transfer. |
+| `amount_` | `uint256` | to transfer. |
 
 ### getCollateralForLoan
 
@@ -384,16 +384,16 @@ function getLoanForCollateral(uint256 collateral_) public pure returns (uint256,
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`collateral_`|`uint256`|amount of gOHM.|
+| Name          | Type      | Description     |
+| ------------- | --------- | --------------- |
+| `collateral_` | `uint256` | amount of gOHM. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|debt (amount to be lent + interest) for a given collateral amount.|
-|`<none>`|`uint256`||
+| Name     | Type      | Description                                                        |
+| -------- | --------- | ------------------------------------------------------------------ |
+| `<none>` | `uint256` | debt (amount to be lent + interest) for a given collateral amount. |
+| `<none>` | `uint256` |                                                                    |
 
 ### interestForLoan
 
@@ -405,10 +405,10 @@ function interestForLoan(uint256 principal_, uint256 duration_) public pure retu
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`principal_`|`uint256`|amount of reserve being lent.|
-|`duration_`|`uint256`|elapsed time in seconds.|
+| Name         | Type      | Description                   |
+| ------------ | --------- | ----------------------------- |
+| `principal_` | `uint256` | amount of reserve being lent. |
+| `duration_`  | `uint256` | elapsed time in seconds.      |
 
 ### getTotalReceivables
 

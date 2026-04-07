@@ -23,17 +23,17 @@ function mulDiv(uint256 a, uint256 b, uint256 denominator) internal pure returns
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`a`|`uint256`|The multiplicand|
-|`b`|`uint256`|The multiplier|
-|`denominator`|`uint256`|The divisor|
+| Name          | Type      | Description      |
+| ------------- | --------- | ---------------- |
+| `a`           | `uint256` | The multiplicand |
+| `b`           | `uint256` | The multiplier   |
+| `denominator` | `uint256` | The divisor      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`result`|`uint256`|The 256-bit result|
+| Name     | Type      | Description        |
+| -------- | --------- | ------------------ |
+| `result` | `uint256` | The 256-bit result |
 
 ### mulDivUp
 
@@ -45,14 +45,14 @@ function mulDivUp(uint256 a, uint256 b, uint256 denominator) internal pure retur
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`a`|`uint256`|The multiplicand|
-|`b`|`uint256`|The multiplier|
-|`denominator`|`uint256`|The divisor|
+| Name          | Type      | Description      |
+| ------------- | --------- | ---------------- |
+| `a`           | `uint256` | The multiplicand |
+| `b`           | `uint256` | The multiplier   |
+| `denominator` | `uint256` | The divisor      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`result`|`uint256`|The 256-bit result|
+| Name     | Type      | Description        |
+| -------- | --------- | ------------------ |
+| `result` | `uint256` | The 256-bit result |

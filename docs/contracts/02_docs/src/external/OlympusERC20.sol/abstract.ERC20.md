@@ -13,37 +13,37 @@
 bytes32 private constant ERC20TOKEN_ERC1820_INTERFACE_ID = keccak256("ERC20Token")
 ```
 
-### _balances
+### \_balances
 
 ```solidity
 mapping(address => uint256) internal _balances
 ```
 
-### _allowances
+### \_allowances
 
 ```solidity
 mapping(address => mapping(address => uint256)) internal _allowances
 ```
 
-### _totalSupply
+### \_totalSupply
 
 ```solidity
 uint256 internal _totalSupply
 ```
 
-### _name
+### \_name
 
 ```solidity
 string internal _name
 ```
 
-### _symbol
+### \_symbol
 
 ```solidity
 string internal _symbol
 ```
 
-### _decimals
+### \_decimals
 
 ```solidity
 uint8 internal immutable _decimals
@@ -123,31 +123,31 @@ function increaseAllowance(address spender, uint256 addedValue) public virtual r
 function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool);
 ```
 
-### _transfer
+### \_transfer
 
 ```solidity
 function _transfer(address sender, address recipient, uint256 amount) internal virtual;
 ```
 
-### _mint
+### \_mint
 
 ```solidity
 function _mint(address account, uint256 amount) internal virtual;
 ```
 
-### _burn
+### \_burn
 
 ```solidity
 function _burn(address account, uint256 amount) internal virtual;
 ```
 
-### _approve
+### \_approve
 
 ```solidity
 function _approve(address owner, address spender, uint256 amount) internal virtual;
 ```
 
-### _beforeTokenTransfer
+### \_beforeTokenTransfer
 
 ```solidity
 function _beforeTokenTransfer(address from_, address to_, uint256 amount_) internal virtual;

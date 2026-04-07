@@ -25,9 +25,9 @@ function ohmV1() external view returns (IERC20 ohmV1_);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmV1_`|`IERC20`|The OHM v1 token|
+| Name     | Type     | Description      |
+| -------- | -------- | ---------------- |
+| `ohmV1_` | `IERC20` | The OHM v1 token |
 
 ### ohmV2
 
@@ -39,9 +39,9 @@ function ohmV2() external view returns (IERC20 ohmV2_);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmV2_`|`IERC20`|The OHM v2 token|
+| Name     | Type     | Description      |
+| -------- | -------- | ---------------- |
+| `ohmV2_` | `IERC20` | The OHM v2 token |
 
 ### gOHM
 
@@ -55,9 +55,9 @@ function gOHM() external view returns (address gOHM_);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`gOHM_`|`address`|The gOHM token|
+| Name    | Type      | Description    |
+| ------- | --------- | -------------- |
+| `gOHM_` | `address` | The gOHM token |
 
 ### merkleRoot
 
@@ -69,9 +69,9 @@ function merkleRoot() external view returns (bytes32 merkleRoot_);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`merkleRoot_`|`bytes32`|The current merkle root|
+| Name          | Type      | Description             |
+| ------------- | --------- | ----------------------- |
+| `merkleRoot_` | `bytes32` | The current merkle root |
 
 ### migratedAmounts
 
@@ -83,15 +83,15 @@ function migratedAmounts(address account_) external view returns (uint256 migrat
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|The account to check|
+| Name       | Type      | Description          |
+| ---------- | --------- | -------------------- |
+| `account_` | `address` | The account to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`migratedAmount_`|`uint256`|The amount migrated by the user|
+| Name              | Type      | Description                     |
+| ----------------- | --------- | ------------------------------- |
+| `migratedAmount_` | `uint256` | The amount migrated by the user |
 
 ### remainingMintApproval
 
@@ -106,9 +106,9 @@ function remainingMintApproval() external view returns (uint256 remaining_);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`remaining_`|`uint256`|The remaining OHM that can be minted|
+| Name         | Type      | Description                          |
+| ------------ | --------- | ------------------------------------ |
+| `remaining_` | `uint256` | The remaining OHM that can be minted |
 
 ### totalMigrated
 
@@ -120,9 +120,9 @@ function totalMigrated() external view returns (uint256 totalMigrated_);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`totalMigrated_`|`uint256`|The total migrated amount|
+| Name             | Type      | Description               |
+| ---------------- | --------- | ------------------------- |
+| `totalMigrated_` | `uint256` | The total migrated amount |
 
 ### previewMigrate
 
@@ -138,15 +138,15 @@ function previewMigrate(uint256 amount_) external view returns (uint256 ohmV2Amo
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|The amount of OHM v1 to preview (9 decimals)|
+| Name      | Type      | Description                                  |
+| --------- | --------- | -------------------------------------------- |
+| `amount_` | `uint256` | The amount of OHM v1 to preview (9 decimals) |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmV2Amount_`|`uint256`|The amount of OHM v2 that would be received (9 decimals), or 0 if conversion rounds to zero|
+| Name           | Type      | Description                                                                                 |
+| -------------- | --------- | ------------------------------------------------------------------------------------------- |
+| `ohmV2Amount_` | `uint256` | The amount of OHM v2 that would be received (9 decimals), or 0 if conversion rounds to zero |
 
 ### migrate
 
@@ -161,11 +161,11 @@ function migrate(uint256 amount_, bytes32[] calldata proof_, uint256 allocatedAm
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|The amount of OHM v1 to migrate (9 decimals)|
-|`proof_`|`bytes32[]`|The merkle proof proving the user is eligible|
-|`allocatedAmount_`|`uint256`|The user's allocated amount from the merkle tree|
+| Name               | Type        | Description                                      |
+| ------------------ | ----------- | ------------------------------------------------ |
+| `amount_`          | `uint256`   | The amount of OHM v1 to migrate (9 decimals)     |
+| `proof_`           | `bytes32[]` | The merkle proof proving the user is eligible    |
+| `allocatedAmount_` | `uint256`   | The user's allocated amount from the merkle tree |
 
 ### setMerkleRoot
 
@@ -177,9 +177,9 @@ function setMerkleRoot(bytes32 merkleRoot_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`merkleRoot_`|`bytes32`|The new merkle root|
+| Name          | Type      | Description         |
+| ------------- | --------- | ------------------- |
+| `merkleRoot_` | `bytes32` | The new merkle root |
 
 ### setRemainingMintApproval
 
@@ -196,9 +196,9 @@ function setRemainingMintApproval(uint256 approval_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`approval_`|`uint256`|The target remaining mint approval (9 decimals)|
+| Name        | Type      | Description                                     |
+| ----------- | --------- | ----------------------------------------------- |
+| `approval_` | `uint256` | The target remaining mint approval (9 decimals) |
 
 ### rescue
 
@@ -212,9 +212,9 @@ function rescue(IERC20 token_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token_`|`IERC20`|The ERC20 token to rescue|
+| Name     | Type     | Description               |
+| -------- | -------- | ------------------------- |
+| `token_` | `IERC20` | The ERC20 token to rescue |
 
 ### verifyClaim
 
@@ -229,17 +229,17 @@ function verifyClaim(address account_, uint256 allocatedAmount_, bytes32[] calld
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|The account to verify|
-|`allocatedAmount_`|`uint256`|The allocated amount to verify|
-|`proof_`|`bytes32[]`|The merkle proof|
+| Name               | Type        | Description                    |
+| ------------------ | ----------- | ------------------------------ |
+| `account_`         | `address`   | The account to verify          |
+| `allocatedAmount_` | `uint256`   | The allocated amount to verify |
+| `proof_`           | `bytes32[]` | The merkle proof               |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`valid_`|`bool`|True if the claim is valid|
+| Name     | Type   | Description                |
+| -------- | ------ | -------------------------- |
+| `valid_` | `bool` | True if the claim is valid |
 
 ## Events
 
@@ -253,11 +253,11 @@ event Migrated(address indexed user, uint256 ohmV1Amount, uint256 ohmV2Amount);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user`|`address`|The address of the user migrating|
-|`ohmV1Amount`|`uint256`|The amount of OHM v1 burned|
-|`ohmV2Amount`|`uint256`|The amount of OHM v2 minted|
+| Name          | Type      | Description                       |
+| ------------- | --------- | --------------------------------- |
+| `user`        | `address` | The address of the user migrating |
+| `ohmV1Amount` | `uint256` | The amount of OHM v1 burned       |
+| `ohmV2Amount` | `uint256` | The amount of OHM v2 minted       |
 
 ### MerkleRootUpdated
 
@@ -269,10 +269,10 @@ event MerkleRootUpdated(bytes32 indexed newRoot, address indexed updater);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newRoot`|`bytes32`|The new merkle root|
-|`updater`|`address`|The address that updated the root|
+| Name      | Type      | Description                       |
+| --------- | --------- | --------------------------------- |
+| `newRoot` | `bytes32` | The new merkle root               |
+| `updater` | `address` | The address that updated the root |
 
 ### RemainingMintApprovalUpdated
 
@@ -284,10 +284,10 @@ event RemainingMintApprovalUpdated(uint256 indexed newApproval, uint256 indexed 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newApproval`|`uint256`|The new remaining mint approval|
-|`oldApproval`|`uint256`|The old remaining mint approval|
+| Name          | Type      | Description                     |
+| ------------- | --------- | ------------------------------- |
+| `newApproval` | `uint256` | The new remaining mint approval |
+| `oldApproval` | `uint256` | The old remaining mint approval |
 
 ### Rescued
 
@@ -299,11 +299,11 @@ event Rescued(address indexed token, address indexed to, uint256 amount);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token`|`address`|The rescued token address|
-|`to`|`address`|The recipient address|
-|`amount`|`uint256`|The amount rescued|
+| Name     | Type      | Description               |
+| -------- | --------- | ------------------------- |
+| `token`  | `address` | The rescued token address |
+| `to`     | `address` | The recipient address     |
+| `amount` | `uint256` | The amount rescued        |
 
 ## Errors
 
@@ -325,11 +325,11 @@ error AmountExceedsAllowance(uint256 requested, uint256 allocated, uint256 migra
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`requested`|`uint256`|The amount requested to migrate|
-|`allocated`|`uint256`|The user's allocated amount from the merkle tree|
-|`migrated`|`uint256`|The amount already migrated by the user|
+| Name        | Type      | Description                                      |
+| ----------- | --------- | ------------------------------------------------ |
+| `requested` | `uint256` | The amount requested to migrate                  |
+| `allocated` | `uint256` | The user's allocated amount from the merkle tree |
+| `migrated`  | `uint256` | The amount already migrated by the user          |
 
 ### CapExceeded
 
@@ -341,10 +341,10 @@ error CapExceeded(uint256 amount, uint256 remaining);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount`|`uint256`|The amount requested to migrate|
-|`remaining`|`uint256`|The remaining MINTR approval for the migrator contract|
+| Name        | Type      | Description                                            |
+| ----------- | --------- | ------------------------------------------------------ |
+| `amount`    | `uint256` | The amount requested to migrate                        |
+| `remaining` | `uint256` | The remaining MINTR approval for the migrator contract |
 
 ### ZeroAmount
 

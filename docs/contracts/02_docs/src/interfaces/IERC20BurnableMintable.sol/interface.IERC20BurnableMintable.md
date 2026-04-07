@@ -17,10 +17,10 @@ function mintFor(address to_, uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`to_`|`address`|     The address to mint tokens to|
-|`amount_`|`uint256`| The amount of tokens to mint|
+| Name      | Type      | Description                   |
+| --------- | --------- | ----------------------------- |
+| `to_`     | `address` | The address to mint tokens to |
+| `amount_` | `uint256` | The amount of tokens to mint  |
 
 ### burnFrom
 
@@ -32,7 +32,7 @@ function burnFrom(address from_, uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`from_`|`address`|   The address to burn tokens from|
-|`amount_`|`uint256`| The amount of tokens to burn|
+| Name      | Type      | Description                     |
+| --------- | --------- | ------------------------------- |
+| `from_`   | `address` | The address to burn tokens from |
+| `amount_` | `uint256` | The amount of tokens to burn    |

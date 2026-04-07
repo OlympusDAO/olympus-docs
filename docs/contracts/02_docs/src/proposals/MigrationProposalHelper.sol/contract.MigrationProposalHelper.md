@@ -98,7 +98,7 @@ constructor(address owner_, address admin_, address burner_, address tempOHM_, u
     Owned(owner_);
 ```
 
-### _onlyOwnerOrAdmin
+### \_onlyOwnerOrAdmin
 
 ```solidity
 function _onlyOwnerOrAdmin() internal view;
@@ -124,9 +124,9 @@ function setOHMv1ToMigrate(uint256 maxOHMv1_) external onlyOwnerOrAdmin;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`maxOHMv1_`|`uint256`|The new maximum OHM v1 amount (1e9 decimals)|
+| Name        | Type      | Description                                  |
+| ----------- | --------- | -------------------------------------------- |
+| `maxOHMv1_` | `uint256` | The new maximum OHM v1 amount (1e9 decimals) |
 
 ### rescue
 
@@ -140,9 +140,9 @@ function rescue(IERC20 token_) external onlyOwnerOrAdmin;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token_`|`IERC20`|The ERC20 token to rescue|
+| Name     | Type     | Description               |
+| -------- | -------- | ------------------------- |
+| `token_` | `IERC20` | The ERC20 token to rescue |
 
 ### getTempOHMToDeposit
 
@@ -163,9 +163,9 @@ This function assumes:
 - The "burner_admin" role has been granted to this contract
 - The caller (owner) has approved tempOHM to this contract
 - The caller (owner) has tempOHM balance
-Any tempOHM in excess of OHMv1ToMigrate * 1e9 will be burned.
-This is intentional: tempOHM has no utility after migration completes.
-This function reverts if:
+  Any tempOHM in excess of OHMv1ToMigrate \* 1e9 will be burned.
+  This is intentional: tempOHM has no utility after migration completes.
+  This function reverts if:
 - The caller is not the owner
 - The function has already been run
 
@@ -173,12 +173,12 @@ This function reverts if:
 function activate() external onlyOwner;
 ```
 
-### _depositTempOHMToTreasury
+### \_depositTempOHMToTreasury
 
 Transfer all tempOHM from owner and deposit the calculated amount to treasury
 
 Transfers ALL tempOHM from owner but deposits only getTempOHMToDeposit().
-Excess is burned by _burnExcess() (tempOHM has no post-migration utility).
+Excess is burned by \_burnExcess() (tempOHM has no post-migration utility).
 
 ```solidity
 function _depositTempOHMToTreasury() internal returns (uint256 ohmV1Minted);
@@ -186,11 +186,11 @@ function _depositTempOHMToTreasury() internal returns (uint256 ohmV1Minted);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmV1Minted`|`uint256`|The amount of OHM v1 minted from the deposit|
+| Name          | Type      | Description                                  |
+| ------------- | --------- | -------------------------------------------- |
+| `ohmV1Minted` | `uint256` | The amount of OHM v1 minted from the deposit |
 
-### _migrateOHMv1ToGOHM
+### \_migrateOHMv1ToGOHM
 
 Migrate OHMv1 to gOHM via migrator
 
@@ -200,11 +200,11 @@ function _migrateOHMv1ToGOHM(uint256 ohmV1Amount) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmV1Amount`|`uint256`|The amount of OHM v1 to migrate|
+| Name          | Type      | Description                     |
+| ------------- | --------- | ------------------------------- |
+| `ohmV1Amount` | `uint256` | The amount of OHM v1 to migrate |
 
-### _burnExcess
+### \_burnExcess
 
 Burn any excess tempOHM and OHM v1 remaining after migration
 
@@ -215,7 +215,7 @@ Also burns any OHM v1 left from partial migration failures.
 function _burnExcess() internal;
 ```
 
-### _unstakeAndBurn
+### \_unstakeAndBurn
 
 Unstake gOHM to OHMv2 and burn
 

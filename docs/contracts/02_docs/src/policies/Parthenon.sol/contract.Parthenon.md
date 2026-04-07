@@ -139,7 +139,7 @@ function configureDependencies() external override returns (Keycode[] memory dep
 function requestPermissions() external view override returns (Permissions[] memory requests);
 ```
 
-### _max
+### \_max
 
 ```solidity
 function _max(uint256 a, uint256 b) public pure returns (uint256);

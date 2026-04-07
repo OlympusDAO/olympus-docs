@@ -1,4 +1,3 @@
-
 # Abstracts
 
 - [GovernorBravoDelegatorStorage](GovernorBravoStorage.sol/abstract.GovernorBravoDelegatorStorage.md)

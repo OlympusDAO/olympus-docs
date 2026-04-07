@@ -1,4 +1,3 @@
-
 # Interfaces
 
 - [ICooler](ICooler.sol/interface.ICooler.md)

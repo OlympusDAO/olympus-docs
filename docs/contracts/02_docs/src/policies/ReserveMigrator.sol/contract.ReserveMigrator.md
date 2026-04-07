@@ -89,10 +89,10 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|The major version of the policy.|
-|`minor`|`uint8`|The minor version of the policy.|
+| Name    | Type    | Description                      |
+| ------- | ------- | -------------------------------- |
+| `major` | `uint8` | The major version of the policy. |
+| `minor` | `uint8` | The minor version of the policy. |
 
 ### activate
 
@@ -126,6 +126,6 @@ function rescue(address token_) external onlyRole("reserve_migrator_admin");
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token_`|`address`|The address of the ERC20 token to rescue|
+| Name     | Type      | Description                              |
+| -------- | --------- | ---------------------------------------- |
+| `token_` | `address` | The address of the ERC20 token to rescue |

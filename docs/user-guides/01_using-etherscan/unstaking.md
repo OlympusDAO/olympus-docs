@@ -28,4 +28,3 @@ If you have unstaked sOHM before, there is only one step to perform: Unstake you
 5. On the _\_trigger \(bool\)_ field, fill in the value: **true**
 6. Click **Write**.
 7. Sign the transaction on Metamask and wait for it to complete.
-

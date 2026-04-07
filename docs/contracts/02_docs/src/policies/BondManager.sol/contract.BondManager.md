@@ -90,9 +90,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -104,9 +104,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`requests`|`Permissions[]`|- Array of keycodes and function selectors for requested permissions.|
+| Name       | Type            | Description                                                           |
+| ---------- | --------------- | --------------------------------------------------------------------- |
+| `requests` | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
 
 ### createFixedExpiryBondMarket
 
@@ -121,10 +121,10 @@ function createFixedExpiryBondMarket(uint256 capacity_, uint48 bondTerm_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`capacity_`|`uint256`|       The budget of OHM to payout through OHM bonds|
-|`bondTerm_`|`uint48`|       How long should the OHM be locked in the bond|
+| Name        | Type      | Description                                   |
+| ----------- | --------- | --------------------------------------------- |
+| `capacity_` | `uint256` | The budget of OHM to payout through OHM bonds |
+| `bondTerm_` | `uint48`  | How long should the OHM be locked in the bond |
 
 ### createBatchAuction
 
@@ -139,10 +139,10 @@ function createBatchAuction(uint96 capacity_, uint48 bondTerm_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`capacity_`|`uint96`|       The amount of OHM to use in the OHM bonds|
-|`bondTerm_`|`uint48`|       How long should the OHM be locked in the bond|
+| Name        | Type     | Description                                   |
+| ----------- | -------- | --------------------------------------------- |
+| `capacity_` | `uint96` | The amount of OHM to use in the OHM bonds     |
+| `bondTerm_` | `uint48` | How long should the OHM be locked in the bond |
 
 ### closeFixedExpiryBondMarket
 
@@ -154,9 +154,9 @@ function closeFixedExpiryBondMarket(uint256 marketId_) external onlyRole("bondma
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`marketId_`|`uint256`|       The ID of the Bond Protocol auction|
+| Name        | Type      | Description                         |
+| ----------- | --------- | ----------------------------------- |
+| `marketId_` | `uint256` | The ID of the Bond Protocol auction |
 
 ### settleBatchAuction
 
@@ -168,9 +168,9 @@ function settleBatchAuction(uint256 auctionId_) external onlyRole("bondmanager_a
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`auctionId_`|`uint256`|      The ID of the Gnosis auction|
+| Name         | Type      | Description                  |
+| ------------ | --------- | ---------------------------- |
+| `auctionId_` | `uint256` | The ID of the Gnosis auction |
 
 ### setFixedExpiryParameters
 
@@ -189,14 +189,14 @@ function setFixedExpiryParameters(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`initialPrice_`|`uint256`|       The initial ratio of OHM to OHM bonds that the bonds will sell for|
-|`minPrice_`|`uint256`|           The minim ratio of OHM to OHM bonds that the bonds will sell for|
-|`auctionTime_`|`uint48`|        How long should the auctioning of the bond tokens last (should be less than planned bond terms)|
-|`debtBuffer_`|`uint32`|         Variable used to calculate maximum capacity (should generally be set to 100_000)|
-|`depositInterval_`|`uint32`|    Desired frequency of purchases|
-|`capacityInQuote_`|`bool`||
+| Name               | Type      | Description                                                                                     |
+| ------------------ | --------- | ----------------------------------------------------------------------------------------------- |
+| `initialPrice_`    | `uint256` | The initial ratio of OHM to OHM bonds that the bonds will sell for                              |
+| `minPrice_`        | `uint256` | The minim ratio of OHM to OHM bonds that the bonds will sell for                                |
+| `auctionTime_`     | `uint48`  | How long should the auctioning of the bond tokens last (should be less than planned bond terms) |
+| `debtBuffer_`      | `uint32`  | Variable used to calculate maximum capacity (should generally be set to 100_000)                |
+| `depositInterval_` | `uint32`  | Desired frequency of purchases                                                                  |
+| `capacityInQuote_` | `bool`    |                                                                                                 |
 
 ### setBatchAuctionParameters
 
@@ -214,13 +214,13 @@ function setBatchAuctionParameters(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`auctionCancelTime_`|`uint48`|  How long should users have to cancel their bids (should be less than auctionTime_)|
-|`auctionTime_`|`uint48`|        How long should the auctioning of the bond tokens last (should be less than planned bond terms)|
-|`minPctSold_`|`uint96`|         What percent of capacity is the minimum acceptable level to sell (2 decimals, i.e. 50 = 50%)|
-|`minBuyAmount_`|`uint256`|       Minimum purchase size (in OHM) from a user|
-|`minFundingThreshold_`|`uint256`|Minimum funding threshold|
+| Name                   | Type      | Description                                                                                     |
+| ---------------------- | --------- | ----------------------------------------------------------------------------------------------- |
+| `auctionCancelTime_`   | `uint48`  | How long should users have to cancel their bids (should be less than auctionTime\_)             |
+| `auctionTime_`         | `uint48`  | How long should the auctioning of the bond tokens last (should be less than planned bond terms) |
+| `minPctSold_`          | `uint96`  | What percent of capacity is the minimum acceptable level to sell (2 decimals, i.e. 50 = 50%)    |
+| `minBuyAmount_`        | `uint256` | Minimum purchase size (in OHM) from a user                                                      |
+| `minFundingThreshold_` | `uint256` | Minimum funding threshold                                                                       |
 
 ### setCallback
 
@@ -232,9 +232,9 @@ function setCallback(IBondCallback newCallback_) external onlyRole("bondmanager_
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newCallback_`|`IBondCallback`|        The bond callback address to set|
+| Name           | Type            | Description                      |
+| -------------- | --------------- | -------------------------------- |
+| `newCallback_` | `IBondCallback` | The bond callback address to set |
 
 ### emergencyShutdownFixedExpiryMarket
 
@@ -246,9 +246,9 @@ function emergencyShutdownFixedExpiryMarket(uint256 marketId_) external onlyRole
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`marketId_`|`uint256`|           The ID of the Bond Protocol auction to shutdown|
+| Name        | Type      | Description                                     |
+| ----------- | --------- | ----------------------------------------------- |
+| `marketId_` | `uint256` | The ID of the Bond Protocol auction to shutdown |
 
 ### emergencySetApproval
 
@@ -262,10 +262,10 @@ function emergencySetApproval(address contract_, uint256 amount_) external onlyR
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`contract_`|`address`|           The contract to give spending permission to|
-|`amount_`|`uint256`|             The amount to increase the OHM spending permission by|
+| Name        | Type      | Description                                           |
+| ----------- | --------- | ----------------------------------------------------- |
+| `contract_` | `address` | The contract to give spending permission to           |
+| `amount_`   | `uint256` | The amount to increase the OHM spending permission by |
 
 ### emergencyWithdraw
 
@@ -277,9 +277,9 @@ function emergencyWithdraw(uint256 amount_) external onlyRole("bondmanager_admin
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|             The amount of OHM to send to the treasury|
+| Name      | Type      | Description                               |
+| --------- | --------- | ----------------------------------------- |
+| `amount_` | `uint256` | The amount of OHM to send to the treasury |
 
 ## Events
 

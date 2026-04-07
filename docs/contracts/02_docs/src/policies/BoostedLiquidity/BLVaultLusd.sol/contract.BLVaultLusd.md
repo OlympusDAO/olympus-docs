@@ -15,31 +15,31 @@ The last timestamp a deposit was made. Used for enforcing minimum deposit length
 uint256 public lastDeposit
 ```
 
-### _OHM_DECIMALS
+### \_OHM_DECIMALS
 
 ```solidity
 uint256 private constant _OHM_DECIMALS = 1e9
 ```
 
-### _LUSD_DECIMALS
+### \_LUSD_DECIMALS
 
 ```solidity
 uint256 private constant _LUSD_DECIMALS = 1e18
 ```
 
-### _reentrancyStatus
+### \_reentrancyStatus
 
 ```solidity
 uint256 private _reentrancyStatus
 ```
 
-### _ohmIndex
+### \_ohmIndex
 
 ```solidity
 uint8 private constant _ohmIndex = 1
 ```
 
-### _lusdIndex
+### \_lusdIndex
 
 ```solidity
 uint8 private constant _lusdIndex = 0
@@ -185,16 +185,16 @@ function deposit(uint256 amount_, uint256 minLpAmount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of pair tokens to deposit|
-|`minLpAmount_`|`uint256`|            The minimum acceptable amount of LP tokens to receive back|
+| Name           | Type      | Description                                                |
+| -------------- | --------- | ---------------------------------------------------------- |
+| `amount_`      | `uint256` | The amount of pair tokens to deposit                       |
+| `minLpAmount_` | `uint256` | The minimum acceptable amount of LP tokens to receive back |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`lpAmountOut`|`uint256`|            The amount of LP tokens received by the transaction|
+| Name          | Type      | Description                                         |
+| ------------- | --------- | --------------------------------------------------- |
+| `lpAmountOut` | `uint256` | The amount of LP tokens received by the transaction |
 
 ### withdraw
 
@@ -213,19 +213,19 @@ function withdraw(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`lpAmount_`|`uint256`|               The amount of LP tokens to withdraw from Balancer|
-|`minTokenAmountsBalancer_`|`uint256[]`|The minimum acceptable amounts of OHM (first entry), and pair tokens (second entry) to receive back from Balancer|
-|`minTokenAmountUser_`|`uint256`|     The minimum acceptable amount of pair tokens to receive back from the vault|
-|`claim_`|`bool`|                  Whether to claim outstanding rewards from Aura|
+| Name                       | Type        | Description                                                                                                       |
+| -------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------- |
+| `lpAmount_`                | `uint256`   | The amount of LP tokens to withdraw from Balancer                                                                 |
+| `minTokenAmountsBalancer_` | `uint256[]` | The minimum acceptable amounts of OHM (first entry), and pair tokens (second entry) to receive back from Balancer |
+| `minTokenAmountUser_`      | `uint256`   | The minimum acceptable amount of pair tokens to receive back from the vault                                       |
+| `claim_`                   | `bool`      | Whether to claim outstanding rewards from Aura                                                                    |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The amount of OHM received|
-|`<none>`|`uint256`||
+| Name     | Type      | Description                        |
+| -------- | --------- | ---------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM received |
+| `<none>` | `uint256` |                                    |
 
 ### emergencyWithdraw
 
@@ -245,17 +245,17 @@ function emergencyWithdraw(uint256 lpAmount_, uint256[] calldata minTokenAmounts
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`lpAmount_`|`uint256`|               The amount of LP tokens to withdraw from Balancer|
-|`minTokenAmounts_`|`uint256[]`|        The minimum acceptable amounts of OHM (first entry), and pair tokens (second entry) to receive back from Balancer|
+| Name               | Type        | Description                                                                                                       |
+| ------------------ | ----------- | ----------------------------------------------------------------------------------------------------------------- |
+| `lpAmount_`        | `uint256`   | The amount of LP tokens to withdraw from Balancer                                                                 |
+| `minTokenAmounts_` | `uint256[]` | The minimum acceptable amounts of OHM (first entry), and pair tokens (second entry) to receive back from Balancer |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The amount of OHM received|
-|`<none>`|`uint256`||
+| Name     | Type      | Description                        |
+| -------- | --------- | ---------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM received |
+| `<none>` | `uint256` |                                    |
 
 ### claimRewards
 
@@ -277,9 +277,9 @@ function canWithdraw() external view override returns (bool);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool                    Whether enough time has passed since the last deposit for the user to be ale to withdraw|
+| Name     | Type   | Description                                                                                   |
+| -------- | ------ | --------------------------------------------------------------------------------------------- |
+| `<none>` | `bool` | bool Whether enough time has passed since the last deposit for the user to be ale to withdraw |
 
 ### getLpBalance
 
@@ -291,9 +291,9 @@ function getLpBalance() public view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 LP balance deposited into Aura|
+| Name     | Type      | Description                            |
+| -------- | --------- | -------------------------------------- |
+| `<none>` | `uint256` | uint256 LP balance deposited into Aura |
 
 ### getUserPairShare
 
@@ -305,9 +305,9 @@ function getUserPairShare() public view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 Claim on pair tokens|
+| Name     | Type      | Description                  |
+| -------- | --------- | ---------------------------- |
+| `<none>` | `uint256` | uint256 Claim on pair tokens |
 
 ### getOutstandingRewards
 
@@ -319,23 +319,23 @@ function getOutstandingRewards() public view override returns (RewardsData[] mem
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`RewardsData[]`|RewardsData[]           The vault's unclaimed rewards in Aura|
+| Name     | Type            | Description                                         |
+| -------- | --------------- | --------------------------------------------------- |
+| `<none>` | `RewardsData[]` | RewardsData[] The vault's unclaimed rewards in Aura |
 
-### _joinBalancerPool
+### \_joinBalancerPool
 
 ```solidity
 function _joinBalancerPool(uint256 ohmAmount_, uint256 lusdAmount_, uint256 minLpAmount_) internal;
 ```
 
-### _exitBalancerPool
+### \_exitBalancerPool
 
 ```solidity
 function _exitBalancerPool(uint256 lpAmount_, uint256[] calldata minTokenAmounts_) internal;
 ```
 
-### _sendRewards
+### \_sendRewards
 
 ```solidity
 function _sendRewards() internal;

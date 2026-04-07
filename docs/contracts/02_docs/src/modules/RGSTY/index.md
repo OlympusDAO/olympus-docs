@@ -1,4 +1,3 @@
-
 # Rgsty
 
 - [OlympusContractRegistry](OlympusContractRegistry.sol/contract.OlympusContractRegistry.md)

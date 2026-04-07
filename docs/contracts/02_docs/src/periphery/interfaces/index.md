@@ -1,4 +1,3 @@
-
 # Interfaces
 
 - [ICCIPCrossChainBridge](ICCIPCrossChainBridge.sol/interface.ICCIPCrossChainBridge.md)

@@ -47,9 +47,9 @@ function addVault(address vault_) external virtual;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`vault_`|`address`|  The address of the vault to add|
+| Name     | Type      | Description                     |
+| -------- | --------- | ------------------------------- |
+| `vault_` | `address` | The address of the vault to add |
 
 ### removeVault
 
@@ -61,9 +61,9 @@ function removeVault(address vault_) external virtual;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`vault_`|`address`|  The address of the vault to remove|
+| Name     | Type      | Description                        |
+| -------- | --------- | ---------------------------------- |
+| `vault_` | `address` | The address of the vault to remove |
 
 ## Events
 

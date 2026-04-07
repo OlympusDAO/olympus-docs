@@ -93,18 +93,18 @@ function requestLoan(uint256 amount_, uint256 interest_, uint256 loanToCollatera
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|of debt tokens to borrow.|
-|`interest_`|`uint256`|to pay (annualized % of 'amount_'). Expressed in DECIMALS_INTEREST.|
-|`loanToCollateral_`|`uint256`|debt tokens per collateral token pledged. Expressed in 10**collateral().decimals().|
-|`duration_`|`uint256`|of loan tenure in seconds.|
+| Name                | Type      | Description                                                                           |
+| ------------------- | --------- | ------------------------------------------------------------------------------------- |
+| `amount_`           | `uint256` | of debt tokens to borrow.                                                             |
+| `interest_`         | `uint256` | to pay (annualized % of 'amount\_'). Expressed in DECIMALS_INTEREST.                  |
+| `loanToCollateral_` | `uint256` | debt tokens per collateral token pledged. Expressed in 10\*\*collateral().decimals(). |
+| `duration_`         | `uint256` | of loan tenure in seconds.                                                            |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`reqID`|`uint256`|of the created request. Equivalent to the index of request in requests[].|
+| Name    | Type      | Description                                                               |
+| ------- | --------- | ------------------------------------------------------------------------- |
+| `reqID` | `uint256` | of the created request. Equivalent to the index of request in requests[]. |
 
 ### rescindRequest
 
@@ -116,9 +116,9 @@ function rescindRequest(uint256 reqID_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`reqID_`|`uint256`|index of request in requests[].|
+| Name     | Type      | Description                     |
+| -------- | --------- | ------------------------------- |
+| `reqID_` | `uint256` | index of request in requests[]. |
 
 ### repayLoan
 
@@ -134,16 +134,16 @@ function repayLoan(uint256 loanID_, uint256 repayment_) external returns (uint25
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`loanID_`|`uint256`|index of loan in loans[].|
-|`repayment_`|`uint256`|debt tokens to be repaid.|
+| Name         | Type      | Description               |
+| ------------ | --------- | ------------------------- |
+| `loanID_`    | `uint256` | index of loan in loans[]. |
+| `repayment_` | `uint256` | debt tokens to be repaid. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|collateral given back to the borrower.|
+| Name     | Type      | Description                            |
+| -------- | --------- | -------------------------------------- |
+| `<none>` | `uint256` | collateral given back to the borrower. |
 
 ### delegateVoting
 
@@ -155,9 +155,9 @@ function delegateVoting(address to_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`to_`|`address`|address to delegate.|
+| Name  | Type      | Description          |
+| ----- | --------- | -------------------- |
+| `to_` | `address` | address to delegate. |
 
 ### clearRequest
 
@@ -169,17 +169,17 @@ function clearRequest(uint256 reqID_, address recipient_, bool isCallback_) exte
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`reqID_`|`uint256`|index of request in requests[].|
-|`recipient_`|`address`|address to repay the loan to.|
-|`isCallback_`|`bool`|true if the lender implements the CoolerCallback abstract. False otherwise.|
+| Name          | Type      | Description                                                                 |
+| ------------- | --------- | --------------------------------------------------------------------------- |
+| `reqID_`      | `uint256` | index of request in requests[].                                             |
+| `recipient_`  | `address` | address to repay the loan to.                                               |
+| `isCallback_` | `bool`    | true if the lender implements the CoolerCallback abstract. False otherwise. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`loanID`|`uint256`|of the granted loan. Equivalent to the index of loan in loans[].|
+| Name     | Type      | Description                                                      |
+| -------- | --------- | ---------------------------------------------------------------- |
+| `loanID` | `uint256` | of the granted loan. Equivalent to the index of loan in loans[]. |
 
 ### extendLoanTerms
 
@@ -195,10 +195,10 @@ function extendLoanTerms(uint256 loanID_, uint8 times_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`loanID_`|`uint256`|index of loan in loans[].|
-|`times_`|`uint8`|that the fixed-term loan duration is extended.|
+| Name      | Type      | Description                                    |
+| --------- | --------- | ---------------------------------------------- |
+| `loanID_` | `uint256` | index of loan in loans[].                      |
+| `times_`  | `uint8`   | that the fixed-term loan duration is extended. |
 
 ### claimDefaulted
 
@@ -210,18 +210,18 @@ function claimDefaulted(uint256 loanID_) external returns (uint256, uint256, uin
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`loanID_`|`uint256`|index of loan in loans[].|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `loanID_` | `uint256` | index of loan in loans[]. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|defaulted debt by the borrower, collateral kept by the lender, elapsed time since expiry.|
-|`<none>`|`uint256`||
-|`<none>`|`uint256`||
-|`<none>`|`uint256`||
+| Name     | Type      | Description                                                                               |
+| -------- | --------- | ----------------------------------------------------------------------------------------- |
+| `<none>` | `uint256` | defaulted debt by the borrower, collateral kept by the lender, elapsed time since expiry. |
+| `<none>` | `uint256` |                                                                                           |
+| `<none>` | `uint256` |                                                                                           |
+| `<none>` | `uint256` |                                                                                           |
 
 ### approveTransfer
 
@@ -233,10 +233,10 @@ function approveTransfer(address to_, uint256 loanID_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`to_`|`address`|address to be approved.|
-|`loanID_`|`uint256`|index of loan in loans[].|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `to_`     | `address` | address to be approved.   |
+| `loanID_` | `uint256` | index of loan in loans[]. |
 
 ### transferOwnership
 
@@ -248,9 +248,9 @@ function transferOwnership(uint256 loanID_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`loanID_`|`uint256`|index of loan in loans[].|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `loanID_` | `uint256` | index of loan in loans[]. |
 
 ### setRepaymentAddress
 
@@ -262,10 +262,10 @@ function setRepaymentAddress(uint256 loanID_, address recipient_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`loanID_`|`uint256`|of lender's loan.|
-|`recipient_`|`address`|reciever of repayments|
+| Name         | Type      | Description            |
+| ------------ | --------- | ---------------------- |
+| `loanID_`    | `uint256` | of lender's loan.      |
+| `recipient_` | `address` | reciever of repayments |
 
 ### collateralFor
 
@@ -277,10 +277,10 @@ function collateralFor(uint256 principal_, uint256 loanToCollateral_) public vie
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`principal_`|`uint256`|amount of debt tokens.|
-|`loanToCollateral_`|`uint256`|ratio for loan. Expressed in 10**collateral().decimals().|
+| Name                | Type      | Description                                                 |
+| ------------------- | --------- | ----------------------------------------------------------- |
+| `principal_`        | `uint256` | amount of debt tokens.                                      |
+| `loanToCollateral_` | `uint256` | ratio for loan. Expressed in 10\*\*collateral().decimals(). |
 
 ### interestFor
 
@@ -292,17 +292,17 @@ function interestFor(uint256 principal_, uint256 rate_, uint256 duration_) publi
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`principal_`|`uint256`|amount of debt tokens.|
-|`rate_`|`uint256`|of interest (annualized).|
-|`duration_`|`uint256`|of the loan in seconds.|
+| Name         | Type      | Description               |
+| ------------ | --------- | ------------------------- |
+| `principal_` | `uint256` | amount of debt tokens.    |
+| `rate_`      | `uint256` | of interest (annualized). |
+| `duration_`  | `uint256` | of the loan in seconds.   |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|Interest in debt token terms.|
+| Name     | Type      | Description                   |
+| -------- | --------- | ----------------------------- |
+| `<none>` | `uint256` | Interest in debt token terms. |
 
 ### hasExpired
 
@@ -314,15 +314,15 @@ function hasExpired(uint256 loanID_) external view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`loanID_`|`uint256`|index of loan in loans[].|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `loanID_` | `uint256` | index of loan in loans[]. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|Expiration status.|
+| Name     | Type   | Description        |
+| -------- | ------ | ------------------ |
+| `<none>` | `bool` | Expiration status. |
 
 ### isActive
 
@@ -334,15 +334,15 @@ function isActive(uint256 reqID_) external view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`reqID_`|`uint256`|index of request in requests[].|
+| Name     | Type      | Description                     |
+| -------- | --------- | ------------------------------- |
+| `reqID_` | `uint256` | index of request in requests[]. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|Active status.|
+| Name     | Type   | Description    |
+| -------- | ------ | -------------- |
+| `<none>` | `bool` | Active status. |
 
 ### getRequest
 
@@ -354,15 +354,15 @@ function getRequest(uint256 reqID_) external view returns (Request memory);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`reqID_`|`uint256`|index of request in requests[].|
+| Name     | Type      | Description                     |
+| -------- | --------- | ------------------------------- |
+| `reqID_` | `uint256` | index of request in requests[]. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`Request`|Request struct.|
+| Name     | Type      | Description     |
+| -------- | --------- | --------------- |
+| `<none>` | `Request` | Request struct. |
 
 ### getLoan
 
@@ -374,15 +374,15 @@ function getLoan(uint256 loanID_) external view returns (Loan memory);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`loanID_`|`uint256`|index of loan in loans[].|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `loanID_` | `uint256` | index of loan in loans[]. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`Loan`|Loan struct.|
+| Name     | Type   | Description  |
+| -------- | ------ | ------------ |
+| `<none>` | `Loan` | Loan struct. |
 
 ## Errors
 

@@ -14,7 +14,7 @@ A contract that inherits from this contract should use the `onlyEnabled` and `on
 Inheriting contracts must do the following:
 
 - In `configureDependencies()`, assign the module address to the `ROLES` state variable, e.g. `ROLES = ROLESv1(getModuleAddress(toKeycode("ROLES")));`
-The following are optional:
+  The following are optional:
 - Override the `_enable()` and `_disable()` functions if custom logic and/or parameters are needed for the enable/disable functions.
 - For example, `enable()` could be called with initialisation data that is decoded, validated and assigned in `_enable()`.
 
@@ -30,7 +30,7 @@ bool public isEnabled
 
 ## Functions
 
-### _onlyEnabled
+### \_onlyEnabled
 
 ```solidity
 function _onlyEnabled() internal view;
@@ -44,7 +44,7 @@ Modifier that reverts if the policy is not enabled
 modifier onlyEnabled() ;
 ```
 
-### _onlyDisabled
+### \_onlyDisabled
 
 ```solidity
 function _onlyDisabled() internal view;
@@ -76,11 +76,11 @@ function enable(bytes calldata enableData_) public onlyAdminRole onlyDisabled;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`enableData_`|`bytes`|The data to pass to the implementation-specific `_enable()` function|
+| Name          | Type    | Description                                                          |
+| ------------- | ------- | -------------------------------------------------------------------- |
+| `enableData_` | `bytes` | The data to pass to the implementation-specific `_enable()` function |
 
-### _enable
+### \_enable
 
 Implementation-specific enable function
 
@@ -97,9 +97,9 @@ function _enable(bytes calldata enableData_) internal virtual;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`enableData_`|`bytes`|Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation.|
+| Name          | Type    | Description                                                                                                                  |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `enableData_` | `bytes` | Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation. |
 
 ### disable
 
@@ -119,11 +119,11 @@ function disable(bytes calldata disableData_) public onlyEmergencyOrAdminRole on
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`disableData_`|`bytes`|The data to pass to the implementation-specific `_disable()` function|
+| Name           | Type    | Description                                                           |
+| -------------- | ------- | --------------------------------------------------------------------- |
+| `disableData_` | `bytes` | The data to pass to the implementation-specific `_disable()` function |
 
-### _disable
+### \_disable
 
 Implementation-specific disable function
 
@@ -140,9 +140,9 @@ function _disable(bytes calldata disableData_) internal virtual;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`disableData_`|`bytes`|Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation.|
+| Name           | Type    | Description                                                                                                                  |
+| -------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `disableData_` | `bytes` | Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation. |
 
 ### supportsInterface
 

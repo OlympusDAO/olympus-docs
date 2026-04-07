@@ -33,10 +33,10 @@ function VERSION() external pure override returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|- Major version upgrade indicates breaking change to the interface.|
-|`minor`|`uint8`|- Minor version change retains backward-compatible interface.|
+| Name    | Type    | Description                                                         |
+| ------- | ------- | ------------------------------------------------------------------- |
+| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
 
 ### saveRole
 

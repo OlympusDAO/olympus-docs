@@ -1,4 +1,3 @@
-
 # Policies
 
 - [BoostedLiquidity](/main/contracts/docs/src/policies/BoostedLiquidity)

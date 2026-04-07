@@ -66,9 +66,9 @@ function setOperator(address operator_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`operator_`|`address`|The address of the new Operator contract|
+| Name        | Type      | Description                              |
+| ----------- | --------- | ---------------------------------------- |
+| `operator_` | `address` | The address of the new Operator contract |
 
 ### setDistributor
 
@@ -82,9 +82,9 @@ function setDistributor(address distributor_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`distributor_`|`address`|The address of the new Distributor contract|
+| Name           | Type      | Description                                 |
+| -------------- | --------- | ------------------------------------------- |
+| `distributor_` | `address` | The address of the new Distributor contract |
 
 ### setYieldRepo
 
@@ -98,9 +98,9 @@ function setYieldRepo(address yieldRepo_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`yieldRepo_`|`address`|The address of the new YieldRepo contract|
+| Name         | Type      | Description                               |
+| ------------ | --------- | ----------------------------------------- |
+| `yieldRepo_` | `address` | The address of the new YieldRepo contract |
 
 ### setReserveMigrator
 
@@ -114,9 +114,9 @@ function setReserveMigrator(address reserveMigrator_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`reserveMigrator_`|`address`|The address of the new ReserveMigrator contract|
+| Name               | Type      | Description                                     |
+| ------------------ | --------- | ----------------------------------------------- |
+| `reserveMigrator_` | `address` | The address of the new ReserveMigrator contract |
 
 ### setEmissionManager
 
@@ -130,9 +130,9 @@ function setEmissionManager(address emissionManager_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`emissionManager_`|`address`|The address of the new EmissionManager contract|
+| Name               | Type      | Description                                     |
+| ------------------ | --------- | ----------------------------------------------- |
+| `emissionManager_` | `address` | The address of the new EmissionManager contract |
 
 ### setRewardAuctionParams
 
@@ -146,10 +146,10 @@ function setRewardAuctionParams(uint256 maxReward_, uint48 auctionDuration_) ext
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`maxReward_`|`uint256`|- New max reward amount, in units of the reward token|
-|`auctionDuration_`|`uint48`|- New auction duration, in seconds|
+| Name               | Type      | Description                                           |
+| ------------------ | --------- | ----------------------------------------------------- |
+| `maxReward_`       | `uint256` | - New max reward amount, in units of the reward token |
+| `auctionDuration_` | `uint48`  | - New auction duration, in seconds                    |
 
 ### frequency
 

@@ -1,4 +1,3 @@
-
 # Boostedliquidity
 
 - [interfaces](/main/contracts/docs/src/policies/BoostedLiquidity/interfaces)

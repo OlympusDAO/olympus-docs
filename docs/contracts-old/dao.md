@@ -9,7 +9,7 @@ holds funds from strategic investments like pKLIMA acquired during a strategic
 partnership with KlimaDAO. Below are listed DAO addresses by version, where the
 latest version represents the currently active address.
 
-* V1 [0x245c...988B](https://etherscan.io/address/0x245cc372C84B3645Bf0Ffe6538620B04a217988B)
+- V1 [0x245c...988B](https://etherscan.io/address/0x245cc372C84B3645Bf0Ffe6538620B04a217988B)
 
 The DAO contract is guarded by a 4 of 8 multisig. That means any transaction for
 making DAO changes must be approved by at least 4 signers, of which we have 8

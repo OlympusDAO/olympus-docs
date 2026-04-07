@@ -38,9 +38,9 @@ function retrieveBounty() external returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 The amount of OHM minted as a bounty.|
+| Name     | Type      | Description                                   |
+| -------- | --------- | --------------------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM minted as a bounty. |
 
 ### staking
 
@@ -52,9 +52,9 @@ function staking() external view returns (IStaking);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`IStaking`|address The staking contract address.|
+| Name     | Type       | Description                           |
+| -------- | ---------- | ------------------------------------- |
+| `<none>` | `IStaking` | address The staking contract address. |
 
 ## Errors
 

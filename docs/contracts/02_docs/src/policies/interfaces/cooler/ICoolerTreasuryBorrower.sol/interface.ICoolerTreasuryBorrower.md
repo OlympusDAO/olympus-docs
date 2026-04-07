@@ -9,10 +9,10 @@ Policy which can borrow from Treasury on behalf of Cooler
 
 - Cooler will always represent the debt amount in 18 decimal places.
 - This logic is split out into a separate policy (rather than using `TreasuryCustodian`):
-1/ So the Cooler debt token can be updated if required in future to another stablecoin without a redeploy of Cooler.
-2/ In this case, debt is denominated in USDS but stored 'at rest' in Treasury into sUSDS for extra yield.
+  1/ So the Cooler debt token can be updated if required in future to another stablecoin without a redeploy of Cooler.
+  2/ In this case, debt is denominated in USDS but stored 'at rest' in Treasury into sUSDS for extra yield.
 - Upon an upgreade, if the actual debt token is changed (with a new deployment of this contract) to a non 18dp asset
-eg USDC, then borrow() and repay() will need to do the conversion.
+  eg USDC, then borrow() and repay() will need to do the conversion.
 
 ## Functions
 
@@ -28,10 +28,10 @@ function borrow(uint256 amountInWad, address recipient) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amountInWad`|`uint256`|The amount to borrow. Always 18 decimal places regardless of the `debtToken.decimals()`|
-|`recipient`|`address`||
+| Name          | Type      | Description                                                                             |
+| ------------- | --------- | --------------------------------------------------------------------------------------- |
+| `amountInWad` | `uint256` | The amount to borrow. Always 18 decimal places regardless of the `debtToken.decimals()` |
+| `recipient`   | `address` |                                                                                         |
 
 ### repay
 
@@ -65,9 +65,9 @@ function setDebt(uint256 debtTokenAmount) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`debtTokenAmount`|`uint256`|The amount of debt to set in Treasury, in the debtToken.decimals() precision|
+| Name              | Type      | Description                                                                  |
+| ----------------- | --------- | ---------------------------------------------------------------------------- |
+| `debtTokenAmount` | `uint256` | The amount of debt to set in Treasury, in the debtToken.decimals() precision |
 
 ### debtToken
 

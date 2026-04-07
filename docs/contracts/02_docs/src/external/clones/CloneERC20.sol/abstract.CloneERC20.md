@@ -82,13 +82,13 @@ function transfer(address to, uint256 amount) public virtual returns (bool);
 function transferFrom(address from, address to, uint256 amount) public virtual returns (bool);
 ```
 
-### _mint
+### \_mint
 
 ```solidity
 function _mint(address to, uint256 amount) internal virtual;
 ```
 
-### _burn
+### \_burn
 
 ```solidity
 function _burn(address from, uint256 amount) internal virtual;

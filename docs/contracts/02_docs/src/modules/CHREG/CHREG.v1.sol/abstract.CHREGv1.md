@@ -62,9 +62,9 @@ function activateClearinghouse(address clearinghouse_) external virtual;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouse_`|`address`|The address of the clearinghouse.|
+| Name             | Type      | Description                       |
+| ---------------- | --------- | --------------------------------- |
+| `clearinghouse_` | `address` | The address of the clearinghouse. |
 
 ### deactivateClearinghouse
 
@@ -77,9 +77,9 @@ function deactivateClearinghouse(address clearinghouse_) external virtual;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouse_`|`address`|The address of the clearinghouse.|
+| Name             | Type      | Description                       |
+| ---------------- | --------- | --------------------------------- |
+| `clearinghouse_` | `address` | The address of the clearinghouse. |
 
 ## Events
 

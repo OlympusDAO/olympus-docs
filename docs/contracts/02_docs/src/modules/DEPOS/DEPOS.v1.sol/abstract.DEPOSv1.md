@@ -29,7 +29,7 @@ The value used for the conversion expiry if conversion is not supported
 uint48 public constant NON_CONVERSION_EXPIRY = type(uint48).max
 ```
 
-### _positionCount
+### \_positionCount
 
 The number of positions created
 
@@ -37,7 +37,7 @@ The number of positions created
 uint256 internal _positionCount
 ```
 
-### _positions
+### \_positions
 
 Mapping of position records to an ID
 
@@ -48,7 +48,7 @@ Mapping entries should not be deleted, but can be overwritten
 mapping(uint256 => Position) internal _positions
 ```
 
-### _userPositions
+### \_userPositions
 
 Mapping of user addresses to their position IDs
 

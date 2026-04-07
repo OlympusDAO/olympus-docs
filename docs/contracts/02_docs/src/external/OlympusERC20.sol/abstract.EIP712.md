@@ -6,9 +6,9 @@
 The encoding specified in the EIP is very generic, and such a generic implementation in Solidity is not feasible,
 thus this contract does not implement the encoding itself. Protocols need to implement the type-specific encoding
 they need in their contracts using a combination of `abi.encode` and `keccak256`.
-This contract implements the EIP 712 domain separator ([_domainSeparatorV4](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.EIP712#_domainseparatorv4)) that is used as part of the encoding
+This contract implements the EIP 712 domain separator ([\_domainSeparatorV4](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.EIP712#_domainseparatorv4)) that is used as part of the encoding
 scheme, and the final step of the encoding to obtain the message digest that is then signed via ECDSA
-([_hashTypedDataV4](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.EIP712#_hashtypeddatav4)).
+([\_hashTypedDataV4](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.EIP712#_hashtypeddatav4)).
 The implementation of the domain separator was designed to be as efficient as possible while still properly updating
 the chain id to protect against replay attacks on an eventual fork of the chain.
 NOTE: This contract implements the version of the encoding known as "v4", as implemented by the JSON RPC method
@@ -17,31 +17,31 @@ _Available since v3.4._
 
 ## State Variables
 
-### _CACHED_DOMAIN_SEPARATOR
+### \_CACHED_DOMAIN_SEPARATOR
 
 ```solidity
 bytes32 private immutable _CACHED_DOMAIN_SEPARATOR
 ```
 
-### _CACHED_CHAIN_ID
+### \_CACHED_CHAIN_ID
 
 ```solidity
 uint256 private immutable _CACHED_CHAIN_ID
 ```
 
-### _HASHED_NAME
+### \_HASHED_NAME
 
 ```solidity
 bytes32 private immutable _HASHED_NAME
 ```
 
-### _HASHED_VERSION
+### \_HASHED_VERSION
 
 ```solidity
 bytes32 private immutable _HASHED_VERSION
 ```
 
-### _TYPE_HASH
+### \_TYPE_HASH
 
 ```solidity
 bytes32 private immutable _TYPE_HASH
@@ -57,14 +57,14 @@ The meaning of `name` and `version` is specified in
 
 - `name`: the user readable name of the signing domain, i.e. the name of the DApp or the protocol.
 - `version`: the current major version of the signing domain.
-NOTE: These parameters cannot be changed except through a xref:learn::upgrading-smart-contracts.adoc[smart
-contract upgrade].
+  NOTE: These parameters cannot be changed except through a xref:learn::upgrading-smart-contracts.adoc[smart
+  contract upgrade].
 
 ```solidity
 constructor(string memory name, string memory version) ;
 ```
 
-### _domainSeparatorV4
+### \_domainSeparatorV4
 
 Returns the domain separator for the current chain.
 
@@ -72,7 +72,7 @@ Returns the domain separator for the current chain.
 function _domainSeparatorV4() internal view returns (bytes32);
 ```
 
-### _buildDomainSeparator
+### \_buildDomainSeparator
 
 ```solidity
 function _buildDomainSeparator(bytes32 typeHash, bytes32 nameHash, bytes32 versionHash)
@@ -81,7 +81,7 @@ function _buildDomainSeparator(bytes32 typeHash, bytes32 nameHash, bytes32 versi
     returns (bytes32);
 ```
 
-### _hashTypedDataV4
+### \_hashTypedDataV4
 
 Given an already <https://eips.ethereum.org/EIPS/eip-712#definition-of-hashstruct[hashed> struct], this
 function returns the hash of the fully encoded EIP712 message for this domain.

@@ -42,9 +42,9 @@ function setDistributor(address distributor_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`distributor_`|`address`|The address of the new Distributor contract|
+| Name           | Type      | Description                                 |
+| -------------- | --------- | ------------------------------------------- |
+| `distributor_` | `address` | The address of the new Distributor contract |
 
 ### setRewardAuctionParams
 
@@ -58,10 +58,10 @@ function setRewardAuctionParams(uint256 maxReward_, uint48 auctionDuration_) ext
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`maxReward_`|`uint256`|- New max reward amount, in units of the reward token|
-|`auctionDuration_`|`uint48`|- New auction duration, in seconds|
+| Name               | Type      | Description                                           |
+| ------------------ | --------- | ----------------------------------------------------- |
+| `maxReward_`       | `uint256` | - New max reward amount, in units of the reward token |
+| `auctionDuration_` | `uint48`  | - New auction duration, in seconds                    |
 
 ### frequency
 

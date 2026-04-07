@@ -23,7 +23,7 @@ ERC4626 public immutable sReserve
 ERC20 public immutable reserve
 ```
 
-### _reserveDecimals
+### \_reserveDecimals
 
 ```solidity
 uint8 internal immutable _reserveDecimals
@@ -35,13 +35,13 @@ uint8 internal immutable _reserveDecimals
 ERC20 public immutable ohm
 ```
 
-### _ohmDecimals
+### \_ohmDecimals
 
 ```solidity
 uint8 internal immutable _ohmDecimals
 ```
 
-### _oracleDecimals
+### \_oracleDecimals
 
 ```solidity
 uint8 internal _oracleDecimals
@@ -157,10 +157,10 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|The major version of the policy.|
-|`minor`|`uint8`|The minor version of the policy.|
+| Name    | Type    | Description                      |
+| ------- | ------- | -------------------------------- |
+| `major` | `uint8` | The major version of the policy. |
+| `minor` | `uint8` | The minor version of the policy. |
 
 ### endEpoch
 
@@ -180,9 +180,9 @@ function adjustNextYield(uint256 newNextYield) external onlyRole("loop_daddy");
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newNextYield`|`uint256`|to fund|
+| Name           | Type      | Description |
+| -------------- | --------- | ----------- |
+| `newNextYield` | `uint256` | to fund     |
 
 ### shutdown
 
@@ -194,11 +194,11 @@ function shutdown(ERC20[] memory tokensToTransfer) external onlyRole("loop_daddy
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokensToTransfer`|`ERC20[]`|list of tokens to transfer back to treasury (i.e. reserves)|
+| Name               | Type      | Description                                                 |
+| ------------------ | --------- | ----------------------------------------------------------- |
+| `tokensToTransfer` | `ERC20[]` | list of tokens to transfer back to treasury (i.e. reserves) |
 
-### _createMarket
+### \_createMarket
 
 create bond protocol market with given budget
 
@@ -208,11 +208,11 @@ function _createMarket(uint256 bidAmount) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`bidAmount`|`uint256`|amount of reserve to fund bond market with|
+| Name        | Type      | Description                                |
+| ----------- | --------- | ------------------------------------------ |
+| `bidAmount` | `uint256` | amount of reserve to fund bond market with |
 
-### _getBackingForPurchased
+### \_getBackingForPurchased
 
 internal function to burn ohm and retrieve backing
 
@@ -220,7 +220,7 @@ internal function to burn ohm and retrieve backing
 function _getBackingForPurchased() internal;
 ```
 
-### _withdraw
+### \_withdraw
 
 internal function to withdraw sReserve from treasury
 
@@ -232,11 +232,11 @@ function _withdraw(uint256 amount) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount`|`uint256`|an amount to withdraw, in reserve|
+| Name     | Type      | Description                       |
+| -------- | --------- | --------------------------------- |
+| `amount` | `uint256` | an amount to withdraw, in reserve |
 
-### _getPriceDecimals
+### \_getPriceDecimals
 
 Helper function to calculate number of price decimals based on the value returned from the price feed.
 
@@ -246,15 +246,15 @@ function _getPriceDecimals(uint256 price_) internal view returns (int8);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`price_`|`uint256`|  The price to calculate the number of decimals for|
+| Name     | Type      | Description                                       |
+| -------- | --------- | ------------------------------------------------- |
+| `price_` | `uint256` | The price to calculate the number of decimals for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`int8`|The number of decimals|
+| Name     | Type   | Description            |
+| -------- | ------ | ---------------------- |
+| `<none>` | `int8` | The number of decimals |
 
 ### getReserveBalance
 

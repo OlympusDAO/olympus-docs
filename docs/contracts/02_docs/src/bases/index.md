@@ -1,4 +1,3 @@
-
 # Bases
 
 - [interfaces](/main/contracts/docs/src/bases/interfaces)

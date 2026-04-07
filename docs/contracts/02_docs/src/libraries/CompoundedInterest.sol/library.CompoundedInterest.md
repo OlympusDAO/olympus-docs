@@ -26,8 +26,8 @@ function continuouslyCompounded(uint256 principal, uint256 elapsedSecs, uint96 i
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`principal`|`uint256`|The principal amount, in 18 decimal places|
-|`elapsedSecs`|`uint256`|The elapsed seconds|
-|`interestRatePerYear`|`uint96`|The interest rate per year, in 18 decimal places|
+| Name                  | Type      | Description                                      |
+| --------------------- | --------- | ------------------------------------------------ |
+| `principal`           | `uint256` | The principal amount, in 18 decimal places       |
+| `elapsedSecs`         | `uint256` | The elapsed seconds                              |
+| `interestRatePerYear` | `uint96`  | The interest rate per year, in 18 decimal places |

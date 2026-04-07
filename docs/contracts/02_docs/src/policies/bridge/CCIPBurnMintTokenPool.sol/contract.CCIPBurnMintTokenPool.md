@@ -23,7 +23,7 @@ Bophades module for minting and burning OHM
 MINTRv1 public MINTR
 ```
 
-### _typeAndVersion
+### \_typeAndVersion
 
 Unique identifier for the TokenPool
 
@@ -53,9 +53,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -67,9 +67,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### VERSION
 
@@ -81,12 +81,12 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|The major version of the policy|
-|`minor`|`uint8`|The minor version of the policy|
+| Name    | Type    | Description                     |
+| ------- | ------- | ------------------------------- |
+| `major` | `uint8` | The major version of the policy |
+| `minor` | `uint8` | The minor version of the policy |
 
-### _burn
+### \_burn
 
 Burns the specified amount of OHM
 
@@ -96,7 +96,7 @@ Implementation of the `_burn` function from the `BurnMintTokenPoolAbstract` cont
 function _burn(uint256 amount_) internal override onlyEnabled;
 ```
 
-### _mint
+### \_mint
 
 Mints the specified amount of OHM
 

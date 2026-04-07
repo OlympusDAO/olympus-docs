@@ -24,9 +24,9 @@ function deployVault() external returns (address);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|vault                   The address of the deployed vault|
+| Name     | Type      | Description                             |
+| -------- | --------- | --------------------------------------- |
+| `<none>` | `address` | vault The address of the deployed vault |
 
 ### mintOhmToVault
 
@@ -40,9 +40,9 @@ function mintOhmToVault(uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of OHM to mint|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `amount_` | `uint256` | The amount of OHM to mint |
 
 ### burnOhmFromVault
 
@@ -56,9 +56,9 @@ function burnOhmFromVault(uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of OHM to burn|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `amount_` | `uint256` | The amount of OHM to burn |
 
 ### increaseTotalLp
 
@@ -72,9 +72,9 @@ function increaseTotalLp(uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of LP tokens to add to the total|
+| Name      | Type      | Description                                 |
+| --------- | --------- | ------------------------------------------- |
+| `amount_` | `uint256` | The amount of LP tokens to add to the total |
 
 ### decreaseTotalLp
 
@@ -88,9 +88,9 @@ function decreaseTotalLp(uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of LP tokens to remove from the total|
+| Name      | Type      | Description                                      |
+| --------- | --------- | ------------------------------------------------ |
+| `amount_` | `uint256` | The amount of LP tokens to remove from the total |
 
 ### canWithdraw
 
@@ -102,15 +102,15 @@ function canWithdraw(address user_) external view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|                   The user to check the vault of|
+| Name    | Type      | Description                    |
+| ------- | --------- | ------------------------------ |
+| `user_` | `address` | The user to check the vault of |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool                    Whether enough time has passed since the last deposit for the user to be ale to withdraw|
+| Name     | Type   | Description                                                                                   |
+| -------- | ------ | --------------------------------------------------------------------------------------------- |
+| `<none>` | `bool` | bool Whether enough time has passed since the last deposit for the user to be ale to withdraw |
 
 ### getLpBalance
 
@@ -122,15 +122,15 @@ function getLpBalance(address user_) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|                   The user to check the vault of|
+| Name    | Type      | Description                    |
+| ------- | --------- | ------------------------------ |
+| `user_` | `address` | The user to check the vault of |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The user's vault's LP balance|
+| Name     | Type      | Description                           |
+| -------- | --------- | ------------------------------------- |
+| `<none>` | `uint256` | uint256 The user's vault's LP balance |
 
 ### getUserPairShare
 
@@ -142,15 +142,15 @@ function getUserPairShare(address user_) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|                   The user to check the vault of|
+| Name    | Type      | Description                    |
+| ------- | --------- | ------------------------------ |
+| `user_` | `address` | The user to check the vault of |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The user's vault's claim on the pair token|
+| Name     | Type      | Description                                        |
+| -------- | --------- | -------------------------------------------------- |
+| `<none>` | `uint256` | uint256 The user's vault's claim on the pair token |
 
 ### getOutstandingRewards
 
@@ -162,15 +162,15 @@ function getOutstandingRewards(address user_) external view returns (RewardsData
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|                   The user to check the vault of|
+| Name    | Type      | Description                    |
+| ------- | --------- | ------------------------------ |
+| `user_` | `address` | The user to check the vault of |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`RewardsData[]`|RewardsData[]           The user's vault's unclaimed rewards in Aura|
+| Name     | Type            | Description                                                |
+| -------- | --------------- | ---------------------------------------------------------- |
+| `<none>` | `RewardsData[]` | RewardsData[] The user's vault's unclaimed rewards in Aura |
 
 ### getMaxDeposit
 
@@ -182,9 +182,9 @@ function getMaxDeposit() external view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The max pair token deposit|
+| Name     | Type      | Description                        |
+| -------- | --------- | ---------------------------------- |
+| `<none>` | `uint256` | uint256 The max pair token deposit |
 
 ### getExpectedLpAmount
 
@@ -196,15 +196,15 @@ function getExpectedLpAmount(uint256 amount_) external returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of pair tokens to calculate the LP tokens for|
+| Name      | Type      | Description                                              |
+| --------- | --------- | -------------------------------------------------------- |
+| `amount_` | `uint256` | The amount of pair tokens to calculate the LP tokens for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The amount of LP tokens that will be generated|
+| Name     | Type      | Description                                            |
+| -------- | --------- | ------------------------------------------------------ |
+| `<none>` | `uint256` | uint256 The amount of LP tokens that will be generated |
 
 ### getExpectedTokensOutProtocol
 
@@ -216,15 +216,15 @@ function getExpectedTokensOutProtocol(uint256 lpAmount_) external returns (uint2
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`lpAmount_`|`uint256`|               The amount of LP tokens to calculate the OHM and pair tokens for|
+| Name        | Type      | Description                                                      |
+| ----------- | --------- | ---------------------------------------------------------------- |
+| `lpAmount_` | `uint256` | The amount of LP tokens to calculate the OHM and pair tokens for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`expectedTokenAmounts`|`uint256[]`|   The amount of OHM and pair tokens that should be received|
+| Name                   | Type        | Description                                               |
+| ---------------------- | ----------- | --------------------------------------------------------- |
+| `expectedTokenAmounts` | `uint256[]` | The amount of OHM and pair tokens that should be received |
 
 ### getExpectedPairTokenOutUser
 
@@ -236,15 +236,15 @@ function getExpectedPairTokenOutUser(uint256 lpAmount_) external returns (uint25
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`lpAmount_`|`uint256`|               The amount of LP tokens to calculate the pair tokens for|
+| Name        | Type      | Description                                              |
+| ----------- | --------- | -------------------------------------------------------- |
+| `lpAmount_` | `uint256` | The amount of LP tokens to calculate the pair tokens for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`expectedTknAmount`|`uint256`|      The amount of pair tokens that should be received|
+| Name                | Type      | Description                                       |
+| ------------------- | --------- | ------------------------------------------------- |
+| `expectedTknAmount` | `uint256` | The amount of pair tokens that should be received |
 
 ### getRewardTokens
 
@@ -256,9 +256,9 @@ function getRewardTokens() external view returns (address[] memory);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address[]`|address[]               The addresses of the reward tokens|
+| Name     | Type        | Description                                  |
+| -------- | ----------- | -------------------------------------------- |
+| `<none>` | `address[]` | address[] The addresses of the reward tokens |
 
 ### getRewardRate
 
@@ -270,9 +270,9 @@ function getRewardRate(address rewardToken_) external view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The reward rate (tokens per second)|
+| Name     | Type      | Description                                 |
+| -------- | --------- | ------------------------------------------- |
+| `<none>` | `uint256` | uint256 The reward rate (tokens per second) |
 
 ### getPoolOhmShare
 
@@ -284,9 +284,9 @@ function getPoolOhmShare() external view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The amount of OHM in the pool that is owned by this vault system.|
+| Name     | Type      | Description                                                               |
+| -------- | --------- | ------------------------------------------------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM in the pool that is owned by this vault system. |
 
 ### getOhmSupplyChangeData
 
@@ -298,11 +298,11 @@ function getOhmSupplyChangeData() external view returns (uint256, uint256, uint2
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 Vault system's current claim on OHM from the Balancer pool|
-|`<none>`|`uint256`|uint256                 Current amount of OHM minted by the system into the Balancer pool|
-|`<none>`|`uint256`|uint256                 OHM that wasn't minted, but was previously circulating that has been burned by the system|
+| Name     | Type      | Description                                                                                       |
+| -------- | --------- | ------------------------------------------------------------------------------------------------- |
+| `<none>` | `uint256` | uint256 Vault system's current claim on OHM from the Balancer pool                                |
+| `<none>` | `uint256` | uint256 Current amount of OHM minted by the system into the Balancer pool                         |
+| `<none>` | `uint256` | uint256 OHM that wasn't minted, but was previously circulating that has been burned by the system |
 
 ### getOhmTknPrice
 
@@ -314,9 +314,9 @@ function getOhmTknPrice() external view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 OHM per 1 pair token (9 decimals)|
+| Name     | Type      | Description                               |
+| -------- | --------- | ----------------------------------------- |
+| `<none>` | `uint256` | uint256 OHM per 1 pair token (9 decimals) |
 
 ### getTknOhmPrice
 
@@ -328,9 +328,9 @@ function getTknOhmPrice() external view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 Pair tokens per 1 OHM (18 decimals)|
+| Name     | Type      | Description                                 |
+| -------- | --------- | ------------------------------------------- |
+| `<none>` | `uint256` | uint256 Pair tokens per 1 OHM (18 decimals) |
 
 ### getOhmTknPoolPrice
 
@@ -342,9 +342,9 @@ function getOhmTknPoolPrice() external view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 OHM per 1 pair token (9 decimals)|
+| Name     | Type      | Description                               |
+| -------- | --------- | ----------------------------------------- |
+| `<none>` | `uint256` | uint256 OHM per 1 pair token (9 decimals) |
 
 ### emergencyBurnOhm
 
@@ -358,9 +358,9 @@ function emergencyBurnOhm(uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of OHM to burn|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `amount_` | `uint256` | The amount of OHM to burn |
 
 ### setLimit
 
@@ -374,9 +374,9 @@ function setLimit(uint256 newLimit_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newLimit_`|`uint256`|               The new OHM limit (9 decimals)|
+| Name        | Type      | Description                    |
+| ----------- | --------- | ------------------------------ |
+| `newLimit_` | `uint256` | The new OHM limit (9 decimals) |
 
 ### setFee
 
@@ -390,9 +390,9 @@ function setFee(uint64 newFee_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newFee_`|`uint64`|                 The new fee (in basis points)|
+| Name      | Type     | Description                   |
+| --------- | -------- | ----------------------------- |
+| `newFee_` | `uint64` | The new fee (in basis points) |
 
 ### setWithdrawalDelay
 
@@ -406,9 +406,9 @@ function setWithdrawalDelay(uint48 newDelay_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newDelay_`|`uint48`|               The new minimum holding period (in seconds)|
+| Name        | Type     | Description                                 |
+| ----------- | -------- | ------------------------------------------- |
+| `newDelay_` | `uint48` | The new minimum holding period (in seconds) |
 
 ### activate
 

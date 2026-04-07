@@ -1,4 +1,3 @@
-
 # Cooler
 
 - [CoolerLtvOracle](CoolerLtvOracle.sol/contract.CoolerLtvOracle.md)

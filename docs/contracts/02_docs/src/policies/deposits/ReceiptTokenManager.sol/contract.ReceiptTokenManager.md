@@ -17,14 +17,14 @@ Key Features:
 - ERC6909 compatibility with optional ERC20 wrapping via CloneableReceiptToken clones
 - Deterministic token ID generation based on owner, asset, deposit period, and operator
 - Automatic wrapped token creation for seamless DeFi integration
-Security Model:
+  Security Model:
 - Token ownership is immutable and set to msg.sender during creation
 - All mint/burn operations are gated by onlyTokenOwner modifier
 - Token IDs include owner address to prevent collision attacks
 
 ## State Variables
 
-### _tokenOwners
+### \_tokenOwners
 
 Maps token ID to the authorized owner (for mint/burn operations)
 
@@ -59,20 +59,20 @@ function createToken(IERC20 asset_, uint8 depositPeriod_, address operator_, str
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The underlying asset|
-|`depositPeriod_`|`uint8`| The deposit period|
-|`operator_`|`address`|      The operator address|
-|`operatorName_`|`string`|  The operator name for token metadata|
+| Name             | Type      | Description                          |
+| ---------------- | --------- | ------------------------------------ |
+| `asset_`         | `IERC20`  | The underlying asset                 |
+| `depositPeriod_` | `uint8`   | The deposit period                   |
+| `operator_`      | `address` | The operator address                 |
+| `operatorName_`  | `string`  | The operator name for token metadata |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId`|`uint256`|        The created token ID|
+| Name      | Type      | Description          |
+| --------- | --------- | -------------------- |
+| `tokenId` | `uint256` | The created token ID |
 
-### _onlyTokenOwner
+### \_onlyTokenOwner
 
 ```solidity
 function _onlyTokenOwner(uint256 tokenId_) internal view;
@@ -104,12 +104,12 @@ function mint(address to_, uint256 tokenId_, uint256 amount_, bool shouldWrap_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`to_`|`address`|        The recipient|
-|`tokenId_`|`uint256`|   The token ID|
-|`amount_`|`uint256`|    The amount to mint|
-|`shouldWrap_`|`bool`|Whether to wrap as ERC20|
+| Name          | Type      | Description              |
+| ------------- | --------- | ------------------------ |
+| `to_`         | `address` | The recipient            |
+| `tokenId_`    | `uint256` | The token ID             |
+| `amount_`     | `uint256` | The amount to mint       |
+| `shouldWrap_` | `bool`    | Whether to wrap as ERC20 |
 
 ### burn
 
@@ -134,12 +134,12 @@ function burn(address from_, uint256 tokenId_, uint256 amount_, bool isWrapped_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`from_`|`address`|      The holder|
-|`tokenId_`|`uint256`|   The token ID|
-|`amount_`|`uint256`|    The amount to burn|
-|`isWrapped_`|`bool`| Whether the tokens are wrapped|
+| Name         | Type      | Description                    |
+| ------------ | --------- | ------------------------------ |
+| `from_`      | `address` | The holder                     |
+| `tokenId_`   | `uint256` | The token ID                   |
+| `amount_`    | `uint256` | The amount to burn             |
+| `isWrapped_` | `bool`    | Whether the tokens are wrapped |
 
 ### getReceiptTokenId
 
@@ -155,18 +155,18 @@ function getReceiptTokenId(address owner_, IERC20 asset_, uint8 depositPeriod_, 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`owner_`|`address`|         The owner address|
-|`asset_`|`IERC20`|         The asset|
-|`depositPeriod_`|`uint8`| The deposit period|
-|`operator_`|`address`|      The operator|
+| Name             | Type      | Description        |
+| ---------------- | --------- | ------------------ |
+| `owner_`         | `address` | The owner address  |
+| `asset_`         | `IERC20`  | The asset          |
+| `depositPeriod_` | `uint8`   | The deposit period |
+| `operator_`      | `address` | The operator       |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|tokenId         The generated token ID|
+| Name     | Type      | Description                    |
+| -------- | --------- | ------------------------------ |
+| `<none>` | `uint256` | tokenId The generated token ID |
 
 ### getTokenName
 
@@ -178,15 +178,15 @@ function getTokenName(uint256 tokenId_) public view override returns (string mem
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The ID of the receipt token|
+| Name       | Type      | Description                 |
+| ---------- | --------- | --------------------------- |
+| `tokenId_` | `uint256` | The ID of the receipt token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`string`|name        The name of the receipt token|
+| Name     | Type     | Description                        |
+| -------- | -------- | ---------------------------------- |
+| `<none>` | `string` | name The name of the receipt token |
 
 ### getTokenSymbol
 
@@ -198,15 +198,15 @@ function getTokenSymbol(uint256 tokenId_) public view override returns (string m
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The ID of the receipt token|
+| Name       | Type      | Description                 |
+| ---------- | --------- | --------------------------- |
+| `tokenId_` | `uint256` | The ID of the receipt token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`string`|symbol      The symbol of the receipt token|
+| Name     | Type     | Description                            |
+| -------- | -------- | -------------------------------------- |
+| `<none>` | `string` | symbol The symbol of the receipt token |
 
 ### getTokenDecimals
 
@@ -218,15 +218,15 @@ function getTokenDecimals(uint256 tokenId_) public view override returns (uint8)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The ID of the receipt token|
+| Name       | Type      | Description                 |
+| ---------- | --------- | --------------------------- |
+| `tokenId_` | `uint256` | The ID of the receipt token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint8`|decimals    The decimals of the receipt token|
+| Name     | Type    | Description                                |
+| -------- | ------- | ------------------------------------------ |
+| `<none>` | `uint8` | decimals The decimals of the receipt token |
 
 ### getTokenOwner
 
@@ -238,15 +238,15 @@ function getTokenOwner(uint256 tokenId_) public view override returns (address);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The token ID|
+| Name       | Type      | Description  |
+| ---------- | --------- | ------------ |
+| `tokenId_` | `uint256` | The token ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|owner       The token owner|
+| Name     | Type      | Description           |
+| -------- | --------- | --------------------- |
+| `<none>` | `address` | owner The token owner |
 
 ### getTokenAsset
 
@@ -258,15 +258,15 @@ function getTokenAsset(uint256 tokenId_) external view override returns (IERC20)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The token ID|
+| Name       | Type      | Description  |
+| ---------- | --------- | ------------ |
+| `tokenId_` | `uint256` | The token ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`IERC20`|asset       The underlying asset|
+| Name     | Type     | Description                |
+| -------- | -------- | -------------------------- |
+| `<none>` | `IERC20` | asset The underlying asset |
 
 ### getTokenDepositPeriod
 
@@ -278,15 +278,15 @@ function getTokenDepositPeriod(uint256 tokenId_) external view override returns 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|       The token ID|
+| Name       | Type      | Description  |
+| ---------- | --------- | ------------ |
+| `tokenId_` | `uint256` | The token ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint8`|depositPeriod   The deposit period|
+| Name     | Type    | Description                      |
+| -------- | ------- | -------------------------------- |
+| `<none>` | `uint8` | depositPeriod The deposit period |
 
 ### getTokenOperator
 
@@ -298,15 +298,15 @@ function getTokenOperator(uint256 tokenId_) external view override returns (addr
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The token ID|
+| Name       | Type      | Description  |
+| ---------- | --------- | ------------ |
+| `tokenId_` | `uint256` | The token ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|operator    The operator address|
+| Name     | Type      | Description                   |
+| -------- | --------- | ----------------------------- |
+| `<none>` | `address` | operator The operator address |
 
 ### supportsInterface
 

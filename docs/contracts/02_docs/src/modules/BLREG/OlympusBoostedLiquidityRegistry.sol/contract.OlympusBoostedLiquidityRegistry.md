@@ -40,10 +40,10 @@ function VERSION() public pure override returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|- Major version upgrade indicates breaking change to the interface.|
-|`minor`|`uint8`|- Minor version change retains backward-compatible interface.|
+| Name    | Type    | Description                                                         |
+| ------- | ------- | ------------------------------------------------------------------- |
+| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
 
 ### addVault
 
@@ -55,9 +55,9 @@ function addVault(address vault_) external override permissioned;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`vault_`|`address`|  The address of the vault to add|
+| Name     | Type      | Description                     |
+| -------- | --------- | ------------------------------- |
+| `vault_` | `address` | The address of the vault to add |
 
 ### removeVault
 
@@ -69,6 +69,6 @@ function removeVault(address vault_) external override permissioned;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`vault_`|`address`|  The address of the vault to remove|
+| Name     | Type      | Description                        |
+| -------- | --------- | ---------------------------------- |
+| `vault_` | `address` | The address of the vault to remove |

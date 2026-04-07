@@ -26,7 +26,7 @@ Migration flow (partial migrations allowed):
 
 5. Contract burns OHM v1 and mints calculated OHM v2 amount to user
 6. User's migrated amount is tracked by OHM v1 amount (original allocation)
-Admin functions:
+   Admin functions:
 
 - setMerkleRoot: Update eligibility tree (resets all migrated amounts)
 - setRemainingMintApproval: Update remaining MINTR approval for migration
@@ -50,7 +50,7 @@ The MINTR module reference for minting OHM v2
 MINTRv1 internal MINTR
 ```
 
-### _GOHM
+### \_GOHM
 
 The gOHM token contract used for OHM v2 amount calculation
 
@@ -58,7 +58,7 @@ The gOHM token contract used for OHM v2 amount calculation
 IgOHM internal immutable _GOHM
 ```
 
-### _OHMV1
+### \_OHMV1
 
 The OHM v1 token contract (9 decimals)
 
@@ -66,7 +66,7 @@ The OHM v1 token contract (9 decimals)
 IERC20 internal immutable _OHMV1
 ```
 
-### _OHMV2
+### \_OHMV2
 
 The OHM v2 token contract from MINTR (9 decimals)
 
@@ -84,7 +84,7 @@ The current merkle root for verifying eligible claims
 bytes32 public override merkleRoot
 ```
 
-### _currentMerkleNonce
+### \_currentMerkleNonce
 
 Current merkle root nonce for invalidating old migrations on root update
 
@@ -92,7 +92,7 @@ Current merkle root nonce for invalidating old migrations on root update
 uint256 internal _currentMerkleNonce = 1
 ```
 
-### _migratedAmounts
+### \_migratedAmounts
 
 Mapping of user => nonce => migrated amount
 
@@ -128,9 +128,9 @@ function ohmV1() external view returns (IERC20 ohmV1_);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmV1_`|`IERC20`|The OHM v1 token|
+| Name     | Type     | Description      |
+| -------- | -------- | ---------------- |
+| `ohmV1_` | `IERC20` | The OHM v1 token |
 
 ### ohmV2
 
@@ -142,9 +142,9 @@ function ohmV2() external view returns (IERC20 ohmV2_);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmV2_`|`IERC20`|The OHM v2 token|
+| Name     | Type     | Description      |
+| -------- | -------- | ---------------- |
+| `ohmV2_` | `IERC20` | The OHM v2 token |
 
 ### gOHM
 
@@ -158,9 +158,9 @@ function gOHM() external view returns (address gOHM_);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`gOHM_`|`address`|The gOHM token|
+| Name    | Type      | Description    |
+| ------- | --------- | -------------- |
+| `gOHM_` | `address` | The gOHM token |
 
 ### remainingMintApproval
 
@@ -175,9 +175,9 @@ function remainingMintApproval() external view returns (uint256 remaining_);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`remaining_`|`uint256`|The remaining OHM that can be minted|
+| Name         | Type      | Description                          |
+| ------------ | --------- | ------------------------------------ |
+| `remaining_` | `uint256` | The remaining OHM that can be minted |
 
 ### migratedAmounts
 
@@ -191,17 +191,17 @@ function migratedAmounts(address account_) external view returns (uint256 migrat
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|The account to check|
+| Name       | Type      | Description          |
+| ---------- | --------- | -------------------- |
+| `account_` | `address` | The account to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`migratedAmount_`|`uint256`|The amount migrated by the user|
+| Name              | Type      | Description                     |
+| ----------------- | --------- | ------------------------------- |
+| `migratedAmount_` | `uint256` | The amount migrated by the user |
 
-### _calculateOHMv2Amount
+### \_calculateOHMv2Amount
 
 Calculate OHM v2 amount from OHM v1 amount using gOHM conversion
 
@@ -213,15 +213,15 @@ function _calculateOHMv2Amount(uint256 amount_) internal view returns (uint256 o
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|The OHM v1 amount (9 decimals)|
+| Name      | Type      | Description                    |
+| --------- | --------- | ------------------------------ |
+| `amount_` | `uint256` | The OHM v1 amount (9 decimals) |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmV2Amount_`|`uint256`|The OHM v2 amount (9 decimals), or 0 if conversion rounds to zero|
+| Name           | Type      | Description                                                       |
+| -------------- | --------- | ----------------------------------------------------------------- |
+| `ohmV2Amount_` | `uint256` | The OHM v2 amount (9 decimals), or 0 if conversion rounds to zero |
 
 ### previewMigrate
 
@@ -237,15 +237,15 @@ function previewMigrate(uint256 amount_) external view returns (uint256 ohmV2Amo
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|The amount of OHM v1 to preview (9 decimals)|
+| Name      | Type      | Description                                  |
+| --------- | --------- | -------------------------------------------- |
+| `amount_` | `uint256` | The amount of OHM v1 to preview (9 decimals) |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmV2Amount_`|`uint256`|The amount of OHM v2 that would be received (9 decimals), or 0 if conversion rounds to zero|
+| Name           | Type      | Description                                                                                 |
+| -------------- | --------- | ------------------------------------------------------------------------------------------- |
+| `ohmV2Amount_` | `uint256` | The amount of OHM v2 that would be received (9 decimals), or 0 if conversion rounds to zero |
 
 ### configureDependencies
 
@@ -257,9 +257,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -271,13 +271,13 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`requests`|`Permissions[]`|- Array of keycodes and function selectors for requested permissions.|
+| Name       | Type            | Description                                                           |
+| ---------- | --------------- | --------------------------------------------------------------------- |
+| `requests` | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
 
-### _enable
+### \_enable
 
-Override _enable to accept initial remaining mint approval
+Override \_enable to accept initial remaining mint approval
 
 The enableData should be ABI-encoded as (uint256 remainingApproval)
 This allows setting the initial remaining mint approval when enabling the contract.
@@ -290,11 +290,11 @@ function _enable(bytes calldata enableData_) internal override;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`enableData_`|`bytes`|ABI-encoded (uint256 remainingApproval)|
+| Name          | Type    | Description                             |
+| ------------- | ------- | --------------------------------------- |
+| `enableData_` | `bytes` | ABI-encoded (uint256 remainingApproval) |
 
-### _setRemainingMintApproval
+### \_setRemainingMintApproval
 
 Internal function to set the remaining MINTR mint approval
 
@@ -308,9 +308,9 @@ function _setRemainingMintApproval(uint256 approval_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`approval_`|`uint256`|The target remaining mint approval (in OHM v2 units)|
+| Name        | Type      | Description                                          |
+| ----------- | --------- | ---------------------------------------------------- |
+| `approval_` | `uint256` | The target remaining mint approval (in OHM v2 units) |
 
 ### VERSION
 
@@ -322,10 +322,10 @@ function VERSION() external pure returns (uint8, uint8);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint8`|major - Major version upgrade indicates breaking change to the interface.|
-|`<none>`|`uint8`|minor - Minor version change retains backward-compatible interface.|
+| Name     | Type    | Description                                                               |
+| -------- | ------- | ------------------------------------------------------------------------- |
+| `<none>` | `uint8` | major - Major version upgrade indicates breaking change to the interface. |
+| `<none>` | `uint8` | minor - Minor version change retains backward-compatible interface.       |
 
 ### supportsInterface
 
@@ -337,7 +337,7 @@ Supports IERC165, IVersioned, IV1Migrator, and IEnabler (via PolicyEnabler)
 function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool);
 ```
 
-### _onlyAdminOrLegacyMigrationAdmin
+### \_onlyAdminOrLegacyMigrationAdmin
 
 ```solidity
 function _onlyAdminOrLegacyMigrationAdmin() internal view;
@@ -349,7 +349,7 @@ function _onlyAdminOrLegacyMigrationAdmin() internal view;
 modifier onlyAdminOrLegacyMigrationAdmin() ;
 ```
 
-### _verifyClaim
+### \_verifyClaim
 
 Internal function to verify a merkle proof
 
@@ -364,17 +364,17 @@ function _verifyClaim(address account_, uint256 allocatedAmount_, bytes32[] call
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|The account to verify|
-|`allocatedAmount_`|`uint256`|The allocated amount to verify|
-|`proof_`|`bytes32[]`|The merkle proof|
+| Name               | Type        | Description                    |
+| ------------------ | ----------- | ------------------------------ |
+| `account_`         | `address`   | The account to verify          |
+| `allocatedAmount_` | `uint256`   | The allocated amount to verify |
+| `proof_`           | `bytes32[]` | The merkle proof               |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`valid`|`bool`|True if the proof is valid|
+| Name    | Type   | Description                |
+| ------- | ------ | -------------------------- |
+| `valid` | `bool` | True if the proof is valid |
 
 ### verifyClaim
 
@@ -389,17 +389,17 @@ function verifyClaim(address account_, uint256 allocatedAmount_, bytes32[] calld
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|The account to verify|
-|`allocatedAmount_`|`uint256`|The allocated amount to verify|
-|`proof_`|`bytes32[]`|The merkle proof|
+| Name               | Type        | Description                    |
+| ------------------ | ----------- | ------------------------------ |
+| `account_`         | `address`   | The account to verify          |
+| `allocatedAmount_` | `uint256`   | The allocated amount to verify |
+| `proof_`           | `bytes32[]` | The merkle proof               |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`valid_`|`bool`|True if the claim is valid|
+| Name     | Type   | Description                |
+| -------- | ------ | -------------------------- |
+| `valid_` | `bool` | True if the claim is valid |
 
 ### migrate
 
@@ -414,11 +414,11 @@ function migrate(uint256 amount_, bytes32[] calldata proof_, uint256 allocatedAm
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|The amount of OHM v1 to migrate (9 decimals)|
-|`proof_`|`bytes32[]`|The merkle proof proving the user is eligible|
-|`allocatedAmount_`|`uint256`|The user's allocated amount from the merkle tree|
+| Name               | Type        | Description                                      |
+| ------------------ | ----------- | ------------------------------------------------ |
+| `amount_`          | `uint256`   | The amount of OHM v1 to migrate (9 decimals)     |
+| `proof_`           | `bytes32[]` | The merkle proof proving the user is eligible    |
+| `allocatedAmount_` | `uint256`   | The user's allocated amount from the merkle tree |
 
 ### setMerkleRoot
 
@@ -435,9 +435,9 @@ function setMerkleRoot(bytes32 merkleRoot_) external onlyAdminOrLegacyMigrationA
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`merkleRoot_`|`bytes32`|The new merkle root|
+| Name          | Type      | Description         |
+| ------------- | --------- | ------------------- |
+| `merkleRoot_` | `bytes32` | The new merkle root |
 
 ### setRemainingMintApproval
 
@@ -454,9 +454,9 @@ function setRemainingMintApproval(uint256 approval_) external onlyAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`approval_`|`uint256`|The target remaining mint approval (9 decimals)|
+| Name        | Type      | Description                                     |
+| ----------- | --------- | ----------------------------------------------- |
+| `approval_` | `uint256` | The target remaining mint approval (9 decimals) |
 
 ### rescue
 
@@ -470,6 +470,6 @@ function rescue(IERC20 token_) external onlyAdminOrLegacyMigrationAdmin;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token_`|`IERC20`|The ERC20 token to rescue|
+| Name     | Type     | Description               |
+| -------- | -------- | ------------------------- |
+| `token_` | `IERC20` | The ERC20 token to rescue |

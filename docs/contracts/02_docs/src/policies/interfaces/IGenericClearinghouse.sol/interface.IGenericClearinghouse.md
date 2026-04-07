@@ -63,16 +63,16 @@ function lendToCooler(ICooler cooler_, uint256 amount_) external returns (uint25
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cooler_`|`ICooler`|The Cooler instance to lend to.|
-|`amount_`|`uint256`|The amount of debt token to lend.|
+| Name      | Type      | Description                       |
+| --------- | --------- | --------------------------------- |
+| `cooler_` | `ICooler` | The Cooler instance to lend to.   |
+| `amount_` | `uint256` | The amount of debt token to lend. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`loanId`|`uint256`| The id of the granted loan.|
+| Name     | Type      | Description                 |
+| -------- | --------- | --------------------------- |
+| `loanId` | `uint256` | The id of the granted loan. |
 
 ### extendLoan
 
@@ -84,11 +84,11 @@ function extendLoan(ICooler cooler_, uint256 loanId_, uint8 times_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cooler_`|`ICooler`|The Cooler instance to extend the loan for.|
-|`loanId_`|`uint256`|The id of the loan to extend.|
-|`times_`|`uint8`| The number of times to extend the loan.|
+| Name      | Type      | Description                                 |
+| --------- | --------- | ------------------------------------------- |
+| `cooler_` | `ICooler` | The Cooler instance to extend the loan for. |
+| `loanId_` | `uint256` | The id of the loan to extend.               |
+| `times_`  | `uint8`   | The number of times to extend the loan.     |
 
 ### claimDefaulted
 
@@ -103,10 +103,10 @@ function claimDefaulted(address[] calldata coolers_, uint256[] calldata loans_) 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolers_`|`address[]`|Array of contracts where the default must be claimed.|
-|`loans_`|`uint256[]`|Array of defaulted loan ids.|
+| Name       | Type        | Description                                           |
+| ---------- | ----------- | ----------------------------------------------------- |
+| `coolers_` | `address[]` | Array of contracts where the default must be claimed. |
+| `loans_`   | `uint256[]` | Array of defaulted loan ids.                          |
 
 ### getCollateralForLoan
 
@@ -118,15 +118,15 @@ function getCollateralForLoan(uint256 principal_) external view returns (uint256
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`principal_`|`uint256`|The amount of debt tokens to compute collateral for.|
+| Name         | Type      | Description                                          |
+| ------------ | --------- | ---------------------------------------------------- |
+| `principal_` | `uint256` | The amount of debt tokens to compute collateral for. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|collateral_ The amount of collateral tokens required for the loan.|
+| Name     | Type      | Description                                                         |
+| -------- | --------- | ------------------------------------------------------------------- |
+| `<none>` | `uint256` | collateral\_ The amount of collateral tokens required for the loan. |
 
 ### getLoanForCollateral
 
@@ -138,16 +138,16 @@ function getLoanForCollateral(uint256 collateral_) external view returns (uint25
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`collateral_`|`uint256`|The amount of collateral tokens to compute the loan for.|
+| Name          | Type      | Description                                              |
+| ------------- | --------- | -------------------------------------------------------- |
+| `collateral_` | `uint256` | The amount of collateral tokens to compute the loan for. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`principal`|`uint256`|  The amount of debt tokens for the loan.|
-|`interest`|`uint256`|   The amount of interest tokens for the loan.|
+| Name        | Type      | Description                                 |
+| ----------- | --------- | ------------------------------------------- |
+| `principal` | `uint256` | The amount of debt tokens for the loan.     |
+| `interest`  | `uint256` | The amount of interest tokens for the loan. |
 
 ### interestForLoan
 
@@ -159,16 +159,16 @@ function interestForLoan(uint256 principal_, uint256 duration_) external view re
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`principal_`|`uint256`| The amount of reserve being lent.|
-|`duration_`|`uint256`|  The elapsed time in seconds.|
+| Name         | Type      | Description                       |
+| ------------ | --------- | --------------------------------- |
+| `principal_` | `uint256` | The amount of reserve being lent. |
+| `duration_`  | `uint256` | The elapsed time in seconds.      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`interest`|`uint256`|   The amount of interest for the loan.|
+| Name       | Type      | Description                          |
+| ---------- | --------- | ------------------------------------ |
+| `interest` | `uint256` | The amount of interest for the loan. |
 
 ### principalReceivables
 

@@ -39,13 +39,13 @@ event VoteCast(address indexed voter, uint256 proposalId, uint8 support, uint256
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`voter`|`address`|The address which casted a vote|
-|`proposalId`|`uint256`|The proposal id which was voted on|
-|`support`|`uint8`|Support value for the vote. 0=against, 1=for, 2=abstain|
-|`votes`|`uint256`|Number of votes which were cast by the voter|
-|`reason`|`string`|The reason given for the vote by the voter|
+| Name         | Type      | Description                                             |
+| ------------ | --------- | ------------------------------------------------------- |
+| `voter`      | `address` | The address which casted a vote                         |
+| `proposalId` | `uint256` | The proposal id which was voted on                      |
+| `support`    | `uint8`   | Support value for the vote. 0=against, 1=for, 2=abstain |
+| `votes`      | `uint256` | Number of votes which were cast by the voter            |
+| `reason`     | `string`  | The reason given for the vote by the voter              |
 
 ### ProposalVetoed
 

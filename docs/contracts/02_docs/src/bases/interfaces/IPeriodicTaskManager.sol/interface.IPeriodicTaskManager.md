@@ -21,9 +21,9 @@ function addPeriodicTask(address task_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|The periodic task to add|
+| Name    | Type      | Description              |
+| ------- | --------- | ------------------------ |
+| `task_` | `address` | The periodic task to add |
 
 ### addPeriodicTaskAtIndex
 
@@ -39,11 +39,11 @@ function addPeriodicTaskAtIndex(address task_, bytes4 customSelector_, uint256 i
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|          The periodic task to add|
-|`customSelector_`|`bytes4`|The custom selector to use for the task (or 0)|
-|`index_`|`uint256`|         The index where to insert the task|
+| Name              | Type      | Description                                    |
+| ----------------- | --------- | ---------------------------------------------- |
+| `task_`           | `address` | The periodic task to add                       |
+| `customSelector_` | `bytes4`  | The custom selector to use for the task (or 0) |
+| `index_`          | `uint256` | The index where to insert the task             |
 
 ### removePeriodicTask
 
@@ -57,9 +57,9 @@ function removePeriodicTask(address task_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|The periodic task to remove|
+| Name    | Type      | Description                 |
+| ------- | --------- | --------------------------- |
+| `task_` | `address` | The periodic task to remove |
 
 ### removePeriodicTaskAtIndex
 
@@ -73,9 +73,9 @@ function removePeriodicTaskAtIndex(uint256 index_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`index_`|`uint256`|The index of the task to remove|
+| Name     | Type      | Description                     |
+| -------- | --------- | ------------------------------- |
+| `index_` | `uint256` | The index of the task to remove |
 
 ### getPeriodicTaskCount
 
@@ -87,9 +87,9 @@ function getPeriodicTaskCount() external view returns (uint256 _taskCount);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_taskCount`|`uint256`| The number of periodic tasks|
+| Name         | Type      | Description                  |
+| ------------ | --------- | ---------------------------- |
+| `_taskCount` | `uint256` | The number of periodic tasks |
 
 ### getPeriodicTaskAtIndex
 
@@ -101,16 +101,16 @@ function getPeriodicTaskAtIndex(uint256 index_) external view returns (address _
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`index_`|`uint256`|         The index of the task to get|
+| Name     | Type      | Description                  |
+| -------- | --------- | ---------------------------- |
+| `index_` | `uint256` | The index of the task to get |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_task`|`address`|          The address of the periodic task at the specified index|
-|`_customSelector`|`bytes4`|The custom selector for the task (or 0)|
+| Name              | Type      | Description                                             |
+| ----------------- | --------- | ------------------------------------------------------- |
+| `_task`           | `address` | The address of the periodic task at the specified index |
+| `_customSelector` | `bytes4`  | The custom selector for the task (or 0)                 |
 
 ### getPeriodicTasks
 
@@ -122,10 +122,10 @@ function getPeriodicTasks() external view returns (address[] memory _tasks, byte
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_tasks`|`address[]`|             An array of all periodic tasks in order|
-|`_customSelectors`|`bytes4[]`|   An array of all custom selectors in order|
+| Name               | Type        | Description                               |
+| ------------------ | ----------- | ----------------------------------------- |
+| `_tasks`           | `address[]` | An array of all periodic tasks in order   |
+| `_customSelectors` | `bytes4[]`  | An array of all custom selectors in order |
 
 ### getPeriodicTaskIndex
 
@@ -137,15 +137,15 @@ function getPeriodicTaskIndex(address task_) external view returns (uint256 _ind
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|  The periodic task to find|
+| Name    | Type      | Description               |
+| ------- | --------- | ------------------------- |
+| `task_` | `address` | The periodic task to find |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_index`|`uint256`| The index of the task, or type(uint256).max if not found|
+| Name     | Type      | Description                                              |
+| -------- | --------- | -------------------------------------------------------- |
+| `_index` | `uint256` | The index of the task, or type(uint256).max if not found |
 
 ### hasPeriodicTask
 
@@ -157,15 +157,15 @@ function hasPeriodicTask(address task_) external view returns (bool _exists);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|  The periodic task to check|
+| Name    | Type      | Description                |
+| ------- | --------- | -------------------------- |
+| `task_` | `address` | The periodic task to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_exists`|`bool`|True if the task exists, false otherwise|
+| Name      | Type   | Description                              |
+| --------- | ------ | ---------------------------------------- |
+| `_exists` | `bool` | True if the task exists, false otherwise |
 
 ## Events
 
@@ -179,11 +179,11 @@ event PeriodicTaskAdded(address indexed task_, bytes4 customSelector_, uint256 i
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|The address of the periodic task|
-|`customSelector_`|`bytes4`||
-|`index_`|`uint256`|The index where the task was added|
+| Name              | Type      | Description                        |
+| ----------------- | --------- | ---------------------------------- |
+| `task_`           | `address` | The address of the periodic task   |
+| `customSelector_` | `bytes4`  |                                    |
+| `index_`          | `uint256` | The index where the task was added |
 
 ### PeriodicTaskRemoved
 
@@ -195,10 +195,10 @@ event PeriodicTaskRemoved(address indexed task_, uint256 indexed index_);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|The address of the periodic task|
-|`index_`|`uint256`|The index where the task was removed from|
+| Name     | Type      | Description                               |
+| -------- | --------- | ----------------------------------------- |
+| `task_`  | `address` | The address of the periodic task          |
+| `index_` | `uint256` | The index where the task was removed from |
 
 ## Errors
 

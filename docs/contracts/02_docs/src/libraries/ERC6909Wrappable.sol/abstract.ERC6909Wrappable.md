@@ -13,7 +13,7 @@ It extends the ERC6909Metadata contract, and additionally implements the IERC690
 
 ## State Variables
 
-### _ERC20_IMPLEMENTATION
+### \_ERC20_IMPLEMENTATION
 
 The address of the implementation of the ERC20 contract
 
@@ -21,7 +21,7 @@ The address of the implementation of the ERC20 contract
 address private immutable _ERC20_IMPLEMENTATION
 ```
 
-### _wrappableTokenIds
+### \_wrappableTokenIds
 
 The set of all token IDs
 
@@ -29,7 +29,7 @@ The set of all token IDs
 EnumerableSet.UintSet internal _wrappableTokenIds
 ```
 
-### _totalSupplies
+### \_totalSupplies
 
 The total supply of each token
 
@@ -37,7 +37,7 @@ The total supply of each token
 mapping(uint256 tokenId => uint256) private _totalSupplies
 ```
 
-### _tokenMetadataAdditional
+### \_tokenMetadataAdditional
 
 Additional metadata for each token
 
@@ -45,7 +45,7 @@ Additional metadata for each token
 mapping(uint256 tokenId => bytes) private _tokenMetadataAdditional
 ```
 
-### _wrappedTokens
+### \_wrappedTokens
 
 The address of the wrapped ERC20 token for each token
 
@@ -61,7 +61,7 @@ mapping(uint256 tokenId => address) internal _wrappedTokens
 constructor(address erc20Implementation_) ;
 ```
 
-### _getTokenData
+### \_getTokenData
 
 Returns the clone initialisation data for a given token ID
 
@@ -71,17 +71,17 @@ function _getTokenData(uint256 tokenId_) internal view returns (bytes memory tok
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The token ID|
+| Name       | Type      | Description  |
+| ---------- | --------- | ------------ |
+| `tokenId_` | `uint256` | The token ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenData`|`bytes`|  Packed bytes including the name, symbol, decimals and additional metadata|
+| Name        | Type    | Description                                                               |
+| ----------- | ------- | ------------------------------------------------------------------------- |
+| `tokenData` | `bytes` | Packed bytes including the name, symbol, decimals and additional metadata |
 
-### _getTokenAdditionalData
+### \_getTokenAdditionalData
 
 Returns the additional metadata for a token ID
 
@@ -91,17 +91,17 @@ function _getTokenAdditionalData(uint256 tokenId_) internal view returns (bytes 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|       The token ID|
+| Name       | Type      | Description  |
+| ---------- | --------- | ------------ |
+| `tokenId_` | `uint256` | The token ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`additionalData`|`bytes`| The additional metadata bytes|
+| Name             | Type    | Description                   |
+| ---------------- | ------- | ----------------------------- |
+| `additionalData` | `bytes` | The additional metadata bytes |
 
-### _mint
+### \_mint
 
 Mints the ERC6909 or ERC20 wrapped token to the recipient
 
@@ -113,22 +113,22 @@ function _mint(address onBehalfOf_, uint256 tokenId_, uint256 amount_, bool shou
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`onBehalfOf_`|`address`|  The address to mint the token to|
-|`tokenId_`|`uint256`|     The ID of the ERC6909 token|
-|`amount_`|`uint256`|      The amount of tokens to mint|
-|`shouldWrap_`|`bool`|  Whether to wrap the token to an ERC20 token|
+| Name          | Type      | Description                                 |
+| ------------- | --------- | ------------------------------------------- |
+| `onBehalfOf_` | `address` | The address to mint the token to            |
+| `tokenId_`    | `uint256` | The ID of the ERC6909 token                 |
+| `amount_`     | `uint256` | The amount of tokens to mint                |
+| `shouldWrap_` | `bool`    | Whether to wrap the token to an ERC20 token |
 
-### _burn
+### \_burn
 
 Burns the ERC6909 or ERC20 wrapped token from the recipient
 
 This function reverts if:
 
-- amount_ is 0
-- onBehalfOf_ is 0
-- onBehalfOf_ is not the caller and has not approved the caller to spend the ERC6909 tokens (note: ERC6909 allowances govern both wrapped and unwrapped token burns)
+- amount\_ is 0
+- onBehalfOf\_ is 0
+- onBehalfOf\_ is not the caller and has not approved the caller to spend the ERC6909 tokens (note: ERC6909 allowances govern both wrapped and unwrapped token burns)
 - ERC6909 token handling reverts
 
 ```solidity
@@ -139,12 +139,12 @@ function _burn(address onBehalfOf_, uint256 tokenId_, uint256 amount_, bool wrap
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`onBehalfOf_`|`address`|  The address to burn the token from|
-|`tokenId_`|`uint256`|     The ID of the ERC6909 token|
-|`amount_`|`uint256`|      The amount of tokens to burn|
-|`wrapped_`|`bool`|     Whether the token is wrapped|
+| Name          | Type      | Description                        |
+| ------------- | --------- | ---------------------------------- |
+| `onBehalfOf_` | `address` | The address to burn the token from |
+| `tokenId_`    | `uint256` | The ID of the ERC6909 token        |
+| `amount_`     | `uint256` | The amount of tokens to burn       |
+| `wrapped_`    | `bool`    | Whether the token is wrapped       |
 
 ### totalSupply
 
@@ -154,7 +154,7 @@ Returns the total supply of the token of type `id`.
 function totalSupply(uint256 tokenId_) public view virtual override returns (uint256);
 ```
 
-### _update
+### \_update
 
 Copied from draft-ERC6909TokenSupply.sol
 
@@ -162,7 +162,7 @@ Copied from draft-ERC6909TokenSupply.sol
 function _update(address from, address to, uint256 id, uint256 amount) internal virtual override;
 ```
 
-### _getWrappedToken
+### \_getWrappedToken
 
 Returns the address of the wrapped ERC20 token for a given token ID, or creates a new one if it does not exist
 
@@ -180,15 +180,15 @@ function getWrappedToken(uint256 tokenId_) public view returns (address wrappedT
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|       The ID of the ERC6909 token|
+| Name       | Type      | Description                 |
+| ---------- | --------- | --------------------------- |
+| `tokenId_` | `uint256` | The ID of the ERC6909 token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`wrappedToken`|`address`|   The address of the wrapped ERC20 token (or zero address)|
+| Name           | Type      | Description                                              |
+| -------------- | --------- | -------------------------------------------------------- |
+| `wrappedToken` | `address` | The address of the wrapped ERC20 token (or zero address) |
 
 ### wrap
 
@@ -207,16 +207,16 @@ function wrap(uint256 tokenId_, uint256 amount_) public returns (address wrapped
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|     The ID of the ERC6909 token|
-|`amount_`|`uint256`|      The amount of tokens to wrap|
+| Name       | Type      | Description                  |
+| ---------- | --------- | ---------------------------- |
+| `tokenId_` | `uint256` | The ID of the ERC6909 token  |
+| `amount_`  | `uint256` | The amount of tokens to wrap |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`wrappedToken`|`address`|The address of the wrapped ERC20 token|
+| Name           | Type      | Description                            |
+| -------------- | --------- | -------------------------------------- |
+| `wrappedToken` | `address` | The address of the wrapped ERC20 token |
 
 ### unwrap
 
@@ -235,10 +235,10 @@ function unwrap(uint256 tokenId_, uint256 amount_) public;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|     The ID of the ERC6909 token|
-|`amount_`|`uint256`|      The amount of tokens to unwrap|
+| Name       | Type      | Description                    |
+| ---------- | --------- | ------------------------------ |
+| `tokenId_` | `uint256` | The ID of the ERC6909 token    |
+| `amount_`  | `uint256` | The amount of tokens to unwrap |
 
 ### isValidTokenId
 
@@ -250,17 +250,17 @@ function isValidTokenId(uint256 tokenId_) public view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|       The ID of the ERC6909 token|
+| Name       | Type      | Description                 |
+| ---------- | --------- | --------------------------- |
+| `tokenId_` | `uint256` | The ID of the ERC6909 token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|isValid         Whether the token ID is valid|
+| Name     | Type   | Description                           |
+| -------- | ------ | ------------------------------------- |
+| `<none>` | `bool` | isValid Whether the token ID is valid |
 
-### _onlyValidTokenId
+### \_onlyValidTokenId
 
 ```solidity
 function _onlyValidTokenId(uint256 tokenId_) internal view;
@@ -272,7 +272,7 @@ function _onlyValidTokenId(uint256 tokenId_) internal view;
 modifier onlyValidTokenId(uint256 tokenId_) ;
 ```
 
-### _createWrappableToken
+### \_createWrappableToken
 
 Creates a new wrappable token
 
@@ -303,10 +303,10 @@ function getWrappableTokens()
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenIds`|`uint256[]`|       The IDs of all tokens|
-|`wrappedTokens`|`address[]`|  The wrapped token addresses of all tokens|
+| Name            | Type        | Description                               |
+| --------------- | ----------- | ----------------------------------------- |
+| `tokenIds`      | `uint256[]` | The IDs of all tokens                     |
+| `wrappedTokens` | `address[]` | The wrapped token addresses of all tokens |
 
 ### supportsInterface
 

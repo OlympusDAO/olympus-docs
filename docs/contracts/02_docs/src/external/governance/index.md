@@ -1,4 +1,3 @@
-
 # Governance
 
 - [abstracts](/main/contracts/docs/src/external/governance/abstracts)

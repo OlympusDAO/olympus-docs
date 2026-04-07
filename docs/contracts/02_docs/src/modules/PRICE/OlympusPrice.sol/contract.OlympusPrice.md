@@ -9,7 +9,7 @@ Price oracle data storage contract.
 
 ## State Variables
 
-### _scaleFactor
+### \_scaleFactor
 
 ```solidity
 uint256 internal immutable _scaleFactor
@@ -50,10 +50,10 @@ function VERSION() external pure override returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|- Major version upgrade indicates breaking change to the interface.|
-|`minor`|`uint8`|- Minor version change retains backward-compatible interface.|
+| Name    | Type    | Description                                                         |
+| ------- | ------- | ------------------------------------------------------------------- |
+| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
 
 ### updateMovingAverage
 
@@ -82,10 +82,10 @@ function initialize(uint256[] memory startObservations_, uint48 lastObservationT
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`startObservations_`|`uint256[]`|- Array of observations to initialize the moving average with. Must be of length numObservations.|
-|`lastObservationTime_`|`uint48`|- Unix timestamp of last observation being provided (in seconds).|
+| Name                   | Type        | Description                                                                                       |
+| ---------------------- | ----------- | ------------------------------------------------------------------------------------------------- |
+| `startObservations_`   | `uint256[]` | - Array of observations to initialize the moving average with. Must be of length numObservations. |
+| `lastObservationTime_` | `uint48`    | - Unix timestamp of last observation being provided (in seconds).                                 |
 
 ### changeMovingAverageDuration
 
@@ -101,9 +101,9 @@ function changeMovingAverageDuration(uint48 movingAverageDuration_) external ove
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`movingAverageDuration_`|`uint48`|- Moving average duration in seconds, must be a multiple of observation frequency|
+| Name                     | Type     | Description                                                                       |
+| ------------------------ | -------- | --------------------------------------------------------------------------------- |
+| `movingAverageDuration_` | `uint48` | - Moving average duration in seconds, must be a multiple of observation frequency |
 
 ### changeObservationFrequency
 
@@ -118,9 +118,9 @@ function changeObservationFrequency(uint48 observationFrequency_) external overr
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`observationFrequency_`|`uint48`|- Observation frequency in seconds, must be a divisor of the moving average duration|
+| Name                    | Type     | Description                                                                          |
+| ----------------------- | -------- | ------------------------------------------------------------------------------------ |
+| `observationFrequency_` | `uint48` | - Observation frequency in seconds, must be a divisor of the moving average duration |
 
 ### changeUpdateThresholds
 

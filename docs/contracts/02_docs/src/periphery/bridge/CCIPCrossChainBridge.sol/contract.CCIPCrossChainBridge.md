@@ -20,7 +20,7 @@ The contract is designed to be an intermediary when receiving OHM, so that faile
 IERC20 public immutable OHM
 ```
 
-### _trustedRemoteEVM
+### \_trustedRemoteEVM
 
 Mapping of EVM chain selectors to trusted bridge contracts
 
@@ -32,7 +32,7 @@ As the zero address can be a trusted remote, the `isSet` flag is used to determi
 mapping(uint64 => TrustedRemoteEVM) internal _trustedRemoteEVM
 ```
 
-### _trustedRemoteSVM
+### \_trustedRemoteSVM
 
 Mapping of SVM chain selectors to trusted recipients
 
@@ -44,7 +44,7 @@ As the zero address can be a trusted remote, the `isSet` flag is used to determi
 mapping(uint64 => TrustedRemoteSVM) internal _trustedRemoteSVM
 ```
 
-### _failedMessages
+### \_failedMessages
 
 Mapping of message IDs to failed messages
 
@@ -54,7 +54,7 @@ When a message fails to receive, it is stored here to allow for retries.
 mapping(bytes32 => Client.Any2EVMMessage) internal _failedMessages
 ```
 
-### _gasLimits
+### \_gasLimits
 
 Mapping of destination chain selectors to gas limits
 
@@ -72,7 +72,7 @@ mapping(uint64 => uint32) internal _gasLimits
 constructor(address ohm_, address ccipRouter_, address owner_) Owned(owner_) CCIPReceiver(ccipRouter_);
 ```
 
-### _buildCCIPMessage
+### \_buildCCIPMessage
 
 ```solidity
 function _buildCCIPMessage(bytes memory to_, uint256 amount_, bytes memory data_, bytes memory extraArgs_)
@@ -81,19 +81,19 @@ function _buildCCIPMessage(bytes memory to_, uint256 amount_, bytes memory data_
     returns (Client.EVM2AnyMessage memory);
 ```
 
-### _getSVMExtraArgs
+### \_getSVMExtraArgs
 
 ```solidity
 function _getSVMExtraArgs(uint64 dstChainSelector_, bytes32 to_) internal view returns (bytes memory);
 ```
 
-### _getEVMExtraArgs
+### \_getEVMExtraArgs
 
 ```solidity
 function _getEVMExtraArgs(uint64 dstChainSelector_) internal view returns (bytes memory);
 ```
 
-### _getEVMData
+### \_getEVMData
 
 ```solidity
 function _getEVMData(uint64 dstChainSelector_, address to_)
@@ -102,7 +102,7 @@ function _getEVMData(uint64 dstChainSelector_, address to_)
     returns (bytes memory recipient, bytes memory data, bytes memory extraArgs);
 ```
 
-### _getSVMData
+### \_getSVMData
 
 ```solidity
 function _getSVMData(uint64 dstChainSelector_, bytes32 to_)
@@ -123,17 +123,17 @@ function getFeeSVM(uint64 dstChainSelector_, bytes32 to_, uint256 amount_) exter
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`bytes32`|                 The destination address|
-|`amount_`|`uint256`|             The amount of OHM to send|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `bytes32` | The destination address        |
+| `amount_`           | `uint256` | The amount of OHM to send      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`fee_`|`uint256`|               The fee for sending OHM to the specified destination chain|
+| Name   | Type      | Description                                                |
+| ------ | --------- | ---------------------------------------------------------- |
+| `fee_` | `uint256` | The fee for sending OHM to the specified destination chain |
 
 ### getFeeEVM
 
@@ -147,19 +147,19 @@ function getFeeEVM(uint64 dstChainSelector_, address to_, uint256 amount_) exter
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`address`|                 The destination address|
-|`amount_`|`uint256`|             The amount of OHM to send|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `address` | The destination address        |
+| `amount_`           | `uint256` | The amount of OHM to send      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`fee_`|`uint256`|               The fee for sending OHM to the specified destination EVM chain|
+| Name   | Type      | Description                                                    |
+| ------ | --------- | -------------------------------------------------------------- |
+| `fee_` | `uint256` | The fee for sending OHM to the specified destination EVM chain |
 
-### _sendOhm
+### \_sendOhm
 
 ```solidity
 function _sendOhm(
@@ -187,17 +187,17 @@ function sendToSVM(uint64 dstChainSelector_, bytes32 to_, uint256 amount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`bytes32`|                 The destination address|
-|`amount_`|`uint256`|             The amount of OHM to send|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `bytes32` | The destination address        |
+| `amount_`           | `uint256` | The amount of OHM to send      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes32`|messageId           The message ID of the sent message|
+| Name     | Type      | Description                                  |
+| -------- | --------- | -------------------------------------------- |
+| `<none>` | `bytes32` | messageId The message ID of the sent message |
 
 ### sendToEVM
 
@@ -215,17 +215,17 @@ function sendToEVM(uint64 dstChainSelector_, address to_, uint256 amount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`address`|                 The destination address|
-|`amount_`|`uint256`|             The amount of OHM to send|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `address` | The destination address        |
+| `amount_`           | `uint256` | The amount of OHM to send      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes32`|messageId           The message ID of the sent message|
+| Name     | Type      | Description                                  |
+| -------- | --------- | -------------------------------------------- |
+| `<none>` | `bytes32` | messageId The message ID of the sent message |
 
 ### withdraw
 
@@ -239,11 +239,11 @@ function withdraw(address recipient_) external onlyOwner;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`recipient_`|`address`| The recipient of the native token|
+| Name         | Type      | Description                       |
+| ------------ | --------- | --------------------------------- |
+| `recipient_` | `address` | The recipient of the native token |
 
-### _ccipReceive
+### \_ccipReceive
 
 Override this function in your implementation.
 
@@ -255,11 +255,11 @@ function _ccipReceive(Client.Any2EVMMessage memory message_) internal override;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`message_`|`Client.Any2EVMMessage`||
+| Name       | Type                    | Description |
+| ---------- | ----------------------- | ----------- |
+| `message_` | `Client.Any2EVMMessage` |             |
 
-### _receiveMessage
+### \_receiveMessage
 
 Actual handler for receiving CCIP messages
 
@@ -297,9 +297,9 @@ function retryFailedMessage(bytes32 messageId_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`messageId_`|`bytes32`|The message ID|
+| Name         | Type      | Description    |
+| ------------ | --------- | -------------- |
+| `messageId_` | `bytes32` | The message ID |
 
 ### getFailedMessage
 
@@ -313,15 +313,15 @@ function getFailedMessage(bytes32 messageId_) external view returns (ICCIPClient
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`messageId_`|`bytes32`|The message ID|
+| Name         | Type      | Description    |
+| ------------ | --------- | -------------- |
+| `messageId_` | `bytes32` | The message ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`ICCIPClient.Any2EVMMessage`|message_ The failed message|
+| Name     | Type                         | Description                  |
+| -------- | ---------------------------- | ---------------------------- |
+| `<none>` | `ICCIPClient.Any2EVMMessage` | message\_ The failed message |
 
 ### setTrustedRemoteEVM
 
@@ -335,10 +335,10 @@ function setTrustedRemoteEVM(uint64 dstChainSelector_, address to_) external onl
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`address`|                 The destination address|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `address` | The destination address        |
 
 ### unsetTrustedRemoteEVM
 
@@ -352,9 +352,9 @@ function unsetTrustedRemoteEVM(uint64 dstChainSelector_) external onlyOwner;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
 
 ### getTrustedRemoteEVM
 
@@ -368,15 +368,15 @@ function getTrustedRemoteEVM(uint64 dstChainSelector_) external view returns (Tr
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`TrustedRemoteEVM`|to_                The destination address|
+| Name     | Type               | Description                  |
+| -------- | ------------------ | ---------------------------- |
+| `<none>` | `TrustedRemoteEVM` | to\_ The destination address |
 
 ### setTrustedRemoteSVM
 
@@ -390,10 +390,10 @@ function setTrustedRemoteSVM(uint64 dstChainSelector_, bytes32 to_) external onl
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`bytes32`|                 The destination address|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `bytes32` | The destination address        |
 
 ### unsetTrustedRemoteSVM
 
@@ -407,9 +407,9 @@ function unsetTrustedRemoteSVM(uint64 dstChainSelector_) external onlyOwner;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
 
 ### getTrustedRemoteSVM
 
@@ -423,15 +423,15 @@ function getTrustedRemoteSVM(uint64 dstChainSelector_) external view returns (Tr
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`TrustedRemoteSVM`|to_                The destination address|
+| Name     | Type               | Description                  |
+| -------- | ------------------ | ---------------------------- |
+| `<none>` | `TrustedRemoteSVM` | to\_ The destination address |
 
 ### setGasLimit
 
@@ -443,10 +443,10 @@ function setGasLimit(uint64 dstChainSelector_, uint32 gasLimit_) external onlyOw
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`gasLimit_`|`uint32`|           The gas limit|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
+| `gasLimit_`         | `uint32` | The gas limit                  |
 
 ### getGasLimit
 
@@ -458,15 +458,15 @@ function getGasLimit(uint64 dstChainSelector_) external view returns (uint32);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint32`|gasLimit_           The gas limit, or 0 if not set|
+| Name     | Type     | Description                               |
+| -------- | -------- | ----------------------------------------- |
+| `<none>` | `uint32` | gasLimit\_ The gas limit, or 0 if not set |
 
 ### getCCIPRouter
 
@@ -478,9 +478,9 @@ function getCCIPRouter() external view returns (address);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|ccipRouter_ The CCIP router address|
+| Name     | Type      | Description                          |
+| -------- | --------- | ------------------------------------ |
+| `<none>` | `address` | ccipRouter\_ The CCIP router address |
 
 ### supportsInterface
 
@@ -493,7 +493,7 @@ function supportsInterface(bytes4 interfaceId_)
     returns (bool);
 ```
 
-### _enable
+### \_enable
 
 Implementation-specific enable function
 
@@ -510,11 +510,11 @@ function _enable(bytes calldata) internal override;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes`||
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| `<none>` | `bytes` |             |
 
-### _disable
+### \_disable
 
 Implementation-specific disable function
 
@@ -531,11 +531,11 @@ function _disable(bytes calldata) internal override;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes`||
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| `<none>` | `bytes` |             |
 
-### _onlyOwner
+### \_onlyOwner
 
 Implementation-specific validation of ownership
 

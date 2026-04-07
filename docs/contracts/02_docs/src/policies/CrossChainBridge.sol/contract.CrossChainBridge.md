@@ -84,9 +84,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -98,9 +98,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### sendOhm
 
@@ -110,7 +110,7 @@ Send OHM to an eligible chain
 function sendOhm(uint16 dstChainId_, address to_, uint256 amount_) external payable;
 ```
 
-### _receiveMessage
+### \_receiveMessage
 
 Implementation of receiving an LZ message
 
@@ -150,7 +150,7 @@ function retryMessage(uint16 srcChainId_, bytes calldata srcAddress_, uint64 non
     virtual;
 ```
 
-### _sendMessage
+### \_sendMessage
 
 Internal function for sending a message across chains.
 
@@ -182,10 +182,10 @@ function estimateSendFee(uint16 dstChainId_, address to_, uint256 amount_, bytes
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`nativeFee`|`uint256`|- Native token amount to send to sendOhm|
-|`zroFee`|`uint256`|- Fee paid in ZRO token. Unused.|
+| Name        | Type      | Description                              |
+| ----------- | --------- | ---------------------------------------- |
+| `nativeFee` | `uint256` | - Native token amount to send to sendOhm |
+| `zroFee`    | `uint256` | - Fee paid in ZRO token. Unused.         |
 
 ### setConfig
 
@@ -231,7 +231,7 @@ function forceResumeReceive(uint16 srcChainId_, bytes calldata srcAddress_)
 
 Sets the trusted path for the cross-chain communication
 
-path_ = abi.encodePacked(remoteAddress, localAddress)
+path\_ = abi.encodePacked(remoteAddress, localAddress)
 
 ```solidity
 function setTrustedRemote(uint16 srcChainId_, bytes calldata path_) external onlyRole("bridge_admin");

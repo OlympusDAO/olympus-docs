@@ -47,7 +47,7 @@ Modifier that reverts if the caller does not have the manager role
 modifier onlyManagerRole() ;
 ```
 
-### _isAdmin
+### \_isAdmin
 
 Check if an account has the admin role
 
@@ -57,17 +57,17 @@ function _isAdmin(address account_) internal view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|The account to check|
+| Name       | Type      | Description          |
+| ---------- | --------- | -------------------- |
+| `account_` | `address` | The account to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|true if the account has the admin role, false otherwise|
+| Name     | Type   | Description                                             |
+| -------- | ------ | ------------------------------------------------------- |
+| `<none>` | `bool` | true if the account has the admin role, false otherwise |
 
-### _isEmergency
+### \_isEmergency
 
 Check if an account has the emergency role
 
@@ -77,17 +77,17 @@ function _isEmergency(address account_) internal view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|The account to check|
+| Name       | Type      | Description          |
+| ---------- | --------- | -------------------- |
+| `account_` | `address` | The account to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|true if the account has the emergency role, false otherwise|
+| Name     | Type   | Description                                                 |
+| -------- | ------ | ----------------------------------------------------------- |
+| `<none>` | `bool` | true if the account has the emergency role, false otherwise |
 
-### _isManager
+### \_isManager
 
 Check if an account has the manager role
 
@@ -97,15 +97,15 @@ function _isManager(address account_) internal view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|The account to check|
+| Name       | Type      | Description          |
+| ---------- | --------- | -------------------- |
+| `account_` | `address` | The account to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|true if the account has the manager role, false otherwise|
+| Name     | Type   | Description                                               |
+| -------- | ------ | --------------------------------------------------------- |
+| `<none>` | `bool` | true if the account has the manager role, false otherwise |
 
 ## Errors
 

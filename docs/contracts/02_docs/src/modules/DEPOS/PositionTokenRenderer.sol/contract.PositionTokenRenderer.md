@@ -44,24 +44,24 @@ function tokenURI(address positionManager_, uint256 positionId_) external view o
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionManager_`|`address`|The address of the position manager contract|
-|`positionId_`|`uint256`|     The ID of the position to render|
+| Name               | Type      | Description                                  |
+| ------------------ | --------- | -------------------------------------------- |
+| `positionManager_` | `address` | The address of the position manager contract |
+| `positionId_`      | `uint256` | The ID of the position to render             |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`string`|uri              The token URI as a string|
+| Name     | Type     | Description                   |
+| -------- | -------- | ----------------------------- |
+| `<none>` | `string` | uri The token URI as a string |
 
-### _getTimeString
+### \_getTimeString
 
 ```solidity
 function _getTimeString(uint48 time_) internal pure returns (string memory);
 ```
 
-### _renderSVG
+### \_renderSVG
 
 ```solidity
 function _renderSVG(

@@ -29,7 +29,7 @@ The role that is allowed to deposit and withdraw funds
 bytes32 public constant ROLE_DEPOSIT_OPERATOR = "deposit_operator"
 ```
 
-### _RECEIPT_TOKEN_MANAGER
+### \_RECEIPT_TOKEN_MANAGER
 
 The receipt token manager for creating receipt tokens
 
@@ -37,7 +37,7 @@ The receipt token manager for creating receipt tokens
 ReceiptTokenManager internal immutable _RECEIPT_TOKEN_MANAGER
 ```
 
-### _assetLiabilities
+### \_assetLiabilities
 
 Maps asset liabilities key to the number of receipt tokens that have been minted
 
@@ -48,7 +48,7 @@ As with the BaseAssetManager, deposited asset tokens with different deposit peri
 mapping(bytes32 key => uint256 receiptTokenSupply) internal _assetLiabilities
 ```
 
-### _assetPeriods
+### \_assetPeriods
 
 Maps token ID to the asset period
 
@@ -56,7 +56,7 @@ Maps token ID to the asset period
 mapping(uint256 tokenId => AssetPeriod) internal _assetPeriods
 ```
 
-### _ownedTokenIds
+### \_ownedTokenIds
 
 Set of token IDs that this DepositManager owns
 
@@ -72,7 +72,7 @@ Constant equivalent to 100%
 uint16 public constant ONE_HUNDRED_PERCENT = 100e2
 ```
 
-### _operatorToName
+### \_operatorToName
 
 Maps operator address to its name
 
@@ -80,7 +80,7 @@ Maps operator address to its name
 mapping(address operator => bytes3 name) internal _operatorToName
 ```
 
-### _operatorNames
+### \_operatorNames
 
 A set of operator names
 
@@ -90,7 +90,7 @@ This contains unique values
 mapping(bytes3 name => bool isRegistered) internal _operatorNames
 ```
 
-### _borrowedAmounts
+### \_borrowedAmounts
 
 Maps asset-operator key to current borrowed amounts
 
@@ -102,7 +102,7 @@ mapping(bytes32 key => uint256 borrowedAmount) internal _borrowedAmounts
 
 ## Functions
 
-### _onlyAssetPeriodExists
+### \_onlyAssetPeriodExists
 
 ```solidity
 function _onlyAssetPeriodExists(IERC20 asset_, uint8 depositPeriod_, address operator_) internal view;
@@ -116,7 +116,7 @@ Reverts if the asset period is not configured
 modifier onlyAssetPeriodExists(IERC20 asset_, uint8 depositPeriod_, address operator_) ;
 ```
 
-### _onlyAssetPeriodEnabled
+### \_onlyAssetPeriodEnabled
 
 ```solidity
 function _onlyAssetPeriodEnabled(IERC20 asset_, uint8 depositPeriod_, address operator_) internal view;
@@ -146,9 +146,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -160,9 +160,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### VERSION
 
@@ -199,16 +199,16 @@ function deposit(DepositParams calldata params_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`params_`|`DepositParams`|        The parameters for the deposit|
+| Name      | Type            | Description                    |
+| --------- | --------------- | ------------------------------ |
+| `params_` | `DepositParams` | The parameters for the deposit |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`receiptTokenId`|`uint256`| The ID of the receipt token|
-|`actualAmount`|`uint256`|   The quantity of receipt tokens minted to the depositor|
+| Name             | Type      | Description                                            |
+| ---------------- | --------- | ------------------------------------------------------ |
+| `receiptTokenId` | `uint256` | The ID of the receipt token                            |
+| `actualAmount`   | `uint256` | The quantity of receipt tokens minted to the depositor |
 
 ### maxClaimYield
 
@@ -223,16 +223,16 @@ function maxClaimYield(IERC20 asset_, address operator_) external view returns (
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|       The address of the underlying asset|
-|`operator_`|`address`|    The address of the operator|
+| Name        | Type      | Description                         |
+| ----------- | --------- | ----------------------------------- |
+| `asset_`    | `IERC20`  | The address of the underlying asset |
+| `operator_` | `address` | The address of the operator         |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|yieldAssets   The amount of yield that can be claimed|
+| Name     | Type      | Description                                         |
+| -------- | --------- | --------------------------------------------------- |
+| `<none>` | `uint256` | yieldAssets The amount of yield that can be claimed |
 
 ### claimYield
 
@@ -244,7 +244,7 @@ Notes:
 - This function is only callable by addresses with the deposit operator role
 - The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
 - Given a low enough amount, the actual amount withdrawn may be 0. This function will not revert in such a case.
-This function reverts if:
+  This function reverts if:
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The asset is not configured in BaseAssetManager
@@ -261,17 +261,17 @@ function claimYield(IERC20 asset_, address recipient_, uint256 amount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|       The address of the underlying asset|
-|`recipient_`|`address`|   The recipient of the claimed yield|
-|`amount_`|`uint256`|      The amount to claim yield for|
+| Name         | Type      | Description                         |
+| ------------ | --------- | ----------------------------------- |
+| `asset_`     | `IERC20`  | The address of the underlying asset |
+| `recipient_` | `address` | The recipient of the claimed yield  |
+| `amount_`    | `uint256` | The amount to claim yield for       |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualAmount`|`uint256`| The quantity of underlying assets transferred to the recipient|
+| Name           | Type      | Description                                                    |
+| -------------- | --------- | -------------------------------------------------------------- |
+| `actualAmount` | `uint256` | The quantity of underlying assets transferred to the recipient |
 
 ### withdraw
 
@@ -282,7 +282,7 @@ Notes:
 - This function is only callable by addresses with the deposit operator role
 - The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
 - Given a low enough amount, the actual amount withdrawn may be 0. This function will not revert in such a case.
-This function will revert if:
+  This function will revert if:
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The recipient is the zero address
@@ -302,15 +302,15 @@ function withdraw(WithdrawParams calldata params_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`params_`|`WithdrawParams`|        The parameters for the withdrawal|
+| Name      | Type             | Description                       |
+| --------- | ---------------- | --------------------------------- |
+| `params_` | `WithdrawParams` | The parameters for the withdrawal |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualAmount`|`uint256`|   The quantity of underlying assets transferred to the recipient|
+| Name           | Type      | Description                                                    |
+| -------------- | --------- | -------------------------------------------------------------- |
+| `actualAmount` | `uint256` | The quantity of underlying assets transferred to the recipient |
 
 ### getOperatorLiabilities
 
@@ -322,18 +322,18 @@ function getOperatorLiabilities(IERC20 asset_, address operator_) external view 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the underlying asset|
-|`operator_`|`address`|      The address of the operator|
+| Name        | Type      | Description                         |
+| ----------- | --------- | ----------------------------------- |
+| `asset_`    | `IERC20`  | The address of the underlying asset |
+| `operator_` | `address` | The address of the operator         |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|liabilities     The quantity of assets that the contract is custodying for the operator's depositors|
+| Name     | Type      | Description                                                                                      |
+| -------- | --------- | ------------------------------------------------------------------------------------------------ |
+| `<none>` | `uint256` | liabilities The quantity of assets that the contract is custodying for the operator's depositors |
 
-### _getAssetLiabilitiesKey
+### \_getAssetLiabilitiesKey
 
 Get the key for the asset liabilities mapping
 
@@ -343,7 +343,7 @@ The key is the keccak256 of the asset address and the operator address
 function _getAssetLiabilitiesKey(IERC20 asset_, address operator_) internal pure returns (bytes32);
 ```
 
-### _validateOperatorSolvency
+### \_validateOperatorSolvency
 
 Validates that an operator remains solvent after a withdrawal
 
@@ -360,10 +360,10 @@ function _validateOperatorSolvency(IERC20 asset_, address operator_) internal vi
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|The asset to validate solvency for|
-|`operator_`|`address`|The operator to validate solvency for|
+| Name        | Type      | Description                           |
+| ----------- | --------- | ------------------------------------- |
+| `asset_`    | `IERC20`  | The asset to validate solvency for    |
+| `operator_` | `address` | The operator to validate solvency for |
 
 ### setOperatorName
 
@@ -394,15 +394,15 @@ function getOperatorName(address operator_) public view returns (string memory);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`operator_`|`address`|  The address of the operator|
+| Name        | Type      | Description                 |
+| ----------- | --------- | --------------------------- |
+| `operator_` | `address` | The address of the operator |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`string`|name        The name of the operator or an empty string|
+| Name     | Type     | Description                                      |
+| -------- | -------- | ------------------------------------------------ |
+| `<none>` | `string` | name The name of the operator or an empty string |
 
 ### isAssetPeriod
 
@@ -420,17 +420,17 @@ function isAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the underlying asset|
-|`depositPeriod_`|`uint8`| The deposit period, in months|
-|`operator_`|`address`|      The address of the operator|
+| Name             | Type      | Description                         |
+| ---------------- | --------- | ----------------------------------- |
+| `asset_`         | `IERC20`  | The address of the underlying asset |
+| `depositPeriod_` | `uint8`   | The deposit period, in months       |
+| `operator_`      | `address` | The address of the operator         |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`status`|`AssetPeriodStatus`|         The status of the asset period|
+| Name     | Type                | Description                    |
+| -------- | ------------------- | ------------------------------ |
+| `status` | `AssetPeriodStatus` | The status of the asset period |
 
 ### addAsset
 
@@ -440,9 +440,9 @@ This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the admin or manager role
-- asset_ is the zero address
-- minimumDeposit_> depositCap_
-Notes:
+- asset\_ is the zero address
+- minimumDeposit*> depositCap*
+  Notes:
 - A limitation of the current implementation is that the vault is assumed to be monotonically-increasing in value.
 - The pairing of the asset and vault is immutable, to prevent a governance attack on user deposits.
 
@@ -455,12 +455,12 @@ function addAsset(IERC20 asset_, IERC4626 vault_, uint256 depositCap_, uint256 m
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the underlying asset|
-|`vault_`|`IERC4626`|         The address of the ERC4626 vault to deposit the asset into (or the zero address)|
-|`depositCap_`|`uint256`|    The deposit cap of the asset|
-|`minimumDeposit_`|`uint256`|The minimum deposit amount for the asset|
+| Name              | Type       | Description                                                                      |
+| ----------------- | ---------- | -------------------------------------------------------------------------------- |
+| `asset_`          | `IERC20`   | The address of the underlying asset                                              |
+| `vault_`          | `IERC4626` | The address of the ERC4626 vault to deposit the asset into (or the zero address) |
+| `depositCap_`     | `uint256`  | The deposit cap of the asset                                                     |
+| `minimumDeposit_` | `uint256`  | The minimum deposit amount for the asset                                         |
 
 ### setAssetDepositCap
 
@@ -470,8 +470,8 @@ This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the admin or manager role
-- asset_ is not configured
-- The existing minimum deposit > depositCap_
+- asset\_ is not configured
+- The existing minimum deposit > depositCap\_
 
 ```solidity
 function setAssetDepositCap(IERC20 asset_, uint256 depositCap_) external onlyEnabled onlyManagerOrAdminRole;
@@ -479,10 +479,10 @@ function setAssetDepositCap(IERC20 asset_, uint256 depositCap_) external onlyEna
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the underlying asset|
-|`depositCap_`|`uint256`|    The deposit cap to set for the asset|
+| Name          | Type      | Description                          |
+| ------------- | --------- | ------------------------------------ |
+| `asset_`      | `IERC20`  | The address of the underlying asset  |
+| `depositCap_` | `uint256` | The deposit cap to set for the asset |
 
 ### setAssetMinimumDeposit
 
@@ -492,8 +492,8 @@ This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the admin or manager role
-- asset_ is not configured
-- minimumDeposit_ > the existing deposit cap
+- asset\_ is not configured
+- minimumDeposit\_ > the existing deposit cap
 
 ```solidity
 function setAssetMinimumDeposit(IERC20 asset_, uint256 minimumDeposit_)
@@ -504,10 +504,10 @@ function setAssetMinimumDeposit(IERC20 asset_, uint256 minimumDeposit_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|          The address of the underlying asset|
-|`minimumDeposit_`|`uint256`| The minimum deposit to set for the asset|
+| Name              | Type      | Description                              |
+| ----------------- | --------- | ---------------------------------------- |
+| `asset_`          | `IERC20`  | The address of the underlying asset      |
+| `minimumDeposit_` | `uint256` | The minimum deposit to set for the asset |
 
 ### addAssetPeriod
 
@@ -536,17 +536,17 @@ function addAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the underlying asset|
-|`depositPeriod_`|`uint8`| The deposit period, in months|
-|`operator_`|`address`|      The address of the operator|
+| Name             | Type      | Description                         |
+| ---------------- | --------- | ----------------------------------- |
+| `asset_`         | `IERC20`  | The address of the underlying asset |
+| `depositPeriod_` | `uint8`   | The deposit period, in months       |
+| `operator_`      | `address` | The address of the operator         |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`receiptTokenId`|`uint256`| The ID of the new receipt token|
+| Name             | Type      | Description                     |
+| ---------------- | --------- | ------------------------------- |
+| `receiptTokenId` | `uint256` | The ID of the new receipt token |
 
 ### enableAssetPeriod
 
@@ -570,11 +570,11 @@ function enableAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the underlying asset|
-|`depositPeriod_`|`uint8`| The deposit period, in months|
-|`operator_`|`address`|      The address of the operator|
+| Name             | Type      | Description                         |
+| ---------------- | --------- | ----------------------------------- |
+| `asset_`         | `IERC20`  | The address of the underlying asset |
+| `depositPeriod_` | `uint8`   | The deposit period, in months       |
+| `operator_`      | `address` | The address of the operator         |
 
 ### disableAssetPeriod
 
@@ -598,11 +598,11 @@ function disableAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operato
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the underlying asset|
-|`depositPeriod_`|`uint8`| The deposit period, in months|
-|`operator_`|`address`|      The address of the operator|
+| Name             | Type      | Description                         |
+| ---------------- | --------- | ----------------------------------- |
+| `asset_`         | `IERC20`  | The address of the underlying asset |
+| `depositPeriod_` | `uint8`   | The deposit period, in months       |
+| `operator_`      | `address` | The address of the operator         |
 
 ### getAssetPeriods
 
@@ -614,9 +614,9 @@ function getAssetPeriods() external view override returns (AssetPeriod[] memory 
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`assetPeriods`|`AssetPeriod[]`|   Array of configured asset periods|
+| Name           | Type            | Description                       |
+| -------------- | --------------- | --------------------------------- |
+| `assetPeriods` | `AssetPeriod[]` | Array of configured asset periods |
 
 ### getAssetPeriod
 
@@ -628,15 +628,15 @@ function getAssetPeriod(uint256 tokenId_) public view override returns (AssetPer
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|       The ID of the receipt token|
+| Name       | Type      | Description                 |
+| ---------- | --------- | --------------------------- |
+| `tokenId_` | `uint256` | The ID of the receipt token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`AssetPeriod`|configuration   The asset period|
+| Name     | Type          | Description                    |
+| -------- | ------------- | ------------------------------ |
+| `<none>` | `AssetPeriod` | configuration The asset period |
 
 ### getAssetPeriod
 
@@ -652,17 +652,17 @@ function getAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the underlying asset|
-|`depositPeriod_`|`uint8`| The deposit period, in months|
-|`operator_`|`address`|      The address of the operator|
+| Name             | Type      | Description                         |
+| ---------------- | --------- | ----------------------------------- |
+| `asset_`         | `IERC20`  | The address of the underlying asset |
+| `depositPeriod_` | `uint8`   | The deposit period, in months       |
+| `operator_`      | `address` | The address of the operator         |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`AssetPeriod`|configuration   The asset period|
+| Name     | Type          | Description                    |
+| -------- | ------------- | ------------------------------ |
+| `<none>` | `AssetPeriod` | configuration The asset period |
 
 ### borrowingWithdraw
 
@@ -672,7 +672,7 @@ Notes:
 
 - This function is only callable by addresses with the deposit operator role
 - Given a low enough amount, the actual amount withdrawn may be 0. This function will not revert in such a case.
-This function reverts if:
+  This function reverts if:
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The recipient is the zero address
@@ -690,15 +690,15 @@ function borrowingWithdraw(BorrowingWithdrawParams calldata params_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`params_`|`BorrowingWithdrawParams`|        The parameters for the borrowing withdrawal|
+| Name      | Type                      | Description                                 |
+| --------- | ------------------------- | ------------------------------------------- |
+| `params_` | `BorrowingWithdrawParams` | The parameters for the borrowing withdrawal |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualAmount`|`uint256`|   The quantity of underlying assets transferred to the recipient|
+| Name           | Type      | Description                                                    |
+| -------------- | --------- | -------------------------------------------------------------- |
+| `actualAmount` | `uint256` | The quantity of underlying assets transferred to the recipient |
 
 ### borrowingRepay
 
@@ -709,7 +709,7 @@ Notes:
 - This function is only callable by addresses with the deposit operator role
 - This function does not check for over-payment. It is expected to be handled by the calling contract.
 - If the actual amount repaid is greater than the maximum amount provided, updates to the state variables are capped at the maximum amount.
-This function reverts if:
+  This function reverts if:
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The asset has not been added via addAsset()
@@ -729,15 +729,15 @@ function borrowingRepay(BorrowingRepayParams calldata params_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`params_`|`BorrowingRepayParams`|        The parameters for the borrowing repayment|
+| Name      | Type                   | Description                                |
+| --------- | ---------------------- | ------------------------------------------ |
+| `params_` | `BorrowingRepayParams` | The parameters for the borrowing repayment |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualAmount`|`uint256`|   The quantity of underlying assets received from the payer|
+| Name           | Type      | Description                                               |
+| -------------- | --------- | --------------------------------------------------------- |
+| `actualAmount` | `uint256` | The quantity of underlying assets received from the payer |
 
 ### borrowingDefault
 
@@ -771,16 +771,16 @@ function getBorrowedAmount(IERC20 asset_, address operator_) public view returns
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the underlying asset|
-|`operator_`|`address`|      The address of the operator|
+| Name        | Type      | Description                         |
+| ----------- | --------- | ----------------------------------- |
+| `asset_`    | `IERC20`  | The address of the underlying asset |
+| `operator_` | `address` | The address of the operator         |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`borrowed`|`uint256`|       The current borrowed amount for the operator|
+| Name       | Type      | Description                                  |
+| ---------- | --------- | -------------------------------------------- |
+| `borrowed` | `uint256` | The current borrowed amount for the operator |
 
 ### getBorrowingCapacity
 
@@ -792,18 +792,18 @@ function getBorrowingCapacity(IERC20 asset_, address operator_) public view retu
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the underlying asset|
-|`operator_`|`address`|      The address of the operator|
+| Name        | Type      | Description                         |
+| ----------- | --------- | ----------------------------------- |
+| `asset_`    | `IERC20`  | The address of the underlying asset |
+| `operator_` | `address` | The address of the operator         |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`capacity`|`uint256`|       The available borrowing capacity for the operator|
+| Name       | Type      | Description                                       |
+| ---------- | --------- | ------------------------------------------------- |
+| `capacity` | `uint256` | The available borrowing capacity for the operator |
 
-### _setReceiptTokenData
+### \_setReceiptTokenData
 
 ```solidity
 function _setReceiptTokenData(IERC20 asset_, uint8 depositPeriod_, address operator_)
@@ -827,17 +827,17 @@ function getReceiptTokenId(IERC20 asset_, uint8 depositPeriod_, address operator
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the underlying asset|
-|`depositPeriod_`|`uint8`| The deposit period, in months|
-|`operator_`|`address`|      The address of the operator|
+| Name             | Type      | Description                         |
+| ---------------- | --------- | ----------------------------------- |
+| `asset_`         | `IERC20`  | The address of the underlying asset |
+| `depositPeriod_` | `uint8`   | The deposit period, in months       |
+| `operator_`      | `address` | The address of the operator         |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|receiptTokenId  The ID of the receipt token|
+| Name     | Type      | Description                                |
+| -------- | --------- | ------------------------------------------ |
+| `<none>` | `uint256` | receiptTokenId The ID of the receipt token |
 
 ### getReceiptTokenManager
 
@@ -849,9 +849,9 @@ function getReceiptTokenManager() external view override returns (IReceiptTokenM
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`IReceiptTokenManager`|manager The receipt token manager contract|
+| Name     | Type                   | Description                                |
+| -------- | ---------------------- | ------------------------------------------ |
+| `<none>` | `IReceiptTokenManager` | manager The receipt token manager contract |
 
 ### getReceiptTokenIds
 
@@ -863,9 +863,9 @@ function getReceiptTokenIds() external view override returns (uint256[] memory);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256[]`|tokenIds Array of receipt token IDs|
+| Name     | Type        | Description                         |
+| -------- | ----------- | ----------------------------------- |
+| `<none>` | `uint256[]` | tokenIds Array of receipt token IDs |
 
 ### getReceiptToken
 
@@ -881,18 +881,18 @@ function getReceiptToken(IERC20 asset_, uint8 depositPeriod_, address operator_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The asset contract|
-|`depositPeriod_`|`uint8`| The deposit period in months|
-|`operator_`|`address`|      The operator address|
+| Name             | Type      | Description                  |
+| ---------------- | --------- | ---------------------------- |
+| `asset_`         | `IERC20`  | The asset contract           |
+| `depositPeriod_` | `uint8`   | The deposit period in months |
+| `operator_`      | `address` | The operator address         |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId`|`uint256`|        The receipt token ID|
-|`wrappedToken`|`address`|   The address of the wrapped ERC20 token (0x0 if not created yet)|
+| Name           | Type      | Description                                                     |
+| -------------- | --------- | --------------------------------------------------------------- |
+| `tokenId`      | `uint256` | The receipt token ID                                            |
+| `wrappedToken` | `address` | The address of the wrapped ERC20 token (0x0 if not created yet) |
 
 ### supportsInterface
 
@@ -912,8 +912,8 @@ Rescue any ERC20 token sent to this contract and send it to the TRSRY
 This function reverts if:
 
 - The caller does not have the admin role
-- token_ is a managed asset or vault
-- token_ is the zero address
+- token\_ is a managed asset or vault
+- token\_ is the zero address
 
 ```solidity
 function rescue(address token_) external onlyEnabled onlyAdminRole;
@@ -921,6 +921,6 @@ function rescue(address token_) external onlyEnabled onlyAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`token_`|`address`|The address of the ERC20 token to rescue|
+| Name     | Type      | Description                              |
+| -------- | --------- | ---------------------------------------- |
+| `token_` | `address` | The address of the ERC20 token to rescue |

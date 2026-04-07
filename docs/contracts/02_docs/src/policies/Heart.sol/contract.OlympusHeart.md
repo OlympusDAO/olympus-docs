@@ -84,9 +84,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -98,9 +98,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### VERSION
 
@@ -112,10 +112,10 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|The major version of the policy.|
-|`minor`|`uint8`|The minor version of the policy.|
+| Name    | Type    | Description                      |
+| ------- | ------- | -------------------------------- |
+| `major` | `uint8` | The major version of the policy. |
+| `minor` | `uint8` | The minor version of the policy. |
 
 ### beat
 
@@ -127,13 +127,13 @@ Triggers price oracle update and market operations
 function beat() external nonReentrant;
 ```
 
-### _syncBeatWithDistributor
+### \_syncBeatWithDistributor
 
 ```solidity
 function _syncBeatWithDistributor() internal;
 ```
 
-### _resetBeat
+### \_resetBeat
 
 ```solidity
 function _resetBeat() internal;
@@ -149,7 +149,7 @@ This function is gated to the ADMIN or MANAGER roles
 function resetBeat() external onlyManagerOrAdminRole;
 ```
 
-### _enable
+### \_enable
 
 Implementation-specific enable function
 
@@ -166,9 +166,9 @@ function _enable(bytes calldata) internal override;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes`||
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| `<none>` | `bytes` |             |
 
 ### setDistributor
 
@@ -182,9 +182,9 @@ function setDistributor(address distributor_) external onlyAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`distributor_`|`address`|The address of the new Distributor contract|
+| Name           | Type      | Description                                 |
+| -------------- | --------- | ------------------------------------------- |
+| `distributor_` | `address` | The address of the new Distributor contract |
 
 ### notWhileBeatAvailable
 
@@ -207,10 +207,10 @@ function setRewardAuctionParams(uint256 maxReward_, uint48 auctionDuration_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`maxReward_`|`uint256`|- New max reward amount, in units of the reward token|
-|`auctionDuration_`|`uint48`|- New auction duration, in seconds|
+| Name               | Type      | Description                                           |
+| ------------------ | --------- | ----------------------------------------------------- |
+| `maxReward_`       | `uint256` | - New max reward amount, in units of the reward token |
+| `auctionDuration_` | `uint48`  | - New auction duration, in seconds                    |
 
 ### frequency
 
