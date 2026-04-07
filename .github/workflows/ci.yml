@@ -28,3 +28,6 @@ jobs:
 
       - name: Run build
         run: pnpm run build
+
+      - name: Run lint check
+        run: pnpm run lint:check
