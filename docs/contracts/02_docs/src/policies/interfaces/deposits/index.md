@@ -1,4 +1,3 @@
-
 # Deposits
 
 - [IConvertibleDepositAuctioneer](IConvertibleDepositAuctioneer.sol/interface.IConvertibleDepositAuctioneer.md)

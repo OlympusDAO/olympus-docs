@@ -19,9 +19,9 @@ function authorizeOperator(address operator_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`operator_`|`address`|  The address of the operator to authorize|
+| Name        | Type      | Description                              |
+| ----------- | --------- | ---------------------------------------- |
+| `operator_` | `address` | The address of the operator to authorize |
 
 ### deauthorizeOperator
 
@@ -33,9 +33,9 @@ function deauthorizeOperator(address operator_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`operator_`|`address`|  The address of the operator to deauthorize|
+| Name        | Type      | Description                                |
+| ----------- | --------- | ------------------------------------------ |
+| `operator_` | `address` | The address of the operator to deauthorize |
 
 ### isAuthorizedOperator
 
@@ -47,15 +47,15 @@ function isAuthorizedOperator(address operator_) external view returns (bool isA
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`operator_`|`address`|      The address of the operator to check|
+| Name        | Type      | Description                          |
+| ----------- | --------- | ------------------------------------ |
+| `operator_` | `address` | The address of the operator to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`isAuthorized`|`bool`|   True if the operator is authorized|
+| Name           | Type   | Description                        |
+| -------------- | ------ | ---------------------------------- |
+| `isAuthorized` | `bool` | True if the operator is authorized |
 
 ### getOperators
 
@@ -67,9 +67,9 @@ function getOperators() external view returns (address[] memory operators);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`operators`|`address[]`|  The list of operators|
+| Name        | Type        | Description           |
+| ----------- | ----------- | --------------------- |
+| `operators` | `address[]` | The list of operators |
 
 ### handleCommit
 
@@ -81,11 +81,11 @@ function handleCommit(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|   The deposit token committed|
-|`depositPeriod_`|`uint8`|  The deposit period in months|
-|`amount_`|`uint256`|         The amount to commit|
+| Name             | Type      | Description                  |
+| ---------------- | --------- | ---------------------------- |
+| `depositToken_`  | `IERC20`  | The deposit token committed  |
+| `depositPeriod_` | `uint8`   | The deposit period in months |
+| `amount_`        | `uint256` | The amount to commit         |
 
 ### handleCommitCancel
 
@@ -97,11 +97,11 @@ function handleCommitCancel(IERC20 depositToken_, uint8 depositPeriod_, uint256 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|   The deposit token committed|
-|`depositPeriod_`|`uint8`|  The deposit period in months|
-|`amount_`|`uint256`|         The amount to reduce the commitment by|
+| Name             | Type      | Description                            |
+| ---------------- | --------- | -------------------------------------- |
+| `depositToken_`  | `IERC20`  | The deposit token committed            |
+| `depositPeriod_` | `uint8`   | The deposit period in months           |
+| `amount_`        | `uint256` | The amount to reduce the commitment by |
 
 ### handleCommitWithdraw
 
@@ -115,18 +115,18 @@ function handleCommitWithdraw(IERC20 depositToken_, uint8 depositPeriod_, uint25
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|   The deposit token to withdraw|
-|`depositPeriod_`|`uint8`|  The deposit period in months|
-|`amount_`|`uint256`|         The amount to withdraw|
-|`recipient_`|`address`|      The address to receive the deposit tokens|
+| Name             | Type      | Description                               |
+| ---------------- | --------- | ----------------------------------------- |
+| `depositToken_`  | `IERC20`  | The deposit token to withdraw             |
+| `depositPeriod_` | `uint8`   | The deposit period in months              |
+| `amount_`        | `uint256` | The amount to withdraw                    |
+| `recipient_`     | `address` | The address to receive the deposit tokens |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualAmount`|`uint256`|   The amount of tokens transferred|
+| Name           | Type      | Description                      |
+| -------------- | --------- | -------------------------------- |
+| `actualAmount` | `uint256` | The amount of tokens transferred |
 
 ### handlePositionRedemption
 
@@ -138,10 +138,10 @@ function handlePositionRedemption(uint256 positionId_, uint256 amount_) external
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`| The position ID to update|
-|`amount_`|`uint256`|     The amount being redeemed from the position|
+| Name          | Type      | Description                                 |
+| ------------- | --------- | ------------------------------------------- |
+| `positionId_` | `uint256` | The position ID to update                   |
+| `amount_`     | `uint256` | The amount being redeemed from the position |
 
 ### handlePositionCancelRedemption
 
@@ -153,10 +153,10 @@ function handlePositionCancelRedemption(uint256 positionId_, uint256 amount_) ex
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`| The position ID to update|
-|`amount_`|`uint256`|     The redemption amount to be cancelled|
+| Name          | Type      | Description                           |
+| ------------- | --------- | ------------------------------------- |
+| `positionId_` | `uint256` | The position ID to update             |
+| `amount_`     | `uint256` | The redemption amount to be cancelled |
 
 ### handleBorrow
 
@@ -170,18 +170,18 @@ function handleBorrow(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|   The deposit token to borrow against|
-|`depositPeriod_`|`uint8`|  The deposit period in months|
-|`amount_`|`uint256`|         The amount to borrow|
-|`recipient_`|`address`|      The address to receive the borrowed tokens|
+| Name             | Type      | Description                                |
+| ---------------- | --------- | ------------------------------------------ |
+| `depositToken_`  | `IERC20`  | The deposit token to borrow against        |
+| `depositPeriod_` | `uint8`   | The deposit period in months               |
+| `amount_`        | `uint256` | The amount to borrow                       |
+| `recipient_`     | `address` | The address to receive the borrowed tokens |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualAmount`|`uint256`|   The amount of tokens borrowed|
+| Name           | Type      | Description                   |
+| -------------- | --------- | ----------------------------- |
+| `actualAmount` | `uint256` | The amount of tokens borrowed |
 
 ### handleLoanRepay
 
@@ -199,19 +199,19 @@ function handleLoanRepay(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|   The deposit token being repaid|
-|`depositPeriod_`|`uint8`|  The deposit period in months|
-|`amount_`|`uint256`|         The amount of principal being repaid|
-|`maxAmount_`|`uint256`|      The maximum amount of principal that can be repaid|
-|`payer_`|`address`|          The address making the repayment|
+| Name             | Type      | Description                                        |
+| ---------------- | --------- | -------------------------------------------------- |
+| `depositToken_`  | `IERC20`  | The deposit token being repaid                     |
+| `depositPeriod_` | `uint8`   | The deposit period in months                       |
+| `amount_`        | `uint256` | The amount of principal being repaid               |
+| `maxAmount_`     | `uint256` | The maximum amount of principal that can be repaid |
+| `payer_`         | `address` | The address making the repayment                   |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualAmount`|`uint256`|   The amount of tokens repaid|
+| Name           | Type      | Description                 |
+| -------------- | --------- | --------------------------- |
+| `actualAmount` | `uint256` | The amount of tokens repaid |
 
 ### handleLoanDefault
 
@@ -223,12 +223,12 @@ function handleLoanDefault(IERC20 depositToken_, uint8 depositPeriod_, uint256 a
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|The deposit token being defaulted|
-|`depositPeriod_`|`uint8`|The deposit period in months|
-|`amount_`|`uint256`|The amount being defaulted|
-|`payer_`|`address`|The address making the default|
+| Name             | Type      | Description                       |
+| ---------------- | --------- | --------------------------------- |
+| `depositToken_`  | `IERC20`  | The deposit token being defaulted |
+| `depositPeriod_` | `uint8`   | The deposit period in months      |
+| `amount_`        | `uint256` | The amount being defaulted        |
+| `payer_`         | `address` | The address making the default    |
 
 ### previewReclaim
 
@@ -247,17 +247,17 @@ function previewReclaim(IERC20 depositToken_, uint8 depositPeriod_, uint256 amou
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|  The address of the deposit token|
-|`depositPeriod_`|`uint8`| The period of the deposit in months|
-|`amount_`|`uint256`|        The amount of deposit tokens to reclaim|
+| Name             | Type      | Description                             |
+| ---------------- | --------- | --------------------------------------- |
+| `depositToken_`  | `IERC20`  | The address of the deposit token        |
+| `depositPeriod_` | `uint8`   | The period of the deposit in months     |
+| `amount_`        | `uint256` | The amount of deposit tokens to reclaim |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`reclaimed`|`uint256`|      The amount of deposit token returned to the caller|
+| Name        | Type      | Description                                        |
+| ----------- | --------- | -------------------------------------------------- |
+| `reclaimed` | `uint256` | The amount of deposit token returned to the caller |
 
 ### reclaim
 
@@ -277,17 +277,17 @@ function reclaim(IERC20 depositToken_, uint8 depositPeriod_, uint256 amount_) ex
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|  The address of the deposit token|
-|`depositPeriod_`|`uint8`| The period of the deposit in months|
-|`amount_`|`uint256`|        The amount of deposit tokens to reclaim|
+| Name             | Type      | Description                             |
+| ---------------- | --------- | --------------------------------------- |
+| `depositToken_`  | `IERC20`  | The address of the deposit token        |
+| `depositPeriod_` | `uint8`   | The period of the deposit in months     |
+| `amount_`        | `uint256` | The amount of deposit tokens to reclaim |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`reclaimed`|`uint256`|      The amount of deposit token returned to the caller|
+| Name        | Type      | Description                                        |
+| ----------- | --------- | -------------------------------------------------- |
+| `reclaimed` | `uint256` | The amount of deposit token returned to the caller |
 
 ### setAssetPeriodReclaimRate
 
@@ -299,11 +299,11 @@ function setAssetPeriodReclaimRate(IERC20 asset_, uint8 depositPeriod_, uint16 r
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|        The address of the underlying asset|
-|`depositPeriod_`|`uint8`|The deposit period, in months|
-|`reclaimRate_`|`uint16`|  The reclaim rate to set (in basis points, where 100e2 = 100%)|
+| Name             | Type     | Description                                                   |
+| ---------------- | -------- | ------------------------------------------------------------- |
+| `asset_`         | `IERC20` | The address of the underlying asset                           |
+| `depositPeriod_` | `uint8`  | The deposit period, in months                                 |
+| `reclaimRate_`   | `uint16` | The reclaim rate to set (in basis points, where 100e2 = 100%) |
 
 ### getAssetPeriodReclaimRate
 
@@ -315,16 +315,16 @@ function getAssetPeriodReclaimRate(IERC20 asset_, uint8 depositPeriod_) external
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|        The address of the underlying asset|
-|`depositPeriod_`|`uint8`|The deposit period, in months|
+| Name             | Type     | Description                         |
+| ---------------- | -------- | ----------------------------------- |
+| `asset_`         | `IERC20` | The address of the underlying asset |
+| `depositPeriod_` | `uint8`  | The deposit period, in months       |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`reclaimRate`|`uint16`|  The reclaim rate for the asset period|
+| Name          | Type     | Description                           |
+| ------------- | -------- | ------------------------------------- |
+| `reclaimRate` | `uint16` | The reclaim rate for the asset period |
 
 ### split
 
@@ -338,18 +338,18 @@ function split(uint256 positionId_, uint256 amount_, address to_, bool wrap_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|    The ID of the position to split|
-|`amount_`|`uint256`|        The amount to split from the position|
-|`to_`|`address`|            The address to receive the new position|
-|`wrap_`|`bool`|          Whether to wrap the new position|
+| Name          | Type      | Description                             |
+| ------------- | --------- | --------------------------------------- |
+| `positionId_` | `uint256` | The ID of the position to split         |
+| `amount_`     | `uint256` | The amount to split from the position   |
+| `to_`         | `address` | The address to receive the new position |
+| `wrap_`       | `bool`    | Whether to wrap the new position        |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newPositionId`|`uint256`|  The ID of the newly created position|
+| Name            | Type      | Description                          |
+| --------------- | --------- | ------------------------------------ |
+| `newPositionId` | `uint256` | The ID of the newly created position |
 
 ### getAvailableDeposits
 
@@ -362,15 +362,15 @@ function getAvailableDeposits(IERC20 depositToken_) external view returns (uint2
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|The deposit token to query|
+| Name            | Type     | Description                |
+| --------------- | -------- | -------------------------- |
+| `depositToken_` | `IERC20` | The deposit token to query |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`balance`|`uint256`|    The available deposit balance|
+| Name      | Type      | Description                   |
+| --------- | --------- | ----------------------------- |
+| `balance` | `uint256` | The available deposit balance |
 
 ### getCommittedDeposits
 
@@ -384,15 +384,15 @@ function getCommittedDeposits(IERC20 depositToken_) external view returns (uint2
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|   The deposit token to query|
+| Name            | Type     | Description                |
+| --------------- | -------- | -------------------------- |
+| `depositToken_` | `IERC20` | The deposit token to query |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`committed`|`uint256`|      The total committed deposits|
+| Name        | Type      | Description                  |
+| ----------- | --------- | ---------------------------- |
+| `committed` | `uint256` | The total committed deposits |
 
 ### getCommittedDeposits
 
@@ -406,16 +406,16 @@ function getCommittedDeposits(IERC20 depositToken_, address operator_) external 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|   The deposit token to query|
-|`operator_`|`address`|       The operator|
+| Name            | Type      | Description                |
+| --------------- | --------- | -------------------------- |
+| `depositToken_` | `IERC20`  | The deposit token to query |
+| `operator_`     | `address` | The operator               |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`committed`|`uint256`|      The committed deposits for the operator|
+| Name        | Type      | Description                             |
+| ----------- | --------- | --------------------------------------- |
+| `committed` | `uint256` | The committed deposits for the operator |
 
 ## Events
 

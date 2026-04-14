@@ -19,16 +19,16 @@ function wrap(uint256 tokenId_, uint256 amount_) external returns (address wrapp
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|     The ID of the ERC6909 token|
-|`amount_`|`uint256`|      The amount of tokens to wrap|
+| Name       | Type      | Description                  |
+| ---------- | --------- | ---------------------------- |
+| `tokenId_` | `uint256` | The ID of the ERC6909 token  |
+| `amount_`  | `uint256` | The amount of tokens to wrap |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`wrappedToken`|`address`|The address of the wrapped ERC20 token|
+| Name           | Type      | Description                            |
+| -------------- | --------- | -------------------------------------- |
+| `wrappedToken` | `address` | The address of the wrapped ERC20 token |
 
 ### unwrap
 
@@ -40,10 +40,10 @@ function unwrap(uint256 tokenId_, uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|     The ID of the ERC6909 token|
-|`amount_`|`uint256`|      The amount of tokens to unwrap|
+| Name       | Type      | Description                    |
+| ---------- | --------- | ------------------------------ |
+| `tokenId_` | `uint256` | The ID of the ERC6909 token    |
+| `amount_`  | `uint256` | The amount of tokens to unwrap |
 
 ### getWrappedToken
 
@@ -55,15 +55,15 @@ function getWrappedToken(uint256 tokenId_) external view returns (address wrappe
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|       The ID of the ERC6909 token|
+| Name       | Type      | Description                 |
+| ---------- | --------- | --------------------------- |
+| `tokenId_` | `uint256` | The ID of the ERC6909 token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`wrappedToken`|`address`|   The address of the wrapped ERC20 token (or zero address)|
+| Name           | Type      | Description                                              |
+| -------------- | --------- | -------------------------------------------------------- |
+| `wrappedToken` | `address` | The address of the wrapped ERC20 token (or zero address) |
 
 ### isValidTokenId
 
@@ -75,15 +75,15 @@ function isValidTokenId(uint256 tokenId_) external view returns (bool isValid);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|       The ID of the ERC6909 token|
+| Name       | Type      | Description                 |
+| ---------- | --------- | --------------------------- |
+| `tokenId_` | `uint256` | The ID of the ERC6909 token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`isValid`|`bool`|        Whether the token ID is valid|
+| Name      | Type   | Description                   |
+| --------- | ------ | ----------------------------- |
+| `isValid` | `bool` | Whether the token ID is valid |
 
 ### getWrappableTokens
 
@@ -95,10 +95,10 @@ function getWrappableTokens() external view returns (uint256[] memory tokenIds, 
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenIds`|`uint256[]`|       The IDs of all tokens|
-|`wrappedTokens`|`address[]`|  The wrapped token addresses of all tokens|
+| Name            | Type        | Description                               |
+| --------------- | ----------- | ----------------------------------------- |
+| `tokenIds`      | `uint256[]` | The IDs of all tokens                     |
+| `wrappedTokens` | `address[]` | The wrapped token addresses of all tokens |
 
 ## Events
 

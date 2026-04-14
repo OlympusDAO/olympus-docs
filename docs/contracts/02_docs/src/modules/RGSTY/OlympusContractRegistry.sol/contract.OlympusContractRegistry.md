@@ -39,9 +39,9 @@ constructor(address kernel_) Module(Kernel(kernel_));
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`kernel_`|`address`|The address of the kernel|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `kernel_` | `address` | The address of the kernel |
 
 ### KEYCODE
 
@@ -61,10 +61,10 @@ function VERSION() public pure override returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|- Major version upgrade indicates breaking change to the interface.|
-|`minor`|`uint8`|- Minor version change retains backward-compatible interface.|
+| Name    | Type    | Description                                                         |
+| ------- | ------- | ------------------------------------------------------------------- |
+| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
 
 ### registerImmutableContract
 
@@ -76,10 +76,10 @@ This function performs the following steps:
 - Registers the contract
 - Updates the contract names
 - Refreshes the dependent policies
-The contract name can contain:
+  The contract name can contain:
 - Lowercase letters
 - Numerals
-This function will revert if:
+  This function will revert if:
 - The caller is not permissioned
 - The name is empty
 - The name contains punctuation or uppercase letters
@@ -93,10 +93,10 @@ function registerImmutableContract(bytes5 name_, address contractAddress_) exter
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|              The name of the contract|
-|`contractAddress_`|`address`|   The address of the contract|
+| Name               | Type      | Description                 |
+| ------------------ | --------- | --------------------------- |
+| `name_`            | `bytes5`  | The name of the contract    |
+| `contractAddress_` | `address` | The address of the contract |
 
 ### registerContract
 
@@ -108,10 +108,10 @@ This function performs the following steps:
 - Updates the contract address
 - Updates the contract names (if needed)
 - Refreshes the dependent policies
-The contract name can contain:
+  The contract name can contain:
 - Lowercase letters
 - Numerals
-This function will revert if:
+  This function will revert if:
 - The caller is not permissioned
 - The name is empty
 - The name contains punctuation or uppercase letters
@@ -125,10 +125,10 @@ function registerContract(bytes5 name_, address contractAddress_) external overr
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|              The name of the contract|
-|`contractAddress_`|`address`|   The address of the contract|
+| Name               | Type      | Description                 |
+| ------------------ | --------- | --------------------------- |
+| `name_`            | `bytes5`  | The name of the contract    |
+| `contractAddress_` | `address` | The address of the contract |
 
 ### updateContract
 
@@ -140,7 +140,7 @@ This function performs the following steps:
 - Updates the contract address
 - Updates the contract names (if needed)
 - Refreshes the dependent policies
-This function will revert if:
+  This function will revert if:
 - The caller is not permissioned
 - The contract is not registered as a mutable address
 - The contract address is zero
@@ -151,10 +151,10 @@ function updateContract(bytes5 name_, address contractAddress_) external overrid
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|              The name of the contract|
-|`contractAddress_`|`address`|   The address of the contract|
+| Name               | Type      | Description                 |
+| ------------------ | --------- | --------------------------- |
+| `name_`            | `bytes5`  | The name of the contract    |
+| `contractAddress_` | `address` | The address of the contract |
 
 ### deregisterContract
 
@@ -166,7 +166,7 @@ This function performs the following steps:
 - Removes the contract address
 - Removes the contract name
 - Refreshes the dependent policies
-This function will revert if:
+  This function will revert if:
 - The caller is not permissioned
 - The contract is not registered as a mutable address
 
@@ -176,9 +176,9 @@ function deregisterContract(bytes5 name_) external override permissioned;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|  The name of the contract|
+| Name    | Type     | Description              |
+| ------- | -------- | ------------------------ |
+| `name_` | `bytes5` | The name of the contract |
 
 ### getImmutableContract
 
@@ -194,15 +194,15 @@ function getImmutableContract(bytes5 name_) external view override returns (addr
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|  The name of the contract|
+| Name    | Type     | Description              |
+| ------- | -------- | ------------------------ |
+| `name_` | `bytes5` | The name of the contract |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|The address of the contract|
+| Name     | Type      | Description                 |
+| -------- | --------- | --------------------------- |
+| `<none>` | `address` | The address of the contract |
 
 ### getImmutableContractNames
 
@@ -216,9 +216,9 @@ function getImmutableContractNames() external view override returns (bytes5[] me
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes5[]`|The names of all registered immutable contracts|
+| Name     | Type       | Description                                     |
+| -------- | ---------- | ----------------------------------------------- |
+| `<none>` | `bytes5[]` | The names of all registered immutable contracts |
 
 ### getContract
 
@@ -234,15 +234,15 @@ function getContract(bytes5 name_) external view override returns (address);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|  The name of the contract|
+| Name    | Type     | Description              |
+| ------- | -------- | ------------------------ |
+| `name_` | `bytes5` | The name of the contract |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|The address of the contract|
+| Name     | Type      | Description                 |
+| -------- | --------- | --------------------------- |
+| `<none>` | `address` | The address of the contract |
 
 ### getContractNames
 
@@ -256,11 +256,11 @@ function getContractNames() external view override returns (bytes5[] memory);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes5[]`|The names of all registered mutable contracts|
+| Name     | Type       | Description                                   |
+| -------- | ---------- | --------------------------------------------- |
+| `<none>` | `bytes5[]` | The names of all registered mutable contracts |
 
-### _validateContractName
+### \_validateContractName
 
 Validates the contract name
 
@@ -274,7 +274,7 @@ This function will revert if:
 function _validateContractName(bytes5 name_) internal pure;
 ```
 
-### _removeContractName
+### \_removeContractName
 
 Removes the name of a contract from the list of contract names.
 
@@ -284,11 +284,11 @@ function _removeContractName(bytes5 name_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|The name of the contract|
+| Name    | Type     | Description              |
+| ------- | -------- | ------------------------ |
+| `name_` | `bytes5` | The name of the contract |
 
-### _refreshDependents
+### \_refreshDependents
 
 Refreshes the dependents of the module
 

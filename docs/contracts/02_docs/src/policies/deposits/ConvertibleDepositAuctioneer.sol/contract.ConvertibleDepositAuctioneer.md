@@ -35,7 +35,7 @@ The role that can perform periodic actions, such as updating the auction paramet
 bytes32 public constant ROLE_EMISSION_MANAGER = "cd_emissionmanager"
 ```
 
-### _ohmScale
+### \_ohmScale
 
 Scale of the OHM token
 
@@ -87,7 +87,7 @@ Seconds in one day
 uint256 internal constant SECONDS_IN_DAY = 1 days
 ```
 
-### _ENABLE_PARAMS_LENGTH
+### \_ENABLE_PARAMS_LENGTH
 
 The length of the enable parameters
 
@@ -95,7 +95,7 @@ The length of the enable parameters
 uint256 internal constant _ENABLE_PARAMS_LENGTH = 192
 ```
 
-### _TICK_SIZE_MINIMUM
+### \_TICK_SIZE_MINIMUM
 
 The minimum tick size
 
@@ -103,7 +103,7 @@ The minimum tick size
 uint256 internal constant _TICK_SIZE_MINIMUM = 1
 ```
 
-### _depositPeriodsEnabled
+### \_depositPeriodsEnabled
 
 Whether the deposit period is enabled
 
@@ -111,7 +111,7 @@ Whether the deposit period is enabled
 mapping(uint8 depositPeriod => bool isDepositPeriodEnabled) internal _depositPeriodsEnabled
 ```
 
-### _DEPOSIT_ASSET
+### \_DEPOSIT_ASSET
 
 The deposit asset
 
@@ -119,7 +119,7 @@ The deposit asset
 IERC20 internal immutable _DEPOSIT_ASSET
 ```
 
-### _depositPeriods
+### \_depositPeriods
 
 Array of enabled deposit periods
 
@@ -127,7 +127,7 @@ Array of enabled deposit periods
 EnumerableSet.UintSet internal _depositPeriods
 ```
 
-### _depositPeriodPreviousTicks
+### \_depositPeriodPreviousTicks
 
 Previous tick for each deposit period
 
@@ -145,7 +145,7 @@ Address of the Convertible Deposit Facility
 ConvertibleDepositFacility public immutable CD_FACILITY
 ```
 
-### _auctionParameters
+### \_auctionParameters
 
 Auction parameters
 
@@ -155,7 +155,7 @@ These values should only be set through the `setAuctionParameters()` function
 AuctionParameters internal _auctionParameters
 ```
 
-### _currentTickSize
+### \_currentTickSize
 
 The current tick size
 
@@ -163,7 +163,7 @@ The current tick size
 uint256 internal _currentTickSize
 ```
 
-### _dayState
+### \_dayState
 
 Auction state for the day
 
@@ -171,7 +171,7 @@ Auction state for the day
 Day internal _dayState
 ```
 
-### _tickStep
+### \_tickStep
 
 The tick step
 
@@ -181,7 +181,7 @@ See `getTickStep()` for more information
 uint24 internal _tickStep
 ```
 
-### _minimumBid
+### \_minimumBid
 
 The minimum bid amount
 
@@ -192,7 +192,7 @@ See `getMinimumBid()` for more information
 uint256 internal _minimumBid
 ```
 
-### _tickSizeBase
+### \_tickSizeBase
 
 The base used for exponential tick size reduction (by 1/(base^multiplier)) when the day target is crossed (WAD, 1e18 = 1.0)
 
@@ -200,7 +200,7 @@ The base used for exponential tick size reduction (by 1/(base^multiplier)) when 
 uint256 internal _tickSizeBase
 ```
 
-### _auctionResultsNextIndex
+### \_auctionResultsNextIndex
 
 The index of the next auction result
 
@@ -208,7 +208,7 @@ The index of the next auction result
 uint8 internal _auctionResultsNextIndex
 ```
 
-### _auctionTrackingPeriod
+### \_auctionTrackingPeriod
 
 The number of days that auction results are tracked for
 
@@ -216,7 +216,7 @@ The number of days that auction results are tracked for
 uint8 internal _auctionTrackingPeriod
 ```
 
-### _auctionResults
+### \_auctionResults
 
 The auction results, where a positive number indicates an over-subscription for the day.
 
@@ -226,7 +226,7 @@ The length of this array is equal to the auction tracking period
 int256[] internal _auctionResults
 ```
 
-### _pendingDepositPeriodChanges
+### \_pendingDepositPeriodChanges
 
 Queue of pending deposit period enable/disable changes
 
@@ -252,9 +252,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -266,9 +266,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### VERSION
 
@@ -286,7 +286,7 @@ This function performs the following:
 - Determines the amount of OHM that can be purchased for the deposit amount, and the updated tick capacity and price
 - Updates the day state, if necessary
 - Creates a convertible deposit position using the deposit amount, the average conversion price and the deposit period
-This function reverts if:
+  This function reverts if:
 - The contract is not active
 - The auction is disabled
 - The bid amount is below the minimum bid
@@ -294,7 +294,7 @@ This function reverts if:
 - The depositor has not approved the DepositManager to spend the deposit asset
 - The depositor has an insufficient balance of the deposit asset
 - The calculated amount of OHM out is 0
-- The calculated amount of OHM out is < minOhmOut_
+- The calculated amount of OHM out is < minOhmOut\_
 
 ```solidity
 function bid(
@@ -314,24 +314,24 @@ function bid(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period|
-|`depositAmount_`|`uint256`| Amount of deposit asset to deposit|
-|`minOhmOut_`|`uint256`|     The minimum amount of OHM tokens that the deposit should convert to, in order to succeed. This acts as slippage protection.|
-|`wrapPosition_`|`bool`|  Whether to wrap the position as an ERC721|
-|`wrapReceipt_`|`bool`|   Whether to wrap the receipt as an ERC20|
+| Name             | Type      | Description                                                                                                                 |
+| ---------------- | --------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `depositPeriod_` | `uint8`   | The deposit period                                                                                                          |
+| `depositAmount_` | `uint256` | Amount of deposit asset to deposit                                                                                          |
+| `minOhmOut_`     | `uint256` | The minimum amount of OHM tokens that the deposit should convert to, in order to succeed. This acts as slippage protection. |
+| `wrapPosition_`  | `bool`    | Whether to wrap the position as an ERC721                                                                                   |
+| `wrapReceipt_`   | `bool`    | Whether to wrap the receipt as an ERC20                                                                                     |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|ohmOut          Amount of OHM tokens that the deposit can be converted to|
-|`<none>`|`uint256`|positionId      The ID of the position created by the DEPOS module to represent the convertible deposit terms|
-|`<none>`|`uint256`|receiptTokenId  The ID of the receipt token created by the DepositManager to represent the deposit|
-|`<none>`|`uint256`|actualAmount    The actual amount of deposit assets that were deposited (receipt tokens minted)|
+| Name     | Type      | Description                                                                                              |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------- |
+| `<none>` | `uint256` | ohmOut Amount of OHM tokens that the deposit can be converted to                                         |
+| `<none>` | `uint256` | positionId The ID of the position created by the DEPOS module to represent the convertible deposit terms |
+| `<none>` | `uint256` | receiptTokenId The ID of the receipt token created by the DepositManager to represent the deposit        |
+| `<none>` | `uint256` | actualAmount The actual amount of deposit assets that were deposited (receipt tokens minted)             |
 
-### _bid
+### \_bid
 
 Internal function to submit an auction bid on the given deposit asset and period
 
@@ -341,7 +341,7 @@ This function expects the calling function to have already validated the contrac
 function _bid(BidParams memory params) internal returns (uint256, uint256, uint256, uint256);
 ```
 
-### _previewBid
+### \_previewBid
 
 Internal function to preview the quantity of OHM tokens that can be purchased for a given deposit amount
 
@@ -350,7 +350,7 @@ This function performs the following:
 - Cycles through ticks until the deposit is fully converted
 - If the current tick has enough capacity, it will be used
 - If the current tick does not have enough capacity, the remaining capacity will be used. The current tick will then shift to the next tick, resulting in the capacity being filled to the tick size, and the price being multiplied by the tick step.
-Notes:
+  Notes:
 - This function assumes that the auction is active (i.e. the target is non-zero) and the tick size is non-zero
 - The function returns the updated tick capacity and price after the bid
 - If the capacity of a tick is depleted (but does not cross into the next tick), the current tick will be shifted to the next one. This ensures that `getCurrentTick()` will not return a tick that has been depleted.
@@ -361,16 +361,16 @@ function _previewBid(uint256 deposit_, Tick memory tick_) internal view returns 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`deposit_`|`uint256`|           The amount of deposit to be bid|
-|`tick_`|`Tick`||
+| Name       | Type      | Description                     |
+| ---------- | --------- | ------------------------------- |
+| `deposit_` | `uint256` | The amount of deposit to be bid |
+| `tick_`    | `Tick`    |                                 |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`output`|`BidOutput`|             The output of the bid|
+| Name     | Type        | Description           |
+| -------- | ----------- | --------------------- |
+| `output` | `BidOutput` | The output of the bid |
 
 ### previewBid
 
@@ -388,18 +388,18 @@ function previewBid(uint8 depositPeriod_, uint256 bidAmount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period|
-|`bidAmount_`|`uint256`||
+| Name             | Type      | Description        |
+| ---------------- | --------- | ------------------ |
+| `depositPeriod_` | `uint8`   | The deposit period |
+| `bidAmount_`     | `uint256` |                    |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmOut`|`uint256`|         Amount of OHM tokens that the deposit could be converted to|
+| Name     | Type      | Description                                                 |
+| -------- | --------- | ----------------------------------------------------------- |
+| `ohmOut` | `uint256` | Amount of OHM tokens that the deposit could be converted to |
 
-### _getConvertedDeposit
+### \_getConvertedDeposit
 
 Internal function to preview the quantity of OHM tokens that can be purchased for a given deposit amount
 
@@ -411,18 +411,18 @@ function _getConvertedDeposit(uint256 deposit_, uint256 price_) internal pure re
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`deposit_`|`uint256`|           The amount of deposit to be converted|
-|`price_`|`uint256`|             The price of the deposit in OHM|
+| Name       | Type      | Description                           |
+| ---------- | --------- | ------------------------------------- |
+| `deposit_` | `uint256` | The amount of deposit to be converted |
+| `price_`   | `uint256` | The price of the deposit in OHM       |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`convertibleAmount`|`uint256`|  The quantity of OHM tokens that can be purchased|
+| Name                | Type      | Description                                      |
+| ------------------- | --------- | ------------------------------------------------ |
+| `convertibleAmount` | `uint256` | The quantity of OHM tokens that can be purchased |
 
-### _getNewTickPrice
+### \_getNewTickPrice
 
 Internal function to preview the new price of the current tick after applying the tick step
 
@@ -434,18 +434,18 @@ function _getNewTickPrice(uint256 currentPrice_, uint256 tickStep_) internal pur
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`currentPrice_`|`uint256`|      The current price of the tick in terms of the bid token|
-|`tickStep_`|`uint256`|          The step size of the tick|
+| Name            | Type      | Description                                             |
+| --------------- | --------- | ------------------------------------------------------- |
+| `currentPrice_` | `uint256` | The current price of the tick in terms of the bid token |
+| `tickStep_`     | `uint256` | The step size of the tick                               |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newPrice`|`uint256`|           The new price of the tick|
+| Name       | Type      | Description               |
+| ---------- | --------- | ------------------------- |
+| `newPrice` | `uint256` | The new price of the tick |
 
-### _getNewTickSize
+### \_getNewTickSize
 
 Internal function to calculate the new tick size based on the amount of OHM that has been converted in the current day
 
@@ -461,18 +461,18 @@ function _getNewTickSize(uint256 ohmOut_, AuctionParameters memory auctionParams
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmOut_`|`uint256`|    The amount of OHM that has been converted in the current day|
-|`auctionParams_`|`AuctionParameters`||
+| Name             | Type                | Description                                                  |
+| ---------------- | ------------------- | ------------------------------------------------------------ |
+| `ohmOut_`        | `uint256`           | The amount of OHM that has been converted in the current day |
+| `auctionParams_` | `AuctionParameters` |                                                              |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newTickSize`|`uint256`|The new tick size|
+| Name          | Type      | Description       |
+| ------------- | --------- | ----------------- |
+| `newTickSize` | `uint256` | The new tick size |
 
-### _getOhmUntilNextThreshold
+### \_getOhmUntilNextThreshold
 
 Internal function to calculate the amount of OHM remaining until the next day target threshold is reached
 
@@ -485,18 +485,18 @@ function _getOhmUntilNextThreshold(uint256 currentConvertible_, uint256 target_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`currentConvertible_`|`uint256`|The current cumulative amount of OHM that has been converted|
-|`target_`|`uint256`|            The day target|
+| Name                  | Type      | Description                                                  |
+| --------------------- | --------- | ------------------------------------------------------------ |
+| `currentConvertible_` | `uint256` | The current cumulative amount of OHM that has been converted |
+| `target_`             | `uint256` | The day target                                               |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmUntilThreshold`|`uint256`|  The amount of OHM remaining until the next threshold|
+| Name                | Type      | Description                                          |
+| ------------------- | --------- | ---------------------------------------------------- |
+| `ohmUntilThreshold` | `uint256` | The amount of OHM remaining until the next threshold |
 
-### _getCurrentTick
+### \_getCurrentTick
 
 ```solidity
 function _getCurrentTick(uint8 depositPeriod_) internal view returns (Tick memory tick);
@@ -512,9 +512,9 @@ It uses the following approach:
 - Calculate the added capacity based on the time passed since the last bid, and add it to the current capacity to get the new capacity
 - Until the new capacity is <= to the standard tick size, reduce the capacity by the standard tick size and reduce the price by the tick step
 - If the calculated price is ever lower than the minimum price, the new price is set to the minimum price and the capacity is set to the standard tick size
-Notes:
+  Notes:
 - If the target is 0, the price will not decay and the capacity will not change. It will only decay when a target is set again to a non-zero value.
-This function reverts if:
+  This function reverts if:
 - The deposit asset and period are not enabled
 
 ```solidity
@@ -527,9 +527,9 @@ function getCurrentTick(uint8 depositPeriod_)
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tick`|`Tick`|Tick info|
+| Name   | Type   | Description |
+| ------ | ------ | ----------- |
+| `tick` | `Tick` | Tick info   |
 
 ### getPreviousTick
 
@@ -544,9 +544,9 @@ function getPreviousTick(uint8 depositPeriod_) public view override returns (Tic
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tick`|`Tick`|Tick info|
+| Name   | Type   | Description |
+| ------ | ------ | ----------- |
+| `tick` | `Tick` | Tick info   |
 
 ### getCurrentTickSize
 
@@ -558,9 +558,9 @@ function getCurrentTickSize() external view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|tickSize The current tick size|
+| Name     | Type      | Description                    |
+| -------- | --------- | ------------------------------ |
+| `<none>` | `uint256` | tickSize The current tick size |
 
 ### getAuctionParameters
 
@@ -572,9 +572,9 @@ function getAuctionParameters() external view override returns (AuctionParameter
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`AuctionParameters`|auctionParameters Auction parameters|
+| Name     | Type                | Description                          |
+| -------- | ------------------- | ------------------------------------ |
+| `<none>` | `AuctionParameters` | auctionParameters Auction parameters |
 
 ### isAuctionActive
 
@@ -588,9 +588,9 @@ function isAuctionActive() external view override returns (bool);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|isActive True if the auction is active, false if disabled|
+| Name     | Type   | Description                                               |
+| -------- | ------ | --------------------------------------------------------- |
+| `<none>` | `bool` | isActive True if the auction is active, false if disabled |
 
 ### getDayState
 
@@ -602,9 +602,9 @@ function getDayState() external view override returns (Day memory);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`Day`|day Day info|
+| Name     | Type  | Description  |
+| -------- | ----- | ------------ |
+| `<none>` | `Day` | day Day info |
 
 ### getTickStep
 
@@ -618,9 +618,9 @@ function getTickStep() external view override returns (uint24);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint24`|tickStep The tick step, in terms of `ONE_HUNDRED_PERCENT`|
+| Name     | Type     | Description                                               |
+| -------- | -------- | --------------------------------------------------------- |
+| `<none>` | `uint24` | tickStep The tick step, in terms of `ONE_HUNDRED_PERCENT` |
 
 ### getMinimumBid
 
@@ -632,9 +632,9 @@ function getMinimumBid() external view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|minimumBid The minimum bid amount required|
+| Name     | Type      | Description                                |
+| -------- | --------- | ------------------------------------------ |
+| `<none>` | `uint256` | minimumBid The minimum bid amount required |
 
 ### getAuctionTrackingPeriod
 
@@ -646,9 +646,9 @@ function getAuctionTrackingPeriod() external view override returns (uint8);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint8`|daysTracked The number of days that auction results are tracked for|
+| Name     | Type    | Description                                                         |
+| -------- | ------- | ------------------------------------------------------------------- |
+| `<none>` | `uint8` | daysTracked The number of days that auction results are tracked for |
 
 ### getAuctionResultsNextIndex
 
@@ -660,9 +660,9 @@ function getAuctionResultsNextIndex() external view override returns (uint8);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint8`|index The index where the next auction result will be stored|
+| Name     | Type    | Description                                                  |
+| -------- | ------- | ------------------------------------------------------------ |
+| `<none>` | `uint8` | index The index where the next auction result will be stored |
 
 ### getAuctionResults
 
@@ -674,11 +674,11 @@ function getAuctionResults() external view override returns (int256[] memory);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`int256[]`|results The auction results, where a positive number indicates an over-subscription for the day.|
+| Name     | Type       | Description                                                                                      |
+| -------- | ---------- | ------------------------------------------------------------------------------------------------ |
+| `<none>` | `int256[]` | results The auction results, where a positive number indicates an over-subscription for the day. |
 
-### _validateNoDuplicatePendingChange
+### \_validateNoDuplicatePendingChange
 
 Validates that the requested action would not result in the same effective state, preventing redundant queue operations
 
@@ -688,12 +688,12 @@ function _validateNoDuplicatePendingChange(uint8 depositPeriod_, bool enable_) i
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period to check|
-|`enable_`|`bool`|        Whether the requested operation is to enable (true) or disable (false)|
+| Name             | Type    | Description                                                            |
+| ---------------- | ------- | ---------------------------------------------------------------------- |
+| `depositPeriod_` | `uint8` | The deposit period to check                                            |
+| `enable_`        | `bool`  | Whether the requested operation is to enable (true) or disable (false) |
 
-### _getEffectiveDepositPeriodState
+### \_getEffectiveDepositPeriodState
 
 Gets the effective state of a deposit period considering pending changes
 
@@ -703,17 +703,17 @@ function _getEffectiveDepositPeriodState(uint8 depositPeriod_) internal view ret
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period to check|
+| Name             | Type    | Description                 |
+| ---------------- | ------- | --------------------------- |
+| `depositPeriod_` | `uint8` | The deposit period to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`effectiveState`|`bool`| The effective enabled state (current state + pending changes)|
+| Name             | Type   | Description                                                   |
+| ---------------- | ------ | ------------------------------------------------------------- |
+| `effectiveState` | `bool` | The effective enabled state (current state + pending changes) |
 
-### _processPendingDepositPeriodChanges
+### \_processPendingDepositPeriodChanges
 
 Processes all pending deposit period changes
 
@@ -723,12 +723,12 @@ function _processPendingDepositPeriodChanges(uint256 tickSize_, uint256 minPrice
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tickSize_`|`uint256`|  The tick size to initialize new periods with|
-|`minPrice_`|`uint256`|  The minimum price to initialize new periods with|
+| Name        | Type      | Description                                      |
+| ----------- | --------- | ------------------------------------------------ |
+| `tickSize_` | `uint256` | The tick size to initialize new periods with     |
+| `minPrice_` | `uint256` | The minimum price to initialize new periods with |
 
-### _enableDepositPeriod
+### \_enableDepositPeriod
 
 Internal function to actually enable a deposit period
 
@@ -738,13 +738,13 @@ function _enableDepositPeriod(uint8 depositPeriod_, uint256 tickSize_, uint256 m
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period to enable|
-|`tickSize_`|`uint256`|      The tick size to initialize with|
-|`minPrice_`|`uint256`|      The minimum price to initialize with|
+| Name             | Type      | Description                          |
+| ---------------- | --------- | ------------------------------------ |
+| `depositPeriod_` | `uint8`   | The deposit period to enable         |
+| `tickSize_`      | `uint256` | The tick size to initialize with     |
+| `minPrice_`      | `uint256` | The minimum price to initialize with |
 
-### _disableDepositPeriod
+### \_disableDepositPeriod
 
 Internal function to actually disable a deposit period
 
@@ -754,9 +754,9 @@ function _disableDepositPeriod(uint8 depositPeriod_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period to disable|
+| Name             | Type    | Description                   |
+| ---------------- | ------- | ----------------------------- |
+| `depositPeriod_` | `uint8` | The deposit period to disable |
 
 ### getDepositAsset
 
@@ -768,9 +768,9 @@ function getDepositAsset() external view override returns (IERC20);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`IERC20`|asset The deposit asset|
+| Name     | Type     | Description             |
+| -------- | -------- | ----------------------- |
+| `<none>` | `IERC20` | asset The deposit asset |
 
 ### getDepositPeriods
 
@@ -782,9 +782,9 @@ function getDepositPeriods() external view override returns (uint8[] memory);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint8[]`|periods The deposit periods|
+| Name     | Type      | Description                 |
+| -------- | --------- | --------------------------- |
+| `<none>` | `uint8[]` | periods The deposit periods |
 
 ### isDepositPeriodEnabled
 
@@ -800,18 +800,18 @@ function isDepositPeriodEnabled(uint8 depositPeriod_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`|     The deposit period|
+| Name             | Type    | Description        |
+| ---------------- | ------- | ------------------ |
+| `depositPeriod_` | `uint8` | The deposit period |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`isEnabled`|`bool`|          Current state|
-|`isPendingEnabled`|`bool`|   Desired state after applying all queued changes (equals isEnabled if no changes are queued)|
+| Name               | Type   | Description                                                                                 |
+| ------------------ | ------ | ------------------------------------------------------------------------------------------- |
+| `isEnabled`        | `bool` | Current state                                                                               |
+| `isPendingEnabled` | `bool` | Desired state after applying all queued changes (equals isEnabled if no changes are queued) |
 
-### _onlyDepositPeriodEnabled
+### \_onlyDepositPeriodEnabled
 
 ```solidity
 function _onlyDepositPeriodEnabled(uint8 depositPeriod_) internal view;
@@ -834,7 +834,7 @@ Notes:
 - Enabling a deposit period will queue the change to be processed at the next setAuctionParameters call
 - Can be called while the contract is disabled (changes will be processed when contract is enabled)
 - The deposit period will reset the minimum price and tick size to the standard values when actually enabled
-This function will revert if:
+  This function will revert if:
 - The caller is not a manager or admin
 - The deposit period is 0
 - The effective state would result in enabling an already enabled period
@@ -845,9 +845,9 @@ function enableDepositPeriod(uint8 depositPeriod_) external override onlyManager
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period|
+| Name             | Type    | Description        |
+| ---------------- | ------- | ------------------ |
+| `depositPeriod_` | `uint8` | The deposit period |
 
 ### disableDepositPeriod
 
@@ -857,7 +857,7 @@ Notes:
 
 - Disabling a deposit period will queue the change to be processed at the next setAuctionParameters call
 - Can be called while the contract is disabled (changes will be processed when contract is enabled)
-This function will revert if:
+  This function will revert if:
 - The caller is not a manager or admin
 - The deposit period is 0
 - The effective state would result in disabling an already disabled period
@@ -868,9 +868,9 @@ function disableDepositPeriod(uint8 depositPeriod_) external override onlyManage
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period|
+| Name             | Type    | Description        |
+| ---------------- | ------- | ------------------ |
+| `depositPeriod_` | `uint8` | The deposit period |
 
 ### getDepositPeriodsCount
 
@@ -882,9 +882,9 @@ function getDepositPeriodsCount() external view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|count The number of deposit periods|
+| Name     | Type      | Description                         |
+| -------- | --------- | ----------------------------------- |
+| `<none>` | `uint256` | count The number of deposit periods |
 
 ### getPendingDepositPeriodChanges
 
@@ -894,19 +894,19 @@ Gets the list of pending deposit period changes, from first to last
 function getPendingDepositPeriodChanges() external view returns (PendingDepositPeriodChange[] memory);
 ```
 
-### _setAuctionParameters
+### \_setAuctionParameters
 
 ```solidity
 function _setAuctionParameters(uint256 target_, uint256 tickSize_, uint256 minPrice_) internal;
 ```
 
-### _storeAuctionResults
+### \_storeAuctionResults
 
 ```solidity
 function _storeAuctionResults(uint256 previousTarget_) internal;
 ```
 
-### _setNewTickParameters
+### \_setNewTickParameters
 
 Sets tick parameters for all enabled deposit periods
 
@@ -922,15 +922,15 @@ function _setNewTickParameters(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tickSize_`|`uint256`|          If the new tick size is less than a tick's capacity (or `enforceCapacity_` is true), the tick capacity will be set to this|
-|`minPrice_`|`uint256`|          If the new minimum price is greater than a tick's price (or `enforceMinPrice_` is true), the tick price will be set to this|
-|`enforceCapacity_`|`bool`|   If true, will set the capacity of each enabled deposit period to the value of `tickSize_`|
-|`enforceMinPrice_`|`bool`|   If true, will set the price of each enabled deposit period to the value of `minPrice_`|
-|`setLastUpdate_`|`bool`|     If true, will set the tick's last update to the current timestamp|
+| Name               | Type      | Description                                                                                                                 |
+| ------------------ | --------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `tickSize_`        | `uint256` | If the new tick size is less than a tick's capacity (or `enforceCapacity_` is true), the tick capacity will be set to this  |
+| `minPrice_`        | `uint256` | If the new minimum price is greater than a tick's price (or `enforceMinPrice_` is true), the tick price will be set to this |
+| `enforceCapacity_` | `bool`    | If true, will set the capacity of each enabled deposit period to the value of `tickSize_`                                   |
+| `enforceMinPrice_` | `bool`    | If true, will set the price of each enabled deposit period to the value of `minPrice_`                                      |
+| `setLastUpdate_`   | `bool`    | If true, will set the tick's last update to the current timestamp                                                           |
 
-### _updateCurrentTicks
+### \_updateCurrentTicks
 
 Takes a snapshot of the current tick values for enabled deposit periods
 
@@ -940,9 +940,9 @@ function _updateCurrentTicks(uint8 excludedDepositPeriod_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`excludedDepositPeriod_`|`uint8`| The deposit period that should be excluded from updates. Provide 0 to not exclude (since 0 is an invalid deposit period).|
+| Name                     | Type    | Description                                                                                                               |
+| ------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `excludedDepositPeriod_` | `uint8` | The deposit period that should be excluded from updates. Provide 0 to not exclude (since 0 is an invalid deposit period). |
 
 ### setAuctionParameters
 
@@ -957,7 +957,7 @@ This function performs the following:
 - Sets the auction parameters
 - Sets the tick parameters for all enabled deposit periods
 - Processes any pending deposit period changes
-This function reverts if:
+  This function reverts if:
 - The caller does not have the ROLE_EMISSION_MANAGER role
 - The new tick size is 0
 - The new min price is 0
@@ -971,11 +971,11 @@ function setAuctionParameters(uint256 target_, uint256 tickSize_, uint256 minPri
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`target_`|`uint256`|       new target sale per day|
-|`tickSize_`|`uint256`|     new size per tick|
-|`minPrice_`|`uint256`|     new minimum tick price|
+| Name        | Type      | Description             |
+| ----------- | --------- | ----------------------- |
+| `target_`   | `uint256` | new target sale per day |
+| `tickSize_` | `uint256` | new size per tick       |
+| `minPrice_` | `uint256` | new minimum tick price  |
 
 ### setTickStep
 
@@ -992,9 +992,9 @@ function setTickStep(uint24 newStep_) public override onlyManagerOrAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newStep_`|`uint24`|   The new tick step|
+| Name       | Type     | Description       |
+| ---------- | -------- | ----------------- |
+| `newStep_` | `uint24` | The new tick step |
 
 ### getTickSizeBase
 
@@ -1006,9 +1006,9 @@ function getTickSizeBase() external view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|baseWad The tick size base|
+| Name     | Type      | Description                |
+| -------- | --------- | -------------------------- |
+| `<none>` | `uint256` | baseWad The tick size base |
 
 ### setTickSizeBase
 
@@ -1025,9 +1025,9 @@ function setTickSizeBase(uint256 newBase_) public override onlyManagerOrAdminRol
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newBase_`|`uint256`|   The new tick size base|
+| Name       | Type      | Description            |
+| ---------- | --------- | ---------------------- |
+| `newBase_` | `uint256` | The new tick size base |
 
 ### setAuctionTrackingPeriod
 
@@ -1036,7 +1036,7 @@ Set the number of days that auction results are tracked for
 Notes:
 
 - Calling this function will erase the previous auction results, which in turn may affect the bond markets created to sell under-sold OHM capacity
-This function will revert if:
+  This function will revert if:
 - The caller does not have the ROLE_ADMIN role
 - The new auction tracking period is 0
 
@@ -1046,9 +1046,9 @@ function setAuctionTrackingPeriod(uint8 days_) public override onlyManagerOrAdmi
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`days_`|`uint8`|   The new auction tracking period|
+| Name    | Type    | Description                     |
+| ------- | ------- | ------------------------------- |
+| `days_` | `uint8` | The new auction tracking period |
 
 ### setMinimumBid
 
@@ -1064,11 +1064,11 @@ function setMinimumBid(uint256 minimumBid_) external override onlyManagerOrAdmin
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`minimumBid_`|`uint256`|   The new minimum bid amount|
+| Name          | Type      | Description                |
+| ------------- | --------- | -------------------------- |
+| `minimumBid_` | `uint256` | The new minimum bid amount |
 
-### _enable
+### \_enable
 
 Implementation-specific enable function
 
@@ -1079,7 +1079,7 @@ This function will revert if:
 - The auction parameters are invalid
 - The tick step is invalid
 - The auction tracking period is invalid
-This function performs the following:
+  This function performs the following:
 - Sets the auction parameters
 - Sets the tick step
 - Sets the auction tracking period
@@ -1094,9 +1094,9 @@ function _enable(bytes calldata enableData_) internal override;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`enableData_`|`bytes`|Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation.|
+| Name          | Type    | Description                                                                                                                  |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `enableData_` | `bytes` | Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation. |
 
 ## Structs
 

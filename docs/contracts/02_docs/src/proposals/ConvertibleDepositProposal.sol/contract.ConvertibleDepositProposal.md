@@ -11,7 +11,7 @@ Combined proposal that enables and configures the Convertible Deposit system
 
 ## State Variables
 
-### _kernel
+### \_kernel
 
 ```solidity
 Kernel internal _kernel
@@ -151,7 +151,7 @@ function name() public pure override returns (string memory);
 function description() public pure override returns (string memory);
 ```
 
-### _getHeaderSection
+### \_getHeaderSection
 
 Returns the header and summary section of the proposal description
 
@@ -159,7 +159,7 @@ Returns the header and summary section of the proposal description
 function _getHeaderSection() private pure returns (string memory);
 ```
 
-### _getContractsSection
+### \_getContractsSection
 
 Returns the affected contracts section of the proposal description
 
@@ -167,7 +167,7 @@ Returns the affected contracts section of the proposal description
 function _getContractsSection() private pure returns (string memory);
 ```
 
-### _getResourcesAndPrerequisitesSection
+### \_getResourcesAndPrerequisitesSection
 
 Returns the resources and prerequisites section of the proposal description
 
@@ -175,7 +175,7 @@ Returns the resources and prerequisites section of the proposal description
 function _getResourcesAndPrerequisitesSection() private pure returns (string memory);
 ```
 
-### _getProposalStepsSection
+### \_getProposalStepsSection
 
 Returns the proposal steps section of the proposal description
 
@@ -183,7 +183,7 @@ Returns the proposal steps section of the proposal description
 function _getProposalStepsSection() private pure returns (string memory);
 ```
 
-### _getProposalStepsPhase1and2
+### \_getProposalStepsPhase1and2
 
 Returns Phase 1 and 2 of the proposal steps
 
@@ -191,7 +191,7 @@ Returns Phase 1 and 2 of the proposal steps
 function _getProposalStepsPhase1and2() private pure returns (string memory);
 ```
 
-### _getProposalStepsPhase3Part1
+### \_getProposalStepsPhase3Part1
 
 Returns the first part of Phase 3 steps
 
@@ -199,7 +199,7 @@ Returns the first part of Phase 3 steps
 function _getProposalStepsPhase3Part1() private pure returns (string memory);
 ```
 
-### _getProposalStepsPhase3Part2
+### \_getProposalStepsPhase3Part2
 
 Returns the second part of Phase 3 steps
 
@@ -207,7 +207,7 @@ Returns the second part of Phase 3 steps
 function _getProposalStepsPhase3Part2() private pure returns (string memory);
 ```
 
-### _getConclusionSection
+### \_getConclusionSection
 
 Returns the conclusion section of the proposal description
 
@@ -215,31 +215,31 @@ Returns the conclusion section of the proposal description
 function _getConclusionSection() private pure returns (string memory);
 ```
 
-### _deploy
+### \_deploy
 
 ```solidity
 function _deploy(Addresses addresses, address) internal override;
 ```
 
-### _afterDeploy
+### \_afterDeploy
 
 ```solidity
 function _afterDeploy(Addresses addresses, address deployer) internal override;
 ```
 
-### _build
+### \_build
 
 ```solidity
 function _build(Addresses addresses) internal override;
 ```
 
-### _run
+### \_run
 
 ```solidity
 function _run(Addresses addresses, address) internal override;
 ```
 
-### _validate
+### \_validate
 
 ```solidity
 function _validate(Addresses addresses, address) internal view override;

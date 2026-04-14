@@ -1,4 +1,3 @@
-
 # Cooler
 
 - [ICoolerLtvOracle](ICoolerLtvOracle.sol/interface.ICoolerLtvOracle.md)

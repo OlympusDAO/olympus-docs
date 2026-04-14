@@ -1,4 +1,3 @@
-
 # Interfaces
 
 - [cooler](/main/contracts/docs/src/policies/interfaces/cooler)

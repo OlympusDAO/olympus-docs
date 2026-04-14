@@ -1,4 +1,3 @@
-
 # Interfaces
 
 - [IGovernorBravoEventsAndErrors](IGovernorBravoEvents.sol/interface.IGovernorBravoEventsAndErrors.md)

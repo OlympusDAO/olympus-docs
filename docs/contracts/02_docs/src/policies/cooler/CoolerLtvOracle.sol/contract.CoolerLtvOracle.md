@@ -18,7 +18,7 @@ serve both the Origination LTV and Liquidation LTV
 
 ## State Variables
 
-### _DEBT_TOKEN
+### \_DEBT_TOKEN
 
 The debt token
 
@@ -26,7 +26,7 @@ The debt token
 ERC20 private immutable _DEBT_TOKEN
 ```
 
-### _COLLATERAL_TOKEN
+### \_COLLATERAL_TOKEN
 
 The collateral token
 
@@ -136,9 +136,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### setMaxOriginationLtvDelta
 
@@ -242,7 +242,7 @@ The current Origination LTV
 function currentOriginationLtv() public view override returns (uint96);
 ```
 
-### _currentLiquidationLtv
+### \_currentLiquidationLtv
 
 ```solidity
 function _currentLiquidationLtv(uint96 oltv) private view returns (uint96);

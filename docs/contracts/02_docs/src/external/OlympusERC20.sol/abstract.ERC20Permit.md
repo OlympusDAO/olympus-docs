@@ -14,13 +14,13 @@ _Available since v3.4._
 
 ## State Variables
 
-### _nonces
+### \_nonces
 
 ```solidity
 mapping(address => Counters.Counter) private _nonces
 ```
 
-### _PERMIT_TYPEHASH
+### \_PERMIT_TYPEHASH
 
 ```solidity
 bytes32 private immutable _PERMIT_TYPEHASH =
@@ -65,7 +65,7 @@ See [IERC20Permit-DOMAIN_SEPARATOR](/main/contracts/docs/src/interfaces/Uniswap/
 function DOMAIN_SEPARATOR() external view override returns (bytes32);
 ```
 
-### _useNonce
+### \_useNonce
 
 "Consume a nonce": return the current value and increment.
 _Available since v4.1._

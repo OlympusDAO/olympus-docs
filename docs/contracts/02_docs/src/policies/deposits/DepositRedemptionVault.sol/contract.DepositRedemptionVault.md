@@ -22,7 +22,7 @@ The number representing 100%
 uint16 public constant ONE_HUNDRED_PERCENT = 100e2
 ```
 
-### _MONTHS_IN_YEAR
+### \_MONTHS_IN_YEAR
 
 The number of months in a year
 
@@ -30,7 +30,7 @@ The number of months in a year
 uint8 internal constant _MONTHS_IN_YEAR = 12
 ```
 
-### _ONE_MONTH
+### \_ONE_MONTH
 
 Constant for one month
 
@@ -38,7 +38,7 @@ Constant for one month
 uint48 internal constant _ONE_MONTH = 30 days
 ```
 
-### _NO_POSITION
+### \_NO_POSITION
 
 Used to denote no position ID
 
@@ -46,7 +46,7 @@ Used to denote no position ID
 uint256 internal constant _NO_POSITION = type(uint256).max
 ```
 
-### _assetFacilityMaxBorrowPercentages
+### \_assetFacilityMaxBorrowPercentages
 
 Per-asset-facility max borrow percentage (in 100e2, e.g. 8500 = 85%)
 
@@ -54,7 +54,7 @@ Per-asset-facility max borrow percentage (in 100e2, e.g. 8500 = 85%)
 mapping(bytes32 => uint16) internal _assetFacilityMaxBorrowPercentages
 ```
 
-### _assetFacilityAnnualInterestRates
+### \_assetFacilityAnnualInterestRates
 
 Per-asset-facility interest rate (annual, in 100e2, e.g. 500 = 5%)
 
@@ -62,7 +62,7 @@ Per-asset-facility interest rate (annual, in 100e2, e.g. 500 = 5%)
 mapping(bytes32 => uint16) internal _assetFacilityAnnualInterestRates
 ```
 
-### _claimDefaultRewardPercentage
+### \_claimDefaultRewardPercentage
 
 Keeper reward percentage (in 100e2, e.g. 500 = 5%)
 
@@ -94,7 +94,7 @@ The DEPOS module.
 DEPOSv1 public DEPOS
 ```
 
-### _userRedemptionCount
+### \_userRedemptionCount
 
 The number of redemptions per user
 
@@ -102,7 +102,7 @@ The number of redemptions per user
 mapping(address => uint16) internal _userRedemptionCount
 ```
 
-### _userRedemptions
+### \_userRedemptions
 
 The redemption for each user and redemption ID
 
@@ -113,7 +113,7 @@ A complex key is used to save gas compared to a nested mapping.
 mapping(bytes32 => UserRedemption) internal _userRedemptions
 ```
 
-### _authorizedFacilities
+### \_authorizedFacilities
 
 Registered facilities
 
@@ -121,7 +121,7 @@ Registered facilities
 EnumerableSet.AddressSet internal _authorizedFacilities
 ```
 
-### _redemptionLoan
+### \_redemptionLoan
 
 Loan for each redemption
 
@@ -150,9 +150,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -164,9 +164,9 @@ function requestPermissions() external pure override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### authorizeFacility
 
@@ -178,9 +178,9 @@ function authorizeFacility(address facility_) external onlyAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`facility_`|`address`|   The address of the facility to authorize|
+| Name        | Type      | Description                              |
+| ----------- | --------- | ---------------------------------------- |
+| `facility_` | `address` | The address of the facility to authorize |
 
 ### deauthorizeFacility
 
@@ -192,9 +192,9 @@ function deauthorizeFacility(address facility_) external onlyEmergencyOrAdminRol
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`facility_`|`address`|   The address of the facility to deauthorize|
+| Name        | Type      | Description                                |
+| ----------- | --------- | ------------------------------------------ |
+| `facility_` | `address` | The address of the facility to deauthorize |
 
 ### isAuthorizedFacility
 
@@ -206,15 +206,15 @@ function isAuthorizedFacility(address facility_) external view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`facility_`|`address`|       The address of the facility to check|
+| Name        | Type      | Description                          |
+| ----------- | --------- | ------------------------------------ |
+| `facility_` | `address` | The address of the facility to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|isAuthorized    True if the facility is authorized|
+| Name     | Type   | Description                                     |
+| -------- | ------ | ----------------------------------------------- |
+| `<none>` | `bool` | isAuthorized True if the facility is authorized |
 
 ### getAuthorizedFacilities
 
@@ -226,11 +226,11 @@ function getAuthorizedFacilities() external view returns (address[] memory);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address[]`|facilities  Array of authorized facility addresses|
+| Name     | Type        | Description                                       |
+| -------- | ----------- | ------------------------------------------------- |
+| `<none>` | `address[]` | facilities Array of authorized facility addresses |
 
-### _pullReceiptToken
+### \_pullReceiptToken
 
 Pull the receipt tokens from the caller
 
@@ -239,13 +239,13 @@ function _pullReceiptToken(IERC20 depositToken_, uint8 depositPeriod_, address f
     internal;
 ```
 
-### _getUserRedemptionKey
+### \_getUserRedemptionKey
 
 ```solidity
 function _getUserRedemptionKey(address user_, uint16 redemptionId_) internal pure returns (bytes32);
 ```
 
-### _getAssetFacilityKey
+### \_getAssetFacilityKey
 
 Generate a key for the asset-facility parameter mappings
 
@@ -255,16 +255,16 @@ function _getAssetFacilityKey(address asset_, address facility_) internal pure r
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`address`|The asset address|
-|`facility_`|`address`|The facility address|
+| Name        | Type      | Description          |
+| ----------- | --------- | -------------------- |
+| `asset_`    | `address` | The asset address    |
+| `facility_` | `address` | The facility address |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes32`|The key for the mapping|
+| Name     | Type      | Description             |
+| -------- | --------- | ----------------------- |
+| `<none>` | `bytes32` | The key for the mapping |
 
 ### getUserRedemptionCount
 
@@ -276,15 +276,15 @@ function getUserRedemptionCount(address user_) external view returns (uint16 cou
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|The address of the user|
+| Name    | Type      | Description             |
+| ------- | --------- | ----------------------- |
+| `user_` | `address` | The address of the user |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`count`|`uint16`|The number of redemptions|
+| Name    | Type     | Description               |
+| ------- | -------- | ------------------------- |
+| `count` | `uint16` | The number of redemptions |
 
 ### getUserRedemption
 
@@ -299,16 +299,16 @@ function getUserRedemption(address user_, uint16 redemptionId_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|           The address of the user|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
+| Name            | Type      | Description              |
+| --------------- | --------- | ------------------------ |
+| `user_`         | `address` | The address of the user  |
+| `redemptionId_` | `uint16`  | The ID of the redemption |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemption`|`UserRedemption`|      The details of the redemption|
+| Name         | Type             | Description                   |
+| ------------ | ---------------- | ----------------------------- |
+| `redemption` | `UserRedemption` | The details of the redemption |
 
 ### getUserRedemptions
 
@@ -326,17 +326,17 @@ function getUserRedemptions(address user_) external view returns (UserRedemption
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|The address of the user|
+| Name    | Type      | Description             |
+| ------- | --------- | ----------------------- |
+| `user_` | `address` | The address of the user |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`UserRedemption[]`|redemptions The array of redemptions|
+| Name     | Type               | Description                          |
+| -------- | ------------------ | ------------------------------------ |
+| `<none>` | `UserRedemption[]` | redemptions The array of redemptions |
 
-### _onlyValidRedemptionId
+### \_onlyValidRedemptionId
 
 ```solidity
 function _onlyValidRedemptionId(address user_, uint16 redemptionId_) internal view;
@@ -348,7 +348,7 @@ function _onlyValidRedemptionId(address user_, uint16 redemptionId_) internal vi
 modifier onlyValidRedemptionId(address user_, uint16 redemptionId_) ;
 ```
 
-### _validateFacility
+### \_validateFacility
 
 ```solidity
 function _validateFacility(address facility_) internal view;
@@ -382,18 +382,18 @@ function startRedemption(IERC20 depositToken_, uint8 depositPeriod_, uint256 amo
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositToken_`|`IERC20`|  The address of the deposit token|
-|`depositPeriod_`|`uint8`| The period of the deposit in months|
-|`amount_`|`uint256`|        The amount of deposit tokens to redeem|
-|`facility_`|`address`|      The facility to handle this redemption|
+| Name             | Type      | Description                            |
+| ---------------- | --------- | -------------------------------------- |
+| `depositToken_`  | `IERC20`  | The address of the deposit token       |
+| `depositPeriod_` | `uint8`   | The period of the deposit in months    |
+| `amount_`        | `uint256` | The amount of deposit tokens to redeem |
+| `facility_`      | `address` | The facility to handle this redemption |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId`|`uint16`|   The ID of the user redemption|
+| Name           | Type     | Description                   |
+| -------------- | -------- | ----------------------------- |
+| `redemptionId` | `uint16` | The ID of the user redemption |
 
 ### startRedemption
 
@@ -418,16 +418,16 @@ function startRedemption(uint256 positionId_, uint256 amount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|    The ID of the position to redeem from|
-|`amount_`|`uint256`|        The amount of deposit tokens to redeem|
+| Name          | Type      | Description                            |
+| ------------- | --------- | -------------------------------------- |
+| `positionId_` | `uint256` | The ID of the position to redeem from  |
+| `amount_`     | `uint256` | The amount of deposit tokens to redeem |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId`|`uint16`|   The ID of the user redemption|
+| Name           | Type     | Description                   |
+| -------------- | -------- | ----------------------------- |
+| `redemptionId` | `uint16` | The ID of the user redemption |
 
 ### cancelRedemption
 
@@ -452,10 +452,10 @@ function cancelRedemption(uint16 redemptionId_, uint256 amount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId_`|`uint16`|The ID of the user redemption|
-|`amount_`|`uint256`|      The amount of deposit tokens to cancel|
+| Name            | Type      | Description                            |
+| --------------- | --------- | -------------------------------------- |
+| `redemptionId_` | `uint16`  | The ID of the user redemption          |
+| `amount_`       | `uint256` | The amount of deposit tokens to cancel |
 
 ### finishRedemption
 
@@ -481,17 +481,17 @@ function finishRedemption(uint16 redemptionId_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId_`|`uint16`|  The ID of the user redemption|
+| Name            | Type     | Description                   |
+| --------------- | -------- | ----------------------------- |
+| `redemptionId_` | `uint16` | The ID of the user redemption |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualAmount`|`uint256`|   The quantity of deposit tokens transferred to the caller|
+| Name           | Type      | Description                                              |
+| -------------- | --------- | -------------------------------------------------------- |
+| `actualAmount` | `uint256` | The quantity of deposit tokens transferred to the caller |
 
-### _calculateInterest
+### \_calculateInterest
 
 ```solidity
 function _calculateInterest(uint256 principal_, uint256 interestRate_, uint256 depositPeriod_)
@@ -500,7 +500,7 @@ function _calculateInterest(uint256 principal_, uint256 interestRate_, uint256 d
     returns (uint256);
 ```
 
-### _previewBorrowAgainstRedemption
+### \_previewBorrowAgainstRedemption
 
 ```solidity
 function _previewBorrowAgainstRedemption(address user_, uint16 redemptionId_)
@@ -526,18 +526,18 @@ function previewBorrowAgainstRedemption(address user_, uint16 redemptionId_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|           The address of the user|
-|`redemptionId_`|`uint16`|   The ID of the redemption to borrow against|
+| Name            | Type      | Description                                |
+| --------------- | --------- | ------------------------------------------ |
+| `user_`         | `address` | The address of the user                    |
+| `redemptionId_` | `uint16`  | The ID of the redemption to borrow against |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|principal       The principal amount that can be borrowed|
-|`<none>`|`uint256`|interest        The interest amount that will be charged|
-|`<none>`|`uint48`|dueDate         The due date of the loan|
+| Name     | Type      | Description                                         |
+| -------- | --------- | --------------------------------------------------- |
+| `<none>` | `uint256` | principal The principal amount that can be borrowed |
+| `<none>` | `uint256` | interest The interest amount that will be charged   |
+| `<none>` | `uint48`  | dueDate The due date of the loan                    |
 
 ### borrowAgainstRedemption
 
@@ -566,15 +566,15 @@ function borrowAgainstRedemption(uint16 redemptionId_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId_`|`uint16`|   The ID of the redemption to borrow against|
+| Name            | Type     | Description                                |
+| --------------- | -------- | ------------------------------------------ |
+| `redemptionId_` | `uint16` | The ID of the redemption to borrow against |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|actualAmount    The quantity of underlying assets transferred to the recipient|
+| Name     | Type      | Description                                                                 |
+| -------- | --------- | --------------------------------------------------------------------------- |
+| `<none>` | `uint256` | actualAmount The quantity of underlying assets transferred to the recipient |
 
 ### repayLoan
 
@@ -601,13 +601,13 @@ function repayLoan(uint16 redemptionId_, uint256 amount_, uint256 maxSlippage_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
-|`amount_`|`uint256`|         The amount to repay|
-|`maxSlippage_`|`uint256`|    The maximum slippage allowed for the repayment|
+| Name            | Type      | Description                                    |
+| --------------- | --------- | ---------------------------------------------- |
+| `redemptionId_` | `uint16`  | The ID of the redemption                       |
+| `amount_`       | `uint256` | The amount to repay                            |
+| `maxSlippage_`  | `uint256` | The maximum slippage allowed for the repayment |
 
-### _previewExtendLoan
+### \_previewExtendLoan
 
 ```solidity
 function _previewExtendLoan(
@@ -640,18 +640,18 @@ function previewExtendLoan(address user_, uint16 redemptionId_, uint8 months_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|           The address of the user|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
-|`months_`|`uint8`|         The number of months to extend the loan|
+| Name            | Type      | Description                             |
+| --------------- | --------- | --------------------------------------- |
+| `user_`         | `address` | The address of the user                 |
+| `redemptionId_` | `uint16`  | The ID of the redemption                |
+| `months_`       | `uint8`   | The number of months to extend the loan |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint48`|newDueDate      The new due date|
-|`<none>`|`uint256`|interestPayable The interest payable upon extension|
+| Name     | Type      | Description                                         |
+| -------- | --------- | --------------------------------------------------- |
+| `<none>` | `uint48`  | newDueDate The new due date                         |
+| `<none>` | `uint256` | interestPayable The interest payable upon extension |
 
 ### extendLoan
 
@@ -675,10 +675,10 @@ function extendLoan(uint16 redemptionId_, uint8 months_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
-|`months_`|`uint8`|         The number of months to extend the loan|
+| Name            | Type     | Description                             |
+| --------------- | -------- | --------------------------------------- |
+| `redemptionId_` | `uint16` | The ID of the redemption                |
+| `months_`       | `uint8`  | The number of months to extend the loan |
 
 ### claimDefaultedLoan
 
@@ -702,10 +702,10 @@ function claimDefaultedLoan(address user_, uint16 redemptionId_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|           The address of the user|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
+| Name            | Type      | Description              |
+| --------------- | --------- | ------------------------ |
+| `user_`         | `address` | The address of the user  |
+| `redemptionId_` | `uint16`  | The ID of the redemption |
 
 ### getRedemptionLoan
 
@@ -717,16 +717,16 @@ function getRedemptionLoan(address user_, uint16 redemptionId_) external view re
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|           The address of the user|
-|`redemptionId_`|`uint16`|   The ID of the redemption|
+| Name            | Type      | Description              |
+| --------------- | --------- | ------------------------ |
+| `user_`         | `address` | The address of the user  |
+| `redemptionId_` | `uint16`  | The ID of the redemption |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`Loan`|loan            The loan|
+| Name     | Type   | Description   |
+| -------- | ------ | ------------- |
+| `<none>` | `Loan` | loan The loan |
 
 ### setMaxBorrowPercentage
 
@@ -736,12 +736,12 @@ Notes:
 
 - When setting the max borrow percentage, keep in mind the annual interest rate and claim default reward percentage, as the three configuration values can create incentives for borrowers to not repay their loans (e.g. claim default on their own loan)
 - This function allows setting the value even if the asset or facility are not registered
-This function reverts if:
+  This function reverts if:
 - The contract is not enabled
 - The caller does not have the admin or manager role
-- asset_ is the zero address
-- facility_ is the zero address
-- percent_ is out of range
+- asset\_ is the zero address
+- facility\_ is the zero address
+- percent\_ is out of range
 
 ```solidity
 function setMaxBorrowPercentage(IERC20 asset_, address facility_, uint16 percent_)
@@ -752,11 +752,11 @@ function setMaxBorrowPercentage(IERC20 asset_, address facility_, uint16 percent
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|   The address of the asset|
-|`facility_`|`address`|The address of the facility|
-|`percent_`|`uint16`| The maximum borrow percentage|
+| Name        | Type      | Description                   |
+| ----------- | --------- | ----------------------------- |
+| `asset_`    | `IERC20`  | The address of the asset      |
+| `facility_` | `address` | The address of the facility   |
+| `percent_`  | `uint16`  | The maximum borrow percentage |
 
 ### getMaxBorrowPercentage
 
@@ -768,16 +768,16 @@ function getMaxBorrowPercentage(IERC20 asset_, address facility_) external view 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|   The address of the asset|
-|`facility_`|`address`|The address of the facility|
+| Name        | Type      | Description                 |
+| ----------- | --------- | --------------------------- |
+| `asset_`    | `IERC20`  | The address of the asset    |
+| `facility_` | `address` | The address of the facility |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint16`|percent  The maximum borrow percentage (100e2 == 100%)|
+| Name     | Type     | Description                                           |
+| -------- | -------- | ----------------------------------------------------- |
+| `<none>` | `uint16` | percent The maximum borrow percentage (100e2 == 100%) |
 
 ### setAnnualInterestRate
 
@@ -787,12 +787,12 @@ Notes:
 
 - When setting the annual interest rate, keep in mind the max borrow percentage and claim default reward percentage, as the three configuration values can create incentives for borrowers to not repay their loans (e.g. claim default on their own loan)
 - This function allows setting the value even if the asset or facility are not registered
-This function reverts if:
+  This function reverts if:
 - The contract is not enabled
 - The caller does not have the admin or manager role
-- asset_ is the zero address
-- facility_ is the zero address
-- percent_ is out of range
+- asset\_ is the zero address
+- facility\_ is the zero address
+- percent\_ is out of range
 
 ```solidity
 function setAnnualInterestRate(IERC20 asset_, address facility_, uint16 rate_)
@@ -803,11 +803,11 @@ function setAnnualInterestRate(IERC20 asset_, address facility_, uint16 rate_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|   The address of the asset|
-|`facility_`|`address`|The address of the facility|
-|`rate_`|`uint16`|    The annual interest rate (100e2 == 100%)|
+| Name        | Type      | Description                              |
+| ----------- | --------- | ---------------------------------------- |
+| `asset_`    | `IERC20`  | The address of the asset                 |
+| `facility_` | `address` | The address of the facility              |
+| `rate_`     | `uint16`  | The annual interest rate (100e2 == 100%) |
 
 ### getAnnualInterestRate
 
@@ -819,16 +819,16 @@ function getAnnualInterestRate(IERC20 asset_, address facility_) external view r
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|   The address of the asset|
-|`facility_`|`address`|The address of the facility|
+| Name        | Type      | Description                 |
+| ----------- | --------- | --------------------------- |
+| `asset_`    | `IERC20`  | The address of the asset    |
+| `facility_` | `address` | The address of the facility |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint16`|rate     The annual interest rate, in terms of 100e2|
+| Name     | Type     | Description                                      |
+| -------- | -------- | ------------------------------------------------ |
+| `<none>` | `uint16` | rate The annual interest rate, in terms of 100e2 |
 
 ### setClaimDefaultRewardPercentage
 
@@ -844,9 +844,9 @@ function setClaimDefaultRewardPercentage(uint16 percent_) external onlyEnabled o
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`percent_`|`uint16`| The claim default reward percentage|
+| Name       | Type     | Description                         |
+| ---------- | -------- | ----------------------------------- |
+| `percent_` | `uint16` | The claim default reward percentage |
 
 ### getClaimDefaultRewardPercentage
 
@@ -858,9 +858,9 @@ function getClaimDefaultRewardPercentage() external view returns (uint16);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint16`|percent The claim default reward percentage, in terms of 100e2|
+| Name     | Type     | Description                                                    |
+| -------- | -------- | -------------------------------------------------------------- |
+| `<none>` | `uint16` | percent The claim default reward percentage, in terms of 100e2 |
 
 ### supportsInterface
 

@@ -232,25 +232,25 @@ constructor(
 ) Owned(owner_);
 ```
 
-### _activateContracts
+### \_activateContracts
 
 ```solidity
 function _activateContracts() internal;
 ```
 
-### _configureAssets
+### \_configureAssets
 
 ```solidity
 function _configureAssets() internal;
 ```
 
-### _configureAuction
+### \_configureAuction
 
 ```solidity
 function _configureAuction() internal;
 ```
 
-### _configurePeriodicTasks
+### \_configurePeriodicTasks
 
 ```solidity
 function _configurePeriodicTasks() internal;
@@ -263,7 +263,7 @@ Activates the Convertible Deposits system
 This function assumes:
 
 - The "admin" role has been granted to the contract
-This function reverts if:
+  This function reverts if:
 - The caller is not the owner
 - The function has already been run
 

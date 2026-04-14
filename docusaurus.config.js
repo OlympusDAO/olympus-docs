@@ -46,8 +46,8 @@ const config = {
           customCss: require.resolve("./src/css/custom.css"),
         },
         googleTagManager: {
-          containerId: 'GTM-NJSWZX5'
-        }
+          containerId: "GTM-NJSWZX5",
+        },
       }),
     ],
   ],

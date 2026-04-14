@@ -14,12 +14,12 @@ function getCodeHash(address target_) internal view returns (bytes32);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`target_`|`address`|The address to get the codehash for|
+| Name      | Type      | Description                         |
+| --------- | --------- | ----------------------------------- |
+| `target_` | `address` | The address to get the codehash for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes32`|The codehash|
+| Name     | Type      | Description  |
+| -------- | --------- | ------------ |
+| `<none>` | `bytes32` | The codehash |

@@ -35,15 +35,15 @@ function balanceFrom(uint256 _amount) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_amount`|`uint256`|uint|
+| Name      | Type      | Description |
+| --------- | --------- | ----------- |
+| `_amount` | `uint256` | uint        |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint|
+| Name     | Type      | Description |
+| -------- | --------- | ----------- |
+| `<none>` | `uint256` | uint        |
 
 ### balanceTo
 
@@ -55,15 +55,15 @@ function balanceTo(uint256 _amount) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_amount`|`uint256`|uint|
+| Name      | Type      | Description |
+| --------- | --------- | ----------- |
+| `_amount` | `uint256` | uint        |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint|
+| Name     | Type      | Description |
+| -------- | --------- | ----------- |
+| `<none>` | `uint256` | uint        |
 
 ### migrate
 

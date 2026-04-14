@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Emissions Manager (EM) is an Olympus Policy installed into the Kernel.  Its purpose is to emit new OHM supply into the market in a programmatic way.  At its core, its schedule is informed by two main variables:  the **base emissions rate** and the **minimum premium**.  This variables are configurable by OCG in the event that they need to be adjusted in the future.  The calculation of premium (which equals market price / backing price) occurs every 3 epochs and is triggered by the heart.
+The Emissions Manager (EM) is an Olympus Policy installed into the Kernel. Its purpose is to emit new OHM supply into the market in a programmatic way. At its core, its schedule is informed by two main variables: the **base emissions rate** and the **minimum premium**. This variables are configurable by OCG in the event that they need to be adjusted in the future. The calculation of premium (which equals market price / backing price) occurs every 3 epochs and is triggered by the heart.
 
 When premium is greater than the minimum premium, the protocol will create a Convertible Deposits auction offering a computed amount of OHM in exchange for new reserves (in the form of USDS). If the premium target has not been reached, the auction will be disabled. The equation for this emission is: `new supply = total supply * base emissions rate * (premium + 100%) / (minimum premium + 100%)`
 
@@ -28,6 +28,7 @@ The EmissionManager tracks auction performance over a defined tracking period. I
   ```
 
   Returns 0% if premium is below minimum premium
+
 - **Current emissions** - Current emission rate × circulating supply (using gOHM supply in OHM terms as proxy)
 - **Next emission rate/emissions** - same calculations using next period's projected price
 

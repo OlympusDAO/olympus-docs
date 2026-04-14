@@ -565,13 +565,13 @@ When considering convertible deposits, users should consider:
 
 #### Strategy Matrix
 
-| OHM Outlook | Liquidity Need | Recommended Approach |
-| ----------- | -------------- | -------------------- |
-| Bullish | Low | Longer periods, plan to convert |
-| Bullish | High | Shorter periods or borrowing strategy |
-| Uncertain | Low | Full redemption with position timing |
-| Uncertain | High | Conservative sizing, early reclaim acceptable |
-| Bearish | Any | Avoid or use very short periods |
+| OHM Outlook | Liquidity Need | Recommended Approach                          |
+| ----------- | -------------- | --------------------------------------------- |
+| Bullish     | Low            | Longer periods, plan to convert               |
+| Bullish     | High           | Shorter periods or borrowing strategy         |
+| Uncertain   | Low            | Full redemption with position timing          |
+| Uncertain   | High           | Conservative sizing, early reclaim acceptable |
+| Bearish     | Any            | Avoid or use very short periods               |
 
 ### Risk Management
 
@@ -676,13 +676,13 @@ When considering convertible deposits, users should consider:
 ##### Assets (January 2026)
 
 - **Supported Asset**: USDS
-- **Deposit Periods**: 3 months *(changed from: 1, 2, and 3 months)*
+- **Deposit Periods**: 3 months _(changed from: 1, 2, and 3 months)_
 - **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
 - **Minimum Deposit**: 1 USDS
 - **Deposit Cap**: 1,000,000 USDS
-- **Max Borrow Percentage**: 96.7% (maximum borrow percentage of redemption amount) *(changed from: 0%)*
-- **Annual Borrow Interest Rate**: 5.5% (fixed interest rate for borrowing) *(changed from: 0%)*
-- **Reclaim Rate**: 97.5% (97.5% of the deposited amount will be returned upon reclaim for 3-month deposits) *(changed from: 90%)*
+- **Max Borrow Percentage**: 96.7% (maximum borrow percentage of redemption amount) _(changed from: 0%)_
+- **Annual Borrow Interest Rate**: 5.5% (fixed interest rate for borrowing) _(changed from: 0%)_
+- **Reclaim Rate**: 97.5% (97.5% of the deposited amount will be returned upon reclaim for 3-month deposits) _(changed from: 90%)_
 
 ##### Auction (January 2026)
 
@@ -694,8 +694,8 @@ When considering convertible deposits, users should consider:
 
 ##### Emission Mechanics (January 2026)
 
-- **Base Emissions Rate**: 0.04% of supply/day *(changed from: 0.02% of supply/day)*
-- **Minimum Price**: 110% of market price *(changed from: 120% of market price)*
+- **Base Emissions Rate**: 0.04% of supply/day _(changed from: 0.02% of supply/day)_
+- **Minimum Price**: 110% of market price _(changed from: 120% of market price)_
 - **Backing**: 11.69 USDS/OHM
 - **Minimum Premium**: 50% (the market price of OHM must be >= 17.535 USDS/OHM)
 - **Restart Timeframe**: 11 days
@@ -705,7 +705,7 @@ When considering convertible deposits, users should consider:
 
 ##### Assets (January 26, 2026)
 
-- **Deposit Cap**: 2,000,000 USDS *(increased from: 1,000,000 USDS)*
+- **Deposit Cap**: 2,000,000 USDS _(increased from: 1,000,000 USDS)_
 
 ### Common Questions
 

@@ -13,7 +13,7 @@ This policy is used to register and deregister contracts in the RGSTY module.
 This contract utilises the following roles:
 
 - `contract_registry_admin`: Can register and deregister contracts
-This policy provides permissioned access to the state-changing functions on the RGSTY module. The view functions can be called directly on the module.
+  This policy provides permissioned access to the state-changing functions on the RGSTY module. The view functions can be called directly on the module.
 
 ## State Variables
 
@@ -53,9 +53,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -67,9 +67,9 @@ function requestPermissions() external pure override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### VERSION
 
@@ -106,10 +106,10 @@ function registerImmutableContract(bytes5 name_, address contractAddress_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|The name of the contract|
-|`contractAddress_`|`address`|The address of the contract|
+| Name               | Type      | Description                 |
+| ------------------ | --------- | --------------------------- |
+| `name_`            | `bytes5`  | The name of the contract    |
+| `contractAddress_` | `address` | The address of the contract |
 
 ### registerContract
 
@@ -130,10 +130,10 @@ function registerContract(bytes5 name_, address contractAddress_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|The name of the contract|
-|`contractAddress_`|`address`|The address of the contract|
+| Name               | Type      | Description                 |
+| ------------------ | --------- | --------------------------- |
+| `name_`            | `bytes5`  | The name of the contract    |
+| `contractAddress_` | `address` | The address of the contract |
 
 ### updateContract
 
@@ -154,10 +154,10 @@ function updateContract(bytes5 name_, address contractAddress_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|The name of the contract|
-|`contractAddress_`|`address`|The address of the contract|
+| Name               | Type      | Description                 |
+| ------------------ | --------- | --------------------------- |
+| `name_`            | `bytes5`  | The name of the contract    |
+| `contractAddress_` | `address` | The address of the contract |
 
 ### deregisterContract
 
@@ -175,9 +175,9 @@ function deregisterContract(bytes5 name_) external onlyPolicyActive onlyRole(CON
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|The name of the contract|
+| Name    | Type     | Description              |
+| ------- | -------- | ------------------------ |
+| `name_` | `bytes5` | The name of the contract |
 
 ## Errors
 

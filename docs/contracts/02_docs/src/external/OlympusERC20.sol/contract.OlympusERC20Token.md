@@ -34,7 +34,7 @@ function burn(uint256 amount) external override;
 function burnFrom(address account_, uint256 amount_) external override;
 ```
 
-### _burnFrom
+### \_burnFrom
 
 ```solidity
 function _burnFrom(address account_, uint256 amount_) internal;

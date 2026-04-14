@@ -11,7 +11,7 @@
 
 Calculate current market price of payout token in quote tokens
 
-Accounts for debt and control variable decay since last deposit (vs _marketPrice())
+Accounts for debt and control variable decay since last deposit (vs \_marketPrice())
 
 ```solidity
 function marketPrice(uint256 id_) external view override returns (uint256);
@@ -19,15 +19,15 @@ function marketPrice(uint256 id_) external view override returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
+| Name  | Type      | Description  |
+| ----- | --------- | ------------ |
+| `id_` | `uint256` | ID of market |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|Price for market in configured decimals (see MarketParams)|
+| Name     | Type      | Description                                                |
+| -------- | --------- | ---------------------------------------------------------- |
+| `<none>` | `uint256` | Price for market in configured decimals (see MarketParams) |
 
 ### currentDebt
 
@@ -41,15 +41,15 @@ function currentDebt(uint256 id_) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
+| Name  | Type      | Description  |
+| ----- | --------- | ------------ |
+| `id_` | `uint256` | ID of market |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|Current debt for market in payout token decimals|
+| Name     | Type      | Description                                      |
+| -------- | --------- | ------------------------------------------------ |
+| `<none>` | `uint256` | Current debt for market in payout token decimals |
 
 ### currentControlVariable
 
@@ -63,15 +63,15 @@ function currentControlVariable(uint256 id_) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|         ID of market|
+| Name  | Type      | Description  |
+| ----- | --------- | ------------ |
+| `id_` | `uint256` | ID of market |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|Control variable for market in payout token decimals|
+| Name     | Type      | Description                                          |
+| -------- | --------- | ---------------------------------------------------- |
+| `<none>` | `uint256` | Control variable for market in payout token decimals |
 
 ## Structs
 
@@ -149,17 +149,18 @@ Parameters to create a new bond market
 
 Note price should be passed in a specific format:
 formatted price = (payoutPriceCoefficient / quotePriceCoefficient)
-- 10**(36 + scaleAdjustment + quoteDecimals - payoutDecimals + payoutPriceDecimals - quotePriceDecimals)
-where:
-payoutDecimals - Number of decimals defined for the payoutToken in its ERC20 contract
-quoteDecimals - Number of decimals defined for the quoteToken in its ERC20 contract
-payoutPriceCoefficient - The coefficient of the payoutToken price in scientific notation (also known as the significant digits)
-payoutPriceDecimals - The significand of the payoutToken price in scientific notation (also known as the base ten exponent)
-quotePriceCoefficient - The coefficient of the quoteToken price in scientific notation (also known as the significant digits)
-quotePriceDecimals - The significand of the quoteToken price in scientific notation (also known as the base ten exponent)
-scaleAdjustment - see below
+
+- 10\*\*(36 + scaleAdjustment + quoteDecimals - payoutDecimals + payoutPriceDecimals - quotePriceDecimals)
+  where:
+  payoutDecimals - Number of decimals defined for the payoutToken in its ERC20 contract
+  quoteDecimals - Number of decimals defined for the quoteToken in its ERC20 contract
+  payoutPriceCoefficient - The coefficient of the payoutToken price in scientific notation (also known as the significant digits)
+  payoutPriceDecimals - The significand of the payoutToken price in scientific notation (also known as the base ten exponent)
+  quotePriceCoefficient - The coefficient of the quoteToken price in scientific notation (also known as the significant digits)
+  quotePriceDecimals - The significand of the quoteToken price in scientific notation (also known as the base ten exponent)
+  scaleAdjustment - see below
 - In the above definitions, the "prices" need to have the same unit of account (i.e. both in OHM, $, ETH, etc.)
-If price is not provided in this format, the market will not behave as intended.
+  If price is not provided in this format, the market will not behave as intended.
 
 0. Payout Token (token paid out)
 
@@ -187,9 +188,9 @@ If the value is too large, the market will not circuit break when intended. The 
 
 A good heuristic to calculate a debtBuffer with is to determine the amount of capacity that you think is reasonable to be expended
 
-in a short duration as a percent, e.g. 25%. Then a reasonable debtBuffer would be: 0.25 *1e3* decayInterval / marketDuration
+in a short duration as a percent, e.g. 25%. Then a reasonable debtBuffer would be: 0.25 _1e3_ decayInterval / marketDuration
 
-where decayInterval = max(3 days, 5 * depositInterval) and marketDuration = conclusion - creation time.
+where decayInterval = max(3 days, 5 \* depositInterval) and marketDuration = conclusion - creation time.
 
 8. Is fixed term ? Vesting length (seconds) : Vesting expiry (timestamp).
 
@@ -224,17 +225,17 @@ struct MarketParams {
 
 **Properties**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`payoutToken`|`ERC20`||
-|`quoteToken`|`ERC20`||
-|`callbackAddr`|`address`||
-|`capacityInQuote`|`bool`||
-|`capacity`|`uint256`||
-|`formattedInitialPrice`|`uint256`||
-|`formattedMinimumPrice`|`uint256`||
-|`debtBuffer`|`uint32`||
-|`vesting`|`uint48`||
-|`conclusion`|`uint48`||
-|`depositInterval`|`uint32`||
-|`scaleAdjustment`|`int8`||
+| Name                    | Type      | Description |
+| ----------------------- | --------- | ----------- |
+| `payoutToken`           | `ERC20`   |             |
+| `quoteToken`            | `ERC20`   |             |
+| `callbackAddr`          | `address` |             |
+| `capacityInQuote`       | `bool`    |             |
+| `capacity`              | `uint256` |             |
+| `formattedInitialPrice` | `uint256` |             |
+| `formattedMinimumPrice` | `uint256` |             |
+| `debtBuffer`            | `uint32`  |             |
+| `vesting`               | `uint48`  |             |
+| `conclusion`            | `uint48`  |             |
+| `depositInterval`       | `uint32`  |             |
+| `scaleAdjustment`       | `int8`    |             |

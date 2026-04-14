@@ -80,7 +80,7 @@ The Cooler V2 contract
 IMonoCooler public immutable COOLERV2
 ```
 
-### _COOLER_FACTORIES
+### \_COOLER_FACTORIES
 
 The list of CoolerFactories
 
@@ -131,16 +131,16 @@ function previewConsolidate(address[] memory coolers_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolers_`|`address[]`|           The Coolers to consolidate the loans from.|
+| Name       | Type        | Description                                |
+| ---------- | ----------- | ------------------------------------------ |
+| `coolers_` | `address[]` | The Coolers to consolidate the loans from. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`collateralAmount`|`uint256`|   The amount of collateral that will be migrated into Cooler V2.|
-|`borrowAmount`|`uint256`|       The amount of debt that will be borrowed from Cooler V2.|
+| Name               | Type      | Description                                                    |
+| ------------------ | --------- | -------------------------------------------------------------- |
+| `collateralAmount` | `uint256` | The amount of collateral that will be migrated into Cooler V2. |
+| `borrowAmount`     | `uint256` | The amount of debt that will be borrowed from Cooler V2.       |
 
 ### consolidate
 
@@ -172,13 +172,13 @@ function consolidate(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolers_`|`address[]`|           The Coolers from which the loans will be migrated.|
-|`newOwner_`|`address`|          Address of the owner of the Cooler V2 position. This can be the same as the caller, or a different address.|
-|`authorization_`|`IMonoCooler.Authorization`|     Authorization parameters for the new owner. Set the `account` field to the zero address to indicate that authorization has already been provided through `IMonoCooler.setAuthorization()`.|
-|`signature_`|`IMonoCooler.Signature`|         Authorization signature for the new owner. Ignored if `authorization_.account` is the zero address.|
-|`delegationRequests_`|`IDLGTEv1.DelegationRequest[]`|Delegation requests for the new owner.|
+| Name                  | Type                           | Description                                                                                                                                                                                |
+| --------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `coolers_`            | `address[]`                    | The Coolers from which the loans will be migrated.                                                                                                                                         |
+| `newOwner_`           | `address`                      | Address of the owner of the Cooler V2 position. This can be the same as the caller, or a different address.                                                                                |
+| `authorization_`      | `IMonoCooler.Authorization`    | Authorization parameters for the new owner. Set the `account` field to the zero address to indicate that authorization has already been provided through `IMonoCooler.setAuthorization()`. |
+| `signature_`          | `IMonoCooler.Signature`        | Authorization signature for the new owner. Ignored if `authorization_.account` is the zero address.                                                                                        |
+| `delegationRequests_` | `IDLGTEv1.DelegationRequest[]` | Delegation requests for the new owner.                                                                                                                                                     |
 
 ### onFlashLoan
 
@@ -202,21 +202,21 @@ function onFlashLoan(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`initiator_`|`address`||
-|`<none>`|`address`||
-|`amount_`|`uint256`||
-|`<none>`|`uint256`||
-|`params_`|`bytes`||
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| `initiator_` | `address` |             |
+| `<none>`     | `address` |             |
+| `amount_`    | `uint256` |             |
+| `<none>`     | `uint256` |             |
+| `params_`    | `bytes`   |             |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes32`|The keccak256 hash of "ERC3156FlashBorrower.onFlashLoan"|
+| Name     | Type      | Description                                              |
+| -------- | --------- | -------------------------------------------------------- |
+| `<none>` | `bytes32` | The keccak256 hash of "ERC3156FlashBorrower.onFlashLoan" |
 
-### _handleRepayments
+### \_handleRepayments
 
 ```solidity
 function _handleRepayments(Cooler cooler_, ERC20 debtToken_, uint256 numLoans_)
@@ -224,7 +224,7 @@ function _handleRepayments(Cooler cooler_, ERC20 debtToken_, uint256 numLoans_)
     returns (uint256 principal, uint256 interest, uint256 collateral);
 ```
 
-### _getDebtForCooler
+### \_getDebtForCooler
 
 ```solidity
 function _getDebtForCooler(Cooler cooler_, address[] memory clearinghouses_)
@@ -239,7 +239,7 @@ function _getDebtForCooler(Cooler cooler_, address[] memory clearinghouses_)
     );
 ```
 
-### _isValidCooler
+### \_isValidCooler
 
 Check if a given cooler was created by the CoolerFactory
 
@@ -249,23 +249,23 @@ function _isValidCooler(address cooler_) internal view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cooler_`|`address`|      Cooler contract|
+| Name      | Type      | Description     |
+| --------- | --------- | --------------- |
+| `cooler_` | `address` | Cooler contract |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool          Whether the cooler was created by the CoolerFactory|
+| Name     | Type   | Description                                              |
+| -------- | ------ | -------------------------------------------------------- |
+| `<none>` | `bool` | bool Whether the cooler was created by the CoolerFactory |
 
-### _inArray
+### \_inArray
 
 ```solidity
 function _inArray(address[] memory array_, address item_) internal pure returns (bool);
 ```
 
-### _getClearinghouses
+### \_getClearinghouses
 
 Get all of the clearinghouses in the registry
 
@@ -275,9 +275,9 @@ function _getClearinghouses() internal view returns (address[] memory clearingho
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouses`|`address[]`|The list of clearinghouses|
+| Name             | Type        | Description                |
+| ---------------- | ----------- | -------------------------- |
+| `clearinghouses` | `address[]` | The list of clearinghouses |
 
 ### addCoolerFactory
 
@@ -289,9 +289,9 @@ function addCoolerFactory(address coolerFactory_) external onlyOwner;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolerFactory_`|`address`|The CoolerFactory to add|
+| Name             | Type      | Description              |
+| ---------------- | --------- | ------------------------ |
+| `coolerFactory_` | `address` | The CoolerFactory to add |
 
 ### removeCoolerFactory
 
@@ -303,9 +303,9 @@ function removeCoolerFactory(address coolerFactory_) external onlyOwner;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolerFactory_`|`address`|The CoolerFactory to remove|
+| Name             | Type      | Description                 |
+| ---------------- | --------- | --------------------------- |
+| `coolerFactory_` | `address` | The CoolerFactory to remove |
 
 ### getCoolerFactories
 
@@ -317,9 +317,9 @@ function getCoolerFactories() external view returns (address[] memory coolerFact
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolerFactories`|`address[]`|The list of CoolerFactories|
+| Name              | Type        | Description                 |
+| ----------------- | ----------- | --------------------------- |
+| `coolerFactories` | `address[]` | The list of CoolerFactories |
 
 ### onlyEnabled
 
@@ -339,9 +339,9 @@ function enable(bytes calldata) external onlyOwner;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes`||
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| `<none>` | `bytes` |             |
 
 ### disable
 
@@ -355,9 +355,9 @@ function disable(bytes calldata) external onlyEnabled onlyOwner;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes`||
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| `<none>` | `bytes` |             |
 
 ## Structs
 

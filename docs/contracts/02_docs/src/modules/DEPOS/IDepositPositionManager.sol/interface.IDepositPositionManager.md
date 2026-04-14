@@ -27,9 +27,9 @@ function wrap(uint256 positionId_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position to wrap|
+| Name          | Type      | Description                    |
+| ------------- | --------- | ------------------------------ |
+| `positionId_` | `uint256` | The ID of the position to wrap |
 
 ### unwrap
 
@@ -48,9 +48,9 @@ function unwrap(uint256 positionId_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position to unwrap|
+| Name          | Type      | Description                      |
+| ------------- | --------- | -------------------------------- |
+| `positionId_` | `uint256` | The ID of the position to unwrap |
 
 ### mint
 
@@ -73,15 +73,15 @@ function mint(MintParams calldata params_) external returns (uint256 _positionId
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`params_`|`MintParams`|                    The parameters for the position creation|
+| Name      | Type         | Description                              |
+| --------- | ------------ | ---------------------------------------- |
+| `params_` | `MintParams` | The parameters for the position creation |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_positionId`|`uint256`|                The ID of the new position|
+| Name          | Type      | Description                |
+| ------------- | --------- | -------------------------- |
+| `_positionId` | `uint256` | The ID of the new position |
 
 ### setRemainingDeposit
 
@@ -99,10 +99,10 @@ function setRemainingDeposit(uint256 positionId_, uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position to update|
-|`amount_`|`uint256`|    The new amount of the position|
+| Name          | Type      | Description                      |
+| ------------- | --------- | -------------------------------- |
+| `positionId_` | `uint256` | The ID of the position to update |
+| `amount_`     | `uint256` | The new amount of the position   |
 
 ### setAdditionalData
 
@@ -120,10 +120,10 @@ function setAdditionalData(uint256 positionId_, bytes calldata additionalData_) 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|        The ID of the position to update|
-|`additionalData_`|`bytes`|    The new additional data of the position|
+| Name              | Type      | Description                             |
+| ----------------- | --------- | --------------------------------------- |
+| `positionId_`     | `uint256` | The ID of the position to update        |
+| `additionalData_` | `bytes`   | The new additional data of the position |
 
 ### split
 
@@ -148,18 +148,18 @@ function split(uint256 positionId_, uint256 amount_, address to_, bool wrap_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|    The ID of the position to split|
-|`amount_`|`uint256`|        The amount of the position to split|
-|`to_`|`address`|            The address to split the position to|
-|`wrap_`|`bool`|          Whether the new position should be wrapped|
+| Name          | Type      | Description                                |
+| ------------- | --------- | ------------------------------------------ |
+| `positionId_` | `uint256` | The ID of the position to split            |
+| `amount_`     | `uint256` | The amount of the position to split        |
+| `to_`         | `address` | The address to split the position to       |
+| `wrap_`       | `bool`    | Whether the new position should be wrapped |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newPositionId`|`uint256`|  The ID of the new position|
+| Name            | Type      | Description                |
+| --------------- | --------- | -------------------------- |
+| `newPositionId` | `uint256` | The ID of the new position |
 
 ### getPositionCount
 
@@ -171,9 +171,9 @@ function getPositionCount() external view returns (uint256 _count);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_count`|`uint256`|The total number of positions|
+| Name     | Type      | Description                   |
+| -------- | --------- | ----------------------------- |
+| `_count` | `uint256` | The total number of positions |
 
 ### getUserPositionIds
 
@@ -185,15 +185,15 @@ function getUserPositionIds(address user_) external view returns (uint256[] memo
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|          The address of the user|
+| Name    | Type      | Description             |
+| ------- | --------- | ----------------------- |
+| `user_` | `address` | The address of the user |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_positionIds`|`uint256[]`|   An array of position IDs|
+| Name           | Type        | Description              |
+| -------------- | ----------- | ------------------------ |
+| `_positionIds` | `uint256[]` | An array of position IDs |
 
 ### getPosition
 
@@ -205,15 +205,15 @@ function getPosition(uint256 positionId_) external view returns (Position memory
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position|
+| Name          | Type      | Description            |
+| ------------- | --------- | ---------------------- |
+| `positionId_` | `uint256` | The ID of the position |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_position`|`Position`|  The position for the given ID|
+| Name        | Type       | Description                   |
+| ----------- | ---------- | ----------------------------- |
+| `_position` | `Position` | The position for the given ID |
 
 ### isExpired
 
@@ -225,15 +225,15 @@ function isExpired(uint256 positionId_) external view returns (bool _expired);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position|
+| Name          | Type      | Description            |
+| ------------- | --------- | ---------------------- |
+| `positionId_` | `uint256` | The ID of the position |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_expired`|`bool`|   Whether the position is expired|
+| Name       | Type   | Description                     |
+| ---------- | ------ | ------------------------------- |
+| `_expired` | `bool` | Whether the position is expired |
 
 ### isConvertible
 
@@ -245,15 +245,15 @@ function isConvertible(uint256 positionId_) external view returns (bool _convert
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|    The ID of the position|
+| Name          | Type      | Description            |
+| ------------- | --------- | ---------------------- |
+| `positionId_` | `uint256` | The ID of the position |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_convertible`|`bool`|   Whether the position is convertible|
+| Name           | Type   | Description                         |
+| -------------- | ------ | ----------------------------------- |
+| `_convertible` | `bool` | Whether the position is convertible |
 
 ### previewConvert
 
@@ -265,16 +265,16 @@ function previewConvert(uint256 positionId_, uint256 amount_) external view retu
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position|
-|`amount_`|`uint256`|    The amount of convertible deposit tokens to convert|
+| Name          | Type      | Description                                         |
+| ------------- | --------- | --------------------------------------------------- |
+| `positionId_` | `uint256` | The ID of the position                              |
+| `amount_`     | `uint256` | The amount of convertible deposit tokens to convert |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_ohmOut`|`uint256`|    The amount of OHM that would be received|
+| Name      | Type      | Description                              |
+| --------- | --------- | ---------------------------------------- |
+| `_ohmOut` | `uint256` | The amount of OHM that would be received |
 
 ### setTokenRenderer
 
@@ -293,9 +293,9 @@ function setTokenRenderer(address renderer_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`renderer_`|`address`|The address of the renderer contract|
+| Name        | Type      | Description                          |
+| ----------- | --------- | ------------------------------------ |
+| `renderer_` | `address` | The address of the renderer contract |
 
 ### getTokenRenderer
 
@@ -307,9 +307,9 @@ function getTokenRenderer() external view returns (address _renderer);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_renderer`|`address`|The address of the current renderer contract (or zero address if not set)|
+| Name        | Type      | Description                                                               |
+| ----------- | --------- | ------------------------------------------------------------------------- |
+| `_renderer` | `address` | The address of the current renderer contract (or zero address if not set) |
 
 ## Events
 
@@ -474,17 +474,17 @@ struct Position {
 
 **Properties**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`operator`|`address`|               Address of the operator/creator of the position|
-|`owner`|`address`|                  Address of the owner of the position|
-|`asset`|`address`|                  Address of the asset|
-|`periodMonths`|`uint8`|           The period of the deposit|
-|`remainingDeposit`|`uint256`|       Amount of reserve tokens remaining to be converted|
-|`conversionPrice`|`uint256`|        The amount of asset tokens required to receive 1 OHM (scale: asset token decimals)|
-|`expiry`|`uint48`|                 Timestamp of the position expiry|
-|`wrapped`|`bool`|                Whether the term is wrapped|
-|`additionalData`|`bytes`|         Additional data for the position|
+| Name               | Type      | Description                                                                        |
+| ------------------ | --------- | ---------------------------------------------------------------------------------- |
+| `operator`         | `address` | Address of the operator/creator of the position                                    |
+| `owner`            | `address` | Address of the owner of the position                                               |
+| `asset`            | `address` | Address of the asset                                                               |
+| `periodMonths`     | `uint8`   | The period of the deposit                                                          |
+| `remainingDeposit` | `uint256` | Amount of reserve tokens remaining to be converted                                 |
+| `conversionPrice`  | `uint256` | The amount of asset tokens required to receive 1 OHM (scale: asset token decimals) |
+| `expiry`           | `uint48`  | Timestamp of the position expiry                                                   |
+| `wrapped`          | `bool`    | Whether the term is wrapped                                                        |
+| `additionalData`   | `bytes`   | Additional data for the position                                                   |
 
 ### MintParams
 
@@ -505,13 +505,13 @@ struct MintParams {
 
 **Properties**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`owner`|`address`|                  Address of the owner of the position|
-|`asset`|`address`|                  Address of the asset|
-|`periodMonths`|`uint8`|           The period of the deposit|
-|`remainingDeposit`|`uint256`|       Amount of reserve tokens remaining to be converted|
-|`conversionPrice`|`uint256`|        The amount of asset tokens required to receive 1 OHM (scale: asset token decimals)|
-|`expiry`|`uint48`|                 Timestamp of the position expiry|
-|`wrapPosition`|`bool`|           Whether the position should be wrapped|
-|`additionalData`|`bytes`|         Additional data for the position|
+| Name               | Type      | Description                                                                        |
+| ------------------ | --------- | ---------------------------------------------------------------------------------- |
+| `owner`            | `address` | Address of the owner of the position                                               |
+| `asset`            | `address` | Address of the asset                                                               |
+| `periodMonths`     | `uint8`   | The period of the deposit                                                          |
+| `remainingDeposit` | `uint256` | Amount of reserve tokens remaining to be converted                                 |
+| `conversionPrice`  | `uint256` | The amount of asset tokens required to receive 1 OHM (scale: asset token decimals) |
+| `expiry`           | `uint48`  | Timestamp of the position expiry                                                   |
+| `wrapPosition`     | `bool`    | Whether the position should be wrapped                                             |
+| `additionalData`   | `bytes`   | Additional data for the position                                                   |

@@ -17,10 +17,9 @@ By evolving from a passive liquidity provider role, into a more active one with 
 
 As long as the protocol remains credible and trustworthy, the market participants are incentivized to support the objectives that the protocol sets (predictability), so those that trade alongside the Treasury are rewarded and those deviating are dissuaded.
 
-The credibility of this protocol guidance is derived from the capitalization of the Treasury and its majority ownership of market liquidity. As long as the Treasury holds significant assets relative to the *market capitalization of the liquid supply of OHM*, the market should take its guidance seriously. On top of that, the protocol’s majority ownership of its liquidity markets further extends this dynamic.
+The credibility of this protocol guidance is derived from the capitalization of the Treasury and its majority ownership of market liquidity. As long as the Treasury holds significant assets relative to the _market capitalization of the liquid supply of OHM_, the market should take its guidance seriously. On top of that, the protocol’s majority ownership of its liquidity markets further extends this dynamic.
 
-*Note that the influence of the Treasury over the market is directly dependent on the liquid supply of OHM. Thanks to the introduction of [OHM bonds](./ohm-bonds.md), the protocol can convert current supply into supply locked on a protocol level, magnifying the influence of the Treasury over the liquid market.*
-
+_Note that the influence of the Treasury over the market is directly dependent on the liquid supply of OHM. Thanks to the introduction of [OHM bonds](./ohm-bonds.md), the protocol can convert current supply into supply locked on a protocol level, magnifying the influence of the Treasury over the liquid market._
 
 ## How does the Range Bound Stability system work?
 

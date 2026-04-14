@@ -1,4 +1,3 @@
-
 # Interfaces
 
 - [IAuraBooster](IAura.sol/interface.IAuraBooster.md)

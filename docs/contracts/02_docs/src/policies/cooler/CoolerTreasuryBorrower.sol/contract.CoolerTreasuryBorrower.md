@@ -12,10 +12,10 @@ Policy which can borrow from Treasury on behalf of Cooler
 
 - Cooler will always represent the debt amount in 18 decimal places.
 - This logic is split out into a separate policy (rather than using `TreasuryCustodian`):
-1/ So the Cooler debt token can be updated if required in future to another stablecoin without a redeploy of Cooler.
-2/ In this case, debt is denominated in USDS but stored 'at rest' in Treasury into sUSDS for extra yield.
+  1/ So the Cooler debt token can be updated if required in future to another stablecoin without a redeploy of Cooler.
+  2/ In this case, debt is denominated in USDS but stored 'at rest' in Treasury into sUSDS for extra yield.
 - Upon an upgrade, if the actual debt token is changed (with a new deployment of this contract) to a non 18dp asset
-eg USDC, then borrow() and repay() will need to do the conversion.
+  eg USDC, then borrow() and repay() will need to do the conversion.
 - This implementation borrows USDS from Treasury but deposits into sUSDS to benefit from savings yield.
 
 ## State Variables
@@ -46,7 +46,7 @@ sUSDS is used within TRSRY to generate yield on idle USDS
 ERC4626 public immutable SUSDS
 ```
 
-### _USDS
+### \_USDS
 
 The SKY USDS token
 
@@ -78,9 +78,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -92,9 +92,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`requests`|`Permissions[]`|- Array of keycodes and function selectors for requested permissions.|
+| Name       | Type            | Description                                                           |
+| ---------- | --------------- | --------------------------------------------------------------------- |
+| `requests` | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
 
 ### borrow
 
@@ -108,10 +108,10 @@ function borrow(uint256 amountInWad, address recipient) external override onlyEn
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amountInWad`|`uint256`|The amount to borrow. Always 18 decimal places regardless of the `debtToken.decimals()`|
-|`recipient`|`address`||
+| Name          | Type      | Description                                                                             |
+| ------------- | --------- | --------------------------------------------------------------------------------------- |
+| `amountInWad` | `uint256` | The amount to borrow. Always 18 decimal places regardless of the `debtToken.decimals()` |
+| `recipient`   | `address` |                                                                                         |
 
 ### repay
 
@@ -145,9 +145,9 @@ function setDebt(uint256 debtTokenAmount) external override onlyEnabled onlyAdmi
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`debtTokenAmount`|`uint256`|The amount of debt to set in Treasury, in the debtToken.decimals() precision|
+| Name              | Type      | Description                                                                  |
+| ----------------- | --------- | ---------------------------------------------------------------------------- |
+| `debtTokenAmount` | `uint256` | The amount of debt to set in Treasury, in the debtToken.decimals() precision |
 
 ### debtToken
 
@@ -169,7 +169,7 @@ function convertToDebtTokenAmount(uint256 amountInWad)
     returns (IERC20 dToken, uint256 dTokenAmount);
 ```
 
-### _reduceDebtToTreasury
+### \_reduceDebtToTreasury
 
 Decrease the debt to TRSRY, floored at zero
 

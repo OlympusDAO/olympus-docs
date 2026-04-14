@@ -14,7 +14,7 @@ This extends the `BurnMintTokenPoolAbstract` contract to allow for a customisabl
 
 ## Functions
 
-### _mint
+### \_mint
 
 Specific mint call for a pool.
 
@@ -26,10 +26,10 @@ function _mint(address receiver_, uint256 amount_) internal virtual;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`receiver_`|`address`| The address to mint the tokens to.|
-|`amount_`|`uint256`|   The amount of tokens to mint.|
+| Name        | Type      | Description                        |
+| ----------- | --------- | ---------------------------------- |
+| `receiver_` | `address` | The address to mint the tokens to. |
+| `amount_`   | `uint256` | The amount of tokens to mint.      |
 
 ### releaseOrMint
 
@@ -47,12 +47,12 @@ function releaseOrMint(Pool.ReleaseOrMintInV1 calldata releaseOrMintIn)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`releaseOrMintIn`|`Pool.ReleaseOrMintInV1`|All data required to release or mint tokens.|
+| Name              | Type                     | Description                                  |
+| ----------------- | ------------------------ | -------------------------------------------- |
+| `releaseOrMintIn` | `Pool.ReleaseOrMintInV1` | All data required to release or mint tokens. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`Pool.ReleaseOrMintOutV1`|releaseOrMintOut The amount of tokens released or minted on the local chain, denominated in the local token's decimals.|
+| Name     | Type                      | Description                                                                                                             |
+| -------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `<none>` | `Pool.ReleaseOrMintOutV1` | releaseOrMintOut The amount of tokens released or minted on the local chain, denominated in the local token's decimals. |

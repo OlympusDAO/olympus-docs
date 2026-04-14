@@ -14,7 +14,6 @@
 - [Download as .svg](/resources/Olympus_logotype.svg)
 - [Download as .ai](/resources/Olympus_logotype.ai)
 
-
 <!-- ![Olympus Logotype](/resources/Olympus_OHM_White.svg) -->
 <img src="/resources/Olympus_OHM_White.svg"  width="60px" height="60px" />
 
@@ -45,4 +44,3 @@ Neue Haas Grotesk
 
 <!-- ![Olympus Logotype](/resources/Olympus_Logotype_Horizontal_White.svg -->
 <!-- <img src="/resources/Olympus_Logotype_Horizontal_White.svg"  width="300px" height="50px" /> -->
-

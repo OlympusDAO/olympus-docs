@@ -1,4 +1,3 @@
-
 # Proposals
 
 - [SolanaCCIPBridgeProposal](CCIPBridgeSolana.sol/contract.SolanaCCIPBridgeProposal.md)

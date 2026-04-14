@@ -25,17 +25,17 @@ function substring(string memory str_, uint256 startIndex_, uint256 endIndex_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`str_`|`string`|           The string to get the substring of|
-|`startIndex_`|`uint256`|    The index to start the substring at|
-|`endIndex_`|`uint256`|      The index to end the substring at|
+| Name          | Type      | Description                         |
+| ------------- | --------- | ----------------------------------- |
+| `str_`        | `string`  | The string to get the substring of  |
+| `startIndex_` | `uint256` | The index to start the substring at |
+| `endIndex_`   | `uint256` | The index to end the substring at   |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`string`|resultString    The substring|
+| Name     | Type     | Description                |
+| -------- | -------- | -------------------------- |
+| `<none>` | `string` | resultString The substring |
 
 ### substringFrom
 
@@ -47,16 +47,16 @@ function substringFrom(string memory str_, uint256 startIndex_) internal pure re
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`str_`|`string`|The string to get the substring of|
-|`startIndex_`|`uint256`|The index to start the substring at|
+| Name          | Type      | Description                         |
+| ------------- | --------- | ----------------------------------- |
+| `str_`        | `string`  | The string to get the substring of  |
+| `startIndex_` | `uint256` | The index to start the substring at |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`string`|resultString The substring|
+| Name     | Type     | Description                |
+| -------- | -------- | -------------------------- |
+| `<none>` | `string` | resultString The substring |
 
 ## Errors
 

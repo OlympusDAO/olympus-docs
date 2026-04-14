@@ -1,4 +1,3 @@
-
 # Bridge
 
 - [BurnMintTokenPoolBase](BurnMintTokenPoolBase.sol/abstract.BurnMintTokenPoolBase.md)

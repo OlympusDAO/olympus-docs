@@ -16,17 +16,17 @@ function getFeeSVM(uint64 dstChainSelector_, bytes32 to_, uint256 amount_) exter
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`bytes32`|                 The destination address|
-|`amount_`|`uint256`|             The amount of OHM to send|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `bytes32` | The destination address        |
+| `amount_`           | `uint256` | The amount of OHM to send      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`fee_`|`uint256`|               The fee for sending OHM to the specified destination chain|
+| Name   | Type      | Description                                                |
+| ------ | --------- | ---------------------------------------------------------- |
+| `fee_` | `uint256` | The fee for sending OHM to the specified destination chain |
 
 ### getFeeEVM
 
@@ -40,17 +40,17 @@ function getFeeEVM(uint64 dstChainSelector_, address to_, uint256 amount_) exter
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`address`|                 The destination address|
-|`amount_`|`uint256`|             The amount of OHM to send|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `address` | The destination address        |
+| `amount_`           | `uint256` | The amount of OHM to send      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`fee_`|`uint256`|               The fee for sending OHM to the specified destination EVM chain|
+| Name   | Type      | Description                                                    |
+| ------ | --------- | -------------------------------------------------------------- |
+| `fee_` | `uint256` | The fee for sending OHM to the specified destination EVM chain |
 
 ### sendToSVM
 
@@ -67,17 +67,17 @@ function sendToSVM(uint64 dstChainSelector_, bytes32 to_, uint256 amount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`bytes32`|                 The destination address|
-|`amount_`|`uint256`|             The amount of OHM to send|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `bytes32` | The destination address        |
+| `amount_`           | `uint256` | The amount of OHM to send      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`messageId`|`bytes32`|          The message ID of the sent message|
+| Name        | Type      | Description                        |
+| ----------- | --------- | ---------------------------------- |
+| `messageId` | `bytes32` | The message ID of the sent message |
 
 ### sendToEVM
 
@@ -94,17 +94,17 @@ function sendToEVM(uint64 dstChainSelector_, address to_, uint256 amount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`address`|                 The destination address|
-|`amount_`|`uint256`|             The amount of OHM to send|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `address` | The destination address        |
+| `amount_`           | `uint256` | The amount of OHM to send      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`messageId`|`bytes32`|          The message ID of the sent message|
+| Name        | Type      | Description                        |
+| ----------- | --------- | ---------------------------------- |
+| `messageId` | `bytes32` | The message ID of the sent message |
 
 ### getFailedMessage
 
@@ -116,15 +116,15 @@ function getFailedMessage(bytes32 messageId_) external view returns (ICCIPClient
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`messageId_`|`bytes32`|The message ID|
+| Name         | Type      | Description    |
+| ------------ | --------- | -------------- |
+| `messageId_` | `bytes32` | The message ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`ICCIPClient.Any2EVMMessage`|message_ The failed message|
+| Name     | Type                         | Description                  |
+| -------- | ---------------------------- | ---------------------------- |
+| `<none>` | `ICCIPClient.Any2EVMMessage` | message\_ The failed message |
 
 ### retryFailedMessage
 
@@ -136,9 +136,9 @@ function retryFailedMessage(bytes32 messageId_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`messageId_`|`bytes32`|The message ID|
+| Name         | Type      | Description    |
+| ------------ | --------- | -------------- |
+| `messageId_` | `bytes32` | The message ID |
 
 ### withdraw
 
@@ -152,9 +152,9 @@ function withdraw(address recipient_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`recipient_`|`address`| The recipient of the native token|
+| Name         | Type      | Description                       |
+| ------------ | --------- | --------------------------------- |
+| `recipient_` | `address` | The recipient of the native token |
 
 ### setTrustedRemoteEVM
 
@@ -168,10 +168,10 @@ function setTrustedRemoteEVM(uint64 dstChainSelector_, address to_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`address`|                 The destination address|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `address` | The destination address        |
 
 ### unsetTrustedRemoteEVM
 
@@ -185,9 +185,9 @@ function unsetTrustedRemoteEVM(uint64 dstChainSelector_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
 
 ### getTrustedRemoteEVM
 
@@ -199,15 +199,15 @@ function getTrustedRemoteEVM(uint64 dstChainSelector_) external view returns (Tr
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`TrustedRemoteEVM`|to_                The destination address|
+| Name     | Type               | Description                  |
+| -------- | ------------------ | ---------------------------- |
+| `<none>` | `TrustedRemoteEVM` | to\_ The destination address |
 
 ### setTrustedRemoteSVM
 
@@ -221,10 +221,10 @@ function setTrustedRemoteSVM(uint64 dstChainSelector_, bytes32 to_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`to_`|`bytes32`|                 The destination address|
+| Name                | Type      | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| `dstChainSelector_` | `uint64`  | The destination chain selector |
+| `to_`               | `bytes32` | The destination address        |
 
 ### unsetTrustedRemoteSVM
 
@@ -238,9 +238,9 @@ function unsetTrustedRemoteSVM(uint64 dstChainSelector_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
 
 ### getTrustedRemoteSVM
 
@@ -252,15 +252,15 @@ function getTrustedRemoteSVM(uint64 dstChainSelector_) external view returns (Tr
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`TrustedRemoteSVM`|to_                The destination address|
+| Name     | Type               | Description                  |
+| -------- | ------------------ | ---------------------------- |
+| `<none>` | `TrustedRemoteSVM` | to\_ The destination address |
 
 ### setGasLimit
 
@@ -272,10 +272,10 @@ function setGasLimit(uint64 dstChainSelector_, uint32 gasLimit_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
-|`gasLimit_`|`uint32`|           The gas limit|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
+| `gasLimit_`         | `uint32` | The gas limit                  |
 
 ### getGasLimit
 
@@ -287,15 +287,15 @@ function getGasLimit(uint64 dstChainSelector_) external view returns (uint32);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dstChainSelector_`|`uint64`|   The destination chain selector|
+| Name                | Type     | Description                    |
+| ------------------- | -------- | ------------------------------ |
+| `dstChainSelector_` | `uint64` | The destination chain selector |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint32`|gasLimit_           The gas limit, or 0 if not set|
+| Name     | Type     | Description                               |
+| -------- | -------- | ----------------------------------------- |
+| `<none>` | `uint32` | gasLimit\_ The gas limit, or 0 if not set |
 
 ### getCCIPRouter
 
@@ -307,9 +307,9 @@ function getCCIPRouter() external view returns (address);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|ccipRouter_ The CCIP router address|
+| Name     | Type      | Description                          |
+| -------- | --------- | ------------------------------------ |
+| `<none>` | `address` | ccipRouter\_ The CCIP router address |
 
 ## Events
 

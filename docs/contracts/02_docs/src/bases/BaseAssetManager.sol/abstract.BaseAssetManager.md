@@ -14,7 +14,7 @@ Future versions of the contract could add support for more complex strategies an
 
 ## State Variables
 
-### _configuredAssets
+### \_configuredAssets
 
 Array of configured assets
 
@@ -22,7 +22,7 @@ Array of configured assets
 IERC20[] internal _configuredAssets
 ```
 
-### _assetConfigurations
+### \_assetConfigurations
 
 Mapping of assets to a configuration
 
@@ -30,7 +30,7 @@ Mapping of assets to a configuration
 mapping(IERC20 asset => AssetConfiguration) internal _assetConfigurations
 ```
 
-### _operatorShares
+### \_operatorShares
 
 Mapping of assets and operators to the number of shares they have deposited
 
@@ -40,7 +40,7 @@ mapping(bytes32 operatorKey => uint256 shares) internal _operatorShares
 
 ## Functions
 
-### _depositAsset
+### \_depositAsset
 
 Deposit assets into the configured vault
 
@@ -64,21 +64,21 @@ function _depositAsset(IERC20 asset_, address depositor_, uint256 amount_, bool 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|                 The asset to deposit|
-|`depositor_`|`address`|             The depositor|
-|`amount_`|`uint256`|                The amount of assets to deposit|
-|`enforceDepositChecks_`|`bool`|  Whether to enforce the minimum deposit requirement and deposit cap|
+| Name                    | Type      | Description                                                        |
+| ----------------------- | --------- | ------------------------------------------------------------------ |
+| `asset_`                | `IERC20`  | The asset to deposit                                               |
+| `depositor_`            | `address` | The depositor                                                      |
+| `amount_`               | `uint256` | The amount of assets to deposit                                    |
+| `enforceDepositChecks_` | `bool`    | Whether to enforce the minimum deposit requirement and deposit cap |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualAmount`|`uint256`|   The actual amount of assets redeemable by the shares|
-|`shares`|`uint256`|         The number of shares received|
+| Name           | Type      | Description                                          |
+| -------------- | --------- | ---------------------------------------------------- |
+| `actualAmount` | `uint256` | The actual amount of assets redeemable by the shares |
+| `shares`       | `uint256` | The number of shares received                        |
 
-### _withdrawAsset
+### \_withdrawAsset
 
 Withdraw assets from the configured vault
 
@@ -96,18 +96,18 @@ function _withdrawAsset(IERC20 asset_, address depositor_, uint256 amount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|     The asset to withdraw|
-|`depositor_`|`address`| The depositor|
-|`amount_`|`uint256`|    The amount of assets to withdraw|
+| Name         | Type      | Description                      |
+| ------------ | --------- | -------------------------------- |
+| `asset_`     | `IERC20`  | The asset to withdraw            |
+| `depositor_` | `address` | The depositor                    |
+| `amount_`    | `uint256` | The amount of assets to withdraw |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`shares`|`uint256`|     The number of shares withdrawn (can be 0)|
-|`assetAmount`|`uint256`|The amount of assets withdrawn (can be 0)|
+| Name          | Type      | Description                               |
+| ------------- | --------- | ----------------------------------------- |
+| `shares`      | `uint256` | The number of shares withdrawn (can be 0) |
+| `assetAmount` | `uint256` | The amount of assets withdrawn (can be 0) |
 
 ### getOperatorAssets
 
@@ -123,19 +123,19 @@ function getOperatorAssets(IERC20 asset_, address operator_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The asset to get the deposited shares for|
-|`operator_`|`address`|      The operator to get the deposited shares for|
+| Name        | Type      | Description                                  |
+| ----------- | --------- | -------------------------------------------- |
+| `asset_`    | `IERC20`  | The asset to get the deposited shares for    |
+| `operator_` | `address` | The operator to get the deposited shares for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`shares`|`uint256`|         The number of shares deposited|
-|`sharesInAssets`|`uint256`| The number of shares deposited (in terms of assets)|
+| Name             | Type      | Description                                         |
+| ---------------- | --------- | --------------------------------------------------- |
+| `shares`         | `uint256` | The number of shares deposited                      |
+| `sharesInAssets` | `uint256` | The number of shares deposited (in terms of assets) |
 
-### _getOperatorKey
+### \_getOperatorKey
 
 Get the key for the operator shares
 
@@ -143,7 +143,7 @@ Get the key for the operator shares
 function _getOperatorKey(IERC20 asset_, address operator_) internal pure returns (bytes32);
 ```
 
-### _addAsset
+### \_addAsset
 
 Configure an asset to be deposited into a vault
 
@@ -161,14 +161,14 @@ function _addAsset(IERC20 asset_, IERC4626 vault_, uint256 depositCap_, uint256 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The asset to configure|
-|`vault_`|`IERC4626`|         The vault to use|
-|`depositCap_`|`uint256`|    The deposit cap of the asset|
-|`minimumDeposit_`|`uint256`|The minimum deposit amount for the asset|
+| Name              | Type       | Description                              |
+| ----------------- | ---------- | ---------------------------------------- |
+| `asset_`          | `IERC20`   | The asset to configure                   |
+| `vault_`          | `IERC4626` | The vault to use                         |
+| `depositCap_`     | `uint256`  | The deposit cap of the asset             |
+| `minimumDeposit_` | `uint256`  | The minimum deposit amount for the asset |
 
-### _setAssetDepositCap
+### \_setAssetDepositCap
 
 Set the deposit cap for an asset
 
@@ -184,12 +184,12 @@ function _setAssetDepositCap(IERC20 asset_, uint256 depositCap_) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The asset to set the deposit cap for|
-|`depositCap_`|`uint256`|    The deposit cap to set for the asset|
+| Name          | Type      | Description                          |
+| ------------- | --------- | ------------------------------------ |
+| `asset_`      | `IERC20`  | The asset to set the deposit cap for |
+| `depositCap_` | `uint256` | The deposit cap to set for the asset |
 
-### _setAssetMinimumDeposit
+### \_setAssetMinimumDeposit
 
 Set the minimum deposit for an asset
 
@@ -209,18 +209,18 @@ function _setAssetMinimumDeposit(IERC20 asset_, uint256 minimumDeposit_) interna
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|          The asset to set the minimum deposit for|
-|`minimumDeposit_`|`uint256`| The minimum deposit to set for the asset|
+| Name              | Type      | Description                              |
+| ----------------- | --------- | ---------------------------------------- |
+| `asset_`          | `IERC20`  | The asset to set the minimum deposit for |
+| `minimumDeposit_` | `uint256` | The minimum deposit to set for the asset |
 
-### _isConfiguredAsset
+### \_isConfiguredAsset
 
 ```solidity
 function _isConfiguredAsset(IERC20 asset_) internal view returns (bool);
 ```
 
-### _onlyConfiguredAsset
+### \_onlyConfiguredAsset
 
 ```solidity
 function _onlyConfiguredAsset(IERC20 asset_) internal view;
@@ -246,15 +246,15 @@ function getAssetConfiguration(IERC20 asset_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The asset to get the configuration for|
+| Name     | Type     | Description                            |
+| -------- | -------- | -------------------------------------- |
+| `asset_` | `IERC20` | The asset to get the configuration for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`configuration`|`AssetConfiguration`|  The configuration for the asset|
+| Name            | Type                 | Description                     |
+| --------------- | -------------------- | ------------------------------- |
+| `configuration` | `AssetConfiguration` | The configuration for the asset |
 
 ### getConfiguredAssets
 
@@ -266,9 +266,9 @@ function getConfiguredAssets() public view override returns (IERC20[] memory ass
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`assets`|`IERC20[]`| The assets that are configured|
+| Name     | Type       | Description                    |
+| -------- | ---------- | ------------------------------ |
+| `assets` | `IERC20[]` | The assets that are configured |
 
 ### supportsInterface
 

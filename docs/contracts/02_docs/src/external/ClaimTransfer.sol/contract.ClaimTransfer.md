@@ -71,9 +71,9 @@ function claim(uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|Amount of DAI to send to the pOLY contract|
+| Name      | Type      | Description                                |
+| --------- | --------- | ------------------------------------------ |
+| `amount_` | `uint256` | Amount of DAI to send to the pOLY contract |
 
 ### redeemableFor
 
@@ -85,16 +85,16 @@ function redeemableFor(address user_) external view returns (uint256, uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|Address of the user|
+| Name    | Type      | Description         |
+| ------- | --------- | ------------------- |
+| `user_` | `address` | Address of the user |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 The amount of OHM the account can redeem|
-|`<none>`|`uint256`|uint256 The amount of DAI required to claim the amount of OHM|
+| Name     | Type      | Description                                                   |
+| -------- | --------- | ------------------------------------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM the account can redeem              |
+| `<none>` | `uint256` | uint256 The amount of DAI required to claim the amount of OHM |
 
 ### approve
 
@@ -106,16 +106,16 @@ function approve(address spender_, uint256 amount_) external returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`spender_`|`address`|Address of the spender|
-|`amount_`|`uint256`|Amount of your fractionalized claim to approve|
+| Name       | Type      | Description                                    |
+| ---------- | --------- | ---------------------------------------------- |
+| `spender_` | `address` | Address of the spender                         |
+| `amount_`  | `uint256` | Amount of your fractionalized claim to approve |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool|
+| Name     | Type   | Description |
+| -------- | ------ | ----------- |
+| `<none>` | `bool` | bool        |
 
 ### transfer
 
@@ -134,16 +134,16 @@ function transfer(address to_, uint256 amount_) external returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`to_`|`address`|Address of the recipient|
-|`amount_`|`uint256`|Amount of your fractionalized claim to transfer|
+| Name      | Type      | Description                                     |
+| --------- | --------- | ----------------------------------------------- |
+| `to_`     | `address` | Address of the recipient                        |
+| `amount_` | `uint256` | Amount of your fractionalized claim to transfer |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool|
+| Name     | Type   | Description |
+| -------- | ------ | ----------- |
+| `<none>` | `bool` | bool        |
 
 ### transferFrom
 
@@ -162,19 +162,19 @@ function transferFrom(address from_, address to_, uint256 amount_) external retu
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`from_`|`address`|Address of the sender|
-|`to_`|`address`|Address of the recipient|
-|`amount_`|`uint256`|Amount of the sender's fractionalized claim to transfer|
+| Name      | Type      | Description                                             |
+| --------- | --------- | ------------------------------------------------------- |
+| `from_`   | `address` | Address of the sender                                   |
+| `to_`     | `address` | Address of the recipient                                |
+| `amount_` | `uint256` | Amount of the sender's fractionalized claim to transfer |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool|
+| Name     | Type   | Description |
+| -------- | ------ | ----------- |
+| `<none>` | `bool` | bool        |
 
-### _transfer
+### \_transfer
 
 ```solidity
 function _transfer(address from_, address to_, uint256 amount_) internal;

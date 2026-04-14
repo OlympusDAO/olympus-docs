@@ -12,17 +12,17 @@ A borrow/lend market where users can deposit their gOHM as collateral and then
 borrow a stablecoin debt token up to a certain LTV
 
 - The debt token may change over time - eg DAI to USDS (or USDC), determined by the
-`CoolerTreasuryBorrower`
+  `CoolerTreasuryBorrower`
 - The collateral and debt amounts tracked on this contract are always reported in wad,
-ie 18 decimal places
+  ie 18 decimal places
 - gOHM collateral can be delegated to accounts for voting, via the DLGTE module
 - Positions can be liquidated if the LTV breaches the 'liquidation LTV' as determined by the
-`LTV Oracle`
+  `LTV Oracle`
 - Users may set an authorization for one other address to act on its behalf.
 
 ## State Variables
 
-### _COLLATERAL_TOKEN
+### \_COLLATERAL_TOKEN
 
 The collateral token, eg gOHM
 
@@ -30,7 +30,7 @@ The collateral token, eg gOHM
 ERC20 private immutable _COLLATERAL_TOKEN
 ```
 
-### _OHM
+### \_OHM
 
 The OHM token
 
@@ -38,7 +38,7 @@ The OHM token
 ERC20 private immutable _OHM
 ```
 
-### _STAKING
+### \_STAKING
 
 The OHM staking contract
 
@@ -46,7 +46,7 @@ The OHM staking contract
 IStaking private immutable _STAKING
 ```
 
-### _MIN_DEBT_REQUIRED
+### \_MIN_DEBT_REQUIRED
 
 The minimum debt a user needs to maintain
 
@@ -178,7 +178,7 @@ mapping(address /* account */ => mapping(address /* authorized */ => uint96 /* a
 mapping(address /* account */ => uint256) public override authorizationNonces
 ```
 
-### _RAY
+### \_RAY
 
 Extra precision scalar
 
@@ -186,7 +186,7 @@ Extra precision scalar
 uint256 private constant _RAY = 1e27
 ```
 
-### _DOMAIN_TYPEHASH
+### \_DOMAIN_TYPEHASH
 
 The EIP-712 typeHash for EIP712Domain.
 
@@ -194,7 +194,7 @@ The EIP-712 typeHash for EIP712Domain.
 bytes32 private constant _DOMAIN_TYPEHASH = keccak256("EIP712Domain(uint256 chainId,address verifyingContract)")
 ```
 
-### _AUTHORIZATION_TYPEHASH
+### \_AUTHORIZATION_TYPEHASH
 
 The EIP-712 typeHash for Authorization.
 
@@ -204,7 +204,7 @@ bytes32 private constant _AUTHORIZATION_TYPEHASH = keccak256(
 )
 ```
 
-### _EXPECTED_DECIMALS
+### \_EXPECTED_DECIMALS
 
 expected decimals for the `_COLLATERAL_TOKEN` and `treasuryBorrower`
 
@@ -246,9 +246,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -260,9 +260,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`requests`|`Permissions[]`|- Array of keycodes and function selectors for requested permissions.|
+| Name       | Type            | Description                                                           |
+| ---------- | --------------- | --------------------------------------------------------------------- |
+| `requests` | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
 
 ### setAuthorization
 
@@ -276,10 +276,10 @@ function setAuthorization(address authorized, uint96 authorizationDeadline) exte
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`authorized`|`address`|The authorized address.|
-|`authorizationDeadline`|`uint96`|The unix timestamp that they the authorization is valid until.|
+| Name                    | Type      | Description                                                    |
+| ----------------------- | --------- | -------------------------------------------------------------- |
+| `authorized`            | `address` | The authorized address.                                        |
+| `authorizationDeadline` | `uint96`  | The unix timestamp that they the authorization is valid until. |
 
 ### setAuthorizationWithSig
 
@@ -296,10 +296,10 @@ function setAuthorizationWithSig(Authorization memory authorization, Signature c
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`authorization`|`Authorization`|The `Authorization` struct.|
-|`signature`|`Signature`|The signature.|
+| Name            | Type            | Description                 |
+| --------------- | --------------- | --------------------------- |
+| `authorization` | `Authorization` | The `Authorization` struct. |
+| `signature`     | `Signature`     | The signature.              |
 
 ### isSenderAuthorized
 
@@ -309,7 +309,7 @@ Returns whether the `sender` is authorized to manage `onBehalf`'s positions.
 function isSenderAuthorized(address sender, address onBehalfOf) public view override returns (bool);
 ```
 
-### _requireSenderAuthorized
+### \_requireSenderAuthorized
 
 ```solidity
 function _requireSenderAuthorized(address sender, address onBehalfOf) internal view;
@@ -329,11 +329,11 @@ function addCollateral(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`collateralAmount`|`uint128`|The amount to deposit to 18 decimal places - MUST be greater than zero|
-|`onBehalfOf`|`address`|A caller can add collateral on behalf of themselves or another address. - MUST NOT be address(0)|
-|`delegationRequests`|`IDLGTEv1.DelegationRequest[]`|The set of delegations to apply after adding collateral. - MAY be empty, meaning no delegations are applied. - MUST ONLY be requests to add delegations, and that total MUST BE less than the `collateralAmount` argument - If `onBehalfOf` does not equal the caller, the caller must be authorized via `setAuthorization()` or `setAuthorizationWithSig()`|
+| Name                 | Type                           | Description                                                                                                                                                                                                                                                                                                                                                  |
+| -------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `collateralAmount`   | `uint128`                      | The amount to deposit to 18 decimal places - MUST be greater than zero                                                                                                                                                                                                                                                                                       |
+| `onBehalfOf`         | `address`                      | A caller can add collateral on behalf of themselves or another address. - MUST NOT be address(0)                                                                                                                                                                                                                                                             |
+| `delegationRequests` | `IDLGTEv1.DelegationRequest[]` | The set of delegations to apply after adding collateral. - MAY be empty, meaning no delegations are applied. - MUST ONLY be requests to add delegations, and that total MUST BE less than the `collateralAmount` argument - If `onBehalfOf` does not equal the caller, the caller must be authorized via `setAuthorization()` or `setAuthorizationWithSig()` |
 
 ### withdrawCollateral
 
@@ -341,7 +341,7 @@ Withdraw gOHM collateral.
 
 - Account LTV MUST be less than or equal to `maxOriginationLtv` after the withdraw is applied
 - At least `collateralAmount` collateral MUST be undelegated for this account.
-Use the `delegationRequests` to rescind enough as part of this request.
+  Use the `delegationRequests` to rescind enough as part of this request.
 
 ```solidity
 function withdrawCollateral(
@@ -354,12 +354,12 @@ function withdrawCollateral(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`collateralAmount`|`uint128`|The amount of collateral to remove to 18 decimal places - MUST be greater than zero - If set to type(uint128).max then withdraw the max amount up to maxOriginationLtv|
-|`onBehalfOf`|`address`|A caller can withdraw collateral on behalf of themselves or another address if authorized via `setAuthorization()` or `setAuthorizationWithSig()`|
-|`recipient`|`address`|Send the gOHM collateral to a specified recipient address. - MUST NOT be address(0)|
-|`delegationRequests`|`IDLGTEv1.DelegationRequest[]`|The set of delegations to apply before removing collateral. - MAY be empty, meaning no delegations are applied. - MUST ONLY be requests to undelegate, and that total undelegated MUST BE less than the `collateralAmount` argument|
+| Name                 | Type                           | Description                                                                                                                                                                                                                         |
+| -------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `collateralAmount`   | `uint128`                      | The amount of collateral to remove to 18 decimal places - MUST be greater than zero - If set to type(uint128).max then withdraw the max amount up to maxOriginationLtv                                                              |
+| `onBehalfOf`         | `address`                      | A caller can withdraw collateral on behalf of themselves or another address if authorized via `setAuthorization()` or `setAuthorizationWithSig()`                                                                                   |
+| `recipient`          | `address`                      | Send the gOHM collateral to a specified recipient address. - MUST NOT be address(0)                                                                                                                                                 |
+| `delegationRequests` | `IDLGTEv1.DelegationRequest[]` | The set of delegations to apply before removing collateral. - MAY be empty, meaning no delegations are applied. - MUST ONLY be requests to undelegate, and that total undelegated MUST BE less than the `collateralAmount` argument |
 
 ### borrow
 
@@ -367,7 +367,7 @@ Borrow `debtToken`
 
 - Account LTV MUST be less than or equal to `maxOriginationLtv` after the borrow is applied
 - Total debt for this account MUST be greater than or equal to the `minDebtRequired`
-after the borrow is applied
+  after the borrow is applied
 
 ```solidity
 function borrow(uint128 borrowAmount, address onBehalfOf, address recipient)
@@ -378,17 +378,17 @@ function borrow(uint128 borrowAmount, address onBehalfOf, address recipient)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`borrowAmount`|`uint128`||
-|`onBehalfOf`|`address`|A caller can borrow on behalf of themselves or another address if authorized via `setAuthorization()` or `setAuthorizationWithSig()`|
-|`recipient`|`address`|Send the borrowed token to a specified recipient address. - MUST NOT be address(0)|
+| Name           | Type      | Description                                                                                                                          |
+| -------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `borrowAmount` | `uint128` |                                                                                                                                      |
+| `onBehalfOf`   | `address` | A caller can borrow on behalf of themselves or another address if authorized via `setAuthorization()` or `setAuthorizationWithSig()` |
+| `recipient`    | `address` | Send the borrowed token to a specified recipient address. - MUST NOT be address(0)                                                   |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amountBorrowed`|`uint128`|amountBorrowedInWad The amount actually borrowed.|
+| Name             | Type      | Description                                       |
+| ---------------- | --------- | ------------------------------------------------- |
+| `amountBorrowed` | `uint128` | amountBorrowedInWad The amount actually borrowed. |
 
 ### repay
 
@@ -396,7 +396,7 @@ Repay a portion, or all of the debt
 
 - MUST NOT be called for an account which has no debt
 - If the entire debt isn't paid off, then the total debt for this account
-MUST be greater than or equal to the `minDebtRequired` after the borrow is applied
+  MUST be greater than or equal to the `minDebtRequired` after the borrow is applied
 
 ```solidity
 function repay(uint128 repayAmount, address onBehalfOf) external override returns (uint128 amountRepaid);
@@ -404,16 +404,16 @@ function repay(uint128 repayAmount, address onBehalfOf) external override return
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`repayAmount`|`uint128`||
-|`onBehalfOf`|`address`|A caller can repay the debt on behalf of themselves or another address|
+| Name          | Type      | Description                                                            |
+| ------------- | --------- | ---------------------------------------------------------------------- |
+| `repayAmount` | `uint128` |                                                                        |
+| `onBehalfOf`  | `address` | A caller can repay the debt on behalf of themselves or another address |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amountRepaid`|`uint128`|amountRepaidInWad The amount actually repaid.|
+| Name           | Type      | Description                                   |
+| -------------- | --------- | --------------------------------------------- |
+| `amountRepaid` | `uint128` | amountRepaidInWad The amount actually repaid. |
 
 ### applyDelegations
 
@@ -428,10 +428,10 @@ function applyDelegations(IDLGTEv1.DelegationRequest[] calldata delegationReques
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`delegationRequests`|`IDLGTEv1.DelegationRequest[]`|The set of delegations to apply. - MAY be empty, meaning no delegations are applied. - Total collateral delegated as part of these requests MUST BE less than the account collateral. - MUST NOT apply delegations that results in more collateral being undelegated than the account has collateral for. - It applies across total gOHM balances for a given account across all calling policies So this may (un)delegate the account's gOHM set by another policy|
-|`onBehalfOf`|`address`|A caller can apply delegations on behalf of themselves or another address if authorized via `setAuthorization()` or `setAuthorizationWithSig()`|
+| Name                 | Type                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `delegationRequests` | `IDLGTEv1.DelegationRequest[]` | The set of delegations to apply. - MAY be empty, meaning no delegations are applied. - Total collateral delegated as part of these requests MUST BE less than the account collateral. - MUST NOT apply delegations that results in more collateral being undelegated than the account has collateral for. - It applies across total gOHM balances for a given account across all calling policies So this may (un)delegate the account's gOHM set by another policy |
+| `onBehalfOf`         | `address`                      | A caller can apply delegations on behalf of themselves or another address if authorized via `setAuthorization()` or `setAuthorizationWithSig()`                                                                                                                                                                                                                                                                                                                     |
 
 ### applyUnhealthyDelegations
 
@@ -614,9 +614,9 @@ function accountPosition(address account) external view override returns (Accoun
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account`|`address`|The account to get a position for|
+| Name      | Type      | Description                       |
+| --------- | --------- | --------------------------------- |
+| `account` | `address` | The account to get a position for |
 
 ### computeLiquidity
 
@@ -634,9 +634,9 @@ function computeLiquidity(address[] calldata accounts)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`accounts`|`address[]`|The accounts to get the status for.|
+| Name       | Type        | Description                         |
+| ---------- | ----------- | ----------------------------------- |
+| `accounts` | `address[]` | The accounts to get the status for. |
 
 ### accountDelegationsList
 
@@ -694,7 +694,7 @@ function globalState()
     );
 ```
 
-### _globalStateRW
+### \_globalStateRW
 
 Setup and refresh the global state
 Update storage if and only if the timestamp has changed since last updated.
@@ -703,7 +703,7 @@ Update storage if and only if the timestamp has changed since last updated.
 function _globalStateRW() private returns (GlobalStateCache memory gStateCache);
 ```
 
-### _globalStateRO
+### \_globalStateRO
 
 Setup the GlobalStateCache for a given token
 read only -- storage isn't updated.
@@ -712,7 +712,7 @@ read only -- storage isn't updated.
 function _globalStateRO() private view returns (GlobalStateCache memory gStateCache);
 ```
 
-### _initGlobalStateCache
+### \_initGlobalStateCache
 
 Initialize the global state cache from storage to this block, for a given token.
 
@@ -720,7 +720,7 @@ Initialize the global state cache from storage to this block, for a given token.
 function _initGlobalStateCache(GlobalStateCache memory gStateCache) private view returns (bool dirty);
 ```
 
-### _reduceTotalDebt
+### \_reduceTotalDebt
 
 Reduce the total debt in storage by a repayment amount.
 NB: The sum of all users debt may be slightly more than the recorded total debt
@@ -731,7 +731,7 @@ The total debt is floored at 0.
 function _reduceTotalDebt(GlobalStateCache memory gStateCache, uint128 repayAmount) private;
 ```
 
-### _maxDebt
+### \_maxDebt
 
 Calculate the maximum amount which can be borrowed up to the maxOriginationLtv, given
 a collateral amount
@@ -740,7 +740,7 @@ a collateral amount
 function _maxDebt(uint128 collateral, uint256 maxOriginationLtv) private pure returns (uint128);
 ```
 
-### _minCollateral
+### \_minCollateral
 
 Calculate the maximum collateral amount which can be withdrawn up to the maxOriginationLtv, given
 a current debt amount
@@ -749,7 +749,7 @@ a current debt amount
 function _minCollateral(uint128 debt, uint256 maxOriginationLtv) private pure returns (uint128);
 ```
 
-### _validateOriginationLtv
+### \_validateOriginationLtv
 
 Ensure the LTV isn't higher than the maxOriginationLtv
 
@@ -757,7 +757,7 @@ Ensure the LTV isn't higher than the maxOriginationLtv
 function _validateOriginationLtv(uint128 ltv, uint256 maxOriginationLtv) private pure;
 ```
 
-### _calculateCurrentLtv
+### \_calculateCurrentLtv
 
 Calculate the current LTV based on the latest debt
 
@@ -765,7 +765,7 @@ Calculate the current LTV based on the latest debt
 function _calculateCurrentLtv(uint128 currentDebt, uint128 collateral) private pure returns (uint128);
 ```
 
-### _computeLiquidity
+### \_computeLiquidity
 
 Generate the LiquidationStatus struct with current details
 for this account.
@@ -777,7 +777,7 @@ function _computeLiquidity(AccountState memory aStateCache, GlobalStateCache mem
     returns (LiquidationStatus memory status);
 ```
 
-### _currentAccountDebt
+### \_currentAccountDebt
 
 Calculate the latest debt for a given account & token.
 Derived from the prior debt checkpoint, and the interest accumulator.
@@ -790,13 +790,13 @@ function _currentAccountDebt(
 ) private pure returns (uint128 result);
 ```
 
-### _requireAmountNonZero
+### \_requireAmountNonZero
 
 ```solidity
 function _requireAmountNonZero(uint256 amount_) internal pure;
 ```
 
-### _requireAddressNonZero
+### \_requireAddressNonZero
 
 ```solidity
 function _requireAddressNonZero(address addr_) internal pure;

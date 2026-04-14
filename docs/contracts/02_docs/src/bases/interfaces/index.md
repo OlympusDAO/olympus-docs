@@ -1,4 +1,3 @@
-
 # Interfaces
 
 - [IAssetManager](IAssetManager.sol/interface.IAssetManager.md)

@@ -1,4 +1,3 @@
-
 # Distributor
 
 - [Distributor](Distributor.sol/contract.Distributor.md)

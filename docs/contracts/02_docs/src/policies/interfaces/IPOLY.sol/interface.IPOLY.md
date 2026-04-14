@@ -20,10 +20,10 @@ function claim(address to_, uint256 amount_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`to_`|`address`|Address to send OHM to|
-|`amount_`|`uint256`|DAI amount to exchange for OHM|
+| Name      | Type      | Description                    |
+| --------- | --------- | ------------------------------ |
+| `to_`     | `address` | Address to send OHM to         |
+| `amount_` | `uint256` | DAI amount to exchange for OHM |
 
 ### pushWalletChange
 
@@ -35,9 +35,9 @@ function pushWalletChange(address newAddress_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newAddress_`|`address`|Address to send claim to|
+| Name          | Type      | Description              |
+| ------------- | --------- | ------------------------ |
+| `newAddress_` | `address` | Address to send claim to |
 
 ### pullWalletChange
 
@@ -49,9 +49,9 @@ function pullWalletChange(address oldAddress_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`oldAddress_`|`address`|Address to pull change from|
+| Name          | Type      | Description                 |
+| ------------- | --------- | --------------------------- |
+| `oldAddress_` | `address` | Address to pull change from |
 
 ### redeemableFor
 
@@ -63,15 +63,15 @@ function redeemableFor(address account_) external view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|The account to check the redeemable amount for|
+| Name       | Type      | Description                                    |
+| ---------- | --------- | ---------------------------------------------- |
+| `account_` | `address` | The account to check the redeemable amount for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 The amount of OHM the account can redeem|
+| Name     | Type      | Description                                      |
+| -------- | --------- | ------------------------------------------------ |
+| `<none>` | `uint256` | uint256 The amount of OHM the account can redeem |
 
 ### redeemableFor
 
@@ -83,15 +83,15 @@ function redeemableFor(Term memory accountTerms_) external view returns (uint256
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`accountTerms_`|`Term`|The terms of the account to check the redeemable amount for|
+| Name            | Type   | Description                                                 |
+| --------------- | ------ | ----------------------------------------------------------- |
+| `accountTerms_` | `Term` | The terms of the account to check the redeemable amount for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 The amount of OHM the account can redeem|
+| Name     | Type      | Description                                      |
+| -------- | --------- | ------------------------------------------------ |
+| `<none>` | `uint256` | uint256 The amount of OHM the account can redeem |
 
 ### getCirculatingSupply
 
@@ -103,9 +103,9 @@ function getCirculatingSupply() external view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 OHM circulating supply|
+| Name     | Type      | Description                    |
+| -------- | --------- | ------------------------------ |
+| `<none>` | `uint256` | uint256 OHM circulating supply |
 
 ### getAccountClaimed
 
@@ -117,15 +117,15 @@ function getAccountClaimed(address account_) external returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|The account to check the claim for|
+| Name       | Type      | Description                        |
+| ---------- | --------- | ---------------------------------- |
+| `account_` | `address` | The account to check the claim for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 The amount of OHM the account has claimed|
+| Name     | Type      | Description                                       |
+| -------- | --------- | ------------------------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM the account has claimed |
 
 ### getAccountClaimed
 
@@ -137,15 +137,15 @@ function getAccountClaimed(Term memory accountTerms_) external returns (uint256)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`accountTerms_`|`Term`|The terms of the account to check the claim for|
+| Name            | Type   | Description                                     |
+| --------------- | ------ | ----------------------------------------------- |
+| `accountTerms_` | `Term` | The terms of the account to check the claim for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 The amount of OHM the account has claimed|
+| Name     | Type      | Description                                       |
+| -------- | --------- | ------------------------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM the account has claimed |
 
 ### validateClaim
 
@@ -157,16 +157,16 @@ function validateClaim(uint256 amount_, Term memory accountTerms_) external view
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|The amount of DAI to exchange for OHM|
-|`accountTerms_`|`Term`|The terms to check the claim against|
+| Name            | Type      | Description                           |
+| --------------- | --------- | ------------------------------------- |
+| `amount_`       | `uint256` | The amount of DAI to exchange for OHM |
+| `accountTerms_` | `Term`    | The terms to check the claim against  |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 The amount of OHM to send to the user|
+| Name     | Type      | Description                                   |
+| -------- | --------- | --------------------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM to send to the user |
 
 ### migrate
 
@@ -180,9 +180,9 @@ function migrate(address[] calldata accounts_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`accounts_`|`address[]`|Array of accounts to migrate|
+| Name        | Type        | Description                  |
+| ----------- | ----------- | ---------------------------- |
+| `accounts_` | `address[]` | Array of accounts to migrate |
 
 ### migrateGenesis
 
@@ -200,9 +200,9 @@ function migrateGenesis(address[] calldata accounts_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`accounts_`|`address[]`|Array of accounts to migrate|
+| Name        | Type        | Description                  |
+| ----------- | ----------- | ---------------------------- |
+| `accounts_` | `address[]` | Array of accounts to migrate |
 
 ### setTerms
 
@@ -216,12 +216,12 @@ function setTerms(address account_, uint256 percent_, uint256 gClaimed_, uint256
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|The account to set the terms for|
-|`percent_`|`uint256`|The percent of the circulating supply the account is entitled to|
-|`gClaimed_`|`uint256`|The amount of gOHM the account has claimed|
-|`max_`|`uint256`|The maximum amount of OHM the account can claim|
+| Name        | Type      | Description                                                      |
+| ----------- | --------- | ---------------------------------------------------------------- |
+| `account_`  | `address` | The account to set the terms for                                 |
+| `percent_`  | `uint256` | The percent of the circulating supply the account is entitled to |
+| `gClaimed_` | `uint256` | The amount of gOHM the account has claimed                       |
+| `max_`      | `uint256` | The maximum amount of OHM the account can claim                  |
 
 ## Events
 

@@ -26,11 +26,11 @@ constructor(Kernel kernel_, address active_, address[] memory inactive_) Module(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`kernel_`|`Kernel`|contract address.|
-|`active_`|`address`|Address of the active Clearinghouse. Set to address(0) if none.|
-|`inactive_`|`address[]`|List of inactive Clearinghouses. Leave empty if none.|
+| Name        | Type        | Description                                                     |
+| ----------- | ----------- | --------------------------------------------------------------- |
+| `kernel_`   | `Kernel`    | contract address.                                               |
+| `active_`   | `address`   | Address of the active Clearinghouse. Set to address(0) if none. |
+| `inactive_` | `address[]` | List of inactive Clearinghouses. Leave empty if none.           |
 
 ### KEYCODE
 
@@ -50,10 +50,10 @@ function VERSION() public pure override returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|- Major version upgrade indicates breaking change to the interface.|
-|`minor`|`uint8`|- Minor version change retains backward-compatible interface.|
+| Name    | Type    | Description                                                         |
+| ------- | ------- | ------------------------------------------------------------------- |
+| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
 
 ### activateClearinghouse
 
@@ -66,9 +66,9 @@ function activateClearinghouse(address clearinghouse_) external override permiss
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouse_`|`address`|The address of the clearinghouse.|
+| Name             | Type      | Description                       |
+| ---------------- | --------- | --------------------------------- |
+| `clearinghouse_` | `address` | The address of the clearinghouse. |
 
 ### deactivateClearinghouse
 
@@ -81,6 +81,6 @@ function deactivateClearinghouse(address clearinghouse_) external override permi
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`clearinghouse_`|`address`|The address of the clearinghouse.|
+| Name             | Type      | Description                       |
+| ---------------- | --------- | --------------------------------- |
+| `clearinghouse_` | `address` | The address of the clearinghouse. |

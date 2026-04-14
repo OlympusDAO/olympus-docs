@@ -16,7 +16,7 @@ Olympus Bond Callback
 mapping(address => mapping(uint256 => bool)) public approvedMarkets
 ```
 
-### _amountsPerMarket
+### \_amountsPerMarket
 
 ```solidity
 mapping(uint256 => uint256[2]) internal _amountsPerMarket
@@ -82,9 +82,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -96,9 +96,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`requests`|`Permissions[]`|- Array of keycodes and function selectors for requested permissions.|
+| Name       | Type            | Description                                                           |
+| ---------- | --------------- | --------------------------------------------------------------------- |
+| `requests` | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
 
 ### whitelist
 
@@ -110,10 +110,10 @@ function whitelist(address teller_, uint256 id_) external override onlyRole("cal
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`teller_`|`address`| Address of the Teller contract which serves the market|
-|`id_`|`uint256`|     ID of the market|
+| Name      | Type      | Description                                            |
+| --------- | --------- | ------------------------------------------------------ |
+| `teller_` | `address` | Address of the Teller contract which serves the market |
+| `id_`     | `uint256` | ID of the market                                       |
 
 ### blacklist
 
@@ -127,10 +127,10 @@ function blacklist(address teller_, uint256 id_) external override onlyRole("cal
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`teller_`|`address`|Address of the Teller contract which serves the market|
-|`id_`|`uint256`|    ID of the market to remove from whitelist|
+| Name      | Type      | Description                                            |
+| --------- | --------- | ------------------------------------------------------ |
+| `teller_` | `address` | Address of the Teller contract which serves the market |
+| `id_`     | `uint256` | ID of the market to remove from whitelist              |
 
 ### callback
 
@@ -144,11 +144,11 @@ function callback(uint256 id_, uint256 inputAmount_, uint256 outputAmount_) exte
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|             ID of the market|
-|`inputAmount_`|`uint256`|    Amount of quote tokens bonded to the market|
-|`outputAmount_`|`uint256`|   Amount of payout tokens to be paid out to the market|
+| Name            | Type      | Description                                          |
+| --------------- | --------- | ---------------------------------------------------- |
+| `id_`           | `uint256` | ID of the market                                     |
+| `inputAmount_`  | `uint256` | Amount of quote tokens bonded to the market          |
+| `outputAmount_` | `uint256` | Amount of payout tokens to be paid out to the market |
 
 ### batchToTreasury
 
@@ -160,9 +160,9 @@ function batchToTreasury(ERC20[] memory tokens_) external onlyRole("callback_adm
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokens_`|`ERC20[]`|- Array of tokens to send|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `tokens_` | `ERC20[]` | - Array of tokens to send |
 
 ### setOperator
 
@@ -176,9 +176,9 @@ function setOperator(Operator operator_) external onlyRole("callback_admin");
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`operator_`|`Operator`|- Address of the Operator contract|
+| Name        | Type       | Description                        |
+| ----------- | ---------- | ---------------------------------- |
+| `operator_` | `Operator` | - Address of the Operator contract |
 
 ### useWrappedVersion
 
@@ -192,10 +192,10 @@ function useWrappedVersion(address payoutToken_, address wrappedToken_) external
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`payoutToken_`|`address`|Address of the payout token|
-|`wrappedToken_`|`address`|Address of the token wrapper held by the TRSRY. If the TRSRY moves back to the naked token, input address(0) as the wrapped version.|
+| Name            | Type      | Description                                                                                                                          |
+| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `payoutToken_`  | `address` | Address of the payout token                                                                                                          |
+| `wrappedToken_` | `address` | Address of the token wrapper held by the TRSRY. If the TRSRY moves back to the naked token, input address(0) as the wrapped version. |
 
 ### amountsForMarket
 
@@ -207,16 +207,16 @@ function amountsForMarket(uint256 id_) external view override returns (uint256 i
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`id_`|`uint256`|     ID of the market|
+| Name  | Type      | Description      |
+| ----- | --------- | ---------------- |
+| `id_` | `uint256` | ID of the market |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`in_`|`uint256`|    Amount of quote tokens bonded to the market|
-|`out_`|`uint256`|   Amount of payout tokens paid out to the market|
+| Name   | Type      | Description                                    |
+| ------ | --------- | ---------------------------------------------- |
+| `in_`  | `uint256` | Amount of quote tokens bonded to the market    |
+| `out_` | `uint256` | Amount of payout tokens paid out to the market |
 
 ## Errors
 

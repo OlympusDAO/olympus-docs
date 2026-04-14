@@ -1,4 +1,3 @@
-
 # Votes
 
 - [OlympusVotes](OlympusVotes.sol/contract.OlympusVotes.md)

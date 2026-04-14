@@ -24,17 +24,17 @@ function getOperatorAssets(IERC20 asset_, address operator_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The asset to get the deposited shares for|
-|`operator_`|`address`|      The operator to get the deposited shares for|
+| Name        | Type      | Description                                  |
+| ----------- | --------- | -------------------------------------------- |
+| `asset_`    | `IERC20`  | The asset to get the deposited shares for    |
+| `operator_` | `address` | The operator to get the deposited shares for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`shares`|`uint256`|         The number of shares deposited|
-|`sharesInAssets`|`uint256`| The number of shares deposited (in terms of assets)|
+| Name             | Type      | Description                                         |
+| ---------------- | --------- | --------------------------------------------------- |
+| `shares`         | `uint256` | The number of shares deposited                      |
+| `sharesInAssets` | `uint256` | The number of shares deposited (in terms of assets) |
 
 ### getAssetConfiguration
 
@@ -46,15 +46,15 @@ function getAssetConfiguration(IERC20 asset_) external view returns (AssetConfig
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The asset to get the configuration for|
+| Name     | Type     | Description                            |
+| -------- | -------- | -------------------------------------- |
+| `asset_` | `IERC20` | The asset to get the configuration for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`configuration`|`AssetConfiguration`|  The configuration for the asset|
+| Name            | Type                 | Description                     |
+| --------------- | -------------------- | ------------------------------- |
+| `configuration` | `AssetConfiguration` | The configuration for the asset |
 
 ### getConfiguredAssets
 
@@ -66,9 +66,9 @@ function getConfiguredAssets() external view returns (IERC20[] memory assets);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`assets`|`IERC20[]`| The assets that are configured|
+| Name     | Type       | Description                    |
+| -------- | ---------- | ------------------------------ |
+| `assets` | `IERC20[]` | The assets that are configured |
 
 ## Events
 
@@ -88,10 +88,10 @@ event AssetDepositCapSet(address indexed asset, uint256 depositCap);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset`|`address`|     The ERC20 asset|
-|`depositCap`|`uint256`|The new deposit cap amount (in asset units)|
+| Name         | Type      | Description                                 |
+| ------------ | --------- | ------------------------------------------- |
+| `asset`      | `address` | The ERC20 asset                             |
+| `depositCap` | `uint256` | The new deposit cap amount (in asset units) |
 
 ### AssetMinimumDepositSet
 
@@ -103,10 +103,10 @@ event AssetMinimumDepositSet(address indexed asset, uint256 minimumDeposit);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset`|`address`|          The ERC20 asset|
-|`minimumDeposit`|`uint256`| The new minimum deposit amount (in asset units)|
+| Name             | Type      | Description                                     |
+| ---------------- | --------- | ----------------------------------------------- |
+| `asset`          | `address` | The ERC20 asset                                 |
+| `minimumDeposit` | `uint256` | The new minimum deposit amount (in asset units) |
 
 ### AssetDeposited
 
@@ -191,9 +191,9 @@ struct AssetConfiguration {
 
 **Properties**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`isConfigured`|`bool`|  Whether the asset is configured|
-|`depositCap`|`uint256`|    The maximum amount of assets that can be deposited. Set to 0 to disable deposits.|
-|`minimumDeposit`|`uint256`|The minimum amount of assets that can be deposited in a single transaction (set to 0 to disable the check)|
-|`vault`|`address`|         The ERC4626 vault that the asset is deposited into|
+| Name             | Type      | Description                                                                                                |
+| ---------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| `isConfigured`   | `bool`    | Whether the asset is configured                                                                            |
+| `depositCap`     | `uint256` | The maximum amount of assets that can be deposited. Set to 0 to disable deposits.                          |
+| `minimumDeposit` | `uint256` | The minimum amount of assets that can be deposited in a single transaction (set to 0 to disable the check) |
+| `vault`          | `address` | The ERC4626 vault that the asset is deposited into                                                         |

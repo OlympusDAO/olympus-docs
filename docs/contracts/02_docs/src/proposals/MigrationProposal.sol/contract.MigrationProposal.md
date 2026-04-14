@@ -11,25 +11,25 @@ Proposal to enable V1Migrator for OHM v1 migration and execute gOHM burn
 
 ## State Variables
 
-### _kernel
+### \_kernel
 
 ```solidity
 address internal _kernel
 ```
 
-### _v1Migrator
+### \_v1Migrator
 
 ```solidity
 V1Migrator internal _v1Migrator
 ```
 
-### _burner
+### \_burner
 
 ```solidity
 Burner internal _burner
 ```
 
-### _migrationProposalHelper
+### \_migrationProposalHelper
 
 ```solidity
 MigrationProposalHelper internal _migrationProposalHelper
@@ -79,31 +79,31 @@ function name() public pure override returns (string memory);
 function description() public pure override returns (string memory);
 ```
 
-### _deploy
+### \_deploy
 
 ```solidity
 function _deploy(Addresses addresses, address) internal override;
 ```
 
-### _afterDeploy
+### \_afterDeploy
 
 ```solidity
 function _afterDeploy(Addresses addresses, address deployer) internal override;
 ```
 
-### _build
+### \_build
 
 ```solidity
 function _build(Addresses addresses) internal override;
 ```
 
-### _run
+### \_run
 
 ```solidity
 function _run(Addresses addresses, address) internal override;
 ```
 
-### _validate
+### \_validate
 
 ```solidity
 function _validate(Addresses addresses, address) internal view override;

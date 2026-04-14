@@ -22,16 +22,16 @@ function previewConsolidate(address[] calldata coolers_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolers_`|`address[]`|           The Coolers to consolidate the loans from.|
+| Name       | Type        | Description                                |
+| ---------- | ----------- | ------------------------------------------ |
+| `coolers_` | `address[]` | The Coolers to consolidate the loans from. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`collateralAmount`|`uint256`|   The amount of collateral that will be migrated into Cooler V2.|
-|`borrowAmount`|`uint256`|       The amount of debt that will be borrowed from Cooler V2.|
+| Name               | Type      | Description                                                    |
+| ------------------ | --------- | -------------------------------------------------------------- |
+| `collateralAmount` | `uint256` | The amount of collateral that will be migrated into Cooler V2. |
+| `borrowAmount`     | `uint256` | The amount of debt that will be borrowed from Cooler V2.       |
 
 ### consolidate
 
@@ -60,13 +60,13 @@ function consolidate(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolers_`|`address[]`|           The Coolers from which the loans will be migrated.|
-|`newOwner_`|`address`|          Address of the owner of the Cooler V2 position. This can be the same as the caller, or a different address.|
-|`authorization_`|`IMonoCooler.Authorization`|     Authorization parameters for the new owner. Set the `account` field to the zero address to indicate that authorization has already been provided through `IMonoCooler.setAuthorization()`.|
-|`signature_`|`IMonoCooler.Signature`|         Authorization signature for the new owner. Ignored if `authorization_.account` is the zero address.|
-|`delegationRequests_`|`IDLGTEv1.DelegationRequest[]`|Delegation requests for the new owner.|
+| Name                  | Type                           | Description                                                                                                                                                                                |
+| --------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `coolers_`            | `address[]`                    | The Coolers from which the loans will be migrated.                                                                                                                                         |
+| `newOwner_`           | `address`                      | Address of the owner of the Cooler V2 position. This can be the same as the caller, or a different address.                                                                                |
+| `authorization_`      | `IMonoCooler.Authorization`    | Authorization parameters for the new owner. Set the `account` field to the zero address to indicate that authorization has already been provided through `IMonoCooler.setAuthorization()`. |
+| `signature_`          | `IMonoCooler.Signature`        | Authorization signature for the new owner. Ignored if `authorization_.account` is the zero address.                                                                                        |
+| `delegationRequests_` | `IDLGTEv1.DelegationRequest[]` | Delegation requests for the new owner.                                                                                                                                                     |
 
 ### addCoolerFactory
 
@@ -78,9 +78,9 @@ function addCoolerFactory(address coolerFactory_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolerFactory_`|`address`|The CoolerFactory to add|
+| Name             | Type      | Description              |
+| ---------------- | --------- | ------------------------ |
+| `coolerFactory_` | `address` | The CoolerFactory to add |
 
 ### removeCoolerFactory
 
@@ -92,9 +92,9 @@ function removeCoolerFactory(address coolerFactory_) external;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolerFactory_`|`address`|The CoolerFactory to remove|
+| Name             | Type      | Description                 |
+| ---------------- | --------- | --------------------------- |
+| `coolerFactory_` | `address` | The CoolerFactory to remove |
 
 ### getCoolerFactories
 
@@ -106,9 +106,9 @@ function getCoolerFactories() external view returns (address[] memory coolerFact
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`coolerFactories`|`address[]`|The list of CoolerFactories|
+| Name              | Type        | Description                 |
+| ----------------- | ----------- | --------------------------- |
+| `coolerFactories` | `address[]` | The list of CoolerFactories |
 
 ## Events
 

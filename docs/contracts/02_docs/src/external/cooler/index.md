@@ -1,4 +1,3 @@
-
 # Cooler
 
 - [interfaces](/main/contracts/docs/src/external/cooler/interfaces)

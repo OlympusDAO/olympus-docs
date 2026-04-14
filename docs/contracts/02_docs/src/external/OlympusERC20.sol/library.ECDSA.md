@@ -8,7 +8,7 @@ of the private keys of a given address.
 
 ## Functions
 
-### _throwError
+### \_throwError
 
 ```solidity
 function _throwError(RecoverError error) private pure;
@@ -30,7 +30,7 @@ Documentation for signature generation:
 
 - with <https://web3js.readthedocs.io/en/v1.3.4/web3-eth-accounts.html#sign[Web3.js>]
 - with <https://docs.ethers.io/v5/api/signer/#Signer-signMessage[ethers>]
-_Available since v4.3._
+  _Available since v4.3._
 
 ```solidity
 function tryRecover(bytes32 hash, bytes memory signature) internal pure returns (address, RecoverError);

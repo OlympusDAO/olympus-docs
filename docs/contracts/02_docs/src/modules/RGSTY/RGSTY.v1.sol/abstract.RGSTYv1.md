@@ -12,7 +12,7 @@ Interface for a module that can track the addresses of contracts
 
 ## State Variables
 
-### _immutableContractNames
+### \_immutableContractNames
 
 Stores the names of the registered immutable contracts
 
@@ -20,7 +20,7 @@ Stores the names of the registered immutable contracts
 bytes5[] internal _immutableContractNames
 ```
 
-### _contractNames
+### \_contractNames
 
 Stores the names of the registered contracts
 
@@ -28,7 +28,7 @@ Stores the names of the registered contracts
 bytes5[] internal _contractNames
 ```
 
-### _immutableContracts
+### \_immutableContracts
 
 Mapping to store the immutable address of a contract
 
@@ -38,7 +38,7 @@ The address of an immutable contract can be retrieved by `getImmutableContract()
 mapping(bytes5 => address) internal _immutableContracts
 ```
 
-### _contracts
+### \_contracts
 
 Mapping to store the address of a contract
 
@@ -62,10 +62,10 @@ function registerImmutableContract(bytes5 name_, address contractAddress_) exter
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|              The name of the contract|
-|`contractAddress_`|`address`|   The address of the contract|
+| Name               | Type      | Description                 |
+| ------------------ | --------- | --------------------------- |
+| `name_`            | `bytes5`  | The name of the contract    |
+| `contractAddress_` | `address` | The address of the contract |
 
 ### registerContract
 
@@ -79,10 +79,10 @@ function registerContract(bytes5 name_, address contractAddress_) external virtu
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|              The name of the contract|
-|`contractAddress_`|`address`|   The address of the contract|
+| Name               | Type      | Description                 |
+| ------------------ | --------- | --------------------------- |
+| `name_`            | `bytes5`  | The name of the contract    |
+| `contractAddress_` | `address` | The address of the contract |
 
 ### updateContract
 
@@ -96,10 +96,10 @@ function updateContract(bytes5 name_, address contractAddress_) external virtual
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|              The name of the contract|
-|`contractAddress_`|`address`|   The address of the contract|
+| Name               | Type      | Description                 |
+| ------------------ | --------- | --------------------------- |
+| `name_`            | `bytes5`  | The name of the contract    |
+| `contractAddress_` | `address` | The address of the contract |
 
 ### deregisterContract
 
@@ -113,9 +113,9 @@ function deregisterContract(bytes5 name_) external virtual;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|  The name of the contract|
+| Name    | Type     | Description              |
+| ------- | -------- | ------------------------ |
+| `name_` | `bytes5` | The name of the contract |
 
 ### getImmutableContract
 
@@ -127,15 +127,15 @@ function getImmutableContract(bytes5 name_) external view virtual returns (addre
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|  The name of the contract|
+| Name    | Type     | Description              |
+| ------- | -------- | ------------------------ |
+| `name_` | `bytes5` | The name of the contract |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|The address of the contract|
+| Name     | Type      | Description                 |
+| -------- | --------- | --------------------------- |
+| `<none>` | `address` | The address of the contract |
 
 ### getContract
 
@@ -147,15 +147,15 @@ function getContract(bytes5 name_) external view virtual returns (address);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name_`|`bytes5`|  The name of the contract|
+| Name    | Type     | Description              |
+| ------- | -------- | ------------------------ |
+| `name_` | `bytes5` | The name of the contract |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|The address of the contract|
+| Name     | Type      | Description                 |
+| -------- | --------- | --------------------------- |
+| `<none>` | `address` | The address of the contract |
 
 ### getImmutableContractNames
 
@@ -167,9 +167,9 @@ function getImmutableContractNames() external view virtual returns (bytes5[] mem
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes5[]`|The names of all registered immutable contracts|
+| Name     | Type       | Description                                     |
+| -------- | ---------- | ----------------------------------------------- |
+| `<none>` | `bytes5[]` | The names of all registered immutable contracts |
 
 ### getContractNames
 
@@ -181,9 +181,9 @@ function getContractNames() external view virtual returns (bytes5[] memory);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes5[]`|The names of all registered mutable contracts|
+| Name     | Type       | Description                                   |
+| -------- | ---------- | --------------------------------------------- |
+| `<none>` | `bytes5[]` | The names of all registered mutable contracts |
 
 ## Events
 

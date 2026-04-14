@@ -7,7 +7,7 @@
 
 ## State Variables
 
-### _periodicTaskAddresses
+### \_periodicTaskAddresses
 
 The periodic tasks
 
@@ -15,7 +15,7 @@ The periodic tasks
 address[] internal _periodicTaskAddresses
 ```
 
-### _periodicTaskCustomSelectors
+### \_periodicTaskCustomSelectors
 
 An optional custom selector for each periodic task
 
@@ -28,7 +28,7 @@ mapping(address => bytes4) internal _periodicTaskCustomSelectors
 
 ## Functions
 
-### _addPeriodicTask
+### \_addPeriodicTask
 
 ```solidity
 function _addPeriodicTask(address task_, bytes4 customSelector_, uint256 index_) internal;
@@ -50,9 +50,9 @@ function addPeriodicTask(address task_) external override onlyAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|The periodic task to add|
+| Name    | Type      | Description              |
+| ------- | --------- | ------------------------ |
+| `task_` | `address` | The periodic task to add |
 
 ### addPeriodicTaskAtIndex
 
@@ -64,8 +64,8 @@ This function reverts if:
 - The task is already added
 - The task is not a valid periodic task
 - The index is out of bounds
-If a custom selector is provided, care must be taken to ensure that the selector exists on {task_}.
-If the selector does not exist, all of the periodic tasks will revert.
+  If a custom selector is provided, care must be taken to ensure that the selector exists on {task\_}.
+  If the selector does not exist, all of the periodic tasks will revert.
 
 ```solidity
 function addPeriodicTaskAtIndex(address task_, bytes4 customSelector_, uint256 index_)
@@ -76,13 +76,13 @@ function addPeriodicTaskAtIndex(address task_, bytes4 customSelector_, uint256 i
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|          The periodic task to add|
-|`customSelector_`|`bytes4`|The custom selector to use for the task (or 0)|
-|`index_`|`uint256`|         The index where to insert the task|
+| Name              | Type      | Description                                    |
+| ----------------- | --------- | ---------------------------------------------- |
+| `task_`           | `address` | The periodic task to add                       |
+| `customSelector_` | `bytes4`  | The custom selector to use for the task (or 0) |
+| `index_`          | `uint256` | The index where to insert the task             |
 
-### _removePeriodicTask
+### \_removePeriodicTask
 
 ```solidity
 function _removePeriodicTask(uint256 index_) internal;
@@ -103,9 +103,9 @@ function removePeriodicTask(address task_) external override onlyAdminRole;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|The periodic task to remove|
+| Name    | Type      | Description                 |
+| ------- | --------- | --------------------------- |
+| `task_` | `address` | The periodic task to remove |
 
 ### removePeriodicTaskAtIndex
 
@@ -122,11 +122,11 @@ function removePeriodicTaskAtIndex(uint256 index_) external override onlyAdminRo
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`index_`|`uint256`|The index of the task to remove|
+| Name     | Type      | Description                     |
+| -------- | --------- | ------------------------------- |
+| `index_` | `uint256` | The index of the task to remove |
 
-### _executePeriodicTasks
+### \_executePeriodicTasks
 
 This function does not implement any logic to catch errors from the periodic tasks.
 
@@ -148,9 +148,9 @@ function getPeriodicTaskCount() external view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|_taskCount  The number of periodic tasks|
+| Name     | Type      | Description                              |
+| -------- | --------- | ---------------------------------------- |
+| `<none>` | `uint256` | \_taskCount The number of periodic tasks |
 
 ### getPeriodicTaskAtIndex
 
@@ -162,16 +162,16 @@ function getPeriodicTaskAtIndex(uint256 index_) external view override returns (
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`index_`|`uint256`|         The index of the task to get|
+| Name     | Type      | Description                  |
+| -------- | --------- | ---------------------------- |
+| `index_` | `uint256` | The index of the task to get |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|_task           The address of the periodic task at the specified index|
-|`<none>`|`bytes4`|_customSelector The custom selector for the task (or 0)|
+| Name     | Type      | Description                                                    |
+| -------- | --------- | -------------------------------------------------------------- |
+| `<none>` | `address` | \_task The address of the periodic task at the specified index |
+| `<none>` | `bytes4`  | \_customSelector The custom selector for the task (or 0)       |
 
 ### getPeriodicTasks
 
@@ -183,10 +183,10 @@ function getPeriodicTasks() external view override returns (address[] memory, by
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address[]`|_tasks              An array of all periodic tasks in order|
-|`<none>`|`bytes4[]`|_customSelectors    An array of all custom selectors in order|
+| Name     | Type        | Description                                                 |
+| -------- | ----------- | ----------------------------------------------------------- |
+| `<none>` | `address[]` | \_tasks An array of all periodic tasks in order             |
+| `<none>` | `bytes4[]`  | \_customSelectors An array of all custom selectors in order |
 
 ### getPeriodicTaskIndex
 
@@ -198,15 +198,15 @@ function getPeriodicTaskIndex(address task_) public view override returns (uint2
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|  The periodic task to find|
+| Name    | Type      | Description               |
+| ------- | --------- | ------------------------- |
+| `task_` | `address` | The periodic task to find |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`_index`|`uint256`| The index of the task, or type(uint256).max if not found|
+| Name     | Type      | Description                                              |
+| -------- | --------- | -------------------------------------------------------- |
+| `_index` | `uint256` | The index of the task, or type(uint256).max if not found |
 
 ### hasPeriodicTask
 
@@ -218,12 +218,12 @@ function hasPeriodicTask(address task_) public view override returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`task_`|`address`|  The periodic task to check|
+| Name    | Type      | Description                |
+| ------- | --------- | -------------------------- |
+| `task_` | `address` | The periodic task to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|_exists True if the task exists, false otherwise|
+| Name     | Type   | Description                                       |
+| -------- | ------ | ------------------------------------------------- |
+| `<none>` | `bool` | \_exists True if the task exists, false otherwise |

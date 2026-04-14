@@ -26,18 +26,18 @@ function createToken(IERC20 asset_, uint8 depositPeriod_, address operator_, str
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The underlying asset|
-|`depositPeriod_`|`uint8`| The deposit period|
-|`operator_`|`address`|      The operator address|
-|`operatorName_`|`string`|  The operator name for token metadata|
+| Name             | Type      | Description                          |
+| ---------------- | --------- | ------------------------------------ |
+| `asset_`         | `IERC20`  | The underlying asset                 |
+| `depositPeriod_` | `uint8`   | The deposit period                   |
+| `operator_`      | `address` | The operator address                 |
+| `operatorName_`  | `string`  | The operator name for token metadata |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId`|`uint256`|        The created token ID|
+| Name      | Type      | Description          |
+| --------- | --------- | -------------------- |
+| `tokenId` | `uint256` | The created token ID |
 
 ### mint
 
@@ -51,12 +51,12 @@ function mint(address to_, uint256 tokenId_, uint256 amount_, bool shouldWrap_) 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`to_`|`address`|        The recipient|
-|`tokenId_`|`uint256`|   The token ID|
-|`amount_`|`uint256`|    The amount to mint|
-|`shouldWrap_`|`bool`|Whether to wrap as ERC20|
+| Name          | Type      | Description              |
+| ------------- | --------- | ------------------------ |
+| `to_`         | `address` | The recipient            |
+| `tokenId_`    | `uint256` | The token ID             |
+| `amount_`     | `uint256` | The amount to mint       |
+| `shouldWrap_` | `bool`    | Whether to wrap as ERC20 |
 
 ### burn
 
@@ -70,12 +70,12 @@ function burn(address from_, uint256 tokenId_, uint256 amount_, bool isWrapped_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`from_`|`address`|      The holder|
-|`tokenId_`|`uint256`|   The token ID|
-|`amount_`|`uint256`|    The amount to burn|
-|`isWrapped_`|`bool`| Whether the tokens are wrapped|
+| Name         | Type      | Description                    |
+| ------------ | --------- | ------------------------------ |
+| `from_`      | `address` | The holder                     |
+| `tokenId_`   | `uint256` | The token ID                   |
+| `amount_`    | `uint256` | The amount to burn             |
+| `isWrapped_` | `bool`    | Whether the tokens are wrapped |
 
 ### getReceiptTokenId
 
@@ -90,18 +90,18 @@ function getReceiptTokenId(address owner_, IERC20 asset_, uint8 depositPeriod_, 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`owner_`|`address`|         The owner address|
-|`asset_`|`IERC20`|         The asset|
-|`depositPeriod_`|`uint8`| The deposit period|
-|`operator_`|`address`|      The operator|
+| Name             | Type      | Description        |
+| ---------------- | --------- | ------------------ |
+| `owner_`         | `address` | The owner address  |
+| `asset_`         | `IERC20`  | The asset          |
+| `depositPeriod_` | `uint8`   | The deposit period |
+| `operator_`      | `address` | The operator       |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId`|`uint256`|        The generated token ID|
+| Name      | Type      | Description            |
+| --------- | --------- | ---------------------- |
+| `tokenId` | `uint256` | The generated token ID |
 
 ### getTokenName
 
@@ -113,15 +113,15 @@ function getTokenName(uint256 tokenId_) external view returns (string memory nam
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The ID of the receipt token|
+| Name       | Type      | Description                 |
+| ---------- | --------- | --------------------------- |
+| `tokenId_` | `uint256` | The ID of the receipt token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`name`|`string`|       The name of the receipt token|
+| Name   | Type     | Description                   |
+| ------ | -------- | ----------------------------- |
+| `name` | `string` | The name of the receipt token |
 
 ### getTokenSymbol
 
@@ -133,15 +133,15 @@ function getTokenSymbol(uint256 tokenId_) external view returns (string memory s
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The ID of the receipt token|
+| Name       | Type      | Description                 |
+| ---------- | --------- | --------------------------- |
+| `tokenId_` | `uint256` | The ID of the receipt token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`symbol`|`string`|     The symbol of the receipt token|
+| Name     | Type     | Description                     |
+| -------- | -------- | ------------------------------- |
+| `symbol` | `string` | The symbol of the receipt token |
 
 ### getTokenDecimals
 
@@ -153,15 +153,15 @@ function getTokenDecimals(uint256 tokenId_) external view returns (uint8 decimal
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The ID of the receipt token|
+| Name       | Type      | Description                 |
+| ---------- | --------- | --------------------------- |
+| `tokenId_` | `uint256` | The ID of the receipt token |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`decimals`|`uint8`|   The decimals of the receipt token|
+| Name       | Type    | Description                       |
+| ---------- | ------- | --------------------------------- |
+| `decimals` | `uint8` | The decimals of the receipt token |
 
 ### getTokenOwner
 
@@ -173,15 +173,15 @@ function getTokenOwner(uint256 tokenId_) external view returns (address owner);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The token ID|
+| Name       | Type      | Description  |
+| ---------- | --------- | ------------ |
+| `tokenId_` | `uint256` | The token ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`owner`|`address`|      The token owner|
+| Name    | Type      | Description     |
+| ------- | --------- | --------------- |
+| `owner` | `address` | The token owner |
 
 ### getTokenAsset
 
@@ -193,15 +193,15 @@ function getTokenAsset(uint256 tokenId_) external view returns (IERC20 asset);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The token ID|
+| Name       | Type      | Description  |
+| ---------- | --------- | ------------ |
+| `tokenId_` | `uint256` | The token ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset`|`IERC20`|      The underlying asset|
+| Name    | Type     | Description          |
+| ------- | -------- | -------------------- |
+| `asset` | `IERC20` | The underlying asset |
 
 ### getTokenDepositPeriod
 
@@ -213,15 +213,15 @@ function getTokenDepositPeriod(uint256 tokenId_) external view returns (uint8 de
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|       The token ID|
+| Name       | Type      | Description  |
+| ---------- | --------- | ------------ |
+| `tokenId_` | `uint256` | The token ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod`|`uint8`|  The deposit period|
+| Name            | Type    | Description        |
+| --------------- | ------- | ------------------ |
+| `depositPeriod` | `uint8` | The deposit period |
 
 ### getTokenOperator
 
@@ -233,15 +233,15 @@ function getTokenOperator(uint256 tokenId_) external view returns (address opera
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`tokenId_`|`uint256`|   The token ID|
+| Name       | Type      | Description  |
+| ---------- | --------- | ------------ |
+| `tokenId_` | `uint256` | The token ID |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`operator`|`address`|   The operator address|
+| Name       | Type      | Description          |
+| ---------- | --------- | -------------------- |
+| `operator` | `address` | The operator address |
 
 ## Events
 

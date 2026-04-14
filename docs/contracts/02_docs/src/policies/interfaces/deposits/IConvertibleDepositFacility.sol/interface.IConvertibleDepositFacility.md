@@ -30,17 +30,17 @@ function createPosition(CreatePositionParams calldata params_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`params_`|`CreatePositionParams`|            The parameters for the position creation|
+| Name      | Type                   | Description                              |
+| --------- | ---------------------- | ---------------------------------------- |
+| `params_` | `CreatePositionParams` | The parameters for the position creation |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId`|`uint256`|         The ID of the new position|
-|`receiptTokenId`|`uint256`||
-|`actualAmount`|`uint256`||
+| Name             | Type      | Description                |
+| ---------------- | --------- | -------------------------- |
+| `positionId`     | `uint256` | The ID of the new position |
+| `receiptTokenId` | `uint256` |                            |
+| `actualAmount`   | `uint256` |                            |
 
 ### deposit
 
@@ -54,19 +54,19 @@ function deposit(IERC20 asset_, uint8 periodMonths_, uint256 amount_, bool wrapR
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|             The address of the asset|
-|`periodMonths_`|`uint8`|      The period of the deposit|
-|`amount_`|`uint256`|            The amount of asset to deposit|
-|`wrapReceipt_`|`bool`|       Whether the receipt token should be wrapped|
+| Name            | Type      | Description                                 |
+| --------------- | --------- | ------------------------------------------- |
+| `asset_`        | `IERC20`  | The address of the asset                    |
+| `periodMonths_` | `uint8`   | The period of the deposit                   |
+| `amount_`       | `uint256` | The amount of asset to deposit              |
+| `wrapReceipt_`  | `bool`    | Whether the receipt token should be wrapped |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`receiptTokenId`|`uint256`|     The ID of the receipt token|
-|`actualAmount`|`uint256`|       The quantity of receipt tokens minted to the depositor|
+| Name             | Type      | Description                                            |
+| ---------------- | --------- | ------------------------------------------------------ |
+| `receiptTokenId` | `uint256` | The ID of the receipt token                            |
+| `actualAmount`   | `uint256` | The quantity of receipt tokens minted to the depositor |
 
 ### convert
 
@@ -91,18 +91,18 @@ function convert(uint256[] memory positionIds_, uint256[] memory amounts_, bool 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionIds_`|`uint256[]`|       An array of position ids that will be converted|
-|`amounts_`|`uint256[]`|           An array of amounts of receipt tokens to convert|
-|`wrappedReceipt_`|`bool`|    Whether the receipt tokens to use are wrapped as ERC20s|
+| Name              | Type        | Description                                             |
+| ----------------- | ----------- | ------------------------------------------------------- |
+| `positionIds_`    | `uint256[]` | An array of position ids that will be converted         |
+| `amounts_`        | `uint256[]` | An array of amounts of receipt tokens to convert        |
+| `wrappedReceipt_` | `bool`      | Whether the receipt tokens to use are wrapped as ERC20s |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`receiptTokenIn`|`uint256`|     The total amount of receipt tokens converted|
-|`convertedTokenOut`|`uint256`|  The amount of OHM minted during conversion|
+| Name                | Type      | Description                                  |
+| ------------------- | --------- | -------------------------------------------- |
+| `receiptTokenIn`    | `uint256` | The total amount of receipt tokens converted |
+| `convertedTokenOut` | `uint256` | The amount of OHM minted during conversion   |
 
 ### previewConvert
 
@@ -125,18 +125,18 @@ function previewConvert(address account_, uint256[] memory positionIds_, uint256
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`account_`|`address`|           The address to preview the conversion for|
-|`positionIds_`|`uint256[]`|       An array of position ids that will be converted|
-|`amounts_`|`uint256[]`|           An array of amounts of receipt tokens to convert|
+| Name           | Type        | Description                                      |
+| -------------- | ----------- | ------------------------------------------------ |
+| `account_`     | `address`   | The address to preview the conversion for        |
+| `positionIds_` | `uint256[]` | An array of position ids that will be converted  |
+| `amounts_`     | `uint256[]` | An array of amounts of receipt tokens to convert |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`receiptTokenIn`|`uint256`|     The total amount of receipt tokens converted|
-|`convertedTokenOut`|`uint256`|  The amount of OHM minted during conversion|
+| Name                | Type      | Description                                  |
+| ------------------- | --------- | -------------------------------------------- |
+| `receiptTokenIn`    | `uint256` | The total amount of receipt tokens converted |
+| `convertedTokenOut` | `uint256` | The amount of OHM minted during conversion   |
 
 ### previewClaimYield
 
@@ -148,15 +148,15 @@ function previewClaimYield(IERC20 asset_) external view returns (uint256 assets)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the asset|
+| Name     | Type     | Description              |
+| -------- | -------- | ------------------------ |
+| `asset_` | `IERC20` | The address of the asset |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`assets`|`uint256`|         The amount of assets that would be claimed|
+| Name     | Type      | Description                                |
+| -------- | --------- | ------------------------------------------ |
+| `assets` | `uint256` | The amount of assets that would be claimed |
 
 ### claimYield
 
@@ -168,15 +168,15 @@ function claimYield(IERC20 asset_) external returns (uint256 assets);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the asset|
+| Name     | Type     | Description              |
+| -------- | -------- | ------------------------ |
+| `asset_` | `IERC20` | The address of the asset |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`assets`|`uint256`|         The amount of assets that were claimed|
+| Name     | Type      | Description                            |
+| -------- | --------- | -------------------------------------- |
+| `assets` | `uint256` | The amount of assets that were claimed |
 
 ### claimYield
 
@@ -188,16 +188,16 @@ function claimYield(IERC20 asset_, uint256 amount_) external returns (uint256 as
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset_`|`IERC20`|         The address of the asset|
-|`amount_`|`uint256`|        The amount to claim|
+| Name      | Type      | Description              |
+| --------- | --------- | ------------------------ |
+| `asset_`  | `IERC20`  | The address of the asset |
+| `amount_` | `uint256` | The amount to claim      |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`assets`|`uint256`|         The amount of assets that were claimed|
+| Name     | Type      | Description                            |
+| -------- | --------- | -------------------------------------- |
+| `assets` | `uint256` | The amount of assets that were claimed |
 
 ### claimAllYield
 
@@ -311,12 +311,12 @@ struct CreatePositionParams {
 
 **Properties**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`asset`|`IERC20`|            The address of the asset|
-|`periodMonths`|`uint8`|     The period of the deposit|
-|`depositor`|`address`|        The address to create the position for|
-|`amount`|`uint256`|           The amount of asset to deposit|
-|`conversionPrice`|`uint256`|  The amount of asset tokens required to receive 1 OHM (scale: asset token decimals)|
-|`wrapPosition`|`bool`|     Whether the position should be wrapped|
-|`wrapReceipt`|`bool`|      Whether the receipt token should be wrapped|
+| Name              | Type      | Description                                                                        |
+| ----------------- | --------- | ---------------------------------------------------------------------------------- |
+| `asset`           | `IERC20`  | The address of the asset                                                           |
+| `periodMonths`    | `uint8`   | The period of the deposit                                                          |
+| `depositor`       | `address` | The address to create the position for                                             |
+| `amount`          | `uint256` | The amount of asset to deposit                                                     |
+| `conversionPrice` | `uint256` | The amount of asset tokens required to receive 1 OHM (scale: asset token decimals) |
+| `wrapPosition`    | `bool`    | Whether the position should be wrapped                                             |
+| `wrapReceipt`     | `bool`    | Whether the receipt token should be wrapped                                        |

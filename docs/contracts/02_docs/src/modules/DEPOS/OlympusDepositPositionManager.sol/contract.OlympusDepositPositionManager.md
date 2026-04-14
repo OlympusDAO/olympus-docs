@@ -15,7 +15,7 @@ This contract is used to create, manage, and wrap/unwrap deposit positions. Posi
 
 ## State Variables
 
-### _tokenRenderer
+### \_tokenRenderer
 
 The address of the token renderer contract
 
@@ -25,7 +25,7 @@ If set, tokenURI() will delegate to this contract. If not set, tokenURI() return
 address internal _tokenRenderer
 ```
 
-### _OHM_SCALE
+### \_OHM_SCALE
 
 ```solidity
 uint256 internal constant _OHM_SCALE = 1e9
@@ -59,10 +59,10 @@ function VERSION() public pure override returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|- Major version upgrade indicates breaking change to the interface.|
-|`minor`|`uint8`|- Minor version change retains backward-compatible interface.|
+| Name    | Type    | Description                                                         |
+| ------- | ------- | ------------------------------------------------------------------- |
+| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
 
 ### wrap
 
@@ -74,7 +74,7 @@ This function reverts if:
 - The position ID is invalid
 - The caller is not the owner of the position
 - The position is already wrapped
-This is a public function that can be called by any address holding a position
+  This is a public function that can be called by any address holding a position
 
 ```solidity
 function wrap(uint256 positionId_)
@@ -87,9 +87,9 @@ function wrap(uint256 positionId_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position to wrap|
+| Name          | Type      | Description                    |
+| ------------- | --------- | ------------------------------ |
+| `positionId_` | `uint256` | The ID of the position to wrap |
 
 ### unwrap
 
@@ -101,7 +101,7 @@ This function reverts if:
 - The position ID is invalid
 - The caller is not the owner of the position
 - The position is not wrapped
-This is a public function that can be called by any address holding a position
+  This is a public function that can be called by any address holding a position
 
 ```solidity
 function unwrap(uint256 positionId_)
@@ -114,11 +114,11 @@ function unwrap(uint256 positionId_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position to unwrap|
+| Name          | Type      | Description                      |
+| ------------- | --------- | -------------------------------- |
+| `positionId_` | `uint256` | The ID of the position to unwrap |
 
-### _create
+### \_create
 
 ```solidity
 function _create(address operator_, IDepositPositionManager.MintParams memory params_)
@@ -136,7 +136,7 @@ This function reverts if:
 - The remaining deposit is 0
 - The conversion price is 0
 - The conversion expiry is in the past
-This is a permissioned function that can only be called by approved policies
+  This is a permissioned function that can only be called by approved policies
 
 ```solidity
 function mint(IDepositPositionManager.MintParams calldata params_)
@@ -156,7 +156,7 @@ This function reverts if:
 - The caller is not permissioned
 - The position ID is invalid
 - The caller is not the operator that created the position
-This is a permissioned function that can only be called by approved policies
+  This is a permissioned function that can only be called by approved policies
 
 ```solidity
 function setRemainingDeposit(uint256 positionId_, uint256 amount_)
@@ -170,10 +170,10 @@ function setRemainingDeposit(uint256 positionId_, uint256 amount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position to update|
-|`amount_`|`uint256`|    The new amount of the position|
+| Name          | Type      | Description                      |
+| ------------- | --------- | -------------------------------- |
+| `positionId_` | `uint256` | The ID of the position to update |
+| `amount_`     | `uint256` | The new amount of the position   |
 
 ### setAdditionalData
 
@@ -184,7 +184,7 @@ This function reverts if:
 - The caller is not permissioned
 - The position ID is invalid
 - The caller is not the operator that created the position
-This is a permissioned function that can only be called by approved policies
+  This is a permissioned function that can only be called by approved policies
 
 ```solidity
 function setAdditionalData(uint256 positionId_, bytes calldata additionalData_)
@@ -198,10 +198,10 @@ function setAdditionalData(uint256 positionId_, bytes calldata additionalData_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|        The ID of the position to update|
-|`additionalData_`|`bytes`|    The new additional data of the position|
+| Name              | Type      | Description                             |
+| ----------------- | --------- | --------------------------------------- |
+| `positionId_`     | `uint256` | The ID of the position to update        |
+| `additionalData_` | `bytes`   | The new additional data of the position |
 
 ### split
 
@@ -215,7 +215,7 @@ This function reverts if:
 - The amount is 0
 - The amount is greater than the remaining deposit
 - `to_` is the zero address
-This is a permissioned function that can only be called by approved policies
+  This is a permissioned function that can only be called by approved policies
 
 ```solidity
 function split(uint256 positionId_, uint256 amount_, address to_, bool wrap_)
@@ -230,18 +230,18 @@ function split(uint256 positionId_, uint256 amount_, address to_, bool wrap_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|    The ID of the position to split|
-|`amount_`|`uint256`|        The amount of the position to split|
-|`to_`|`address`|            The address to split the position to|
-|`wrap_`|`bool`|          Whether the new position should be wrapped|
+| Name          | Type      | Description                                |
+| ------------- | --------- | ------------------------------------------ |
+| `positionId_` | `uint256` | The ID of the position to split            |
+| `amount_`     | `uint256` | The amount of the position to split        |
+| `to_`         | `address` | The address to split the position to       |
+| `wrap_`       | `bool`    | Whether the new position should be wrapped |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newPositionId`|`uint256`|  The ID of the new position|
+| Name            | Type      | Description                |
+| --------------- | --------- | -------------------------- |
+| `newPositionId` | `uint256` | The ID of the new position |
 
 ### tokenURI
 
@@ -272,11 +272,11 @@ function getPositionCount() external view virtual override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|_count The total number of positions|
+| Name     | Type      | Description                           |
+| -------- | --------- | ------------------------------------- |
+| `<none>` | `uint256` | \_count The total number of positions |
 
-### _getPosition
+### \_getPosition
 
 ```solidity
 function _getPosition(uint256 positionId_) internal view returns (Position memory);
@@ -292,15 +292,15 @@ function getUserPositionIds(address user_) external view virtual override return
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|          The address of the user|
+| Name    | Type      | Description             |
+| ------- | --------- | ----------------------- |
+| `user_` | `address` | The address of the user |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256[]`|_positionIds    An array of position IDs|
+| Name     | Type        | Description                            |
+| -------- | ----------- | -------------------------------------- |
+| `<none>` | `uint256[]` | \_positionIds An array of position IDs |
 
 ### getPosition
 
@@ -316,15 +316,15 @@ function getPosition(uint256 positionId_) external view virtual override returns
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position|
+| Name          | Type      | Description            |
+| ------------- | --------- | ---------------------- |
+| `positionId_` | `uint256` | The ID of the position |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`Position`|_position   The position for the given ID|
+| Name     | Type       | Description                              |
+| -------- | ---------- | ---------------------------------------- |
+| `<none>` | `Position` | \_position The position for the given ID |
 
 ### isExpired
 
@@ -340,17 +340,17 @@ function isExpired(uint256 positionId_) external view virtual override returns (
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position|
+| Name          | Type      | Description            |
+| ------------- | --------- | ---------------------- |
+| `positionId_` | `uint256` | The ID of the position |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|isExpired_  Returns true if the conversion expiry timestamp is now or in the past|
+| Name     | Type   | Description                                                                       |
+| -------- | ------ | --------------------------------------------------------------------------------- |
+| `<none>` | `bool` | isExpired\_ Returns true if the conversion expiry timestamp is now or in the past |
 
-### _isConvertible
+### \_isConvertible
 
 ```solidity
 function _isConvertible(Position memory position_) internal pure returns (bool);
@@ -370,17 +370,17 @@ function isConvertible(uint256 positionId_) external view virtual override retur
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|    The ID of the position|
+| Name          | Type      | Description            |
+| ------------- | --------- | ---------------------- |
+| `positionId_` | `uint256` | The ID of the position |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|isConvertible_  Returns true if the conversion price is not the maximum value|
+| Name     | Type   | Description                                                                   |
+| -------- | ------ | ----------------------------------------------------------------------------- |
+| `<none>` | `bool` | isConvertible\_ Returns true if the conversion price is not the maximum value |
 
-### _previewConvert
+### \_previewConvert
 
 ```solidity
 function _previewConvert(uint256 amount_, uint256 conversionPrice_) internal pure returns (uint256);
@@ -402,18 +402,18 @@ function previewConvert(uint256 positionId_, uint256 amount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`positionId_`|`uint256`|The ID of the position|
-|`amount_`|`uint256`|    The amount of convertible deposit tokens to convert|
+| Name          | Type      | Description                                         |
+| ------------- | --------- | --------------------------------------------------- |
+| `positionId_` | `uint256` | The ID of the position                              |
+| `amount_`     | `uint256` | The amount of convertible deposit tokens to convert |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|_ohmOut     The amount of OHM that would be received|
+| Name     | Type      | Description                                       |
+| -------- | --------- | ------------------------------------------------- |
+| `<none>` | `uint256` | \_ohmOut The amount of OHM that would be received |
 
-### _setTokenRenderer
+### \_setTokenRenderer
 
 ```solidity
 function _setTokenRenderer(address renderer_) internal;
@@ -434,9 +434,9 @@ function setTokenRenderer(address renderer_) external virtual override permissio
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`renderer_`|`address`|The address of the renderer contract|
+| Name        | Type      | Description                          |
+| ----------- | --------- | ------------------------------------ |
+| `renderer_` | `address` | The address of the renderer contract |
 
 ### getTokenRenderer
 
@@ -448,9 +448,9 @@ function getTokenRenderer() external view virtual override returns (address);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address`|_renderer The address of the current renderer contract (or zero address if not set)|
+| Name     | Type      | Description                                                                          |
+| -------- | --------- | ------------------------------------------------------------------------------------ |
+| `<none>` | `address` | \_renderer The address of the current renderer contract (or zero address if not set) |
 
 ### supportsInterface
 
@@ -458,7 +458,7 @@ function getTokenRenderer() external view virtual override returns (address);
 function supportsInterface(bytes4 interfaceId_) public view virtual override returns (bool);
 ```
 
-### _onlyValidPosition
+### \_onlyValidPosition
 
 ```solidity
 function _onlyValidPosition(uint256 positionId_) internal view;
@@ -470,7 +470,7 @@ function _onlyValidPosition(uint256 positionId_) internal view;
 modifier onlyValidPosition(uint256 positionId_) ;
 ```
 
-### _onlyPositionOperator
+### \_onlyPositionOperator
 
 ```solidity
 function _onlyPositionOperator(uint256 positionId_) internal view;
@@ -482,7 +482,7 @@ function _onlyPositionOperator(uint256 positionId_) internal view;
 modifier onlyPositionOperator(uint256 positionId_) ;
 ```
 
-### _onlyPositionOwner
+### \_onlyPositionOwner
 
 ```solidity
 function _onlyPositionOwner(uint256 positionId_) internal view;

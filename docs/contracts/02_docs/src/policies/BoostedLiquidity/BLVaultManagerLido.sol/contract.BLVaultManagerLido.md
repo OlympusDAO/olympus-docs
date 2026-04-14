@@ -188,9 +188,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`dependencies`|`Keycode[]`|- Keycode array of module dependencies.|
+| Name           | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
 
 ### requestPermissions
 
@@ -202,9 +202,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`permissions`|`Permissions[]`|requests - Array of keycodes and function selectors for requested permissions.|
+| Name          | Type            | Description                                                                    |
+| ------------- | --------------- | ------------------------------------------------------------------------------ |
+| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
 
 ### onlyWhileActive
 
@@ -230,9 +230,9 @@ function deployVault() external override onlyWhileActive returns (address vault)
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`vault`|`address`|                  The address of the deployed vault|
+| Name    | Type      | Description                       |
+| ------- | --------- | --------------------------------- |
+| `vault` | `address` | The address of the deployed vault |
 
 ### mintOhmToVault
 
@@ -246,9 +246,9 @@ function mintOhmToVault(uint256 amount_) external override onlyWhileActive onlyV
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of OHM to mint|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `amount_` | `uint256` | The amount of OHM to mint |
 
 ### burnOhmFromVault
 
@@ -262,9 +262,9 @@ function burnOhmFromVault(uint256 amount_) external override onlyWhileActive onl
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of OHM to burn|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `amount_` | `uint256` | The amount of OHM to burn |
 
 ### increaseTotalLp
 
@@ -278,9 +278,9 @@ function increaseTotalLp(uint256 amount_) external override onlyWhileActive only
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of LP tokens to add to the total|
+| Name      | Type      | Description                                 |
+| --------- | --------- | ------------------------------------------- |
+| `amount_` | `uint256` | The amount of LP tokens to add to the total |
 
 ### decreaseTotalLp
 
@@ -294,9 +294,9 @@ function decreaseTotalLp(uint256 amount_) external override onlyWhileActive only
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of LP tokens to remove from the total|
+| Name      | Type      | Description                                      |
+| --------- | --------- | ------------------------------------------------ |
+| `amount_` | `uint256` | The amount of LP tokens to remove from the total |
 
 ### canWithdraw
 
@@ -308,15 +308,15 @@ function canWithdraw(address user_) external view override returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|                   The user to check the vault of|
+| Name    | Type      | Description                    |
+| ------- | --------- | ------------------------------ |
+| `user_` | `address` | The user to check the vault of |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool                    Whether enough time has passed since the last deposit for the user to be ale to withdraw|
+| Name     | Type   | Description                                                                                   |
+| -------- | ------ | --------------------------------------------------------------------------------------------- |
+| `<none>` | `bool` | bool Whether enough time has passed since the last deposit for the user to be ale to withdraw |
 
 ### getLpBalance
 
@@ -328,15 +328,15 @@ function getLpBalance(address user_) external view override returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|                   The user to check the vault of|
+| Name    | Type      | Description                    |
+| ------- | --------- | ------------------------------ |
+| `user_` | `address` | The user to check the vault of |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The user's vault's LP balance|
+| Name     | Type      | Description                           |
+| -------- | --------- | ------------------------------------- |
+| `<none>` | `uint256` | uint256 The user's vault's LP balance |
 
 ### getUserPairShare
 
@@ -348,15 +348,15 @@ function getUserPairShare(address user_) external view override returns (uint256
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|                   The user to check the vault of|
+| Name    | Type      | Description                    |
+| ------- | --------- | ------------------------------ |
+| `user_` | `address` | The user to check the vault of |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The user's vault's claim on wstETH|
+| Name     | Type      | Description                                |
+| -------- | --------- | ------------------------------------------ |
+| `<none>` | `uint256` | uint256 The user's vault's claim on wstETH |
 
 ### getOutstandingRewards
 
@@ -368,15 +368,15 @@ function getOutstandingRewards(address user_) external view override returns (Re
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|                   The user to check the vault of|
+| Name    | Type      | Description                    |
+| ------- | --------- | ------------------------------ |
+| `user_` | `address` | The user to check the vault of |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`RewardsData[]`|RewardsData[]           The user's vault's unclaimed rewards in Aura|
+| Name     | Type            | Description                                                |
+| -------- | --------------- | ---------------------------------------------------------- |
+| `<none>` | `RewardsData[]` | RewardsData[] The user's vault's unclaimed rewards in Aura |
 
 ### getMaxDeposit
 
@@ -388,9 +388,9 @@ function getMaxDeposit() external view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The max wstETH deposit|
+| Name     | Type      | Description                    |
+| -------- | --------- | ------------------------------ |
+| `<none>` | `uint256` | uint256 The max wstETH deposit |
 
 ### getExpectedLpAmount
 
@@ -405,15 +405,15 @@ function getExpectedLpAmount(uint256 amount_) external override returns (uint256
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of wstETH to calculate the LP tokens for|
+| Name      | Type      | Description                                         |
+| --------- | --------- | --------------------------------------------------- |
+| `amount_` | `uint256` | The amount of wstETH to calculate the LP tokens for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`bptAmount`|`uint256`|uint256                 The amount of LP tokens that will be generated|
+| Name        | Type      | Description                                            |
+| ----------- | --------- | ------------------------------------------------------ |
+| `bptAmount` | `uint256` | uint256 The amount of LP tokens that will be generated |
 
 ### getExpectedTokensOutProtocol
 
@@ -431,15 +431,15 @@ function getExpectedTokensOutProtocol(uint256 lpAmount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`lpAmount_`|`uint256`|               The amount of LP tokens to calculate the OHM and pair tokens for|
+| Name        | Type      | Description                                                      |
+| ----------- | --------- | ---------------------------------------------------------------- |
+| `lpAmount_` | `uint256` | The amount of LP tokens to calculate the OHM and pair tokens for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`expectedTokenAmounts`|`uint256[]`|   The amount of OHM and pair tokens that should be received|
+| Name                   | Type        | Description                                               |
+| ---------------------- | ----------- | --------------------------------------------------------- |
+| `expectedTokenAmounts` | `uint256[]` | The amount of OHM and pair tokens that should be received |
 
 ### getExpectedPairTokenOutUser
 
@@ -457,9 +457,9 @@ function getRewardTokens() external view override returns (address[] memory);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`address[]`|address[]               The addresses of the reward tokens|
+| Name     | Type        | Description                                  |
+| -------- | ----------- | -------------------------------------------- |
+| `<none>` | `address[]` | address[] The addresses of the reward tokens |
 
 ### getRewardRate
 
@@ -471,9 +471,9 @@ function getRewardRate(address rewardToken_) external view override returns (uin
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`rewardRate`|`uint256`|uint256                 The reward rate (tokens per second)|
+| Name         | Type      | Description                                 |
+| ------------ | --------- | ------------------------------------------- |
+| `rewardRate` | `uint256` | uint256 The reward rate (tokens per second) |
 
 ### getPoolOhmShare
 
@@ -485,9 +485,9 @@ function getPoolOhmShare() public view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 The amount of OHM in the pool that is owned by this vault system.|
+| Name     | Type      | Description                                                               |
+| -------- | --------- | ------------------------------------------------------------------------- |
+| `<none>` | `uint256` | uint256 The amount of OHM in the pool that is owned by this vault system. |
 
 ### getOhmSupplyChangeData
 
@@ -503,11 +503,11 @@ function getOhmSupplyChangeData()
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`poolOhmShare`|`uint256`|uint256                 Vault system's current claim on OHM from the Balancer pool|
-|`mintedOhm`|`uint256`||
-|`netBurnedOhm`|`uint256`||
+| Name           | Type      | Description                                                        |
+| -------------- | --------- | ------------------------------------------------------------------ |
+| `poolOhmShare` | `uint256` | uint256 Vault system's current claim on OHM from the Balancer pool |
+| `mintedOhm`    | `uint256` |                                                                    |
+| `netBurnedOhm` | `uint256` |                                                                    |
 
 ### getOhmTknPrice
 
@@ -519,9 +519,9 @@ function getOhmTknPrice() public view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 OHM per 1 wstETH (9 decimals)|
+| Name     | Type      | Description                           |
+| -------- | --------- | ------------------------------------- |
+| `<none>` | `uint256` | uint256 OHM per 1 wstETH (9 decimals) |
 
 ### getTknOhmPrice
 
@@ -533,9 +533,9 @@ function getTknOhmPrice() public view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 wstETH per 1 OHM (18 decimals)|
+| Name     | Type      | Description                            |
+| -------- | --------- | -------------------------------------- |
+| `<none>` | `uint256` | uint256 wstETH per 1 OHM (18 decimals) |
 
 ### getOhmTknPoolPrice
 
@@ -547,9 +547,9 @@ function getOhmTknPoolPrice() public view override returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256                 OHM per 1 wstETH (9 decimals)|
+| Name     | Type      | Description                           |
+| -------- | --------- | ------------------------------------- |
+| `<none>` | `uint256` | uint256 OHM per 1 wstETH (9 decimals) |
 
 ### emergencyBurnOhm
 
@@ -563,9 +563,9 @@ function emergencyBurnOhm(uint256 amount_) external override onlyRole("liquidity
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`amount_`|`uint256`|                 The amount of OHM to burn|
+| Name      | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `amount_` | `uint256` | The amount of OHM to burn |
 
 ### setLimit
 
@@ -579,9 +579,9 @@ function setLimit(uint256 newLimit_) external override onlyRole("liquidityvault_
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newLimit_`|`uint256`|               The new OHM limit (9 decimals)|
+| Name        | Type      | Description                    |
+| ----------- | --------- | ------------------------------ |
+| `newLimit_` | `uint256` | The new OHM limit (9 decimals) |
 
 ### setFee
 
@@ -595,9 +595,9 @@ function setFee(uint64 newFee_) external override onlyRole("liquidityvault_admin
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newFee_`|`uint64`|                 The new fee (in basis points)|
+| Name      | Type     | Description                   |
+| --------- | -------- | ----------------------------- |
+| `newFee_` | `uint64` | The new fee (in basis points) |
 
 ### setWithdrawalDelay
 
@@ -611,9 +611,9 @@ function setWithdrawalDelay(uint48 newDelay_) external override onlyRole("liquid
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newDelay_`|`uint48`|               The new minimum holding period (in seconds)|
+| Name        | Type     | Description                                 |
+| ----------- | -------- | ------------------------------------------- |
+| `newDelay_` | `uint48` | The new minimum holding period (in seconds) |
 
 ### changeUpdateThresholds
 
@@ -631,11 +631,11 @@ function changeUpdateThresholds(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmEthUpdateThreshold_`|`uint48`|  The new time threshold for the OHM-ETH oracle|
-|`ethUsdUpdateThreshold_`|`uint48`|  The new time threshold for the ETH-USD oracle|
-|`stethUsdUpdateThreshold_`|`uint48`|The new time threshold for the stETH-USD oracle|
+| Name                       | Type     | Description                                     |
+| -------------------------- | -------- | ----------------------------------------------- |
+| `ohmEthUpdateThreshold_`   | `uint48` | The new time threshold for the OHM-ETH oracle   |
+| `ethUsdUpdateThreshold_`   | `uint48` | The new time threshold for the ETH-USD oracle   |
+| `stethUsdUpdateThreshold_` | `uint48` | The new time threshold for the stETH-USD oracle |
 
 ### activate
 
@@ -657,7 +657,7 @@ Can only be called by the admin
 function deactivate() external override onlyRole("emergency_admin");
 ```
 
-### _validatePrice
+### \_validatePrice
 
 ```solidity
 function _validatePrice(AggregatorV3Interface priceFeed_, uint48 updateThreshold_) internal view returns (uint256);

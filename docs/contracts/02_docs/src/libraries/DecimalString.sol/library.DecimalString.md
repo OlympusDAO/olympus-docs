@@ -21,14 +21,14 @@ function toDecimalString(uint256 value_, uint8 valueDecimals_, uint8 decimalPlac
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`value_`|`uint256`|           The uint256 value to convert to a string.|
-|`valueDecimals_`|`uint8`|   The scale factor of the value.|
-|`decimalPlaces_`|`uint8`|   The number of decimal places to format the value to.|
+| Name             | Type      | Description                                          |
+| ---------------- | --------- | ---------------------------------------------------- |
+| `value_`         | `uint256` | The uint256 value to convert to a string.            |
+| `valueDecimals_` | `uint8`   | The scale factor of the value.                       |
+| `decimalPlaces_` | `uint8`   | The number of decimal places to format the value to. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`string`|result            A string representation of the value with the specified number of decimal places.|
+| Name     | Type     | Description                                                                              |
+| -------- | -------- | ---------------------------------------------------------------------------------------- |
+| `<none>` | `string` | result A string representation of the value with the specified number of decimal places. |

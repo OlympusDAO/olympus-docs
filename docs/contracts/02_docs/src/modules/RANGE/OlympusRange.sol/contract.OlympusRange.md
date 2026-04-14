@@ -59,10 +59,10 @@ function VERSION() external pure override returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|- Major version upgrade indicates breaking change to the interface.|
-|`minor`|`uint8`|- Minor version change retains backward-compatible interface.|
+| Name    | Type    | Description                                                         |
+| ------- | ------- | ------------------------------------------------------------------- |
+| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
 
 ### updateCapacity
 
@@ -74,10 +74,10 @@ function updateCapacity(bool high_, uint256 capacity_) external override permiss
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Specifies the side of the range to update capacity for (true = high side, false = low side).|
-|`capacity_`|`uint256`|- Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side).|
+| Name        | Type      | Description                                                                                    |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------- |
+| `high_`     | `bool`    | - Specifies the side of the range to update capacity for (true = high side, false = low side). |
+| `capacity_` | `uint256` | - Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side).       |
 
 ### updatePrices
 
@@ -89,9 +89,9 @@ function updatePrices(uint256 target_) external override permissioned;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`target_`|`uint256`|- Target price to set range prices from.|
+| Name      | Type      | Description                              |
+| --------- | --------- | ---------------------------------------- |
+| `target_` | `uint256` | - Target price to set range prices from. |
 
 ### regenerate
 
@@ -103,10 +103,10 @@ function regenerate(bool high_, uint256 capacity_) external override permissione
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Specifies the side of the range to regenerate (true = high side, false = low side).|
-|`capacity_`|`uint256`|- Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side).|
+| Name        | Type      | Description                                                                              |
+| ----------- | --------- | ---------------------------------------------------------------------------------------- |
+| `high_`     | `bool`    | - Specifies the side of the range to regenerate (true = high side, false = low side).    |
+| `capacity_` | `uint256` | - Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side). |
 
 ### updateMarket
 
@@ -118,11 +118,11 @@ function updateMarket(bool high_, uint256 market_, uint256 marketCapacity_) publ
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Specifies the side of the range to update market for (true = high side, false = low side).|
-|`market_`|`uint256`|- Market ID to set for the side.|
-|`marketCapacity_`|`uint256`|- Amount to set the last market capacity to (OHM tokens for high side, Reserve tokens for low side).|
+| Name              | Type      | Description                                                                                          |
+| ----------------- | --------- | ---------------------------------------------------------------------------------------------------- |
+| `high_`           | `bool`    | - Specifies the side of the range to update market for (true = high side, false = low side).         |
+| `market_`         | `uint256` | - Market ID to set for the side.                                                                     |
+| `marketCapacity_` | `uint256` | - Amount to set the last market capacity to (OHM tokens for high side, Reserve tokens for low side). |
 
 ### setSpreads
 
@@ -136,11 +136,11 @@ function setSpreads(bool high_, uint256 cushionSpread_, uint256 wallSpread_) ext
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Specifies the side of the range to set spreads for (true = high side, false = low side).|
-|`cushionSpread_`|`uint256`|- Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%).|
-|`wallSpread_`|`uint256`|- Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%).|
+| Name             | Type      | Description                                                                                                   |
+| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------- |
+| `high_`          | `bool`    | - Specifies the side of the range to set spreads for (true = high side, false = low side).                    |
+| `cushionSpread_` | `uint256` | - Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%). |
+| `wallSpread_`    | `uint256` | - Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%).    |
 
 ### setThresholdFactor
 
@@ -154,9 +154,9 @@ function setThresholdFactor(uint256 thresholdFactor_) external override permissi
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`thresholdFactor_`|`uint256`|- Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%).|
+| Name               | Type      | Description                                                                                   |
+| ------------------ | --------- | --------------------------------------------------------------------------------------------- |
+| `thresholdFactor_` | `uint256` | - Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%). |
 
 ### range
 
@@ -176,9 +176,9 @@ function capacity(bool high_) external view override returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Specifies the side of the range to get capacity for (true = high side, false = low side).|
+| Name    | Type   | Description                                                                                 |
+| ------- | ------ | ------------------------------------------------------------------------------------------- |
+| `high_` | `bool` | - Specifies the side of the range to get capacity for (true = high side, false = low side). |
 
 ### active
 
@@ -190,9 +190,9 @@ function active(bool high_) external view override returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Specifies the side of the range to get status for (true = high side, false = low side).|
+| Name    | Type   | Description                                                                               |
+| ------- | ------ | ----------------------------------------------------------------------------------------- |
+| `high_` | `bool` | - Specifies the side of the range to get status for (true = high side, false = low side). |
 
 ### price
 
@@ -204,10 +204,10 @@ function price(bool high_, bool wall_) external view override returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Specifies the side of the range to get the price for (true = high side, false = low side).|
-|`wall_`|`bool`|- Specifies the band to get the price for (true = wall, false = cushion).|
+| Name    | Type   | Description                                                                                  |
+| ------- | ------ | -------------------------------------------------------------------------------------------- |
+| `high_` | `bool` | - Specifies the side of the range to get the price for (true = high side, false = low side). |
+| `wall_` | `bool` | - Specifies the band to get the price for (true = wall, false = cushion).                    |
 
 ### spread
 
@@ -219,10 +219,10 @@ function spread(bool high_, bool wall_) external view override returns (uint256)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Specifies the side of the range to get the spread for (true = high side, false = low side).|
-|`wall_`|`bool`|- Specifies the band to get the spread for (true = wall, false = cushion).|
+| Name    | Type   | Description                                                                                   |
+| ------- | ------ | --------------------------------------------------------------------------------------------- |
+| `high_` | `bool` | - Specifies the side of the range to get the spread for (true = high side, false = low side). |
+| `wall_` | `bool` | - Specifies the band to get the spread for (true = wall, false = cushion).                    |
 
 ### market
 
@@ -234,9 +234,9 @@ function market(bool high_) external view override returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Specifies the side of the range to get market for (true = high side, false = low side).|
+| Name    | Type   | Description                                                                               |
+| ------- | ------ | ----------------------------------------------------------------------------------------- |
+| `high_` | `bool` | - Specifies the side of the range to get market for (true = high side, false = low side). |
 
 ### lastActive
 
@@ -248,6 +248,6 @@ function lastActive(bool high_) external view override returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`high_`|`bool`|- Specifies the side of the range to get timestamp for (true = high side, false = low side).|
+| Name    | Type   | Description                                                                                  |
+| ------- | ------ | -------------------------------------------------------------------------------------------- |
+| `high_` | `bool` | - Specifies the side of the range to get timestamp for (true = high side, false = low side). |

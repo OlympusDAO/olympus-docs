@@ -26,13 +26,13 @@ bool public isEnabled
 IMonoCooler public immutable COOLER
 ```
 
-### _COLLATERAL_TOKEN
+### \_COLLATERAL_TOKEN
 
 ```solidity
 ERC20 internal immutable _COLLATERAL_TOKEN
 ```
 
-### _DEBT_TOKEN
+### \_DEBT_TOKEN
 
 ```solidity
 ERC20 internal immutable _DEBT_TOKEN
@@ -64,13 +64,13 @@ function addCollateralAndBorrow(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`authorization`|`IMonoCooler.Authorization`|       Authorization info. Set the `account` field to the zero address to indicate that authorization has already been provided through `IMonoCooler.setAuthorization()`.|
-|`signature`|`IMonoCooler.Signature`|           Off-chain auth signature. Ignored if `authorization_.account` is the zero address.|
-|`collateralAmount`|`uint128`|    Amount of gOHM collateral to deposit|
-|`borrowAmount`|`uint128`|        Amount of USDS to borrow|
-|`delegationRequests`|`IDLGTEv1.DelegationRequest[]`|  Resulting collateral delegation|
+| Name                 | Type                           | Description                                                                                                                                                        |
+| -------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `authorization`      | `IMonoCooler.Authorization`    | Authorization info. Set the `account` field to the zero address to indicate that authorization has already been provided through `IMonoCooler.setAuthorization()`. |
+| `signature`          | `IMonoCooler.Signature`        | Off-chain auth signature. Ignored if `authorization_.account` is the zero address.                                                                                 |
+| `collateralAmount`   | `uint128`                      | Amount of gOHM collateral to deposit                                                                                                                               |
+| `borrowAmount`       | `uint128`                      | Amount of USDS to borrow                                                                                                                                           |
+| `delegationRequests` | `IDLGTEv1.DelegationRequest[]` | Resulting collateral delegation                                                                                                                                    |
 
 ### repayAndRemoveCollateral
 
@@ -90,13 +90,13 @@ function repayAndRemoveCollateral(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`authorization`|`IMonoCooler.Authorization`|       Authorization info. Set the `account` field to the zero address to indicate that authorization has already been provided through `IMonoCooler.setAuthorization()`.|
-|`signature`|`IMonoCooler.Signature`|           Off-chain auth signature. Ignored if `authorization_.account` is the zero address.|
-|`repayAmount`|`uint128`|         Amount of USDS to repay|
-|`collateralAmount`|`uint128`|    Amount of gOHM collateral to withdraw|
-|`delegationRequests`|`IDLGTEv1.DelegationRequest[]`|  Resulting collateral delegation|
+| Name                 | Type                           | Description                                                                                                                                                        |
+| -------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `authorization`      | `IMonoCooler.Authorization`    | Authorization info. Set the `account` field to the zero address to indicate that authorization has already been provided through `IMonoCooler.setAuthorization()`. |
+| `signature`          | `IMonoCooler.Signature`        | Off-chain auth signature. Ignored if `authorization_.account` is the zero address.                                                                                 |
+| `repayAmount`        | `uint128`                      | Amount of USDS to repay                                                                                                                                            |
+| `collateralAmount`   | `uint128`                      | Amount of gOHM collateral to withdraw                                                                                                                              |
+| `delegationRequests` | `IDLGTEv1.DelegationRequest[]` | Resulting collateral delegation                                                                                                                                    |
 
 ### collateralToken
 
@@ -132,9 +132,9 @@ function enable(bytes calldata) external onlyOwner;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes`||
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| `<none>` | `bytes` |             |
 
 ### disable
 
@@ -148,6 +148,6 @@ function disable(bytes calldata) external onlyEnabled onlyOwner;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes`||
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| `<none>` | `bytes` |             |

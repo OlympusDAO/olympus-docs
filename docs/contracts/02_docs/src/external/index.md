@@ -1,4 +1,3 @@
-
 # External
 
 - [bridge](/main/contracts/docs/src/external/bridge)

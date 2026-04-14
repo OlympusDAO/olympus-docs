@@ -12,8 +12,8 @@ need to send a transaction, and thus is not required to hold Ether at all.
 
 ### permit
 
-Sets `value` as th xe allowance of `spender` over ``owner``'s tokens,
-given ``owner``'s signed approval.
+Sets `value` as th xe allowance of `spender` over `owner`'s tokens,
+given `owner`'s signed approval.
 IMPORTANT: The same issues [IERC20-approve](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20#approve) has related to transaction
 ordering also apply here.
 Emits an {Approval} event.
@@ -22,11 +22,11 @@ Requirements:
 - `spender` cannot be the zero address.
 - `deadline` must be a timestamp in the future.
 - `v`, `r` and `s` must be a valid `secp256k1` signature from `owner`
-over the EIP712-formatted function arguments.
-- the signature must use ``owner``'s current nonce (see [nonces](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20Permit#nonces)).
-For more information on the signature format, see the
-<https://eips.ethereum.org/EIPS/eip-2612#specification[relevant> EIP
-section].
+  over the EIP712-formatted function arguments.
+- the signature must use `owner`'s current nonce (see [nonces](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20Permit#nonces)).
+  For more information on the signature format, see the
+  <https://eips.ethereum.org/EIPS/eip-2612#specification[relevant> EIP
+  section].
 
 ```solidity
 function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s)
@@ -37,7 +37,7 @@ function permit(address owner, address spender, uint256 value, uint256 deadline,
 
 Returns the current nonce for `owner`. This value must be
 included whenever a signature is generated for [permit](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20Permit#permit).
-Every successful call to [permit](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20Permit#permit) increases ``owner``'s nonce by one. This
+Every successful call to [permit](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20Permit#permit) increases `owner`'s nonce by one. This
 prevents a signature from being used multiple times.
 
 ```solidity

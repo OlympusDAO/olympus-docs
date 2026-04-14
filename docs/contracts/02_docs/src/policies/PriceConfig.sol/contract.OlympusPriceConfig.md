@@ -50,10 +50,10 @@ function initialize(uint256[] memory startObservations_, uint48 lastObservationT
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`startObservations_`|`uint256[]`|  Array of observations to initialize the moving average with. Must be of length numObservations.|
-|`lastObservationTime_`|`uint48`|Unix timestamp of last observation being provided (in seconds).|
+| Name                   | Type        | Description                                                                                     |
+| ---------------------- | ----------- | ----------------------------------------------------------------------------------------------- |
+| `startObservations_`   | `uint256[]` | Array of observations to initialize the moving average with. Must be of length numObservations. |
+| `lastObservationTime_` | `uint48`    | Unix timestamp of last observation being provided (in seconds).                                 |
 
 ### changeMovingAverageDuration
 
@@ -70,9 +70,9 @@ function changeMovingAverageDuration(uint48 movingAverageDuration_) external onl
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`movingAverageDuration_`|`uint48`|  Moving average duration in seconds, must be a multiple of observation frequency|
+| Name                     | Type     | Description                                                                     |
+| ------------------------ | -------- | ------------------------------------------------------------------------------- |
+| `movingAverageDuration_` | `uint48` | Moving average duration in seconds, must be a multiple of observation frequency |
 
 ### changeObservationFrequency
 
@@ -87,9 +87,9 @@ function changeObservationFrequency(uint48 observationFrequency_) external onlyR
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`observationFrequency_`|`uint48`|  Observation frequency in seconds, must be a divisor of the moving average duration|
+| Name                    | Type     | Description                                                                        |
+| ----------------------- | -------- | ---------------------------------------------------------------------------------- |
+| `observationFrequency_` | `uint48` | Observation frequency in seconds, must be a divisor of the moving average duration |
 
 ### changeUpdateThresholds
 
@@ -105,10 +105,10 @@ function changeUpdateThresholds(uint48 ohmEthUpdateThreshold_, uint48 reserveEth
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`ohmEthUpdateThreshold_`|`uint48`|- Maximum allowed time between OHM/ETH price feed updates|
-|`reserveEthUpdateThreshold_`|`uint48`|- Maximum allowed time between Reserve/ETH price feed updates|
+| Name                         | Type     | Description                                                   |
+| ---------------------------- | -------- | ------------------------------------------------------------- |
+| `ohmEthUpdateThreshold_`     | `uint48` | - Maximum allowed time between OHM/ETH price feed updates     |
+| `reserveEthUpdateThreshold_` | `uint48` | - Maximum allowed time between Reserve/ETH price feed updates |
 
 ### changeMinimumTargetPrice
 
@@ -122,6 +122,6 @@ function changeMinimumTargetPrice(uint256 minimumTargetPrice_) external onlyRole
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`minimumTargetPrice_`|`uint256`|- Minimum target price for the RBS system with 18 decimals, expressed as Reserves per OHM|
+| Name                  | Type      | Description                                                                               |
+| --------------------- | --------- | ----------------------------------------------------------------------------------------- |
+| `minimumTargetPrice_` | `uint256` | - Minimum target price for the RBS system with 18 decimals, expressed as Reserves per OHM |

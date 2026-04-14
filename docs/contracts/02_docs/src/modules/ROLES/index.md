@@ -1,4 +1,3 @@
-
 # Roles
 
 - [RolesConsumer](OlympusRoles.sol/abstract.RolesConsumer.md)

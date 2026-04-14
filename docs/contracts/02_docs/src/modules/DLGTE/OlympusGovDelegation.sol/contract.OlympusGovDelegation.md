@@ -25,7 +25,7 @@ gOHM from another policy (eg policy B pulling collateral out of the Cooler polic
 DelegateEscrowFactory public immutable delegateEscrowFactory
 ```
 
-### _accountState
+### \_accountState
 
 The mapping of a delegate's address to their escrow contract
 
@@ -37,7 +37,7 @@ eg within Cooler, upon a liquidation, the gOHM needs to be pulled from all deleg
 mapping(address /*account*/ => AccountState /*delegations*/) private _accountState
 ```
 
-### _policyAccountBalances
+### \_policyAccountBalances
 
 The per policy balances of (delegated and undelegated) gOHM for each end user account
 One policy isn't allowed to deposit/withdraw to another policy's tracked balances
@@ -75,10 +75,10 @@ function VERSION() external pure override returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|- Major version upgrade indicates breaking change to the interface.|
-|`minor`|`uint8`|- Minor version change retains backward-compatible interface.|
+| Name    | Type    | Description                                                         |
+| ------- | ------- | ------------------------------------------------------------------- |
+| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
 
 ### depositUndelegatedGohm
 
@@ -168,7 +168,7 @@ function accountDelegationSummary(address account)
 function maxDelegateAddresses(address account) external view override returns (uint32 result);
 ```
 
-### _applyDelegations
+### \_applyDelegations
 
 ```solidity
 function _applyDelegations(
@@ -181,13 +181,13 @@ function _applyDelegations(
     returns (uint256 appliedDelegationAmounts, uint256 appliedUndelegationAmounts, uint256 newUndelegatedBalance);
 ```
 
-### _maxDelegateAddresses
+### \_maxDelegateAddresses
 
 ```solidity
 function _maxDelegateAddresses(AccountState storage aState) private returns (uint32 maxDelegates);
 ```
 
-### _applyDelegation
+### \_applyDelegation
 
 ```solidity
 function _applyDelegation(
@@ -199,7 +199,7 @@ function _applyDelegation(
 ) private returns (uint256 delegatedAmount, uint256 undelegatedAmount);
 ```
 
-### _addDelegation
+### \_addDelegation
 
 ```solidity
 function _addDelegation(
@@ -211,7 +211,7 @@ function _addDelegation(
 ) private;
 ```
 
-### _autoRescindDelegations
+### \_autoRescindDelegations
 
 ```solidity
 function _autoRescindDelegations(
@@ -223,7 +223,7 @@ function _autoRescindDelegations(
 ) private returns (uint256 totalRescinded, uint256 newUndelegatedBalance);
 ```
 
-### _rescindDelegation
+### \_rescindDelegation
 
 ```solidity
 function _rescindDelegation(

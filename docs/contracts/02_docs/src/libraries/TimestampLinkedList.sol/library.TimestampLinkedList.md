@@ -27,10 +27,10 @@ function add(List storage list, uint48 timestamp) internal;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`list`|`List`|The list to add to|
-|`timestamp`|`uint48`|The timestamp to add|
+| Name        | Type     | Description          |
+| ----------- | -------- | -------------------- |
+| `list`      | `List`   | The list to add to   |
+| `timestamp` | `uint48` | The timestamp to add |
 
 ### findLastBefore
 
@@ -44,16 +44,16 @@ function findLastBefore(List storage list, uint48 target) internal view returns 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`list`|`List`|The list to search|
-|`target`|`uint48`|The target timestamp|
+| Name     | Type     | Description          |
+| -------- | -------- | -------------------- |
+| `list`   | `List`   | The list to search   |
+| `target` | `uint48` | The target timestamp |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint48`|The largest timestamp ≤ target, or 0 if none found|
+| Name     | Type     | Description                                        |
+| -------- | -------- | -------------------------------------------------- |
+| `<none>` | `uint48` | The largest timestamp ≤ target, or 0 if none found |
 
 ### findFirstAfter
 
@@ -67,16 +67,16 @@ function findFirstAfter(List storage list, uint48 target) internal view returns 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`list`|`List`|The list to search|
-|`target`|`uint48`|The target timestamp|
+| Name     | Type     | Description          |
+| -------- | -------- | -------------------- |
+| `list`   | `List`   | The list to search   |
+| `target` | `uint48` | The target timestamp |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint48`|The smallest timestamp > target, or 0 if none found|
+| Name     | Type     | Description                                         |
+| -------- | -------- | --------------------------------------------------- |
+| `<none>` | `uint48` | The smallest timestamp > target, or 0 if none found |
 
 ### contains
 
@@ -88,16 +88,16 @@ function contains(List storage list, uint48 timestamp) internal view returns (bo
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`list`|`List`|The list to check|
-|`timestamp`|`uint48`|The timestamp to look for|
+| Name        | Type     | Description               |
+| ----------- | -------- | ------------------------- |
+| `list`      | `List`   | The list to check         |
+| `timestamp` | `uint48` | The timestamp to look for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|True if timestamp exists in the list|
+| Name     | Type   | Description                          |
+| -------- | ------ | ------------------------------------ |
+| `<none>` | `bool` | True if timestamp exists in the list |
 
 ### getHead
 
@@ -109,15 +109,15 @@ function getHead(List storage list) internal view returns (uint48);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`list`|`List`|The list to check|
+| Name   | Type   | Description       |
+| ------ | ------ | ----------------- |
+| `list` | `List` | The list to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint48`|The head timestamp, or 0 if list is empty|
+| Name     | Type     | Description                               |
+| -------- | -------- | ----------------------------------------- |
+| `<none>` | `uint48` | The head timestamp, or 0 if list is empty |
 
 ### getPrevious
 
@@ -129,16 +129,16 @@ function getPrevious(List storage list, uint48 timestamp) internal view returns 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`list`|`List`|The list to check|
-|`timestamp`|`uint48`|The timestamp to get the previous for|
+| Name        | Type     | Description                           |
+| ----------- | -------- | ------------------------------------- |
+| `list`      | `List`   | The list to check                     |
+| `timestamp` | `uint48` | The timestamp to get the previous for |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint48`|The previous timestamp, or 0 if none|
+| Name     | Type     | Description                          |
+| -------- | -------- | ------------------------------------ |
+| `<none>` | `uint48` | The previous timestamp, or 0 if none |
 
 ### isEmpty
 
@@ -150,15 +150,15 @@ function isEmpty(List storage list) internal view returns (bool);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`list`|`List`|The list to check|
+| Name   | Type   | Description       |
+| ------ | ------ | ----------------- |
+| `list` | `List` | The list to check |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|True if the list is empty|
+| Name     | Type   | Description               |
+| -------- | ------ | ------------------------- |
+| `<none>` | `bool` | True if the list is empty |
 
 ### length
 
@@ -172,15 +172,15 @@ function length(List storage list) internal view returns (uint256);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`list`|`List`|The list to count|
+| Name   | Type   | Description       |
+| ------ | ------ | ----------------- |
+| `list` | `List` | The list to count |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|The number of timestamps in the list|
+| Name     | Type      | Description                          |
+| -------- | --------- | ------------------------------------ |
+| `<none>` | `uint256` | The number of timestamps in the list |
 
 ### toArray
 
@@ -194,15 +194,15 @@ function toArray(List storage list) internal view returns (uint48[] memory times
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`list`|`List`|The list to convert to array|
+| Name   | Type   | Description                  |
+| ------ | ------ | ---------------------------- |
+| `list` | `List` | The list to convert to array |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`timestamps`|`uint48[]`|Array of timestamps in descending order|
+| Name         | Type       | Description                             |
+| ------------ | ---------- | --------------------------------------- |
+| `timestamps` | `uint48[]` | Array of timestamps in descending order |
 
 ## Errors
 
@@ -227,7 +227,7 @@ struct List {
 
 **Properties**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`head`|`uint48`|The most recent (largest) timestamp in the list|
-|`previous`|`mapping(uint48 => uint48)`|Mapping from timestamp to the previous (older) timestamp|
+| Name       | Type                        | Description                                              |
+| ---------- | --------------------------- | -------------------------------------------------------- |
+| `head`     | `uint48`                    | The most recent (largest) timestamp in the list          |
+| `previous` | `mapping(uint48 => uint48)` | Mapping from timestamp to the previous (older) timestamp |

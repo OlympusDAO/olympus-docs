@@ -92,7 +92,7 @@ Receipt token address for each deposit period
 mapping(uint8 depositPeriod => ERC20 receiptToken) public receiptTokens
 ```
 
-### _orders
+### \_orders
 
 Limit orders by ID
 
@@ -100,7 +100,7 @@ Limit orders by ID
 mapping(uint256 orderId => LimitOrder order) internal _orders
 ```
 
-### _ordersForUser
+### \_ordersForUser
 
 Limit order IDs by user
 
@@ -152,10 +152,10 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`major`|`uint8`|- Major version upgrade indicates breaking change to the interface.|
-|`minor`|`uint8`|- Minor version change retains backward-compatible interface.|
+| Name    | Type    | Description                                                         |
+| ------- | ------- | ------------------------------------------------------------------- |
+| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
 
 ### setYieldRecipient
 
@@ -167,9 +167,9 @@ function setYieldRecipient(address newRecipient_) external onlyOwner onlyEnabled
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`newRecipient_`|`address`|  The new yield recipient|
+| Name            | Type      | Description             |
+| --------------- | --------- | ----------------------- |
+| `newRecipient_` | `address` | The new yield recipient |
 
 ### addDepositPeriod
 
@@ -190,12 +190,12 @@ function addDepositPeriod(uint8 depositPeriod_, address receiptToken_) external 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`|  The deposit period to add|
-|`receiptToken_`|`address`|  The receipt token address for the deposit period|
+| Name             | Type      | Description                                      |
+| ---------------- | --------- | ------------------------------------------------ |
+| `depositPeriod_` | `uint8`   | The deposit period to add                        |
+| `receiptToken_`  | `address` | The receipt token address for the deposit period |
 
-### _addDepositPeriod
+### \_addDepositPeriod
 
 Internal function to add a deposit period and associated receipt token
 
@@ -212,10 +212,10 @@ function _addDepositPeriod(uint8 depositPeriod_, address receiptToken_) internal
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`|  The deposit period to add|
-|`receiptToken_`|`address`|  The receipt token address for the deposit period|
+| Name             | Type      | Description                                      |
+| ---------------- | --------- | ------------------------------------------------ |
+| `depositPeriod_` | `uint8`   | The deposit period to add                        |
+| `receiptToken_`  | `address` | The receipt token address for the deposit period |
 
 ### removeDepositPeriod
 
@@ -226,8 +226,8 @@ This function will revert if:
 - The contract is not enabled
 - The caller is not the owner
 - The deposit period is not configured
-Note: Active orders for this deposit period will fail to fill until the deposit period
-is re-added. Users can cancel their orders if needed.
+  Note: Active orders for this deposit period will fail to fill until the deposit period
+  is re-added. Users can cancel their orders if needed.
 
 ```solidity
 function removeDepositPeriod(uint8 depositPeriod_) external onlyOwner onlyEnabled;
@@ -235,11 +235,11 @@ function removeDepositPeriod(uint8 depositPeriod_) external onlyOwner onlyEnable
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`|  The deposit period to remove|
+| Name             | Type    | Description                  |
+| ---------------- | ------- | ---------------------------- |
+| `depositPeriod_` | `uint8` | The deposit period to remove |
 
-### _deposit
+### \_deposit
 
 Internal function to deposit USDS into sUSDS and adjust the deposit and incentive budgets
 
@@ -251,17 +251,17 @@ function _deposit(uint256 depositBudget_, uint256 incentiveBudget_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositBudget_`|`uint256`|         USDS budget for bids|
-|`incentiveBudget_`|`uint256`|       USDS budget for filler incentives (paid proportionally)|
+| Name               | Type      | Description                                             |
+| ------------------ | --------- | ------------------------------------------------------- |
+| `depositBudget_`   | `uint256` | USDS budget for bids                                    |
+| `incentiveBudget_` | `uint256` | USDS budget for filler incentives (paid proportionally) |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`actualDepositBudget`|`uint256`|    The actual deposit budget (may be less than the input)|
-|`actualIncentiveBudget`|`uint256`|  The actual incentive budget (may be less than the input)|
+| Name                    | Type      | Description                                              |
+| ----------------------- | --------- | -------------------------------------------------------- |
+| `actualDepositBudget`   | `uint256` | The actual deposit budget (may be less than the input)   |
+| `actualIncentiveBudget` | `uint256` | The actual incentive budget (may be less than the input) |
 
 ### createOrder
 
@@ -288,21 +288,21 @@ function createOrder(
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`|  The deposit period for the CD position|
-|`depositBudget_`|`uint256`|  USDS budget for bids|
-|`incentiveBudget_`|`uint256`|USDS budget for filler incentives (paid proportionally)|
-|`maxPrice_`|`uint256`|       Maximum execution price (USDS per OHM)|
-|`minFillSize_`|`uint256`|    Minimum USDS per fill (except final fill)|
+| Name               | Type      | Description                                             |
+| ------------------ | --------- | ------------------------------------------------------- |
+| `depositPeriod_`   | `uint8`   | The deposit period for the CD position                  |
+| `depositBudget_`   | `uint256` | USDS budget for bids                                    |
+| `incentiveBudget_` | `uint256` | USDS budget for filler incentives (paid proportionally) |
+| `maxPrice_`        | `uint256` | Maximum execution price (USDS per OHM)                  |
+| `minFillSize_`     | `uint256` | Minimum USDS per fill (except final fill)               |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`orderId`|`uint256`|         The ID of the created order|
+| Name      | Type      | Description                 |
+| --------- | --------- | --------------------------- |
+| `orderId` | `uint256` | The ID of the created order |
 
-### _calculateFillAndIncentive
+### \_calculateFillAndIncentive
 
 Calculate capped fill amount and incentive for an order
 
@@ -315,18 +315,18 @@ function _calculateFillAndIncentive(LimitOrder storage order_, uint256 fillAmoun
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`order_`|`LimitOrder`|          The limit order|
-|`fillAmount_`|`uint256`|     The requested fill amount|
+| Name          | Type         | Description               |
+| ------------- | ------------ | ------------------------- |
+| `order_`      | `LimitOrder` | The limit order           |
+| `fillAmount_` | `uint256`    | The requested fill amount |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`cappedFill`|`uint256`|      The fill amount capped to remaining deposit|
-|`incentive`|`uint256`|       The incentive amount (with final fill handling)|
-|`remainingDeposit`|`uint256`|The remaining deposit budget|
+| Name               | Type      | Description                                     |
+| ------------------ | --------- | ----------------------------------------------- |
+| `cappedFill`       | `uint256` | The fill amount capped to remaining deposit     |
+| `incentive`        | `uint256` | The incentive amount (with final fill handling) |
+| `remainingDeposit` | `uint256` | The remaining deposit budget                    |
 
 ### fillOrder
 
@@ -353,18 +353,18 @@ function fillOrder(uint256 orderId_, uint256 fillAmount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`orderId_`|`uint256`|   The ID of the order to fill|
-|`fillAmount_`|`uint256`|The amount of USDS to use for the bid|
+| Name          | Type      | Description                           |
+| ------------- | --------- | ------------------------------------- |
+| `orderId_`    | `uint256` | The ID of the order to fill           |
+| `fillAmount_` | `uint256` | The amount of USDS to use for the bid |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256     The actual fill amount (may be capped to remaining deposit)|
-|`<none>`|`uint256`|uint256     The incentive amount paid to the filler|
-|`<none>`|`uint256`|uint256     The remaining deposit budget after the fill|
+| Name     | Type      | Description                                                         |
+| -------- | --------- | ------------------------------------------------------------------- |
+| `<none>` | `uint256` | uint256 The actual fill amount (may be capped to remaining deposit) |
+| `<none>` | `uint256` | uint256 The incentive amount paid to the filler                     |
+| `<none>` | `uint256` | uint256 The remaining deposit budget after the fill                 |
 
 ### cancelOrder
 
@@ -375,7 +375,7 @@ This function will revert if:
 - The caller is not the order owner
 - The order is not active
 - The order is fully spent
-Note that if the contract is disabled, this function will still operate in order to allow users to withdraw their deposited funds.
+  Note that if the contract is disabled, this function will still operate in order to allow users to withdraw their deposited funds.
 
 ```solidity
 function cancelOrder(uint256 orderId_) external nonReentrant;
@@ -383,9 +383,9 @@ function cancelOrder(uint256 orderId_) external nonReentrant;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`orderId_`|`uint256`|The ID of the order to cancel|
+| Name       | Type      | Description                   |
+| ---------- | --------- | ----------------------------- |
+| `orderId_` | `uint256` | The ID of the order to cancel |
 
 ### getAccruedYield
 
@@ -397,9 +397,9 @@ function getAccruedYield() external view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 The current accrued yield in USDS terms|
+| Name     | Type      | Description                                     |
+| -------- | --------- | ----------------------------------------------- |
+| `<none>` | `uint256` | uint256 The current accrued yield in USDS terms |
 
 ### getAccruedYieldShares
 
@@ -413,9 +413,9 @@ function getAccruedYieldShares() public view returns (uint256);
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|uint256 The current accrued yield in sUSDS terms|
+| Name     | Type      | Description                                      |
+| -------- | --------- | ------------------------------------------------ |
+| `<none>` | `uint256` | uint256 The current accrued yield in sUSDS terms |
 
 ### sweepYield
 
@@ -427,9 +427,9 @@ function sweepYield() external nonReentrant onlyEnabled returns (uint256 shares)
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`shares`|`uint256`|The amount of sUSDS swept to the yield recipient|
+| Name     | Type      | Description                                      |
+| -------- | --------- | ------------------------------------------------ |
+| `shares` | `uint256` | The amount of sUSDS swept to the yield recipient |
 
 ### getOrder
 
@@ -441,15 +441,15 @@ function getOrder(uint256 orderId_) external view returns (LimitOrder memory);
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`orderId_`|`uint256`|   The ID of the order|
+| Name       | Type      | Description         |
+| ---------- | --------- | ------------------- |
+| `orderId_` | `uint256` | The ID of the order |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`LimitOrder`|LimitOrder  The limit order|
+| Name     | Type         | Description                |
+| -------- | ------------ | -------------------------- |
+| `<none>` | `LimitOrder` | LimitOrder The limit order |
 
 ### getOrdersForUser
 
@@ -461,15 +461,15 @@ function getOrdersForUser(address user_) external view returns (uint256[] memory
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`user_`|`address`|      The address of the user|
+| Name    | Type      | Description             |
+| ------- | --------- | ----------------------- |
+| `user_` | `address` | The address of the user |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256[]`|uint256[]   The IDs of the user's orders|
+| Name     | Type        | Description                            |
+| -------- | ----------- | -------------------------------------- |
+| `<none>` | `uint256[]` | uint256[] The IDs of the user's orders |
 
 ### previewFillOrder
 
@@ -484,19 +484,19 @@ function previewFillOrder(uint256 orderId_, uint256 fillAmount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`orderId_`|`uint256`|       The ID of the order|
-|`fillAmount_`|`uint256`|    The amount of USDS to use for the bid|
+| Name          | Type      | Description                           |
+| ------------- | --------- | ------------------------------------- |
+| `orderId_`    | `uint256` | The ID of the order                   |
+| `fillAmount_` | `uint256` | The amount of USDS to use for the bid |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`canFill`|`bool`|        Whether the order can be filled|
-|`reason`|`string`|         The reason the order cannot be filled|
-|`effectivePrice`|`uint256`| The effective price of the fill|
-|`incentive`|`uint256`|      The incentive amount for the fill|
+| Name             | Type      | Description                           |
+| ---------------- | --------- | ------------------------------------- |
+| `canFill`        | `bool`    | Whether the order can be filled       |
+| `reason`         | `string`  | The reason the order cannot be filled |
+| `effectivePrice` | `uint256` | The effective price of the fill       |
+| `incentive`      | `uint256` | The incentive amount for the fill     |
 
 ### calculateIncentive
 
@@ -511,17 +511,17 @@ function calculateIncentive(uint256 orderId_, uint256 fillAmount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`orderId_`|`uint256`|       The ID of the order|
-|`fillAmount_`|`uint256`|    The amount of USDS to use for the bid|
+| Name          | Type      | Description                           |
+| ------------- | --------- | ------------------------------------- |
+| `orderId_`    | `uint256` | The ID of the order                   |
+| `fillAmount_` | `uint256` | The amount of USDS to use for the bid |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`incentive`|`uint256`|      The incentive amount for the fill|
-|`incentiveRate`|`uint256`|  The incentive rate for the fill|
+| Name            | Type      | Description                       |
+| --------------- | --------- | --------------------------------- |
+| `incentive`     | `uint256` | The incentive amount for the fill |
+| `incentiveRate` | `uint256` | The incentive rate for the fill   |
 
 ### canFillOrder
 
@@ -536,18 +536,18 @@ function canFillOrder(uint256 orderId_, uint256 fillAmount_)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`orderId_`|`uint256`|       The ID of the order|
-|`fillAmount_`|`uint256`|    The amount of USDS to use for the bid|
+| Name          | Type      | Description                           |
+| ------------- | --------- | ------------------------------------- |
+| `orderId_`    | `uint256` | The ID of the order                   |
+| `fillAmount_` | `uint256` | The amount of USDS to use for the bid |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`canFill`|`bool`|        Whether the order can be filled|
-|`reason`|`string`|         The reason the order cannot be filled|
-|`effectivePrice`|`uint256`| The effective price of the fill|
+| Name             | Type      | Description                           |
+| ---------------- | --------- | ------------------------------------- |
+| `canFill`        | `bool`    | Whether the order can be filled       |
+| `reason`         | `string`  | The reason the order cannot be filled |
+| `effectivePrice` | `uint256` | The effective price of the fill       |
 
 ### getRemaining
 
@@ -559,16 +559,16 @@ function getRemaining(uint256 orderId_) external view returns (uint256 deposit, 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`orderId_`|`uint256`|   The ID of the order|
+| Name       | Type      | Description         |
+| ---------- | --------- | ------------------- |
+| `orderId_` | `uint256` | The ID of the order |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`deposit`|`uint256`|    The remaining deposit budget|
-|`incentive`|`uint256`|  The remaining incentive budget|
+| Name        | Type      | Description                    |
+| ----------- | --------- | ------------------------------ |
+| `deposit`   | `uint256` | The remaining deposit budget   |
+| `incentive` | `uint256` | The remaining incentive budget |
 
 ### getExecutionPrice
 
@@ -580,16 +580,16 @@ function getExecutionPrice(uint8 depositPeriod_, uint256 fillAmount_) external v
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period|
-|`fillAmount_`|`uint256`|    The amount of USDS to use for the bid|
+| Name             | Type      | Description                           |
+| ---------------- | --------- | ------------------------------------- |
+| `depositPeriod_` | `uint8`   | The deposit period                    |
+| `fillAmount_`    | `uint256` | The amount of USDS to use for the bid |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|effectivePrice  The effective price of the fill|
+| Name     | Type      | Description                                    |
+| -------- | --------- | ---------------------------------------------- |
+| `<none>` | `uint256` | effectivePrice The effective price of the fill |
 
 ### getFillableOrders
 
@@ -603,21 +603,21 @@ function getFillableOrders(uint8 depositPeriod_) external view returns (uint256[
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period|
+| Name             | Type    | Description        |
+| ---------------- | ------- | ------------------ |
+| `depositPeriod_` | `uint8` | The deposit period |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256[]`|uint256[]       The IDs of the fillable orders|
+| Name     | Type        | Description                              |
+| -------- | ----------- | ---------------------------------------- |
+| `<none>` | `uint256[]` | uint256[] The IDs of the fillable orders |
 
 ### getFillableOrders
 
 Find fillable orders for a deposit period between given order IDs
 
-For use if getFillableOrders(uint8 depositPeriod_) exceeds limit
+For use if getFillableOrders(uint8 depositPeriod\_) exceeds limit
 
 WARNING: Gas-intensive. Intended for off-chain use only.
 
@@ -630,23 +630,23 @@ function getFillableOrders(uint8 depositPeriod_, uint256 index0, uint256 index1)
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period|
-|`index0`|`uint256`|         The starting order ID|
-|`index1`|`uint256`|         The ending order ID|
+| Name             | Type      | Description           |
+| ---------------- | --------- | --------------------- |
+| `depositPeriod_` | `uint8`   | The deposit period    |
+| `index0`         | `uint256` | The starting order ID |
+| `index1`         | `uint256` | The ending order ID   |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256[]`|uint256[]       The IDs of the fillable orders|
+| Name     | Type        | Description                              |
+| -------- | ----------- | ---------------------------------------- |
+| `<none>` | `uint256[]` | uint256[] The IDs of the fillable orders |
 
-### _getFillableOrders
+### \_getFillableOrders
 
 Find fillable orders for a deposit period between given order IDs
 
-For use if getFillableOrders(uint8 depositPeriod_) exceeds limit
+For use if getFillableOrders(uint8 depositPeriod\_) exceeds limit
 
 WARNING: Gas-intensive. Intended for off-chain use only.
 
@@ -659,19 +659,19 @@ function _getFillableOrders(uint8 depositPeriod_, uint256 index0, uint256 index1
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`depositPeriod_`|`uint8`| The deposit period|
-|`index0`|`uint256`|         The starting order ID|
-|`index1`|`uint256`|         The ending order ID|
+| Name             | Type      | Description           |
+| ---------------- | --------- | --------------------- |
+| `depositPeriod_` | `uint8`   | The deposit period    |
+| `index0`         | `uint256` | The starting order ID |
+| `index1`         | `uint256` | The ending order ID   |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256[]`|uint256[]       The IDs of the fillable orders|
+| Name     | Type        | Description                              |
+| -------- | ----------- | ---------------------------------------- |
+| `<none>` | `uint256[]` | uint256[] The IDs of the fillable orders |
 
-### _isOrderFillable
+### \_isOrderFillable
 
 Check if an order is fillable
 
@@ -681,34 +681,34 @@ function _isOrderFillable(uint256 orderId_, uint8 depositPeriod_) internal view 
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`orderId_`|`uint256`|       The ID of the order|
-|`depositPeriod_`|`uint8`| The deposit period|
+| Name             | Type      | Description         |
+| ---------------- | --------- | ------------------- |
+| `orderId_`       | `uint256` | The ID of the order |
+| `depositPeriod_` | `uint8`   | The deposit period  |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool            Whether the order is fillable|
+| Name     | Type   | Description                        |
+| -------- | ------ | ---------------------------------- |
+| `<none>` | `bool` | bool Whether the order is fillable |
 
-### _requireEnabledDepositPeriod
+### \_requireEnabledDepositPeriod
 
 ```solidity
 function _requireEnabledDepositPeriod(uint8 depositPeriod_) private view;
 ```
 
-### _onlyOwner
+### \_onlyOwner
 
 Implementation-specific validation of ownership
 
-Calls Ownable's _checkOwner()
+Calls Ownable's \_checkOwner()
 
 ```solidity
 function _onlyOwner() internal view override;
 ```
 
-### _enable
+### \_enable
 
 Implementation-specific enable function
 
@@ -720,11 +720,11 @@ function _enable(bytes calldata enableData_) internal override;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`enableData_`|`bytes`|Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation.|
+| Name          | Type    | Description                                                                                                                  |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `enableData_` | `bytes` | Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation. |
 
-### _disable
+### \_disable
 
 Implementation-specific disable function
 
@@ -736,9 +736,9 @@ function _disable(bytes calldata disableData_) internal override;
 
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`disableData_`|`bytes`|Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation.|
+| Name           | Type    | Description                                                                                                                  |
+| -------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `disableData_` | `bytes` | Custom data that can be used by the implementation. The format of this data is left to the discretion of the implementation. |
 
 ### onERC721Received
 
@@ -750,9 +750,9 @@ function onERC721Received(address, address, uint256, bytes calldata) external pu
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bytes4`|bytes4  The selector of the function|
+| Name     | Type     | Description                         |
+| -------- | -------- | ----------------------------------- |
+| `<none>` | `bytes4` | bytes4 The selector of the function |
 
 ### supportsInterface
 
