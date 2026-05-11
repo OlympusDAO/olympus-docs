@@ -24,30 +24,30 @@ Cooler Loans differentiates itself from existing lending markets:
 
 Cooler V2 is composed of policy, module, and periphery contracts. The primary borrowing flow uses MonoCooler directly; V1 migration periphery is no longer part of the supported user flow.
 
-| Layer     | Contract                                                                                       | Purpose                                                              |
-| --------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| Policy    | [`MonoCooler`](https://etherscan.io/address/0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC)        | Core contract managing loan state.                                   |
-| Policy    | [`LTV Oracle`](https://etherscan.io/address/0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc)        | Defines origination and liquidation LTVs.                            |
-| Policy    | [`Treasury Borrower`](https://etherscan.io/address/0xD58d7406E9CE34c90cf849Fc3eed3764EB3779B0) | Connects loan disbursement to the Olympus Treasury.                  |
-| Module    | [`DLGTE`](https://etherscan.io/address/0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74)             | Enables multi-wallet delegation and vote assignment.                 |
-| Periphery | [`Composites`](https://etherscan.io/address/0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd)        | Enables gas-efficient combined actions, such as deposit plus borrow. |
+| Layer     | Contract                                                  | Purpose                                                              |
+| --------- | --------------------------------------------------------- | -------------------------------------------------------------------- |
+| Policy    | [`MonoCooler`](/main/contracts/addresses#policies)        | Core contract managing loan state.                                   |
+| Policy    | [`LTV Oracle`](/main/contracts/addresses#policies)        | Defines origination and liquidation LTVs.                            |
+| Policy    | [`Treasury Borrower`](/main/contracts/addresses#policies) | Connects loan disbursement to the Olympus Treasury.                  |
+| Module    | [`DLGTE`](/main/contracts/addresses#modules)              | Enables multi-wallet delegation and vote assignment.                 |
+| Periphery | [`Composites`](/main/contracts/addresses#periphery)       | Enables gas-efficient combined actions, such as deposit plus borrow. |
 
 ### Loan Terms and Conditions
 
 Before borrowing from Cooler V2, it's important to understand the terms and conditions:
 
-| Term                                        | Current behavior                                                                                                                                                                                                    |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Loan&nbsp;asset                             | Loans are extended in USDS against gOHM collateral.                                                                                                                                                                 |
-| Interest&nbsp;rate                          | Loans have an annualized interest rate of 0.5%, as approved by OCG Proposal 8.                                                                                                                                      |
-| Origination&nbsp;LTV                        | The origination loan-to-collateral ratio is defined by the [LTV Oracle](https://etherscan.io/address/0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc) and may change over time through governance-controlled parameters. |
-| Liquidation&nbsp;premium                    | 1%.                                                                                                                                                                                                                 |
-| Origination&nbsp;LTV&nbsp;drip&nbsp;rate    | Governance-controlled drip toward the active LTV target. See note below for the current rate.                                                                                                                       |
-| Minimum&nbsp;debt                           | 1000 USDS is required to open a loan. Debt must remain above 1000 USDS or be paid off entirely if closing a position.                                                                                               |
-| Origination&nbsp;LTV&nbsp;update&nbsp;cycle | 604800 seconds (7 days).                                                                                                                                                                                            |
+| Term                                        | Current behavior                                                                                                                                                               |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Loan&nbsp;asset                             | Loans are extended in USDS against gOHM collateral.                                                                                                                            |
+| Interest&nbsp;rate                          | Loans have an annualized interest rate of 0.5%, as approved by OCG Proposal 8.                                                                                                 |
+| Origination&nbsp;LTV                        | The origination loan-to-collateral ratio is defined by the [LTV Oracle](/main/contracts/addresses#policies) and may change over time through governance-controlled parameters. |
+| Liquidation&nbsp;premium                    | 1%.                                                                                                                                                                            |
+| Origination&nbsp;LTV&nbsp;drip&nbsp;rate    | Governance-controlled drip toward the active LTV target. See note below for the current rate.                                                                                  |
+| Minimum&nbsp;debt                           | 1000 USDS is required to open a loan. Debt must remain above 1000 USDS or be paid off entirely if closing a position.                                                          |
+| Origination&nbsp;LTV&nbsp;update&nbsp;cycle | 604800 seconds (7 days).                                                                                                                                                       |
 
 :::note
-The current origination and liquidation LTVs are set by the [CoolerV2LtvOracle](https://etherscan.io/address/0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc) and may change over time through governance-controlled parameters. The active [OIP-194](https://snapshot.box/#/s:olympusdao.eth/proposal/0x5c5a16fefe142bf09bc94814b926204e41b5c58fefc6dfae74ebe7e93b6023cb) Origination LTV drip rate is `0.000008394021200604 USDS/second` (`0.7252434317 USDS/day`) until the current target is reached. The steady-state max positive rate of change parameter is `0.000001157407407 USDS/second` (`0.1 USDS/day`). The Olympus app displays the current borrowable amount.
+The current origination and liquidation LTVs are set by the [CoolerV2LtvOracle](/main/contracts/addresses#policies) and may change over time through governance-controlled parameters. The active [OIP-194](https://snapshot.box/#/s:olympusdao.eth/proposal/0x5c5a16fefe142bf09bc94814b926204e41b5c58fefc6dfae74ebe7e93b6023cb) Origination LTV drip rate is `0.000008394021200604 USDS/second` (`0.7252434317 USDS/day`) until the current target is reached. The steady-state max positive rate of change parameter is `0.000001157407407 USDS/second` (`0.1 USDS/day`). The Olympus app displays the current borrowable amount.
 :::
 
 Governance can update these parameters as needed.
@@ -64,7 +64,7 @@ Example: a user requests to borrow against 1 gOHM. The LTV Oracle determines the
 
 ### Repaying a Loan
 
-Borrowers can repay a loan at any time with any amount using the Olympus front-end or by calling the `repay()` function on the [Cooler V2 contract](https://etherscan.io/address/0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC). However, because of how loans are fulfilled, any repayment will be allocated toward interest first. Any repayment in excess of interest owed is then allocated to repaying the principal. Partial repayments reduce both debt and the associated interest-bearing collateral, which becomes withdrawable. Full repayment stops interest accrual and unlocks the full gOHM collateral. Withdrawals must be executed manually unless bundled using the [Composites contract](https://etherscan.io/address/0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd).
+Borrowers can repay a loan at any time with any amount using the Olympus front-end or by calling the `repay()` function on the [Cooler V2 contract](/main/contracts/addresses#policies). However, because of how loans are fulfilled, any repayment will be allocated toward interest first. Any repayment in excess of interest owed is then allocated to repaying the principal. Partial repayments reduce both debt and the associated interest-bearing collateral, which becomes withdrawable. Full repayment stops interest accrual and unlocks the full gOHM collateral. Withdrawals must be executed manually unless bundled using the [Composites contract](/main/contracts/addresses#periphery).
 
 Example: a user borrowed against 1 gOHM several months ago and has accrued interest on the outstanding USDS debt. For this example, assume the user owes a small amount of interest in addition to principal.
 
@@ -77,7 +77,7 @@ Example: a user borrowed against 1 gOHM several months ago and has accrued inter
 
 ### Multi-Wallet Delegation & Voting Power
 
-Cooler Loans V2 supports advanced delegation of gOHM through the [DLGTE module](https://etherscan.io/address/0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74). This enables users to assign voting rights to up to 10 different addresses for both wallet-held and Cooler V2 loan-associated gOHM. Note: this is also where users can manage delegation for any legacy Cooler Clearinghouse V1 voting power if they hold a position there.
+Cooler Loans V2 supports advanced delegation of gOHM through the [DLGTE module](/main/contracts/addresses#modules). This enables users to assign voting rights to up to 10 different addresses for both wallet-held and Cooler V2 loan-associated gOHM. Note: this is also where users can manage delegation for any legacy Cooler Clearinghouse V1 voting power if they hold a position there.
 
 Users can manage delegation through the "DAO" page in the Olympus app under the Delegation tab. Once a wallet is connected, they can assign voting power for:
 
@@ -85,7 +85,7 @@ Users can manage delegation through the "DAO" page in the Olympus app under the 
 - Cooler Clearinghouse V1 Voting Power (gOHM used as loan collateral)
 - Cooler V2 Voting Power (gOHM used as loan collateral)
 
-Each delegation allows users to choose a delegate address, and optionally self-delegate. Delegated gOHM is moved into a cloned DelegateEscrow contract, separating it from the [DLGTE module](https://etherscan.io/address/0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74) and assigning it to the chosen delegate.
+Each delegation allows users to choose a delegate address, and optionally self-delegate. Delegated gOHM is moved into a cloned DelegateEscrow contract, separating it from the [DLGTE module](/main/contracts/addresses#modules) and assigning it to the chosen delegate.
 
 **End State:**
 
@@ -193,18 +193,4 @@ To participate in governance, users MUST self-delegate in order to be able to us
 
 ## Contracts
 
-| Contract             | Type      | Address                                                                                                                 |
-| -------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Monocooler           | Policy    | [`0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC`](https://etherscan.io/address/0xdb591Ea2e5Db886dA872654D58f6cc584b68e7cC) |
-| LTV Oracle           | Policy    | [`0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc`](https://etherscan.io/address/0x9ee9f0c2e91E4f6B195B988a9e6e19efcf91e8dc) |
-| Treasury Borrower    | Policy    | [`0xD58d7406E9CE34c90cf849Fc3eed3764EB3779B0`](https://etherscan.io/address/0xD58d7406E9CE34c90cf849Fc3eed3764EB3779B0) |
-| DLGTE                | Module    | [`0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74`](https://etherscan.io/address/0xD3204Ae00d6599Ba6e182c6D640A79d76CdAad74) |
-| Cooler V2 Composites | Periphery | [`0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd`](https://etherscan.io/address/0x6593768feBF9C95aC857Fb7Ef244D5738D1C57Fd) |
-
-### Legacy Contracts
-
-| Contract           | Type                 | Address                                                                                                                 |
-| ------------------ | -------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Clearinghouse V1.0 | Legacy Clearinghouse | [`0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880`](https://etherscan.io/address/0xD6A6E8d9e82534bD65821142fcCd91ec9cF31880) |
-| Clearinghouse V1.1 | Legacy Clearinghouse | [`0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c`](https://etherscan.io/address/0xE6343ad0675C9b8D3f32679ae6aDbA0766A2ab4c) |
-| Clearinghouse V1.2 | Legacy Clearinghouse | [`0x1e094fE00E13fD06D64eeA4FB3CD912893606fE0`](https://etherscan.io/address/0x1e094fE00E13fD06D64eeA4FB3CD912893606fE0) |
+Current Cooler V2 contract addresses are maintained on the [contract addresses page](/main/contracts/addresses). See the [Policies](/main/contracts/addresses#policies), [Modules](/main/contracts/addresses#modules), and [Periphery](/main/contracts/addresses#periphery) sections for active Cooler V2 contracts, and [Policies (deprecated)](/main/contracts/addresses#policies-deprecated) for legacy Clearinghouse contracts.
