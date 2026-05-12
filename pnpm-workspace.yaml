@@ -1,4 +1,7 @@
 minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - "axios"
+  - "follow-redirects"
 preferFrozenLockfile: true
 engineStrict: true
 strictDepBuilds: true
