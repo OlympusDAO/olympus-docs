@@ -1,8 +1,11 @@
 minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
-  - "axios"
-  - "follow-redirects"
+  - "axios@1.16.0"
+  - "follow-redirects@1.16.0"
 preferFrozenLockfile: true
 engineStrict: true
 strictDepBuilds: true
 blockExoticSubdeps: true
+onlyBuiltDependencies:
+  - "core-js@3.24.1"
+  - "core-js-pure@3.49.0"

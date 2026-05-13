@@ -24,3 +24,5 @@ yarn-error.log*
 
 # we use yarn
 package-lock.json
+
+.pnpm-store/
