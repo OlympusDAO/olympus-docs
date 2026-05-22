@@ -1,6 +1,6 @@
 # OlympusHeart
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/policies/Heart.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/policies/Heart.sol)
 
 **Inherits:**
 [IHeart](/main/contracts/docs/src/policies/interfaces/IHeart.sol/interface.IHeart), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), ReentrancyGuard, [BasePeriodicTaskManager](/main/contracts/docs/src/bases/BasePeriodicTaskManager.sol/abstract.BasePeriodicTaskManager)

@@ -1,6 +1,6 @@
 # String
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/libraries/String.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/libraries/String.sol)
 
 ## Functions
 
@@ -11,6 +11,28 @@ Truncates a string to 32 bytes
 ```solidity
 function truncate32(string memory str_) internal pure returns (string memory);
 ```
+
+### bytes32ToString
+
+Converts a bytes32 value to a string
+
+Extracts a null-terminated string from bytes32 (stops at the first null byte)
+
+```solidity
+function bytes32ToString(bytes32 value_) internal pure returns (string memory);
+```
+
+**Parameters**
+
+| Name     | Type      | Description                              |
+| -------- | --------- | ---------------------------------------- |
+| `value_` | `bytes32` | The bytes32 value to convert to a string |
+
+**Returns**
+
+| Name     | Type     | Description                                           |
+| -------- | -------- | ----------------------------------------------------- |
+| `<none>` | `string` | string The string representation of the bytes32 value |
 
 ### substring
 

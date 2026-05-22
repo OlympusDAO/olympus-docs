@@ -1,6 +1,6 @@
 # IInverseBondDepo
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/policies/LegacyBurner.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/policies/LegacyBurner.sol)
 
 ## Functions
 

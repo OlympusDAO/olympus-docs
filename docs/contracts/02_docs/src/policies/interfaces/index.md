@@ -2,6 +2,7 @@
 
 - [cooler](/main/contracts/docs/src/policies/interfaces/cooler)
 - [deposits](/main/contracts/docs/src/policies/interfaces/deposits)
+- [price](/main/contracts/docs/src/policies/interfaces/price)
 - [utils](/main/contracts/docs/src/policies/interfaces/utils)
 - [ICCIPTokenPool](ICCIPTokenPool.sol/interface.ICCIPTokenPool.md)
 - [IDistributor](IDistributor.sol/interface.IDistributor.md)
@@ -14,6 +15,7 @@
 - [IPOLY](IPOLY.sol/interface.IPOLY.md)
 - [IPreviousPOLY](IPOLY.sol/interface.IPreviousPOLY.md)
 - [IGenesisClaim](IPOLY.sol/interface.IGenesisClaim.md)
+- [IPriceConfigv2](IPriceConfigv2.sol/interface.IPriceConfigv2.md)
 - [IReserveMigrator](IReserveMigrator.sol/interface.IReserveMigrator.md)
 - [IReserveWrapper](IReserveWrapper.sol/interface.IReserveWrapper.md)
 - [IV1Migrator](IV1Migrator.sol/interface.IV1Migrator.md)
