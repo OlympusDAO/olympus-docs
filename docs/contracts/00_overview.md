@@ -43,7 +43,7 @@ In Olympus V3, we have the following Modules:
 
 - `MINTR` — The Minter Module, a wrapper for the `OHM` ERC20 contract. Used for minting and burning OHM. A wrapper is used to allow the legacy ERC20 to fit in the Default architecture.
 - `TRSRY` — The Treasury Module, used for depositing and withdrawing assets within the protocol. Also manages token debt allocated to policies.
-- `PRICE` — Used to store historical price oracle data. Used for the functionality of the Range-Bound Stability (RBS) system.
+- `PRICE` — Resolves prices for OHM and configured protocol assets using multiple oracle feeds where available. PRICE v1.2 keeps the v1-style OHM price functions used by existing policies, while adding granular asset-specific accessors such as `getPrice()` for future integrations.
 - `RANGE` — Stores range information for the RBS system.
 - `INSTR` — The Instructions Module, used for storing batched Kernel instructions for convenient proposal execution in the Parthenon policy.
 - `ROLES` — The Roles module is for allowing policies to define roles, assign addresses to those roles, and for the designated `rolesAdmin` to manage those roles.
@@ -69,6 +69,7 @@ Range-Bound Stability (RBS) policies:
 - `BondCallback.sol` — Used as a callback for bond markets. Allows bond markets to mint OHM for payouts.
 - `Heart.sol` — Contract to allow easy access for keepers to call RBS keeper functions.
 - `PriceConfig.sol` — Used for a specified role to adjust parameters in the `PRICE` module
+- `PriceConfig.v2.sol` — Used to configure PRICE v1.2 assets, price feeds, submodules, strategies, and moving-average settings.
 
 Cooler Loans policies:
 
