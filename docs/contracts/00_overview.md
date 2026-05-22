@@ -21,7 +21,7 @@ Olympus V3 uses the [Default Framework](https://github.com/fullyallocated/Defaul
   - Executor is the address able to call major Kernel functions
 - Migrating the Kernel
 
-All non-Kernel smart contracts in the protocol are either _Module Contracts_ or _Policy Contracts_, which you can think of as the protocol's "back-end” and “front-end” logic, respectively. In some ways, this shares similarities to the "core" vs. "periphery" design pattern used by protocols like Uniswap: core contracts (Modules) define the core system capabilities, while periphery contracts (Policies) expose the interfaces that enable EOAs use to interact with the protocol's various features.
+All non-Kernel smart contracts in the protocol are either _Module Contracts_ or _Policy Contracts_, which you can think of as the protocol's "back-end” and “front-end” logic, respectively. In some ways, this shares similarities to the "core" vs. "periphery" design pattern used by protocols like Uniswap: core contracts (Modules) define the core system capabilities, while periphery contracts (Policies) expose the interfaces that enable EOAs to interact with the protocol's various features.
 
 #### Ownership Model: The Executor
 
@@ -29,9 +29,9 @@ While most protocols have ownership defined at the contract level, Default's phi
 
 #### Kernel Migration
 
-The last and final action that can be performed by the Kernel is `MigrateKernel`. This action is particularly sensitive and should only be done with the utmost care attention to detail. In Default, any contract that is installed or configured in a Kernel.sol needs to have an internal variable that points to the contract address of instance of the Kernel it is intended for. As a result, the same instance of a Module or a Policy cannot be reused across other Kernels. However, there may be circumstances in the future where new changes are made to the Kernel, like new Actions that are developed, gas optimizations found, or security improvements made that warrant porting the protocol contracts to a new instance of a Kernel without redeploying the contracts.
+The last and final action that can be performed by the Kernel is `MigrateKernel`. This action is particularly sensitive and should only be done with the utmost care and attention to detail. In Default, any contract that is installed or configured in a Kernel.sol needs to have an internal variable that points to the address of the Kernel instance it is intended for. As a result, the same instance of a Module or a Policy cannot be reused across other Kernels. However, there may be circumstances in the future where new changes are made to the Kernel, like new Actions that are developed, gas optimizations found, or security improvements made that warrant porting the protocol contracts to a new instance of a Kernel without redeploying the contracts.
 
-The `MigrateKernel` Action reconfigures the internal variable for each contract registered in the Kernel, which will brick it. There are no forseeable plans to use this action in Olympus V3, but it's important to be aware of its' existence.
+The `MigrateKernel` Action reconfigures the internal variable for each contract registered in the Kernel, which will brick it. There are no foreseeable plans to use this action in Olympus V3, but it's important to be aware of its existence.
 
 ### Modules
 
@@ -49,9 +49,9 @@ In Olympus V3, we have the following Modules:
 - `ROLES` — The Roles module is for allowing policies to define roles, assign addresses to those roles, and for the designated `rolesAdmin` to manage those roles.
 - `DLGTE` — The DLGTE module is for allowing governance delegation of gOHM and Coolered gOHM positions.
 
-In addition, Modules have a `VERSION()` and optional initialization logic `INIT()` thats called when the Module is integrated into the Kernel, which is mainly used when an existing module is upgraded and its state needs to be migrated.
+In addition, Modules have a `VERSION()` and optional initialization logic `INIT()` that is called when the Module is integrated into the Kernel, which is mainly used when an existing module is upgraded and its state needs to be migrated.
 
-Modules often have permissioned functions which should only be called by authorized Policy contracts, such as minting tokens or withdrawing treasury funds. These functions include a `permissioned` modifier to ensure only authorized Policy contracts can call access them.
+Modules often have permissioned functions which should only be called by authorized Policy contracts, such as minting tokens or withdrawing treasury funds. These functions include a `permissioned` modifier to ensure only authorized Policy contracts can call them.
 
 ### Policies
 
@@ -74,7 +74,7 @@ Range-Bound Stability (RBS) policies:
 Cooler Loans policies:
 
 - `MonoCooler` — Core contract managing cooler loan states, lender-owned contract that manages loan workflows including fulfilling requests, and rebalancing funds to/from Olympus Treasury.
-- `LTV Oracle` — Defines originaion and liquidation LTV's.
+- `LTV Oracle` — Defines origination and liquidation LTVs.
 - `Treasury Borrower` — Connects loan disbursement to the Olympus Treasury.
 
 Deprecated:
@@ -95,6 +95,6 @@ General protocol and management policies:
 
 ### Protocol Architecture
 
-The following diagram represents all the active modules and polices that take part in Olympus V3.
+The following diagram represents all the active modules and policies that take part in Olympus V3.
 
 ![Olympus V3](/gitbook/assets/security-diagrams/olympus-v3.svg)
