@@ -1,8 +1,10 @@
 # Asset Configuration
 
-PRICE v1.2 improves Olympus price resolution by combining multiple oracle feeds from different providers and filtering out stale or deviating values. This increases resilience for protocol pricing while preserving backwards compatibility with the PRICE v1 functions used by existing policies.
+PRICE v1.2 improves Olympus price resolution by combining oracle feeds from different providers where available and filtering out stale or deviating values. This increases resilience for protocol pricing while preserving backwards compatibility with the PRICE v1 functions used by existing policies.
 
 Existing policies such as the Yield Repurchase Facility and Emissions Manager continue to read OHM prices through the v1-style functions they already use. Newer integrations can use asset-specific functions such as `getPrice(address asset_)`, `getPriceIn(address asset_, address quote_)`, and `getAssets()` to read configured asset prices directly.
+
+External integrations that need standard oracle interfaces can consume configured PRICE v1.2 asset prices through [oracle adapters](./10_oracle-adapters.md) backed by `PriceCache`.
 
 ## Policy Usage
 
@@ -79,7 +81,7 @@ sequenceDiagram
         PRICE->>PYTH_USDS: latest price
         PYTH_USDS-->>PRICE: USDS-USD price and confidence
     end
-    Note over PRICE: Exclude zero, stale, over-confidence, and values deviating more than 1% from median.
+    Note over PRICE: Exclude zero values, stale feeds, Pyth values above the confidence limit, and values deviating more than 1% from median.
     PRICE-->>Caller: average USDS price
 ```
 
@@ -112,7 +114,7 @@ sequenceDiagram
         CL_BTCUSD-->>PRICE: BTC-USD price
         Note over PRICE: Calculate ETH-BTC x BTC-USD.
     end
-    Note over PRICE: Exclude zero, stale, over-confidence, and values deviating more than 5% from median.
+    Note over PRICE: Exclude zero values, stale feeds, Pyth values above the confidence limit, and values deviating more than 5% from median.
     PRICE-->>Caller: average wETH price
 ```
 

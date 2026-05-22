@@ -70,6 +70,8 @@ Range-Bound Stability (RBS) policies:
 - `Heart.sol` — Contract to allow easy access for keepers to call RBS keeper functions.
 - `PriceConfig.sol` — Used for a specified role to adjust parameters in the `PRICE` module
 - `PriceConfig.v2.sol` — Used to configure PRICE v1.2 assets, price feeds, submodules, strategies, and moving-average settings.
+- `PriceCache.sol` — Caches PRICE v1.2 asset/quote pair snapshots for oracle adapters and integrations that need pair-specific freshness checks.
+- `ChainlinkOracleFactory.sol`, `MorphoOracleFactory.sol`, and `ERC7726OracleFactory.sol` — Create and manage oracle adapter clones that expose PRICE v1.2 prices through Chainlink-compatible, Morpho, and ERC-7726 interfaces.
 
 Cooler Loans policies:
 
