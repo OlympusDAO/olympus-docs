@@ -56,6 +56,8 @@ For Chainlink and RedStone paths, the stale threshold is the maximum time since 
 
 OHM's 30-day moving average is migrated into PRICE v1.2 for backwards-compatible target-price reads. It is not an input to OHM spot-price resolution.
 
+PRICE audit references are listed on the [audits page](../security/02_audits.md#price).
+
 ## USDS Price Resolution
 
 ```mermaid
