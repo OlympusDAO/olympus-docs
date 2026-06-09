@@ -1,107 +1,35 @@
 # Audits
 
-## Convertible Deposits
-
-| Auditor  | Link                                                                                                                    | Date                |
-| -------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| Guardian | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-09_Convertible_Deposits-Guardian.pdf) | September 5th, 2025 |
-| Trust    | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-10_Convertible_Deposits-Trust.pdf)    | October 5th, 2025   |
-
-## CCIP Bridge
-
-| Auditor   | Link                                                                                                            | Date      |
-| --------- | --------------------------------------------------------------------------------------------------------------- | --------- |
-| Electisec | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-06_Electisec_CCIP_Bridge.pdf) | June 2025 |
-
-## Cooler Loans v2 Migrator and Composites
-
-| Auditor   | Link                                                                                                                      | Date             |
-| --------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Electisec | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-03-19_Cooler_V2_Migrator-Electisec.pdf) | March 19th, 2025 |
-
-## Cooler Loans v2
-
-| Auditor    | Link                                                                                                                        | Date             |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| panprog    | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-03-09_Cooler_V2-panprog.pdf)              | March 9th, 2025  |
-| Electisec  | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-03-19_Cooler_V2-Electisec.pdf)            | March 19th, 2025 |
-| Nethermind | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-04-04%20Cooler%20V2%20-%20Nethermind.pdf) | April 4th, 2025  |
-
-## Emissions Manager
-
-| Auditor | Link                                                                                                                      | Date        |
-| ------- | ------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| yAudit  | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2024_11_EmissionManager_ReserveMigrator.pdf) | Nov 9, 2024 |
-
-## On-Chain Governance
-
-| Auditor  | Link                                                                 | Date         |
-| -------- | -------------------------------------------------------------------- | ------------ |
-| Sherlock | [Link](/gitbook/assets/Olympus_On-Chain_Governance_Audit_Report.pdf) | Feb 6, 2024  |
-| yAudit   | [Link](/gitbook/assets/yaudit_report.pdf)                            | Oct 17, 2024 |
-
-## RBS 2.0
-
-| Auditor  | Link                                                  | Date         |
-| -------- | ----------------------------------------------------- | ------------ |
-| Sherlock | [Link](/gitbook/assets/olympus_rbs2_audit_report.pdf) | Jan 29, 2024 |
-
-## RBS 1.4
-
-| Auditor   | Link                                           | Date        |
-| --------- | ---------------------------------------------- | ----------- |
-| HickupHH3 | [Link](/gitbook/assets/2023_11_OlympusDAO.pdf) | Nov 7, 2023 |
-
-## Cooler Loans
-
-| Auditor  | Link                                                   | Date          |
-| -------- | ------------------------------------------------------ | ------------- |
-| Sherlock | [Link](/gitbook/assets/Cooler_Update_Audit_Report.pdf) | Sept 22, 2023 |
-
-## Cooler Loan Consolidator
-
-| Auditor   | Link                                                                                                             | Date        |
-| --------- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
-| HickupHH3 | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2024_10_LoanConsolidator_Audit.pdf) | Nov 4, 2024 |
-
-## Cross-chain
-
-| Auditor  | Link                                             | Date           |
-| -------- | ------------------------------------------------ | -------------- |
-| OtterSec | [Link](/gitbook/assets/ottersec_audit_final.pdf) | March 17, 2023 |
-
-## LendingAMO (legacy)
-
-| Auditor   | Link                                                                     | Date          |
-| --------- | ------------------------------------------------------------------------ | ------------- |
-| Zac Obron | [Link](https://gist.github.com/zobront/f1eec20c0e566632cf167004bf4076c6) | June 23, 2023 |
-
-## Boosted Liquidity Vault (legacy)
-
-| Auditor  | Link                                                                | Date              |
-| -------- | ------------------------------------------------------------------- | ----------------- |
-| Kebabsec | [Link](https://hackmd.io/@12og4u7y8i/HJVAPMlno)                     | February 04, 2023 |
-| Sherlock | [Link](/gitbook/assets/Olympus_Liquidity_Vaults_Audit_Report_1.pdf) | April 13, 2023    |
-
-## Olympus V3
-
-| Auditor                        | Link                                                   | Date              |
-| ------------------------------ | ------------------------------------------------------ | ----------------- |
-| Spearbit                       | [Link](/OlympusDAO-1.pdf)                              | July 24, 2022     |
-| CodeArena                      | [Link](https://code4rena.com/reports/2022-08-olympus/) | October 26, 2022  |
-| KebabSec (Remediation Phase 1) | [Link](https://hackmd.io/tJdujc0gSICv06p_9GgeFQ)       | October 17, 2022  |
-| KebabSec (Remediation Phase 2) | [Link](https://hackmd.io/@12og4u7y8i/rk5PeIiEs)        | November 02, 2022 |
-| KebabSec (Finalization)        | [Link](https://hackmd.io/@12og4u7y8i/Sk56otcBs)        | November 15, 2022 |
-
-## Olympus V2
-
-| Auditor  | Link                                                 | Date         |
-| -------- | ---------------------------------------------------- | ------------ |
-| Omniscia | [Link](https://omniscia.io/olympus-dao-protocol-v2/) | Nov 23, 2021 |
-
-## Olympus V1
-
-| Auditor    | Link                                                                                                                     | Date          |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------ | ------------- |
-| PeckShield | [Link](https://github.com/peckshield/publications/blob/master/audit_reports/PeckShield-Audit-Report-OlympusDAO-v1.0.pdf) | April 9, 2021 |
-| Omniscia   | [Link](https://omniscia.io/olympusdao-algorithmic-currency-protocol)                                                     | May 28, 2021  |
+| Time Period | Project                                                                                                             | Auditor                        | Subject                                      | Report                                                                                                                      |
+| ----------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------ | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 2021-04     | <span id="olympus-v1"></span>Olympus V1                                                                             | PeckShield                     | Olympus V1                                   | [Link](https://github.com/peckshield/publications/blob/master/audit_reports/PeckShield-Audit-Report-OlympusDAO-v1.0.pdf)    |
+| 2021-05     | Olympus V1                                                                                                          | Omniscia                       | Olympus V1                                   | [Link](https://web.archive.org/web/20211130101428/https://omniscia.io/olympusdao-algorithmic-currency-protocol/)            |
+| 2021-11     | <span id="olympus-v2"></span>Olympus V2                                                                             | Omniscia                       | Olympus V2                                   | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/V2AuditCombined%20%28final%29.pdf)             |
+| 2022-07     | <span id="olympus-v3"></span>Olympus V3                                                                             | Spearbit                       | Olympus V3                                   | [Link](/OlympusDAO-1.pdf)                                                                                                   |
+| 2022-10     | Olympus V3                                                                                                          | KebabSec (Remediation Phase 1) | Olympus V3 remediation                       | [Link](https://web.archive.org/web/20231210050357/https://hackmd.io/tJdujc0gSICv06p_9GgeFQ)                                 |
+| 2022-10     | Olympus V3                                                                                                          | CodeArena                      | Olympus V3                                   | [Link](https://code4rena.com/reports/2022-08-olympus/)                                                                      |
+| 2022-11     | Olympus V3                                                                                                          | KebabSec (Remediation Phase 2) | Olympus V3 remediation                       | [Link](https://web.archive.org/web/20231210043017/https://hackmd.io/@12og4u7y8i/rk5PeIiEs)                                  |
+| 2022-11     | Olympus V3                                                                                                          | KebabSec (Finalization)        | Olympus V3 finalization                      | [Link](https://web.archive.org/web/20231210045634/https://hackmd.io/@12og4u7y8i/Sk56otcBs)                                  |
+| 2023-02     | <span id="boosted-liquidity-vault-legacy"></span><span id="boosted-liquidity-vaults"></span>Boosted Liquidity Vault | Kebabsec                       | Boosted Liquidity Vault                      | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/Boosted_Liquidity_Vault_Audit_-_Kebabsec.pdf)  |
+| 2023-03     | <span id="cross-chain"></span>Cross-chain                                                                           | OtterSec                       | Cross-chain                                  | [Link](/gitbook/assets/ottersec_audit_final.pdf)                                                                            |
+| 2023-04     | Boosted Liquidity Vault                                                                                             | Sherlock                       | Boosted Liquidity Vault                      | [Link](/gitbook/assets/Olympus_Liquidity_Vaults_Audit_Report_1.pdf)                                                         |
+| 2023-06     | <span id="lendingamo-legacy"></span>LendingAMO                                                                      | Zac Obron                      | LendingAMO                                   | [Link](https://gist.github.com/zobront/f1eec20c0e566632cf167004bf4076c6)                                                    |
+| 2023-09     | <span id="cooler-loans"></span>Cooler Loans                                                                         | Sherlock                       | Cooler Loans v1                              | [Link](/gitbook/assets/Cooler_Update_Audit_Report.pdf)                                                                      |
+| 2023-11     | <span id="rbs-1-3-and-1-4"></span><span id="rbs-1-4"></span>RBS                                                     | HickupHH3                      | RBS 1.3 and 1.4                              | [Link](/gitbook/assets/2023_11_OlympusDAO.pdf)                                                                              |
+| 2024-01     | <span id="rbs-2-0"></span>RBS                                                                                       | Sherlock                       | RBS 2.0                                      | [Link](/gitbook/assets/olympus_rbs2_audit_report.pdf)                                                                       |
+| 2024-02     | <span id="on-chain-governance"></span>On-Chain Governance                                                           | Sherlock                       | On-Chain Governance                          | [Link](/gitbook/assets/Olympus_On-Chain_Governance_Audit_Report.pdf)                                                        |
+| 2024-10     | On-Chain Governance                                                                                                 | yAudit                         | On-Chain Governance                          | [Link](/gitbook/assets/yaudit_report.pdf)                                                                                   |
+| 2024-11     | <span id="cooler-loan-consolidator"></span>Cooler Loans                                                             | HickupHH3                      | Loan Consolidator                            | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2024_10_LoanConsolidator_Audit.pdf)            |
+| 2024-11     | <span id="emissions-manager"></span>Emissions Manager                                                               | yAudit                         | Emissions Manager and Reserve Migrator       | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2024_11_EmissionManager_ReserveMigrator.pdf)   |
+| 2025-03     | <span id="hohm"></span>hOHM                                                                                         | Guardefy (panprog)             | hOHM                                         | [Link](https://github.com/TempleDAO/origami-public/blob/main/audits/hOHM/Panprog_hOHM.pdf)                                  |
+| 2025-03     | <span id="cooler-loans-v2"></span>Cooler Loans                                                                      | panprog                        | Cooler Loans v2                              | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-03-09_Cooler_V2-panprog.pdf)              |
+| 2025-03     | hOHM                                                                                                                | Electisec                      | hOHM                                         | [Link](https://github.com/TempleDAO/origami-public/blob/main/audits/hOHM/Electisec_hOHM.pdf)                                |
+| 2025-03     | Cooler Loans                                                                                                        | Electisec                      | Cooler Loans v2                              | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-03-19_Cooler_V2-Electisec.pdf)            |
+| 2025-03     | <span id="cooler-loans-v2-migrator-and-composites"></span>Cooler Loans                                              | Electisec                      | Cooler Loans v2 Migrator and Composites      | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-03-19_Cooler_V2_Migrator-Electisec.pdf)   |
+| 2025-04     | hOHM                                                                                                                | Nethermind                     | hOHM                                         | [Link](https://github.com/TempleDAO/origami-public/blob/main/audits/hOHM/Nethermind_hOHM.pdf)                               |
+| 2025-04     | Cooler Loans                                                                                                        | Nethermind                     | Cooler Loans v2                              | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-04-04%20Cooler%20V2%20-%20Nethermind.pdf) |
+| 2025-05     | <span id="hohm-migrator"></span>hOHM                                                                                | Electisec                      | hOHM Migrator                                | [Link](https://github.com/TempleDAO/origami-public/blob/main/audits/hOHM/Electisec_hOHM_Migrator.pdf)                       |
+| 2025-06     | <span id="ccip-bridge"></span>CCIP Bridge                                                                           | Electisec                      | CCIP Bridge                                  | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-06_Electisec_CCIP_Bridge.pdf)             |
+| 2025-09     | <span id="convertible-deposits"></span>Convertible Deposits                                                         | Guardian Audits                | Convertible Deposits                         | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-09_Convertible_Deposits-Guardian.pdf)     |
+| 2025-10     | Convertible Deposits                                                                                                | Trust                          | Convertible Deposits                         | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2025-10_Convertible_Deposits-Trust.pdf)        |
+| 2026-02     | <span id="ohm-v1-migrator"></span>OHM v1 Migrator                                                                   | Guardian                       | OHM v1 migration and TokenMigrator defunding | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2026-02_Migrator.pdf)                          |

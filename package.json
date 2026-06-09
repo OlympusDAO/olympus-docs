@@ -15,8 +15,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
     "lint": "prettier --write .",
-    "lint:check": "prettier --check .",
-    "preinstall": "npx only-allow@1.2.2 pnpm"
+    "lint:check": "prettier --check ."
   },
   "dependencies": {
     "@docusaurus/core": "2.4.1",
