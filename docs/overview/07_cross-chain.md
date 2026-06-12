@@ -6,7 +6,7 @@ The OHM token is available cross-chain! Olympus uses bridge infrastructure to se
 
 Olympus currently uses two bridge paths:
 
-- EVM chains use the `CrossChainBridge` contracts with LayerZero messaging.
+- EVM chains use the `CrossChainBridge` contracts with LayerZero messaging and mint/burn accounting.
 - Solana uses Chainlink CCIP through `CCIPCrossChainBridge`, the user-facing bridge contract, and CCIP token pools such as `CCIPLockReleaseTokenPool`.
 
 ## How to bridge
@@ -17,15 +17,35 @@ Olympus currently uses two bridge paths:
 4. Enter amounts, approve and click Bridge. Note that Olympus does not charge a fee for bridging. You only pay for gas and the message passing fee charged by the bridge infrastructure.
 5. You can view the transaction under the Transactions list.
 
+:::caution
+
+EVM bridging is currently disabled following the recent KelpDAO incident. Upgraded EVM bridge contracts and infrastructure are in development.
+
+:::
+
 ## Supported networks
 
-Arbitrum, Optimism, Base, Bera, and Solana.
+Ethereum mainnet, Arbitrum, Optimism, Base, Bera, and Solana.
+
+## Bridge lanes
+
+The available bridge lane determines both the messaging provider and the token accounting model:
+
+| Lane                                                   | Bridge path | Mechanism                                                                                                                                              |
+| ------------------------------------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Ethereum mainnet &rarr; Solana                         | CCIP        | Canonical OHM is locked in the Ethereum `CCIPLockReleaseTokenPool`; native OHM is minted on Solana through the CCIP token pool.                        |
+| Solana &rarr; Ethereum mainnet                         | CCIP        | Native OHM is burned on Solana through the CCIP token pool; canonical OHM is released from the Ethereum `CCIPLockReleaseTokenPool`.                    |
+| Ethereum mainnet &rarr; non-canonical EVM chain        | LayerZero   | OHM is burned on Ethereum mainnet and minted on the destination EVM chain. Applies to Arbitrum, Base, Berachain, and Optimism.                         |
+| Non-canonical EVM chain &rarr; Ethereum mainnet        | LayerZero   | OHM is burned on the source EVM chain and minted on Ethereum mainnet. Applies to Arbitrum, Base, Berachain, and Optimism.                              |
+| Non-canonical EVM chain &rarr; non-canonical EVM chain | LayerZero   | Not currently supported. The upgraded EVM bridge infrastructure can support non-canonical EVM-to-EVM lanes when the relevant trusted remotes are live. |
 
 ## Mechanism
 
 ### EVM bridge
 
-When sending OHM from a source chain (e.g. mainnet) to a supported EVM chain, the `CrossChainBridge` smart contract invokes the `MINTR` module to burn OHM on the source chain and send a message payload over the LayerZero Endpoint.
+When sending OHM from a source chain (e.g. mainnet) to a supported EVM chain, the `CrossChainBridge` smart contract invokes the `MINTR` module to burn OHM on the source chain and send a message payload over the LayerZero Endpoint. When the message is received, the destination `CrossChainBridge` mints OHM on the destination chain.
+
+All current EVM bridge deployments use this mint/burn pattern. Ethereum mainnet is treated as the canonical chain for OHM supply: net-new protocol supply can only be minted on Ethereum mainnet. Bridge minting on non-canonical chains only mirrors OHM that has been burned on another chain.
 
 ```solidity
 function sendOhm(uint16 dstChainId_, address to_, uint256 amount_) external payable {
@@ -41,7 +61,7 @@ function sendOhm(uint16 dstChainId_, address to_, uint256 amount_) external paya
 }
 ```
 
-When the message is received by the destination chain (e.g. Arbitrum), the `CrossChainBridge` smart contract mints native OHM on the destination chain.
+On receipt, the destination `CrossChainBridge` mints native OHM:
 
 ```solidity
 function _receiveMessage(
@@ -63,7 +83,7 @@ function _receiveMessage(
 
 Bridging to and from Solana uses Chainlink CCIP instead of the LayerZero bridge. Users interact with `CCIPCrossChainBridge`, which sends CCIP messages and transfers OHM through CCIP token pools.
 
-On Ethereum, Olympus uses Chainlink's heavily audited `CCIPLockReleaseTokenPool` to lock canonical OHM when tokens are bridged out and release OHM when tokens are bridged back. On non-canonical chains, CCIP burn/mint token pools support the same native-token model by burning tokens on the source chain and minting tokens on the destination chain.
+On Ethereum, Olympus uses Chainlink's heavily audited `CCIPLockReleaseTokenPool` to lock canonical OHM when tokens are bridged to Solana and release OHM when tokens are bridged back to Ethereum mainnet. On Solana, the CCIP token pool uses burn/mint accounting so that native OHM can be minted when entering Solana and burned when exiting Solana.
 
 Once bridged, users can use native OHM in any protocol that accepts OHM.
 
@@ -89,16 +109,4 @@ Native bridge architecture is not without risk. The EVM bridge path depends on L
 
 ## Contracts
 
-### Ethereum
-
-| Contract                 | Address                                                                                                               |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| CrossChainBridge         | [0x45e563c39cddba8699a90078f42353a57509543a](https://etherscan.io/address/0x45e563c39cddba8699a90078f42353a57509543a) |
-| CCIPCrossChainBridge     | [0xFbf6383dC3F6010d403Ecdf12DDC1311701D143D](https://etherscan.io/address/0xFbf6383dC3F6010d403Ecdf12DDC1311701D143D) |
-| CCIPLockReleaseTokenPool | [0xa5588e518CE5ee0e4628C005E4edAbD5e87de3aD](https://etherscan.io/address/0xa5588e518CE5ee0e4628C005E4edAbD5e87de3aD) |
-
-### Arbitrum
-
-| Contract         | Address                                                                                                              |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------- |
-| CrossChainBridge | [0x20B3834091f038Ce04D8686FAC99CA44A0FB285c](https://arbiscan.io/address/0x20B3834091f038Ce04D8686FAC99CA44A0FB285c) |
+Bridge contract addresses are listed in the [contract addresses table](../contracts/01_addresses.md).
