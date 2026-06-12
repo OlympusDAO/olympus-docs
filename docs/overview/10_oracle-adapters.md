@@ -2,7 +2,7 @@
 
 PRICE v1.2 has two consumption paths. Protocol policies and newer integrations can read the module directly through functions such as `getPrice()` and `getPriceIn()`. Integrations that already expect a standard oracle interface can use adapter contracts instead.
 
-The adapters do not add independent price sources. PRICE v1.2 remains the price-resolution system: it resolves configured asset prices from the feeds, strategies, stale-feed checks, confidence checks, and deviation filters described in [Asset Configuration](./09_asset-configuration.md). `PriceCache` and the adapters then expose those configured prices in the format an external integration expects.
+The adapters do not add independent price sources. PRICE v1.2 remains the price-resolution system: it resolves configured asset prices from the feeds, strategies, stale-feed checks, and deviation filters described in [Asset Configuration](./09_asset-configuration.md). `PriceCache` and the adapters then expose those configured prices in the format an external integration expects.
 
 ## Adapter Model
 
@@ -69,7 +69,7 @@ The factory itself can also be disabled. When a factory is disabled, its managed
 
 Adapters read cached pair snapshots. They do not fall back to live PRICE resolution when the cached snapshot is missing or stale. If the last cached price is older than the adapter's `maxAge`, price reads revert with the adapter's stale-data error. Consumers can check staleness first, then refresh the cache and retry the read.
 
-Cache refreshes can also fail if the underlying PRICE v1.2 configuration cannot produce a valid price. Examples include an asset that is not configured, an invalid pair, stale or deviating underlying feeds, a Pyth confidence value above the configured limit, or a strategy that does not have enough valid inputs. In that case the cache is not updated; if the previous cached snapshot is now stale, the adapter remains unavailable until the PRICE configuration or underlying feeds can produce a fresh valid price.
+Cache refreshes can also fail if the underlying PRICE v1.2 configuration cannot produce a valid price. Examples include an asset that is not configured, an invalid pair, stale or deviating underlying feeds, an inactive API3 reader proxy, or a strategy that does not have enough valid inputs. In that case the cache is not updated; if the previous cached snapshot is now stale, the adapter remains unavailable until the PRICE configuration or underlying feeds can produce a fresh valid price.
 
 ## Morpho Lending Market Example
 
