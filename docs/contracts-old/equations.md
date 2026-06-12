@@ -60,10 +60,10 @@ $$
 
 OHM supply does not have a hard cap. Its supply increases when:
 
-* OHM is minted and distributed to the stakers.
-* OHM is minted for the bonder. This happens whenever someone purchases a bond.
-* OHM is minted for the DAO. This happens whenever someone purchases a bond. The DAO gets the same number of OHM as the bonder.
-* OHM is minted for the team, investors, advisors, or the DAO. This happens whenever
+- OHM is minted and distributed to the stakers.
+- OHM is minted for the bonder. This happens whenever someone purchases a bond.
+- OHM is minted for the DAO. This happens whenever someone purchases a bond. The DAO gets the same number of OHM as the bonder.
+- OHM is minted for the team, investors, advisors, or the DAO. This happens whenever
 
   the aforementioned party exercises their pOHM.
 
@@ -116,4 +116,3 @@ RFV_{lpBond} = 2sqrt(constantProduct) * (\%\ ownership\ of\ the\ pool)
 $$
 
 For LP bonds such as OHM-DAI bond and OHM-FRAX bond, the RFV is calculated differently because the protocol needs to mark down its value. Why? The LP token pair consists of OHM, and each OHM in circulation will be backed by these LP tokens - there is a cyclical dependency. To safely guarantee all circulating OHM are backed, the protocol marks down the value of these LP tokens, hence the name _risk-free_ value \(RFV\).
-

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 ---
+
 # Glossary
 
 ## APR
@@ -17,7 +18,7 @@ Bond Control Variable, is the scaling factor at which bond prices change. A high
 
 ## DAO
 
-Decentralized Autonomous Organization, is a governance mechanism for making decisions in a more trustless and collaborative way. Voting rights are often bound to a governance token. In OlympusDAO the governance token is gOHM.  At this time, only gOHM on the Ethereum chain can be used to vote.  gOHM deposited in a staking/lending pool, or LP pairing cannot be used to vote.
+Decentralized Autonomous Organization, is a governance mechanism for making decisions in a more trustless and collaborative way. Voting rights are often bound to a governance token. In OlympusDAO the governance token is gOHM. At this time, only gOHM on the Ethereum chain can be used to vote. gOHM deposited in a staking/lending pool, or LP pairing cannot be used to vote.
 
 ## DCV
 
@@ -74,4 +75,3 @@ Treasury as a Service, is the business model of decentralized custody of partner
 ## TWAP
 
 Time Weighted Average Price, is the average price of an asset over a specified time. TWAPs are used to represent the fair value of an asset as defined by the market.
-

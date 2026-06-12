@@ -3,6 +3,14 @@
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
     "jsx": "react",
+    "module": "Node16",
     "baseUrl": "."
-  }
+  },
+  "exclude": [
+    "dependencies",
+    "build",
+    ".docusaurus",
+    ".pnpm-store",
+    "node_modules"
+  ]
 }

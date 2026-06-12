@@ -1,10 +1,11 @@
 {
-  "name": "",
+  "name": "olympus-docs",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "build:contracts": "./contracts.sh",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -12,7 +13,9 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "prettier --write .",
+    "lint:check": "prettier --check ."
   },
   "dependencies": {
     "@docusaurus/core": "2.4.1",
@@ -31,8 +34,13 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.4.1",
+    "@docusaurus/theme-classic": "2.4.1",
+    "@docusaurus/types": "2.4.1",
     "@tsconfig/docusaurus": "^1.0.7",
-    "typescript": "^5.2.2"
+    "@types/node": "^24.10.1",
+    "prettier": "^3.3.3",
+    "typescript": "^5.2.2",
+    "markdownlint-cli": "^0.44.0"
   },
   "browserslist": {
     "production": [
@@ -47,6 +55,10 @@
     ]
   },
   "engines": {
-    "node": ">=16.14"
-  }
+    "node": ">=24",
+    "pnpm": ">=10.33.0",
+    "npm": "use-pnpm",
+    "yarn": "use-pnpm"
+  },
+  "packageManager": "pnpm@10.33.0"
 }

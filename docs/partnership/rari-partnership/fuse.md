@@ -2,11 +2,11 @@
 
 Fuse is an isolated interest rate market by Rari Capital. Each pool in Fuse can support different types of assets and use different interest rate curves. To lend out sOHM and/or use it as a collateral, users can enter [Olympus Pool Party Fuse pool](https://app.rari.capital/fuse/pool/18). In this pool, several assets are supported:
 
-* sOHM
-* USDC
-* DAI
-* ETH
-* FRAX
+- sOHM
+- USDC
+- DAI
+- ETH
+- FRAX
 
 ## How to Supply Asset
 
@@ -24,4 +24,3 @@ Fuse is an isolated interest rate market by Rari Capital. Each pool in Fuse can 
 6. When the mint transaction is completed, your asset will be supplied to the Fuse pool. This allows you to earn interest and also borrow other assets if you have enabled the supplied asset as collateral.
 
 _Note: If you wish to borrow other assets against your collateral, there is a minimum borrow amount of 1 ETH in equivalent value. Because a small account may not be worth the gas fee to liquidate, this measure ensures that a liquidation is always profitable._
-

@@ -17,7 +17,7 @@ import {
   ChatBubbleLeftIcon,
   CodeBracketIcon,
   BuildingLibraryIcon,
-  MapIcon
+  MapIcon,
 } from "@heroicons/react/24/outline";
 
 export const actions = [
@@ -36,9 +36,9 @@ export const actions = [
   {
     title: "Technical",
     icon: BookOpenIcon,
-    to: "./main/technical/overview",
+    to: "./main/contracts/overview",
     text: `Technical information and documentation`,
-  }
+  },
   /*
   {
     title: "User Guides",
