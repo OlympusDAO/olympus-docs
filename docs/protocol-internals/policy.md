@@ -1,3 +1,9 @@
+---
+title: "Olympus Policy Constants & Tuning"
+description: "The policy constants Olympus uses to optimize the protocol, including bond control variables and reward parameters that govern monetary policy."
+sidebar_label: "Policy"
+---
+
 # Policy
 
 Olympus features policy constants that allow us to optimize the system.

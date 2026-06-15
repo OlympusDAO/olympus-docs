@@ -1,3 +1,9 @@
+---
+title: "Olympus Network State & Design Philosophy"
+description: "The design philosophy behind Olympus's early network state: the tradeoff between volatility, profitability, and stability, and how policy tuning shapes growth."
+sidebar_label: "Initial Network State"
+---
+
 # Initial Network State
 
 **Our initial goal is not to find a stable price.** This may seem antithetical to our currency aspirations, but we ensure you it is not. Olympus can be tuned to optimize for different things. The main tradeoff is volatility and profitability versus stability and consistency. With volatility and profit comes growth; this is what we want early on.

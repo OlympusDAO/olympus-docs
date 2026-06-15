@@ -1,3 +1,9 @@
+---
+title: "Protocol Owned Liquidity (POL) for OHM"
+description: "Protocol Owned Liquidity (POL) is a mechanism where Olympus owns and controls its OHM liquidity directly, rather than renting it from external providers."
+sidebar_label: "Protocol Owned Liquidity"
+---
+
 # Protocol Owned Liquidity
 
 ## Overview

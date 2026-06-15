@@ -1,3 +1,9 @@
+---
+title: "Cooler Loans: Borrow USDS Against gOHM"
+description: "Cooler Loans is Olympus's perpetual lending facility: borrow USDS against gOHM at a fixed 0.5% APR, with no price-based liquidation, no oracle, and no expiry."
+sidebar_label: "Cooler Loans"
+---
+
 # Cooler Loans
 
 ## Overview

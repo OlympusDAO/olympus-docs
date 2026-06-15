@@ -1,3 +1,9 @@
+---
+title: "Bond Contracts (Legacy V1)"
+description: "Legacy reference - Olympus V1 bond contracts, deprecated after the V2 bonds redesign. See current Olympus contract documentation for active bond contracts."
+sidebar_label: "Bonds"
+---
+
 # Bonds
 
 The rollout of [V2 bonds](https://olympusdao.medium.com/introducing-v2-bonds-a17c7da298a2)

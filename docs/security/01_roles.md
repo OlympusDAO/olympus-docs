@@ -1,3 +1,9 @@
+---
+title: "Olympus Roles and Access Control"
+description: "The access-control roles in Olympus V3, built on the Default Framework: each role, the policy contracts that hold it, and the module functions it can call."
+sidebar_label: "Default Framework"
+---
+
 # Default Framework
 
 Olympus V3 uses the [Default Framework](https://github.com/fullyallocated/Default) to configure the protocol’s smart contracts and authorized addresses within the system. More information regarding Default Framework can be found in the [Contracts Overview section](../contracts/00_overview.md) of the docs.

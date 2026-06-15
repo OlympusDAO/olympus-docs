@@ -1,3 +1,9 @@
+---
+title: "Olympus Market Dynamics & Game Theory"
+description: "The self-reinforcing feedback mechanisms in Olympus: how loose and tight policy states drive market dynamics, and the game-theoretic goals of participants. These are self-reinforcing behaviors; action 1 increases the rate of action 2 which increases the rate of action 1. Circular mechanics like this are the drivers of exponential expansion and boom and bust cycles."
+sidebar_label: "Market Dynamics"
+---
+
 # Market Dynamics
 
 There are several feedback mechanisms within the system. These are self-reinforcing behaviors; action 1 increases the rate of action 2 which increases the rate of action 1. Circular mechanics like this are the drivers of exponential expansion and boom and bust cycles. Loose policy states enable these dynamics while tight policy states suppress them.

@@ -1,3 +1,9 @@
+---
+title: "Range Bound Stability (RBS)"
+description: "Range Bound Stability (RBS) enforced a programmatic OHM price range via market operations. It is currently disabled, replaced by YRF and the Emissions Manager."
+sidebar_label: "Range Bound Stability"
+---
+
 # Range Bound Stability
 
 ## Overview

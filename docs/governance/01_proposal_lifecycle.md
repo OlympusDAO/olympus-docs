@@ -1,4 +1,6 @@
 ---
+title: "Olympus Proposal Lifecycle (Governor Bravo)"
+description: "The lifecycle of an Olympus on-chain governance proposal under Governor Bravo: propose(), activate() for voting, queue() into the Timelock, and execute()."
 sidebar_position: 1
 sidebar_label: Proposal Lifecycle
 ---

@@ -1,3 +1,9 @@
+---
+title: "Cross-Chain OHM: Native LayerZero Bridging"
+description: "Olympus uses LayerZero to move OHM across chains: OHM is burned on the source chain and minted natively on the destination, rather than wrapped."
+sidebar_label: "Cross-Chain Bridge"
+---
+
 # Cross-Chain Bridge
 
 ## Overview

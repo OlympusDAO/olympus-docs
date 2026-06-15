@@ -1,3 +1,9 @@
+---
+title: "Staking Contracts (Legacy V1)"
+description: "Legacy reference - the Olympus V1 staking and distributor contracts that drip-fed rebasing rewards. Rebasing is no longer in effect; see current staking docs."
+sidebar_label: "Staking"
+---
+
 # Staking
 
 ## Distributor

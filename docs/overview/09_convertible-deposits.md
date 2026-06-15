@@ -1,3 +1,9 @@
+---
+title: "Convertible Deposits: Lock an OHM Conversion Price"
+description: "Convertible Deposits (CDs) let users deposit USDS and lock in an OHM conversion price, with three exits: convert, redeem, or early exit at a discount."
+sidebar_label: "Convertible Deposits"
+---
+
 # Convertible Deposits
 
 ## 1. Introduction

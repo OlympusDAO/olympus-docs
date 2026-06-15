@@ -1,3 +1,9 @@
+---
+title: "Olympus x Frax Finance Partnership"
+description: "Details of the partnership between OlympusDAO and Frax Finance, including the collaboration's goals and the protocol-owned liquidity initiatives involved."
+sidebar_label: "Frax Finance"
+---
+
 # Frax Finance
 
 A [new partnership between OlympusDAO and Frax Finance](https://olympusdao.medium.com/ohm-x-frax-a-new-breed-of-partnership-95cd1cc01770)

@@ -1,4 +1,6 @@
 ---
+title: "Policy Decision Process (Legacy)"
+description: "Legacy reference - the historical Olympus policy decision-making process used by the policy team before the transition to on-chain governance."
 sidebar_position: 6
 sidebar_label: Policy Process
 ---

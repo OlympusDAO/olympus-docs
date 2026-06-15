@@ -1,4 +1,6 @@
 ---
+title: "How to Submit an Olympus Governance Proposal"
+description: "How to submit a proposal to Olympus On-Chain Governance: meeting the gOHM proposalThreshold, code review in olympus-v3, and calling propose() on Governor Bravo."
 sidebar_position: 2
 sidebar_label: Submission Guidelines
 ---

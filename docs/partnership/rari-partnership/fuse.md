@@ -1,3 +1,9 @@
+---
+title: "Olympus Fuse Pool (Rari Capital)"
+description: "Fuse is an isolated interest rate market by Rari Capital. This guide covers the Olympus Fuse pool, how isolated pools work, and the supported assets."
+sidebar_label: "Fuse"
+---
+
 # Fuse
 
 Fuse is an isolated interest rate market by Rari Capital. Each pool in Fuse can support different types of assets and use different interest rate curves. To lend out sOHM and/or use it as a collateral, users can enter [Olympus Pool Party Fuse pool](https://app.rari.capital/fuse/pool/18). In this pool, several assets are supported:

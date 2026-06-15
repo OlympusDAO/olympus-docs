@@ -1,3 +1,9 @@
+---
+title: "V1 to V2 Migration (Legacy)"
+description: "Legacy reference - the historical guide for migrating from Olympus V1 (sOHM) to V2 (gOHM), which introduced on-chain governance and auto-staking for bonds."
+sidebar_label: "V2 Migration"
+---
+
 # V2 Migration
 
 ## Why do I need to migrate?

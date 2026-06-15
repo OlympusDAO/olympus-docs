@@ -1,4 +1,6 @@
 ---
+title: "How Range Bound Stability (RBS) Works"
+description: "Olympus used treasury reserves and owned liquidity for market operations to keep OHM in a price range. RBS is currently disabled, replaced by YRF and the Emissions Manager."
 sidebar_position: 2
 sidebar_label: Range Bound Stability
 ---
@@ -19,7 +21,7 @@ As long as the protocol remains credible and trustworthy, the market participant
 
 The credibility of this protocol guidance is derived from the capitalization of the Treasury and its majority ownership of market liquidity. As long as the Treasury holds significant assets relative to the _market capitalization of the liquid supply of OHM_, the market should take its guidance seriously. On top of that, the protocol’s majority ownership of its liquidity markets further extends this dynamic.
 
-_Note that the influence of the Treasury over the market is directly dependent on the liquid supply of OHM. Thanks to the introduction of [OHM bonds](./ohm-bonds.md), the protocol can convert current supply into supply locked on a protocol level, magnifying the influence of the Treasury over the liquid market._
+_Note that the influence of the Treasury over the market is directly dependent on the liquid supply of OHM. Thanks to the introduction of OHM bonds, the protocol can convert current supply into supply locked on a protocol level, magnifying the influence of the Treasury over the liquid market._
 
 ## How does the Range Bound Stability system work?
 
