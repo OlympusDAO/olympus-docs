@@ -6,8 +6,10 @@ The OHM token is available cross-chain! Olympus uses bridge infrastructure to se
 
 Olympus currently uses two bridge paths:
 
-- EVM chains use the `CrossChainBridge` contracts with LayerZero messaging and mint/burn accounting.
+- EVM chains use a LayerZero bridge with mint/burn accounting.
 - Solana uses Chainlink CCIP through `CCIPCrossChainBridge`, the user-facing bridge contract, and CCIP token pools such as `CCIPLockReleaseTokenPool`.
+
+The EVM bridge was rebuilt with a security-hardened, multi-contract LayerZero V2 design. For details on the new contracts, rate limits, and safety guardrails, see the [LayerZero Bridge Security Upgrade](./10_layerzero-bridge-upgrade.md) page.
 
 ## How to bridge
 
@@ -17,9 +19,9 @@ Olympus currently uses two bridge paths:
 4. Enter amounts, approve and click Bridge. Note that Olympus does not charge a fee for bridging. You only pay for gas and the message passing fee charged by the bridge infrastructure.
 5. You can view the transaction under the Transactions list.
 
-:::caution
+:::info
 
-EVM bridging is currently disabled following the recent KelpDAO incident. Upgraded EVM bridge contracts and infrastructure are in development.
+EVM bridging was paused as a precaution following an industry-wide bridge incident, then relaunched on a rebuilt, security-hardened bridge. See the [LayerZero Bridge Security Upgrade](./10_layerzero-bridge-upgrade.md) page for the new contracts and safety guardrails.
 
 :::
 
@@ -37,11 +39,17 @@ The available bridge lane determines both the messaging provider and the token a
 | Solana &rarr; Ethereum mainnet                         | CCIP        | Native OHM is burned on Solana through the CCIP token pool; canonical OHM is released from the Ethereum `CCIPLockReleaseTokenPool`.                    |
 | Ethereum mainnet &rarr; non-canonical EVM chain        | LayerZero   | OHM is burned on Ethereum mainnet and minted on the destination EVM chain. Applies to Arbitrum, Base, Berachain, and Optimism.                         |
 | Non-canonical EVM chain &rarr; Ethereum mainnet        | LayerZero   | OHM is burned on the source EVM chain and minted on Ethereum mainnet. Applies to Arbitrum, Base, Berachain, and Optimism.                              |
-| Non-canonical EVM chain &rarr; non-canonical EVM chain | LayerZero   | Not currently supported. The upgraded EVM bridge infrastructure can support non-canonical EVM-to-EVM lanes when the relevant trusted remotes are live. |
+| Non-canonical EVM chain &rarr; non-canonical EVM chain | LayerZero   | Supported on the upgraded LayerZero bridge; OHM is burned on the source EVM chain and minted on the destination EVM chain. Berachain connects to all other EVM chains. See the [LayerZero Bridge Security Upgrade](./10_layerzero-bridge-upgrade.md). |
 
 ## Mechanism
 
 ### EVM bridge
+
+:::note
+
+The EVM bridge has been upgraded to a multi-contract LayerZero V2 design. The burn/mint flow below illustrates the core accounting; for the current contract architecture, rate limits, and security guardrails, see the [LayerZero Bridge Security Upgrade](./10_layerzero-bridge-upgrade.md) page.
+
+:::
 
 When sending OHM from a source chain (e.g. mainnet) to a supported EVM chain, the `CrossChainBridge` smart contract invokes the `MINTR` module to burn OHM on the source chain and send a message payload over the LayerZero Endpoint. When the message is received, the destination `CrossChainBridge` mints OHM on the destination chain.
 
@@ -89,7 +97,7 @@ Once bridged, users can use native OHM in any protocol that accepts OHM.
 
 ## Security
 
-The Olympus `CrossChainBridge` smart contract was reviewed by the LayerZero integrations team and audited by OtterSec. The CCIP bridge contracts were audited by Electisec. Audit reports are available in the [Audits](../security/02_audits.md) section.
+The original Olympus `CrossChainBridge` smart contract was reviewed by the LayerZero integrations team and audited by OtterSec. The upgraded EVM bridge was audited by Guardian (June 2026) — see the [LayerZero Bridge Security Upgrade](./10_layerzero-bridge-upgrade.md) page for its security design. The CCIP bridge contracts were audited by Electisec. Audit reports are available in the [Audits](../security/02_audits.md) section.
 
 To consider the pros and cons of Olympus’ approach to bridging, it’s worth understanding the difference between native tokens and non-native tokens. Native tokens (to a chain) are those tokens that are deployed by the smart contract; non-native tokens are those that are wrapped and managed by a third-party.
 
