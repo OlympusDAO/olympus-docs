@@ -2,14 +2,16 @@
 
 ## Overview
 
-The OHM token is available cross-chain! Olympus uses bridge infrastructure to send and receive native OHM on supported chains. Whereas most bridge architectures create a wrapped representation of a token, Olympus takes a different approach: OHM is burned or locked on the source chain, and minted or released on the destination chain. The resulting OHM is native to that chain which makes it composable with every dApp.
+The OHM token is available cross-chain. Olympus moves **native OHM** between supported chains rather than minting wrapped representations, so the OHM you receive on any chain is composable with every dApp there.
 
-Olympus currently uses two bridge paths:
+Two bridge lanes handle the movement:
 
-- EVM chains use a LayerZero bridge with mint/burn accounting.
-- Solana uses Chainlink CCIP through `CCIPCrossChainBridge`, the user-facing bridge contract, and CCIP token pools such as `CCIPLockReleaseTokenPool`.
+- **EVM chains** use a [LayerZero](https://layerzero.network/) V2 bridge with **burn-and-mint** accounting. OHM is burned on the source chain and an equal amount of native OHM is minted on the destination chain.
+- **Solana** uses Chainlink CCIP. Canonical OHM is **locked or released** on Ethereum, while native OHM is **minted or burned** on Solana.
 
-The EVM bridge was rebuilt with a security-hardened, multi-contract LayerZero V2 design. For details on the new contracts, rate limits, and safety guardrails, see the [LayerZero Bridge Security Upgrade](./10_layerzero-bridge-upgrade.md) page.
+Ethereum is the **canonical chain** for OHM: it is the only place where net-new protocol OHM can be minted. Bridge minting on any other chain only mirrors OHM that was burned or locked elsewhere, so **bridging never changes the total supply of OHM**. There are no wrapped tokens anywhere in the design.
+
+The EVM bridge was rebuilt on a security-hardened LayerZero V2 design and independently audited. For the full per-lane architecture, guardrails, rate limits, and contract roles, see the [Cross-Chain Bridge: Technical Details](./08_bridge-technical-details.md) page.
 
 ## How to bridge
 
@@ -19,102 +21,59 @@ The EVM bridge was rebuilt with a security-hardened, multi-contract LayerZero V2
 4. Enter amounts, approve and click Bridge. Note that Olympus does not charge a fee for bridging. You only pay for gas and the message passing fee charged by the bridge infrastructure.
 5. You can view the transaction under the Transactions list.
 
-:::info
-
-EVM bridging was paused as a precaution following an industry-wide bridge incident, then relaunched on a rebuilt, security-hardened bridge. See the [LayerZero Bridge Security Upgrade](./10_layerzero-bridge-upgrade.md) page for the new contracts and safety guardrails.
-
-:::
-
 ## Supported networks
 
-Ethereum mainnet, Arbitrum, Optimism, Base, Bera, and Solana.
+Ethereum, Arbitrum, Optimism, Base, Berachain, and Solana.
 
 ## Bridge lanes
 
 The available bridge lane determines both the messaging provider and the token accounting model:
 
-| Lane                                                   | Bridge path | Mechanism                                                                                                                                                                                                                                             |
-| ------------------------------------------------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ethereum mainnet &rarr; Solana                         | CCIP        | Canonical OHM is locked in the Ethereum `CCIPLockReleaseTokenPool`; native OHM is minted on Solana through the CCIP token pool.                                                                                                                       |
-| Solana &rarr; Ethereum mainnet                         | CCIP        | Native OHM is burned on Solana through the CCIP token pool; canonical OHM is released from the Ethereum `CCIPLockReleaseTokenPool`.                                                                                                                   |
-| Ethereum mainnet &rarr; non-canonical EVM chain        | LayerZero   | OHM is burned on Ethereum mainnet and minted on the destination EVM chain. Applies to Arbitrum, Base, Berachain, and Optimism.                                                                                                                        |
-| Non-canonical EVM chain &rarr; Ethereum mainnet        | LayerZero   | OHM is burned on the source EVM chain and minted on Ethereum mainnet. Applies to Arbitrum, Base, Berachain, and Optimism.                                                                                                                             |
-| Non-canonical EVM chain &rarr; non-canonical EVM chain | LayerZero   | Supported on the upgraded LayerZero bridge; OHM is burned on the source EVM chain and minted on the destination EVM chain. Berachain connects to all other EVM chains. See the [LayerZero Bridge Security Upgrade](./10_layerzero-bridge-upgrade.md). |
 
-## Mechanism
+| Lane                                                   | Bridge path | Mechanism                                                                                                                                                                                 |
+| ------------------------------------------------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ethereum mainnet &rarr; Solana                         | CCIP        | Canonical OHM is locked in the Ethereum `CCIPLockReleaseTokenPool`; native OHM is minted on Solana through the CCIP token pool.                                                           |
+| Solana &rarr; Ethereum mainnet                         | CCIP        | Native OHM is burned on Solana through the CCIP token pool; canonical OHM is released from the Ethereum `CCIPLockReleaseTokenPool`.                                                       |
+| Ethereum mainnet &rarr; non-canonical EVM chain        | LayerZero   | OHM is burned on Ethereum mainnet and minted on the destination EVM chain. Applies to Arbitrum, Base, Berachain, and Optimism.                                                            |
+| Non-canonical EVM chain &rarr; Ethereum mainnet        | LayerZero   | OHM is burned on the source EVM chain and minted on Ethereum mainnet. Applies to Arbitrum, Base, Berachain, and Optimism.                                                                 |
+| Non-canonical EVM chain &rarr; non-canonical EVM chain | LayerZero   | OHM is burned on the source EVM chain and minted on the destination EVM chain. Berachain connects to all other EVM chains. See the [technical details](./08_bridge-technical-details.md). |
 
-### EVM bridge
-
-:::note
-
-The EVM bridge has been upgraded to a multi-contract LayerZero V2 design. The burn/mint flow below illustrates the core accounting; for the current contract architecture, rate limits, and security guardrails, see the [LayerZero Bridge Security Upgrade](./10_layerzero-bridge-upgrade.md) page.
-
-:::
-
-When sending OHM from a source chain (e.g. mainnet) to a supported EVM chain, the `CrossChainBridge` smart contract invokes the `MINTR` module to burn OHM on the source chain and send a message payload over the LayerZero Endpoint. When the message is received, the destination `CrossChainBridge` mints OHM on the destination chain.
-
-All current EVM bridge deployments use this mint/burn pattern. Ethereum mainnet is treated as the canonical chain for OHM supply: net-new protocol supply can only be minted on Ethereum mainnet. Bridge minting on non-canonical chains only mirrors OHM that has been burned on another chain.
-
-```solidity
-function sendOhm(uint16 dstChainId_, address to_, uint256 amount_) external payable {
-  if (!bridgeActive) revert Bridge_Deactivated();
-  if (ohm.balanceOf(msg.sender) < amount_) revert Bridge_InsufficientAmount();
-
-  bytes memory payload = abi.encode(to_, amount_);
-
-  MINTR.burnOhm(msg.sender, amount_);
-  _sendMessage(dstChainId_, payload, payable(msg.sender), address(0x0), bytes(""), msg.value);
-
-  emit BridgeTransferred(msg.sender, amount_, dstChainId_);
-}
-```
-
-On receipt, the destination `CrossChainBridge` mints native OHM:
-
-```solidity
-function _receiveMessage(
-    uint16 srcChainId_,
-    bytes memory,
-    uint64,
-    bytes memory payload_
-) internal {
-  (address to, uint256 amount) = abi.decode(payload_, (address, uint256));
-
-  MINTR.increaseMintApproval(address(this), amount);
-  MINTR.mintOhm(to, amount);
-
-  emit BridgeReceived(to, amount, srcChainId_);
-}
-```
-
-### Solana bridge
-
-Bridging to and from Solana uses Chainlink CCIP instead of the LayerZero bridge. Users interact with `CCIPCrossChainBridge`, which sends CCIP messages and transfers OHM through CCIP token pools.
-
-On Ethereum, Olympus uses Chainlink's heavily audited `CCIPLockReleaseTokenPool` to lock canonical OHM when tokens are bridged to Solana and release OHM when tokens are bridged back to Ethereum mainnet. On Solana, the CCIP token pool uses burn/mint accounting so that native OHM can be minted when entering Solana and burned when exiting Solana.
-
-Once bridged, users can use native OHM in any protocol that accepts OHM.
 
 ## Security
 
-The original Olympus `CrossChainBridge` smart contract was reviewed by the LayerZero integrations team and audited by OtterSec. The upgraded EVM bridge was audited by Guardian (June 2026) — see the [LayerZero Bridge Security Upgrade](./10_layerzero-bridge-upgrade.md) page for its security design. The CCIP bridge contracts were audited by Electisec. Audit reports are available in the [Audits](../security/02_audits.md) section.
+To weigh the trade-offs of Olympus' approach, it helps to understand the difference between native and non-native tokens. Native tokens are deployed and controlled by the protocol's own contracts on each chain; non-native tokens are wrapped representations held and managed by a third party.
 
-To consider the pros and cons of Olympus’ approach to bridging, it’s worth understanding the difference between native tokens and non-native tokens. Native tokens (to a chain) are those tokens that are deployed by the smart contract; non-native tokens are those that are wrapped and managed by a third-party.
+Under the typical **non-native** bridge design, source tokens are locked in a bridge contract and wrapped representations are minted elsewhere. That contract becomes a single point of attack, which is why bridges account for roughly **half of all DeFi exploits**.
 
-### Pros
+Bridge Exploits
 
-Under the non-native bridge design, source tokens are stored in bridge contracts and wrapped representations are minted. This makes the contract a single point-of-attack, and why bridges account for ~50% of all DeFi exploits.
+Olympus' native bridge avoids this. Each lane mints, burns, locks, or releases real OHM according to the chain's accounting model, so OHM is a genuinely native asset everywhere it is deployed — there is no pool of wrapped tokens to drain.
 
-![Bridge Exploits](/gitbook/assets/bridgeExploits.png)
+### Comparing the two lanes
 
-Olympus’ native bridge design avoids this problem by deploying bridge contracts that can mint, burn, lock, or release OHM according to the destination chain’s bridge path. This makes OHM a truly native asset on each chain it’s deployed on.
+Both lanes are built around the same principle — bound and contain the impact of any single failure — but each uses the guardrails native to its messaging layer:
 
-The CCIP lock/release design also bounds the impact of a non-canonical-chain minting issue. If an attacker were able to mint OHM on a non-canonical chain, the amount that could be bridged back to Ethereum mainnet would be capped by the amount of canonical OHM locked in the Ethereum `CCIPLockReleaseTokenPool`.
 
-### Cons
+| Property                 | EVM lane — LayerZero V2                                                                        | Solana lane — Chainlink CCIP                                                                |
+| ------------------------ | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Messaging layer          | LayerZero V2                                                                                   | Chainlink CCIP                                                                              |
+| Message verification     | Four independent DVNs must agree on every route; the optional-verifier slot is locked off      | Chainlink's decentralized oracle network, with an independent Risk Management Network (RMN) |
+| Token accounting         | Burn on source, mint on destination (native)                                                   | Canonical OHM locked/released on Ethereum; native OHM burned/minted on Solana               |
+| Supply backstop          | Hard cap — never mints more OHM back to Ethereum than was genuinely bridged out                | Bounded by the canonical OHM locked in the `CCIPLockReleaseTokenPool`                       |
+| Rate limits              | Per-route, bidirectional, rolling 24-hour limits                                               | Per-route rate limiters on the CCIP token pools                                             |
+| Sensitive-config control | Timelock-gated, cancellable changes                                                            | Token pool and bridge ownership held by the DAO multisig                                    |
+| Emergency controls       | Pause halts both inbound and outbound; queued changes cancellable; fast re-enable grace period | Disable bridge; rate-limit a pool to ~0; withdraw locked liquidity to cap what can return   |
+| Independent audit        | Guardian (June 2026)                                                                           | Electisec                                                                                   |
 
-Native bridge architecture is not without risk. The EVM bridge path depends on LayerZero messaging, and the Solana bridge path depends on Chainlink CCIP messaging and token pool infrastructure. A failure or compromise in the relevant messaging layer could affect bridge operation.
+
+On the EVM lane, these protections stack as **defense in depth**: several independent layers (four required verifiers, rate limits, the hard return cap, and a timelock) would all have to fail at once before OHM could be put at risk. The [technical details](./08_bridge-technical-details.md) page breaks down each guardrail.
+
+No design removes risk entirely. Both lanes ultimately depend on their messaging layer, and a severe failure or compromise of that layer could affect bridge operation. The layered design is built to **bound and contain** that impact rather than eliminate the risk, giving the community time and tools to respond.
+
+The upgraded EVM bridge was audited by Guardian (June 2026), and the CCIP contracts were audited by Electisec. Audit reports are available in the [Audits](../security/02_audits.md) section.
 
 ## Contracts
 
 Bridge contract addresses are listed in the [contract addresses table](../contracts/01_addresses.md).
+
+For the full architecture, guardrails, rate-limit tables, contract roles, and per-lane mechanics, see the [Cross-Chain Bridge: Technical Details](./08_bridge-technical-details.md) page.
