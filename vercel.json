@@ -37,6 +37,21 @@
       "source": "/main/mechanics/stability/staking",
       "destination": "/main/overview/tokens",
       "permanent": true
+    },
+    {
+      "source": "/main/protocol-internals/initial-network-state",
+      "destination": "/main/overview/intro",
+      "permanent": true
+    },
+    {
+      "source": "/main/protocol-internals/market-dynamics",
+      "destination": "/main/overview/intro",
+      "permanent": true
+    },
+    {
+      "source": "/main/protocol-internals/policy",
+      "destination": "/main/overview/intro",
+      "permanent": true
     }
   ]
 }
