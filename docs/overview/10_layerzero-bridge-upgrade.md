@@ -24,7 +24,7 @@ As a precaution, Olympus paused EVM bridging while the team reviewed and rebuilt
 
 - It relied on LayerZero's **default messaging configuration**, which can change over time and isn't pinned to a fixed, vetted set of verifiers.
 - It had **no rate limits** — no cap on how much OHM could move in a given period.
-- It had **no hard cap** on how much OHM could be brought *back* to Ethereum.
+- It had **no hard cap** on how much OHM could be brought _back_ to Ethereum.
 - It included a message **retry path** that didn't fully re-validate where a message came from.
 
 Rather than patch these one at a time, Olympus rebuilt the bridge with a layered, defense-in-depth design.
@@ -36,14 +36,12 @@ Two things changed under the hood:
 1. **LayerZero V1 → V2.** The bridge now uses LayerZero's newer messaging stack, which allows the explicit, pinned security configuration described below.
 2. **One contract → four specialized contracts.** The old bridge did everything in a single contract. The new design splits responsibilities so that each piece does one job and the impact of any single issue is contained:
 
-
 | Contract                      | Plain-language role                                                                                    |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------ |
 | **LZBridgeGateway**           | The engine room. Handles messaging, OHM mint/burn, rate limits, and supply tracking.                   |
 | **LZCrossChainBridge**        | The user-facing contract you actually interact with when bridging. It has no minting power of its own. |
 | **LZEndpointDelegate**        | Manages the low-level LayerZero connection settings, kept separate from the engine room.               |
 | **LZBridgeAndDelegateConfig** | The timelock. Sensitive settings are managed through this contract, on a delay.                        |
-
 
 ## The security guardrails
 
@@ -66,7 +64,6 @@ The bridge now caps how much OHM can move on each route, in each direction, with
 
 Even in a worst-case scenario, the amount that could move before anyone noticed is **bounded** and the delay gives the community and Olympus contributors time to react and pause the bridge if something looks wrong.
 
-
 | Route                            | Per-route limit (rolling 24h) |
 | -------------------------------- | ----------------------------- |
 | Ethereum → any L2 (outbound)     | 100,000 OHM                   |
@@ -75,12 +72,11 @@ Even in a worst-case scenario, the amount that could move before anyone noticed 
 | L2 → another L2                  | 100,000 OHM                   |
 | Any L2 (inbound, from any chain) | 110,000 OHM                   |
 
-
 The limits are "offsetting": OHM moving one way frees up capacity for OHM moving the other way, so normal round-trip activity isn't unnecessarily constrained.
 
 ### 3. A hard cap on OHM returning to Ethereum
 
-Ethereum is the **canonical home** of OHM, the only chain where net-new OHM can ever be created. The new bridge keeps a precise count of how much OHM has been sent *out* to other chains, and it will **never mint back more OHM on Ethereum than legitimately left it.**
+Ethereum is the **canonical home** of OHM, the only chain where net-new OHM can ever be created. The new bridge keeps a precise count of how much OHM has been sent _out_ to other chains, and it will **never mint back more OHM on Ethereum than legitimately left it.**
 
 This is the strongest backstop in the design. Even in the extreme hypothetical where someone could create fake OHM on an L2, they could not bring more OHM back to Ethereum than had genuinely been bridged out. That ceiling moves up only as real bridging activity happens.
 
@@ -103,7 +99,6 @@ Several lower-level protections were added or fixed:
 
 Permissions are split into narrow, purpose-specific roles so no single actor holds broad power over the bridge:
 
-
 | Role                            | What it can do                                                       |
 | ------------------------------- | -------------------------------------------------------------------- |
 | **Configurator** (the timelock) | Manages sensitive configuration changes on a delay.                  |
@@ -111,7 +106,6 @@ Permissions are split into narrow, purpose-specific roles so no single actor hol
 | **Rate limiter**                | A narrow role scoped only to adjusting rate limits.                  |
 | **Facilitator**                 | The user-facing contract's permission to request a bridge transfer.  |
 | **Emergency**                   | Can pause the bridge immediately and cancel queued timelock changes. |
-
 
 The design also includes a fast **re-enable grace period** (so a precautionary pause can be quickly reversed without a full governance cycle if it was a false alarm, up to 3 days from the shutdown event) and an **asset-rescue** function to recover tokens accidentally sent to the bridge contracts.
 
@@ -124,7 +118,7 @@ The bridge moves **OHM**, Olympus's native token. Olympus uses a **burn-and-mint
 
 Because every mint on a destination chain corresponds to a burn somewhere else, **bridging never changes the total amount of OHM in existence.** The OHM you receive is fully native to its chain, so it works directly with any app or protocol on that chain — no wrapped representation involved.
 
-Ethereum is treated as the **canonical chain**: it is the only place where net-new protocol OHM can be minted. OHM minted by the bridge on other chains only ever *mirrors* OHM that was burned elsewhere, and can never exceed what was genuinely bridged out.
+Ethereum is treated as the **canonical chain**: it is the only place where net-new protocol OHM can be minted. OHM minted by the bridge on other chains only ever _mirrors_ OHM that was burned elsewhere, and can never exceed what was genuinely bridged out.
 
 ## Supported networks
 
@@ -148,7 +142,6 @@ No design removes risk entirely. The bridge still depends on the LayerZero messa
 
 ## Summary
 
-
 | Before                              | After                                                                  |
 | ----------------------------------- | ---------------------------------------------------------------------- |
 | LayerZero V1, default configuration | LayerZero V2, explicitly pinned configuration                          |
@@ -158,8 +151,5 @@ No design removes risk entirely. The bridge still depends on the LayerZero messa
 | No cap on OHM returning to Ethereum | Hard cap tied to OHM actually bridged out                              |
 | Instant configuration changes       | Timelock-gated, cancellable changes                                    |
 | Custom retry path                   | Native, sender-validated delivery                                      |
-
-
-
 
 For step-by-step bridging instructions, supported routes, and contract addresses, see the [Cross-Chain Bridge](./07_cross-chain.md) page and the [contract addresses table](../contracts/01_addresses.md).
