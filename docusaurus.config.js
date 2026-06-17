@@ -12,6 +12,12 @@ const config = {
   tagline: "",
   url: "https://docs.olympusdao.finance",
   baseUrl: "/",
+  // Canonicalize every page to the no-trailing-slash form. This keeps the
+  // generated canonical/sitemap URLs consistent across index and named pages
+  // and avoids the client-side soft-404 that index pages hit without a slash.
+  // Pairs with vercel.json (trailingSlash: false) so the host 308-redirects
+  // the legacy "/path/" form to the canonical "/path".
+  trailingSlash: false,
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.svg",

@@ -6,6 +6,12 @@ sidebar_label: "Fuse"
 
 # Fuse
 
+:::warning Deprecated / inactive
+
+Rari Capital's Fuse is no longer operational and the Olympus Pool Party pool is discontinued. This page is retained for historical reference only. For current Olympus products, see the [Overview](/main/overview/intro).
+
+:::
+
 Fuse is an isolated interest rate market by Rari Capital. Each pool in Fuse can support different types of assets and use different interest rate curves. To lend out sOHM and/or use it as a collateral, users can enter [Olympus Pool Party Fuse pool](https://app.rari.capital/fuse/pool/18). In this pool, several assets are supported:
 
 - sOHM
