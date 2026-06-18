@@ -2,11 +2,11 @@
 
 ## Overview
 
-The Emissions Manager (EM) is an Olympus Policy installed into the Kernel. Its purpose is to emit new OHM supply into the market in a programmatic way. At its core, its schedule is informed by two main variables: the **base emissions rate** and the **minimum premium**. This variables are configurable by OCG in the event that they need to be adjusted in the future. The calculation of premium (which equals market price / backing price) occurs every 3 epochs and is triggered by the heart.
+The Emissions Manager (EM) is an Olympus Policy installed into the Kernel. Its purpose is to control potential OHM emissions when OHM trades at a sufficient premium to treasury backing. At its core, its schedule is informed by two main variables: the **base emissions rate** and the **minimum premium**. These variables are configurable by OCG in the event that they need to be adjusted in the future. The calculation of premium (which equals market price / backing price) occurs periodically and can be triggered by the Heart.
 
-When premium is greater than the minimum premium, the protocol will create a Convertible Deposits auction offering a computed amount of OHM in exchange for new reserves (in the form of USDS). If the premium target has not been reached, the auction will be disabled. The equation for this emission is: `new supply = total supply * base emissions rate * (premium + 100%) / (minimum premium + 100%)`
+When premium is greater than the minimum premium and the relevant contracts are configured and enabled, the protocol can create a Convertible Deposits auction offering a computed amount of OHM in exchange for new reserves, currently expected to be stablecoin reserves such as USDS. If the premium target has not been reached, the auction can be disabled. The equation for this emission is: `new supply = total supply * base emissions rate * (premium + 100%) / (minimum premium + 100%)`
 
-The EmissionManager tracks auction performance over a defined tracking period. If OHM is under-sold during the auction, a Bond Protocol market will be created as a fallback mechanism to immediately sell the remaining under-sold OHM, increasing the likelihood that the emissions target will be reached.
+The EmissionManager tracks auction performance over a defined tracking period. If OHM is under-sold during the auction, the system can use a configured fallback capacity, such as a Bond Protocol market, to sell remaining under-sold OHM. If fallback capacity is set to zero, no fallback market is created.
 
 ## Key Variables & Definitions
 
@@ -29,7 +29,7 @@ The EmissionManager tracks auction performance over a defined tracking period. I
 
   Returns 0% if premium is below minimum premium
 
-- **Current emissions** - Current emission rate × circulating supply (using gOHM supply in OHM terms as proxy)
+- **Current emissions** - Current emission rate × the supply measure configured for the emission calculation
 - **Next emission rate/emissions** - same calculations using next period's projected price
 
 All core parameters are configurable by OCG and can be adjusted as needed.
@@ -38,7 +38,7 @@ All core parameters are configurable by OCG and can be adjusted as needed.
 
 #### Limited to Stablecoins
 
-The `EmissionManager` utilises v1 of the `PRICE` module, which provides the price of OHM in terms of the configured reserve token (currently USDS). It uses that value to determine the minimum price that the `ConvertibleDepositAuctioneer` contract will sell OHM at.
+The `EmissionManager` utilises the `PRICE` module, which provides the price of OHM in terms of the configured reserve token. It uses that value to determine the minimum price that the `ConvertibleDepositAuctioneer` contract will sell OHM at.
 
 As a result, the `EmissionManager` cannot currently be configured to run auctions for assets that are not stablecoins, as the minimum price calculation would be incorrect.
 

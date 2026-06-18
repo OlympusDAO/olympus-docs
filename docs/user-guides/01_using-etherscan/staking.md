@@ -1,5 +1,9 @@
 # Stake Your OHM
 
+:::warning Historical guide
+This page describes a legacy staking flow. Rebasing is no longer in effect; verify the current staking and token contracts before using Etherscan directly.
+:::
+
 Sometimes, the Olympus website might not be accessible due to [hosting issues](https://twitter.com/FleekHQ/status/1416505712222609411). Fear not, you can still interact with the Olympus contracts to perform certain actions such as staking. In this guide, we will show you how to stake OHM tokens via [Etherscan](https://etherscan.io/).
 
 If you have never staked OHM before, there are two steps involved:

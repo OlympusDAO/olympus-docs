@@ -49,7 +49,7 @@ To successfully submit a proposal, the proposer must do the following:
 3. Acquire, or be delegated to, `proposalThreshold` percent of gOHM supply. Proposer must maintain that amount of gOHM until conclusion of proposal
 4. Call `propose()` on Governor Bravo contract, including the PR link in the description
 
-To submit a successful PR with integration tests, begin by creating a new contract in `src/proposals/` named after its corresponding OIP (e.g., `OIP_XXX.sol`). The contract should inherit `GovernorBravoProposal`, and use [OIP_XXX.sol](./OIP_XXX.sol) as a template.
+To submit a successful PR with integration tests, begin by creating a new contract in `src/proposals/` named after its corresponding OIP (e.g., `OIP_XXX.sol`). The contract should inherit `GovernorBravoProposal`, and use the generated [OIP_XXX.sol](../contracts/02_docs/src/proposals/OIP_XXX.sol/contract.OIP_XXX.md) docs as a template reference.
 
 Declare all necessary dependencies in [address registry](https://github.com/OlympusDAO/olympus-v3/blob/master/src/proposals/addresses.json). Follow this naming convention:
 

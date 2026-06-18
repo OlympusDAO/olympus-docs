@@ -18,7 +18,7 @@ For this article, we added V1 and V2 after each token name to help you different
 
 - wsOHM V1 (wrapped, staked OHM) will be replaced by gOHM (Governance OHM). They function exactly the same, but gOHM is set up for on-chain governance.
 - OHM and sOHM tokens will have their identical V2 counterparts. OHM V1 becomes OHM V2, and sOHM V1 becomes sOHM V2.
-- Token tickers will remain the same for V1 tokens. For example, after migration, your wallet will show "OHM" instead of "OHM V1". Make sure to update the token contract in your wallet with the [V2 addresses](../contracts/tokens) to show your balances.
+- Token tickers will remain the same for V1 tokens. For example, after migration, your wallet will show "OHM" instead of "OHM V1". Make sure to update the token contract in your wallet with the [V2 addresses](../contracts-old/tokens.md) to show your balances.
 - When migrating OHM V1 and/or sOHM V1, you will get gOHM in return. Although the token balance will be different (gOHM price is calculated differently, which is based on the Current Index), the **dollar amount remains the same.**
 - After the migration, OHM V1 pools such as OHM-DAI will utilize OHM V2. This applies to new bonds as well. Partners like Abracadabra will only accept new deposits in gOHM. So, you will need to migrate if you want to use these features. **Otherwise, you can sit tight and migrate only when you want to.**
 
@@ -90,7 +90,7 @@ All V2-related contracts are live, and some of them are still under audit proces
 
 ## How to Wrap sOHM to gOHM
 
-[gOHM](../contracts/tokens#gohm) will be the first v2 token to roll out. Users
+[gOHM](../contracts-old/tokens.md#gohm) will be the first v2 token to roll out. Users
 can wrap their v1 sOHM tokens into gOHM tokens as part of the v2 migration.
 
 1. Go to the [Wrap section of Olympus App](https://app.olympusdao.finance/#/wrap).
@@ -104,7 +104,7 @@ can wrap their v1 sOHM tokens into gOHM tokens as part of the v2 migration.
    and sign the transaction.
 
 4. When the wrap transaction is confirmed, your gOHM balance will be updated.
-   Please add the [gOHM token contract](../contracts/tokens#gohm) to your wallet
+   Please add the [gOHM token contract](../contracts-old/tokens.md#gohm) to your wallet
    if you can't see it.
 
 ## How to Migrate to V2

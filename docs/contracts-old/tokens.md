@@ -1,5 +1,9 @@
 # Tokens
 
+:::warning Historical reference
+This page is preserved as an old contracts reference. "Current" and "active" wording below should be read as historical to this contract set, not as the current Olympus contract registry.
+:::
+
 ## Tokens
 
 ### gOHM

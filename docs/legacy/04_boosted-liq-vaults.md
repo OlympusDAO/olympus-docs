@@ -103,8 +103,8 @@ Olympus takes the security of its ecosystem very seriously and is committed to e
 
 # Integrating with BLV
 
-For understanding the mechanics and the advantatges of the Boosted Liquidity Vaults, please refer to the [standard documentation](../../../overview/07_boosted-liq-vaults.md).
-You can also check the [source code](github-link), the [contract interface](github-link), and the [stETH implementation](github-link) on Github.
+For understanding the mechanics and the advantatges of the Boosted Liquidity Vaults, please refer to the current protocol-owned liquidity overview.
+The source code, contract interface, and stETH implementation links in this historical page need source verification before they are re-linked.
 
 Before implementing an instance of the `SingleSidedLiquidityVault` contract, it is key to understand its relevant functions.
 
@@ -295,7 +295,7 @@ function _accumulateExternalRewards() internal virtual returns (uint256[] memory
 
 Once the key functions are understood, the implementation of a contract that inherits `SingleSidedLiquidityVault` will be easier and safer.
 
-For instance, let's take the `StethLiquidityVault` implementation as an example ([check the source code here](gitbuh-link)). In this case, the vault will be harvesting rewards from Aura. Therefore, it will first deposit its liquidity on Balancer and, afterwards, deposit the received BPT on Aura.
+For instance, let's take the `StethLiquidityVault` implementation as an example. In this case, the vault will be harvesting rewards from Aura. Therefore, it will first deposit its liquidity on Balancer and, afterwards, deposit the received BPT on Aura.
 
 ## Custom Variables and Getters
 
@@ -336,7 +336,7 @@ Finally, to handle the price conversions, different Chainlink price oracles must
 
 ## Overriding Virtual Functions
 
-The easiest way to implement a these functions is by directly checking the `StethLiquidityVault` [code](gitbuh-link)). Nevertheless, this section will list some of the this that any developer should have in mind.
+The easiest way to implement a these functions is by directly checking the `StethLiquidityVault` code after verifying the source location. Nevertheless, this section will list some of the this that any developer should have in mind.
 
 ### deposit
 
