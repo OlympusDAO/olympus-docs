@@ -6,7 +6,7 @@
 
 Range Bound Stability (RBS) is currently disabled. Successor market-operation mechanisms include:
 
-- [Yield Repurchase Facility](./06_yield-repurchase-facility.md), when active and configured, can use protocol yield for OHM buybacks
+- [Yield Repurchase Facility](./06_yield-repurchase-facility.md), which uses protocol yield for OHM buybacks
 - [Emissions Manager](./05_emissions-manager.md), when active and configured, can control emissions through Convertible Deposits
 
 :::
