@@ -11,7 +11,7 @@ Two bridge lanes handle the movement:
 
 Ethereum is the **canonical chain** for OHM: it is the only place where net-new protocol OHM can be minted. Bridge minting on any other chain only mirrors OHM that was burned or locked elsewhere, so **bridging never changes the total supply of OHM**. There are no wrapped tokens anywhere in the design.
 
-The EVM bridge was rebuilt on a security-hardened LayerZero V2 design and independently audited. For the full per-lane architecture, guardrails, rate limits, and contract roles, see the [Cross-Chain Bridge: Technical Details](./08_bridge-technical-details.md) page.
+The EVM bridge was rebuilt on a security-hardened LayerZero V2 design and independently audited. For the full per-lane architecture, guardrails, rate limits, and contract roles, see the [Cross-Chain Bridge: Technical Details](./bridge-technical-details.md) page.
 
 ## How to bridge
 
@@ -36,7 +36,7 @@ The available bridge lane determines both the messaging provider and the token a
 | Solana &rarr; Ethereum mainnet                         | CCIP        | Native OHM is burned on Solana through the CCIP token pool; canonical OHM is released from the Ethereum `CCIPLockReleaseTokenPool`.                                                       |
 | Ethereum mainnet &rarr; non-canonical EVM chain        | LayerZero   | OHM is burned on Ethereum mainnet and minted on the destination EVM chain. Applies to Arbitrum, Base, Berachain, and Optimism.                                                            |
 | Non-canonical EVM chain &rarr; Ethereum mainnet        | LayerZero   | OHM is burned on the source EVM chain and minted on Ethereum mainnet. Applies to Arbitrum, Base, Berachain, and Optimism.                                                                 |
-| Non-canonical EVM chain &rarr; non-canonical EVM chain | LayerZero   | OHM is burned on the source EVM chain and minted on the destination EVM chain. Berachain connects to all other EVM chains. See the [technical details](./08_bridge-technical-details.md). |
+| Non-canonical EVM chain &rarr; non-canonical EVM chain | LayerZero   | OHM is burned on the source EVM chain and minted on the destination EVM chain. Berachain connects to all other EVM chains. See the [technical details](./bridge-technical-details.md). |
 
 
 ## Security
@@ -56,7 +56,6 @@ Both lanes are built around the same principle — bound and contain the impact 
 
 | Property                 | EVM lane — LayerZero V2                                                                        | Solana lane — Chainlink CCIP                                                                |
 | ------------------------ | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Messaging layer          | LayerZero V2                                                                                   | Chainlink CCIP                                                                              |
 | Message verification     | Four independent DVNs must agree on every route; the optional-verifier slot is locked off      | Chainlink's decentralized oracle network, with an independent Risk Management Network (RMN) |
 | Token accounting         | Burn on source, mint on destination (native)                                                   | Canonical OHM locked/released on Ethereum; native OHM burned/minted on Solana               |
 | Supply backstop          | Hard cap — never mints more OHM back to Ethereum than was genuinely bridged out                | Bounded by the canonical OHM locked in the `CCIPLockReleaseTokenPool`                       |
@@ -66,14 +65,14 @@ Both lanes are built around the same principle — bound and contain the impact 
 | Independent audit        | Guardian (June 2026)                                                                           | Electisec                                                                                   |
 
 
-On the EVM lane, these protections stack as **defense in depth**: several independent layers (four required verifiers, rate limits, the hard return cap, and a timelock) would all have to fail at once before OHM could be put at risk. The [technical details](./08_bridge-technical-details.md) page breaks down each guardrail.
+On the EVM lane, these protections stack as **defense in depth**: several independent layers (four required verifiers, rate limits, the hard return cap, and a timelock) would all have to fail at once before OHM could be put at risk. The [technical details](./bridge-technical-details.md) page breaks down each guardrail.
 
 No design removes risk entirely. Both lanes ultimately depend on their messaging layer, and a severe failure or compromise of that layer could affect bridge operation. The layered design is built to **bound and contain** that impact rather than eliminate the risk, giving the community time and tools to respond.
 
-The upgraded EVM bridge was audited by Guardian (June 2026), and the CCIP contracts were audited by Electisec. Audit reports are available in the [Audits](../security/02_audits.md) section.
+The upgraded EVM bridge was audited by Guardian (June 2026), and the CCIP contracts were audited by Electisec. Audit reports are available in the [Audits](../../security/02_audits.md) section.
 
 ## Contracts
 
-Bridge contract addresses are listed in the [contract addresses table](../contracts/01_addresses.md).
+Bridge contract addresses are listed in the [contract addresses table](../../contracts/01_addresses.md).
 
-For the full architecture, guardrails, rate-limit tables, contract roles, and per-lane mechanics, see the [Cross-Chain Bridge: Technical Details](./08_bridge-technical-details.md) page.
+For the full architecture, guardrails, rate-limit tables, contract roles, and per-lane mechanics, see the [Cross-Chain Bridge: Technical Details](./bridge-technical-details.md) page.

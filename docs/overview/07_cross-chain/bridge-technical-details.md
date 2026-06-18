@@ -1,6 +1,10 @@
+---
+sidebar_label: Technical Details
+---
+
 # Cross-Chain Bridge: Technical Details
 
-This page covers the technical design of both Olympus bridge lanes: the **LayerZero V2** lane for EVM chains and the **Chainlink CCIP** lane for Solana. For the overview, step-by-step bridging instructions, supported networks, and the lane summary, see the [Cross-Chain Bridge](./07_cross-chain.md) page.
+This page covers the technical design of both Olympus bridge lanes: the **LayerZero V2** lane for EVM chains and the **Chainlink CCIP** lane for Solana. For the overview, step-by-step bridging instructions, supported networks, and the lane summary, see the [Cross-Chain Bridge](./index.md) page.
 
 ## Supply model and the canonical chain
 
@@ -209,11 +213,11 @@ Minting OHM back to Ethereum on this lane is capped by the amount of canonical O
 
 ## Security and audits
 
-- The upgraded LayerZero (EVM) bridge was independently audited by **Guardian (June 2026)**. The report is available in the [Audits](../security/02_audits.md#layerzero-bridge) section, or directly [here](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2026-06-Bridge.pdf).
+- The upgraded LayerZero (EVM) bridge was independently audited by **Guardian (June 2026)**. The report is available in the [Audits](../../security/02_audits.md#layerzero-bridge) section, or directly [here](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2026-06-Bridge.pdf).
 - The CCIP contracts were audited by **Electisec**.
 
 No design removes risk entirely. Both lanes still depend on their messaging layer — LayerZero on the EVM lane, Chainlink CCIP on the Solana lane — and a severe failure or compromise of that layer could affect bridge operation. The point of the layered guardrails above is to ensure that even in adverse conditions the **impact is bounded and contained** rather than catastrophic, and that the community has time and tools to respond.
 
 ---
 
-For the overview, how-to-bridge steps, and the lane summary, see the [Cross-Chain Bridge](./07_cross-chain.md) page. Bridge contract addresses are listed in the [contract addresses table](../contracts/01_addresses.md).
+For the overview, how-to-bridge steps, and the lane summary, see the [Cross-Chain Bridge](./index.md) page. Bridge contract addresses are listed in the [contract addresses table](../../contracts/01_addresses.md).
