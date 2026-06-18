@@ -157,7 +157,6 @@ sequenceDiagram
 
 ## Configuration Changelog
 
-| Date       | Change                                                                                                                                                                                                                                                                                      |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-06-10 | PRICE v1.2 target configuration updated from olympus-v3 PR #187 head `6c1df5ae8aff9c42bddb279b7dab1711920c316a`. Replaces Pyth target feeds with API3 Chainlink-compatible reader proxies, documents 90,000 second API3 stale thresholds, and updates the OHM expected price to `16.89e18`. |
-| 2026-05-22 | PRICE v1.2 target configuration from olympus-v3 PR #187. Configures resilient multi-feed price resolution for USDS, sUSDS, wETH, and OHM; preserves backwards-compatible OHM price functions for YRF and EM; adds granular asset-specific accessors for future integrations.                |
+| Date       | Released Version | Change                                                                                                                                                                                 |
+| ---------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-06-18 | PRICE v1.2       | Released asset configuration from olympus-v3 PR #187 head `6c1df5ae8aff9c42bddb279b7dab1711920c316a`. Configures resilient multi-feed price resolution for USDS, sUSDS, wETH, and OHM. |
