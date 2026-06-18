@@ -59,7 +59,7 @@ overrides:
   wait-on@<9.0.4: ^9.0.4
   webpack-bundle-analyzer@4.5.0>ws@>=8.0.0 <8.20.1: '>=8.20.1'
   webpack-dev-middleware@<5.3.4: ^5.3.4
-  webpack-dev-server@<=5.2.3: '>=5.2.4'
+  webpack-dev-server@<5.2.5: ^5.2.5
   webpack@<5.94.0: ^5.94.0
   ws@<8.0.0: ^8.17.1
   ws@>=8.0.0 <8.20.1: '>=8.20.1'
@@ -4960,8 +4960,8 @@ packages:
       webpack:
         optional: true
 
-  webpack-dev-server@5.2.4:
-    resolution: {integrity: sha512-GqDPGZN9bRqKBTkp4aWkobDDHMsrXKoGSdOH56smIri8qR0JG8gfL8/v/f/OZR3/OKXjG8uwJbFVhKm/FNU/UA==}
+  webpack-dev-server@5.2.5:
+    resolution: {integrity: sha512-4wZtCquSuv9CKX8oybo+mqxtxZqWz47uM1Ch94lxowBztOhWCbhqvRbfC/mODOwxgV2brY+JGZpHq58/SuVFYg==}
     engines: {node: '>= 18.12.0'}
     hasBin: true
     peerDependencies:
@@ -6108,7 +6108,7 @@ snapshots:
       wait-on: 9.0.4
       webpack: 5.105.4
       webpack-bundle-analyzer: 4.5.0
-      webpack-dev-server: 5.2.4(tslib@2.4.0)(webpack@5.105.4)
+      webpack-dev-server: 5.2.5(tslib@2.4.0)(webpack@5.105.4)
       webpack-merge: 5.8.0
       webpackbar: 5.0.2(webpack@5.105.4)
     transitivePeerDependencies:
@@ -11025,7 +11025,7 @@ snapshots:
     transitivePeerDependencies:
       - tslib
 
-  webpack-dev-server@5.2.4(tslib@2.4.0)(webpack@5.105.4):
+  webpack-dev-server@5.2.5(tslib@2.4.0)(webpack@5.105.4):
     dependencies:
       '@types/bonjour': 3.5.13
       '@types/connect-history-api-fallback': 1.5.4

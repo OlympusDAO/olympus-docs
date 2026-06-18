@@ -5,6 +5,7 @@ minimumReleaseAgeExclude:
   - "axios@1.16.0"
   - "form-data@4.0.6" # CVE-2026-12143 patched release, remove after maturity window.
   - "follow-redirects@1.16.0"
+  - "webpack-dev-server@5.2.5" # CVE-2026-9595 patched release, remove after maturity window.
 onlyBuiltDependencies:
   - "core-js@3.24.1"
   - "core-js-pure@3.49.0"
@@ -63,7 +64,7 @@ overrides:
   "wait-on@<9.0.4": "^9.0.4"
   "webpack-bundle-analyzer@4.5.0>ws@>=8.0.0 <8.20.1": ">=8.20.1"
   "webpack-dev-middleware@<5.3.4": "^5.3.4"
-  "webpack-dev-server@<=5.2.3": ">=5.2.4"
+  "webpack-dev-server@<5.2.5": "^5.2.5"
   "webpack@<5.94.0": "^5.94.0"
   "ws@<8.0.0": "^8.17.1"
   "ws@>=8.0.0 <8.20.1": ">=8.20.1"
