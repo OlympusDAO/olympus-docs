@@ -81,7 +81,7 @@
 |                                         |         | Sepolia  | [`0x74FeAEde88962139f4d36A2f1998BcF56088d519`](https://sepolia.etherscan.io/address/0x74FeAEde88962139f4d36A2f1998BcF56088d519)    |
 | YieldRepurchaseFacility                 | 1.2     | Mainnet  | [`0x271e35a8555a62F6bA76508E85dfD76D580B0692`](https://etherscan.io/address/0x271e35a8555a62F6bA76508E85dfD76D580B0692)            |
 |                                         |         | Sepolia  | [`0xf8ABE1D9502BbcaD4576433490D851D03c22A6B4`](https://sepolia.etherscan.io/address/0xf8ABE1D9502BbcaD4576433490D851D03c22A6B4)    |
-| BondCallback                            | 1.0     | Mainnet  | [`0x73df08CE9dcC8d74d22F23282c4d49F13b4c795E`](https://etherscan.io/address/0x73df08CE9dcC8d74d22F23282c4d49F13b4c795E)            |
+| BondCallback                            | 1.1     | Mainnet  | [`0x73df08CE9dcC8d74d22F23282c4d49F13b4c795E`](https://etherscan.io/address/0x73df08CE9dcC8d74d22F23282c4d49F13b4c795E)            |
 |                                         |         | Goerli   | [`0x776142Abb0e274734A95dA2A4749b52eb4e896F3`](https://goerli.etherscan.io/address/0x776142Abb0e274734A95dA2A4749b52eb4e896F3)     |
 |                                         |         | Sepolia  | [`0x989B93efB6e9d90c2F3632D80EC7c4d1f61D4109`](https://sepolia.etherscan.io/address/0x989B93efB6e9d90c2F3632D80EC7c4d1f61D4109)    |
 | Operator                                | 1.5     | Mainnet  | [`0x6417F206a0a6628Da136C0Faa39026d0134D2b52`](https://etherscan.io/address/0x6417F206a0a6628Da136C0Faa39026d0134D2b52)            |
