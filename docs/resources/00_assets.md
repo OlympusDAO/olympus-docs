@@ -1,3 +1,9 @@
+---
+title: "Olympus Brand Assets & Logos"
+description: "Official OlympusDAO brand assets including logos, color palettes, and media resources for partners, integrations, and press."
+sidebar_label: "Assets"
+---
+
 # Assets
 
 ## Logos

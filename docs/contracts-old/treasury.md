@@ -1,3 +1,9 @@
+---
+title: "Treasury Contract (Legacy V1)"
+description: "Legacy reference - the Olympus V1 treasury contract, a vault holding protocol funds. See current Olympus treasury documentation for the active architecture."
+sidebar_label: "Treasury"
+---
+
 # Treasury
 
 ## Treasury

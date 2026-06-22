@@ -1,4 +1,7 @@
 ---
+title: "Olympus Smart Contracts Overview"
+description: "An overview of the Olympus V3 smart contract architecture, the current protocol iteration, including its modular Default Framework structure and core contracts."
+sidebar_label: "Overview"
 sidebar_position: 0
 ---
 

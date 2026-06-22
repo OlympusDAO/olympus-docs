@@ -1,3 +1,9 @@
+---
+title: "DAO Contract (Legacy V1)"
+description: "Legacy reference - the Olympus V1 DAO contract, a Gnosis Safe multisig address. See current Olympus contract addresses for active multisigs."
+sidebar_label: "DAO"
+---
+
 # DAO
 
 ## DAO

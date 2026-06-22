@@ -1,3 +1,9 @@
+---
+title: "Cooler Loans (Legacy V1, DAI)"
+description: "Legacy reference - the original V1 Cooler Loans facility for borrowing DAI against gOHM. For current Cooler Loans (USDS, fixed-rate), see the Cooler overview."
+sidebar_label: "Cooler Loans"
+---
+
 # Cooler Loans
 
 ## Overview

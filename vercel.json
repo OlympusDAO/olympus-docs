@@ -1,0 +1,57 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/main/mechanics/liquidity",
+      "destination": "/main/overview/pol",
+      "permanent": true
+    },
+    {
+      "source": "/main/mechanics/liquidity/pol",
+      "destination": "/main/overview/pol",
+      "permanent": true
+    },
+    {
+      "source": "/main/mechanics/liquidity/flex-loans",
+      "destination": "/main/legacy/flex-loans",
+      "permanent": true
+    },
+    {
+      "source": "/main/mechanics/liquidity/lending-amos",
+      "destination": "/main/overview/pol",
+      "permanent": true
+    },
+    {
+      "source": "/main/mechanics/stability",
+      "destination": "/main/overview/range-bound",
+      "permanent": true
+    },
+    {
+      "source": "/main/mechanics/stability/ohm-bonds",
+      "destination": "/main/legacy/bonding",
+      "permanent": true
+    },
+    {
+      "source": "/main/mechanics/stability/staking",
+      "destination": "/main/overview/tokens",
+      "permanent": true
+    },
+    {
+      "source": "/main/protocol-internals/initial-network-state",
+      "destination": "/main/overview/intro",
+      "permanent": true
+    },
+    {
+      "source": "/main/protocol-internals/market-dynamics",
+      "destination": "/main/overview/intro",
+      "permanent": true
+    },
+    {
+      "source": "/main/protocol-internals/policy",
+      "destination": "/main/overview/intro",
+      "permanent": true
+    }
+  ]
+}

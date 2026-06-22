@@ -1,3 +1,9 @@
+---
+title: "Olympus Contract Addresses (V3 & Multisigs)"
+description: "Official Olympus smart contract addresses across chains: DAO and protocol multisigs and Olympus V3 module and policy deployments, with block explorer links."
+sidebar_label: "Addresses"
+---
+
 # Addresses
 
 ## Multisigs

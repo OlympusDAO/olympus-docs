@@ -1,4 +1,7 @@
 ---
+title: "Glossary (Legacy V1)"
+description: "Legacy reference - a glossary of Olympus V1 terms and metrics. Some definitions reflect the original protocol design and may not apply to the current protocol."
+sidebar_label: "Glossary"
 sidebar_position: 1
 ---
 

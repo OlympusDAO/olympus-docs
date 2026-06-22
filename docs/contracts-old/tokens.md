@@ -1,3 +1,9 @@
+---
+title: "Token Contracts (Legacy V1)"
+description: "Legacy reference - Olympus V1 token contracts including OHM, sOHM, and gOHM. See current Olympus token documentation for active contract addresses."
+sidebar_label: "Tokens"
+---
+
 # Tokens
 
 ## Tokens

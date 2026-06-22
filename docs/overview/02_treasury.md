@@ -1,3 +1,9 @@
+---
+title: "Olympus Treasury: Reserves Backing OHM"
+description: "The Olympus Treasury holds the on-chain assets backing OHM: reserve assets and OHM liquidity positions. Reserves fund Cooler Loans and market operations."
+sidebar_label: "Treasury"
+---
+
 # Treasury
 
 The Treasury is a key component of the Olympus protocol. The Treasury represents all assets owned and controlled by the protocol.

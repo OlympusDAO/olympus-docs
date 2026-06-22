@@ -1,3 +1,9 @@
+---
+title: "RBS Contracts (Legacy V1)"
+description: "Legacy reference - Olympus V1 Range Bound Stability (RBS) contracts, including the RBS Operator and Range Module. See current contracts for active deployments."
+sidebar_label: "RBS"
+---
+
 # RBS
 
 - RBS Operator [0xbb47...df3f](https://etherscan.io/address/0xbb47C3FFf4eF85703907d3ffca30de278b85df3f)

@@ -1,3 +1,9 @@
+---
+title: "OHM and gOHM Tokens: Contracts and Mechanics"
+description: "OHM is Olympus's treasury-backed reserve token, not pegged to fiat. gOHM is wrapped staked OHM used for governance and as Cooler Loans collateral."
+sidebar_label: "OHM and gOHM"
+---
+
 # OHM and gOHM
 
 ## OHM token

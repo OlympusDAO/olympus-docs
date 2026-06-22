@@ -1,4 +1,16 @@
+---
+title: "Olympus x Frax Finance Partnership"
+description: "Details of the partnership between OlympusDAO and Frax Finance, including the collaboration's goals and the protocol-owned liquidity initiatives involved."
+sidebar_label: "Frax Finance"
+---
+
 # Frax Finance
+
+:::warning Deprecated / inactive
+
+This partnership is no longer active. This page is retained for historical reference only. For current Olympus products, see the [Overview](/main/overview/intro).
+
+:::
 
 A [new partnership between OlympusDAO and Frax Finance](https://olympusdao.medium.com/ohm-x-frax-a-new-breed-of-partnership-95cd1cc01770)
 has been announced on June 10th 2021. This partnership allows OlympusDAO to accumulate OHM-FRAX liquidity and FRAX

@@ -1,3 +1,9 @@
+---
+title: "Boosted Liquidity Vaults (Deprecated)"
+description: "Deprecated reference - Boosted Liquidity Vaults are turned off. The BLVaultManagerLido contract is disabled; withdrawals use emergencyWithdraw() via Etherscan."
+sidebar_label: "Boosted Liquidity Vaults"
+---
+
 # Boosted Liquidity Vaults
 
 :::warning Warning

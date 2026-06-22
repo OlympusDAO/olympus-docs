@@ -1,3 +1,9 @@
+---
+title: "What is Olympus? OHM, a Treasury-Backed Token"
+description: "The Olympus protocol is a decentralized financial (DeFi) system that supports OHM, a treasury backed, liquidity-enabling token on the Ethereum network. Olympus leverages the mechanisms of Protocol Owned Liquidity (POL), Range Bound Stability (RBS) and Cooler Loans to create a robust, flexible, censorship-resistant, and smart money."
+sidebar_label: "What is Olympus?"
+---
+
 # What is Olympus?
 
 The Olympus protocol is a decentralized financial (DeFi) system that supports OHM, a treasury backed, liquidity-enabling token on the Ethereum network. Olympus leverages the mechanisms of Protocol Owned Liquidity (POL), Range Bound Stability (RBS) and Cooler Loans to create a robust, flexible, censorship-resistant, and smart money.

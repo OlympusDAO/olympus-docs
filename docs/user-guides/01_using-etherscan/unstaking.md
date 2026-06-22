@@ -1,3 +1,9 @@
+---
+title: "How to Unstake OHM via Etherscan"
+description: "How to unstake gOHM back to OHM directly through Etherscan when the Olympus website is unavailable, by interacting with the staking contract."
+sidebar_label: "Unstake sOHM"
+---
+
 # Unstake sOHM
 
 Sometimes, the Olympus website might not be accessible due to [hosting issues](https://twitter.com/FleekHQ/status/1416505712222609411). Fear not, you can still interact with the Olympus contracts to perform certain actions such as unstaking. In this guide, we will show you how to unstake sOHM tokens via [Etherscan](https://etherscan.io/).

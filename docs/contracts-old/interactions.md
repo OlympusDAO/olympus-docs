@@ -1,4 +1,7 @@
 ---
+title: "Contract Interactions (Legacy V1)"
+description: "Legacy reference - how Olympus V1 contracts interacted with one another. See current Olympus V3 contract documentation for the active architecture."
+sidebar_label: "Interactions"
 sidebar_position: 3
 ---
 

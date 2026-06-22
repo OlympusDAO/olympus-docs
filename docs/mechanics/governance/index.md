@@ -1,4 +1,6 @@
 ---
+title: "Olympus Governance System"
+description: "Technical reference for the OlympusDAO V3 (Bophades) on-chain governance system: the Governance policy contract, its module dependencies, and the proposal flow."
 sidebar_position: 1
 sidebar_label: Governance
 ---
