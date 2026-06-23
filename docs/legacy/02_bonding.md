@@ -1,3 +1,9 @@
+---
+title: "Olympus Bonds (Legacy V1)"
+description: "Legacy reference - the original Olympus bond mechanism for market-driven pricing between two ERC-20 tokens without oracles. See current bond docs."
+sidebar_label: "Bonds"
+---
+
 # Bonds
 
 ## Overview

@@ -1,3 +1,9 @@
+---
+title: "Staking & Legacy Rebasing (V1 History)"
+description: "Legacy reference - Olympus's original V1 rebasing mechanism (sOHM) and why historical OHM price charts mislead. Rebasing is off; users now stake OHM for gOHM."
+sidebar_label: "Staking"
+---
+
 # Staking
 
 Though rebasing is no longer in effect, users can still stake their OHM for gOHM. A user would mainly do so in order to acquire governance votes, or to interact with Cooler Loans.

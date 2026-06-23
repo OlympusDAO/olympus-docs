@@ -1,3 +1,9 @@
+---
+title: "Cross-Chain OHM: Native Bridging via LayerZero and CCIP"
+description: "Olympus moves native OHM across chains rather than wrapping it: OHM is burned or locked on the source chain and minted or released natively on the destination. EVM chains use a LayerZero V2 burn-and-mint bridge; Solana uses Chainlink CCIP."
+sidebar_label: "Cross-Chain Bridge"
+---
+
 # Cross-Chain Bridge
 
 ## Overview

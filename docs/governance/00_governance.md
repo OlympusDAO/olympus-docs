@@ -1,4 +1,6 @@
 ---
+title: "Olympus On-Chain Governance Overview"
+description: "Olympus is governed by tokenholders via gOHM, Governor Bravo, and a multisig, transitioning from multisig control to on-chain governance (OCG) per OIP-152."
 sidebar_position: 1
 sidebar_label: Intro
 ---

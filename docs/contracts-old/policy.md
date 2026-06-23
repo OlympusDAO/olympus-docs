@@ -1,3 +1,9 @@
+---
+title: "Policy Contract (Legacy V1)"
+description: "Legacy reference - the Olympus V1 policy contract (a Gnosis Safe) that managed adjustments like BCV and reward rate. See current contracts for active addresses."
+sidebar_label: "Policy"
+---
+
 # Policy
 
 ## Policy

@@ -1,3 +1,9 @@
+---
+title: "Olympus Smart Contract Security Audits"
+description: "Olympus smart contract audits by component: Convertible Deposits, Cooler Loans V2, and the CCIP bridge, from Guardian, Trust, Electisec, and Nethermind."
+sidebar_label: "Audits"
+---
+
 # Audits
 
 | Time Period | Project                                                                                                             | Auditor                        | Subject                                      | Report                                                                                                                      |

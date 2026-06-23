@@ -1,4 +1,7 @@
 ---
+title: "Allocator Contracts (Legacy V1)"
+description: "Legacy reference - Olympus V1 allocator contracts that deployed idle treasury assets into yield strategies. See current contracts for active deployments."
+sidebar_label: "Allocators"
 sidebar_position: 4
 ---
 

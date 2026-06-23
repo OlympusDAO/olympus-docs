@@ -1,3 +1,9 @@
+---
+title: "Emissions Manager: Premium-Based OHM Supply"
+description: "The Emissions Manager schedules new OHM supply based on OHM's premium to backing, opening Convertible Deposit auctions when the premium exceeds a set minimum."
+sidebar_label: "Emissions Manager"
+---
+
 # Emissions Manager
 
 ## Overview

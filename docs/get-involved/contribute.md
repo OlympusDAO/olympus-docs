@@ -1,3 +1,9 @@
+---
+title: "How to Contribute to Olympus"
+description: "How to get involved with OlympusDAO, including the project's core values, contribution guidelines, and ways for community members to participate."
+sidebar_label: "Contribute"
+---
+
 # Contribute
 
 ## Values

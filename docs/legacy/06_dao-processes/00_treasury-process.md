@@ -1,4 +1,6 @@
 ---
+title: "Treasury Decision Process (Legacy)"
+description: "Legacy reference - the historical Olympus treasury decision-making process used by the DAO before the transition to on-chain governance."
 sidebar_position: 5
 sidebar_label: Treasury Process
 ---

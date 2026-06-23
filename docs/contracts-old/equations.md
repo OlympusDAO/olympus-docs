@@ -1,4 +1,7 @@
 ---
+title: "Protocol Equations (Legacy V1)"
+description: "Legacy reference - the mathematical equations behind Olympus V1 mechanics: APY, reward rate, and runway calculations from the original protocol design."
+sidebar_label: "Equations"
 sidebar_position: 2
 ---
 

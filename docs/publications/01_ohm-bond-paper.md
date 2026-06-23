@@ -1,4 +1,7 @@
 ---
+title: "Olympus Bonds: Liquid Interest Rate Markets"
+description: "The Olympus bonds research paper by Zeus and Indigo, detailing how Olympus bonds create liquid interest rate markets and the model behind bond pricing."
+sidebar_label: "Liquid Interest Rate Markets through Olympus Bonds"
 slug: /technical/publications/bonds
 ---
 

@@ -1,3 +1,9 @@
+---
+title: "Flex Loans (Legacy V1)"
+description: "Legacy reference - the Flex Loans product that let whitelisted protocols grow protocol-owned liquidity via interest-free loans against gOHM collateral."
+sidebar_label: "Flex Loans"
+---
+
 # Flex Loans
 
 Flex Loans is a whitelisted product offering for protocols to grow their protocol-owned liquidity through an interest free loan against perfect collateral. By depositing gOHM as a collateral asset, the borrower is able to borrow up to 100% LTV in OHM and pair this with another token to create a liquidity pair. Since the loan is in the same denomination there is no risk of liquidation and the loan will lower in LTV% as the gOHM collateral continues to receive the underlying rebases.
