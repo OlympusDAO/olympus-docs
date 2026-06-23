@@ -1,0 +1,11 @@
+{
+  "label": "MCP",
+  "position": 3,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Olympus MCP Server",
+    "slug": "/for-agents/mcp",
+    "description": "Connect any MCP-compatible client to the Olympus MCP server: a live, read-only, authless endpoint that unifies Olympus on-chain state, indexers, market data, and governance behind a single tool surface. Read the introduction, then pick your client below to get connected."
+  }
+}

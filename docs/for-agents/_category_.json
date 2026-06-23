@@ -1,0 +1,8 @@
+{
+  "label": "For Agents",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Entry points and source-of-truth rules for AI agents, scripts, and integrators working with Olympus protocol data."
+  }
+}
