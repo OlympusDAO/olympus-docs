@@ -1,6 +1,6 @@
 # IgOHM
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/interfaces/IgOHM.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/interfaces/IgOHM.sol)
 
 **Inherits:**
 [IERC20](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20)
@@ -25,45 +25,23 @@ function burn(address _from, uint256 _amount) external;
 function index() external view returns (uint256);
 ```
 
-### balanceFrom
+### sOHM
 
-converts gOHM amount to OHM
+```solidity
+function sOHM() external view returns (address);
+```
+
+### balanceFrom
 
 ```solidity
 function balanceFrom(uint256 _amount) external view returns (uint256);
 ```
 
-**Parameters**
-
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| `_amount` | `uint256` | uint        |
-
-**Returns**
-
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| `<none>` | `uint256` | uint        |
-
 ### balanceTo
-
-converts OHM amount to gOHM
 
 ```solidity
 function balanceTo(uint256 _amount) external view returns (uint256);
 ```
-
-**Parameters**
-
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| `_amount` | `uint256` | uint        |
-
-**Returns**
-
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| `<none>` | `uint256` | uint        |
 
 ### migrate
 

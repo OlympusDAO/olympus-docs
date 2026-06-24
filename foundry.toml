@@ -4,6 +4,6 @@ out = "out"
 libs = ["dependencies"]
 
 [dependencies]
-olympus-v3 = { version = "1.0.0", git = "https://github.com/OlympusDAO/olympus-v3", rev = "8f211f9ca557f5c6c9596f50d3a90d95ca98bea1" }
+olympus-v3 = { version = "1.0.0", git = "https://github.com/OlympusDAO/olympus-v3", rev = "caef4795cd4dfccadc4085516cabe05757745f02" }
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

@@ -1,6 +1,6 @@
 # Constants
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/policies/utils/RoleDefinitions.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/policies/utils/RoleDefinitions.sol)
 
 ### EMERGENCY_ROLE
 
@@ -32,4 +32,12 @@ Heart role, e.g. performing periodic tasks.
 
 ```solidity
 bytes32 constant HEART_ROLE = "heart"
+```
+
+### ORACLE_MANAGER_ROLE
+
+Oracle manager role, e.g. managing oracle deployments.
+
+```solidity
+bytes32 constant ORACLE_MANAGER_ROLE = "oracle_manager"
 ```

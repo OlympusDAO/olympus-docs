@@ -1,6 +1,6 @@
 # BaseDepositFacility
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/policies/deposits/BaseDepositFacility.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/policies/deposits/BaseDepositFacility.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IDepositFacility](/main/contracts/docs/src/policies/interfaces/deposits/IDepositFacility.sol/interface.IDepositFacility), ReentrancyGuard
