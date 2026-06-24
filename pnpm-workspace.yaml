@@ -5,6 +5,7 @@ minimumReleaseAgeExclude:
   - "axios@1.16.0"
   - "form-data@4.0.6" # CVE-2026-12143 patched release, remove after maturity window.
   - "follow-redirects@1.16.0"
+  - "http-proxy-middleware@2.0.10" # CVE-2026-3829 patched release, remove after maturity window.
   - "webpack-dev-server@5.2.5" # CVE-2026-9595 patched release, remove after maturity window.
 onlyBuiltDependencies:
   - "core-js@3.24.1"
@@ -31,7 +32,7 @@ overrides:
   "form-data@>=4.0.0 <4.0.6": "4.0.6"
   "glob@<10.5.0": "^10.5.0"
   "got@<11.8.5": "^11.8.5"
-  "http-proxy-middleware@<2.0.9": "^2.0.9"
+  "http-proxy-middleware@<2.0.10": "^2.0.10"
   "joi@<18.2.1": ">=18.2.1"
   "js-yaml@<4.2.0": "4.2.0"
   "katex@<0.16.21": "^0.16.21"
@@ -39,7 +40,7 @@ overrides:
   "loader-utils@<2.0.4": "2.0.4"
   "lodash@<4.18.0": "^4.18.0"
   "markdown-it@<=14.1.1": "14.2.0"
-  "dompurify@<3.4.9": "3.4.9"
+  "dompurify@<3.4.11": "3.4.11"
   "mermaid@<=10.9.5": "10.9.6"
   "micromatch@<4.0.8": "^4.0.8"
   "minimatch@<9.0.7": "^9.0.7"
