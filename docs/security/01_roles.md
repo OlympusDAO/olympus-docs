@@ -86,7 +86,7 @@ Policy that provides keeper rewards to call the `beat()` function which orchestr
 
 ## Operator.sol
 
-Policy that performs market operations to enforce OlympusDAO's OHM price range guidance policies against a specific reserve asset. These market operations are only performed under certain conditions and up to a specific capacity before the market must stabilize to regenerate more capacity.
+Policy for legacy Operator/RBS market-operations infrastructure against a specific reserve asset. This section describes the contract role surface, not a live assertion that Range Bound Stability operations are currently active.
 
 **Dependencies**
 
@@ -173,7 +173,7 @@ Policy that handles the calls from the bond markets to gatekeep the interactions
 
 ## PriceConfig.sol
 
-Policy that deals with the price observations and which serves as the price reference that guides the market operations of the system.
+Policy that deals with price observations and can serve as the price reference for market-operations infrastructure.
 
 **Dependencies**
 
@@ -263,9 +263,9 @@ Policy that serves as the message bridge for cross-chain OHM transfers. Uses Lay
 
 - `bridge_admin`: Has the ability to set the bridge configuration, as well as activating and deactivating the bridge.
 
-## BLVaultManagerLido.sol (in process of deprecation)
+## BLVaultManagerLido.sol (legacy/user-flow deprecated)
 
-Policy that manages the auctions and the issuance of OHM Bonds.
+Policy that manages the auctions and the issuance of OHM Bonds. Tranche verification found this policy still Kernel-enabled as of 2026-06-18, so this label should be read as user-flow deprecation rather than proof that the contract is disabled.
 
 **Dependencies**
 
@@ -289,12 +289,16 @@ Policy that manages the auctions and the issuance of OHM Bonds.
 
 ## Kernel and ROLES module
 
+The table below identifies the known Kernel and ROLES module addresses. Verify the live Kernel executor and ROLES role holders before taking or reviewing an on-chain action.
+
 | Network | Type         | Address                                      | Executor |
 | ------- | ------------ | -------------------------------------------- | -------- |
 | Mainnet | Kernel       | `0x2286d7f9639e8158FaD1169e76d1FbC38247f54b` | DAO MS   |
 | Mainnet | ROLES module | `0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59` | DAO MS   |
 
 ## Active Roles
+
+This table is a transition-era role model, not a live role-holder table. Verify current holders in the ROLES module before execution.
 
 | Role                   | Executor           |
 | ---------------------- | ------------------ |

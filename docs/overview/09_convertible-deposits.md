@@ -10,9 +10,15 @@ sidebar_label: "Convertible Deposits"
 
 ### What are Convertible Deposits?
 
-Convertible Deposits (CDs) are a financial instrument that enables users to deposit stablecoins into the Olympus protocol with three flexible exit options. When making a convertible deposit, users place a structured bet on the future price of OHM while helping the protocol diversify its treasury holdings.
+Convertible Deposits (CDs) are a financial instrument that enables users to deposit supported stablecoins into the Olympus protocol with three flexible exit options. When making a convertible deposit, users place a structured bet on the future price of OHM while helping the protocol diversify its treasury holdings.
 
-Users deposit stablecoins (such as USDS) and receive receipt tokens plus a non-fungible position that locks in a specific conversion price for OHM. Before the deposit expires, users can choose to convert their deposit to OHM at the locked-in price, wait for full redemption of their original deposit, or exit early with a discount applied.
+:::info
+
+The CD contracts are installed in the Olympus Kernel, but availability, supported assets, active periods, caps, reclaim rates, borrowing settings, and auction parameters are governance-configured and can change. Check the Olympus app and current contract configuration before assuming a specific CD market is open.
+
+:::
+
+Users deposit supported stablecoins and receive receipt tokens plus a non-fungible position that locks in a specific conversion price for OHM. Before the deposit expires, users can choose to convert their deposit to OHM at the locked-in price, wait for full redemption of their original deposit, or exit early with a discount applied.
 
 This creates "no-risk speculation on the future price of OHM" - if OHM's market price rises above the conversion price, users profit by converting. If not, users receive their original deposit back, subject to the discount if they choose early exit.
 
@@ -147,11 +153,11 @@ The deposit period determines:
 
 #### Supported Assets
 
-Initially, Convertible Deposits support:
+Convertible Deposits initially focused on:
 
 - **USDS**: The primary stablecoin for initial launch
 
-The system is designed to expand to other reserve assets based on protocol needs and governance decisions.
+The system is designed to expand to other reserve assets based on protocol needs and governance decisions. The currently enabled assets should be checked in the app or contracts.
 
 ## 3. The Auction Mechanism
 
@@ -222,7 +228,7 @@ The quantity of stablecoins to deposit
 
 ##### Deposit Period
 
-Select from available periods (currently 1, 2, or 3 months)
+Select from the currently available periods configured by governance
 
 ##### Minimum OHM Out
 
@@ -416,7 +422,7 @@ Limit orders operate through a separate contract (`CDAuctioneerLimitOrders`) tha
 
 When creating a limit order, users specify:
 
-1. **Deposit Period**: Choose from available periods (1, 2, or 3 months)
+1. **Deposit Period**: Choose from the periods available in the current configuration
 2. **Deposit Budget**: Total deposit asset to spend on convertible deposits
 3. **Incentive Budget**: Deposit asset to pay solvers as rewards for filling the order
 4. **Maximum Price**: Highest acceptable execution price (deposit asset per OHM)
@@ -647,7 +653,9 @@ When considering convertible deposits, users should consider:
 
 ### Configuration
 
-#### Initial Parameters
+#### Example Parameters
+
+The following parameters are historical examples from earlier CD rollout notes. Treat them as examples of how the system can be configured, not as current terms. Current parameters should be read from the app or contracts before making a deposit.
 
 ##### Assets
 
@@ -679,6 +687,8 @@ When considering convertible deposits, users should consider:
 
 #### Parameters (January 2026)
 
+The January 2026 values below are point-in-time examples and may no longer be current.
+
 ##### Assets (January 2026)
 
 - **Supported Asset**: USDS
@@ -709,6 +719,8 @@ When considering convertible deposits, users should consider:
 
 #### Parameters (January 26, 2026)
 
+The January 26, 2026 values below are point-in-time examples and may no longer be current.
+
 ##### Assets (January 26, 2026)
 
 - **Deposit Cap**: 2,000,000 USDS _(increased from: 1,000,000 USDS)_
@@ -736,7 +748,7 @@ A: USDS deposits are deposited into the sUSDS vault to earn the Sky Savings Rate
 A: For large deposits, consider breaking up bids over time to give the price time to decay between bids. Large bids that consume multiple ticks will result in a weighted average conversion price.
 
 **Q: What happens if the auction target is not reached?**
-A: The auction tracking period defines a number of days that the auction results (relative to the target, e.g. `sold - target`) will be tracked. At the end of the tracking period, if the sum of those results is negative (meaning that less OHM was sold through auctions than the target emissions) a bond market will be created to instantaneously sell the under-sold OHM. This increases the likelihood of the target emissions being reached.
+A: The auction tracking period defines a number of days that the auction results (relative to the target, e.g., `sold - target`) will be tracked. At the end of the tracking period, if the sum of those results is negative and fallback capacity is configured, a bond market can be created to sell the under-sold OHM. If fallback capacity is set to zero, no fallback market is created.
 
 Note that the bond market capacity is affected by the bond market capacity scalar.
 
@@ -752,13 +764,13 @@ A: Yes, if wrapped as an ERC721 NFT. Receipt tokens are also transferable. The n
 A: Users can still get their full deposit back through redemption, or exit early through reclaim (with discount).
 
 **Q: Will Olympus offer borrowing against receipt tokens?**
-A: Yes, borrowing functionality will be available to receipt token holders when they start the redemption process. This feature is planned for implementation after the initial launch.
+A: Borrowing functionality depends on the current redemption-vault configuration. Check the current app and contract settings before assuming borrowing is enabled.
 
 **Q: Can the CD position be traded as an NFT?**
 A: Yes, the convertible deposit position can be wrapped to an ERC721 NFT, allowing it to be traded on NFT marketplaces.
 
 **Q: Will there be different options for CDs with various strike prices or lengths?**
-A: The conversion price is determined through auction results at the time of purchase, while the deposit period is defined by governance. Users can choose from available periods (1, 2, or 3 months).
+A: The conversion price is determined through auction results at the time of purchase, while the deposit period is defined by governance. Users can choose from the periods available in the current configuration.
 
 **Q: Will "looping" be easy for regular users?**
 A: Looping is generally an advanced-user action. While it's possible, it isn't currently implemented in the interface and is more suited for sophisticated users.

@@ -10,20 +10,20 @@ sidebar_label: "Range Bound Stability"
 
 :::info
 
-Range Bound Stability (RBS) is currently disabled. The functionality has been replaced by:
+Range Bound Stability (RBS) is currently disabled. Successor market-operation mechanisms include:
 
-- [Yield Repurchase Facility](./06_yield-repurchase-facility) handles lower bounds (buying OHM when price is low)
-- [Emissions Manager](./05_emissions-manager) handles upper bounds (selling OHM when price is high)
+- [Yield Repurchase Facility](./06_yield-repurchase-facility.md), which uses protocol yield for OHM buybacks
+- [Emissions Manager](./05_emissions-manager.md), when active and configured, can control emissions through Convertible Deposits
 
 :::
 
-The Olympus Protocol automatically executes market operations to absorb volatility in the market price of OHM in relation to its reserve assets. This system is called Range-Bound Stability (RBS). The initial system design operates against individual reserve assets in isolation, and has been deployed to stabilize the price of OHM against DAI. The mechanism was originally defined in the [Stabilizing Currency Through a Protocol-Enforced Range](https://docs.google.com/document/u/2/d/e/2PACX-1vSIufbgAxAAtZkITd_s57o5AmyhAnk6iYbLYvN-ATL59hQ5nC2t2BTPvA8X9DYzFa-i3PRw9ARrAS9E/pub) white paper by Zeus et al.
+Range-Bound Stability (RBS) was Olympus' original market-operation system for absorbing volatility in the market price of OHM relative to reserve assets. The initial system design operated against individual reserve assets in isolation and was deployed to stabilize the price of OHM against DAI. The mechanism was originally defined in the [Stabilizing Currency Through a Protocol-Enforced Range](https://docs.google.com/document/u/2/d/e/2PACX-1vSIufbgAxAAtZkITd_s57o5AmyhAnk6iYbLYvN-ATL59hQ5nC2t2BTPvA8X9DYzFa-i3PRw9ARrAS9E/pub) white paper by Zeus et al.
 
 ![Visualization of Range](/gitbook/assets/range-denoted.png)
 
-RBS involves deploying treasury reserves in a downward trending market and selling OHM for reserves in an upward trending market to stabilize price. The nature of these actions causes contraction and growth of the network depending on the market environment to enforce stability.
+RBS involved deploying treasury reserves in a downward trending market and selling OHM for reserves in an upward trending market to stabilize price. The nature of these actions caused contraction and growth of the network depending on the market environment.
 
-Liquidity is a key aspect of the Olympus system and the vast majority of OHM liquidity is [Protocol-Owned](./pol). In addition to the market operations performed by RBS, the protocol enacts policies to balance the amount of reserves deployed in liquidity and the treasury for RBS to maintain sufficient pricing depth.
+Liquidity remains a key aspect of the Olympus system, and a large share of OHM liquidity is [Protocol-Owned](./pol). Current docs should treat the specification below as historical RBS V1 design material, not as a description of a currently active user-facing range system.
 
 :::info
 Details can be found in these resources:
@@ -36,7 +36,7 @@ Details can be found in these resources:
 
 ## RBS System Specification and Requirements
 
-The following specification was used to implement the RBS V1 system. It provides a succint summary of the system operates. The implementation of the concepts can be found in the Technical Guides section of the docs.
+The following specification was used to implement the RBS V1 system. It provides a succinct summary of how the historical system operated. The implementation of the concepts can be found in the Technical Guides section of the docs.
 
 1.  Calculate and maintain a moving average price for OHM against a specified reserve asset for a configurable duration. The MA price should be updated each system epoch.
 2.  Calculate lower and upper bounds for the price OHM against a specified reserve asset, both “wall” and “cushion” components, from the moving average price and configurable spread variables. The price levels are calculated as:

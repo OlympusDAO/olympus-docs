@@ -10,7 +10,7 @@ sidebar_label: "Cross-Chain Bridge"
 
 The OHM token is available cross-chain! Olympus uses bridge infrastructure to send and receive native OHM on supported chains. Whereas most bridge architectures create a wrapped representation of a token, Olympus takes a different approach: OHM is burned or locked on the source chain, and minted or released on the destination chain. The resulting OHM is native to that chain which makes it composable with every dApp.
 
-Olympus currently uses two bridge paths:
+Olympus has two bridge designs:
 
 - EVM chains use the `CrossChainBridge` contracts with LayerZero messaging and mint/burn accounting.
 - Solana uses Chainlink CCIP through `CCIPCrossChainBridge`, the user-facing bridge contract, and CCIP token pools such as `CCIPLockReleaseTokenPool`.
@@ -25,7 +25,7 @@ Olympus currently uses two bridge paths:
 
 :::caution
 
-EVM bridging is currently disabled following the recent KelpDAO incident. Upgraded EVM bridge contracts and infrastructure are in development.
+Check the Olympus app before bridging. Some EVM bridge lanes may be disabled or limited while upgraded bridge contracts and infrastructure are rolled out.
 
 :::
 
@@ -51,7 +51,7 @@ The available bridge lane determines both the messaging provider and the token a
 
 When sending OHM from a source chain (e.g. mainnet) to a supported EVM chain, the `CrossChainBridge` smart contract invokes the `MINTR` module to burn OHM on the source chain and send a message payload over the LayerZero Endpoint. When the message is received, the destination `CrossChainBridge` mints OHM on the destination chain.
 
-All current EVM bridge deployments use this mint/burn pattern. Ethereum mainnet is treated as the canonical chain for OHM supply: net-new protocol supply can only be minted on Ethereum mainnet. Bridge minting on non-canonical chains only mirrors OHM that has been burned on another chain.
+Current EVM bridge deployments use this mint/burn pattern when the lane is enabled. Ethereum mainnet is treated as the canonical chain for OHM supply: net-new protocol supply can only be minted on Ethereum mainnet. Bridge minting on non-canonical chains only mirrors OHM that has been burned on another chain.
 
 ```solidity
 function sendOhm(uint16 dstChainId_, address to_, uint256 amount_) external payable {

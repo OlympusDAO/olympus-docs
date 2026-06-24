@@ -7,6 +7,10 @@ sidebar_position: 4
 
 # Allocators
 
+:::warning Historical reference
+This page is preserved as an old contracts reference. "Current" and "active" wording below should be read as historical to this contract set, not as the current Olympus contract registry.
+:::
+
 ## AAVE Allocator
 
 The AAVE allocator is used to deposit excess DAI of the treasury into AAVE to

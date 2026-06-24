@@ -20,11 +20,11 @@ To submit a new proposal to on-chain governance (OCG), submitters interact direc
 
 ### Minimum voting power
 
-Whily anyone can submit a proposal by calling `propose()`, the transaction will revert unless proposer has a minimum amount of voting power to submit a proposal, determined by calling the `getProposalThresholdVotes()` function:
+While anyone can submit a proposal by calling `propose()`, the transaction will revert unless proposer has a minimum amount of voting power to submit a proposal, determined by calling the `getProposalThresholdVotes()` function:
 
 ```solidity
 function getProposalThresholdVotes() public view returns (uint256) {
-    return (gohm.totalSupply() * proposalThreshold) / 100_000;
+    return (gohm.totalSupply() * proposalThreshold) / 100_000_000;
 }
 ```
 
@@ -39,7 +39,7 @@ The current proposalThreshold is set to 0.017% of the total gOHM supply
 Olympus uses [forge-proposal-simulator](https://solidity-labs.gitbook.io/forge-proposal-simulator/), an open-source framework designed to structure proposals effectively and streamline the proposal verification process. On a high-level, this framework allows anyone to execute proposals in a forked environment and develop integration tests to examine the new system's behavior in a controlled sandbox.
 
 :::warning Warning
-Due to the importance of this framework in ensuring transparency and security, **Emergency MS will immediately veto any proposals not satisfying the two requirements**. This stance is based on the belief that bypassing the framework indicates an attempt to pass a harmful proposal by obfuscating its review process.
+Due to the importance of this framework in ensuring transparency and security, **the current veto guardian may veto proposals that do not satisfy review and simulation requirements**. This stance is based on the belief that bypassing the framework indicates an attempt to pass a harmful proposal by obfuscating its review process.
 :::
 
 ## Instructions
@@ -47,11 +47,11 @@ Due to the importance of this framework in ensuring transparency and security, *
 To successfully submit a proposal, the proposer must do the following:
 
 1. Submit code as a pull request to [olympus-v3 repo](https://github.com/OlympusDAO/olympus-v3)
-2. Reach out in Discord to request a review from the community
+2. Reach out through the forum and/or Discord to request a review from the community
 3. Acquire, or be delegated to, `proposalThreshold` percent of gOHM supply. Proposer must maintain that amount of gOHM until conclusion of proposal
 4. Call `propose()` on Governor Bravo contract, including the PR link in the description
 
-To submit a successful PR with integration tests, begin by creating a new contract in `src/proposals/` named after its corresponding OIP (e.g., `OIP_XXX.sol`). The contract should inherit `GovernorBravoProposal`, and use [OIP_XXX.sol](./OIP_XXX.sol) as a template.
+To submit a successful PR with integration tests, begin by creating a new contract in `src/proposals/` named after its corresponding OIP (e.g., `OIP_XXX.sol`). The contract should inherit `GovernorBravoProposal`, and use the generated [OIP_XXX.sol](../contracts/02_docs/src/proposals/OIP_XXX.sol/contract.OIP_XXX.md) docs as a template reference.
 
 Declare all necessary dependencies in [address registry](https://github.com/OlympusDAO/olympus-v3/blob/master/src/proposals/addresses.json). Follow this naming convention:
 
@@ -79,47 +79,47 @@ Deploy the smart contracts by running `_deploy()`. If the contract is already de
 
 Construct the proposal actions by using `_build()`. Use the following functions:
 
-````solidity
+```solidity
 // @dev push an action to the proposal
-function \_pushAction(
-uint256 value,
-address target,
-bytes memory data,
-string memory \_description
+function _pushAction(
+    uint256 value,
+    address target,
+    bytes memory data,
+    string memory _description
 ) internal {
-actions.push(
-Action({
-value: value,
-target: target,
-arguments: data,
-description: \_description
-})
-);
+    actions.push(
+        Action({
+            value: value,
+            target: target,
+            arguments: data,
+            description: _description
+        })
+    );
 }
 
-    // @dev push an action to the proposal with a value of 0
-    function _pushAction(
-        address target,
-        bytes memory data,
-        string memory _description
-    ) internal {
-        _pushAction(0, target, data, _description);
-    }
-    ```
+// @dev push an action to the proposal with a value of 0
+function _pushAction(
+    address target,
+    bytes memory data,
+    string memory _description
+) internal {
+    _pushAction(0, target, data, _description);
+}
+```
 
 Simulate the proposal execution by calling `_run()`. Use the provided code:
 
-    ```solidity
-    // Executes the proposal actions.
-    function _run(Addresses addresses, address) internal override {
-        // Simulates actions on TimelockController
-        _simulateActions(
-            addresses.getAddress("olympus-governor"),
-            addresses.getAddress("olympus-legacy-gohm"),
-            addresses.getAddress("proposer")
-        );
-    }
-    ```
+```solidity
+// Executes the proposal actions.
+function _run(Addresses addresses, address) internal override {
+    // Simulates actions on TimelockController
+    _simulateActions(
+        addresses.getAddress("olympus-governor"),
+        addresses.getAddress("olympus-legacy-gohm"),
+        addresses.getAddress("proposer")
+    );
+}
+```
 
 Perform validations and assertions through `_validate_()`. Validations should definitely demonstrate to the community that the proposal is secure and achieves the intended outcomes without putting the protocol at risk.
 
@@ -130,6 +130,6 @@ Create tests in [src/test/proposals/](https://github.com/OlympusDAO/olympus-v3/t
 function testProposal() public {
     assertTrue(true);
 }
-````
+```
 
 Once you feel comfortable, open a pull request in [olympus-v3 repo](https://github.com/OlympusDAO/olympus-v3) in the format `OIP-XXX: proposal simulation`.

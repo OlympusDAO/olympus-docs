@@ -6,6 +6,8 @@ sidebar_label: "Audits"
 
 # Audits
 
+This page is a historical report inventory. It is not a live statement that every currently deployed contract is covered by a current audit.
+
 | Time Period | Project                                                                                                             | Auditor                        | Subject                                      | Report                                                                                                                      |
 | ----------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------ | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 2021-04     | <span id="olympus-v1"></span>Olympus V1                                                                             | PeckShield                     | Olympus V1                                   | [Link](https://github.com/peckshield/publications/blob/master/audit_reports/PeckShield-Audit-Report-OlympusDAO-v1.0.pdf)    |
