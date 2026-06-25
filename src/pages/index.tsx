@@ -1,24 +1,20 @@
-import React from "react";
-import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
+import Layout from "@theme/Layout";
+// biome-ignore lint/correctness/noUnusedImports: The classic JSX TypeScript config requires React in scope.
+import React from "react";
 
 import "./index.module.css";
-import styled from "@emotion/styled";
-
-import Discord from "@site/static/img/discord.svg";
-
-import ThemedImage from "@theme/ThemedImage";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-
+import styled from "@emotion/styled";
 import {
-  InformationCircleIcon,
-  QuestionMarkCircleIcon,
   BookOpenIcon,
+  BuildingLibraryIcon,
   ChatBubbleLeftIcon,
   CodeBracketIcon,
-  BuildingLibraryIcon,
-  MapIcon,
+  InformationCircleIcon,
 } from "@heroicons/react/24/outline";
+import Discord from "@site/static/img/discord.svg";
+import ThemedImage from "@theme/ThemedImage";
 
 export const actions = [
   {
@@ -177,16 +173,6 @@ const ShadowCard = styled(Card)`
   /* background-color: var(--ifm-color-emphasis-0); */
 `;
 
-const WideCard = styled(ShadowCard)`
-  max-height: auto;
-
-  @media (max-width: 960px) {
-    margin: 0 2rem;
-    max-height: fit-content;
-    width: fit-content;
-  }
-`;
-
 const IconWrapper = styled.div`
   width: 32px;
   height: 32px;
@@ -249,12 +235,6 @@ const StyledGithubIcon = styled.div`
   }
 `;
 
-const HideMedium = styled.div`
-  @media (max-width: 960px) {
-    display: none;
-  }
-`;
-
 export default function Home() {
   return (
     <Layout
@@ -283,14 +263,20 @@ export default function Home() {
           />
           <Row>
             {actions.map((action) => (
-              <Link style={{ textDecoration: "none" }} to={action.to}>
-                <ShadowCard key={action.title}>
+              <Link
+                key={action.title}
+                style={{ textDecoration: "none" }}
+                to={action.to}
+              >
+                <ShadowCard>
                   <TopSection>
                     <IconWrapper>
                       <action.icon style={{ width: "24px" }} />
                     </IconWrapper>
 
                     <svg
+                      aria-hidden="true"
+                      focusable="false"
                       style={{ width: "24px", opacity: 0.2 }}
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -332,6 +318,7 @@ export default function Home() {
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
+                        <title>Open {action.title}</title>
                         <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
                       </svg>
                     </LinkRow>
@@ -344,8 +331,12 @@ export default function Home() {
           <div>
             <h2>Developer Links</h2>
             {github.map((action) => (
-              <Link style={{ textDecoration: "none" }} href={action.href}>
-                <Card key={action.title} style={{ marginBottom: "1rem" }}>
+              <Link
+                key={action.title}
+                style={{ textDecoration: "none" }}
+                href={action.href}
+              >
+                <Card style={{ marginBottom: "1rem" }}>
                   <LinkRow>
                     <StyledGithubIcon
                       style={{ display: "flex", alignItems: "center" }}
@@ -355,8 +346,8 @@ export default function Home() {
                         viewBox="0 0 120.78 117.79"
                         style={{ width: "24px" }}
                       >
+                        <title>GitHub</title>
                         <defs></defs>
-                        <title>testlogo</title>
                         <g id="Layer_2" data-name="Layer 2">
                           <g id="Layer_1-2" data-name="Layer 1">
                             <path
@@ -404,6 +395,7 @@ export default function Home() {
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
+                      <title>Open {action.title}</title>
                       <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
                     </svg>
                   </LinkRow>
@@ -452,6 +444,7 @@ export default function Home() {
                   viewBox="0 0 120.78 117.79"
                   style={{ width: "48px" }}
                 >
+                  <title>GitHub</title>
                   <defs></defs>
                   <g id="Layer_2" data-name="Layer 2">
                     <g id="Layer_1-2" data-name="Layer 1">

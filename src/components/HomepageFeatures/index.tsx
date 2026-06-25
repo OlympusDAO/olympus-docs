@@ -1,5 +1,5 @@
+// biome-ignore lint/style/useImportType: The classic JSX TypeScript config requires React in scope.
 import React from "react";
-import clsx from "clsx";
 import styles from "./styles.module.css";
 
 type FeatureItem = {
@@ -43,7 +43,7 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, Svg, description }: FeatureItem) {
   return (
-    <div className={clsx("col col--4")}>
+    <div className="col col--4">
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
@@ -60,8 +60,8 @@ export default function HomepageFeatures(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {FeatureList.map((props) => (
+            <Feature key={props.title} {...props} />
           ))}
         </div>
       </div>
