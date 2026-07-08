@@ -8,8 +8,12 @@ sidebar_label: "Protocol Owned Liquidity"
 
 ## Overview
 
-Olympus pioneered the concept of Protocol Owned Liquidity (POL), ensuring liquidity for OHM holders without relying on liquidity mining incentives. POL manifests itself into several forms: dex based liquidity, and RBS swaps. Furthermore Cooler loans, based on parameters set by governance, provides extremely deep liquidity relative to OHM's market by allowing users to realize the underlying backing. This ensures users and protocols are always able to swap OHM, regardless of market conditions and external events.
+Olympus pioneered the concept of Protocol Owned Liquidity (POL), ensuring liquidity for OHM holders without relying on liquidity mining incentives. POL currently refers to protocol-owned DEX liquidity positions that Olympus controls across supported chains. These positions can change over time through governance, treasury operations, and market movements.
 
-Dex POL is held in an [OHM/wETH UNI v3 pool](https://info.uniswap.org/#/pools/0x88051b0eea095007d3bef21ab287be961f3d8598). This pool is intended to be permanent liquidity, although subject to change via governance.
+Current POL includes positions such as Ethereum OHM/sUSDS and OHM/wETH Uniswap V3 liquidity, Base OHM/USDC Uniswap V3 liquidity, Arbitrum OHM/wETH Camelot liquidity, and Berachain OHM/HONEY liquidity. Exact pool values, ownership percentages, and non-OHM reserve exposure are dynamic and should be read from current Olympus dashboards or indexers before being cited.
 
-RBS provides [OHM/DAI liquidity](https://docs.olympusdao.finance/main/overview/range-bound). With RBS, the balance between reserves and liquidity is algorithmic, with the goal to optimize the liquidity depth and reserves for robustness and long term market stability.
+POL is separate from Cooler loans. Cooler loans provide USDS credit against gOHM collateral under governance-set parameters, while DEX POL provides executable market liquidity for OHM pairs. Both can affect holder liquidity, but they are different mechanisms and should not be treated as the same source of market depth.
+
+:::info
+For current POL composition and values, use the Olympus Treasury Dashboard or current protocol indexer data. Berachain and Arbitrum values may have chain-specific freshness or liquidity caveats.
+:::

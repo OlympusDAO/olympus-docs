@@ -8,20 +8,21 @@ sidebar_label: Intro
 # Governance at Olympus
 
 :::info
-Olympus Governance is transitioning from multisig management to on-chain governanc, per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governance). [OIP-166](https://forum.olympusdao.finance/d/4625-oip-166-activate-governor-timelock/2) was the first deployment of these changes.
+Olympus governance currently combines Snapshot signaling, Governor Bravo and Timelock on-chain execution, and multisig or guardian controls for remaining operational roles. [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governance) proposed the on-chain governance path, and [OIP-166](https://forum.olympusdao.finance/d/4625-oip-166-activate-governor-timelock/2) activated the first Timelock role-administration step.
 :::
 
-The Olympus protocol is governed and upgraded by tokenholders using three components:
+The Olympus protocol is governed and upgraded by tokenholders using four components:
 
 1. gOHM token (Governance OHM)
-2. Governor Bravo
-3. Multisig
+2. Snapshot
+3. Governor Bravo and Timelock
+4. Multisigs and guardian controls
 
 Together, these components enable the community to propose, vote on, and implement changes to the Olympus V3 system. Proposals can modify system parameters, activate or deactivate policies, and install or upgrade modules, effectively allowing the addition of new features and the mutation of the protocol.
 
 ## gOHM
 
-gOHM, or Governance OHM, is an ERC-20 token used for proposing upgrades to Olympus protocol. gOHM can be obtained by wrapping OHM, and vice versa. The only use cases of gOHM today is for voting and as Cooler Loans collateral.
+gOHM, or Governance OHM, is an ERC-20 token used for proposing upgrades to Olympus protocol. gOHM can be obtained by wrapping OHM, and vice versa. The main current protocol uses of gOHM are voting, delegation, and Cooler Loans collateral.
 
 ### Delegation
 
@@ -42,6 +43,10 @@ You must delegate your gOHM in Cooler Loans to be eligible to vote in both Snaps
 ### Voting eligibility
 
 The following table outlines what gOHM supply is eligible to vote in both Snapshot and Governor Bravo:
+
+:::caution
+Snapshot voting strategies can include additional gOHM representations. Verify current Snapshot strategies before relying on this table for exact eligibility.
+:::
 
 | gOHM type                                                                                         | Snapshot eligibility     | Governor Bravo eligibility |
 | ------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------- |
@@ -64,13 +69,13 @@ Olympus implements a modified version of Compound’s Governor Bravo with the fo
 
 The decision to introduce these changes stem from elasticity in the gOHM supply. Percent-based thresholds ensure that requirements (in absolute gOHM terms) for proposing and executing proposals scale/shrink with the token supply.
 
-Today, Governor Bravo's Timelock is responsible for the following roles:
+Governor Bravo's Timelock administers the RolesAdmin role-assignment path. Other Kernel, policy, and emergency role holders should be verified from the live ROLES module before execution.
 
 | Role    | Responsibility                                        | Systems affected |
 | ------- | ----------------------------------------------------- | ---------------- |
 | `admin` | Single address permission: Assign roles to any policy | Kernel           |
 
-Per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governance), additional roles will be transfered from multisig management to Governor Bravo's Timelock. [OIP-166](https://forum.olympusdao.finance/d/4625-oip-166-activate-governor-timelock/2) was the first deployment of these changes.
+Per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governance), additional roles were expected to transfer from multisig management to Governor Bravo's Timelock over time. [OIP-166](https://forum.olympusdao.finance/d/4625-oip-166-activate-governor-timelock/2) was the first deployment of these changes.
 
 ### Parameters
 
@@ -86,37 +91,41 @@ Per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governanc
 | activationGracePeriod   | The amount of time once a proposal is eligible for activation that it can be activated before considered expired | 1 day            |
 | GRACE_PERIOD            | How long after a proposal is eligible for execution it can still be executed before it is considered expired     | 1 day            |
 | delay (execution delay) | The time a proposal must be queued for before it can be executed                                                 | 1 day            |
-| vetoGuardian            | Address which has veto power over all proposals                                                                  | Emergency MS     |
+| vetoGuardian            | Address which has veto power over all proposals. Read `vetoGuardian()` on Governor Bravo for the current value; as of a 2026-06-18 live check, it resolved to the DAO MS. | DAO MS as of 2026-06-18 |
 | MIN_GOHM_SUPPLY         | The minimum level of gOHM supply acceptable for OCG operations                                                   | 1000 gOHM        |
 
 ## Shared Roles
 
-Multisigs may perform protocol upgrades for roles that are not yet fully under Governor Bravo's Timelock control. The multisigs may queue and execute on-chain actions that are approved by the community through [Snapshot](https://docs.snapshot.org/), an off-chain governance client. Today, the following roles are under shared Timelock and multisig control:
+Multisigs may perform protocol upgrades for roles that are not yet fully under Governor Bravo's Timelock control. The multisigs may queue and execute on-chain actions that are approved by the community through [Snapshot](https://docs.snapshot.org/), an off-chain governance client.
+
+The table below is a transition-era role model, not a live role-holder table. Verify current holders in the ROLES module before taking or reviewing an on-chain action.
 
 | Role                 | Responsibility                                               | Systems affected | Multisig                |
 | -------------------- | ------------------------------------------------------------ | ---------------- | ----------------------- |
-| `price_admin`        | Calculates price metrics to use for RBS                      | RBS              | DAO MS + Timelock       |
-| `operator_admin`     | Initialize RBS operator                                      | RBS              | DAO MS + Timelock       |
-| `operator_policy`    | Manages RBS ranges                                           | RBS              | DAO MS + Timelock       |
-| `callback_admin`     | Callback to interface with Bond system                       | RBS              | DAO MS + Timelock       |
-| `heart_admin`        | Manages heartbeats                                           | RBS and Staking  | DAO MS + Timelock       |
+| `price_admin`        | Calculates price metrics for price and market-operations infrastructure | Price/market operations | DAO MS + Timelock       |
+| `operator_admin`     | Initialize legacy Operator/RBS infrastructure                | Legacy Operator/RBS | DAO MS + Timelock       |
+| `operator_policy`    | Manages legacy Operator/RBS parameters                       | Legacy Operator/RBS | DAO MS + Timelock       |
+| `callback_admin`     | Callback to interface with Bond system                       | Bond/market operations | DAO MS + Timelock       |
+| `heart_admin`        | Manages heartbeats                                           | Heart and market operations | DAO MS + Timelock       |
 | `custodian`          | Treasury custodian that can approve, remove assets from TRSY | TRSRY            | DAO MS + Timelock       |
 | `bridge_admin`       | Creates/manages bridges                                      | Cross Chain      | DAO MS + Timelock       |
 | `loop_daddy`         | Administrative role for YRF                                  | YRF              | DAO MS + Timelock       |
-| `cooler_overseer`    | Activats, reactivate, and defund Clearinghouse               | Coolers          | DAO MS + Timelock       |
+| `cooler_overseer`    | Activates, reactivates, and defunds Clearinghouse            | Coolers          | DAO MS + Timelock       |
 | `emergency_restart`  | Restart MINTR, TRSRY                                         | All systems      | DAO MS + Timelock       |
 | `emergency_admin`    | Emergency shutdown for BLV                                   | All systems      | Emergency MS + Timelock |
 | `emergency_shutdown` | Shutdown MINTR, TRSRY                                        | All systems      | Emergency MS + Timelock |
 
 ## Multisig
 
-Multisigs perform protocol upgrades for roles that are not yet under Governor Bravo's Timelock control. The multisigs queue and execute on-chain actions that are approved by the community through [Snapshot](https://docs.snapshot.org/), an off-chain governance client. Today, the following roles are under multisig control:
+Multisigs perform protocol upgrades for roles that are not yet under Governor Bravo's Timelock control. The multisigs queue and execute on-chain actions that are approved by the community through [Snapshot](https://docs.snapshot.org/), an off-chain governance client.
+
+The table below is a transition-era role model, not a live role-holder table. Verify current holders in the ROLES module before taking or reviewing an on-chain action.
 
 | Role                | Responsibility                                                                                    | Systems affected                    | Multisig |
 | ------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------- | -------- |
 | `executor`          | Single address permission: Ability to install modules and policies on Kernel                      | Kernel                              | DAO MS   |
-| `operator_operate`  | Triggers heartbeat RBS updates                                                                    | RBS                                 | DAO MS   |
-| `operator_reporter` | Records a bond purchase and updates capacity accordingly. Limited to the `BondCallback` contract. | RBS                                 | DAO MS   |
+| `operator_operate`  | Triggers heartbeat updates for legacy Operator/RBS infrastructure                                  | Legacy Operator/RBS                 | DAO MS   |
+| `operator_reporter` | Records a bond purchase and updates capacity accordingly. Limited to the `BondCallback` contract. | Legacy Operator/RBS                 | DAO MS   |
 | `bondmanager_admin` | Create and manage new bond markets                                                                | OHM and other non-RBS managed bonds | DAO MS   |
 
-Per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governance), additional roles will be transfered from multisig management to Governor Bravo's Timelock. [OIP-166](https://forum.olympusdao.finance/d/4625-oip-166-activate-governor-timelock/2) was the first deployment of these changes.
+Per [OIP-152](https://forum.olympusdao.finance/d/4088-oip-152-on-chain-governance), additional roles were expected to transfer from multisig management to Governor Bravo's Timelock over time. [OIP-166](https://forum.olympusdao.finance/d/4625-oip-166-activate-governor-timelock/2) was the first deployment of these changes.

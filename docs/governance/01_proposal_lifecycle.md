@@ -9,6 +9,10 @@ sidebar_label: Proposal Lifecycle
 
 Any proposal to Olympus' Governor Bravo follows this lifecycle:
 
+:::info
+This page describes on-chain Governor Bravo proposals. Many Olympus Improvement Proposals still use Snapshot for off-chain signaling and may be executed through multisig or on-chain proposal paths depending on the action.
+:::
+
 1. Proposal is submitted by calling `propose()`. Proposal review period begins.
 2. Proposal is activated for voting by calling `activate()`. Proposal voting period begins.
 3. Proposal is queued by calling `queue()`. Proposal is transfered to Timelock, and grace period begins.
@@ -43,7 +47,7 @@ OCG's trustless nature is one of its greatest strengths, but it also presents a 
 
 To address this challenge, Olympus uses [forge-proposal-simulator](https://solidity-labs.gitbook.io/forge-proposal-simulator/), an open-source framework designed to structure proposals effectively and streamline the proposal verification process. On a high-level, this framework allows anyone to execute proposals in a forked environment and develop integration tests to examine the new system's behavior in a controlled sandbox.
 
-Due to the importance of this framework in ensuring transparency and security, **Emergency MS will veto any proposals not adopting it**. This stance is based on the belief that **omitting the framework could indicate an attempt to pass a harmful proposal** by obfuscating its review process.
+Due to the importance of this framework in ensuring transparency and security, **the veto guardian may veto proposals that do not adopt it**. This stance is based on the belief that **omitting the framework could indicate an attempt to pass a harmful proposal** by obfuscating its review process.
 
 :::info
 The current votingDelay is set to 3 days
@@ -55,7 +59,7 @@ Anyone can activate a proposal by calling `activate()`. Calling activate records
 
 ```solidity
 function getHighRiskQuorumVotes() public view returns (uint256) {
-    return (gohm.totalSupply() * highRiskQuorum) / 100_000;
+    return (gohm.totalSupply() * highRiskQuorum) / 100_000_000;
 }
 ```
 
@@ -63,7 +67,7 @@ Otherwise, quorum is calculated using the `getQuorumVotes()` function:
 
 ```solidity
 function getQuorumVotes() public view returns (uint256) {
-    return (gohm.totalSupply() * quorumPct) / 100_000;
+    return (gohm.totalSupply() * quorumPct) / 100_000_000;
 }
 ```
 
@@ -146,7 +150,7 @@ The current approvalThresholdPct is set to 60%
 
 ## Proposal Queuing
 
-Anyone can activate a proposal by calling `queue()`. Queueing a proposal prepares the proposal for execution by the Timelock contract in `delay` days. The proposer's gOHM balance is again checked during `queue()`. If the balance falls below `proposalThreshold`, the proposal will fail.
+Anyone can queue a successful proposal by calling `queue()`. Queueing a proposal prepares the proposal for execution by the Timelock contract in `delay` days. The proposer's gOHM balance is again checked during `queue()`. If the balance falls below `proposalThreshold`, the proposal will fail.
 
 :::info
 The current delay is set to 1 day
@@ -154,9 +158,9 @@ The current delay is set to 1 day
 
 ## Proposal Execution
 
-Any can execute a proposal by calling `execute()`. Executing a proposal triggers the Timelock contract to execute the proposal's actions. The proposer's gOHM balance is again checked during `execute()`. If the balance falls below `proposalThreshold`, the proposal will fail.
+Anyone can execute a proposal by calling `execute()`. Executing a proposal triggers the Timelock contract to execute the proposal's actions. The proposer's gOHM balance is again checked during `execute()`. If the balance falls below `proposalThreshold`, the proposal will fail.
 
-Also, if the proposal is not activated within the `GRACE_PERIOD` days after proposal is queued, it will expire and can no longer be executed.
+Also, if the proposal is not executed within the Timelock `GRACE_PERIOD` after it becomes executable, it will expire and can no longer be executed.
 
 :::info
 The current GRACE_PERIOD is set to 1 day
@@ -164,7 +168,7 @@ The current GRACE_PERIOD is set to 1 day
 
 ## Canceling Proposal
 
-The proposal can be canceled at any time (before execution) by the proposer. A proposer can be canceled by anyone only if the proposer's gOHM balance
+The proposal can be canceled at any time (before execution) by the proposer. A proposal can also be canceled by anyone if the proposer's gOHM balance
 is below `proposalThreshold`.
 
 ## Vetoing Proposal
@@ -172,7 +176,7 @@ is below `proposalThreshold`.
 The proposal can be vetoed any time (before execution) by the Veto Guardian. Once a proposal is vetoed, it fails forever.
 
 :::info
-The current Veto Guardian is set to Emergency MS
+Read Governor Bravo's `vetoGuardian()` function for the current veto guardian. As of a 2026-06-18 live check, it resolved to the DAO MS.
 :::
 
 ## Emergency State
