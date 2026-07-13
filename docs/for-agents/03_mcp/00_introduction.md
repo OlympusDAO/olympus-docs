@@ -70,14 +70,14 @@ The server exposes a curated set of read-only tools. You do not call these direc
 
 ### Liquidity, yield, and dependencies
 
-| Tool                      | Answers                                                                                             |
-| ------------------------- | --------------------------------------------------------------------------------------------------- |
-| `get_pol_liquidity`       | Protocol-owned liquidity positions by chain and pool.                                               |
+| Tool                      | Answers                                                                                                             |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `get_pol_liquidity`       | Protocol-owned liquidity positions by chain and pool.                                                               |
 | `get_liquidity_routes`    | Where direct OHM liquidity sits: primary routes, Olympus-owned POL, third-party routes, and cross-chain references. |
-| `get_executable_slippage` | Executable slippage for a sized OHM trade, using an Odos routed quote plus relevant POL route context. |
-| `get_market_depth`        | Liquidity and depth as a slippage proxy.                                                            |
-| `get_yrf_state`           | What the Yield Repurchase Facility is doing.                                                        |
-| `get_dependency_map`      | External exposure: oracles, bridges, DEXs, and venues.                                             |
+| `get_executable_slippage` | Executable slippage for a sized OHM trade, using an Odos-routed quote plus relevant POL route context.              |
+| `get_market_depth`        | Liquidity and depth as a slippage proxy.                                                                            |
+| `get_yrf_state`           | What the Yield Repurchase Facility is doing.                                                                        |
+| `get_dependency_map`      | External exposure: oracles, bridges, DEXs, and venues.                                                              |
 
 ### Discovery and direct reads
 
