@@ -1,6 +1,6 @@
 # OlympusPricev1_2
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/modules/PRICE/OlympusPrice.v1_2.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/modules/PRICE/OlympusPrice.v1_2.sol)
 
 **Inherits:**
 [OlympusPricev2](/main/contracts/docs/src/modules/PRICE/OlympusPrice.v2.sol/contract.OlympusPricev2), [IPRICEv1](/main/contracts/docs/src/modules/PRICE/IPRICE.v1.sol/interface.IPRICEv1)

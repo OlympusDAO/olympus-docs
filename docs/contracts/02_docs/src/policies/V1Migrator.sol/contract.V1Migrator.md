@@ -1,6 +1,6 @@
 # V1Migrator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/policies/V1Migrator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/policies/V1Migrator.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IVersioned](/main/contracts/docs/src/interfaces/IVersioned.sol/interface.IVersioned), [IV1Migrator](/main/contracts/docs/src/policies/interfaces/IV1Migrator.sol/interface.IV1Migrator)
@@ -24,10 +24,9 @@ Migration flow (partial migrations allowed):
 - This matches the production flow: OHM v1 -> gOHM -> OHM v2
 - When gOHM index is not at base level, the result may be slightly less due to rounding
 
-1. Contract burns OHM v1 and mints calculated OHM v2 amount to user
-2. User's migrated amount is tracked by OHM v1 amount (original allocation)
-
-Admin functions:
+5. Contract burns OHM v1 and mints calculated OHM v2 amount to user
+6. User's migrated amount is tracked by OHM v1 amount (original allocation)
+   Admin functions:
 
 - setMerkleRoot: Update eligibility tree (resets all migrated amounts)
 - setRemainingMintApproval: Update remaining MINTR approval for migration

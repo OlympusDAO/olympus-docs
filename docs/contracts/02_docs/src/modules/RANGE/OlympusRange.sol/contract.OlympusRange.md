@@ -1,6 +1,6 @@
 # OlympusRange
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/modules/RANGE/OlympusRange.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/modules/RANGE/OlympusRange.sol)
 
 **Inherits:**
 [RANGEv2](/main/contracts/docs/src/modules/RANGE/RANGE.v2.sol/abstract.RANGEv2)

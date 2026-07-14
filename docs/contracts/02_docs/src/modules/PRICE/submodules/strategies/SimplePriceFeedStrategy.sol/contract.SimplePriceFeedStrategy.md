@@ -1,6 +1,6 @@
 # SimplePriceFeedStrategy
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/modules/PRICE/submodules/strategies/SimplePriceFeedStrategy.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/modules/PRICE/submodules/strategies/SimplePriceFeedStrategy.sol)
 
 **Inherits:**
 [PriceSubmodule](/main/contracts/docs/src/modules/PRICE/PRICE.v2.sol/abstract.PriceSubmodule), [ISimplePriceFeedStrategy](/main/contracts/docs/src/modules/PRICE/submodules/strategies/ISimplePriceFeedStrategy.sol/interface.ISimplePriceFeedStrategy)

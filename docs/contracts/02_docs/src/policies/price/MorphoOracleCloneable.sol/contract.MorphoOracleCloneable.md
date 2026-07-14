@@ -1,6 +1,6 @@
 # MorphoOracleCloneable
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/policies/price/MorphoOracleCloneable.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/policies/price/MorphoOracleCloneable.sol)
 
 **Inherits:**
 [IMorphoOracle](/main/contracts/docs/src/policies/interfaces/price/IMorphoOracle.sol/interface.IMorphoOracle), [IOraclePriceCache](/main/contracts/docs/src/policies/interfaces/price/IOraclePriceCache.sol/interface.IOraclePriceCache), Clone

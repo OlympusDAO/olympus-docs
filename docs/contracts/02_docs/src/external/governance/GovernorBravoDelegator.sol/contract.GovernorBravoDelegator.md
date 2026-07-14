@@ -1,6 +1,6 @@
 # GovernorBravoDelegator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/external/governance/GovernorBravoDelegator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/external/governance/GovernorBravoDelegator.sol)
 
 **Inherits:**
 [GovernorBravoDelegatorStorage](/main/contracts/docs/src/external/governance/abstracts/GovernorBravoStorage.sol/abstract.GovernorBravoDelegatorStorage), [IGovernorBravoEventsAndErrors](/main/contracts/docs/src/external/governance/interfaces/IGovernorBravoEvents.sol/interface.IGovernorBravoEventsAndErrors)

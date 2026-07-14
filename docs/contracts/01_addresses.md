@@ -56,7 +56,7 @@ sidebar_label: "Addresses"
 | PRICE    | 1.1     | Mainnet  | [`0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f`](https://etherscan.io/address/0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f)            |
 |          |         | Goerli   | [`0x704e104713Dd874FC1C2493f2d98fF164eBdF735`](https://goerli.etherscan.io/address/0x704e104713Dd874FC1C2493f2d98fF164eBdF735)     |
 |          |         | Sepolia  | [`0x3bD25E292dC36b674BBF1EEecaAB4565bf2eF241`](https://sepolia.etherscan.io/address/0x3bD25E292dC36b674BBF1EEecaAB4565bf2eF241)    |
-| PRICE    | 1.2     | Mainnet  | [`0x0000000000000000000000000000000000000000`](https://etherscan.io/address/0x0000000000000000000000000000000000000000)            |
+| PRICE    | 1.2     | Mainnet  | [`0x465cCc69d285415Bce199f855d3A68ea3537F8FE`](https://etherscan.io/address/0x465cCc69d285415Bce199f855d3A68ea3537F8FE)            |
 | RANGE    | 2.0     | Mainnet  | [`0x399cD3685912bb56aAeD0949119dB6cE5Df60FB5`](https://etherscan.io/address/0x399cD3685912bb56aAeD0949119dB6cE5Df60FB5)            |
 |          |         | Goerli   | [`0xFF88b47af188d91aC05ff5E843B5F6863472EdD0`](https://goerli.etherscan.io/address/0xFF88b47af188d91aC05ff5E843B5F6863472EdD0)     |
 |          |         | Sepolia  | [`0xb4309Cf4F876A2d18561b3fD8eeC54899dFeB962`](https://sepolia.etherscan.io/address/0xb4309Cf4F876A2d18561b3fD8eeC54899dFeB962)    |
@@ -78,10 +78,10 @@ sidebar_label: "Addresses"
 
 | Contract                | Version | Chain   | Address                                                                                                                 |
 | ----------------------- | ------- | ------- | ----------------------------------------------------------------------------------------------------------------------- |
-| ChainlinkPriceFeeds     | 1.0     | Mainnet | [`0x0000000000000000000000000000000000000000`](https://etherscan.io/address/0x0000000000000000000000000000000000000000) |
-| ERC4626Price            | 1.0     | Mainnet | [`0x0000000000000000000000000000000000000000`](https://etherscan.io/address/0x0000000000000000000000000000000000000000) |
-| SimplePriceFeedStrategy | 1.0     | Mainnet | [`0x0000000000000000000000000000000000000000`](https://etherscan.io/address/0x0000000000000000000000000000000000000000) |
-| UniswapV3Price          | 1.0     | Mainnet | [`0x0000000000000000000000000000000000000000`](https://etherscan.io/address/0x0000000000000000000000000000000000000000) |
+| ChainlinkPriceFeeds     | 1.0     | Mainnet | [`0x1c22ecaCaFD35cfE997729f2880F8C23aa5A2fb2`](https://etherscan.io/address/0x1c22ecaCaFD35cfE997729f2880F8C23aa5A2fb2) |
+| ERC4626Price            | 1.0     | Mainnet | [`0x5d23a83c9bEc7AC6acea3760BC2EEca9186F3037`](https://etherscan.io/address/0x5d23a83c9bEc7AC6acea3760BC2EEca9186F3037) |
+| SimplePriceFeedStrategy | 1.0     | Mainnet | [`0xC8b00Cbc78fd9d43E5cDDd86099B9394C4CeF95D`](https://etherscan.io/address/0xC8b00Cbc78fd9d43E5cDDd86099B9394C4CeF95D) |
+| UniswapV3Price          | 1.0     | Mainnet | [`0x5F8A7a25373AEEb4cbfC281BF74EbBE6996C8099`](https://etherscan.io/address/0x5F8A7a25373AEEb4cbfC281BF74EbBE6996C8099) |
 
 ### Policies
 
@@ -109,7 +109,7 @@ sidebar_label: "Addresses"
 | PriceConfig                             | 1.0     | Mainnet  | [`0xf6D5d06A4e8e6904E4360108749C177692F59E90`](https://etherscan.io/address/0xf6D5d06A4e8e6904E4360108749C177692F59E90)            |
 |                                         |         | Goerli   | [`0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463`](https://goerli.etherscan.io/address/0x15915Be9d272B353BA06FA5Ce3918ae7D27F5463)     |
 |                                         |         | Sepolia  | [`0x68009f5e809C5A3438438312F8EEFB9F5C73d534`](https://sepolia.etherscan.io/address/0x68009f5e809C5A3438438312F8EEFB9F5C73d534)    |
-| PriceConfigv2                           | 2.0     | Mainnet  | [`0x0000000000000000000000000000000000000000`](https://etherscan.io/address/0x0000000000000000000000000000000000000000)            |
+| PriceConfigv2                           | 2.0     | Mainnet  | [`0x5c69f61D384e41b55699C3B10523Ed81c5ef9cbd`](https://etherscan.io/address/0x5c69f61D384e41b55699C3B10523Ed81c5ef9cbd)            |
 | PriceCache                              | 1.0     | Mainnet  | [`0x0000000000000000000000000000000000000000`](https://etherscan.io/address/0x0000000000000000000000000000000000000000)            |
 | ChainlinkOracleFactory                  | 1.0     | Mainnet  | [`0x0000000000000000000000000000000000000000`](https://etherscan.io/address/0x0000000000000000000000000000000000000000)            |
 | ERC7726OracleFactory                    | 1.0     | Mainnet  | [`0x0000000000000000000000000000000000000000`](https://etherscan.io/address/0x0000000000000000000000000000000000000000)            |

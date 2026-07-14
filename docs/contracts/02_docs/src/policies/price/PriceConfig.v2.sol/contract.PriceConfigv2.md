@@ -1,6 +1,6 @@
 # PriceConfigv2
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/policies/price/PriceConfig.v2.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/policies/price/PriceConfig.v2.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [TimelockQueue](/main/contracts/docs/src/policies/utils/TimelockQueue.sol/abstract.TimelockQueue), [IPriceConfigv2](/main/contracts/docs/src/policies/interfaces/IPriceConfigv2.sol/interface.IPriceConfigv2), [IVersioned](/main/contracts/docs/src/interfaces/IVersioned.sol/interface.IVersioned)

@@ -1,6 +1,6 @@
 # MonoCooler
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/policies/cooler/MonoCooler.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/policies/cooler/MonoCooler.sol)
 
 **Inherits:**
 [IMonoCooler](/main/contracts/docs/src/policies/interfaces/cooler/IMonoCooler.sol/interface.IMonoCooler), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyAdmin](/main/contracts/docs/src/policies/utils/PolicyAdmin.sol/abstract.PolicyAdmin)

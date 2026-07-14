@@ -1,6 +1,6 @@
 # OracleProposal
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/proposals/OracleProposal.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/proposals/OracleProposal.sol)
 
 **Inherits:**
 GovernorBravoProposal
@@ -61,40 +61,18 @@ address internal constant CHAINLINK_OHM_ETH = 0x9a72298ae3886221820B1c878d12D872
 address internal constant CHAINLINK_USDS_USD = 0xfF30586cD0F29eD462364C7e81375FC0C71219b1
 ```
 
-### PYTH
+### API3_ETH_USD
 
-```solidity
-address internal constant PYTH = 0x4305FB66699C3B2702D4d05CF36551390A4c69C6
-```
+`0x5b0cf2b36a65a6BB085D501B971e4c102B9Cd473`
+
+### API3_USDS_USD
+
+`0x6C3C2A615Ea3c592487b3e06ecAF01D9a3181f47`
 
 ### REDSTONE_ETH_USD
 
 ```solidity
 address internal constant REDSTONE_ETH_USD = 0x67F6838e58859d612E4ddF04dA396d6DABB66Dc4
-```
-
-### PYTH_ETH_USD_ID
-
-```solidity
-bytes32 internal constant PYTH_ETH_USD_ID = 0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace
-```
-
-### PYTH_USDS_USD_ID
-
-```solidity
-bytes32 internal constant PYTH_USDS_USD_ID = 0x77f0971af11cc8bac224917275c1bf55f2319ed5c654a1ca955c82fa2d297ea1
-```
-
-### PYTH_ETH_USD_UPDATE_THRESHOLD
-
-```solidity
-uint256 internal constant PYTH_ETH_USD_UPDATE_THRESHOLD = 1 hours
-```
-
-### PYTH_USDS_USD_UPDATE_THRESHOLD
-
-```solidity
-uint256 internal constant PYTH_USDS_USD_UPDATE_THRESHOLD = 1 days
 ```
 
 ## Functions
@@ -145,7 +123,7 @@ function _run(Addresses addresses, address) internal override;
 
 GovernorBravoProposal simulates execution after the timelock delay by warping the fork
 forward. On a static fork, external oracle contracts do not receive the
-Chainlink/Pyth/RedStone updates that would occur during that real elapsed time, so PRICE
+Chainlink/API3/RedStone updates that would occur during that real elapsed time, so PRICE
 can reject otherwise valid proposal actions with stale-feed errors.
 The proposal actions depend on PRICE during simulation because deploying the
 cache-backed oracle clones seeds/validates the OHM/USDS cache. Preserve the feed answers
@@ -162,13 +140,6 @@ function _mockPriceFeedsAtTimelockExecution(Addresses addresses) internal;
 
 ```solidity
 function _mockChainlinkFeedAt(address feed_, uint256 updatedAt_) internal;
-```
-
-### \_mockPythFeedAt
-
-```solidity
-function _mockPythFeedAt(address pyth_, bytes32 priceFeedId_, uint256 updateThreshold_, IPyth.Price memory price_)
-    internal;
 ```
 
 ### \_validate

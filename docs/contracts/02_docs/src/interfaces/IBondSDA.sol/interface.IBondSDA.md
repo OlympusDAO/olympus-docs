@@ -1,6 +1,6 @@
 # IBondSDA
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/interfaces/IBondSDA.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/interfaces/IBondSDA.sol)
 
 **Inherits:**
 [IBondAuctioneer](/main/contracts/docs/src/interfaces/IBondAuctioneer.sol/interface.IBondAuctioneer)
@@ -151,19 +151,16 @@ Note price should be passed in a specific format:
 formatted price = (payoutPriceCoefficient / quotePriceCoefficient)
 
 - 10\*\*(36 + scaleAdjustment + quoteDecimals - payoutDecimals + payoutPriceDecimals - quotePriceDecimals)
-
-where:
-payoutDecimals - Number of decimals defined for the payoutToken in its ERC20 contract
-quoteDecimals - Number of decimals defined for the quoteToken in its ERC20 contract
-payoutPriceCoefficient - The coefficient of the payoutToken price in scientific notation (also known as the significant digits)
-payoutPriceDecimals - The significand of the payoutToken price in scientific notation (also known as the base ten exponent)
-quotePriceCoefficient - The coefficient of the quoteToken price in scientific notation (also known as the significant digits)
-quotePriceDecimals - The significand of the quoteToken price in scientific notation (also known as the base ten exponent)
-scaleAdjustment - see below
-
+  where:
+  payoutDecimals - Number of decimals defined for the payoutToken in its ERC20 contract
+  quoteDecimals - Number of decimals defined for the quoteToken in its ERC20 contract
+  payoutPriceCoefficient - The coefficient of the payoutToken price in scientific notation (also known as the significant digits)
+  payoutPriceDecimals - The significand of the payoutToken price in scientific notation (also known as the base ten exponent)
+  quotePriceCoefficient - The coefficient of the quoteToken price in scientific notation (also known as the significant digits)
+  quotePriceDecimals - The significand of the quoteToken price in scientific notation (also known as the base ten exponent)
+  scaleAdjustment - see below
 - In the above definitions, the "prices" need to have the same unit of account (i.e. both in OHM, $, ETH, etc.)
-
-If price is not provided in this format, the market will not behave as intended.
+  If price is not provided in this format, the market will not behave as intended.
 
 0. Payout Token (token paid out)
 
@@ -195,15 +192,15 @@ in a short duration as a percent, e.g. 25%. Then a reasonable debtBuffer would b
 
 where decayInterval = max(3 days, 5 \* depositInterval) and marketDuration = conclusion - creation time.
 
-1. Is fixed term ? Vesting length (seconds) : Vesting expiry (timestamp).
+8. Is fixed term ? Vesting length (seconds) : Vesting expiry (timestamp).
 
 A 'vesting' param longer than 50 years is considered a timestamp for fixed expiry.
 
-1. Conclusion (timestamp)
+9. Conclusion (timestamp)
 
-2. Deposit interval (seconds)
+10. Deposit interval (seconds)
 
-3. Market scaling factor adjustment, ranges from -24 to +24 within the configured market bounds.
+11. Market scaling factor adjustment, ranges from -24 to +24 within the configured market bounds.
 
 Should be calculated as: (payoutDecimals - quoteDecimals) - ((payoutPriceDecimals - quotePriceDecimals) / 2)
 

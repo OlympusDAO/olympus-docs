@@ -1,6 +1,6 @@
 # ERC6909Wrappable
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/libraries/ERC6909Wrappable.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/libraries/ERC6909Wrappable.sol)
 
 **Inherits:**
 ERC6909Metadata, [IERC6909Wrappable](/main/contracts/docs/src/interfaces/IERC6909Wrappable.sol/interface.IERC6909Wrappable), IERC6909TokenSupply

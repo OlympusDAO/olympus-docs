@@ -1,6 +1,6 @@
 # BLVaultManagerLido
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/caef4795cd4dfccadc4085516cabe05757745f02/src/policies/BoostedLiquidity/BLVaultManagerLido.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/policies/BoostedLiquidity/BLVaultManagerLido.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [IBLVaultManagerLido](/main/contracts/docs/src/policies/BoostedLiquidity/interfaces/IBLVaultManagerLido.sol/interface.IBLVaultManagerLido), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
