@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useState } from "react";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import { useColorMode, useThemeConfig } from "@docusaurus/theme-common";
 import mermaid from "mermaid";
+import React from "react";
 
 import styles from "./styles.module.css";
 
@@ -22,15 +22,15 @@ function getMermaidConfig(themeConfig, colorMode) {
 function MermaidDiagram({ value }) {
   const { colorMode } = useColorMode();
   const themeConfig = useThemeConfig();
-  const [svg, setSvg] = useState("");
-  const [error, setError] = useState(null);
+  const [svg, setSvg] = React.useState("");
+  const [error, setError] = React.useState(null);
 
-  const mermaidConfig = useMemo(
+  const mermaidConfig = React.useMemo(
     () => getMermaidConfig(themeConfig, colorMode),
     [themeConfig, colorMode],
   );
 
-  useEffect(() => {
+  React.useEffect(() => {
     let cancelled = false;
 
     async function renderDiagram() {
@@ -70,6 +70,7 @@ function MermaidDiagram({ value }) {
   return (
     <div
       className={`${MermaidContainerClassName} ${styles.container}`}
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: Mermaid renders SVG markup that needs to be mounted into the page.
       dangerouslySetInnerHTML={{ __html: svg }}
     />
   );
