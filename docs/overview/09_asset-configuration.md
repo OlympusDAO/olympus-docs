@@ -59,7 +59,7 @@ For Chainlink, RedStone, and API3 Chainlink-compatible paths, the stale threshol
 
 OHM's 30-day moving average is migrated into PRICE v1.2 for backwards-compatible target-price reads. It is not an input to OHM spot-price resolution.
 
-PRICE audit references are listed on the [audits page](../security/02_audits.md#price).
+PRICE audit references are listed on the [audits page](../security/02_audits.md#price-v12).
 
 ## USDS Price Resolution
 
