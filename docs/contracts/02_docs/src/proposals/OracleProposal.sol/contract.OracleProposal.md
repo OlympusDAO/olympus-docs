@@ -1,6 +1,6 @@
 # OracleProposal
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/proposals/OracleProposal.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/proposals/OracleProposal.sol)
 
 **Inherits:**
 GovernorBravoProposal
@@ -63,11 +63,15 @@ address internal constant CHAINLINK_USDS_USD = 0xfF30586cD0F29eD462364C7e81375FC
 
 ### API3_ETH_USD
 
-`0x5b0cf2b36a65a6BB085D501B971e4c102B9Cd473`
+```solidity
+address internal constant API3_ETH_USD = 0x5b0cf2b36a65a6BB085D501B971e4c102B9Cd473
+```
 
 ### API3_USDS_USD
 
-`0x6C3C2A615Ea3c592487b3e06ecAF01D9a3181f47`
+```solidity
+address internal constant API3_USDS_USD = 0x6C3C2A615Ea3c592487b3e06ecAF01D9a3181f47
+```
 
 ### REDSTONE_ETH_USD
 

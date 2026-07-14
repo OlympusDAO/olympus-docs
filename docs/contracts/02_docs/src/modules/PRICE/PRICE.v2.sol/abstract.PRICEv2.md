@@ -1,6 +1,6 @@
 # PRICEv2
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/modules/PRICE/PRICE.v2.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/modules/PRICE/PRICE.v2.sol)
 
 **Inherits:**
 [ModuleWithSubmodules](/main/contracts/docs/src/Submodules.sol/abstract.ModuleWithSubmodules), [IPRICEv2](/main/contracts/docs/src/modules/PRICE/IPRICE.v2.sol/interface.IPRICEv2), IERC165

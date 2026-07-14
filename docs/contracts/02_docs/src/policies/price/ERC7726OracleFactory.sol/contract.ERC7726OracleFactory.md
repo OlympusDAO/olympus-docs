@@ -1,6 +1,6 @@
 # ERC7726OracleFactory
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/policies/price/ERC7726OracleFactory.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/price/ERC7726OracleFactory.sol)
 
 **Inherits:**
 [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IERC7726OracleFactory](/main/contracts/docs/src/policies/interfaces/price/IERC7726OracleFactory.sol/interface.IERC7726OracleFactory), [IVersioned](/main/contracts/docs/src/interfaces/IVersioned.sol/interface.IVersioned), ReentrancyGuard

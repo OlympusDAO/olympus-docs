@@ -1,6 +1,6 @@
 # CloneERC20
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/a7402cac180f9250225e154e4b4ca9b7a23e06f4/src/external/clones/CloneERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/clones/CloneERC20.sol)
 
 **Inherits:**
 Clone, [IERC20](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20)
