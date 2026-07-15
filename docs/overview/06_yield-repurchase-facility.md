@@ -23,6 +23,8 @@ Then, on a daily cadence (including on the same day as the weekly reset), the sy
 2. It unwraps a day's worth of USDS from sUSDS to use for purchases.
 3. Creates a market on Bond Protocol to buy OHM with USDS over a 1 day period using the day's worth of yield + backing from the previously purchased OHM.
 
+YRF consumes the backwards-compatible OHM price functions exposed by PRICE. PRICE v1.2 keeps those v1-style functions available for YRF while adding granular asset-specific accessors for future protocol integrations.
+
 A common question is how does taking the backing from the purchased OHM affect the daily purchase amounts. The short answer is that it depends on the price of OHM over the week. If the price of OHM is increasing, then the YRF buys back less OHM than it would have and has less backing to add to the buybacks. If the price of OHM is decreasing, then it buys back more OHM than it would have and has more backing to add to the buybacks.
 
 As a longer explanation, let's consider a simple example where the YRF has the following inputs and the OHM price stays constant throughout the week:

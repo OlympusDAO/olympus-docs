@@ -21,6 +21,9 @@ const config = {
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.svg",
+  markdown: {
+    mermaid: true,
+  },
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -57,6 +60,7 @@ const config = {
       }),
     ],
   ],
+  themes: ["@docusaurus/theme-mermaid"],
   // config for KaTex plugin: https://docusaurus.io/docs/markdown-features/math-equations
   stylesheets: [
     {

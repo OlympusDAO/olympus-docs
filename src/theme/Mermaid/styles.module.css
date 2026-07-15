@@ -1,0 +1,12 @@
+.container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.container > svg {
+  max-width: 100%;
+}
+
+.error {
+  white-space: pre-wrap;
+}

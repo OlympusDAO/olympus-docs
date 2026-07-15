@@ -1,13 +1,49 @@
 # IStaking
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/interfaces/IStaking.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/interfaces/IStaking.sol)
 
 ## Functions
+
+### OHM
+
+```solidity
+function OHM() external view returns (address);
+```
+
+### sOHM
+
+```solidity
+function sOHM() external view returns (address);
+```
+
+### gOHM
+
+```solidity
+function gOHM() external view returns (address);
+```
+
+### index
+
+```solidity
+function index() external view returns (uint256);
+```
+
+### supplyInWarmup
+
+```solidity
+function supplyInWarmup() external view returns (uint256);
+```
 
 ### rebase
 
 ```solidity
 function rebase() external returns (uint256);
+```
+
+### stake
+
+```solidity
+function stake(address to_, uint256 amount_, bool rebasing_, bool claim_) external returns (uint256);
 ```
 
 ### unstake
@@ -40,9 +76,9 @@ function epoch() external view returns (uint256, uint256, uint256, uint256);
 
 ```solidity
 struct Epoch {
-    uint256 length; // in seconds
-    uint256 number; // since inception
-    uint256 end; // timestamp
-    uint256 distribute; // amount
+    uint256 length;
+    uint256 number;
+    uint256 end;
+    uint256 distribute;
 }
 ```

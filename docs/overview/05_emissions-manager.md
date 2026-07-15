@@ -42,11 +42,11 @@ All core parameters are configurable by OCG and can be adjusted as needed.
 
 ### Limitations
 
-#### Limited to Stablecoins
+#### PRICE Integration
 
-The `EmissionManager` utilises v1 of the `PRICE` module, which provides the price of OHM in terms of the configured reserve token (currently USDS). It uses that value to determine the minimum price that the `ConvertibleDepositAuctioneer` contract will sell OHM at.
+The `EmissionManager` uses the backwards-compatible OHM price functions exposed by the PRICE module. PRICE v1.2 keeps these v1-style accessors intact, so EM can continue calculating premium and the minimum auction price without policy changes.
 
-As a result, the `EmissionManager` cannot currently be configured to run auctions for assets that are not stablecoins, as the minimum price calculation would be incorrect.
+PRICE v1.2 also adds granular asset-specific accessors, such as `getPrice()`, for future integrations. EM currently relies on the compatible OHM price path and sells OHM for the configured stable reserve asset.
 
 ## Example Calculation
 
