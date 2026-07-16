@@ -20,13 +20,13 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 #### Installation
 
 ```sh
-yarn
+pnpm install
 ```
 
 #### Local Development
 
 ```sh
-yarn start
+pnpm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
@@ -54,7 +54,7 @@ The contract documentation is generated from the `olympus-v3` repository. To upd
 3. **Regenerate the contract documentation:**
 
    ```bash
-   yarn run build:contracts
+   pnpm run build:contracts
    ```
 
 4. **Commit the changes:**
@@ -66,7 +66,7 @@ The contract documentation is generated from the `olympus-v3` repository. To upd
 
 ### What the Build Script Does
 
-The `yarn run build:contracts` command (which runs `contracts.sh`):
+The `pnpm run build:contracts` command (which runs `contracts.sh`):
 
 - Builds the olympus-v3 project
 - Generates forge documentation

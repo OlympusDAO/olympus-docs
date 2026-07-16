@@ -1,6 +1,6 @@
 # ERC20Permit
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/external/OlympusERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/OlympusERC20.sol)
 
 **Inherits:**
 [ERC20](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.ERC20), [IERC20Permit](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20Permit), [EIP712](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.EIP712)

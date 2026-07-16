@@ -1,6 +1,6 @@
 # CoolerLtvOracle
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/policies/cooler/CoolerLtvOracle.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/cooler/CoolerLtvOracle.sol)
 
 **Inherits:**
 [ICoolerLtvOracle](/main/contracts/docs/src/policies/interfaces/cooler/ICoolerLtvOracle.sol/interface.ICoolerLtvOracle), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyAdmin](/main/contracts/docs/src/policies/utils/PolicyAdmin.sol/abstract.PolicyAdmin)

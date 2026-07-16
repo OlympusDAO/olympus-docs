@@ -1,6 +1,6 @@
 # IBondSDA
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/interfaces/IBondSDA.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/interfaces/IBondSDA.sol)
 
 **Inherits:**
 [IBondAuctioneer](/main/contracts/docs/src/interfaces/IBondAuctioneer.sol/interface.IBondAuctioneer)
@@ -192,15 +192,15 @@ in a short duration as a percent, e.g. 25%. Then a reasonable debtBuffer would b
 
 where decayInterval = max(3 days, 5 \* depositInterval) and marketDuration = conclusion - creation time.
 
-8. Is fixed term ? Vesting length (seconds) : Vesting expiry (timestamp).
+1. Is fixed term ? Vesting length (seconds) : Vesting expiry (timestamp).
 
 A 'vesting' param longer than 50 years is considered a timestamp for fixed expiry.
 
-9. Conclusion (timestamp)
+1. Conclusion (timestamp)
 
-10. Deposit interval (seconds)
+2. Deposit interval (seconds)
 
-11. Market scaling factor adjustment, ranges from -24 to +24 within the configured market bounds.
+3. Market scaling factor adjustment, ranges from -24 to +24 within the configured market bounds.
 
 Should be calculated as: (payoutDecimals - quoteDecimals) - ((payoutPriceDecimals - quotePriceDecimals) / 2)
 

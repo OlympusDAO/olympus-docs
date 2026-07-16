@@ -1,6 +1,6 @@
 # CloneableReceiptToken
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/8f211f9ca557f5c6c9596f50d3a90d95ca98bea1/src/libraries/CloneableReceiptToken.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/libraries/CloneableReceiptToken.sol)
 
 **Inherits:**
 [CloneERC20](/main/contracts/docs/src/external/clones/CloneERC20.sol/abstract.CloneERC20), [IERC20BurnableMintable](/main/contracts/docs/src/interfaces/IERC20BurnableMintable.sol/interface.IERC20BurnableMintable), [IDepositReceiptToken](/main/contracts/docs/src/interfaces/IDepositReceiptToken.sol/interface.IDepositReceiptToken)

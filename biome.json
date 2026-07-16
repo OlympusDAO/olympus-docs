@@ -4,7 +4,9 @@
     "includes": [
       "**/*.{js,cjs,mjs,jsx,ts,tsx,json,jsonc}",
       "!build",
+      "!dependencies",
       "!.docusaurus",
+      "!.pnpm-store",
       "!node_modules"
     ]
   },

@@ -1,11 +1,15 @@
 # Libraries
 
+- [Balancer](/main/contracts/docs/src/libraries/Balancer)
+- [UniswapV3](/main/contracts/docs/src/libraries/UniswapV3)
 - [AddressStorageArray](AddressStorageArray.sol/library.AddressStorageArray.md)
 - [CloneableReceiptToken](CloneableReceiptToken.sol/contract.CloneableReceiptToken.md)
 - [CompoundedInterest](CompoundedInterest.sol/library.CompoundedInterest.md)
 - [DecimalString](DecimalString.sol/library.DecimalString.md)
+- [Deviation](Deviation.sol/library.Deviation.md)
 - [ERC6909Wrappable](ERC6909Wrappable.sol/abstract.ERC6909Wrappable.md)
 - [FullMath](FullMath.sol/library.FullMath.md)
+- [QuickSort](QuickSort.sol/library.QuickSort.md)
 - [SafeCast](SafeCast.sol/library.SafeCast.md)
 - [String](String.sol/library.String.md)
 - [Timestamp](Timestamp.sol/library.Timestamp.md)
