@@ -40,7 +40,7 @@ change parameters, or re-enable anything. See the
   **same address across all chains** (Mainnet, Arbitrum, Optimism, Base, Bera).
 - **Threshold:** **2 confirmations** on every chain (2-of-10 on Mainnet, 2-of-7
   on the L2s).
-- **Wallet policy:** signers use **software / hot wallets**. Speed of response
+- **Wallet policy:** signers use a mix of software and hardware wallets. Speed of response
   is prioritized, and the pause-only scope keeps the risk bounded.
 
 <details>
@@ -116,4 +116,4 @@ Verify live: [Safe UI (Base)](https://app.safe.global/home?safe=base:0x18a390bD4
 | --------- | ------- | --------- | -------------- | ----------------------------------- |
 | Emergency | All     | 2-of-N    | Software / hot | Fast incident response (pause only) |
 | DAO       | Mainnet | 4-of-8    | Hardware       | Assurance and coordinated execution |
-| DAO       | L2s     | 2-of-4    | Hardware       | Faster L2 ops |
+| DAO       | L2s     | 2-of-4    | Hardware       | Faster L2 ops                       |
