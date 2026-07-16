@@ -60,7 +60,7 @@ overrides:
   trim@<0.0.3: ^0.0.3
   uuid@<11.1.1: ^11.1.1
   wait-on@<9.0.4: ^9.0.4
-  websocket-driver@<0.7.5: 0.7.5
+  websocket-driver@<0.7.5: ^0.7.5
   webpack-bundle-analyzer@4.5.0>ws@>=8.0.0 <8.20.1: ^8.20.1
   webpack-dev-middleware@<5.3.4: ^5.3.4
   webpack-dev-server@<5.2.5: ^5.2.5
