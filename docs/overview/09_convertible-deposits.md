@@ -651,6 +651,15 @@ When considering convertible deposits, users should consider:
 
 ### Configuration
 
+#### Current Institutional Market Parameters
+
+- **Minimum Bid**: 100,000 USDS
+- **Standard Tick Capacity**: 100,000 OHM
+- **Tick Price Step**: Each filled tick increases the conversion price by 0.75%
+- **Daily Tick Tiers**: Tick capacity starts at 100,000 OHM and halves each time cumulative daily conversions cross another multiple of the daily target: 100,000, 50,000, 25,000, 12,500 OHM, and so on
+
+The daily target and current tick can change as the market operates. Review the Olympus app's bid preview for the live tick capacity, prices, and weighted-average execution before submitting a bid.
+
 #### Launch Parameters (Historical)
 
 ##### Assets
