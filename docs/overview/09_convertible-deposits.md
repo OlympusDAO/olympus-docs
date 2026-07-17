@@ -363,7 +363,7 @@ While a redemption is in progress, users can borrow against the committed amount
 - **Loan Amount**: Borrow up to the configured percentage of the redemption amount
 - **Fixed Interest**: Interest is calculated from the configured annual rate and the redemption period
 - **Collateralized**: The active redemption secures the loan through the receipt tokens held in the redemption vault
-- **No Price-Based Liquidation**: Redemption loans are not liquidated because of OHM or receipt-token market-price changes; default is based on the loan due date and unpaid principal
+- **No Price-Based Liquidation**: Redemption loans are not liquidated because of OHM or receipt-token market-price changes; default is based on the loan due date and an unpaid loan balance (principal and interest)
 
 ##### Repayment Process
 
@@ -387,7 +387,7 @@ While a redemption is in progress, users can borrow against the committed amount
 ##### Important Borrowing Restrictions
 
 - **No Redemption While Borrowing**: Users cannot complete their redemption while they have an open loan
-- **No Cancellation While Borrowing**: Users cannot cancel their redemption while they have unpaid principal
+- **No Cancellation While Borrowing**: Users cannot cancel their redemption while they have an unpaid loan balance (principal and interest)
 - **Must Repay First**: Repay the outstanding principal and interest before completing or cancelling redemption
 - **Single Loan**: For a given redemption, only one loan can be taken
 - **Conversion Requires Cancellation**: Receipt tokens securing an active redemption cannot be converted to OHM. To convert, borrowers must repay the loan, cancel the redemption to recover the receipt tokens and position, then use the conversion flow if the position is still eligible.
