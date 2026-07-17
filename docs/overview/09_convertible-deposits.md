@@ -660,7 +660,6 @@ When considering convertible deposits, users should consider:
 - **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
 - **Minimum Deposit**: 1 USDS
 - **Deposit Cap**: 1,000,000 USDS
-- **Borrowing Terms**: Borrowing was not enabled in the initial configuration. See the current parameters below and the Olympus app for live borrowing terms.
 - **Reclaim Rate**: 90% (90% of the deposited amount will be returned upon reclaim)
 
 ##### Auction
@@ -689,7 +688,8 @@ When considering convertible deposits, users should consider:
 - **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
 - **Minimum Deposit**: 1 USDS
 - **Deposit Cap**: 1,000,000 USDS
-- **Borrowing Terms**: Borrowing against active redemptions is enabled. The max borrow percentage and annual interest rate are configured on-chain and shown in the Olympus app before borrowing.
+- **Maximum Borrow Percentage**: 96.7% of the redemption amount
+- **Annual Borrow Interest Rate**: 5.5%
 - **Reclaim Rate**: 97.5% (97.5% of the deposited amount will be returned upon reclaim for 3-month deposits) _(changed from: 90%)_
 
 ##### Auction (January 2026)
