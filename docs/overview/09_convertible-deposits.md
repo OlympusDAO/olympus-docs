@@ -651,7 +651,7 @@ When considering convertible deposits, users should consider:
 
 ### Configuration
 
-#### Initial Parameters
+#### Launch Parameters (Historical)
 
 ##### Assets
 
@@ -679,7 +679,7 @@ When considering convertible deposits, users should consider:
 - **Restart Timeframe**: 11 days
 - **Bond Market Capacity**: 0% (there will be no bond market for undersold OHM)
 
-#### Parameters (January 2026)
+#### January 2026 Parameters (Historical)
 
 ##### Assets (January 2026)
 
@@ -709,7 +709,7 @@ When considering convertible deposits, users should consider:
 - **Restart Timeframe**: 11 days
 - **Bond Market Capacity**: 0% (there will be no bond market for undersold OHM)
 
-#### Parameters (January 26, 2026)
+#### January 26, 2026 Parameter Change (Historical)
 
 ##### Assets (January 26, 2026)
 
