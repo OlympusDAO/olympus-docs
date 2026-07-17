@@ -356,19 +356,21 @@ After the appropriate period completes:
 
 #### Borrowing Against Redemptions
 
-While a redemption is in progress, users can borrow against the committed amount. Note: Borrowing functionality is disabled in the initial rollout and will be enabled in a future update.
+While a redemption is in progress, users can borrow against the committed amount. Borrowing is available for authorized assets and facilities configured in the Deposit Redemption Vault. The Olympus app displays the current borrow percentage, annual interest rate, and expected loan terms before users borrow.
 
 ##### How Borrowing Works
 
-- **Loan Amount**: Borrow up to a configured percentage of the redemption amount
-- **Fixed Interest**: Loans have fixed interest rates matching the redemption period
-- **Collateralized**: The active redemption serves as collateral
+- **Loan Amount**: Borrow up to the configured percentage of the redemption amount
+- **Fixed Interest**: Interest is calculated from the configured annual rate and the redemption period
+- **Collateralized**: The active redemption secures the loan through the receipt tokens held in the redemption vault
+- **No Price-Based Liquidation**: Redemption loans are not liquidated because of OHM or receipt-token market-price changes; default is based on the loan due date and unpaid principal
 
 ##### Repayment Process
 
 - **Interest First**: Repayments first cover interest, then principal
 - **Protocol Fees**: Interest payments go to the protocol treasury
 - **Flexible Timing**: Users can repay at any time during the loan period
+- **Receipt Tokens Stay Locked**: Repayment reduces the loan, but receipt tokens are only returned through cancelling the redemption or consumed when finishing redemption
 
 ##### Loan Extensions
 
@@ -385,8 +387,10 @@ While a redemption is in progress, users can borrow against the committed amount
 ##### Important Borrowing Restrictions
 
 - **No Redemption While Borrowing**: Users cannot complete their redemption while they have an open loan
-- **Must Repay First**: Either repay the loan in full or wait for it to default before completing redemption
+- **No Cancellation While Borrowing**: Users cannot cancel their redemption while they have unpaid principal
+- **Must Repay First**: Repay the outstanding principal and interest before completing or cancelling redemption
 - **Single Loan**: For a given redemption, only one loan can be taken
+- **Conversion Requires Cancellation**: Receipt tokens securing an active redemption cannot be converted to OHM. To convert, borrowers must repay the loan, cancel the redemption to recover the receipt tokens and position, then use the conversion flow if the position is still eligible.
 
 ##### Borrowing Benefits
 
@@ -656,8 +660,7 @@ When considering convertible deposits, users should consider:
 - **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
 - **Minimum Deposit**: 1 USDS
 - **Deposit Cap**: 1,000,000 USDS
-- **Maximum Borrow Percentage**: 0% (disabled at launch, will be enabled in future update)
-- **Annual Borrow Interest Rate**: 0% (disabled at launch, will be enabled in future update)
+- **Borrowing Terms**: Borrowing was not enabled in the initial configuration. See the current parameters below and the Olympus app for live borrowing terms.
 - **Reclaim Rate**: 90% (90% of the deposited amount will be returned upon reclaim)
 
 ##### Auction
@@ -686,8 +689,7 @@ When considering convertible deposits, users should consider:
 - **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
 - **Minimum Deposit**: 1 USDS
 - **Deposit Cap**: 1,000,000 USDS
-- **Max Borrow Percentage**: 96.7% (maximum borrow percentage of redemption amount) _(changed from: 0%)_
-- **Annual Borrow Interest Rate**: 5.5% (fixed interest rate for borrowing) _(changed from: 0%)_
+- **Borrowing Terms**: Borrowing against active redemptions is enabled. The max borrow percentage and annual interest rate are configured on-chain and shown in the Olympus app before borrowing.
 - **Reclaim Rate**: 97.5% (97.5% of the deposited amount will be returned upon reclaim for 3-month deposits) _(changed from: 90%)_
 
 ##### Auction (January 2026)
@@ -727,7 +729,7 @@ A: Longer periods give more time for profitable conversions but reduce flexibili
 A: Yes, through early reclaim (with discount) or redemption (with waiting period). The conversion price cannot be changed once set.
 
 **Q: What can I do with my receipt tokens before expiry?**
-A: You can exchange the receipt tokens in a liquidity pool, reclaim the deposit (with a discount), redeem the deposit (waiting period), or redeem the deposit and borrow against it once borrowing is enabled.
+A: You can exchange the receipt tokens in a liquidity pool, reclaim the deposit (with a discount), redeem the deposit (waiting period), or start redemption and borrow against the active redemption if the asset and facility are configured for borrowing.
 
 **Q: Will USDS deposits be lent out to earn yield?**
 A: USDS deposits are deposited into the sUSDS vault to earn the Sky Savings Rate. The goal is to maintain a low-risk approach while generating yield for the protocol.
@@ -752,7 +754,7 @@ A: Yes, if wrapped as an ERC721 NFT. Receipt tokens are also transferable. The n
 A: Users can still get their full deposit back through redemption, or exit early through reclaim (with discount).
 
 **Q: Will Olympus offer borrowing against receipt tokens?**
-A: Yes, borrowing functionality will be available to receipt token holders when they start the redemption process. This feature is planned for implementation after the initial launch.
+A: Yes. Receipt token holders can start redemption and borrow against the active redemption when the relevant asset and facility are configured in the Deposit Redemption Vault.
 
 **Q: Can the CD position be traded as an NFT?**
 A: Yes, the convertible deposit position can be wrapped to an ERC721 NFT, allowing it to be traded on NFT marketplaces.
@@ -772,7 +774,7 @@ A: The protocol benefits from various outcomes: conversions provide OHM distribu
 A: Without position: wait full deposit period from start date. With position: wait only until conversion expiry (could be immediate if expired).
 
 **Q: Can I borrow against my redemptions?**
-A: Borrowing functionality is disabled in the initial rollout and will be enabled in a future update. Once enabled, borrowing will be limited to a configured percentage of the redemption amount (typically less than 100%).
+A: Yes, when the relevant asset and facility are configured for borrowing. The app shows the current max borrow percentage, annual interest rate, principal, interest, and due date before borrowing. Redemption loans are secured by the active redemption and are not liquidated based on market-price moves, but they can default if unpaid after the due date.
 
 **Q: What happens if I default on a borrowing loan?**
 A: Third parties can claim the default for a reward. Users keep any principal repaid, but lose the remainder to the protocol.
