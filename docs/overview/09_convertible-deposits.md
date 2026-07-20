@@ -651,78 +651,46 @@ When considering convertible deposits, users should consider:
 
 ### Configuration
 
-#### Current Institutional Market Parameters
+The tables below show the configuration progression. Parameters are rows, changes are columns in ascending order, and a blank cell means that parameter was not changed by that update.
 
-- **Minimum Bid**: 100,000 USDS
-- **Standard Tick Capacity**: 100,000 OHM
-- **Tick Price Step**: Each filled tick increases the conversion price by 0.75%
-- **Daily Tick Tiers**: Tick capacity starts at 100,000 OHM and halves each time cumulative daily conversions cross another multiple of the daily target: 100,000, 50,000, 25,000, 12,500 OHM, and so on
+#### Assets
+
+| Parameter                   | Launch                                                  | January 2026                   | January 26, 2026 | OCG Proposal 15          |
+| --------------------------- | ------------------------------------------------------- | ------------------------------ | ---------------- | ------------------------ |
+| Supported Asset             | USDS                                                    |                                |                  |                          |
+| Deposit Periods             | 1, 2, and 3 months                                      | 3 months                       |                  | 6 months                 |
+| Yield Strategy              | USDS deposits earn Sky Savings Rate through sUSDS vault |                                |                  |                          |
+| Minimum Deposit             | 1 USDS                                                  |                                |                  |                          |
+| Deposit Cap                 | 1,000,000 USDS                                          |                                | 2,000,000 USDS   | 60,000,000 USDS          |
+| Maximum Borrow Percentage   | 0%                                                      | 96.7% of the redemption amount |                  |                          |
+| Annual Borrow Interest Rate | 0%                                                      | 5.5%                           |                  |                          |
+| Reclaim Rate                | 90%                                                     | 97.5% for 3-month deposits     |                  | 99% for 6-month deposits |
+
+#### Auction
+
+| Parameter            | Launch                     | January 2026     | January 26, 2026 | OCG Proposal 15                                |
+| -------------------- | -------------------------- | ---------------- | ---------------- | ---------------------------------------------- |
+| Tick Size            | 150 OHM                    |                  |                  | 263,733.160134073 OHM                          |
+| Tick Step Multiplier | 100.75%                    |                  |                  |                                                |
+| Tick Size Base       | 2                          |                  |                  |                                                |
+| Tracking Period      | 7 days                     |                  |                  |                                                |
+| Minimum Bid          | 100 USDS                   |                  |                  | 100,000 USDS                                   |
+| Deposit Periods      | 1, 2, and 3 months enabled | 3 months enabled |                  | 6 months enabled; other known periods disabled |
+
+When daily targets are exceeded, tick capacity adjusts according to the tick size base. With the OCG Proposal 15 configuration, tick capacity starts at 263,733.160134073 OHM and halves each time cumulative daily conversions cross another multiple of the daily target.
+
+#### Emissions
+
+| Parameter            | Launch               | January 2026         | January 26, 2026 | OCG Proposal 15          |
+| -------------------- | -------------------- | -------------------- | ---------------- | ------------------------ |
+| Base Emissions Rate  | 0.02% of supply/day  | 0.04% of supply/day  |                  | 1.3368727% of supply/day |
+| Minimum Price        | 120% of market price | 110% of market price |                  |                          |
+| Backing              | 11.69 USDS/OHM       |                      |                  |                          |
+| Minimum Premium      | 50%                  |                      |                  |                          |
+| Restart Timeframe    | 11 days              |                      |                  |                          |
+| Bond Market Capacity | 0%                   |                      |                  |                          |
 
 The daily target and current tick can change as the market operates. Review the Olympus app's bid preview for the live tick capacity, prices, and weighted-average execution before submitting a bid.
-
-#### Launch Parameters (Historical)
-
-##### Assets
-
-- **Supported Asset**: USDS
-- **Deposit Periods**: 1, 2, and 3 months
-- **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
-- **Minimum Deposit**: 1 USDS
-- **Deposit Cap**: 1,000,000 USDS
-- **Reclaim Rate**: 90% (90% of the deposited amount will be returned upon reclaim)
-
-##### Auction
-
-- **Tick Size**: 150 OHM (halves when daily target is exceeded)
-- **Tick Step Multiplier**: 100.75% (0.75% increase per tick)
-- **Tick Size Base**: 2
-- **Tracking Period**: 7 days
-- **Minimum Bid**: 100 USDS
-
-#### Emission Mechanics
-
-- **Base Emissions Rate**: 0.02% of supply/day
-- **Minimum Price**: 120% of market price
-- **Backing**: 11.69 USDS/OHM
-- **Minimum Premium**: 50% (the market price of OHM must be >= 17.535 USDS/OHM)
-- **Restart Timeframe**: 11 days
-- **Bond Market Capacity**: 0% (there will be no bond market for undersold OHM)
-
-#### January 2026 Parameters (Historical)
-
-##### Assets (January 2026)
-
-- **Supported Asset**: USDS
-- **Deposit Periods**: 3 months _(changed from: 1, 2, and 3 months)_
-- **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
-- **Minimum Deposit**: 1 USDS
-- **Deposit Cap**: 1,000,000 USDS
-- **Maximum Borrow Percentage**: 96.7% of the redemption amount
-- **Annual Borrow Interest Rate**: 5.5%
-- **Reclaim Rate**: 97.5% (97.5% of the deposited amount will be returned upon reclaim for 3-month deposits) _(changed from: 90%)_
-
-##### Auction (January 2026)
-
-- **Tick Size**: 150 OHM (halves when daily target is exceeded)
-- **Tick Step Multiplier**: 100.75% (0.75% increase per tick)
-- **Tick Size Base**: 2
-- **Tracking Period**: 7 days
-- **Minimum Bid**: 100 USDS
-
-##### Emission Mechanics (January 2026)
-
-- **Base Emissions Rate**: 0.04% of supply/day _(changed from: 0.02% of supply/day)_
-- **Minimum Price**: 110% of market price _(changed from: 120% of market price)_
-- **Backing**: 11.69 USDS/OHM
-- **Minimum Premium**: 50% (the market price of OHM must be >= 17.535 USDS/OHM)
-- **Restart Timeframe**: 11 days
-- **Bond Market Capacity**: 0% (there will be no bond market for undersold OHM)
-
-#### January 26, 2026 Parameter Change (Historical)
-
-##### Assets (January 26, 2026)
-
-- **Deposit Cap**: 2,000,000 USDS _(increased from: 1,000,000 USDS)_
 
 ### Common Questions
 
