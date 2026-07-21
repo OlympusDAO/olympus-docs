@@ -222,7 +222,7 @@ The quantity of stablecoins to deposit
 
 ##### Deposit Period
 
-Select from available periods (currently 1, 2, or 3 months)
+Select from the deposit periods currently enabled by governance.
 
 ##### Minimum OHM Out
 
@@ -420,7 +420,7 @@ Limit orders operate through a separate contract (`CDAuctioneerLimitOrders`) tha
 
 When creating a limit order, users specify:
 
-1. **Deposit Period**: Choose from available periods (1, 2, or 3 months)
+1. **Deposit Period**: Choose from the currently enabled deposit periods
 2. **Deposit Budget**: Total deposit asset to spend on convertible deposits
 3. **Incentive Budget**: Deposit asset to pay solvers as rewards for filling the order
 4. **Maximum Price**: Highest acceptable execution price (deposit asset per OHM)
@@ -655,40 +655,40 @@ The tables below show the configuration progression. Parameters are rows, change
 
 #### Assets
 
-| Parameter                   | Launch                                                  | January 2026                   | January 26, 2026 | OCG Proposal 15          |
-| --------------------------- | ------------------------------------------------------- | ------------------------------ | ---------------- | ------------------------ |
-| Supported Asset             | USDS                                                    |                                |                  |                          |
-| Deposit Periods             | 1, 2, and 3 months                                      | 3 months                       |                  | 6 months                 |
-| Yield Strategy              | USDS deposits earn Sky Savings Rate through sUSDS vault |                                |                  |                          |
-| Minimum Deposit             | 1 USDS                                                  |                                |                  |                          |
-| Deposit Cap                 | 1,000,000 USDS                                          |                                | 2,000,000 USDS   | 60,000,000 USDS          |
-| Maximum Borrow Percentage   | 0%                                                      | 96.7% of the redemption amount |                  |                          |
-| Annual Borrow Interest Rate | 0%                                                      | 5.5%                           |                  |                          |
-| Reclaim Rate                | 90%                                                     | 97.5% for 3-month deposits     |                  | 99% for 6-month deposits |
+| Parameter                   | Launch                                                  | January 2026                   | January 26, 2026 | OCG Proposal 15 (July 2026) | MS Batch 1948 (July 16, 2026) |
+| --------------------------- | ------------------------------------------------------- | ------------------------------ | ---------------- | --------------------------- | ----------------------------- |
+| Supported Asset             | USDS                                                    |                                |                  |                             |                               |
+| Deposit Periods             | 1, 2, and 3 months                                      | 3 months only                  |                  | Add 6 months                |                               |
+| Yield Strategy              | USDS deposits earn Sky Savings Rate through sUSDS vault |                                |                  |                             |                               |
+| Minimum Deposit             | 1 USDS                                                  |                                |                  |                             |                               |
+| Deposit Cap                 | 1,000,000 USDS                                          |                                | 2,000,000 USDS   | 60,000,000 USDS             |                               |
+| Maximum Borrow Percentage   | 0%                                                      | 96.7% of the redemption amount |                  |                             |                               |
+| Annual Borrow Interest Rate | 0%                                                      | 5.5%                           |                  |                             |                               |
+| Reclaim Rate                | 90%                                                     | 97.5% for 3-month deposits     |                  | 99% for 6-month deposits    |                               |
 
 #### Auction
 
-| Parameter            | Launch                     | January 2026     | January 26, 2026 | OCG Proposal 15                                |
-| -------------------- | -------------------------- | ---------------- | ---------------- | ---------------------------------------------- |
-| Tick Size            | 150 OHM                    |                  |                  | 263,733.160134073 OHM                          |
-| Tick Step Multiplier | 100.75%                    |                  |                  |                                                |
-| Tick Size Base       | 2                          |                  |                  |                                                |
-| Tracking Period      | 7 days                     |                  |                  |                                                |
-| Minimum Bid          | 100 USDS                   |                  |                  | 100,000 USDS                                   |
-| Deposit Periods      | 1, 2, and 3 months enabled | 3 months enabled |                  | 6 months enabled; other known periods disabled |
+| Parameter            | Launch                     | January 2026                        | January 26, 2026 | OCG Proposal 15 (July 2026)         | MS Batch 1948 (July 16, 2026) |
+| -------------------- | -------------------------- | ----------------------------------- | ---------------- | ----------------------------------- | ----------------------------- |
+| Tick Size            | 150 OHM                    |                                     |                  | 263,733.160134073 OHM               | 100,000 OHM                   |
+| Tick Step Multiplier | 100.75%                    |                                     |                  |                                     |                               |
+| Tick Size Base       | 2                          |                                     |                  |                                     |                               |
+| Tracking Period      | 7 days                     |                                     |                  |                                     |                               |
+| Minimum Bid          | 100 USDS                   |                                     |                  | 100,000 USDS                        |                               |
+| Deposit Periods      | 1, 2, and 3 months enabled | 1 and 2 months disabled; 3m remains |                  | 6 months enabled; 3 months disabled |                               |
 
-When daily targets are exceeded, tick capacity adjusts according to the tick size base. With the OCG Proposal 15 configuration, tick capacity starts at 263,733.160134073 OHM and halves each time cumulative daily conversions cross another multiple of the daily target.
+When daily targets are exceeded, tick capacity adjusts according to the tick size base. With the current MS Batch 1948 configuration, tick capacity starts at 100,000 OHM and halves each time cumulative daily conversions cross another multiple of the daily target.
 
 #### Emissions
 
-| Parameter            | Launch               | January 2026         | January 26, 2026 | OCG Proposal 15          |
-| -------------------- | -------------------- | -------------------- | ---------------- | ------------------------ |
-| Base Emissions Rate  | 0.02% of supply/day  | 0.04% of supply/day  |                  | 1.3368727% of supply/day |
-| Minimum Price        | 120% of market price | 110% of market price |                  |                          |
-| Backing              | 11.69 USDS/OHM       |                      |                  |                          |
-| Minimum Premium      | 50%                  |                      |                  |                          |
-| Restart Timeframe    | 11 days              |                      |                  |                          |
-| Bond Market Capacity | 0%                   |                      |                  |                          |
+| Parameter            | Launch               | January 2026         | January 26, 2026 | OCG Proposal 15 (July 2026) | MS Batch 1948 (July 16, 2026) |
+| -------------------- | -------------------- | -------------------- | ---------------- | --------------------------- | ----------------------------- |
+| Base Emissions Rate  | 0.02% of supply/day  | 0.04% of supply/day  |                  | 1.3368727% of supply/day    |                               |
+| Minimum Price        | 120% of market price | 110% of market price |                  |                             |                               |
+| Backing              | 11.69 USDS/OHM       |                      |                  |                             |                               |
+| Minimum Premium      | 50%                  |                      |                  |                             |                               |
+| Restart Timeframe    | 11 days              |                      |                  |                             |                               |
+| Bond Market Capacity | 0%                   |                      |                  |                             |                               |
 
 The daily target and current tick can change as the market operates. Review the Olympus app's bid preview for the live tick capacity, prices, and weighted-average execution before submitting a bid.
 
@@ -737,7 +737,7 @@ A: Yes. Receipt token holders can start redemption and borrow against the active
 A: Yes, the convertible deposit position can be wrapped to an ERC721 NFT, allowing it to be traded on NFT marketplaces.
 
 **Q: Will there be different options for CDs with various strike prices or lengths?**
-A: The conversion price is determined through auction results at the time of purchase, while the deposit period is defined by governance. Users can choose from available periods (1, 2, or 3 months).
+A: The conversion price is determined through auction results at the time of purchase, while the deposit period is defined by governance. Users can choose from the periods currently enabled by governance.
 
 **Q: Will "looping" be easy for regular users?**
 A: Looping is generally an advanced-user action. While it's possible, it isn't currently implemented in the interface and is more suited for sophisticated users.
