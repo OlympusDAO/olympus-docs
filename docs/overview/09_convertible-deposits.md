@@ -658,7 +658,7 @@ The tables below show the configuration progression. Parameters are rows, change
 | Parameter                   | Launch                                                  | January 2026                   | January 26, 2026 | OCG Proposal 15 (July 2026) | MS Batch 1948 (July 16, 2026) |
 | --------------------------- | ------------------------------------------------------- | ------------------------------ | ---------------- | --------------------------- | ----------------------------- |
 | Supported Asset             | USDS                                                    |                                |                  |                             |                               |
-| Deposit Periods             | 1, 2, and 3 months                                      | 3 months only                  |                  | Add 6 months                |                               |
+| Deposit Periods             | 1, 2, and 3 months                                      | 3 months only                  |                  | 6 months only               |                               |
 | Yield Strategy              | USDS deposits earn Sky Savings Rate through sUSDS vault |                                |                  |                             |                               |
 | Minimum Deposit             | 1 USDS                                                  |                                |                  |                             |                               |
 | Deposit Cap                 | 1,000,000 USDS                                          |                                | 2,000,000 USDS   | 60,000,000 USDS             |                               |
