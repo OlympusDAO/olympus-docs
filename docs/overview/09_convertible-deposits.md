@@ -222,7 +222,7 @@ The quantity of stablecoins to deposit
 
 ##### Deposit Period
 
-Select from available periods (currently 1, 2, or 3 months)
+Select from the deposit periods currently enabled by governance.
 
 ##### Minimum OHM Out
 
@@ -356,19 +356,21 @@ After the appropriate period completes:
 
 #### Borrowing Against Redemptions
 
-While a redemption is in progress, users can borrow against the committed amount. Note: Borrowing functionality is disabled in the initial rollout and will be enabled in a future update.
+While a redemption is in progress, users can borrow against the committed amount. Borrowing is available for authorized assets and facilities configured in the Deposit Redemption Vault. The Olympus app displays the current borrow percentage, annual interest rate, and expected loan terms before users borrow.
 
 ##### How Borrowing Works
 
-- **Loan Amount**: Borrow up to a configured percentage of the redemption amount
-- **Fixed Interest**: Loans have fixed interest rates matching the redemption period
-- **Collateralized**: The active redemption serves as collateral
+- **Loan Amount**: Borrow up to the configured percentage of the redemption amount
+- **Fixed Interest**: Interest is calculated from the configured annual rate and the redemption period
+- **Collateralized**: The active redemption secures the loan through the receipt tokens held in the redemption vault
+- **No Price-Based Liquidation**: Redemption loans are not liquidated because of OHM or receipt-token market-price changes; default is based on the loan due date and an unpaid loan balance (principal and interest)
 
 ##### Repayment Process
 
 - **Interest First**: Repayments first cover interest, then principal
 - **Protocol Fees**: Interest payments go to the protocol treasury
 - **Flexible Timing**: Users can repay at any time during the loan period
+- **Receipt Tokens Stay Locked**: Repayment reduces the loan, but receipt tokens are only returned through cancelling the redemption or consumed when finishing redemption
 
 ##### Loan Extensions
 
@@ -385,8 +387,10 @@ While a redemption is in progress, users can borrow against the committed amount
 ##### Important Borrowing Restrictions
 
 - **No Redemption While Borrowing**: Users cannot complete their redemption while they have an open loan
-- **Must Repay First**: Either repay the loan in full or wait for it to default before completing redemption
+- **No Cancellation While Borrowing**: Users cannot cancel their redemption while they have an unpaid loan balance (principal and interest)
+- **Must Repay First**: Repay the outstanding principal and interest before completing or cancelling redemption
 - **Single Loan**: For a given redemption, only one loan can be taken
+- **Conversion Requires Cancellation**: Receipt tokens securing an active redemption cannot be converted to OHM. To convert, borrowers must repay the loan, cancel the redemption to recover the receipt tokens and position, then use the conversion flow if the position is still eligible.
 
 ##### Borrowing Benefits
 
@@ -416,7 +420,7 @@ Limit orders operate through a separate contract (`CDAuctioneerLimitOrders`) tha
 
 When creating a limit order, users specify:
 
-1. **Deposit Period**: Choose from available periods (1, 2, or 3 months)
+1. **Deposit Period**: Choose from the currently enabled deposit periods
 2. **Deposit Budget**: Total deposit asset to spend on convertible deposits
 3. **Incentive Budget**: Deposit asset to pay solvers as rewards for filling the order
 4. **Maximum Price**: Highest acceptable execution price (deposit asset per OHM)
@@ -647,71 +651,46 @@ When considering convertible deposits, users should consider:
 
 ### Configuration
 
-#### Initial Parameters
+The tables below show the configuration progression. Parameters are rows, changes are columns in ascending order, and a blank cell means that parameter was not changed by that update.
 
-##### Assets
+#### Assets
 
-- **Supported Asset**: USDS
-- **Deposit Periods**: 1, 2, and 3 months
-- **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
-- **Minimum Deposit**: 1 USDS
-- **Deposit Cap**: 1,000,000 USDS
-- **Maximum Borrow Percentage**: 0% (disabled at launch, will be enabled in future update)
-- **Annual Borrow Interest Rate**: 0% (disabled at launch, will be enabled in future update)
-- **Reclaim Rate**: 90% (90% of the deposited amount will be returned upon reclaim)
+| Parameter                   | Launch                                                  | January 2026                   | January 26, 2026 | OCG Proposal 15 (July 2026) | MS Batch 1948 (July 16, 2026) |
+| --------------------------- | ------------------------------------------------------- | ------------------------------ | ---------------- | --------------------------- | ----------------------------- |
+| Supported Asset             | USDS                                                    |                                |                  |                             |                               |
+| Deposit Periods             | 1, 2, and 3 months                                      | 3 months only                  |                  | 6 months only               |                               |
+| Yield Strategy              | USDS deposits earn Sky Savings Rate through sUSDS vault |                                |                  |                             |                               |
+| Minimum Deposit             | 1 USDS                                                  |                                |                  |                             |                               |
+| Deposit Cap                 | 1,000,000 USDS                                          |                                | 2,000,000 USDS   | 60,000,000 USDS             |                               |
+| Maximum Borrow Percentage   | 0%                                                      | 96.7% of the redemption amount |                  |                             |                               |
+| Annual Borrow Interest Rate | 0%                                                      | 5.5%                           |                  |                             |                               |
+| Reclaim Rate                | 90%                                                     | 97.5% for 3-month deposits     |                  | 99% for 6-month deposits    |                               |
 
-##### Auction
+#### Auction
 
-- **Tick Size**: 150 OHM (halves when daily target is exceeded)
-- **Tick Step Multiplier**: 100.75% (0.75% increase per tick)
-- **Tick Size Base**: 2
-- **Tracking Period**: 7 days
-- **Minimum Bid**: 100 USDS
+| Parameter            | Launch                     | January 2026                        | January 26, 2026 | OCG Proposal 15 (July 2026)         | MS Batch 1948 (July 16, 2026) |
+| -------------------- | -------------------------- | ----------------------------------- | ---------------- | ----------------------------------- | ----------------------------- |
+| Tick Size            | 150 OHM                    |                                     |                  | 263,733.160134073 OHM               | 100,000 OHM                   |
+| Tick Step Multiplier | 100.75%                    |                                     |                  |                                     |                               |
+| Tick Size Base       | 2                          |                                     |                  |                                     |                               |
+| Tracking Period      | 7 days                     |                                     |                  |                                     |                               |
+| Minimum Bid          | 100 USDS                   |                                     |                  | 100,000 USDS                        |                               |
+| Deposit Periods      | 1, 2, and 3 months enabled | 1 and 2 months disabled; 3m remains |                  | 6 months enabled; 3 months disabled |                               |
 
-#### Emission Mechanics
+When daily targets are exceeded, tick capacity adjusts according to the tick size base. With the current MS Batch 1948 configuration, tick capacity starts at 100,000 OHM and halves each time cumulative daily conversions cross another multiple of the daily target.
 
-- **Base Emissions Rate**: 0.02% of supply/day
-- **Minimum Price**: 120% of market price
-- **Backing**: 11.69 USDS/OHM
-- **Minimum Premium**: 50% (the market price of OHM must be >= 17.535 USDS/OHM)
-- **Restart Timeframe**: 11 days
-- **Bond Market Capacity**: 0% (there will be no bond market for undersold OHM)
+#### Emissions
 
-#### Parameters (January 2026)
+| Parameter            | Launch               | January 2026         | January 26, 2026 | OCG Proposal 15 (July 2026) | MS Batch 1948 (July 16, 2026) |
+| -------------------- | -------------------- | -------------------- | ---------------- | --------------------------- | ----------------------------- |
+| Base Emissions Rate  | 0.02% of supply/day  | 0.04% of supply/day  |                  | 1.3368727% of supply/day    |                               |
+| Minimum Price        | 120% of market price | 110% of market price |                  |                             |                               |
+| Backing              | 11.69 USDS/OHM       |                      |                  |                             |                               |
+| Minimum Premium      | 50%                  |                      |                  |                             |                               |
+| Restart Timeframe    | 11 days              |                      |                  |                             |                               |
+| Bond Market Capacity | 0%                   |                      |                  |                             |                               |
 
-##### Assets (January 2026)
-
-- **Supported Asset**: USDS
-- **Deposit Periods**: 3 months _(changed from: 1, 2, and 3 months)_
-- **Yield Strategy**: USDS deposits earn Sky Savings Rate through sUSDS vault
-- **Minimum Deposit**: 1 USDS
-- **Deposit Cap**: 1,000,000 USDS
-- **Max Borrow Percentage**: 96.7% (maximum borrow percentage of redemption amount) _(changed from: 0%)_
-- **Annual Borrow Interest Rate**: 5.5% (fixed interest rate for borrowing) _(changed from: 0%)_
-- **Reclaim Rate**: 97.5% (97.5% of the deposited amount will be returned upon reclaim for 3-month deposits) _(changed from: 90%)_
-
-##### Auction (January 2026)
-
-- **Tick Size**: 150 OHM (halves when daily target is exceeded)
-- **Tick Step Multiplier**: 100.75% (0.75% increase per tick)
-- **Tick Size Base**: 2
-- **Tracking Period**: 7 days
-- **Minimum Bid**: 100 USDS
-
-##### Emission Mechanics (January 2026)
-
-- **Base Emissions Rate**: 0.04% of supply/day _(changed from: 0.02% of supply/day)_
-- **Minimum Price**: 110% of market price _(changed from: 120% of market price)_
-- **Backing**: 11.69 USDS/OHM
-- **Minimum Premium**: 50% (the market price of OHM must be >= 17.535 USDS/OHM)
-- **Restart Timeframe**: 11 days
-- **Bond Market Capacity**: 0% (there will be no bond market for undersold OHM)
-
-#### Parameters (January 26, 2026)
-
-##### Assets (January 26, 2026)
-
-- **Deposit Cap**: 2,000,000 USDS _(increased from: 1,000,000 USDS)_
+The daily target and current tick can change as the market operates. Review the Olympus app's bid preview for the live tick capacity, prices, and weighted-average execution before submitting a bid.
 
 ### Common Questions
 
@@ -727,7 +706,7 @@ A: Longer periods give more time for profitable conversions but reduce flexibili
 A: Yes, through early reclaim (with discount) or redemption (with waiting period). The conversion price cannot be changed once set.
 
 **Q: What can I do with my receipt tokens before expiry?**
-A: You can exchange the receipt tokens in a liquidity pool, reclaim the deposit (with a discount), redeem the deposit (waiting period), or redeem the deposit and borrow against it once borrowing is enabled.
+A: You can exchange the receipt tokens in a liquidity pool, reclaim the deposit (with a discount), redeem the deposit (waiting period), or start redemption and borrow against the active redemption if the asset and facility are configured for borrowing.
 
 **Q: Will USDS deposits be lent out to earn yield?**
 A: USDS deposits are deposited into the sUSDS vault to earn the Sky Savings Rate. The goal is to maintain a low-risk approach while generating yield for the protocol.
@@ -752,13 +731,13 @@ A: Yes, if wrapped as an ERC721 NFT. Receipt tokens are also transferable. The n
 A: Users can still get their full deposit back through redemption, or exit early through reclaim (with discount).
 
 **Q: Will Olympus offer borrowing against receipt tokens?**
-A: Yes, borrowing functionality will be available to receipt token holders when they start the redemption process. This feature is planned for implementation after the initial launch.
+A: Yes. Receipt token holders can start redemption and borrow against the active redemption when the relevant asset and facility are configured in the Deposit Redemption Vault.
 
 **Q: Can the CD position be traded as an NFT?**
 A: Yes, the convertible deposit position can be wrapped to an ERC721 NFT, allowing it to be traded on NFT marketplaces.
 
 **Q: Will there be different options for CDs with various strike prices or lengths?**
-A: The conversion price is determined through auction results at the time of purchase, while the deposit period is defined by governance. Users can choose from available periods (1, 2, or 3 months).
+A: The conversion price is determined through auction results at the time of purchase, while the deposit period is defined by governance. Users can choose from the periods currently enabled by governance.
 
 **Q: Will "looping" be easy for regular users?**
 A: Looping is generally an advanced-user action. While it's possible, it isn't currently implemented in the interface and is more suited for sophisticated users.
@@ -772,7 +751,7 @@ A: The protocol benefits from various outcomes: conversions provide OHM distribu
 A: Without position: wait full deposit period from start date. With position: wait only until conversion expiry (could be immediate if expired).
 
 **Q: Can I borrow against my redemptions?**
-A: Borrowing functionality is disabled in the initial rollout and will be enabled in a future update. Once enabled, borrowing will be limited to a configured percentage of the redemption amount (typically less than 100%).
+A: Yes, when the relevant asset and facility are configured for borrowing. The app shows the current max borrow percentage, annual interest rate, principal, interest, and due date before borrowing. Redemption loans are secured by the active redemption and are not liquidated based on market-price moves, but they can default if unpaid after the due date.
 
 **Q: What happens if I default on a borrowing loan?**
 A: Third parties can claim the default for a reward. Users keep any principal repaid, but lose the remainder to the protocol.
