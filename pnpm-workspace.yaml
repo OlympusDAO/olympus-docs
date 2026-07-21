@@ -1,12 +1,6 @@
 blockExoticSubdeps: true
 engineStrict: true
 minimumReleaseAge: 10080
-minimumReleaseAgeExclude:
-  - "axios@1.16.0"
-  - "form-data@4.0.6" # CVE-2026-12143 patched release, remove after maturity window.
-  - "follow-redirects@1.16.0"
-  - "http-proxy-middleware@2.0.10" # CVE-2026-55602 patched release, remove after maturity window.
-  - "webpack-dev-server@5.2.5" # CVE-2026-9595 patched release, remove after maturity window.
 allowBuilds:
   "core-js@3.24.1": true
   "core-js-pure@3.49.0": true
@@ -21,9 +15,10 @@ overrides:
   "ajv-keywords@3.5.2>ajv@<6.14.0": "6.14.0"
   "ajv@<6.14.0": "6.14.0"
   "algoliasearch-helper@<3.11.2": "^3.11.2"
-  "axios@<1.15.2": "^1.15.2"
+  "axios@<1.18.0": "^1.18.0"
   "body-parser@<1.20.3": "^1.20.3"
   "brace-expansion@<2.0.3": "^2.0.3"
+  "brace-expansion@>=2.0.0 <2.1.2": "^2.1.2"
   "braces@<3.0.3": "^3.0.3"
   "cookie@<0.7.0": "^0.7.0"
   "express@<4.19.2": "^4.19.2"
@@ -34,7 +29,7 @@ overrides:
   "got@<11.8.5": "^11.8.5"
   "http-proxy-middleware@<2.0.10": "^2.0.10"
   "joi@<18.2.1": "18.2.1"
-  "js-yaml@<4.2.0": "4.2.0"
+  "js-yaml@<4.3.0": "4.3.0"
   "katex@<0.16.21": "^0.16.21"
   "launch-editor@<=2.14.0": "2.14.1"
   "loader-utils@<2.0.4": "2.0.4"
@@ -59,7 +54,7 @@ overrides:
   "send@<0.19.0": "^0.19.0"
   "serialize-javascript@<7.0.5": "^7.0.5"
   "serve-static@<1.16.0": "^1.16.0"
-  "shell-quote@>=1.1.0 <=1.8.3": "^1.8.4"
+  "shell-quote@>=1.1.0 <=1.8.4": "^1.10.0"
   "smol-toml@<1.6.1": "^1.6.1"
   "stylis@<4.3.0": "^4.3.0"
   "svgo@<2.8.1": "^2.8.1"
@@ -69,7 +64,7 @@ overrides:
   "websocket-driver@<0.7.5": "^0.7.5"
   "webpack-bundle-analyzer@4.5.0>ws@>=8.0.0 <8.20.1": "^8.20.1"
   "webpack-dev-middleware@<5.3.4": "^5.3.4"
-  "webpack-dev-server@<5.2.5": "^5.2.5"
+  "webpack-dev-server@<=5.2.5": "^5.2.6"
   "webpack@<5.94.0": "^5.94.0"
   "ws@<8.0.0": "^8.17.1"
   "ws@>=8.0.0 <8.20.1": "^8.20.1"
