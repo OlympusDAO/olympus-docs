@@ -26,3 +26,7 @@ The root key in VS Code is `servers` (not `mcpServers`), and the remote transpor
 ## Enable
 
 Open the Chat view in **agent mode**, start the `olympus` server, and confirm its tools appear in the tools picker.
+
+## Optional: your own upstream keys
+
+Add a `headers` object to the server entry — with the values supplied through VS Code `inputs` so keys stay out of `mcp.json`. See [Bring your own keys](./08_bring-your-own-keys.md).

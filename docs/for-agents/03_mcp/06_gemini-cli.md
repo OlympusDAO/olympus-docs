@@ -23,3 +23,7 @@ Edit `~/.gemini/settings.json` (global) or `.gemini/settings.json` (project) and
 ## Verify
 
 Restart Gemini CLI so it starts the configured server, then run `/mcp` to confirm `olympus` is connected.
+
+## Optional: your own upstream keys
+
+Add a `headers` object alongside `httpUrl` to use your own upstream API keys. See [Bring your own keys](./08_bring-your-own-keys.md).

@@ -32,3 +32,7 @@ Available on any plan. Add an `mcp-remote` bridge to `claude_desktop_config.json
 ```
 
 `mcp-remote` bridges the remote Streamable HTTP endpoint into Claude Desktop and requires Node.js (which provides `npx`).
+
+## Optional: your own upstream keys
+
+The bridge can forward your own upstream API keys with `--header`. See [Bring your own keys](./08_bring-your-own-keys.md).

@@ -16,6 +16,8 @@ https://mcp.olympusdao.finance/mcp
 
 The server is **live, read-only, and authless**. No API key, token, or login is required. It speaks the standard MCP **Streamable HTTP** transport, so any compliant client can connect by pointing at the URL above.
 
+A few tools read upstream APIs that are key-gated. If a shared key is exhausted or rate-limited, you can optionally supply your own on the request — see [Bring your own keys](./08_bring-your-own-keys.md).
+
 ## Connect your client
 
 Pick your client to get set up:
@@ -27,6 +29,8 @@ Pick your client to get set up:
 - [VS Code](./05_vs-code.md)
 - [Gemini CLI](./06_gemini-cli.md)
 - [Other MCP clients](./07_other-clients.md) — any client that speaks Streamable HTTP, or a stdio-only client bridged with `mcp-remote`
+
+Optional, once connected: [Bring your own keys](./08_bring-your-own-keys.md).
 
 ## What you can ask
 
@@ -91,7 +95,7 @@ The server exposes a curated set of read-only tools. You do not call these direc
 ## How it works
 
 - **Transport:** standard MCP Streamable HTTP at `/mcp`.
-- **Access:** read-only and authless. The server never holds keys, signs, or sends transactions; it only reads and reports.
+- **Access:** read-only and authless. The server never signs or sends transactions; it only reads and reports. It holds its own shared, read-only upstream API keys, which you can override per request with [your own](./08_bring-your-own-keys.md).
 - **Source of truth:** on-chain state first, with indexers, market data, governance, and documentation as navigation layers. Tools report which source they used and how fresh it is, so you can verify any claim.
 
 For deeper background on what counts as the Olympus protocol surface and how to reason about live state, see [For Agents: Start Here](../00_start-here.md).

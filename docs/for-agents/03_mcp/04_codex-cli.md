@@ -18,3 +18,7 @@ Or add it directly to `~/.codex/config.toml`:
 [mcp_servers.olympus]
 url = "https://mcp.olympusdao.finance/mcp"
 ```
+
+## Optional: your own upstream keys
+
+Add an `[mcp_servers.olympus.http_headers]` sub-table to use your own upstream API keys. See [Bring your own keys](./08_bring-your-own-keys.md).
