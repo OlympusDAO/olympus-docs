@@ -129,8 +129,8 @@ importers:
         specifier: 2.5.0
         version: 2.5.0
       '@docusaurus/module-type-aliases':
-        specifier: ^2.4.3
-        version: 2.4.3(postcss@8.5.25)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+        specifier: 2.4.1
+        version: 2.4.1(postcss@8.5.25)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@docusaurus/theme-classic':
         specifier: 2.4.1
         version: 2.4.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(typescript@5.9.3)
@@ -991,12 +991,6 @@ packages:
       react: '*'
       react-dom: '*'
 
-  '@docusaurus/module-type-aliases@2.4.3':
-    resolution: {integrity: sha512-cwkBkt1UCiduuvEAo7XZY01dJfRn7UR/75mBgOdb1hKknhrabJZ8YH+7savd/y9kLExPyrhe0QwdS9GuzsRRIA==}
-    peerDependencies:
-      react: '*'
-      react-dom: '*'
-
   '@docusaurus/plugin-content-blog@2.4.1':
     resolution: {integrity: sha512-E2i7Knz5YIbE1XELI6RlTnZnGgS52cUO4BlCiCUCvQHbR+s1xeIWz4C6BtaVnlug0Ccz7nFSksfwDpVlkujg5Q==}
     engines: {node: '>=16.14'}
@@ -1099,12 +1093,6 @@ packages:
 
   '@docusaurus/types@2.4.1':
     resolution: {integrity: sha512-0R+cbhpMkhbRXX138UOc/2XZFF8hiZa6ooZAEEJFp5scytzCw4tC1gChMFXrpa3d2tYE6AX8IrOEpSonLmfQuQ==}
-    peerDependencies:
-      react: ^16.8.4 || ^17.0.0
-      react-dom: ^16.8.4 || ^17.0.0
-
-  '@docusaurus/types@2.4.3':
-    resolution: {integrity: sha512-W6zNLGQqfrp/EoPD0bhb9n7OobP+RHpmvVzpA+Z/IuU3Q63njJM24hmT0GYboovWcDtFmnIJC9wcyx4RVPQscw==}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
@@ -6700,33 +6688,6 @@ snapshots:
       - uglify-js
       - webpack-cli
 
-  '@docusaurus/module-type-aliases@2.4.3(postcss@8.5.25)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
-    dependencies:
-      '@docusaurus/react-loadable': 5.5.2(react@17.0.2)
-      '@docusaurus/types': 2.4.3(postcss@8.5.25)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
-      '@types/history': 4.7.11
-      '@types/react': 18.3.31
-      '@types/react-router-config': 5.0.11
-      '@types/react-router-dom': 5.3.3
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      react-helmet-async: 3.0.0(react@17.0.2)
-      react-loadable: '@docusaurus/react-loadable@5.5.2(react@17.0.2)'
-    transitivePeerDependencies:
-      - '@minify-html/node'
-      - '@swc/core'
-      - '@swc/css'
-      - '@swc/html'
-      - clean-css
-      - cssnano
-      - csso
-      - esbuild
-      - html-minifier-terser
-      - lightningcss
-      - postcss
-      - uglify-js
-      - webpack-cli
-
   '@docusaurus/plugin-content-blog@2.4.1(postcss@8.5.25)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(typescript@5.9.3)':
     dependencies:
       '@docusaurus/core': 2.4.1(@docusaurus/types@2.4.1(postcss@8.5.25)(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(typescript@5.9.3)
@@ -7258,33 +7219,6 @@ snapshots:
       tslib: 2.8.1
 
   '@docusaurus/types@2.4.1(postcss@8.5.25)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
-    dependencies:
-      '@types/history': 4.7.11
-      '@types/react': 18.3.31
-      commander: 5.1.0
-      joi: 18.2.1
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      react-helmet-async: 1.3.0(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
-      utility-types: 3.11.0
-      webpack: 5.105.4(clean-css@5.3.3)(cssnano@5.1.15(postcss@8.5.25))(html-minifier-terser@6.1.0)(postcss@8.5.25)
-      webpack-merge: 5.10.0
-    transitivePeerDependencies:
-      - '@minify-html/node'
-      - '@swc/core'
-      - '@swc/css'
-      - '@swc/html'
-      - clean-css
-      - cssnano
-      - csso
-      - esbuild
-      - html-minifier-terser
-      - lightningcss
-      - postcss
-      - uglify-js
-      - webpack-cli
-
-  '@docusaurus/types@2.4.3(postcss@8.5.25)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@types/history': 4.7.11
       '@types/react': 18.3.31

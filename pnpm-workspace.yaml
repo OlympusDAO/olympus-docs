@@ -7,10 +7,11 @@ minimumReleaseAgeExclude:
   - "nanoid@3.3.17" # GHSA-2v37-7h3g-55p8 patched release; remove after maturity window.
 auditConfig:
   ignoreGhsas:
-    # image-size DoS via infinite loops in the ICNS/JXL/HEIF parsers. Both advisories require
-    # image-size >=2.0.3, which is unpublished (npm latest is 2.0.2, itself still in range).
+    # image-size DoS via infinite loops in the ICNS/JXL/HEIF parsers. Both advisories cover
+    # image-size <=2.0.2 and have no patched release: npm latest is 2.0.2, itself still in
+    # range, so the installed 1.2.1 has nowhere to upgrade to.
     # Reached only at build time by @docusaurus/mdx-loader over images committed to static/,
-    # so there is no untrusted input path. Remove once 2.0.3 ships.
+    # so there is no untrusted input path. Remove once a patched release ships.
     - GHSA-w3rx-r6r6-pgpr
     - GHSA-5p2g-fcmc-qvqq
 allowBuilds:
