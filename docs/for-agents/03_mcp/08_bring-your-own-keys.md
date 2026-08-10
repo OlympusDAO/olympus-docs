@@ -6,22 +6,24 @@ sidebar_position: 8
 
 The Olympus MCP server is authless: you never need a key to use it. But a few tools read upstream APIs that are themselves key-gated, and this deployment's keys are shared by every caller. When a shared key is exhausted, rate-limited, or unavailable, you can send your own on the request instead.
 
-Client keys apply to **that request only**. They are never stored, never logged, and never written to the response.
+Client keys apply to **that request only**. The server does not store them, does not log them, and does not write them into the response. How the key rests on your side is your client's business — see [Where your key lives locally](#where-your-key-lives-locally).
 
 ## Supported headers
 
 Each header overrides one upstream credential:
 
-| Header                    | Upstream  | Used by                                                                                               |
-| ------------------------- | --------- | ----------------------------------------------------------------------------------------------------- |
-| `X-Olympus-Key-Graph`     | The Graph | `get_yrf_state`, Cooler V1 history, and `query_indexer` against The Graph-hosted subgraphs            |
-| `X-Olympus-Key-Infura`    | Infura    | Direct RPC reads: `read_contract`, `get_cooler_state`, `get_credit_terms`, `get_liquidation_scenario` |
-| `X-Olympus-Key-Etherscan` | Etherscan | On-chain event and governance history                                                                 |
-| `X-Olympus-Key-0x`        | 0x        | Routed quotes in `get_executable_slippage`                                                            |
+| Header                    | Upstream  | Used by                                                                                                                                                         |
+| ------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `X-Olympus-Key-Graph`     | The Graph | Every The Graph-hosted subgraph: protocol metrics and treasury history, POL on Base, Arbitrum and Berachain, Cooler V1 history, `get_yrf_state`, bond markets, emissions, Governor Bravo history, and `query_indexer` against those subgraphs |
+| `X-Olympus-Key-Infura`    | Infura    | Direct RPC reads on Ethereum and Base: `read_contract`, `get_cooler_state`, `get_credit_terms`, `get_liquidation_scenario`                                       |
+| `X-Olympus-Key-Etherscan` | Etherscan | Token transfers, contract verification and deployment history, gOHM delegation events                                                                           |
+| `X-Olympus-Key-0x`        | 0x        | Routed quotes in `get_executable_slippage`                                                                                                                      |
 
 These four headers are the complete list. The header-to-credential mapping is an explicit whitelist on the server, not a naming convention, so no other server-side secret is reachable this way.
 
-To see which sources need a key and whether this deployment currently has one, call `list_data_sources` — it reports the auth requirement and reachability of every source.
+Not every source is key-gated. The Envio indexer, the Convertible Deposits indexer, the visualizer snapshot API, Snapshot, DeFiLlama and CoinGecko need no key at all, and RPC reads fall back to a public endpoint when no Infura key is present — so an Infura header buys reliability and rate limit, not access.
+
+To see which sources need a key and whether this deployment currently has one, call `list_data_sources` — it reports `requiresSecret` and `available` for every source. Treat that output as authoritative if it ever disagrees with this page.
 
 ## Configure your client
 
@@ -102,6 +104,22 @@ Cursor interpolates `${env:...}`, so the key can stay in your environment rather
 
 VS Code prompts for an `input` the first time the server starts and stores the value securely, so the key never lands in `mcp.json`.
 
+An `${input:...}` placeholder needs an interactive prompt. A headless or forwarded agent session cannot answer that prompt, and the server then starts without the header — or does not start at all. For those sessions, write the header value directly in your user-level MCP configuration, which stays out of source control:
+
+```json
+{
+  "servers": {
+    "olympus": {
+      "type": "http",
+      "url": "https://mcp.olympusdao.finance/mcp",
+      "headers": {
+        "X-Olympus-Key-Graph": "<your gateway key>"
+      }
+    }
+  }
+}
+```
+
 ### Codex CLI
 
 Headers go in a sub-table of the server entry in `~/.codex/config.toml`:
@@ -145,10 +163,21 @@ npx -y mcp-remote https://mcp.olympusdao.finance/mcp \
   --header "X-Olympus-Key-Graph:<your gateway key>"
 ```
 
+## Where your key lives locally
+
+The no-retention guarantee above covers the server. Your client is a separate matter, and the examples on this page differ in how they hold the key:
+
+- A literal value in `claude_desktop_config.json`, `mcp.json`, `config.toml` or a `claude mcp add` command rests in plaintext on disk. Keep those files out of source control.
+- `${env:...}` in Cursor and `env_http_headers` in Codex CLI read the key from your environment, so the config file holds only a variable name.
+- A VS Code `promptString` input goes to the editor's secret storage, so the key never lands in `mcp.json`.
+- A key passed on a command line can also reach your shell history and your process list.
+
+Pick whichever of these your threat model allows. The server sees the header, uses it for one request, and forgets it.
+
 ## How your key is used
 
 - **Your key wins outright.** When the header is present, the server uses your key.
 - **Failures tell you whose key was rejected.** If an upstream returns `401`, `402`, `403`, or `429`, the error payload includes `key_source: "client"` or `key_source: "server"`, so you can tell a problem with your key from a problem with ours.
 - **Responses stay shared.** Every source behind these keys returns public, account-independent data, so results are cached and shared across callers whether or not a key was supplied. A keyed request warms the cache for everyone, and a cached hit costs you nothing against your own quota.
-- **Higher rate limits.** Requests carrying your own keys get a higher per-tool rate limit, since they do not spend this deployment's upstream quota. 
+- **Higher rate limits.** Requests carrying your own keys get a higher per-tool rate limit, since they do not spend this deployment's upstream quota.
 - **Malformed headers are ignored, not rejected.** A header the server cannot use is dropped and the request proceeds on the shared key, so a bad key never turns a serviceable request into an error.
