@@ -12,12 +12,12 @@ Client keys apply to **that request only**. The server does not store them, does
 
 Each header overrides one upstream credential:
 
-| Header                    | Upstream  | Used by                                                                                                                                                         |
-| ------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Header                    | Upstream  | Used by                                                                                                                                                                                                                                       |
+| ------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `X-Olympus-Key-Graph`     | The Graph | Every The Graph-hosted subgraph: protocol metrics and treasury history, POL on Base, Arbitrum and Berachain, Cooler V1 history, `get_yrf_state`, bond markets, emissions, Governor Bravo history, and `query_indexer` against those subgraphs |
-| `X-Olympus-Key-Infura`    | Infura    | Direct RPC reads on Ethereum and Base: `read_contract`, `get_cooler_state`, `get_credit_terms`, `get_liquidation_scenario`                                       |
-| `X-Olympus-Key-Etherscan` | Etherscan | Token transfers, contract verification and deployment history, gOHM delegation events                                                                           |
-| `X-Olympus-Key-0x`        | 0x        | Routed quotes in `get_executable_slippage`                                                                                                                      |
+| `X-Olympus-Key-Infura`    | Infura    | Direct RPC reads on Ethereum and Base: `read_contract`, `get_cooler_state`, `get_credit_terms`, `get_liquidation_scenario`                                                                                                                    |
+| `X-Olympus-Key-Etherscan` | Etherscan | Token transfers, contract verification and deployment history, gOHM delegation events                                                                                                                                                         |
+| `X-Olympus-Key-0x`        | 0x        | Routed quotes in `get_executable_slippage`                                                                                                                                                                                                    |
 
 These four headers are the complete list. The header-to-credential mapping is an explicit whitelist on the server, not a naming convention, so no other server-side secret is reachable this way.
 
