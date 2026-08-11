@@ -20,8 +20,11 @@ sidebar_label: "Addresses"
 | Executor  | Goerli    | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0)     |
 | Guardian  | Goerli    | [`0x84C0C005cF574D0e5C602EA7b366aE9c707381E0`](https://goerli.etherscan.io/address/0x84C0C005cF574D0e5C602EA7b366aE9c707381E0)     |
 | Emergency | Mainnet   | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://etherscan.io/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55)            |
+|           | Arbitrum  | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://arbiscan.io/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55)             |
+|           | Optimism  | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://optimistic.etherscan.io/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55) |
+|           | Base      | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://basescan.org/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55)            |
+|           | Bera      | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://berascan.com/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55)            |
 |           | Goerli    | [`0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7`](https://goerli.etherscan.io/address/0x3dC18017cf8d8F4219dB7A8B93315fEC2d15B8a7)     |
-|           | Bera      | [`0xa5ea62894027D981D34BB99A04BD36B818b2Aaf0`](https://berascan.com/address/0xa5ea62894027D981D34BB99A04BD36B818b2Aaf0)            |
 
 ## Olympus V3
 
