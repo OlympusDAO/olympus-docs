@@ -2,11 +2,20 @@ blockExoticSubdeps: true
 engineStrict: true
 minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
-  - "brace-expansion@5.0.8" # GHSA-mh99-v99m-4gvg patched release; remove after maturity window.
-  - "fast-uri@3.1.4" # GHSA-4c8g-83qw-93j6 and GHSA-v2hh-gcrm-f6hx patched release; remove after maturity window.
-  - "minimatch@10.2.6" # Required for brace-expansion 5 compatibility; remove after maturity window.
+  - "dompurify@3.4.13" # GHSA-55q2-fjhq-7xh7 patched release; remove after maturity window.
+  - "mermaid@10.9.8" # GHSA-2v8p-3f2j-5mp7, GHSA-6x64-9x62-f2gx and GHSA-c4c3-pg64-4m4v patched release; remove after maturity window.
+  - "nanoid@3.3.17" # GHSA-2v37-7h3g-55p8 patched release; remove after maturity window.
+auditConfig:
+  ignoreGhsas:
+    # image-size DoS via infinite loops in the ICNS/JXL/HEIF parsers. Both advisories cover
+    # image-size <=2.0.2 and have no patched release: npm latest is 2.0.2, itself still in
+    # range, so the installed 1.2.1 has nowhere to upgrade to.
+    # Reached only at build time by @docusaurus/mdx-loader over images committed to static/,
+    # so there is no untrusted input path. Remove once a patched release ships.
+    - GHSA-w3rx-r6r6-pgpr
+    - GHSA-5p2g-fcmc-qvqq
 allowBuilds:
-  "core-js@3.24.1": true
+  "core-js@3.49.0": true
   "core-js-pure@3.49.0": true
 overrides:
   "@babel/core@<=7.29.0": "7.29.6"
@@ -16,39 +25,40 @@ overrides:
   "@babel/runtime-corejs3@<7.26.10": "^7.26.10"
   "@babel/runtime@<7.26.10": "^7.26.10"
   "@babel/traverse@<7.23.2": "^7.23.2"
+  "@types/react@>=19": "^18.3.31" # React runtime is 17.x; v19 types drop the global JSX namespace and break `tsc`.
   "ajv-keywords@3.5.2>ajv@<6.14.0": "6.14.0"
   "ajv@<6.14.0": "6.14.0"
   "algoliasearch-helper@<3.11.2": "^3.11.2"
   "axios@<1.18.0": "^1.18.0"
-  "body-parser@<1.20.3": "^1.20.3"
-  "brace-expansion@<=5.0.7": "^5.0.8"
+  "body-parser@<1.20.6": "^1.20.6"
+  "brace-expansion@<5.0.9": "^5.0.9"
   "braces@<3.0.3": "^3.0.3"
   "cookie@<0.7.0": "^0.7.0"
   "express@<4.19.2": "^4.19.2"
-  "fast-uri@<3.1.4": "^3.1.4"
+  "fast-uri@<3.1.5": "^3.1.5"
   "follow-redirects@<1.16.0": "^1.16.0"
   "form-data@>=4.0.0 <4.0.6": "4.0.6"
   "glob@<10.5.0": "^10.5.0"
   "got@<11.8.5": "^11.8.5"
   "http-proxy-middleware@<2.0.10": "^2.0.10"
   "joi@<18.2.1": "18.2.1"
-  "js-yaml@<4.3.0": "4.3.0"
+  "js-yaml@<4.3.1": "4.3.1"
   "katex@<0.16.21": "^0.16.21"
   "launch-editor@<=2.14.0": "2.14.1"
   "linkify-it@<=5.0.1": "5.0.2"
   "loader-utils@<2.0.4": "2.0.4"
   "lodash@<4.18.0": "^4.18.0"
   "markdown-it@<=14.1.1": "14.2.0"
-  "dompurify@<3.4.11": "3.4.11"
-  "mermaid@<=10.9.5": "10.9.6"
+  "dompurify@<3.4.13": "3.4.13"
+  "mermaid@<10.9.8": "10.9.8"
   "micromatch@<4.0.8": "^4.0.8"
   "minimatch@<10.2.6": "10.2.6"
-  "nanoid@<3.3.8": "^3.3.8"
+  "nanoid@<3.3.17": "^3.3.17"
   "node-forge@<1.4.0": "^1.4.0"
   "on-headers@<1.1.0": "^1.1.0"
   "path-to-regexp@<3.3.0": "^3.3.0"
   "picomatch@<2.3.2": "^2.3.2"
-  "postcss@<=8.5.17": "^8.5.18"
+  "postcss@<=8.5.22": "^8.5.23"
   "prismjs@<1.30.0": "^1.30.0"
   "qs@<6.11.1": "^6.14.1"
   "qs@>=6.11.1 <=6.15.1": "^6.15.2"
@@ -69,7 +79,8 @@ overrides:
   "webpack-bundle-analyzer@4.5.0>ws@>=8.0.0 <8.20.1": "^8.20.1"
   "webpack-dev-middleware@<5.3.4": "^5.3.4"
   "webpack-dev-server@<=5.2.5": "^5.2.6"
-  "webpack@<5.94.0": "^5.94.0"
+  "webpack@<5.94.0": "5.105.4"
+  "webpack@>5.105.4": "5.105.4" # >=5.106 tightens ProgressPlugin option validation, breaking webpackbar 5.0.2 (Docusaurus 2.4.1).
   "ws@<8.0.0": "^8.17.1"
   "ws@>=8.0.0 <8.20.1": "^8.20.1"
   "yaml@<1.10.3": "^1.10.3"

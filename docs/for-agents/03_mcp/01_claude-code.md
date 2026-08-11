@@ -21,3 +21,7 @@ claude mcp add --transport http olympus https://mcp.olympusdao.finance/mcp --sco
 ## Verify
 
 Run `/mcp` inside a Claude Code session to confirm the `olympus` server is connected and its tools are available.
+
+## Optional: your own upstream keys
+
+Add `--header "X-Olympus-Key-Graph: <your gateway key>"` to the command above to use your own upstream API keys. See [Bring your own keys](./08_bring-your-own-keys.md).

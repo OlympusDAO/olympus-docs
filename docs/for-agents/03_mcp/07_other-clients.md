@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # Other MCP clients
 
-The Olympus MCP server speaks the standard MCP **Streamable HTTP** transport, so it works with any compliant client. No API key, token, or login is required.
+The Olympus MCP server speaks the standard MCP **Streamable HTTP** transport, so it works with any compliant client. No API key, token, or login is required — though any client that can set custom HTTP headers can optionally [bring its own upstream keys](./08_bring-your-own-keys.md).
 
 ## Clients that accept a remote URL
 

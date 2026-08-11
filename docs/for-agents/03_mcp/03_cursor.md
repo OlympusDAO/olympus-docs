@@ -21,3 +21,7 @@ Edit `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (project) and add:
 ## Enable
 
 Open **Settings → Tools & MCP** and enable the `olympus` server. Once connected, Cursor lists the available Olympus tools.
+
+## Optional: your own upstream keys
+
+Add a `headers` object to the entry above to use your own upstream API keys. See [Bring your own keys](./08_bring-your-own-keys.md).
