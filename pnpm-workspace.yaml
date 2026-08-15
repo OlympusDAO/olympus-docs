@@ -4,7 +4,6 @@ minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
   - "dompurify@3.4.13" # GHSA-55q2-fjhq-7xh7 patched release; remove after maturity window.
   - "mermaid@10.9.8" # GHSA-2v8p-3f2j-5mp7, GHSA-6x64-9x62-f2gx and GHSA-c4c3-pg64-4m4v patched release; remove after maturity window.
-  - "nanoid@3.3.17" # GHSA-2v37-7h3g-55p8 patched release; remove after maturity window.
 auditConfig:
   ignoreGhsas:
     # image-size DoS via infinite loops in the ICNS/JXL/HEIF parsers. Both advisories cover
@@ -53,7 +52,7 @@ overrides:
   "mermaid@<10.9.8": "10.9.8"
   "micromatch@<4.0.8": "^4.0.8"
   "minimatch@<10.2.6": "10.2.6"
-  "nanoid@<3.3.17": "^3.3.17"
+  "nanoid@<3.3.18": "^3.3.18"
   "node-forge@<1.4.0": "^1.4.0"
   "on-headers@<1.1.0": "^1.1.0"
   "path-to-regexp@<3.3.0": "^3.3.0"
