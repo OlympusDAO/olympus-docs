@@ -6,7 +6,7 @@ sidebar_position: 0
 
 The **Olympus MCP server** is a remote [Model Context Protocol](https://modelcontextprotocol.io) server that gives AI clients structured, read-only access to Olympus protocol data through a single tool surface.
 
-It unifies on-chain state, indexers (Envio, The Graph, Ponder), market data, governance, and the Olympus documentation behind one endpoint, so a client does not need to know which upstream source is canonical for each question. Ask about backing, treasury, Cooler loans, supply, governance, or protocol architecture, and the server routes the question to the right source and returns a verifiable answer.
+It unifies on-chain state, the keyless Olympus Protocol Metrics API (backed by Envio), other indexers (The Graph and Ponder), market data, governance, and the Olympus documentation behind one endpoint, so a client does not need to know which upstream source is canonical for each question. Ask about backing, treasury, Cooler loans, supply, governance, or protocol architecture, and the server routes the question to the right source and returns a verifiable answer.
 
 ## Endpoint
 
@@ -85,12 +85,12 @@ The server exposes a curated set of read-only tools. You do not call these direc
 
 ### Discovery and direct reads
 
-| Tool                  | Answers                                                                                 |
-| --------------------- | --------------------------------------------------------------------------------------- |
-| `list_data_sources`   | Which data sources this deployment can reach, with freshness and auth requirements.     |
-| `search_olympus_docs` | Semantic search over the Olympus documentation for concepts and mechanisms.             |
-| `query_indexer`       | Raw GraphQL escape hatch against whitelisted indexer sources only.                      |
-| `read_contract`       | Controlled direct read against known Olympus contracts and allow-listed functions only. |
+| Tool                  | Answers                                                                                                                                      |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `list_data_sources`   | Which data sources this deployment can reach, with freshness and auth requirements.                                                          |
+| `search_olympus_docs` | Semantic search over the Olympus documentation for concepts and mechanisms.                                                                  |
+| `query_indexer`       | Raw GraphQL escape hatch against whitelisted GraphQL sources. The REST-only Protocol Metrics API is available through curated tools instead. |
+| `read_contract`       | Controlled direct read against known Olympus contracts and allow-listed functions only.                                                      |
 
 ## How it works
 

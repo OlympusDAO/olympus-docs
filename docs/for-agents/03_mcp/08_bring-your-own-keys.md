@@ -12,16 +12,16 @@ Client keys apply to **that request only**. The server does not store them, does
 
 Each header overrides one upstream credential:
 
-| Header                    | Upstream  | Used by                                                                                                                                                                                                                                       |
-| ------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `X-Olympus-Key-Graph`     | The Graph | Every The Graph-hosted subgraph: protocol metrics and treasury history, POL on Base, Arbitrum and Berachain, Cooler V1 history, `get_yrf_state`, bond markets, emissions, Governor Bravo history, and `query_indexer` against those subgraphs |
-| `X-Olympus-Key-Infura`    | Infura    | Direct RPC reads on Ethereum and Base: `read_contract`, `get_cooler_state`, `get_credit_terms`, `get_liquidation_scenario`                                                                                                                    |
-| `X-Olympus-Key-Etherscan` | Etherscan | Token transfers, contract verification and deployment history, gOHM delegation events                                                                                                                                                         |
-| `X-Olympus-Key-0x`        | 0x        | Routed quotes in `get_executable_slippage`                                                                                                                                                                                                    |
+| Header                    | Upstream  | Used by                                                                                                                                                                                                                                 |
+| ------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `X-Olympus-Key-Graph`     | The Graph | Graph-hosted fallback protocol metrics, Cooler V1 history, `get_yrf_state`, and `query_indexer` access to the whitelisted Graph subgraphs for Ethereum metrics, Base, Arbitrum, Berachain, bonds, emissions, and Governor Bravo history |
+| `X-Olympus-Key-Infura`    | Infura    | Direct RPC reads on Ethereum and Base: `read_contract`, `get_cooler_state`, `get_credit_terms`, `get_liquidation_scenario`                                                                                                              |
+| `X-Olympus-Key-Etherscan` | Etherscan | Token transfers, contract verification and deployment history, gOHM delegation events                                                                                                                                                   |
+| `X-Olympus-Key-0x`        | 0x        | Routed quotes in `get_executable_slippage`                                                                                                                                                                                              |
 
 These four headers are the complete list. The header-to-credential mapping is an explicit whitelist on the server, not a naming convention, so no other server-side secret is reachable this way.
 
-Not every source is key-gated. The Envio indexer, the Convertible Deposits indexer, the visualizer snapshot API, Snapshot, DeFiLlama and CoinGecko need no key at all, and RPC reads fall back to a public endpoint when no Infura key is present — so an Infura header buys reliability and rate limit, not access.
+Not every source is key-gated. The Olympus Protocol Metrics API (backed by Envio), the Convertible Deposits indexer, the visualizer snapshot API, Snapshot, DeFiLlama and CoinGecko need no key at all, and RPC reads fall back to a public endpoint when no Infura key is present — so an Infura header buys reliability and rate limit, not access.
 
 To see which sources need a key and whether this deployment currently has one, call `list_data_sources` — it reports `requiresSecret` and `available` for every source. Treat that output as authoritative if it ever disagrees with this page.
 
