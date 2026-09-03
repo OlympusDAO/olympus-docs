@@ -4,6 +4,7 @@ minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
   - "dompurify@3.4.13" # GHSA-55q2-fjhq-7xh7 patched release; remove after maturity window.
   - "mermaid@10.9.8" # GHSA-2v8p-3f2j-5mp7, GHSA-6x64-9x62-f2gx and GHSA-c4c3-pg64-4m4v patched release; remove after maturity window.
+  - "qs@6.16.0" # GHSA-x5fp-wj9c-mxmx and GHSA-4mjr-xmp4-gh2g patched release; remove after maturity window.
 auditConfig:
   ignoreGhsas:
     # image-size DoS via infinite loops in the ICNS/JXL/HEIF parsers. Both advisories cover
@@ -59,8 +60,8 @@ overrides:
   "picomatch@<2.3.2": "^2.3.2"
   "postcss@<=8.5.22": "^8.5.23"
   "prismjs@<1.30.0": "^1.30.0"
-  "qs@<6.11.1": "^6.14.1"
-  "qs@>=6.11.1 <=6.15.1": "^6.15.2"
+  "qs@<6.11.1": "^6.16.0"
+  "qs@>=6.11.1 <6.16.0": "^6.16.0"
   "schema-utils@2.7.1>ajv@<6.14.0": "6.14.0"
   "schema-utils@3.1.1>ajv@<6.14.0": "6.14.0"
   "semver@<7.5.2": "^7.5.2"
