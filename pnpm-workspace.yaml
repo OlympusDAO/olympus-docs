@@ -8,10 +8,10 @@ minimumReleaseAgeExclude:
 auditConfig:
   ignoreGhsas:
     # image-size DoS via infinite loops in the ICNS/JXL/HEIF parsers. Both advisories cover
-    # image-size <=2.0.2 and have no patched release: npm latest is 2.0.2, itself still in
-    # range, so the installed 1.2.1 has nowhere to upgrade to.
-    # Reached only at build time by @docusaurus/mdx-loader over images committed to static/,
-    # so there is no untrusted input path. Remove once a patched release ships.
+    # image-size >=2.0.3 is patched, but @docusaurus/mdx-loader 2.4.1 requires the
+    # v1 callback/path API, which v2 removed. The loader only reads images committed
+    # to this repo at build time, so there is no untrusted input path. Remove these
+    # exceptions when Docusaurus can use a patched image-size version.
     - GHSA-w3rx-r6r6-pgpr
     - GHSA-5p2g-fcmc-qvqq
 allowBuilds:
@@ -33,6 +33,7 @@ overrides:
   "body-parser@<1.20.6": "^1.20.6"
   "brace-expansion@<5.0.9": "^5.0.9"
   "braces@<3.0.3": "^3.0.3"
+  "colord@<2.9.4": "2.9.4"
   "cookie@<0.7.0": "^0.7.0"
   "express@<4.19.2": "^4.19.2"
   "fast-uri@<3.1.6": "^3.1.6"
@@ -41,8 +42,8 @@ overrides:
   "glob@<10.5.0": "^10.5.0"
   "got@<11.8.5": "^11.8.5"
   "http-proxy-middleware@<2.0.10": "^2.0.10"
-  "joi@<18.2.1": "18.2.1"
-  "js-yaml@<4.3.1": "4.3.1"
+  "joi@<18.2.5": "18.2.5"
+  "js-yaml@<4.3.2": "4.3.2"
   "katex@<0.16.21": "^0.16.21"
   "launch-editor@<=2.14.0": "2.14.1"
   "linkify-it@<=5.0.1": "5.0.2"
@@ -69,9 +70,9 @@ overrides:
   "serialize-javascript@<7.0.5": "^7.0.5"
   "serve-static@<1.16.0": "^1.16.0"
   "shell-quote@>=1.1.0 <=1.8.4": "^1.10.0"
-  "smol-toml@<1.6.1": "^1.6.1"
+  "smol-toml@<1.7.1": "1.7.1"
   "stylis@<4.3.0": "^4.3.0"
-  "svgo@<2.8.3": "^2.8.3"
+  "svgo@<2.8.4": "2.8.4"
   "trim@<0.0.3": "^0.0.3"
   "uuid@<11.1.1": "^11.1.1"
   "wait-on@<9.0.4": "^9.0.4"
