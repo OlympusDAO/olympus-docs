@@ -42,6 +42,19 @@ Olympus uses [forge-proposal-simulator](https://solidity-labs.gitbook.io/forge-p
 Due to the importance of this framework in ensuring transparency and security, **Emergency MS will immediately veto any proposals not satisfying the two requirements**. This stance is based on the belief that bypassing the framework indicates an attempt to pass a harmful proposal by obfuscating its review process.
 :::
 
+### Solidity lint checks
+
+Before requesting review, run `forge lint` from the `olympus-v3` repository root.
+Inspect the output for findings in your proposal and its tests, then fix them and
+rerun the check. A successful exit status does not mean that no notes or warnings
+were reported.
+
+The repository's `pnpm run lint` and `pnpm run lint:check` commands also include
+Forge lint alongside formatting and Markdown checks. Follow the current
+[repository validation guidance](https://github.com/OlympusDAO/olympus-v3/blob/develop/AGENTS.md)
+for the remaining build and test requirements. Lint checks complement fork
+simulation and code review; they do not replace either.
+
 ## Instructions
 
 To successfully submit a proposal, the proposer must do the following:
