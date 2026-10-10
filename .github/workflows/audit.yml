@@ -9,6 +9,21 @@ permissions:
 
 jobs:
   audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Bootstrap
+        uses: ./.github/actions/bootstrap
+      - name: Audit pnpm dependencies (fail on moderate+)
+        run: pnpm audit --audit-level moderate
+
+  audit-comments:
+    # Fork PR tokens cannot write comments. Manual runs have no PR to comment on.
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
     permissions:
       contents: read
       pull-requests: write
