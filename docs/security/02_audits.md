@@ -1,6 +1,6 @@
 ---
 title: "Olympus Smart Contract Security Audits"
-description: "Olympus smart contract audits by component: Convertible Deposits, Cooler Loans V2, and the CCIP bridge, from Guardian, Trust, Electisec, and Nethermind."
+description: "Olympus smart contract audits by component: Convertible Deposits, Cooler Loans V2, and the CCIP bridge, from Guardian, Trust, Electisec, Cyfrin, and Nethermind."
 sidebar_label: "Audits"
 ---
 
@@ -43,3 +43,4 @@ sidebar_label: "Audits"
 | 2026-02     | <span id="ohm-v1-migrator"></span>OHM v1 Migrator                                                                   | Guardian Audits                | OHM v1 migration and TokenMigrator defunding | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2026-02_Migrator.pdf)                          |
 | 2026-05     | PRICE v1.2                                                                                                          | Guardian Audits                | PRICE v1.2                                   | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2026-05_Olympus_Price_Feed_Updates_Report.pdf) |
 | 2026-06     | <span id="layerzero-bridge"></span>LayerZero Bridge                                                                 | Guardian Audits                | LayerZero Bridge Security Upgrade            | [Link](https://storage.googleapis.com/olympusdao-landing-page-reports/audits/2026-06-Bridge.pdf)                            |
+| 2026-09     | <span id="ccip-token-pool-config"></span>CCIP Bridge                                                                | Cyfrin                         | CCIP Token Pool Configuration and Timelock   | TBD                                                                                                                         |

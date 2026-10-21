@@ -244,9 +244,139 @@ Policy that manages loan workflows including fulfilling requests, extending matu
 - `cooler_overseer`: ability to call `defund()` and `reactivate()`
 - `emergency_shutdown`: ability to call `emergencyShutdown()`
 
-## CrossChainBridge.sol
+## CCIP Bridge
 
-Policy that serves as the message bridge for cross-chain OHM transfers. Uses LayerZero as communication protocol.
+Olympus bridges OHM with Chainlink CCIP. For the architecture, refer to [Cross-Chain Bridge: Technical Details](../overview/07_cross-chain/01_ccip-technical-details.md).
+
+### Holders
+
+The table shows the state after the rollout.
+
+| Authority                                 | Ethereum                      | Arbitrum, Optimism, Base, Berachain, Robinhood Chain |
+| ----------------------------------------- | ----------------------------- | ---------------------------------------------------- |
+| Kernel executor                           | DAO MS                        | Local DAO MS                                         |
+| `RolesAdmin.admin`                        | OCG timelock                  | Local DAO MS                                         |
+| `admin` role                              | OCG timelock                  | Local DAO MS                                         |
+| `bridge_admin` role                       | DAO MS, OCG timelock          | Local DAO MS                                         |
+| `emergency` role                          | Emergency MS, OCG timelock    | Emergency MS                                         |
+| `bridge_rate_limiter` role                | Not assigned                  | Not assigned                                         |
+| OHM administrator in `TokenAdminRegistry` | OCG timelock                  | Local DAO MS                                         |
+| Token pool owner                          | `CCIPTokenPoolConfig`         | Local `CCIPTokenPoolConfig`                          |
+| Config operator                           | `CCIPTokenPoolConfigTimelock` | Local `CCIPTokenPoolConfigTimelock`                  |
+| Token pool `rateLimitAdmin`               | Zero address                  | Zero address                                         |
+| Lock/release pool rebalancer              | OCG timelock                  | Not applicable                                       |
+| `CCIPCrossChainBridge` owner              | DAO MS                        | Local DAO MS                                         |
+
+On the chains other than Ethereum, the `admin` role applies to all of the policies of the local Kernel.
+
+On Ethereum, the OCG timelock also holds `bridge_admin` and `emergency` from earlier proposals. The CCIP rollout grants `bridge_admin` to the DAO MS. It does not remove a role from the OCG timelock.
+
+| Holder       | Chain                   | Address                                      |
+| ------------ | ----------------------- | -------------------------------------------- |
+| OCG timelock | Ethereum                | `0x953EA3223d2dd3c1A91E9D6cca1bf7Af162C9c39` |
+| DAO MS       | Ethereum                | `0x245cc372C84B3645Bf0Ffe6538620B04a217988B` |
+| DAO MS       | Arbitrum                | `0x012BBf0481b97170577745D2167ee14f63E2aD4C` |
+| DAO MS       | Optimism                | `0x559a14a2219Ae81f9a9f857CF31407de2b07F36c` |
+| DAO MS       | Base                    | `0x18a390bD45bCc92652b9A91AD51Aed7f1c1358f5` |
+| DAO MS       | Berachain               | `0x91494D1BC2286343D51c55E46AE80C9356D099b5` |
+| DAO MS       | Robinhood Chain         | `0x317e0F5EF883DB95f8fFB5B995b8457903873608` |
+| Emergency MS | All of the chains above | `0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55` |
+
+For the access control diagrams, refer to [Cross-Chain Bridge: Technical Details](../overview/07_cross-chain/01_ccip-technical-details.md#access-control).
+
+### Function permissions
+
+The holders in this table are the holders on Ethereum. On the other chains, the local DAO MS replaces both the OCG timelock and the DAO MS.
+
+| Contract                      | Function                                                                                                                                                                         | Access                                                         | Holder                                                    |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------------------------------- |
+| `CCIPTokenPoolConfig`         | `acceptPoolOwnership`, `transferPoolOwnership`, `setConfigOperator`, `setRouter`, `setRateLimitAdmin`, `setGracePeriod`, `enable`                                                | `admin`                                                        | OCG timelock                                              |
+| `CCIPTokenPoolConfig`         | `setRebalancer`, `transferLiquidity` (Ethereum pool only)                                                                                                                        | `admin`                                                        | OCG timelock                                              |
+| `CCIPTokenPoolConfig`         | `addChain`, `removeChain`, `setRemoteToken`, `addRemotePool`, `removeRemotePool`, `applyAllowListUpdates`                                                                        | Config operator or `admin`                                     | `CCIPTokenPoolConfigTimelock`, OCG timelock               |
+| `CCIPTokenPoolConfig`         | `setChainRateLimits`                                                                                                                                                             | `bridge_rate_limiter`, config operator or `admin`              | Not assigned, `CCIPTokenPoolConfigTimelock`, OCG timelock |
+| `CCIPTokenPoolConfig`         | `disableChain`, `disableAllChains` (also when the policy is disabled)                                                                                                            | `emergency`, `admin`, `bridge_admin` or `bridge_rate_limiter`  | Emergency MS, OCG timelock, DAO MS                        |
+| `CCIPTokenPoolConfig`         | `disable`                                                                                                                                                                        | `emergency` or `admin`                                         | Emergency MS, OCG timelock                                |
+| `CCIPTokenPoolConfig`         | `reEnable` (in the grace period)                                                                                                                                                 | `bridge_admin`                                                 | DAO MS                                                    |
+| `CCIPTokenPoolConfigTimelock` | `enable`, `setGracePeriod`, `setTimelockDelay`                                                                                                                                   | `admin`                                                        | OCG timelock                                              |
+| `CCIPTokenPoolConfigTimelock` | `queueAddChain`, `queueRemoveChain`, `queueSetRemoteToken`, `queueAddRemotePool`, `queueRemoveRemotePool`, `queueApplyAllowListUpdates`, `queueSetChainRateLimits`, `queueBatch` | `bridge_admin`                                                 | DAO MS                                                    |
+| `CCIPTokenPoolConfigTimelock` | `executeQueuedAction` (after the delay)                                                                                                                                          | Any address                                                    | Any address                                               |
+| `CCIPTokenPoolConfigTimelock` | `cancelQueuedAction` (also when the policy is disabled)                                                                                                                          | `admin`, `emergency` or the proposer; any address after expiry | OCG timelock, Emergency MS, DAO MS                        |
+| `CCIPTokenPoolConfigTimelock` | `disable`                                                                                                                                                                        | `emergency` or `admin`                                         | Emergency MS, OCG timelock                                |
+| `CCIPTokenPoolConfigTimelock` | `reEnable` (in the grace period)                                                                                                                                                 | `bridge_admin`                                                 | DAO MS                                                    |
+| `CCIPBurnMintTokenPool`       | Owner functions: routes, remote pools, allowlist, router, rate limits                                                                                                            | Owner                                                          | Local `CCIPTokenPoolConfig`                               |
+| `CCIPBurnMintTokenPool`       | `enable`                                                                                                                                                                         | `admin`                                                        | Local DAO MS                                              |
+| `CCIPBurnMintTokenPool`       | `disable`                                                                                                                                                                        | `emergency` or `admin`                                         | Emergency MS, local DAO MS                                |
+| `LockReleaseTokenPool`        | Owner functions: routes, remote pools, allowlist, router, rate limits, rebalancer, `transferLiquidity`                                                                           | Owner                                                          | `CCIPTokenPoolConfig`                                     |
+| `LockReleaseTokenPool`        | `provideLiquidity`, `withdrawLiquidity`                                                                                                                                          | Rebalancer                                                     | OCG timelock                                              |
+| Both token pools              | `lockOrBurn`, `releaseOrMint`                                                                                                                                                    | On-ramp or off-ramp of the CCIP router                         | Chainlink                                                 |
+| `CCIPCrossChainBridge`        | `setTrustedRemoteEVM`, `setTrustedRemoteSVM`, `setGasLimit`, `enable`, `disable`, `withdraw`, `transferOwnership`                                                                | Owner                                                          | DAO MS                                                    |
+| `CCIPCrossChainBridge`        | `sendToEVM`, `sendToSVM`, `retryFailedMessage`                                                                                                                                   | Any address                                                    | Any address                                               |
+| `TokenAdminRegistry`          | `setPool`, `transferAdminRole`                                                                                                                                                   | OHM administrator                                              | OCG timelock                                              |
+
+A deposit into the Ethereum pool does not need a role. A direct OHM transfer to the pool has the same effect as `provideLiquidity`.
+
+### CCIPTokenPoolConfig.sol
+
+Policy that owns the local CCIP token pool. It gives each role access to a limited set of pool owner functions. It does not forward arbitrary calls.
+
+**Dependencies**
+
+- `ROLES` module
+
+**Roles**
+
+- `admin`: Has the ability to transfer and accept the pool ownership, set the router, the rebalancer, the rate limit admin, the config operator and the grace period, transfer liquidity, enable and disable the policy, contain one route or all routes, and call every route function directly.
+- `bridge_admin`: Has the ability to contain one route or all routes, and to re-enable the policy within the grace period.
+- `emergency`: Has the ability to contain one route or all routes, and to disable the policy.
+- `bridge_rate_limiter`: Has the ability to set the rate limits of a route, and to contain one route or all routes. Not assigned.
+
+The config operator (`CCIPTokenPoolConfigTimelock`) has the ability to add and remove routes, set the remote token, add and remove remote pools, update the allowlist and set the rate limits.
+
+### CCIPTokenPoolConfigTimelock.sol
+
+Policy that queues route and rate-limit changes for `CCIPTokenPoolConfig` and executes them after a delay.
+
+**Dependencies**
+
+- `ROLES` module
+
+**Roles**
+
+- `admin`: Has the ability to enable and disable the policy, set the timelock delay and the grace period, and cancel queued actions.
+- `bridge_admin`: Has the ability to queue actions, cancel its own queued actions, and re-enable the policy within the grace period.
+- `emergency`: Has the ability to disable the policy and cancel queued actions.
+
+Any address can execute a queued action after the delay, and cancel a queued action that expired.
+
+### CCIPBurnMintTokenPool.sol
+
+Policy that serves as the CCIP token pool on Arbitrum, Optimism, Base, Berachain and Robinhood Chain. It burns OHM for outbound transfers and mints OHM for inbound transfers.
+
+**Dependencies**
+
+- `ROLES` module
+- `MINTR` module
+
+**Permissions**
+
+- `MINTR.mintOhm`
+- `MINTR.burnOhm`
+- `MINTR.increaseMintApproval`
+
+**Roles**
+
+- `admin`: Has the ability to enable and disable the pool.
+- `emergency`: Has the ability to disable the pool.
+
+The pool owner (`CCIPTokenPoolConfig`) controls the routes and the rate limits.
+
+### CCIPCrossChainBridge.sol
+
+Periphery contract that the Olympus app uses to send OHM through CCIP. It is not a policy and has no roles. The owner has the ability to set the trusted remotes and the gas limits, enable and disable the contract, and withdraw native token.
+
+## CrossChainBridge.sol (deprecated)
+
+Policy that served as the message bridge for cross-chain OHM transfers. Used LayerZero as communication protocol. The CCIP bridge replaces it.
 
 **Dependencies**
 
@@ -298,7 +428,7 @@ Policy that manages the auctions and the issuance of OHM Bonds.
 
 | Role                   | Executor           |
 | ---------------------- | ------------------ |
-| `admin`                | DAO Multisig       |
+| `admin`                | OCG Timelock       |
 | `emergency_restart`    | DAO Multisig       |
 | `emergency_shutdown`   | Emergency Multisig |
 | `heart_admin`          | DAO Multisig       |
@@ -314,12 +444,15 @@ Policy that manages the auctions and the issuance of OHM Bonds.
 | `liquidityvault_admin` | DAO Multisig       |
 | `emergency_admin`      | Emergency Multisig |
 | `bridge_admin`         | DAO Multisig       |
+| `bridge_admin`         | OCG Timelock       |
+| `emergency`            | Emergency Multisig |
+| `emergency`            | OCG Timelock       |
 | `cooler_overseer`      | DAO MS             |
 | `emergency_shutdown`   | Emergency MS       |
 
 ## Relevant Multisigs
 
-| Multisig           | Network | Address                                      | Roles                                                                                                                                             | Setup |
-| ------------------ | ------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| DAO Multisig       | Mainnet | `0x245cc372C84B3645Bf0Ffe6538620B04a217988B` | [`executor`, `admin`, `emergency_restart`, `operator_admin`, `operator_operate`, `custodian`, `callback_admin`, `price_admin`, `cooler_overseer`] | 4/8   |
-| Emergency Multisig | Mainnet | `0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55` | [`emergency_shutdown`, `emergency_admin`]                                                                                                         | 2/10  |
+| Multisig           | Network | Address                                      | Roles                                                                                                                                                    | Setup |
+| ------------------ | ------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| DAO Multisig       | Mainnet | `0x245cc372C84B3645Bf0Ffe6538620B04a217988B` | [`executor`, `bridge_admin`, `emergency_restart`, `operator_admin`, `operator_operate`, `custodian`, `callback_admin`, `price_admin`, `cooler_overseer`] | 4/8   |
+| Emergency Multisig | Mainnet | `0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55` | [`emergency_shutdown`, `emergency_admin`, `emergency`]                                                                                                   | 2/10  |
