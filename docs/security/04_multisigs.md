@@ -40,7 +40,7 @@ change parameters, or re-enable anything. See the
   **same address across all chains** (Mainnet, Arbitrum, Optimism, Base, Bera,
   Robinhood Chain).
 - **Threshold:** **2 confirmations** on every chain (2-of-10 on Mainnet, 2-of-7
-  on the L2s, 2-of-8 on Robinhood Chain).
+  on the other chains).
 - **Wallet policy:** signers use a mix of software and hardware wallets. Speed of response
   is prioritized, and the pause-only scope keeps the risk bounded.
 
@@ -71,9 +71,9 @@ for **higher assurance rather than speed**.
 
 - **Address (Mainnet):** `0x245cc372C84B3645Bf0Ffe6538620B04a217988B` (see the
   [Addresses](../contracts/01_addresses.md) page for the per-chain addresses).
-- **Threshold:** **4-of-8** on Mainnet. On the L2s (Arbitrum, Optimism, Base)
-  the DAO Multisig uses **2-of-4**, and on Robinhood Chain it uses **2-of-5**. A lower
-  threshold is deliberately chosen so routine L2 operations can move faster.
+- **Threshold:** **4-of-8** on Mainnet. On Arbitrum, Optimism, Base and
+  Berachain the DAO Multisig uses **2-of-4**, and on Robinhood Chain it uses **2-of-5**. A lower
+  threshold is deliberately chosen so routine operations on these chains can move faster.
 - **Wallet policy:** signers primarily use **hardware wallets**.
 - **Coordination:** signers stay coordinated in a dedicated signing thread in
   Discord to review and confirm transactions.

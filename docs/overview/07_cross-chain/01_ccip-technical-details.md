@@ -20,7 +20,7 @@ Ethereum is the canonical chain. Only Ethereum can mint net-new protocol OHM.
 | The other EVM chains | Olympus `CCIPBurnMintTokenPool`  | Burns OHM through `MINTR` | Mints OHM through `MINTR`  |
 | Solana               | CCIP burn/mint token pool        | Burns OHM                 | Mints OHM                  |
 
-The Ethereum pool backs all of the OHM on the other chains. Before the EVM lanes open, the DAO Multisig transfers OHM to the pool. A deposit does not need a role. The deposit is equal to the supply on Arbitrum, Optimism, Base and Berachain, approximately 130,721 OHM. The LayerZero bridge minted that supply against burns on Ethereum. The OCG proposal that opens the lanes checks the pool balance first. If the balance is less than the required backing, the proposal does not execute.
+The Ethereum pool backs all of the OHM on the other chains. Before the OCG proposal, the DAO Multisig transferred OHM to the pool. A deposit does not need a role. The deposit backs the supply on Arbitrum, Optimism, Base and Berachain, approximately 130,721 OHM. The LayerZero bridge minted that supply against burns on Ethereum. The OCG proposal that opens the lanes checks the pool balance first. If the balance is less than the required backing, the proposal does not execute.
 
 The OHM token on Robinhood Chain starts with a supply of zero. OHM arrives there only through CCIP: from Ethereum against OHM that is locked in the pool, or from Arbitrum or Base against OHM that is burned there. Thus, Robinhood Chain is not part of the deposit.
 
@@ -346,9 +346,9 @@ stateDiagram-v2
 | Re-enable grace period           | 3 days           |
 | Maximum sub-actions in one batch | 15               |
 
-The timelock records the state of each route that a change touches. If the route changes before execution, the queued change reverts. A route can have only one queued change at a time for each part of its configuration.
+The timelock records the state of each route that a change touches. If the route changes before execution, the queued change reverts. A route can have only one queued change at a time for each part of its configuration. An expired change keeps this reservation until an address cancels it.
 
-The DAO Multisig, the Emergency Multisig and the `admin` role can cancel a queued change. Any address can cancel a change that expired.
+The `admin` role, the `emergency` role and the proposer of a change can cancel a queued change. Any address can cancel a change that expired.
 
 The `admin` role can also change a route directly, without the timelock. On Ethereum, `admin` is the OCG timelock, so a direct change needs an OCG proposal. On the other EVM chains, `admin` is the local DAO Multisig, so a direct change has no delay.
 
@@ -415,7 +415,6 @@ sequenceDiagram
     participant OCG as OCG timelock
     participant CH as Proposal checker
     participant K as Kernel
-    participant RA as RolesAdmin
     participant C as CCIPTokenPoolConfig
     participant T as Timelock
     participant P as LockReleaseTokenPool
@@ -429,19 +428,17 @@ sequenceDiagram
     Note over DAO,REG: Phase C: OCG proposal "CCIP Bridge Activation"
     OCG->>CH: check(expectations)
     OCG->>REG: acceptAdminRole(OHM)
-    OCG->>RA: grantRole(bridge_admin, DAO Multisig)
     OCG->>C: enable
     OCG->>C: acceptPoolOwnership
     C->>P: acceptOwnership
     OCG->>C: setConfigOperator(timelock)
     OCG->>C: setRebalancer(OCG timelock)
-    OCG->>C: setRateLimitAdmin(zero address)
     OCG->>T: enable
     OCG->>C: addChain (Arbitrum, Base, Berachain, Optimism, Robinhood Chain)
     C->>P: applyChainUpdates
 ```
 
-The first action of the proposal calls `CCIPTokenPoolConfigProposalChecker`. The checker reads the live state: ownership, registry authority, roles, launch parameters, routes and the pool backing. If one value is not correct, the proposal reverts before the handover starts. The proposal includes only the actions that the live state still needs.
+The first action of the proposal calls `CCIPTokenPoolConfigProposalChecker`. The checker reads the live state: ownership, registry authority, roles, launch parameters, routes and the pool backing. If one value is not correct, the proposal reverts before the handover starts. The proposal includes only the actions that the live state still needs. Thus, proposal 19 has 12 actions. It does not grant `bridge_admin`, because the DAO Multisig already holds this role. It does not call `setRateLimitAdmin`, because the `rateLimitAdmin` of the pool is already the zero address.
 
 ### The other EVM chains
 
@@ -460,7 +457,7 @@ sequenceDiagram
     DEP->>DEP: deploy the pool, the policies and CCIPCrossChainBridge
     DEP->>REG: transferAdminRole(OHM, DAO Multisig)
     DAO->>REG: acceptAdminRole(OHM)
-    DEP->>P: transferOwnership(CCIPTokenPoolConfig)
+    Note over DEP,P: The pool owner nominates CCIPTokenPoolConfig as the new owner
 
     Note over DEP,REG: Batch "setup", during the vote on Ethereum
     DAO->>K: deactivate the LayerZero bridge, activate the CCIP policies
@@ -490,7 +487,7 @@ A transfer can fail on the destination chain. For example, it fails if the inbou
 
 ## Fees
 
-`CCIPCrossChainBridge` charges the CCIP fee in the native token of the source chain. Use `getFeeEVM` or `getFeeSVM` to get the fee before you send. The bridge contract does not refund native token that is more than the fee. Olympus does not charge a bridge fee.
+`CCIPCrossChainBridge` charges the CCIP fee in the native token of the source chain. Use `getFeeEVM` or `getFeeSVM` to get the fee before you send. If you send more native token than the fee, the bridge contract keeps the excess. Only the owner of the bridge contract can withdraw it. Olympus does not charge a bridge fee.
 
 ## Security and audits
 

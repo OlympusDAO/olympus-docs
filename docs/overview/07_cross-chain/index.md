@@ -17,12 +17,6 @@ All bridge lanes use [Chainlink CCIP](https://chain.link/cross-chain) (Cross-Cha
 
 Ethereum is the **canonical chain** for OHM. Only Ethereum can mint net-new protocol OHM. The OHM on every other chain is backed by OHM that is locked in the Ethereum token pool. Bridging does not change the total supply of OHM.
 
-:::caution Rollout status
-
-The CCIP lanes between Ethereum and Arbitrum, Optimism, Base, Berachain and Robinhood Chain open after the OCG proposal "CCIP Bridge Activation" executes. Until then, only the lane between Ethereum and Solana is available. The contracts on all chains are deployed. Their addresses are in [Technical Details](./01_ccip-technical-details.md#deployments).
-
-:::
-
 For the architecture, the access control, the rate limits and the emergency controls, refer to [Cross-Chain Bridge: Technical Details](./01_ccip-technical-details.md).
 
 ## How to bridge
@@ -101,7 +95,7 @@ The lanes between Solana and the other chains (not Ethereum) are not part of the
 
 Before CCIP, the OHM on Arbitrum, Optimism, Base and Berachain came from the LayerZero `CrossChainBridge`. That bridge is closed. The CCIP rollout deactivates it on each chain.
 
-You do not need to do anything with your OHM. The OHM token address on each chain does not change, and your OHM stays valid. Before the new lanes open, the DAO Multisig deposits OHM into the Ethereum token pool. This deposit is equal to the OHM supply on Arbitrum, Optimism, Base and Berachain (approximately 130,721 OHM). Thus, the pool can release OHM on Ethereum for all of the OHM that the LayerZero bridge minted on those chains.
+You do not need to do anything with your OHM. The OHM token address on each chain does not change, and your OHM stays valid. Before the OCG proposal, the DAO Multisig deposited OHM into the Ethereum token pool. The deposit backs the OHM supply on Arbitrum, Optimism, Base and Berachain (approximately 130,721 OHM). Thus, the pool can release OHM on Ethereum for all of the OHM that the LayerZero bridge minted on those chains.
 
 Robinhood Chain is new to Olympus. The LayerZero bridge did not serve it. Its OHM token starts with a supply of zero, and all of its OHM arrives through CCIP. Thus, Robinhood Chain does not increase the deposit.
 
@@ -141,9 +135,9 @@ No design removes all risk. The bridge depends on Chainlink CCIP. A failure of C
 ### Audits
 
 - **Electisec (June 2025):** the CCIP token pool and the `CCIPCrossChainBridge` contracts.
-- **Cyfrin (September 2026):** the CCIP token pool configuration policy, the configuration timelock and the rollout to the EVM chains.
+- **Cyfrin (October 2026):** the CCIP token pool configuration policy, the configuration timelock and the rollout to the EVM chains. Cyfrin found no critical and no high issues. Of the 32 findings, 31 are resolved, and one informational finding is acknowledged.
 
-The [Electisec report](../../security/02_audits.md#ccip-bridge) is in the Audits section. The [Cyfrin report](../../security/02_audits.md#ccip-token-pool-config) will be added to the Audits section when it is published.
+The [Electisec report](../../security/02_audits.md#ccip-bridge) and the [Cyfrin report](../../security/02_audits.md#ccip-token-pool-config) are in the Audits section.
 
 Robinhood Chain uses the same contracts as the other EVM chains.
 
