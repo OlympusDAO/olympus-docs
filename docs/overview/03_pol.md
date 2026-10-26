@@ -8,8 +8,8 @@ sidebar_label: "Protocol Owned Liquidity"
 
 ## Overview
 
-Olympus pioneered the concept of Protocol Owned Liquidity (POL), ensuring liquidity for OHM holders without relying on liquidity mining incentives. POL manifests itself into several forms: dex based liquidity, and RBS swaps. Furthermore Cooler loans, based on parameters set by governance, provides extremely deep liquidity relative to OHM's market by allowing users to realize the underlying backing. This ensures users and protocols are always able to swap OHM, regardless of market conditions and external events.
+Olympus pioneered Protocol Owned Liquidity (POL) so the protocol can own and manage OHM liquidity rather than relying entirely on rented liquidity incentives. POL consists of protocol-controlled positions in OHM trading venues. Its pools and depth can change with treasury operations and market conditions.
 
-Dex POL is held in an [OHM/wETH UNI v3 pool](https://info.uniswap.org/#/pools/0x88051b0eea095007d3bef21ab287be961f3d8598). This pool is intended to be permanent liquidity, although subject to change via governance.
+POL is not a single permanent OHM/wETH pool. Olympus has provided liquidity on multiple chains and venues. Check the [Treasury Dashboard](https://app.olympusdao.finance/#/dashboard) and current pool positions for composition, ownership and available trading depth before citing them.
 
-RBS provides [OHM/DAI liquidity](https://docs.olympusdao.finance/main/overview/range-bound). With RBS, the balance between reserves and liquidity is algorithmic, with the goal to optimize the liquidity depth and reserves for robustness and long term market stability.
+Cooler Loans and the historical [Range Bound Stability](./08_range-bound.md) system are separate mechanisms. Cooler offers USDS credit against gOHM; it does not itself supply executable OHM liquidity to a DEX pool. Neither mechanism should be counted as a POL position merely because it affects a holder's access to liquidity.
