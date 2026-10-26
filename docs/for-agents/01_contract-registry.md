@@ -4,108 +4,34 @@ sidebar_position: 1
 
 # Contract Registry
 
-Use the Protocol Visualizer Indexer when an agent needs the current Olympus V3 contract set. The indexer reads the Kernel registry and exposes the installed contracts through GraphQL.
+Use the [Protocol Visualizer](https://protocol-visualizer.olympusdao.finance/) to discover Olympus contracts. For Ethereum mainnet, its public API exposes a JSON snapshot of the Kernel registry. Discovery is not proof that a proposed call is authorized or that the indexer is caught up to the latest block; confirm transaction targets and permissions on-chain.
 
-## Endpoint
-
-```text
-https://protocol-visualizer-indexer-production.up.railway.app/graphql
-```
-
-Status endpoint:
+## Ethereum Mainnet API
 
 ```text
-https://protocol-visualizer-indexer-production.up.railway.app/status
+GET https://protocol-visualizer-api.olympusdao.finance/v1/chains/1/protocol
+Accept: application/json
 ```
 
-Browser visualizer:
-
-```text
-https://olympus-protocol-visualizer.up.railway.app/
-```
-
-## Supported Chains
-
-The status endpoint returns the indexed chains and latest indexed block. At time of writing, the indexer includes:
-
-- Ethereum mainnet: `1`
-- Optimism: `10`
-- Base: `8453`
-- Berachain: `80094`
-- Sepolia: `11155111`
-
-Agents should call `/status` before relying on chain coverage or freshness.
-
-## Query Active Contracts
-
-Use `isEnabled: true` for the current active protocol surface.
+The response includes `schemaVersion`, `generatedAt`, `chainId` and `data.contracts`. Each contract includes its address, name, version, type and `isEnabled` state. Use only entries with `chainId: 1` and `isEnabled: true` when discovering currently installed Ethereum contracts. A disabled contract may still matter for historical or migration work.
 
 ```bash
-curl -s -X POST "https://protocol-visualizer-indexer-production.up.railway.app/graphql" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "query": "{ contracts(where: { chainId: 1, isEnabled: true }, limit: 100) { items { chainId address name version type isEnabled } } }"
-  }'
+curl --fail-with-body --silent --show-error \
+  -H 'Accept: application/json' \
+  'https://protocol-visualizer-api.olympusdao.finance/v1/chains/1/protocol' \
+  | jq -e '
+      select(.schemaVersion == "1.0.0" and .chainId == 1)
+      | .data.contracts
+      | map(select(.chainId == 1 and .isEnabled == true))
+    '
 ```
 
-Typical fields:
+Check that the request succeeds, the schema and chain match, `generatedAt` is plausible and each selected address is a valid 20-byte EVM address. A contract's `lastUpdatedBlockNumber` records that contract's update, **not** the indexer's current head. The API snapshot alone cannot prove current chain state. If the API is unavailable, stale or ambiguous, use the current `olympus-v3` deployment source and read-only on-chain calls; do not substitute a cached address or another chain's result.
 
-- `chainId`: EVM chain ID.
-- `address`: contract address.
-- `name`: contract or module name.
-- `version`: contract version when available.
-- `type`: `kernel`, `module`, or `policy`.
-- `isEnabled`: whether the contract is currently active in the Kernel.
+The endpoint above is verified for Ethereum (`1`). Do not assume that changing the chain ID exposes another network: confirm an official API route and live response first.
 
-## Query All Known Contracts on a Chain
-
-Use this when you need active and deprecated contracts for migration or historical context.
-
-```bash
-curl -s -X POST "https://protocol-visualizer-indexer-production.up.railway.app/graphql" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "query": "{ contracts(where: { chainId: 1 }, limit: 200) { items { chainId address name version type isEnabled } } }"
-  }'
-```
-
-Do not describe disabled contracts as active. A disabled contract can still be useful for history, but it is not part of the current Kernel-installed surface.
-
-## Minimal Agent Prompt
-
-When handing this to an agent, a minimal safe prompt is:
+## Agent Handoff
 
 ```text
-Fetch Olympus V3 contracts from the Protocol Visualizer Indexer. First call /status. Then query contracts for the requested chain with isEnabled: true. Classify the results by type: kernel, module, policy. Do not use cached addresses for active-state claims. If you need balances, prices, roles, permissions, or parameters, verify them with live contract calls or official indexed sources before answering.
-```
-
-## JavaScript Example
-
-```js
-const endpoint =
-  "https://protocol-visualizer-indexer-production.up.railway.app/graphql";
-
-const query = `
-  query ActiveContracts($chainId: Int!) {
-    contracts(where: { chainId: $chainId, isEnabled: true }, limit: 100) {
-      items {
-        chainId
-        address
-        name
-        version
-        type
-        isEnabled
-      }
-    }
-  }
-`;
-
-const response = await fetch(endpoint, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ query, variables: { chainId: 1 } }),
-});
-
-const { data } = await response.json();
-console.log(data.contracts.items);
+Discover candidate Olympus contracts from the Ethereum Protocol Visualizer API. Require a successful response, schemaVersion 1.0.0, chainId 1 and enabled contracts with matching chain IDs. Record generatedAt and the retrieval time. Verify the selected address, active state and required permissions against current deployment source and read-only on-chain state before using it in proposal calldata. If discovery or verification fails, report the gap rather than guessing an address.
 ```
