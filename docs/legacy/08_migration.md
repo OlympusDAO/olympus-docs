@@ -96,10 +96,10 @@ All V2-related contracts are live, and some of them are still under audit proces
 
 ## How to Wrap sOHM to gOHM
 
-[gOHM](../contracts/tokens#gohm) will be the first v2 token to roll out. Users
-can wrap their v1 sOHM tokens into gOHM tokens as part of the v2 migration.
+Users can wrap sOHM (v2) into gOHM. sOHM v1 cannot be wrapped: unstake it to OHM v1
+and migrate instead (see [How to Migrate to V2](#how-to-migrate-to-v2)).
 
-1. Go to the [Wrap section of Olympus App](https://app.olympusdao.finance/#/wrap).
+1. Go to the [Wrap section of Olympus App](https://app.olympusdao.finance/#/ohm/wrap).
    Select gOHM under the drop-down menu.
 
 2. If this is your first time wrapping sOHM, you need to approve the smart contract
@@ -125,7 +125,9 @@ With the V1Migrator policy, eligible users can migrate their OHM v1 tokens to OH
 
 1. Check if you are eligible for migration through the Olympus app or governance announcements.
 
-2. Go to the [Stake section of Olympus App](https://app.olympusdao.finance/#/stake) to access the migration tool.
+2. Connect your wallet on Ethereum and go to [My Balances](https://app.olympusdao.finance/#/ohm/balances). Work through
+   the legacy rows in order: **Unwrap** on wsOHM (gives sOHM v1), **Unstake** on sOHM v1 (gives OHM v1), then
+   **Migrate** on OHM v1.
 
 3. Approve the migration contract to transfer your OHM v1 tokens.
 
