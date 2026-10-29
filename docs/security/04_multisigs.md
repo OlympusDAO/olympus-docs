@@ -13,9 +13,9 @@ are listed on the [Addresses](../contracts/01_addresses.md) page; the roles each
 multisig holds on-chain are described in the [Default Framework](./01_roles.md)
 page.
 
-> Signer sets and thresholds change over time. The tables below are a snapshot
-> (as of 2026-07-16); the live configuration is always verifiable on-chain via
-> the Safe UI, linked in each section.
+> Signer sets and thresholds change over time. Each snapshot below shows the
+> date of its on-chain data. The live configuration is always verifiable
+> on-chain via the Safe UI, linked in each section.
 
 ## Emergency Multisig
 
@@ -45,22 +45,41 @@ change parameters, or re-enable anything. See the
   is prioritized, and the pause-only scope keeps the risk bounded.
 
 <details>
-<summary>Signer set snapshot — Emergency (Mainnet, 2-of-10)</summary>
+<summary>Signer set snapshot — Emergency (Mainnet, 2-of-10, read 2026-10-28)</summary>
 
 ```text
 0x3524c03D39A13D51485419A17586286A6b617dd3
 0x680FF9bd827ABE38212fC7d447Fb8545eEA47Ff3
-0xb7eb90494B0312407Afb40f2B5F203A038e9D1e8
+0x6216e2067457Db699bef940b4e1Ec6316B68dA20
 0xdA9Bea3719cf644a92729001D36EbcCD594EafA7
 0xE0D5FDde79D8191F5C9d5E657acad0e83342fA6B
 0xa81636AaCE97783AAC45764B873793bE081dA592
 0xcb4524B63F2c532fF52FCbbBcd3C137D32c1D966
-0xd8Eb6D9B93b6cbB39aBF62b719BbCCcd2b16F56b
+0xa0736f14E558044DC17fDC6edB936b78cA07349e
 0x131bd1A2827ccEb2945B2e3B91Ee1Bf736cCbf80
 0x8d34EA6fb1Ed6B60F94ac6CD01dD1181ef12290E
 ```
 
 Verify live: [Safe UI](https://app.safe.global/home?safe=eth:0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55)
+
+</details>
+
+<details>
+<summary>Signer set snapshot — Emergency (Arbitrum, Optimism, Base, Berachain, Robinhood Chain, 2-of-7, read 2026-10-28)</summary>
+
+```text
+0xa81636AaCE97783AAC45764B873793bE081dA592
+0xcb4524B63F2c532fF52FCbbBcd3C137D32c1D966
+0x6216e2067457Db699bef940b4e1Ec6316B68dA20
+0xa0736f14E558044DC17fDC6edB936b78cA07349e
+0x680FF9bd827ABE38212fC7d447Fb8545eEA47Ff3
+0xdA9Bea3719cf644a92729001D36EbcCD594EafA7
+0x3560F3b6dE0e2282F83e44a11cbD81cf22326489
+```
+
+The same 2-of-7 threshold and signer set apply on Arbitrum, Optimism, Base,
+Berachain and Robinhood Chain.
+Verify live: [Safe UI (Arbitrum)](https://app.safe.global/home?safe=arb1:0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55)
 
 </details>
 
@@ -79,7 +98,7 @@ for **higher assurance rather than speed**.
   Discord to review and confirm transactions.
 
 <details>
-<summary>Signer set snapshot — DAO (Mainnet, 4-of-8)</summary>
+<summary>Signer set snapshot — DAO (Mainnet, 4-of-8, read 2026-10-28)</summary>
 
 ```text
 0xb7eb90494B0312407Afb40f2B5F203A038e9D1e8
@@ -97,7 +116,7 @@ Verify live: [Safe UI](https://app.safe.global/home?safe=eth:0x245cc372C84B3645B
 </details>
 
 <details>
-<summary>Signer set snapshot — DAO (L2, 2-of-4)</summary>
+<summary>Signer set snapshot — DAO (Arbitrum, Optimism, Base, Berachain, 2-of-4, read 2026-10-28)</summary>
 
 ```text
 0xf0be8F756389C2D22DD644cC9a3C979F568f3454
@@ -106,15 +125,34 @@ Verify live: [Safe UI](https://app.safe.global/home?safe=eth:0x245cc372C84B3645B
 0xb7eb90494B0312407Afb40f2B5F203A038e9D1e8
 ```
 
-The same 2-of-4 threshold and signer set apply on Arbitrum, Optimism, and Base.
+The same 2-of-4 threshold and signer set apply on Arbitrum, Optimism, Base and
+Berachain.
 Verify live: [Safe UI (Base)](https://app.safe.global/home?safe=base:0x18a390bD45bCc92652b9A91AD51Aed7f1c1358f5)
+
+</details>
+
+<details>
+<summary>Signer set snapshot — DAO (Robinhood Chain, 2-of-5, read 2026-10-28)</summary>
+
+```text
+0xcb4524B63F2c532fF52FCbbBcd3C137D32c1D966
+0xd8Eb6D9B93b6cbB39aBF62b719BbCCcd2b16F56b
+0xf0be8F756389C2D22DD644cC9a3C979F568f3454
+0x680FF9bd827ABE38212fC7d447Fb8545eEA47Ff3
+0xb7eb90494B0312407Afb40f2B5F203A038e9D1e8
+```
+
+The Robinhood Chain DAO Multisig has the four signers of the 2-of-4 DAO
+Multisigs and one more signer, `0xcb4524B63F2c532fF52FCbbBcd3C137D32c1D966`.
+Verify live: [Safe UI (Robinhood Chain)](https://app.safe.global/home?safe=robinhood:0x317e0F5EF883DB95f8fFB5B995b8457903873608)
 
 </details>
 
 ## Threshold rationale
 
-| Multisig  | Chain   | Threshold | Wallets        | Optimized for                       |
-| --------- | ------- | --------- | -------------- | ----------------------------------- |
-| Emergency | All     | 2-of-N    | Software / hot | Fast incident response (pause only) |
-| DAO       | Mainnet | 4-of-8    | Hardware       | Assurance and coordinated execution |
-| DAO       | L2s     | 2-of-4    | Hardware       | Faster L2 ops                       |
+| Multisig  | Chain                               | Threshold | Wallets        | Optimized for                       |
+| --------- | ----------------------------------- | --------- | -------------- | ----------------------------------- |
+| Emergency | All                                 | 2-of-N    | Software / hot | Fast incident response (pause only) |
+| DAO       | Mainnet                             | 4-of-8    | Hardware       | Assurance and coordinated execution |
+| DAO       | Arbitrum, Optimism, Base, Berachain | 2-of-4    | Hardware       | Faster L2 ops                       |
+| DAO       | Robinhood Chain                     | 2-of-5    | Hardware       | Faster L2 ops                       |

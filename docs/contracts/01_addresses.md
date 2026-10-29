@@ -250,6 +250,7 @@ sidebar_label: "Addresses"
 |                            | Base      | [`0x6f6C373d09C07425BaAE72317863d7F6bb731e37`](https://basescan.org/address/0x6f6C373d09C07425BaAE72317863d7F6bb731e37)                  |
 |                            | Bera      | [`0x0944C3Fb1dB7D165336569221995B31cBE6c8A55`](https://berascan.com/address/0x0944C3Fb1dB7D165336569221995B31cBE6c8A55)                  |
 |                            | Robinhood | [`0x1912C3cFafE8A76A32a92861d815aC2837F237Ca`](https://robinhoodchain.blockscout.com/address/0x1912C3cFafE8A76A32a92861d815aC2837F237Ca) |
+| CCIP Token Pool            | Solana    | [`4N7bZnVSC1GE27vo2Bv6kG983brwhT68BGsLuzH5nTQp`](https://solscan.io/account/4N7bZnVSC1GE27vo2Bv6kG983brwhT68BGsLuzH5nTQp)                |
 | Yield Repurchase Facility  | Mainnet   | [`0x30a967eb957e5b1ee053b75f1a57ea6bfb2e907e`](https://etherscan.io/address/0x30a967eb957e5b1ee053b75f1a57ea6bfb2e907e#code)             |
 
 ### Periphery

@@ -123,8 +123,8 @@ The Ethereum token pool holds the OHM that backs every other chain. Thus, like t
 ### Guardrails
 
 - **Supply bound.** OHM can return to Ethereum only from the Ethereum token pool. If an attacker mints OHM on another chain, the amount that can return to Ethereum is limited to the OHM in the pool. The bridge cannot mint new OHM on Ethereum.
-- **Release limit.** Only a verified CCIP message can release OHM from the pool. The inbound rate limit of each route also limits the OHM that the pool can release in 24 hours. In an incident, the Emergency Multisig can stop all routes immediately, and an OCG proposal can withdraw OHM from the pool.
-- **Rate limits.** Each route has an outbound limit and an inbound limit on each side. The limits refill over 24 hours. A limit stops a large or sudden flow, also if a different control fails.
+- **Release limit.** Only a verified CCIP message can release OHM from the pool. The inbound rate limit of each route also limits how fast the pool can release OHM. In an incident, the Emergency Multisig can stop all routes immediately, and an OCG proposal can withdraw OHM from the pool.
+- **Rate limits.** Each route has an outbound limit and an inbound limit on each side. Each limit is a token bucket with a capacity and a refill rate, not a daily cap. An empty bucket refills completely in 24 hours. Thus, a full bucket can pass approximately two times its capacity in 24 hours. A limit stops a large or sudden flow, also if a different control fails. Refer to [Rate limits](./01_ccip-technical-details.md#rate-limits).
 - **Message verification.** The Chainlink decentralized oracle network verifies each CCIP message. The independent Risk Management Network can also stop a lane.
 - **Timelock on configuration.** On Ethereum, the DAO Multisig queues route and rate-limit changes on a timelock. A change can execute only after a delay of 1 day. Each queued change is visible on-chain, and the Emergency Multisig can cancel it. On the other EVM chains, there is no OCG. The local DAO Multisig holds the `admin` role there, and it can change routes and rate limits directly, without the delay.
 - **Governance ownership.** On Ethereum, the Olympus on-chain governance (OCG) timelock holds the `admin` role, the OHM administrator role in the Chainlink registry, and the rebalancer role of the pool. These roles control the token pool registration, the pool liquidity and the root configuration. The DAO Multisig does not hold these roles. The DAO Multisig is the Kernel executor, which activates and deactivates policies.
@@ -143,7 +143,7 @@ Robinhood Chain uses the same contracts as the other EVM chains.
 
 ## Contracts
 
-The bridge contract addresses for each chain are in [Technical Details](./01_ccip-technical-details.md#deployments) and in the [contract addresses table](../../contracts/01_addresses.md). The roles and the holders of each role are in [Security Roles](../../security/01_roles.md#ccip-bridge).
+The bridge contract addresses for each chain are in the [contract addresses table](../../contracts/01_addresses.md). The holders of each role and the action matrix are in [Technical Details](./01_ccip-technical-details.md#access-control). The roles of each contract are in [Security Roles](../../security/01_roles.md#ccip-bridge).
 
 ## Governance
 

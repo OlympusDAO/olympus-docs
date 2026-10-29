@@ -1,6 +1,6 @@
 ---
 title: "Cross-Chain Bridge: Technical Details"
-description: "The architecture of the Olympus CCIP bridge: deployments, token pools, supply model, rate limits, access control flows, the configuration timelock, emergency controls, the rollout and message recovery."
+description: "The architecture of the Olympus CCIP bridge: token pools, supply model, chain selectors, rate limits, access control, the configuration timelock, emergency controls, the rollout and message recovery."
 sidebar_label: "Technical Details"
 ---
 
@@ -38,122 +38,21 @@ The burn/mint pools can mint only when OHM arrives through CCIP. Thus, OHM that 
 | `CCIPTokenPoolConfigProposalChecker` | Ethereum                       | A read-only contract. The OCG proposal calls it first, to make sure that the live state is correct before the handover.                                      |
 | `TokenAdminRegistry`                 | Each chain                     | The Chainlink registry that selects the token pool for OHM. On Ethereum, the OCG timelock is the OHM administrator.                                          |
 
-## Deployments
+The addresses of these contracts on each chain are in the [contract addresses table](../../contracts/01_addresses.md).
 
-The tables give the bridge contracts and the related accounts on each chain. All Olympus addresses are also in the [contract addresses table](../../contracts/01_addresses.md).
+## Chain selectors
 
-### Ethereum
+CCIP identifies each chain with a chain selector. The send and fee functions of `CCIPCrossChainBridge` use the selector of the destination chain.
 
-CCIP chain selector: `5009297550715157269`
-
-| Contract                             | Address                                                                                                                 |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| OHM                                  | [`0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5`](https://etherscan.io/address/0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5) |
-| `LockReleaseTokenPool`               | [`0xa5588e518CE5ee0e4628C005E4edAbD5e87de3aD`](https://etherscan.io/address/0xa5588e518CE5ee0e4628C005E4edAbD5e87de3aD) |
-| `CCIPTokenPoolConfig`                | [`0x2CEA7B722dbd6b03f0E857d11e53ECB698cC2b4E`](https://etherscan.io/address/0x2CEA7B722dbd6b03f0E857d11e53ECB698cC2b4E) |
-| `CCIPTokenPoolConfigTimelock`        | [`0xF489F38BF8d98A5C10a030f8C16624f6764CD27A`](https://etherscan.io/address/0xF489F38BF8d98A5C10a030f8C16624f6764CD27A) |
-| `CCIPCrossChainBridge`               | [`0xFbf6383dC3F6010d403Ecdf12DDC1311701D143D`](https://etherscan.io/address/0xFbf6383dC3F6010d403Ecdf12DDC1311701D143D) |
-| `CCIPTokenPoolConfigProposalChecker` | [`0x1b1FB8C6E0420C6595a016Dd8AD962176aa564c9`](https://etherscan.io/address/0x1b1FB8C6E0420C6595a016Dd8AD962176aa564c9) |
-| Kernel                               | [`0x2286d7f9639e8158FaD1169e76d1FbC38247f54b`](https://etherscan.io/address/0x2286d7f9639e8158FaD1169e76d1FbC38247f54b) |
-| DAO Multisig                         | [`0x245cc372C84B3645Bf0Ffe6538620B04a217988B`](https://etherscan.io/address/0x245cc372C84B3645Bf0Ffe6538620B04a217988B) |
-| Emergency Multisig                   | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://etherscan.io/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55) |
-| OCG timelock                         | [`0x953EA3223d2dd3c1A91E9D6cca1bf7Af162C9c39`](https://etherscan.io/address/0x953EA3223d2dd3c1A91E9D6cca1bf7Af162C9c39) |
-| CCIP Router (Chainlink)              | [`0x80226fc0Ee2b096224EeAc085Bb9a8cba1146f7D`](https://etherscan.io/address/0x80226fc0Ee2b096224EeAc085Bb9a8cba1146f7D) |
-| `TokenAdminRegistry` (Chainlink)     | [`0xb22764f98dD05c789929716D677382Df22C05Cb6`](https://etherscan.io/address/0xb22764f98dD05c789929716D677382Df22C05Cb6) |
-
-### Arbitrum
-
-CCIP chain selector: `4949039107694359620`
-
-| Contract                         | Address                                                                                                                |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| OHM                              | [`0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028`](https://arbiscan.io/address/0xf0cb2dc0db5e6c66B9a70Ac27B06b878da017028) |
-| `CCIPBurnMintTokenPool`          | [`0xF35193DA8C10e44aF10853Ba5a3a1a6F7529E39a`](https://arbiscan.io/address/0xF35193DA8C10e44aF10853Ba5a3a1a6F7529E39a) |
-| `CCIPTokenPoolConfig`            | [`0x5824850D8A6E46a473445a5AF214C7EbD46c5ECB`](https://arbiscan.io/address/0x5824850D8A6E46a473445a5AF214C7EbD46c5ECB) |
-| `CCIPTokenPoolConfigTimelock`    | [`0x5261fBA7B50aA22B19B9edF939b771D109dE991F`](https://arbiscan.io/address/0x5261fBA7B50aA22B19B9edF939b771D109dE991F) |
-| `CCIPCrossChainBridge`           | [`0xb4f620c39F3BA4a1E7aD264fEd6239B0C618DB50`](https://arbiscan.io/address/0xb4f620c39F3BA4a1E7aD264fEd6239B0C618DB50) |
-| Kernel                           | [`0xeac3eC0CC130f4826715187805d1B50e861F2DaC`](https://arbiscan.io/address/0xeac3eC0CC130f4826715187805d1B50e861F2DaC) |
-| DAO Multisig                     | [`0x012BBf0481b97170577745D2167ee14f63E2aD4C`](https://arbiscan.io/address/0x012BBf0481b97170577745D2167ee14f63E2aD4C) |
-| Emergency Multisig               | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://arbiscan.io/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55) |
-| CCIP Router (Chainlink)          | [`0x141fa059441E0ca23ce184B6A78bafD2A517DdE8`](https://arbiscan.io/address/0x141fa059441E0ca23ce184B6A78bafD2A517DdE8) |
-| `TokenAdminRegistry` (Chainlink) | [`0x39AE1032cF4B334a1Ed41cdD0833bdD7c7E7751E`](https://arbiscan.io/address/0x39AE1032cF4B334a1Ed41cdD0833bdD7c7E7751E) |
-
-### Optimism
-
-CCIP chain selector: `3734403246176062136`
-
-| Contract                         | Address                                                                                                                            |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| OHM                              | [`0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0`](https://optimistic.etherscan.io/address/0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0) |
-| `CCIPBurnMintTokenPool`          | [`0xD98B5b2E4D5d6Cd554115DE19EfB7A9084BEddd1`](https://optimistic.etherscan.io/address/0xD98B5b2E4D5d6Cd554115DE19EfB7A9084BEddd1) |
-| `CCIPTokenPoolConfig`            | [`0x20a3d8510f2e1176E8Db4CeA9883a8287a9029Db`](https://optimistic.etherscan.io/address/0x20a3d8510f2e1176E8Db4CeA9883a8287a9029Db) |
-| `CCIPTokenPoolConfigTimelock`    | [`0xEBDe552D851DD6Dfd3D360C596D3F4aF6e5F9678`](https://optimistic.etherscan.io/address/0xEBDe552D851DD6Dfd3D360C596D3F4aF6e5F9678) |
-| `CCIPCrossChainBridge`           | [`0xcb4E21Eb404d80F3e1dB781aAd9AD6A1217fbbf2`](https://optimistic.etherscan.io/address/0xcb4E21Eb404d80F3e1dB781aAd9AD6A1217fbbf2) |
-| Kernel                           | [`0x18878Df23e2a36f81e820e4b47b4A40576D3159C`](https://optimistic.etherscan.io/address/0x18878Df23e2a36f81e820e4b47b4A40576D3159C) |
-| DAO Multisig                     | [`0x559a14a2219Ae81f9a9f857CF31407de2b07F36c`](https://optimistic.etherscan.io/address/0x559a14a2219Ae81f9a9f857CF31407de2b07F36c) |
-| Emergency Multisig               | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://optimistic.etherscan.io/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55) |
-| CCIP Router (Chainlink)          | [`0x3206695CaE29952f4b0c22a169725a865bc8Ce0f`](https://optimistic.etherscan.io/address/0x3206695CaE29952f4b0c22a169725a865bc8Ce0f) |
-| `TokenAdminRegistry` (Chainlink) | [`0x657c42abE4CD8aa731Aec322f871B5b90cf6274F`](https://optimistic.etherscan.io/address/0x657c42abE4CD8aa731Aec322f871B5b90cf6274F) |
-
-### Base
-
-CCIP chain selector: `15971525489660198786`
-
-| Contract                         | Address                                                                                                                 |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| OHM                              | [`0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0`](https://basescan.org/address/0x060cb087a9730E13aa191f31A6d86bFF8DfcdCC0) |
-| `CCIPBurnMintTokenPool`          | [`0x20a3d8510f2e1176E8Db4CeA9883a8287a9029Db`](https://basescan.org/address/0x20a3d8510f2e1176E8Db4CeA9883a8287a9029Db) |
-| `CCIPTokenPoolConfig`            | [`0xF35193DA8C10e44aF10853Ba5a3a1a6F7529E39a`](https://basescan.org/address/0xF35193DA8C10e44aF10853Ba5a3a1a6F7529E39a) |
-| `CCIPTokenPoolConfigTimelock`    | [`0xb4f620c39F3BA4a1E7aD264fEd6239B0C618DB50`](https://basescan.org/address/0xb4f620c39F3BA4a1E7aD264fEd6239B0C618DB50) |
-| `CCIPCrossChainBridge`           | [`0xEBDe552D851DD6Dfd3D360C596D3F4aF6e5F9678`](https://basescan.org/address/0xEBDe552D851DD6Dfd3D360C596D3F4aF6e5F9678) |
-| Kernel                           | [`0x18878Df23e2a36f81e820e4b47b4A40576D3159C`](https://basescan.org/address/0x18878Df23e2a36f81e820e4b47b4A40576D3159C) |
-| DAO Multisig                     | [`0x18a390bD45bCc92652b9A91AD51Aed7f1c1358f5`](https://basescan.org/address/0x18a390bD45bCc92652b9A91AD51Aed7f1c1358f5) |
-| Emergency Multisig               | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://basescan.org/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55) |
-| CCIP Router (Chainlink)          | [`0x881e3A65B4d4a04dD529061dd0071cf975F58bCD`](https://basescan.org/address/0x881e3A65B4d4a04dD529061dd0071cf975F58bCD) |
-| `TokenAdminRegistry` (Chainlink) | [`0x6f6C373d09C07425BaAE72317863d7F6bb731e37`](https://basescan.org/address/0x6f6C373d09C07425BaAE72317863d7F6bb731e37) |
-
-### Berachain
-
-CCIP chain selector: `1294465214383781161`
-
-| Contract                         | Address                                                                                                                 |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| OHM                              | [`0x18878Df23e2a36f81e820e4b47b4A40576D3159C`](https://berascan.com/address/0x18878Df23e2a36f81e820e4b47b4A40576D3159C) |
-| `CCIPBurnMintTokenPool`          | [`0xEBDe552D851DD6Dfd3D360C596D3F4aF6e5F9678`](https://berascan.com/address/0xEBDe552D851DD6Dfd3D360C596D3F4aF6e5F9678) |
-| `CCIPTokenPoolConfig`            | [`0xb4f620c39F3BA4a1E7aD264fEd6239B0C618DB50`](https://berascan.com/address/0xb4f620c39F3BA4a1E7aD264fEd6239B0C618DB50) |
-| `CCIPTokenPoolConfigTimelock`    | [`0x5824850D8A6E46a473445a5AF214C7EbD46c5ECB`](https://berascan.com/address/0x5824850D8A6E46a473445a5AF214C7EbD46c5ECB) |
-| `CCIPCrossChainBridge`           | [`0xF35193DA8C10e44aF10853Ba5a3a1a6F7529E39a`](https://berascan.com/address/0xF35193DA8C10e44aF10853Ba5a3a1a6F7529E39a) |
-| Kernel                           | [`0x623164A9Ee2556D524b08f34F1d2389d7B4e1A1C`](https://berascan.com/address/0x623164A9Ee2556D524b08f34F1d2389d7B4e1A1C) |
-| DAO Multisig                     | [`0x91494D1BC2286343D51c55E46AE80C9356D099b5`](https://berascan.com/address/0x91494D1BC2286343D51c55E46AE80C9356D099b5) |
-| Emergency Multisig               | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://berascan.com/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55) |
-| CCIP Router (Chainlink)          | [`0x71a275704c283486fBa26dad3dd0DB78804426eF`](https://berascan.com/address/0x71a275704c283486fBa26dad3dd0DB78804426eF) |
-| `TokenAdminRegistry` (Chainlink) | [`0x0944C3Fb1dB7D165336569221995B31cBE6c8A55`](https://berascan.com/address/0x0944C3Fb1dB7D165336569221995B31cBE6c8A55) |
-
-### Robinhood Chain
-
-CCIP chain selector: `6180753054346818345`
-
-| Contract                         | Address                                                                                                                                  |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| OHM                              | [`0x9c859Dc91DB65bD7375660341231227336dAa134`](https://robinhoodchain.blockscout.com/address/0x9c859Dc91DB65bD7375660341231227336dAa134) |
-| `CCIPBurnMintTokenPool`          | [`0x5824850D8A6E46a473445a5AF214C7EbD46c5ECB`](https://robinhoodchain.blockscout.com/address/0x5824850D8A6E46a473445a5AF214C7EbD46c5ECB) |
-| `CCIPTokenPoolConfig`            | [`0x6D94B3745B0eCF908B3B467907b947b43Fba5f15`](https://robinhoodchain.blockscout.com/address/0x6D94B3745B0eCF908B3B467907b947b43Fba5f15) |
-| `CCIPTokenPoolConfigTimelock`    | [`0x9f08c2603e919a46d6D98289C9ADA5250b310558`](https://robinhoodchain.blockscout.com/address/0x9f08c2603e919a46d6D98289C9ADA5250b310558) |
-| `CCIPCrossChainBridge`           | [`0x5261fBA7B50aA22B19B9edF939b771D109dE991F`](https://robinhoodchain.blockscout.com/address/0x5261fBA7B50aA22B19B9edF939b771D109dE991F) |
-| Kernel                           | [`0x02331A4c97a4841084dF54d7c0eC04DD3f1A9F1c`](https://robinhoodchain.blockscout.com/address/0x02331A4c97a4841084dF54d7c0eC04DD3f1A9F1c) |
-| DAO Multisig                     | [`0x317e0F5EF883DB95f8fFB5B995b8457903873608`](https://robinhoodchain.blockscout.com/address/0x317e0F5EF883DB95f8fFB5B995b8457903873608) |
-| Emergency Multisig               | [`0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55`](https://robinhoodchain.blockscout.com/address/0xa8A6ff2606b24F61AFA986381D8991DFcCCd2D55) |
-| CCIP Router (Chainlink)          | [`0x06fC836cf9839B1cd891C440A0a45242DA6Ae1c9`](https://robinhoodchain.blockscout.com/address/0x06fC836cf9839B1cd891C440A0a45242DA6Ae1c9) |
-| `TokenAdminRegistry` (Chainlink) | [`0x1912C3cFafE8A76A32a92861d815aC2837F237Ca`](https://robinhoodchain.blockscout.com/address/0x1912C3cFafE8A76A32a92861d815aC2837F237Ca) |
-
-### Solana
-
-CCIP chain selector: `124615329519749607`
-
-| Contract                    | Address                                                                                                                   |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| OHM                         | [`2Xva1NeLRuBFdK41gEuXqgeWtnKKDve9PKeCnMEpNG6K`](https://solscan.io/token/2Xva1NeLRuBFdK41gEuXqgeWtnKKDve9PKeCnMEpNG6K)   |
-| CCIP token pool (Chainlink) | [`4N7bZnVSC1GE27vo2Bv6kG983brwhT68BGsLuzH5nTQp`](https://solscan.io/account/4N7bZnVSC1GE27vo2Bv6kG983brwhT68BGsLuzH5nTQp) |
+| Chain           | CCIP chain selector    |
+| --------------- | ---------------------- |
+| Ethereum        | `5009297550715157269`  |
+| Arbitrum        | `4949039107694359620`  |
+| Optimism        | `3734403246176062136`  |
+| Base            | `15971525489660198786` |
+| Berachain       | `1294465214383781161`  |
+| Robinhood Chain | `6180753054346818345`  |
+| Solana          | `124615329519749607`   |
 
 ## Message flow
 
@@ -185,38 +84,116 @@ The diagram shows a transfer between two EVM chains through `CCIPCrossChainBridg
 
 ## Rate limits
 
-Each route has two token buckets on each side: one for outbound transfers and one for inbound transfers. A transfer uses capacity from the bucket. The bucket refills at a constant rate, and an empty bucket refills completely in 24 hours. If a transfer is larger than the available capacity, the transfer reverts on the source chain, or it fails on the destination chain.
+Each route has two token buckets on each side: one for outbound transfers and one for inbound transfers. Each bucket has two parameters:
 
-The inbound limit on the destination is larger than the outbound limit on the source. Thus, the source limit usually applies first, and transfers do not fail on arrival.
+- The **capacity** is the maximum quantity of OHM in the bucket. A transfer removes its amount from the bucket.
+- The **refill rate** is the quantity of OHM that the bucket gets back each second, up to the capacity.
 
-| Route                          | Outbound limit on the source | Inbound limit on the destination |
-| ------------------------------ | ---------------------------- | -------------------------------- |
-| Ethereum &rarr; each EVM chain | 100,000 OHM per day          | 110,000 OHM per day              |
-| Each EVM chain &rarr; Ethereum | 50,000 OHM per day           | 55,000 OHM per day               |
-| EVM chain &rarr; EVM chain     | 100,000 OHM per day          | 110,000 OHM per day              |
-| Ethereum &rarr; Solana         | 10,000 OHM per day           | Set on the Solana pool           |
-| Solana &rarr; Ethereum         | Set on the Solana pool       | 11,000 OHM per day               |
+If a transfer is larger than the OHM in the bucket, the transfer reverts on the source chain, or it fails on the destination chain.
+
+The capacity is not a daily cap. The refill rate of each bucket on the EVM chains is its capacity divided by 86,400, the number of seconds in 24 hours. Thus, an empty bucket refills completely in 24 hours. A bucket that is full at the start of a 24-hour period can pass approximately two times its capacity in that period. The first part is the full capacity at the start. The second part is the refill. In a period of _T_ seconds, a bucket passes not more than its capacity plus _T_ times its refill rate.
+
+The inbound bucket on the destination is larger than the outbound bucket on the source, and it refills faster. Thus, the source limit usually applies first, and transfers do not fail on arrival.
+
+| Route                          | Bucket                      | Capacity               | Refill rate       | Maximum in 24 hours, from a full bucket |
+| ------------------------------ | --------------------------- | ---------------------- | ----------------- | --------------------------------------- |
+| Ethereum &rarr; each EVM chain | Outbound, on Ethereum       | 100,000 OHM            | 1.157407407 OHM/s | Approximately 200,000 OHM               |
+|                                | Inbound, on the EVM chain   | 110,000 OHM            | 1.273148148 OHM/s | Approximately 220,000 OHM               |
+| Each EVM chain &rarr; Ethereum | Outbound, on the EVM chain  | 50,000 OHM             | 0.578703703 OHM/s | Approximately 100,000 OHM               |
+|                                | Inbound, on Ethereum        | 55,000 OHM             | 0.636574074 OHM/s | Approximately 110,000 OHM               |
+| EVM chain &rarr; EVM chain     | Outbound, on the source     | 100,000 OHM            | 1.157407407 OHM/s | Approximately 200,000 OHM               |
+|                                | Inbound, on the destination | 110,000 OHM            | 1.273148148 OHM/s | Approximately 220,000 OHM               |
+| Ethereum &rarr; Solana         | Outbound, on Ethereum       | 10,000 OHM             | 0.115740740 OHM/s | Approximately 20,000 OHM                |
+|                                | Inbound, on Solana          | Set on the Solana pool | -                 | -                                       |
+| Solana &rarr; Ethereum         | Outbound, on Solana         | Set on the Solana pool | -                 | -                                       |
+|                                | Inbound, on Ethereum        | 11,000 OHM             | 0.127314814 OHM/s | Approximately 22,000 OHM                |
 
 "EVM chain" in this table means Arbitrum, Optimism, Base, Berachain or Robinhood Chain. The EVM chain &rarr; EVM chain limits apply only to the lanes that Chainlink supports. Refer to [Bridge lanes](./index.md#bridge-lanes). These values are the values at launch. The DAO Multisig can change them through the configuration timelock. The `admin` role can change them directly.
 
+On-chain, OHM has 9 decimals. For example, a capacity of 100,000 OHM is `100000000000000`, and a refill rate of 1.157407407 OHM/s is `1157407407`. To read the live state of a bucket, call `getCurrentOutboundRateLimiterState` or `getCurrentInboundRateLimiterState` on the token pool, with the chain selector of the remote chain.
+
 ## Access control
 
-### Authority model
+### Holders
 
-| Authority                                 | Used for                                                                                        |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `admin` role                              | Root settings, direct route changes, `enable` and `disable` of the policies, the timelock delay |
-| `bridge_admin` role                       | Queue route changes, contain routes, re-enable the policies in the grace period                 |
-| `emergency` role                          | Contain routes, disable the policies, cancel queued changes                                     |
-| `bridge_rate_limiter` role                | Reserved for a future monitoring operator                                                       |
-| OHM administrator in `TokenAdminRegistry` | Select or remove the OHM token pool                                                             |
-| Token pool owner                          | All token pool owner functions, through `CCIPTokenPoolConfig`                                   |
-| Lock/release pool rebalancer              | Withdraw OHM from the Ethereum pool                                                             |
-| `CCIPCrossChainBridge` owner              | Trusted remotes, gas limits, enable and disable the bridge contract                             |
+The table shows the holder of each authority after the rollout. The addresses of the multisigs are in the [Multisigs](../../contracts/01_addresses.md#multisigs) table. The address of the OCG timelock is the `Timelock` row of the [Dependencies](../../contracts/01_addresses.md#dependencies) table.
 
-The holder of each authority on each chain, and the permissions of each function, are in [Security Roles](../../security/01_roles.md#ccip-bridge). On Ethereum, the OCG timelock holds `admin`. There is no OCG timelock on the other EVM chains. On these chains, the local DAO Multisig holds both `admin` and `bridge_admin`.
+| Authority                                 | Ethereum                         | Arbitrum, Optimism, Base, Berachain, Robinhood Chain |
+| ----------------------------------------- | -------------------------------- | ---------------------------------------------------- |
+| Kernel executor                           | DAO Multisig                     | Local DAO Multisig                                   |
+| `RolesAdmin.admin`                        | OCG timelock                     | Local DAO Multisig                                   |
+| `admin` role                              | OCG timelock                     | Local DAO Multisig                                   |
+| `bridge_admin` role                       | DAO Multisig, OCG timelock       | Local DAO Multisig                                   |
+| `emergency` role                          | Emergency Multisig, OCG timelock | Emergency Multisig                                   |
+| `bridge_rate_limiter` role                | Not assigned                     | Not assigned                                         |
+| OHM administrator in `TokenAdminRegistry` | OCG timelock                     | Local DAO Multisig                                   |
+| Token pool owner                          | `CCIPTokenPoolConfig`            | Local `CCIPTokenPoolConfig`                          |
+| Config operator                           | `CCIPTokenPoolConfigTimelock`    | Local `CCIPTokenPoolConfigTimelock`                  |
+| Token pool `rateLimitAdmin`               | Zero address                     | Zero address                                         |
+| Lock/release pool rebalancer              | OCG timelock                     | Not applicable                                       |
+| `CCIPCrossChainBridge` owner              | DAO Multisig                     | Local DAO Multisig                                   |
+
+There is no OCG timelock on the other EVM chains. On these chains, the local DAO Multisig holds `RolesAdmin.admin`, `admin`, `bridge_admin` and the OHM administrator role. It is also the Kernel executor and the `CCIPCrossChainBridge` owner. Only the Emergency Multisig holds `emergency` on these chains.
+
+On Ethereum, the OCG timelock also holds `bridge_admin` and `emergency` from earlier proposals. The DAO Multisig already holds `bridge_admin`. The CCIP proposal does not grant or remove a role.
+
+The `bridge_rate_limiter` role is reserved for a future monitoring operator. No address holds it at launch.
 
 The token pool has no direct role holders. `CCIPTokenPoolConfig` owns the pool, and the native `rateLimitAdmin` of the pool is the zero address. Thus, each change to a route or to a rate limit goes through `CCIPTokenPoolConfig`, where the roles apply.
+
+The roles of each contract are also in [Security Roles](../../security/01_roles.md#ccip-bridge).
+
+### Action matrix
+
+The matrix shows which role can do each action on `CCIPTokenPoolConfig`, `CCIPTokenPoolConfigTimelock` and `CCIPBurnMintTokenPool`, and if the action goes through the configuration timelock:
+
+- **Direct**: the holder of the role calls the function. The change applies immediately.
+- **Timelock**: the holder of the role queues the change on `CCIPTokenPoolConfigTimelock`. Any address can execute the change after the delay (1 day at launch). Refer to [Configuration timelock](#configuration-timelock).
+- **No**: the role cannot do the action.
+
+On Ethereum, the OCG timelock holds `admin`. Thus, each `admin` action on Ethereum needs an OCG proposal, and the vote and the delay of the OCG timelock apply. On the other EVM chains, the local DAO Multisig holds `admin`, and an `admin` action has no delay.
+
+| Action                                                                               | Function                                              | `admin` | `bridge_admin`   | `emergency` | `bridge_rate_limiter` |
+| ------------------------------------------------------------------------------------ | ----------------------------------------------------- | ------- | ---------------- | ----------- | --------------------- |
+| Add or remove a route                                                                | `addChain`, `removeChain`                             | Direct  | Timelock         | No          | No                    |
+| Change the remote token or the remote pools of a route                               | `setRemoteToken`, `addRemotePool`, `removeRemotePool` | Direct  | Timelock         | No          | No                    |
+| Update the allowlist of the pool                                                     | `applyAllowListUpdates`                               | Direct  | Timelock         | No          | No                    |
+| Change the rate limits of a route                                                    | `setChainRateLimits`                                  | Direct  | Timelock         | No          | Direct                |
+| Contain one route or all routes                                                      | `disableChain`, `disableAllChains`                    | Direct  | Direct           | Direct      | Direct                |
+| Cancel a queued change                                                               | `cancelQueuedAction`                                  | Direct  | Own changes only | Direct      | No                    |
+| Disable `CCIPTokenPoolConfig` or `CCIPTokenPoolConfigTimelock`                       | `disable`                                             | Direct  | No               | Direct      | No                    |
+| Re-enable `CCIPTokenPoolConfig` or `CCIPTokenPoolConfigTimelock` in the grace period | `reEnable`                                            | No      | Direct           | No          | No                    |
+| Enable `CCIPTokenPoolConfig` or `CCIPTokenPoolConfigTimelock`                        | `enable`                                              | Direct  | No               | No          | No                    |
+| Change the timelock delay or the grace period                                        | `setTimelockDelay`, `setGracePeriod`                  | Direct  | No               | No          | No                    |
+| Transfer the ownership of the token pool                                             | `transferPoolOwnership`, `acceptPoolOwnership`        | Direct  | No               | No          | No                    |
+| Change the config operator, the router or the `rateLimitAdmin` of the pool           | `setConfigOperator`, `setRouter`, `setRateLimitAdmin` | Direct  | No               | No          | No                    |
+| Change the rebalancer, or move OHM from an older pool into the pool (Ethereum only)  | `setRebalancer`, `transferLiquidity`                  | Direct  | No               | No          | No                    |
+| Enable `CCIPBurnMintTokenPool`                                                       | `enable`                                              | Direct  | No               | No          | No                    |
+| Disable `CCIPBurnMintTokenPool`                                                      | `disable`                                             | Direct  | No               | Direct      | No                    |
+
+- The `admin` role cannot queue a change, because it can make each change directly. On Ethereum, the OCG timelock can also queue a change, because it also holds `bridge_admin`.
+- The containment functions and `cancelQueuedAction` also operate when the policy is disabled.
+- The token pools have no allowlist. Thus, an allowlist update reverts with `AllowListNotEnabled`.
+- To queue one change, the `bridge_admin` role calls `queueAddChain`, `queueRemoveChain`, `queueSetRemoteToken`, `queueAddRemotePool`, `queueRemoveRemotePool`, `queueApplyAllowListUpdates` or `queueSetChainRateLimits`. To queue more than one change as one action, it calls `queueBatch`.
+- Any address can call `executeQueuedAction` to execute a queued change after the delay. Any address can also cancel a queued change that expired.
+
+These actions use an owner or a registry authority, not a role:
+
+| Action                                                | Function                                                                                                      | Authority                    | Ethereum               | Other EVM chains             |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------- | ---------------------- | ---------------------------- |
+| Activate or deactivate a policy                       | `Kernel.executeAction`                                                                                        | Kernel executor              | DAO Multisig, no delay | Local DAO Multisig, no delay |
+| Grant or revoke a role                                | `RolesAdmin.grantRole`, `RolesAdmin.revokeRole`                                                               | `RolesAdmin.admin`           | OCG proposal           | Local DAO Multisig, no delay |
+| Select or remove the OHM token pool                   | `TokenAdminRegistry.setPool`                                                                                  | OHM administrator            | OCG proposal           | Local DAO Multisig, no delay |
+| Transfer the OHM administrator role                   | `TokenAdminRegistry.transferAdminRole`                                                                        | OHM administrator            | OCG proposal           | Local DAO Multisig, no delay |
+| Withdraw OHM from the Ethereum pool                   | `withdrawLiquidity`                                                                                           | Rebalancer                   | OCG proposal           | Not applicable               |
+| Set the trusted remotes and the gas limits            | `setTrustedRemoteEVM`, `unsetTrustedRemoteEVM`, `setTrustedRemoteSVM`, `unsetTrustedRemoteSVM`, `setGasLimit` | `CCIPCrossChainBridge` owner | DAO Multisig, no delay | Local DAO Multisig, no delay |
+| Enable or disable `CCIPCrossChainBridge`              | `enable`, `disable`                                                                                           | `CCIPCrossChainBridge` owner | DAO Multisig, no delay | Local DAO Multisig, no delay |
+| Withdraw the native token from `CCIPCrossChainBridge` | `withdraw`                                                                                                    | `CCIPCrossChainBridge` owner | DAO Multisig, no delay | Local DAO Multisig, no delay |
+| Transfer the ownership of `CCIPCrossChainBridge`      | `transferOwnership`                                                                                           | `CCIPCrossChainBridge` owner | DAO Multisig, no delay | Local DAO Multisig, no delay |
+
+- A deposit into the Ethereum pool does not need a role. A direct OHM transfer to the pool has the same effect as `provideLiquidity`, which only the rebalancer can call.
+- Only the on-ramps and the off-ramps of the CCIP router can call `lockOrBurn` and `releaseOrMint` on the token pools.
+- Any address can call `sendToEVM`, `sendToSVM` and `retryFailedMessage` on `CCIPCrossChainBridge`.
 
 ### Ethereum
 
@@ -388,7 +365,7 @@ flowchart TD
     W --> M["Execute the failed CCIP messages manually<br/>from the CCIP Explorer"]
 ```
 
-When a route is restored, its buckets do not refill immediately. The capacity starts from almost zero and refills at the configured rate.
+When a route is restored, its buckets do not refill immediately. The OHM in each bucket starts from almost zero and refills at the configured rate.
 
 ## Rollout
 
