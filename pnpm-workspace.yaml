@@ -6,7 +6,6 @@ minimumReleaseAgeExclude:
   - "body-parser@1.20.9" # GHSA-27r3-jxmh-p828 patched release; remove after maturity window.
   - "fast-uri@3.1.9" # GHSA-w74x-v6f9-j3xg, GHSA-xhq7-xmqj-769h, GHSA-wjr9-j795-jxcr and GHSA-333x-w4r6-6crp patched release; remove after maturity window.
   - "serialize-javascript@7.1.3" # GHSA-m5mm-p8h7-m29v patched release; remove after maturity window.
-  - "qs@6.16.0" # GHSA-x5fp-wj9c-mxmx and GHSA-4mjr-xmp4-gh2g patched release; remove after maturity window.
 auditConfig:
   ignoreGhsas:
     # image-size DoS via infinite loops in the ICNS/JXL/HEIF parsers. Both advisories cover
@@ -20,6 +19,11 @@ auditConfig:
     # Only build tooling (chokidar, micromatch) uses braces, with glob patterns from this repo.
     # Remove this exception when a patched braces release is available.
     - GHSA-vfj7-8cjw-p6xm
+    # deepmerge <=4.3.1 prototype poisoning in mergeObject(). No patched version exists.
+    # Only build tooling (@svgr/plugin-svgo, fork-ts-checker-webpack-plugin) uses deepmerge,
+    # to merge config objects from Docusaurus and this repo. Remove this exception when
+    # a patched deepmerge release is available.
+    - GHSA-gcqx-w48m-w2h4
 allowBuilds:
   "core-js@3.49.0": true
   "core-js-pure@3.49.0": true
@@ -71,8 +75,7 @@ overrides:
   "postcss-selector-parser@<7.1.6": "^7.1.6"
   "prismjs@<1.30.0": "^1.30.0"
   "proxy-addr@<2.0.8": "^2.0.8"
-  "qs@<6.11.1": "^6.16.0"
-  "qs@>=6.11.1 <6.16.0": "^6.16.0"
+  "qs@<6.16.1": "^6.16.1"
   "schema-utils@2.7.1>ajv@<6.14.0": "6.14.0"
   "schema-utils@3.1.1>ajv@<6.14.0": "6.14.0"
   "semver@<7.5.2": "^7.5.2"
