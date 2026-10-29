@@ -35,7 +35,7 @@
     "remark-math": "^3.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.0",
+    "@biomejs/biome": "2.6.2",
     "@docusaurus/module-type-aliases": "2.4.1",
     "@docusaurus/theme-classic": "2.4.1",
     "@docusaurus/types": "2.4.1",
