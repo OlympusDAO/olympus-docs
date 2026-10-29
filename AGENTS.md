@@ -82,7 +82,7 @@ Core protocol documentation:
 - `04_cooler-loans.md` - Cooler loans system
 - `05_emissions-manager.md` - Emissions management
 - `06_yield-repurchase-facility.md` - Yield repurchase
-- `07_cross-chain.md` - Cross-chain operations
+- `07_cross-chain/` - Cross-chain bridge (CCIP) overview and technical details
 - `08_range-bound.md` - Range bound stability
 
 ### Governance (`/docs/governance/`)
