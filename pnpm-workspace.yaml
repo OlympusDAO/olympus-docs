@@ -6,7 +6,11 @@ minimumReleaseAgeExclude:
   - "body-parser@1.20.9" # GHSA-27r3-jxmh-p828 patched release; remove after maturity window.
   - "fast-uri@3.1.9" # GHSA-w74x-v6f9-j3xg, GHSA-xhq7-xmqj-769h, GHSA-wjr9-j795-jxcr and GHSA-333x-w4r6-6crp patched release; remove after maturity window.
   - "serialize-javascript@7.1.3" # GHSA-m5mm-p8h7-m29v patched release; remove after maturity window.
-  - "qs@6.16.0" # GHSA-x5fp-wj9c-mxmx and GHSA-4mjr-xmp4-gh2g patched release; remove after maturity window.
+  - "joi@18.3.1" # GHSA-4528-x5fx-h6hg patched release; remove after maturity window.
+  - "glob@14.0.2" # GHSA-3g3m-2fjr-6pw4 patched release; remove after maturity window.
+  - "minimatch@11.0.2" # GHSA-g3hv-75wg-m249 patched release, required by glob@14.0.2; remove after maturity window.
+  - "path-scurry@3.0.0" # Dependency of glob@14.0.2; remove after maturity window.
+  - "@isaacs/nonrecursive-glob-match@1.0.2" # Dependency of minimatch@11.0.2; remove after maturity window.
 auditConfig:
   ignoreGhsas:
     # image-size DoS via infinite loops in the ICNS/JXL/HEIF parsers. Both advisories cover
@@ -20,6 +24,11 @@ auditConfig:
     # Only build tooling (chokidar, micromatch) uses braces, with glob patterns from this repo.
     # Remove this exception when a patched braces release is available.
     - GHSA-vfj7-8cjw-p6xm
+    # deepmerge <=4.3.1 prototype poisoning in mergeObject(). No patched version exists.
+    # Only build tooling (@svgr/plugin-svgo, fork-ts-checker-webpack-plugin) uses deepmerge,
+    # to merge config objects from Docusaurus and this repo. Remove this exception when
+    # a patched deepmerge release is available.
+    - GHSA-gcqx-w48m-w2h4
 allowBuilds:
   "core-js@3.49.0": true
   "core-js-pure@3.49.0": true
@@ -44,13 +53,13 @@ overrides:
   "cookie@<0.7.0": "^0.7.0"
   "express@<4.19.2": "^4.19.2"
   "fast-uri@<3.1.9": "3.1.9"
-  "follow-redirects@<1.16.1": "^1.16.1"
+  "follow-redirects@<1.16.2": "^1.16.2"
   "form-data@>=4.0.0 <4.0.6": "4.0.6"
-  "glob@<10.5.0": "^10.5.0"
+  "glob@<14.0.2": "^14.0.2"
   "got@<11.8.5": "^11.8.5"
   "http-cache-semantics@<4.3.0": "^4.3.0"
   "http-proxy-middleware@<2.0.10": "^2.0.10"
-  "joi@<18.2.9": "18.2.9"
+  "joi@<18.3.1": "18.3.1"
   "js-yaml@<4.3.2": "4.3.2"
   "katex@<0.18.2": "^0.18.11"
   "launch-editor@<=2.14.1": "2.14.2"
@@ -61,7 +70,7 @@ overrides:
   "dompurify@<3.4.16": "3.4.17"
   "mermaid@<10.9.8": "10.9.8"
   "micromatch@<4.0.8": "^4.0.8"
-  "minimatch@<10.2.6": "10.2.6"
+  "minimatch@<11.0.2": "11.0.2"
   "nanoid@<3.3.18": "^3.3.18"
   "node-forge@<1.4.0": "^1.4.0"
   "on-headers@<1.1.0": "^1.1.0"
@@ -71,8 +80,8 @@ overrides:
   "postcss-selector-parser@<7.1.6": "^7.1.6"
   "prismjs@<1.30.0": "^1.30.0"
   "proxy-addr@<2.0.8": "^2.0.8"
-  "qs@<6.11.1": "^6.16.0"
-  "qs@>=6.11.1 <6.16.0": "^6.16.0"
+  "qs@<6.11.1": "^6.16.1"
+  "qs@>=6.11.1 <6.16.1": "^6.16.1"
   "schema-utils@2.7.1>ajv@<6.14.0": "6.14.0"
   "schema-utils@3.1.1>ajv@<6.14.0": "6.14.0"
   "semver@<7.5.2": "^7.5.2"
