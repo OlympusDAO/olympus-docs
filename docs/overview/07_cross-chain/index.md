@@ -17,20 +17,37 @@ All bridge lanes use [Chainlink CCIP](https://chain.link/cross-chain) (Cross-Cha
 
 Ethereum is the **canonical chain** for OHM. Only Ethereum can mint net-new protocol OHM. The OHM on every other chain is backed by OHM that is locked in the Ethereum token pool. Bridging does not change the total supply of OHM.
 
+The CCIP lanes between Ethereum and Solana were already in operation before the rollout to the other chains. The CCIP lanes to Arbitrum, Optimism, Base, Berachain and Robinhood Chain opened on November 3, 2026, after the execution of [OCG proposal 19](https://app.olympusdao.finance/#/dao/vote/19).
+
 For the architecture, the access control, the rate limits and the emergency controls, refer to [Cross-Chain Bridge: Technical Details](./01_ccip-technical-details.md).
 
 ## How to bridge
 
 1. Go to the [Bridge](https://app.olympusdao.finance/#/ohm/bridge) page.
-2. Select the source chain and the destination chain.
-3. Enter the amount, approve OHM and click **Bridge**.
-4. Find the transaction in the **Transactions** list. You can also find the message in the [CCIP Explorer](https://ccip.chain.link) with its message ID or its transaction hash.
+2. Connect your wallet.
+3. Select the source chain and the destination chain.
+4. Enter the amount.
+5. If the app asks for an approval, click **Approve OHM for Bridging**.
+6. Click **Bridge OHM**.
+7. Find the transfer in the **Transactions** list.
+
+The **Transactions** list shows the status of each transfer and a link to the [CCIP Explorer](https://ccip.chain.link). It also shows your earlier transfers through the LayerZero bridge. You can also find a message in the CCIP Explorer with its message ID or its transaction hash. If a transfer has the status **Needs Retry** or **Needs Recovery**, refer to [Failed messages](./01_ccip-technical-details.md#failed-messages).
 
 Olympus does not charge a fee for bridging. You pay the gas on the source chain and the CCIP fee in the native token of the source chain.
 
 The time for a transfer depends on the finality of the source chain. The CCIP Explorer shows the status of each transfer.
 
-:::info Bridging to Solana
+The app checks the [rate limits](./01_ccip-technical-details.md#rate-limits) of the route before you send. If the amount is more than the route can pass now, the app shows **Exceeds Route Limit**. For a transfer to Ethereum, the app shows **Exceeds Available Liquidity** if the Ethereum token pool holds less OHM than the amount. In these cases, send a smaller amount, or wait until the limit refills.
+
+:::note Safe and other contract wallets
+
+If you use a Safe, the app shows **Propose in Safe** instead of **Bridge OHM**. The other signers then confirm the transaction in the Safe app. A contract wallet can have no code at the same address on the destination chain. In this case, the app asks for a recipient. Enter an address that you control on the destination chain.
+
+:::
+
+:::info Bridging to and from Solana
+
+The Bridge page does not support Solana yet. To bridge between Ethereum and Solana, send the transfer through CCIP directly. On Ethereum, you can call `sendToSVM` on `CCIPCrossChainBridge`.
 
 The recipient wallet on Solana must have an OHM associated token account before the transfer arrives. CCIP does not create this account. If the account does not exist, the transfer fails on Solana. To complete the transfer, create the account. Then execute the message manually from the [CCIP Explorer](https://ccip.chain.link).
 
@@ -38,7 +55,7 @@ The recipient wallet on Solana must have an OHM associated token account before 
 
 ## Supported networks
 
-Ethereum, Arbitrum, Optimism, Base, Berachain, Robinhood Chain and Solana.
+Ethereum, Arbitrum, Optimism, Base, Berachain, Robinhood Chain and Solana. The Bridge page supports all of these networks, except Solana.
 
 ## Bridge lanes
 
@@ -69,15 +86,15 @@ flowchart LR
     BASE --- RH
 ```
 
-| From / To       | Ethereum | Arbitrum | Optimism | Base | Berachain | Robinhood Chain | Solana |
-| --------------- | :------: | :------: | :------: | :--: | :-------: | :-------------: | :----: |
-| Ethereum        |    -     |   Yes    |   Yes    | Yes  |    Yes    |       Yes       |  Yes   |
-| Arbitrum        |   Yes    |    -     |   Yes    | Yes  |    Yes    |       Yes       |   No   |
-| Optimism        |   Yes    |   Yes    |    -     | Yes  |    No     |       No        |   No   |
-| Base            |   Yes    |   Yes    |   Yes    |  -   |    Yes    |       Yes       |   No   |
-| Berachain       |   Yes    |   Yes    |    No    | Yes  |     -     |       No        |   No   |
-| Robinhood Chain |   Yes    |   Yes    |    No    | Yes  |    No     |        -        |   No   |
-| Solana          |   Yes    |    No    |    No    |  No  |    No     |       No        |   -    |
+| From / To       | Ethereum | Arbitrum | Optimism | Base  | Berachain | Robinhood Chain | Solana |
+| --------------- | :------: | :------: | :------: | :---: | :-------: | :-------------: | :----: |
+| Ethereum        |    -     |   Yes    |   Yes    |  Yes  |    Yes    |       Yes       |  Yes   |
+| Arbitrum        |   Yes    |    -     |   Yes    |  Yes  |    Yes    |       Yes       |   No   |
+| Optimism        |   Yes    |   Yes    |    -     |  Yes  |    No     |       No        |   No   |
+| Base            |   Yes    |   Yes    |   Yes    |   -   |    Yes    |       Yes       |   No   |
+| Berachain       |   Yes    |   Yes    |    No    |  Yes  |     -     |       No        |   No   |
+| Robinhood Chain |   Yes    |   Yes    |    No    |  Yes  |    No     |        -        |   No   |
+| Solana          |   Yes    |    No    |    No    |  No   |    No     |       No        |   -    |
 
 The mechanism of a lane depends on the source and the destination:
 
@@ -89,15 +106,17 @@ The mechanism of a lane depends on the source and the destination:
 
 Chainlink has no lane between Optimism and Berachain, between Optimism and Robinhood Chain, or between Berachain and Robinhood Chain. To move OHM between these chains, bridge through Arbitrum, Base or Ethereum.
 
-The lanes between Solana and the other chains (not Ethereum) are not part of the rollout. The DAO adds them later, through the configuration timelock of each chain. Until then, to move OHM between Solana and one of these chains, bridge through Ethereum.
+The lanes between Solana and the other chains (not Ethereum) were not part of the rollout. The DAO can add them later, through the configuration timelock of each chain. Until then, to move OHM between Solana and one of these chains, bridge through Ethereum.
 
 ## Migration from the LayerZero bridge
 
-Before CCIP, the OHM on Arbitrum, Optimism, Base and Berachain came from the LayerZero `CrossChainBridge`. That bridge is closed. The CCIP rollout deactivates it on each chain.
+Before CCIP, the OHM on Arbitrum, Optimism, Base and Berachain came from the LayerZero `CrossChainBridge`. That bridge is closed. The `CrossChainBridge` policy is deactivated on Ethereum, Arbitrum, Optimism, Base and Berachain.
 
-You do not need to do anything with your OHM. The OHM token address on each chain does not change, and your OHM stays valid. Before the OCG proposal, the DAO Multisig deposited OHM into the Ethereum token pool. The deposit backs the OHM supply on Arbitrum, Optimism, Base and Berachain (approximately 130,721 OHM). Thus, the pool can release OHM on Ethereum for all of the OHM that the LayerZero bridge minted on those chains.
+You do not need to do anything with your OHM. The OHM token address on each chain did not change, and your OHM stays valid. Your earlier LayerZero transfers stay visible in the **Transactions** list of the Bridge page.
 
-Robinhood Chain is new to Olympus. The LayerZero bridge did not serve it. Its OHM token starts with a supply of zero, and all of its OHM arrives through CCIP. Thus, Robinhood Chain does not increase the deposit.
+Before the OCG proposal, the DAO Multisig deposited OHM into the Ethereum token pool. The deposit backed the OHM supply on Arbitrum, Optimism, Base and Berachain at that time (approximately 130,721 OHM). Thus, the pool can release OHM on Ethereum for all of the OHM that the LayerZero bridge minted on those chains.
+
+Robinhood Chain is new to Olympus. The LayerZero bridge did not serve it. Its OHM token started with a supply of zero, and all of its OHM arrives through CCIP. Thus, Robinhood Chain did not increase the deposit.
 
 ## Security
 
@@ -149,3 +168,4 @@ The bridge contract addresses for each chain are in the [contract addresses tabl
 
 - [RFC: Expand OHM Bridging with Chainlink CCIP](https://forum.olympusdao.finance/d/5548-rfc-expand-ohm-bridging-with-chainlink-ccip)
 - [OIP-198: Expand OHM Bridging with Chainlink CCIP](https://forum.olympusdao.finance/d/5596-oip-198-expand-ohm-bridging-with-chainlink-ccip)
+- [OCG proposal 19: CCIP Bridge Activation](https://app.olympusdao.finance/#/dao/vote/19)

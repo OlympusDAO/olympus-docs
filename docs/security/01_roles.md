@@ -311,7 +311,7 @@ Periphery contract that the Olympus app uses to send OHM through CCIP. It is not
 
 ## CrossChainBridge.sol (deprecated)
 
-Policy that served as the message bridge for cross-chain OHM transfers. Used LayerZero as communication protocol. The CCIP bridge replaces it.
+Policy that served as the message bridge for cross-chain OHM transfers. Used LayerZero as communication protocol. The CCIP bridge replaced it in November 2026.
 
 **Dependencies**
 

@@ -20,9 +20,11 @@ Ethereum is the canonical chain. Only Ethereum can mint net-new protocol OHM.
 | The other EVM chains | Olympus `CCIPBurnMintTokenPool`  | Burns OHM through `MINTR` | Mints OHM through `MINTR`  |
 | Solana               | CCIP burn/mint token pool        | Burns OHM                 | Mints OHM                  |
 
-The Ethereum pool backs all of the OHM on the other chains. Before the OCG proposal, the DAO Multisig transferred OHM to the pool. A deposit does not need a role. The deposit backs the supply on Arbitrum, Optimism, Base and Berachain, approximately 130,721 OHM. The LayerZero bridge minted that supply against burns on Ethereum. The OCG proposal that opens the lanes checks the pool balance first. If the balance is less than the required backing, the proposal does not execute.
+The Ethereum pool backs all of the OHM on the other chains. Before the OCG proposal, the DAO Multisig transferred OHM to the pool. A deposit does not need a role. The deposit backed the supply on Arbitrum, Optimism, Base and Berachain, approximately 130,721 OHM. The LayerZero bridge minted that supply against burns on Ethereum. The OCG proposal that opened the lanes checked the pool balance first. The check reverts the proposal if the balance is less than the required backing.
 
-The OHM token on Robinhood Chain starts with a supply of zero. OHM arrives there only through CCIP: from Ethereum against OHM that is locked in the pool, or from Arbitrum or Base against OHM that is burned there. Thus, Robinhood Chain is not part of the deposit.
+To verify the backing, compare the OHM balance of the Ethereum pool with the sum of the OHM supply on the other chains, Solana included. The balance of the pool must be equal to or more than that sum.
+
+The OHM token on Robinhood Chain started with a supply of zero. OHM arrives there only through CCIP: from Ethereum against OHM that is locked in the pool, or from Arbitrum or Base against OHM that is burned there. Thus, Robinhood Chain is not part of the deposit.
 
 The burn/mint pools can mint only when OHM arrives through CCIP. Thus, OHM that moves between two burn/mint chains does not touch the Ethereum pool. The total OHM outside Ethereum stays backed by the Ethereum pool.
 
@@ -135,7 +137,7 @@ The table shows the holder of each authority after the rollout. The addresses of
 
 There is no OCG timelock on the other EVM chains. On these chains, the local DAO Multisig holds `RolesAdmin.admin`, `admin`, `bridge_admin` and the OHM administrator role. It is also the Kernel executor and the `CCIPCrossChainBridge` owner. Only the Emergency Multisig holds `emergency` on these chains.
 
-On Ethereum, the OCG timelock also holds `bridge_admin` and `emergency` from earlier proposals. The DAO Multisig already holds `bridge_admin`. The CCIP proposal does not grant or remove a role.
+On Ethereum, the OCG timelock also holds `bridge_admin` and `emergency` from earlier proposals. The DAO Multisig held `bridge_admin` before the rollout. The CCIP proposal did not grant or remove a role.
 
 The `bridge_rate_limiter` role is reserved for a future monitoring operator. No address holds it at launch.
 
@@ -369,19 +371,19 @@ When a route is restored, its buckets do not refill immediately. The OHM in each
 
 ## Rollout
 
-The rollout moves the Ethereum pool and the OHM registry authority from the DAO Multisig to the authority model above, and it opens the EVM lanes. The steps are in this order, because each authority can only do its own part:
+The rollout moved the Ethereum pool and the OHM registry authority from the DAO Multisig to the authority model above, and it opened the EVM lanes. It was complete on November 3, 2026. The steps were in this order, because each authority can only do its own part:
 
-1. Deploy the contracts on each chain. On Ethereum, deploy `CCIPTokenPoolConfig`, the timelock and the proposal checker.
-2. On each of the other EVM chains, move the OHM administrator role in the local `TokenAdminRegistry` to the local DAO Multisig.
-3. Chainlink sets the OHM gas budget (at least 175,000 gas) for each lane toward a burn/mint chain.
-4. The DAO Multisig deposits the backing into the Ethereum pool.
-5. The DAO Multisig activates the new policies on Ethereum and nominates the new owners (batch "Phase B").
-6. The DAO submits the OCG proposal. During the vote, each of the other EVM chains configures its policies and routes. Its pool stays disabled and unregistered, so the chain cannot send or receive OHM.
-7. The OCG proposal executes and opens the Ethereum side of the five routes.
-8. Each of the other EVM chains enables its pool and registers it in the local `TokenAdminRegistry` (batch "finalize").
-9. The DAO Multisig sets the trusted remotes of each `CCIPCrossChainBridge` and enables it.
+1. The contracts were deployed on each chain. On Ethereum, the deployment included `CCIPTokenPoolConfig`, the timelock and the proposal checker.
+2. On each of the other EVM chains, the OHM administrator role in the local `TokenAdminRegistry` moved to the local DAO Multisig.
+3. Chainlink set the OHM gas budget (at least 175,000 gas) for each lane toward a burn/mint chain.
+4. The DAO Multisig deposited the backing into the Ethereum pool.
+5. The DAO Multisig activated the new policies on Ethereum and nominated the new owners (batch "Phase B").
+6. The DAO submitted the OCG proposal. During the vote, each of the other EVM chains configured its policies and routes. Its pool stayed disabled and unregistered, so the chain could not send or receive OHM.
+7. The OCG proposal executed and opened the Ethereum side of the five routes.
+8. Each of the other EVM chains enabled its pool and registered it in the local `TokenAdminRegistry` (batch "finalize").
+9. The DAO Multisig set the trusted remotes of each `CCIPCrossChainBridge` and enabled it.
 
-If the OCG proposal fails, the pools on the other EVM chains stay disabled and unregistered, and no rollback is necessary. A message that is sent toward a chain between steps 7 and 8 fails on arrival. Any address can execute it manually after step 8.
+Until step 8, the pools on the other EVM chains were disabled and unregistered. Thus, a failure of the OCG proposal did not need a rollback on these chains. A message that was sent toward a chain between steps 7 and 8 failed on arrival. Any address can execute such a message manually from the [CCIP Explorer](https://ccip.chain.link).
 
 ### Ethereum
 
@@ -415,7 +417,7 @@ sequenceDiagram
     C->>P: applyChainUpdates
 ```
 
-The first action of the proposal calls `CCIPTokenPoolConfigProposalChecker`. The checker reads the live state: ownership, registry authority, roles, launch parameters, routes and the pool backing. If one value is not correct, the proposal reverts before the handover starts. The proposal includes only the actions that the live state still needs. Thus, proposal 19 has 12 actions. It does not grant `bridge_admin`, because the DAO Multisig already holds this role. It does not call `setRateLimitAdmin`, because the `rateLimitAdmin` of the pool is already the zero address.
+The first action of the proposal calls `CCIPTokenPoolConfigProposalChecker`. The checker reads the live state: ownership, registry authority, roles, launch parameters, routes and the pool backing. If one value is not correct, the proposal reverts before the handover starts. The proposal included only the actions that the live state still needed. Thus, [proposal 19](https://app.olympusdao.finance/#/dao/vote/19) had 12 actions. It did not grant `bridge_admin`, because the DAO Multisig already held this role. It did not call `setRateLimitAdmin`, because the `rateLimitAdmin` of the pool was already the zero address.
 
 ### The other EVM chains
 
@@ -452,15 +454,15 @@ sequenceDiagram
     DAO->>REG: setPool(OHM, pool)
 ```
 
-The pool is enabled before `setPool`, so a registered pool can always mint. Robinhood Chain has no LayerZero bridge, so its setup batch skips the deactivation. On Robinhood Chain, Chainlink proposes the local DAO Multisig as the OHM administrator, because the Robinhood OHM token has no owner function for the self-service path.
+The pool was enabled before `setPool`, so a registered pool can always mint. Robinhood Chain has no LayerZero bridge, so its setup batch skipped the deactivation. On Robinhood Chain, Chainlink proposed the local DAO Multisig as the OHM administrator, because the Robinhood OHM token has no owner function for the self-service path.
 
 ## Failed messages
 
 A transfer can fail on the destination chain. For example, it fails if the inbound route is contained, or if the recipient on Solana has no OHM token account. There are two types of failure.
 
-**The CCIP message failed.** The CCIP Explorer shows the message with the status `Failure`. Chainlink does not try the message again automatically. When the cause is corrected, any address can execute the message manually from the [CCIP Explorer](https://ccip.chain.link).
+**The CCIP message failed.** The CCIP Explorer shows the message with the status `Failure`. The **Transactions** list of the Bridge page shows the transfer with the status **Needs Recovery**. Chainlink does not try the message again automatically. When the cause is corrected, any address can execute the message manually from the [CCIP Explorer](https://ccip.chain.link).
 
-**The bridge contract stored the message.** If the token pool delivered the OHM but `CCIPCrossChainBridge` could not complete the transfer, the bridge contract keeps the OHM and emits `MessageFailed`. For example, this occurs if the bridge contract is disabled. When the cause is corrected, any address can call `retryFailedMessage(messageId)` on the destination `CCIPCrossChainBridge`.
+**The bridge contract stored the message.** If the token pool delivered the OHM but `CCIPCrossChainBridge` could not complete the transfer, the bridge contract keeps the OHM and emits `MessageFailed`. For example, this occurs if the bridge contract is disabled. The **Transactions** list shows the transfer with the status **Needs Retry**. When the cause is corrected, click **Retry** in the list. The app calls `retryFailedMessage(messageId)` on the destination `CCIPCrossChainBridge`. Any address can make this call.
 
 ## Fees
 

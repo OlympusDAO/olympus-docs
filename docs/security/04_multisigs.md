@@ -45,7 +45,7 @@ change parameters, or re-enable anything. See the
   is prioritized, and the pause-only scope keeps the risk bounded.
 
 <details>
-<summary>Signer set snapshot — Emergency (Mainnet, 2-of-10, read 2026-10-28)</summary>
+<summary>Signer set snapshot — Emergency (Mainnet, 2-of-10, read 2026-11-04)</summary>
 
 ```text
 0x3524c03D39A13D51485419A17586286A6b617dd3
@@ -65,7 +65,7 @@ Verify live: [Safe UI](https://app.safe.global/home?safe=eth:0xa8A6ff2606b24F61A
 </details>
 
 <details>
-<summary>Signer set snapshot — Emergency (Arbitrum, Optimism, Base, Berachain, Robinhood Chain, 2-of-7, read 2026-10-28)</summary>
+<summary>Signer set snapshot — Emergency (Arbitrum, Optimism, Base, Berachain, Robinhood Chain, 2-of-7, read 2026-11-04)</summary>
 
 ```text
 0xa81636AaCE97783AAC45764B873793bE081dA592
@@ -98,7 +98,7 @@ for **higher assurance rather than speed**.
   Discord to review and confirm transactions.
 
 <details>
-<summary>Signer set snapshot — DAO (Mainnet, 4-of-8, read 2026-10-28)</summary>
+<summary>Signer set snapshot — DAO (Mainnet, 4-of-8, read 2026-11-04)</summary>
 
 ```text
 0xb7eb90494B0312407Afb40f2B5F203A038e9D1e8
@@ -116,7 +116,7 @@ Verify live: [Safe UI](https://app.safe.global/home?safe=eth:0x245cc372C84B3645B
 </details>
 
 <details>
-<summary>Signer set snapshot — DAO (Arbitrum, Optimism, Base, Berachain, 2-of-4, read 2026-10-28)</summary>
+<summary>Signer set snapshot — DAO (Arbitrum, Optimism, Base, Berachain, 2-of-4, read 2026-11-04)</summary>
 
 ```text
 0xf0be8F756389C2D22DD644cC9a3C979F568f3454
@@ -132,7 +132,7 @@ Verify live: [Safe UI (Base)](https://app.safe.global/home?safe=base:0x18a390bD4
 </details>
 
 <details>
-<summary>Signer set snapshot — DAO (Robinhood Chain, 2-of-5, read 2026-10-28)</summary>
+<summary>Signer set snapshot — DAO (Robinhood Chain, 2-of-5, read 2026-11-04)</summary>
 
 ```text
 0xcb4524B63F2c532fF52FCbbBcd3C137D32c1D966
