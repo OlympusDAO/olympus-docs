@@ -171,10 +171,10 @@ echo "✅ Updated titles in nested index.md files"
 echo "✅ Performed manual fixes"
 echo
 
-# Run markdownlint on the docs directory
-echo "🔍 Running markdownlint on contract docs directory..."
-npx markdownlint --config .markdownlint-contracts.json --fix docs/contracts/02_docs/ || echo "⚠️  Markdownlint had some issues that couldn't be auto-fixed"
-echo "✅ Markdownlint completed"
+# Run rumdl with the existing contract documentation rules
+echo "🔍 Running rumdl on contract docs directory..."
+pnpm exec rumdl check --config .markdownlint-contracts.json --fix docs/contracts/02_docs/ || echo "⚠️  Rumdl had some issues that couldn't be auto-fixed"
+echo "✅ Rumdl completed"
 echo
 
 # Create _category_.json file

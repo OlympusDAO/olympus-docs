@@ -19,6 +19,17 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 
 #### Installation
 
+Install the tools from [`mise.toml`](mise.toml) with [mise](https://mise.jdx.dev/):
+
+```sh
+mise install
+```
+
+The config pins Node.js, pnpm, and Foundry. Foundry provides `forge` and `forge soldeer` for contract documentation generation.
+Keep the pnpm version in `mise.toml` aligned with `packageManager` in `package.json`.
+
+Install the site dependencies:
+
 ```sh
 pnpm install
 ```
@@ -30,6 +41,17 @@ pnpm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+#### Formatting and Linting
+
+Run `pnpm format` to format files, or `pnpm format:check` to check formatting without changes.
+Run `pnpm lint` to apply lint fixes, or `pnpm lint:check` to check files without changes.
+
+Biome formats and lints JavaScript, TypeScript, JSON, CSS, and YAML.
+It also formats HTML with its experimental HTML formatter.
+Rumdl formats Markdown and MDX with the rules in `.rumdl.toml`.
+It preserves MDX imports, JSX components, and expressions. It does not format the JavaScript or JSX inside MDX files.
+Contract generation also runs rumdl with the existing rules in `.markdownlint-contracts.json`.
 
 #### Build
 

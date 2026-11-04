@@ -1,0 +1,6 @@
+[tools]
+node = "24.22.1"
+# Keep this version aligned with packageManager in package.json.
+pnpm = "11.28.10"
+# Required for contract documentation generation (forge doc and forge soldeer).
+foundry = "1.8.1"

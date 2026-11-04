@@ -11,9 +11,11 @@ There are two ways to connect the Olympus MCP server to the Claude desktop app.
 1. Open **Settings → Connectors**.
 2. Click **Add custom connector**.
 3. Paste the endpoint URL:
+
    ```text
    https://mcp.olympusdao.finance/mcp
    ```
+
 4. Save, then enable the connector.
 
 ## Option 2 — Config file
