@@ -44,7 +44,7 @@
     "@tsconfig/docusaurus": "^1.0.7",
     "@types/node": "^24.13.3",
     "rumdl": "0.3.0",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   },
   "browserslist": {
     "production": [
