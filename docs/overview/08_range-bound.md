@@ -38,48 +38,48 @@ Details can be found in these resources:
 
 The following specification was used to implement the RBS V1 system. It provides a succint summary of the system operates. The implementation of the concepts can be found in the Technical Guides section of the docs.
 
-1.  Calculate and maintain a moving average price for OHM against a specified reserve asset for a configurable duration. The MA price should be updated each system epoch.
-2.  Calculate lower and upper bounds for the price OHM against a specified reserve asset, both “wall” and “cushion” components, from the moving average price and configurable spread variables. The price levels are calculated as:
+1. Calculate and maintain a moving average price for OHM against a specified reserve asset for a configurable duration. The MA price should be updated each system epoch.
+2. Calculate lower and upper bounds for the price OHM against a specified reserve asset, both “wall” and “cushion” components, from the moving average price and configurable spread variables. The price levels are calculated as:
 
-        Lower Wall = MA * (1 - Wall Spread)
-        Lower Cushion = MA * (1 - Cushion Spread)
-        Upper Cushion = MA * (1 + Cushion Spread)
-        Upper Wall = MA * (1 + Wall Spread)
+       Lower Wall = MA * (1 - Wall Spread)
+       Lower Cushion = MA * (1 - Cushion Spread)
+       Upper Cushion = MA * (1 + Cushion Spread)
+       Upper Wall = MA * (1 + Wall Spread)
 
-        where Cushion Spread < Wall Spread
+       where Cushion Spread < Wall Spread
 
-        such that LW < LC < MA < UC < UW
+       such that LW < LC < MA < UC < UW
 
-3.  Allow users to swap OHM for reserves at the lower wall price (WL) and reserves for OHM at the upper wall price (WH) up to the specified capacity of the current walls.
+3. Allow users to swap OHM for reserves at the lower wall price (WL) and reserves for OHM at the upper wall price (WH) up to the specified capacity of the current walls.
 
-    a. Capacity of the lower wall (bid) in reserves should be the amount of reserves in the Olympus Treasury multiplied by a configured bid factor (percent of reserves to use for each wall).
+   a. Capacity of the lower wall (bid) in reserves should be the amount of reserves in the Olympus Treasury multiplied by a configured bid factor (percent of reserves to use for each wall).
 
-        Bid Capacity = Bid Factor * Reserves
+       Bid Capacity = Bid Factor * Reserves
 
-    b. Capacity of the upper wall (ask) in OHM should be the capacity of the lower wall (bid) divided by the upper wall price and scaled up by the difference in spread from the lower wall to the upper wall.
+   b. Capacity of the upper wall (ask) in OHM should be the capacity of the lower wall (bid) divided by the upper wall price and scaled up by the difference in spread from the lower wall to the upper wall.
 
-        Ask Capacity = Bid Capacity * (1 + 2 * Wall Spread) / Upper Wall Price
+       Ask Capacity = Bid Capacity * (1 + 2 * Wall Spread) / Upper Wall Price
 
-    c. When the capacity of either wall is depleted, the system should not allow additional swaps on that side until it is regenerated.
+   c. When the capacity of either wall is depleted, the system should not allow additional swaps on that side until it is regenerated.
 
-    d. When the capacity of the upper wall (ask) is depleted, the system should not reinstate a new wall with additional capacity until the current price is observed to be below the MA price for a X out of the last Y system epochs, where X and Y are configured parameters representing the regeneration threshold (X) and total number of observations (Y). Additionally, the wall should not regenerate until a minimum configured amount of time has past.
+   d. When the capacity of the upper wall (ask) is depleted, the system should not reinstate a new wall with additional capacity until the current price is observed to be below the MA price for a X out of the last Y system epochs, where X and Y are configured parameters representing the regeneration threshold (X) and total number of observations (Y). Additionally, the wall should not regenerate until a minimum configured amount of time has past.
 
-4.  Deploy a bond market to sell OHM for reserves when the current price of OHM against the reserve asset is greater than or equal to the upper cushion price at the system epoch with a capacity equal to the configured percentage of the upper wall capacity to use for the cushion.
+4. Deploy a bond market to sell OHM for reserves when the current price of OHM against the reserve asset is greater than or equal to the upper cushion price at the system epoch with a capacity equal to the configured percentage of the upper wall capacity to use for the cushion.
 
-    a. If a bond market is active on a system epoch, the system should close the market if the current price of OHM against the reserve is back below the upper cushion price or has exceeded the upper wall price.
+   a. If a bond market is active on a system epoch, the system should close the market if the current price of OHM against the reserve is back below the upper cushion price or has exceeded the upper wall price.
 
-    b. The bond market should be closed if the upper wall capacity is depleted.
+   b. The bond market should be closed if the upper wall capacity is depleted.
 
-    c. The bond market should be instant-swap with no vesting.
+   c. The bond market should be instant-swap with no vesting.
 
-    d. The bond market should start at the upper wall price and have a minimum price of the upper cushion price.
+   d. The bond market should start at the upper wall price and have a minimum price of the upper cushion price.
 
-5.  Deploy a bond market to buy OHM with reserves when the current price of OHM against the reserve asset is less than or equal to the lower cushion price at the system epoch with a capacity equal to the configured percentage of the lower wall capacity to use for the cushion.
+5. Deploy a bond market to buy OHM with reserves when the current price of OHM against the reserve asset is less than or equal to the lower cushion price at the system epoch with a capacity equal to the configured percentage of the lower wall capacity to use for the cushion.
 
-    a. If a bond market is active on a system epoch, the system should close the market if the current price of OHM against the reserve is back above the lower cushion price or has gone below the lower wall price.
+   a. If a bond market is active on a system epoch, the system should close the market if the current price of OHM against the reserve is back above the lower cushion price or has gone below the lower wall price.
 
-    b. The bond market should be closed if the lower wall capacity is depleted.
+   b. The bond market should be closed if the lower wall capacity is depleted.
 
-    c. The bond market should be instant-swap with no vesting.
+   c. The bond market should be instant-swap with no vesting.
 
-    d. The bond market should start at the lower wall price and have a minimum price of the lower cushion price.
+   d. The bond market should start at the lower wall price and have a minimum price of the lower cushion price.

@@ -43,10 +43,10 @@ The deposit process is simple and straightforward. Anyone (both, users and DAOs)
 
 Users can also withdraw their assets from the vault whenever they want. The steps are as follows:
 
-1.  The user specifies how many LP receipt tokens they would like to withdraw.
-2.  OHM and counter-asset are withdrawn from the liquidity pool in exchange for the LP receipt tokens.
-3.  All the OHM received by the vault is burned.
-4.  All the received counter-asset and reward tokens are sent back to the user.
+1. The user specifies how many LP receipt tokens they would like to withdraw.
+2. OHM and counter-asset are withdrawn from the liquidity pool in exchange for the LP receipt tokens.
+3. All the OHM received by the vault is burned.
+4. All the received counter-asset and reward tokens are sent back to the user.
 
 ## Benefits by Stakeholder
 
