@@ -1,16 +1,16 @@
 ---
 title: "Olympus Treasury: Reserves Backing OHM"
-description: "The Olympus Treasury holds the on-chain assets backing OHM: reserve assets and OHM liquidity positions. Reserves fund Cooler Loans and market operations."
+description: "The Olympus Treasury holds reserve assets, strategy positions, loan receivables and protocol-owned liquidity across its contracts and wallets."
 sidebar_label: "Treasury"
 ---
 
 # Treasury
 
-The Treasury is a key component of the Olympus protocol. The Treasury represents all assets owned and controlled by the protocol.
+The Treasury comprises assets owned and controlled by Olympus across the on-chain treasury contract, treasury wallets, liquidity positions and protocol-controlled strategies.
 
-The primary responsibility of the Treasury is to ensure OHM liquidity on open markets and stabilize OHM with direct market operations in certain situations.
+Its reserves support OHM liquidity, Cooler lending and governance-approved protocol operations. Treasury value includes more than idle cash: yield-bearing positions, Cooler loan receivables and protocol-owned liquidity are distinct forms of exposure.
 
-The treasury is comprised of reserves and OHM liquidity positions, which are held in the on-chain treasury contract. Olympus employs a streamlined treasury management strategy with reserve assets held as sDAI. RBS and Cooler loans access the sDAI as needed for operations, automatically converting to DAI when called for. In the future, additional modules can be granted access via On Chain Governance.
+Cooler receivables are debt owed to the Treasury, not immediately spendable reserves. Likewise, total treasury market value and liquid backing answer different questions. Asset composition, balances and backing metrics change over time; use current contract state and the Olympus dashboard rather than treating a historical reserve asset as the entire Treasury.
 
 :::info
 A full list of Olympus assets is available on the [Olympus Treasury Dashboard](https://app.olympusdao.finance/#/dashboard)
