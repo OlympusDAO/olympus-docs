@@ -15,7 +15,7 @@ All bridge lanes use [Chainlink CCIP](https://chain.link/cross-chain) (Cross-Cha
 - On **Ethereum**, the token pool **locks** OHM when it leaves Ethereum and **releases** OHM when it returns.
 - On **Arbitrum, Optimism, Base, Berachain, Robinhood Chain and Solana**, the token pool **burns** OHM when it leaves the chain and **mints** OHM when it arrives.
 
-Ethereum is the **canonical chain** for OHM. Only Ethereum can mint net-new protocol OHM. The OHM on every other chain is backed by OHM that is locked in the Ethereum token pool. Bridging does not change the total supply of OHM.
+Ethereum is the **canonical chain** for OHM. Only Ethereum can mint net-new protocol OHM. The OHM on every other chain is backed by OHM that is locked in the Ethereum token pool. The `totalSupply` of OHM on Ethereum includes the OHM in this pool. Thus, to calculate the OHM supply on all chains, add the supply of each chain, then subtract the OHM in the Ethereum token pool. A completed bridge transfer does not change this value.
 
 The CCIP lanes between Ethereum and Solana were already in operation before the rollout to the other chains. The CCIP lanes to Arbitrum, Optimism, Base, Berachain and Robinhood Chain opened on November 3, 2026, after the execution of [OCG proposal 19](https://app.olympusdao.finance/#/dao/vote/19).
 
@@ -37,7 +37,9 @@ Olympus does not charge a fee for bridging. You pay the gas on the source chain 
 
 The time for a transfer depends on the finality of the source chain. The CCIP Explorer shows the status of each transfer.
 
-The app checks the [rate limits](./01_ccip-technical-details.md#rate-limits) of the route before you send. If the amount is more than the route can pass now, the app shows **Exceeds Route Limit**. For a transfer to Ethereum, the app shows **Exceeds Available Liquidity** if the Ethereum token pool holds less OHM than the amount. In these cases, send a smaller amount, or wait until the limit refills.
+The app checks the [rate limits](./01_ccip-technical-details.md#rate-limits) of the route before you send. If the amount is more than the route can pass now, the app shows **Exceeds Route Limit**. In this case, send a smaller amount, or wait until the limit refills.
+
+For a transfer to Ethereum, the app shows **Exceeds Available Liquidity** if the Ethereum token pool holds less OHM than the amount. In this case, send a smaller amount, or wait until the pool holds more OHM. A refill of the rate limit does not add OHM to the pool.
 
 :::note Safe and other contract wallets
 
@@ -106,7 +108,7 @@ The mechanism of a lane depends on the source and the destination:
 
 Chainlink has no lane between Optimism and Berachain, between Optimism and Robinhood Chain, or between Berachain and Robinhood Chain. To move OHM between these chains, bridge through Arbitrum, Base or Ethereum.
 
-The lanes between Solana and the other chains (not Ethereum) were not part of the rollout. The DAO can add them later, through the configuration timelock of each chain. Until then, to move OHM between Solana and one of these chains, bridge through Ethereum.
+The lanes between Solana and the other chains (not Ethereum) were not part of the rollout. The DAO can add the EVM side of each lane later, through the configuration timelock of the chain. Olympus does not hold a role on the Solana token pool. Thus, the owner of the Solana token pool must add the Solana side. Until both sides are added, to move OHM between Solana and one of these chains, bridge through Ethereum.
 
 ## Migration from the LayerZero bridge
 
@@ -122,7 +124,7 @@ Robinhood Chain is new to Olympus. The LayerZero bridge did not serve it. Its OH
 
 ### What "native" means
 
-Bridges are the cause of approximately half of all DeFi exploits.
+Bridge exploits caused approximately half of all the funds lost in DeFi exploits.
 
 ![Bridge Exploits](/gitbook/assets/bridgeExploits.png)
 

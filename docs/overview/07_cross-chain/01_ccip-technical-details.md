@@ -95,7 +95,7 @@ If a transfer is larger than the OHM in the bucket, the transfer reverts on the 
 
 The capacity is not a daily cap. The refill rate of each bucket on the EVM chains is its capacity divided by 86,400, the number of seconds in 24 hours. Thus, an empty bucket refills completely in 24 hours. A bucket that is full at the start of a 24-hour period can pass approximately two times its capacity in that period. The first part is the full capacity at the start. The second part is the refill. In a period of _T_ seconds, a bucket passes not more than its capacity plus _T_ times its refill rate.
 
-The inbound bucket on the destination is larger than the outbound bucket on the source, and it refills faster. Thus, the source limit usually applies first, and transfers do not fail on arrival.
+On the routes between two EVM chains, Ethereum included, the inbound bucket on the destination is larger than the outbound bucket on the source, and it refills faster. Thus, the source limit usually applies first, and transfers do not fail on arrival.
 
 | Route                          | Bucket                      | Capacity               | Refill rate       | Maximum in 24 hours, from a full bucket |
 | ------------------------------ | --------------------------- | ---------------------- | ----------------- | --------------------------------------- |
@@ -226,6 +226,7 @@ flowchart TB
     OCG -- "admin: delay, enable" --> TL
     OCG -- "OHM administrator: setPool" --> REG
     OCG -- "rebalancer: withdrawLiquidity" --> POOL
+    OCG -. "bridge_admin: queue changes" .-> TL
     DAO -- "executor: activate policies" --> K
     DAO -. "bridge_admin: queue changes" .-> TL
     DAO -- "bridge_admin: contain routes,<br/>reEnable in grace period" --> CFG
@@ -237,6 +238,8 @@ flowchart TB
     CFG -- "owner" --> POOL
     REG -- "selects the pool for OHM" --> POOL
 ```
+
+The OCG timelock also holds `bridge_admin` and `emergency` on Ethereum. The diagram shows only the queue path of these roles. For all of the actions of each role, refer to the [Action matrix](#action-matrix).
 
 ### The other EVM chains
 

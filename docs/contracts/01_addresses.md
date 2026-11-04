@@ -304,8 +304,8 @@ sidebar_label: "Addresses"
 | DistributorPatch + Mint & Sync              | Mainnet   | [`0x5206d13F625320Cb73CcD222518ee0Edb801f78B`](https://etherscan.io/address/0x5206d13F625320Cb73CcD222518ee0Edb801f78B)                  |
 | BondDepositoryV2                            | Mainnet   | [`0x9025046c6fb25Fb39e720d97a8FD881ED69a1Ef6`](https://etherscan.io/address/0x9025046c6fb25Fb39e720d97a8FD881ED69a1Ef6)                  |
 |                                             | Goerli    | [`0xAda3336fcD233Ff0Eb39BeA0b1a7784E43aD4B00`](https://goerli.etherscan.io/address/0xAda3336fcD233Ff0Eb39BeA0b1a7784E43aD4B00)           |
-| Rebalancer                                  | Mainnet   | [`0x77B19aDf335143D954CD5F59A01879fA532C404e `](https://etherscan.io/address/0x77B19aDf335143D954CD5F59A01879fA532C404e)                 |
-| Frax Bond                                   | Mainnet   | [`0xc60a6656e08b62DD2644DC703d7855301363Cc38 `](https://etherscan.io/address/0xc60a6656e08b62DD2644DC703d7855301363Cc38)                 |
+| Rebalancer                                  | Mainnet   | [`0x77B19aDf335143D954CD5F59A01879fA532C404e`](https://etherscan.io/address/0x77B19aDf335143D954CD5F59A01879fA532C404e)                  |
+| Frax Bond                                   | Mainnet   | [`0xc60a6656e08b62DD2644DC703d7855301363Cc38`](https://etherscan.io/address/0xc60a6656e08b62DD2644DC703d7855301363Cc38)                  |
 | YieldDirector                               | Mainnet   | [`0x2604170762A1dD22BB4F96C963043Cd4FC358f18`](https://etherscan.io/address/0x2604170762A1dD22BB4F96C963043Cd4FC358f18)                  |
 |                                             | Goerli    | [`0x6982CcD55F95A7469746C123f73D54377f382454`](https://goerli.etherscan.io/address/0x6982CcD55F95A7469746C123f73D54377f382454)           |
 | OP Market Creator (for inverse bonds) (old) | Mainnet   | [`0xb1fA0Ac44d399b778B14af0AAF4bCF8af3437ad1`](https://etherscan.io/address/0xb1fA0Ac44d399b778B14af0AAF4bCF8af3437ad1)                  |

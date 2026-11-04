@@ -260,12 +260,12 @@ Policy that owns the local CCIP token pool. It gives each role access to a limit
 
 **Roles**
 
-- `admin`: Has the ability to transfer and accept the pool ownership, set the router, the rebalancer, the rate limit admin, the config operator and the grace period, transfer liquidity, enable and disable the policy, contain one route or all routes, and call every route function directly.
+- `admin`: Has the ability to transfer and accept the pool ownership, set the router, the rate limit admin, the config operator and the grace period, enable and disable the policy, contain one route or all routes, and call every route function directly. On Ethereum, it also has the ability to set the rebalancer and transfer liquidity. These two functions apply only to the lock/release pool on Ethereum. The other EVM chains use burn/mint pools, which have no rebalancer.
 - `bridge_admin`: Has the ability to contain one route or all routes, and to re-enable the policy within the grace period.
 - `emergency`: Has the ability to contain one route or all routes, and to disable the policy.
 - `bridge_rate_limiter`: Has the ability to set the rate limits of a route, and to contain one route or all routes. Not assigned.
 
-The config operator (`CCIPTokenPoolConfigTimelock`) has the ability to add and remove routes, set the remote token, add and remove remote pools, update the allowlist and set the rate limits.
+The config operator (`CCIPTokenPoolConfigTimelock`) has the ability to add and remove routes, set the remote token, add and remove remote pools, and set the rate limits. The token pools have no allowlist. Thus, an allowlist update reverts with `AllowListNotEnabled`.
 
 ### CCIPTokenPoolConfigTimelock.sol
 
@@ -307,7 +307,7 @@ The pool owner (`CCIPTokenPoolConfig`) controls the routes and the rate limits.
 
 ### CCIPCrossChainBridge.sol
 
-Periphery contract that the Olympus app uses to send OHM through CCIP. It is not a policy and has no roles. The owner has the ability to set and unset the trusted remotes, set the gas limits, enable and disable the contract, and withdraw native token.
+Periphery contract that the Olympus app uses to send OHM through CCIP. It is not a policy and has no roles. The owner has the ability to set and unset the trusted remotes, set the gas limits, enable and disable the contract, withdraw native token, and transfer the ownership.
 
 ## CrossChainBridge.sol (deprecated)
 
@@ -359,7 +359,7 @@ Policy that manages the auctions and the issuance of OHM Bonds.
 | Mainnet | Kernel       | `0x2286d7f9639e8158FaD1169e76d1FbC38247f54b` | DAO MS   |
 | Mainnet | ROLES module | `0x6CAfd730Dc199Df73C16420C4fCAb18E3afbfA59` | DAO MS   |
 
-## Active Roles
+## Active Roles (Mainnet)
 
 | Role                   | Executor           |
 | ---------------------- | ------------------ |
