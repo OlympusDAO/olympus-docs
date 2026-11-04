@@ -66,10 +66,12 @@ Examples:
 
 - Olympus policies: `"olympus-policy-xxx"`
 - Olympus modules: Use the following pattern instead of importing module addresses:
+
   ```solidity
   Kernel kernel = Kernel(addresses.getAddress("olympus-kernel"));
   address TRSRY = address(kernel.getModuleForKeycode(toKeycode(bytes5("TRSRY"))));
   ```
+
 - External tokens (DAI, sDAI, etc): `external-tokens-xxx`
 - External contracts: `external-coolers-factory`
 - Olympus multisigs: `olympus-multisig-dao` or `olympus-multisig-emergency`

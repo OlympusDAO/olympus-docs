@@ -41,7 +41,9 @@
   "MD048": {
     "style": "backtick"
   },
-  "MD051": true,
+  "MD051": {
+    "ignore_case": false
+  },
   "MD052": true,
   "MD053": true
 }

@@ -9,6 +9,7 @@
 # Generated files
 .docusaurus
 .cache-loader
+.rumdl_cache/
 
 # Misc
 .DS_Store
