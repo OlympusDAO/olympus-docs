@@ -1,6 +1,6 @@
 # IGovernorBravoEventsAndErrors
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/governance/interfaces/IGovernorBravoEvents.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/external/governance/interfaces/IGovernorBravoEvents.sol)
 
 ## Events
 
@@ -10,16 +10,29 @@ An event emitted when a new proposal is created
 
 ```solidity
 event ProposalCreated(
-    uint256 id,
-    address proposer,
-    address[] targets,
-    uint256[] values,
-    string[] signatures,
-    bytes[] calldatas,
-    uint256 startBlock,
-    string description
-);
+        uint256 id,
+        address proposer,
+        address[] targets,
+        uint256[] values,
+        string[] signatures,
+        bytes[] calldatas,
+        uint256 startBlock,
+        string description
+    );
 ```
+
+**Parameters**
+
+| Name        | Type        | Description |
+| ----------- | ----------- | ----------- |
+| id          | `uint256`   |             |
+| proposer    | `address`   |             |
+| targets     | `address[]` |             |
+| values      | `uint256[]` |             |
+| signatures  | `string[]`  |             |
+| calldatas   | `bytes[]`   |             |
+| startBlock  | `uint256`   |             |
+| description | `string`    |             |
 
 ### ProposalVotingStarted
 
@@ -29,23 +42,35 @@ Event emitted when a proposal's voting period is activated
 event ProposalVotingStarted(uint256 id);
 ```
 
+**Parameters**
+
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| id   | `uint256` |             |
+
 ### VoteCast
 
 An event emitted when a vote has been cast on a proposal
 
 ```solidity
-event VoteCast(address indexed voter, uint256 proposalId, uint8 support, uint256 votes, string reason);
+event VoteCast(
+        address indexed voter,
+        uint256 proposalId,
+        uint8 support,
+        uint256 votes,
+        string reason
+    );
 ```
 
 **Parameters**
 
-| Name         | Type      | Description                                             |
-| ------------ | --------- | ------------------------------------------------------- |
-| `voter`      | `address` | The address which casted a vote                         |
-| `proposalId` | `uint256` | The proposal id which was voted on                      |
-| `support`    | `uint8`   | Support value for the vote. 0=against, 1=for, 2=abstain |
-| `votes`      | `uint256` | Number of votes which were cast by the voter            |
-| `reason`     | `string`  | The reason given for the vote by the voter              |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| voter | `address` | The address which casted a vote |
+| proposalId | `uint256` | The proposal id which was voted on |
+| support | `uint8` | Support value for the vote. 0=against, 1=for, 2=abstain |
+| votes | `uint256` | Number of votes which were cast by the voter |
+| reason | `string` | The reason given for the vote by the voter |
 
 ### ProposalVetoed
 
@@ -55,6 +80,12 @@ An event emitted when a proposal has been vetoed
 event ProposalVetoed(uint256 id);
 ```
 
+**Parameters**
+
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| id   | `uint256` |             |
+
 ### ProposalCanceled
 
 An event emitted when a proposal has been canceled
@@ -62,6 +93,12 @@ An event emitted when a proposal has been canceled
 ```solidity
 event ProposalCanceled(uint256 id);
 ```
+
+**Parameters**
+
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| id   | `uint256` |             |
 
 ### ProposalQueued
 
@@ -71,6 +108,13 @@ An event emitted when a proposal has been queued in the Timelock
 event ProposalQueued(uint256 id, uint256 eta);
 ```
 
+**Parameters**
+
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| id   | `uint256` |             |
+| eta  | `uint256` |             |
+
 ### ProposalExecuted
 
 An event emitted when a proposal has been executed in the Timelock
@@ -78,6 +122,12 @@ An event emitted when a proposal has been executed in the Timelock
 ```solidity
 event ProposalExecuted(uint256 id);
 ```
+
+**Parameters**
+
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| id   | `uint256` |             |
 
 ### VotingDelaySet
 
@@ -87,6 +137,13 @@ An event emitted when the voting delay is set
 event VotingDelaySet(uint256 oldVotingDelay, uint256 newVotingDelay);
 ```
 
+**Parameters**
+
+| Name           | Type      | Description |
+| -------------- | --------- | ----------- |
+| oldVotingDelay | `uint256` |             |
+| newVotingDelay | `uint256` |             |
+
 ### VotingPeriodSet
 
 An event emitted when the voting period is set
@@ -94,6 +151,13 @@ An event emitted when the voting period is set
 ```solidity
 event VotingPeriodSet(uint256 oldVotingPeriod, uint256 newVotingPeriod);
 ```
+
+**Parameters**
+
+| Name            | Type      | Description |
+| --------------- | --------- | ----------- |
+| oldVotingPeriod | `uint256` |             |
+| newVotingPeriod | `uint256` |             |
 
 ### NewImplementation
 
@@ -103,6 +167,13 @@ Emitted when implementation is changed
 event NewImplementation(address oldImplementation, address newImplementation);
 ```
 
+**Parameters**
+
+| Name              | Type      | Description |
+| ----------------- | --------- | ----------- |
+| oldImplementation | `address` |             |
+| newImplementation | `address` |             |
+
 ### ProposalThresholdSet
 
 Emitted when proposal threshold is set
@@ -110,6 +181,13 @@ Emitted when proposal threshold is set
 ```solidity
 event ProposalThresholdSet(uint256 oldProposalThreshold, uint256 newProposalThreshold);
 ```
+
+**Parameters**
+
+| Name                 | Type      | Description |
+| -------------------- | --------- | ----------- |
+| oldProposalThreshold | `uint256` |             |
+| newProposalThreshold | `uint256` |             |
 
 ### NewPendingAdmin
 
@@ -119,6 +197,13 @@ Emitted when pendingAdmin is changed
 event NewPendingAdmin(address oldPendingAdmin, address newPendingAdmin);
 ```
 
+**Parameters**
+
+| Name            | Type      | Description |
+| --------------- | --------- | ----------- |
+| oldPendingAdmin | `address` |             |
+| newPendingAdmin | `address` |             |
+
 ### NewAdmin
 
 Emitted when pendingAdmin is accepted, which means admin is updated
@@ -126,6 +211,13 @@ Emitted when pendingAdmin is accepted, which means admin is updated
 ```solidity
 event NewAdmin(address oldAdmin, address newAdmin);
 ```
+
+**Parameters**
+
+| Name     | Type      | Description |
+| -------- | --------- | ----------- |
+| oldAdmin | `address` |             |
+| newAdmin | `address` |             |
 
 ### WhitelistAccountExpirationSet
 
@@ -135,6 +227,13 @@ Emitted when whitelist account expiration is set
 event WhitelistAccountExpirationSet(address account, uint256 expiration);
 ```
 
+**Parameters**
+
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| account    | `address` |             |
+| expiration | `uint256` |             |
+
 ### WhitelistGuardianSet
 
 Emitted when the whitelistGuardian is set
@@ -143,6 +242,13 @@ Emitted when the whitelistGuardian is set
 event WhitelistGuardianSet(address oldGuardian, address newGuardian);
 ```
 
+**Parameters**
+
+| Name        | Type      | Description |
+| ----------- | --------- | ----------- |
+| oldGuardian | `address` |             |
+| newGuardian | `address` |             |
+
 ### VetoGuardianSet
 
 Emitted when the vetoGuardian is set
@@ -150,6 +256,13 @@ Emitted when the vetoGuardian is set
 ```solidity
 event VetoGuardianSet(address oldGuardian, address newGuardian);
 ```
+
+**Parameters**
+
+| Name        | Type      | Description |
+| ----------- | --------- | ----------- |
+| oldGuardian | `address` |             |
+| newGuardian | `address` |             |
 
 ## Errors
 

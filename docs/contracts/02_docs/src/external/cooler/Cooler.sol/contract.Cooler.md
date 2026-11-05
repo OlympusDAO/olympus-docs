@@ -1,33 +1,37 @@
 # Cooler
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/cooler/Cooler.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/external/cooler/Cooler.sol)
 
-**Inherits:**
-Clone
+**Inherits:** Clone
 
-**Title:**
-Cooler Loans.
+**Title:** Cooler Loans.
 
 A Cooler is a smart contract escrow that facilitates fixed-duration, peer-to-peer
 loans for a user-defined debt-collateral pair.
 
+<i>
+
 This contract uses Clones (<https://github.com/wighawag/clones-with-immutable-args>)
 to save gas on deployment.
 
-## State Variables
+</i>
+
+## Constants
 
 ### DECIMALS_INTEREST
 
 ```solidity
-uint256 private constant DECIMALS_INTEREST = 1e18
+uint256 private constant DECIMALS_INTEREST = 1e18;
 ```
+
+## State Variables
 
 ### requests
 
 Arrays stores all the loan requests.
 
 ```solidity
-Request[] public requests
+Request[] public requests;
 ```
 
 ### loans
@@ -35,7 +39,7 @@ Request[] public requests
 Arrays stores all the granted loans.
 
 ```solidity
-Loan[] public loans
+Loan[] public loans;
 ```
 
 ### approvals
@@ -43,10 +47,12 @@ Loan[] public loans
 Facilitates transfer of lender ownership to new addresses
 
 ```solidity
-mapping(uint256 => address) public approvals
+mapping(uint256 => address) public approvals;
 ```
 
 ## Functions
+
+<a id="owner"></a>
 
 ### owner
 
@@ -56,6 +62,14 @@ This address owns the collateral in escrow.
 function owner() public pure returns (address _owner);
 ```
 
+**Returns**
+
+| Name   | Type      | Description |
+| ------ | --------- | ----------- |
+| _owner | `address` |             |
+
+<a id="collateral"></a>
+
 ### collateral
 
 This token is borrowed against.
@@ -63,6 +77,14 @@ This token is borrowed against.
 ```solidity
 function collateral() public pure returns (ERC20 _collateral);
 ```
+
+**Returns**
+
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| _collateral | `ERC20` |             |
+
+<a id="debt"></a>
 
 ### debt
 
@@ -72,6 +94,14 @@ This token is lent.
 function debt() public pure returns (ERC20 _debt);
 ```
 
+**Returns**
+
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| _debt | `ERC20` |             |
+
+<a id="factory"></a>
+
 ### factory
 
 This contract created the Cooler
@@ -80,31 +110,44 @@ This contract created the Cooler
 function factory() public pure returns (CoolerFactory _factory);
 ```
 
+**Returns**
+
+| Name     | Type            | Description |
+| -------- | --------------- | ----------- |
+| _factory | `CoolerFactory` |             |
+
+<a id="requestloan-uint256-uint256-uint256-uint256"></a>
+
 ### requestLoan
 
 Request a loan with given parameters.
 Collateral is taken at time of request.
 
 ```solidity
-function requestLoan(uint256 amount_, uint256 interest_, uint256 loanToCollateral_, uint256 duration_)
-    external
-    returns (uint256 reqID);
+function requestLoan(
+        uint256 amount_,
+        uint256 interest_,
+        uint256 loanToCollateral_,
+        uint256 duration_
+    ) external returns (uint256 reqID);
 ```
 
 **Parameters**
 
-| Name                | Type      | Description                                                                           |
-| ------------------- | --------- | ------------------------------------------------------------------------------------- |
-| `amount_`           | `uint256` | of debt tokens to borrow.                                                             |
-| `interest_`         | `uint256` | to pay (annualized % of 'amount\_'). Expressed in DECIMALS_INTEREST.                  |
-| `loanToCollateral_` | `uint256` | debt tokens per collateral token pledged. Expressed in 10\*\*collateral().decimals(). |
-| `duration_`         | `uint256` | of loan tenure in seconds.                                                            |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` | of debt tokens to borrow. |
+| interest_ | `uint256` | to pay (annualized % of 'amount_'). Expressed in DECIMALS_INTEREST. |
+| loanToCollateral_ | `uint256` | debt tokens per collateral token pledged. Expressed in 10**collateral().decimals(). |
+| duration_ | `uint256` | of loan tenure in seconds. |
 
 **Returns**
 
-| Name    | Type      | Description                                                               |
-| ------- | --------- | ------------------------------------------------------------------------- |
-| `reqID` | `uint256` | of the created request. Equivalent to the index of request in requests[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reqID | `uint256` | of the created request. Equivalent to the index of request in requests[]. |
+
+<a id="rescindrequest-uint256"></a>
 
 ### rescindRequest
 
@@ -116,17 +159,23 @@ function rescindRequest(uint256 reqID_) external;
 
 **Parameters**
 
-| Name     | Type      | Description                     |
-| -------- | --------- | ------------------------------- |
-| `reqID_` | `uint256` | index of request in requests[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reqID_ | `uint256` | index of request in requests[]. |
+
+<a id="repayloan-uint256-uint256"></a>
 
 ### repayLoan
 
 Repay a loan to get the collateral back.
 
+<i>
+
 Despite a malicious lender could reenter with the callback, the
 usage of `msg.sender` prevents any economical benefit to the
 attacker, since they would be repaying the loan themselves.
+
+</i>
 
 ```solidity
 function repayLoan(uint256 loanID_, uint256 repayment_) external returns (uint256);
@@ -134,16 +183,18 @@ function repayLoan(uint256 loanID_, uint256 repayment_) external returns (uint25
 
 **Parameters**
 
-| Name         | Type      | Description               |
-| ------------ | --------- | ------------------------- |
-| `loanID_`    | `uint256` | index of loan in loans[]. |
-| `repayment_` | `uint256` | debt tokens to be repaid. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` | index of loan in loans[]. |
+| repayment_ | `uint256` | debt tokens to be repaid. |
 
 **Returns**
 
-| Name     | Type      | Description                            |
-| -------- | --------- | -------------------------------------- |
-| `<none>` | `uint256` | collateral given back to the borrower. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | collateral given back to the borrower. |
+
+<a id="delegatevoting-address"></a>
 
 ### delegateVoting
 
@@ -155,39 +206,51 @@ function delegateVoting(address to_) external;
 
 **Parameters**
 
-| Name  | Type      | Description          |
-| ----- | --------- | -------------------- |
-| `to_` | `address` | address to delegate. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` | address to delegate. |
+
+<a id="clearrequest-uint256-address-bool"></a>
 
 ### clearRequest
 
 Fill a requested loan as a lender.
 
 ```solidity
-function clearRequest(uint256 reqID_, address recipient_, bool isCallback_) external returns (uint256 loanID);
+function clearRequest(
+        uint256 reqID_,
+        address recipient_,
+        bool isCallback_
+    ) external returns (uint256 loanID);
 ```
 
 **Parameters**
 
-| Name          | Type      | Description                                                                 |
-| ------------- | --------- | --------------------------------------------------------------------------- |
-| `reqID_`      | `uint256` | index of request in requests[].                                             |
-| `recipient_`  | `address` | address to repay the loan to.                                               |
-| `isCallback_` | `bool`    | true if the lender implements the CoolerCallback abstract. False otherwise. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reqID_ | `uint256` | index of request in requests[]. |
+| recipient_ | `address` | address to repay the loan to. |
+| isCallback_ | `bool` | true if the lender implements the CoolerCallback abstract. False otherwise. |
 
 **Returns**
 
-| Name     | Type      | Description                                                      |
-| -------- | --------- | ---------------------------------------------------------------- |
-| `loanID` | `uint256` | of the granted loan. Equivalent to the index of loan in loans[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID | `uint256` | of the granted loan. Equivalent to the index of loan in loans[]. |
+
+<a id="extendloanterms-uint256-uint8"></a>
 
 ### extendLoanTerms
 
 Allow lender to extend a loan for the borrower. Doesn't require
 borrower permission because it doesn't have a negative impact for them.
 
+<i>
+
 Since this function solely impacts the expiration day, the lender
 should ensure that extension interest payments are done beforehand.
+
+</i>
 
 ```solidity
 function extendLoanTerms(uint256 loanID_, uint8 times_) external;
@@ -195,10 +258,12 @@ function extendLoanTerms(uint256 loanID_, uint8 times_) external;
 
 **Parameters**
 
-| Name      | Type      | Description                                    |
-| --------- | --------- | ---------------------------------------------- |
-| `loanID_` | `uint256` | index of loan in loans[].                      |
-| `times_`  | `uint8`   | that the fixed-term loan duration is extended. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` | index of loan in loans[]. |
+| times_ | `uint8` | that the fixed-term loan duration is extended. |
+
+<a id="claimdefaulted-uint256"></a>
 
 ### claimDefaulted
 
@@ -210,18 +275,20 @@ function claimDefaulted(uint256 loanID_) external returns (uint256, uint256, uin
 
 **Parameters**
 
-| Name      | Type      | Description               |
-| --------- | --------- | ------------------------- |
-| `loanID_` | `uint256` | index of loan in loans[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` | index of loan in loans[]. |
 
 **Returns**
 
-| Name     | Type      | Description                                                                               |
-| -------- | --------- | ----------------------------------------------------------------------------------------- |
-| `<none>` | `uint256` | defaulted debt by the borrower, collateral kept by the lender, elapsed time since expiry. |
-| `<none>` | `uint256` |                                                                                           |
-| `<none>` | `uint256` |                                                                                           |
-| `<none>` | `uint256` |                                                                                           |
+| Name         | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| &lt;none&gt; | `uint256` | defaulted debt by the borrower, collateral kept by the lender, elapsed time since expiry. |
+| &lt;none&gt; | `uint256` |                                                                                           |
+| &lt;none&gt; | `uint256` |                                                                                           |
+| &lt;none&gt; | `uint256` |                                                                                           |
+
+<a id="approvetransfer-address-uint256"></a>
 
 ### approveTransfer
 
@@ -233,10 +300,12 @@ function approveTransfer(address to_, uint256 loanID_) external;
 
 **Parameters**
 
-| Name      | Type      | Description               |
-| --------- | --------- | ------------------------- |
-| `to_`     | `address` | address to be approved.   |
-| `loanID_` | `uint256` | index of loan in loans[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` | address to be approved. |
+| loanID_ | `uint256` | index of loan in loans[]. |
+
+<a id="transferownership-uint256"></a>
 
 ### transferOwnership
 
@@ -248,9 +317,11 @@ function transferOwnership(uint256 loanID_) external;
 
 **Parameters**
 
-| Name      | Type      | Description               |
-| --------- | --------- | ------------------------- |
-| `loanID_` | `uint256` | index of loan in loans[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` | index of loan in loans[]. |
+
+<a id="setrepaymentaddress-uint256-address"></a>
 
 ### setRepaymentAddress
 
@@ -262,47 +333,66 @@ function setRepaymentAddress(uint256 loanID_, address recipient_) external;
 
 **Parameters**
 
-| Name         | Type      | Description            |
-| ------------ | --------- | ---------------------- |
-| `loanID_`    | `uint256` | of lender's loan.      |
-| `recipient_` | `address` | reciever of repayments |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` | of lender's loan. |
+| recipient_ | `address` | reciever of repayments |
+
+<a id="collateralfor-uint256-uint256"></a>
 
 ### collateralFor
 
 Compute collateral needed for a desired loan amount at given loan to collateral ratio.
 
 ```solidity
-function collateralFor(uint256 principal_, uint256 loanToCollateral_) public view returns (uint256);
+function collateralFor(
+        uint256 principal_,
+        uint256 loanToCollateral_
+    ) public view returns (uint256);
 ```
 
 **Parameters**
 
-| Name                | Type      | Description                                                 |
-| ------------------- | --------- | ----------------------------------------------------------- |
-| `principal_`        | `uint256` | amount of debt tokens.                                      |
-| `loanToCollateral_` | `uint256` | ratio for loan. Expressed in 10\*\*collateral().decimals(). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| principal_ | `uint256` | amount of debt tokens. |
+| loanToCollateral_ | `uint256` | ratio for loan. Expressed in 10**collateral().decimals(). |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `uint256` |             |
+
+<a id="interestfor-uint256-uint256-uint256"></a>
 
 ### interestFor
 
 Compute interest cost on amount for duration at given annualized rate.
 
 ```solidity
-function interestFor(uint256 principal_, uint256 rate_, uint256 duration_) public pure returns (uint256);
+function interestFor(
+        uint256 principal_,
+        uint256 rate_,
+        uint256 duration_
+    ) public pure returns (uint256);
 ```
 
 **Parameters**
 
-| Name         | Type      | Description               |
-| ------------ | --------- | ------------------------- |
-| `principal_` | `uint256` | amount of debt tokens.    |
-| `rate_`      | `uint256` | of interest (annualized). |
-| `duration_`  | `uint256` | of the loan in seconds.   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| principal_ | `uint256` | amount of debt tokens. |
+| rate_ | `uint256` | of interest (annualized). |
+| duration_ | `uint256` | of the loan in seconds. |
 
 **Returns**
 
-| Name     | Type      | Description                   |
-| -------- | --------- | ----------------------------- |
-| `<none>` | `uint256` | Interest in debt token terms. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | Interest in debt token terms. |
+
+<a id="hasexpired-uint256"></a>
 
 ### hasExpired
 
@@ -314,15 +404,17 @@ function hasExpired(uint256 loanID_) external view returns (bool);
 
 **Parameters**
 
-| Name      | Type      | Description               |
-| --------- | --------- | ------------------------- |
-| `loanID_` | `uint256` | index of loan in loans[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` | index of loan in loans[]. |
 
 **Returns**
 
-| Name     | Type   | Description        |
-| -------- | ------ | ------------------ |
-| `<none>` | `bool` | Expiration status. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | Expiration status. |
+
+<a id="isactive-uint256"></a>
 
 ### isActive
 
@@ -334,15 +426,17 @@ function isActive(uint256 reqID_) external view returns (bool);
 
 **Parameters**
 
-| Name     | Type      | Description                     |
-| -------- | --------- | ------------------------------- |
-| `reqID_` | `uint256` | index of request in requests[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reqID_ | `uint256` | index of request in requests[]. |
 
 **Returns**
 
-| Name     | Type   | Description    |
-| -------- | ------ | -------------- |
-| `<none>` | `bool` | Active status. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | Active status. |
+
+<a id="getrequest-uint256"></a>
 
 ### getRequest
 
@@ -354,15 +448,17 @@ function getRequest(uint256 reqID_) external view returns (Request memory);
 
 **Parameters**
 
-| Name     | Type      | Description                     |
-| -------- | --------- | ------------------------------- |
-| `reqID_` | `uint256` | index of request in requests[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reqID_ | `uint256` | index of request in requests[]. |
 
 **Returns**
 
-| Name     | Type      | Description     |
-| -------- | --------- | --------------- |
-| `<none>` | `Request` | Request struct. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Request` | Request struct. |
+
+<a id="getloan-uint256"></a>
 
 ### getLoan
 
@@ -374,15 +470,15 @@ function getLoan(uint256 loanID_) external view returns (Loan memory);
 
 **Parameters**
 
-| Name      | Type      | Description               |
-| --------- | --------- | ------------------------- |
-| `loanID_` | `uint256` | index of loan in loans[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` | index of loan in loans[]. |
 
 **Returns**
 
-| Name     | Type   | Description  |
-| -------- | ------ | ------------ |
-| `<none>` | `Loan` | Loan struct. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Loan` | Loan struct. |
 
 ## Errors
 
@@ -424,14 +520,25 @@ A loan begins with a borrow request.
 
 ```solidity
 struct Request {
-    uint256 amount; // Amount to be borrowed.
-    uint256 interest; // Annualized percentage to be paid as interest.
-    uint256 loanToCollateral; // Requested loan-to-collateral ratio.
-    uint256 duration; // Time to repay the loan before it defaults.
-    bool active; // Any lender can clear an active loan request.
-    address requester; // The address that created the request.
-}
+        uint256 amount; // Amount to be borrowed.
+        uint256 interest; // Annualized percentage to be paid as interest.
+        uint256 loanToCollateral; // Requested loan-to-collateral ratio.
+        uint256 duration; // Time to repay the loan before it defaults.
+        bool active; // Any lender can clear an active loan request.
+        address requester; // The address that created the request.
+    }
 ```
+
+**Properties**
+
+| Name             | Type      | Description |
+| ---------------- | --------- | ----------- |
+| amount           | `uint256` |             |
+| interest         | `uint256` |             |
+| loanToCollateral | `uint256` |             |
+| duration         | `uint256` |             |
+| active           | `bool`    |             |
+| requester        | `address` |             |
 
 ### Loan
 
@@ -439,13 +546,26 @@ A request is converted to a loan when a lender clears it.
 
 ```solidity
 struct Loan {
-    Request request; // Loan terms specified in the request.
-    uint256 principal; // Amount of principal debt owed to the lender.
-    uint256 interestDue; // Interest owed to the lender.
-    uint256 collateral; // Amount of collateral pledged.
-    uint256 expiry; // Time when the loan defaults.
-    address lender; // Lender's address.
-    address recipient; // Recipient of repayments.
-    bool callback; // If this is true, the lender must inherit CoolerCallback.
-}
+        Request request; // Loan terms specified in the request.
+        uint256 principal; // Amount of principal debt owed to the lender.
+        uint256 interestDue; // Interest owed to the lender.
+        uint256 collateral; // Amount of collateral pledged.
+        uint256 expiry; // Time when the loan defaults.
+        address lender; // Lender's address.
+        address recipient; // Recipient of repayments.
+        bool callback; // If this is true, the lender must inherit CoolerCallback.
+    }
 ```
+
+**Properties**
+
+| Name        | Type      | Description |
+| ----------- | --------- | ----------- |
+| request     | `Request` |             |
+| principal   | `uint256` |             |
+| interestDue | `uint256` |             |
+| collateral  | `uint256` |             |
+| expiry      | `uint256` |             |
+| lender      | `address` |             |
+| recipient   | `address` |             |
+| callback    | `bool`    |             |

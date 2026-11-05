@@ -1,14 +1,20 @@
 # IBLVaultLido
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/BoostedLiquidity/interfaces/IBLVaultLido.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/BoostedLiquidity/interfaces/IBLVaultLido.sol)
 
 ## Functions
+
+<a id="deposit-uint256-uint256"></a>
 
 ### deposit
 
 Mints OHM against a wstETH deposit and uses the OHM and wstETH to add liquidity to a Balancer pool
 
+<i>
+
 Can only be called by the owner of the vault
+
+</i>
 
 ```solidity
 function deposit(uint256 amount_, uint256 minLpAmount_) external returns (uint256 lpAmountOut);
@@ -16,83 +22,104 @@ function deposit(uint256 amount_, uint256 minLpAmount_) external returns (uint25
 
 **Parameters**
 
-| Name           | Type      | Description                                                |
-| -------------- | --------- | ---------------------------------------------------------- |
-| `amount_`      | `uint256` | The amount of wstETH to deposit                            |
-| `minLpAmount_` | `uint256` | The minimum acceptable amount of LP tokens to receive back |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` | The amount of wstETH to deposit |
+| minLpAmount_ | `uint256` | The minimum acceptable amount of LP tokens to receive back |
 
 **Returns**
 
-| Name          | Type      | Description                                         |
-| ------------- | --------- | --------------------------------------------------- |
-| `lpAmountOut` | `uint256` | The amount of LP tokens received by the transaction |
+| Name        | Type      | Description                                         |
+| ----------- | --------- | --------------------------------------------------- |
+| lpAmountOut | `uint256` | The amount of LP tokens received by the transaction |
+
+<a id="withdraw-uint256-uint256-uint256-bool"></a>
 
 ### withdraw
 
 Withdraws LP tokens from Aura and Balancer, burns the OHM side, and returns the wstETH side to the user
 
+<i>
+
 Can only be called by the owner of the vault
+
+</i>
 
 ```solidity
 function withdraw(
-    uint256 lpAmount_,
-    uint256[] calldata minTokenAmountsBalancer_,
-    uint256 minTokenAmountUser_,
-    bool claim_
-) external returns (uint256, uint256);
+        uint256 lpAmount_,
+        uint256[] calldata minTokenAmountsBalancer_,
+        uint256 minTokenAmountUser_,
+        bool claim_
+    ) external returns (uint256, uint256);
 ```
 
 **Parameters**
 
-| Name                       | Type        | Description                                                                                                  |
-| -------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------ |
-| `lpAmount_`                | `uint256`   | The amount of LP tokens to withdraw from Balancer                                                            |
-| `minTokenAmountsBalancer_` | `uint256[]` | The minimum acceptable amounts of OHM (first entry), and wstETH (second entry) to receive back from Balancer |
-| `minTokenAmountUser_`      | `uint256`   | The minimum acceptable amount of wstETH to receive back from the vault                                       |
-| `claim_`                   | `bool`      | Whether to claim outstanding rewards from Aura                                                               |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| lpAmount_ | `uint256` | The amount of LP tokens to withdraw from Balancer |
+| minTokenAmountsBalancer_ | `uint256[]` | The minimum acceptable amounts of OHM (first entry), and wstETH (second entry) to receive back from Balancer |
+| minTokenAmountUser_ | `uint256` | The minimum acceptable amount of wstETH to receive back from the vault |
+| claim_ | `bool` | Whether to claim outstanding rewards from Aura |
 
 **Returns**
 
-| Name     | Type      | Description                           |
-| -------- | --------- | ------------------------------------- |
-| `<none>` | `uint256` | uint256 The amount of OHM received    |
-| `<none>` | `uint256` | uint256 The amount of wstETH received |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256                 The amount of OHM received |
+| &lt;none&gt; | `uint256` | uint256                 The amount of wstETH received |
+
+<a id="emergencywithdraw-uint256-uint256"></a>
 
 ### emergencyWithdraw
 
 Withdraws LP tokens from Aura and Balancer, returns the wstETH to the user
 
+<i>
+
 Can only be called by the owner of the vault. Can only be called when the vault is paused
 
+</i>
+
 ```solidity
-function emergencyWithdraw(uint256 lpAmount_, uint256[] calldata minTokenAmounts_)
-    external
-    returns (uint256, uint256);
+function emergencyWithdraw(
+        uint256 lpAmount_,
+        uint256[] calldata minTokenAmounts_
+    ) external returns (uint256, uint256);
 ```
 
 **Parameters**
 
-| Name               | Type        | Description                                                                                                  |
-| ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------ |
-| `lpAmount_`        | `uint256`   | The amount of LP tokens to withdraw from Balancer                                                            |
-| `minTokenAmounts_` | `uint256[]` | The minimum acceptable amounts of OHM (first entry), and wstETH (second entry) to receive back from Balancer |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| lpAmount_ | `uint256` | The amount of LP tokens to withdraw from Balancer |
+| minTokenAmounts_ | `uint256[]` | The minimum acceptable amounts of OHM (first entry), and wstETH (second entry) to receive back from Balancer |
 
 **Returns**
 
-| Name     | Type      | Description                           |
-| -------- | --------- | ------------------------------------- |
-| `<none>` | `uint256` | uint256 The amount of OHM received    |
-| `<none>` | `uint256` | uint256 The amount of wstETH received |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256                 The amount of OHM received |
+| &lt;none&gt; | `uint256` | uint256                 The amount of wstETH received |
+
+<a id="claimrewards"></a>
 
 ### claimRewards
 
 Claims outstanding rewards from Aura
 
+<i>
+
 Can only be called by the owner of the vault
+
+</i>
 
 ```solidity
 function claimRewards() external;
 ```
+
+<a id="canwithdraw"></a>
 
 ### canWithdraw
 
@@ -104,9 +131,11 @@ function canWithdraw() external view returns (bool);
 
 **Returns**
 
-| Name     | Type   | Description                                                                                   |
-| -------- | ------ | --------------------------------------------------------------------------------------------- |
-| `<none>` | `bool` | bool Whether enough time has passed since the last deposit for the user to be ale to withdraw |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | bool                    Whether enough time has passed since the last deposit for the user to be ale to withdraw |
+
+<a id="getlpbalance"></a>
 
 ### getLpBalance
 
@@ -118,9 +147,11 @@ function getLpBalance() external view returns (uint256);
 
 **Returns**
 
-| Name     | Type      | Description                            |
-| -------- | --------- | -------------------------------------- |
-| `<none>` | `uint256` | uint256 LP balance deposited into Aura |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256                 LP balance deposited into Aura |
+
+<a id="getuserpairshare"></a>
 
 ### getUserPairShare
 
@@ -132,9 +163,11 @@ function getUserPairShare() external view returns (uint256);
 
 **Returns**
 
-| Name     | Type      | Description             |
-| -------- | --------- | ----------------------- |
-| `<none>` | `uint256` | uint256 Claim on wstETH |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256                 Claim on wstETH |
+
+<a id="getoutstandingrewards"></a>
 
 ### getOutstandingRewards
 
@@ -146,6 +179,6 @@ function getOutstandingRewards() external view returns (RewardsData[] memory);
 
 **Returns**
 
-| Name     | Type            | Description                                         |
-| -------- | --------------- | --------------------------------------------------- |
-| `<none>` | `RewardsData[]` | RewardsData[] The vault's unclaimed rewards in Aura |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `RewardsData[]` | RewardsData[]           The vault's unclaimed rewards in Aura |

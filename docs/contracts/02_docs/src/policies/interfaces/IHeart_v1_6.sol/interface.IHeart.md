@@ -1,10 +1,16 @@
 # IHeart
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/IHeart_v1_6.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/IHeart_v1_6.sol)
+
+<i>
 
 Interface for the Heart policy as of v1.6
 
+</i>
+
 ## Functions
+
+<a id="beat"></a>
 
 ### beat
 
@@ -14,11 +20,17 @@ Only callable when enough time has passed since last beat (determined by frequen
 
 This function is incentivized with a token reward (see rewardToken and reward variables).
 
+<i>
+
 Triggers price oracle update and market operations
+
+</i>
 
 ```solidity
 function beat() external;
 ```
+
+<a id="resetbeat"></a>
 
 ### resetBeat
 
@@ -30,17 +42,25 @@ Access restricted
 function resetBeat() external;
 ```
 
+<a id="activate"></a>
+
 ### activate
 
 Turns the heart on and resets the beat
 
 Access restricted
 
+<i>
+
 This function is used to restart the heart after a pause
+
+</i>
 
 ```solidity
 function activate() external;
 ```
+
+<a id="deactivate"></a>
 
 ### deactivate
 
@@ -48,11 +68,17 @@ Turns the heart off
 
 Access restricted
 
+<i>
+
 Emergency stop function for the heart
+
+</i>
 
 ```solidity
 function deactivate() external;
 ```
+
+<a id="setoperator-address"></a>
 
 ### setOperator
 
@@ -66,9 +92,11 @@ function setOperator(address operator_) external;
 
 **Parameters**
 
-| Name        | Type      | Description                              |
-| ----------- | --------- | ---------------------------------------- |
-| `operator_` | `address` | The address of the new Operator contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator_ | `address` | The address of the new Operator contract |
+
+<a id="setdistributor-address"></a>
 
 ### setDistributor
 
@@ -82,9 +110,11 @@ function setDistributor(address distributor_) external;
 
 **Parameters**
 
-| Name           | Type      | Description                                 |
-| -------------- | --------- | ------------------------------------------- |
-| `distributor_` | `address` | The address of the new Distributor contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| distributor_ | `address` | The address of the new Distributor contract |
+
+<a id="setyieldrepo-address"></a>
 
 ### setYieldRepo
 
@@ -98,9 +128,11 @@ function setYieldRepo(address yieldRepo_) external;
 
 **Parameters**
 
-| Name         | Type      | Description                               |
-| ------------ | --------- | ----------------------------------------- |
-| `yieldRepo_` | `address` | The address of the new YieldRepo contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| yieldRepo_ | `address` | The address of the new YieldRepo contract |
+
+<a id="setreservemigrator-address"></a>
 
 ### setReserveMigrator
 
@@ -114,9 +146,11 @@ function setReserveMigrator(address reserveMigrator_) external;
 
 **Parameters**
 
-| Name               | Type      | Description                                     |
-| ------------------ | --------- | ----------------------------------------------- |
-| `reserveMigrator_` | `address` | The address of the new ReserveMigrator contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reserveMigrator_ | `address` | The address of the new ReserveMigrator contract |
+
+<a id="setemissionmanager-address"></a>
 
 ### setEmissionManager
 
@@ -130,9 +164,11 @@ function setEmissionManager(address emissionManager_) external;
 
 **Parameters**
 
-| Name               | Type      | Description                                     |
-| ------------------ | --------- | ----------------------------------------------- |
-| `emissionManager_` | `address` | The address of the new EmissionManager contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| emissionManager_ | `address` | The address of the new EmissionManager contract |
+
+<a id="setrewardauctionparams-uint256-uint48"></a>
 
 ### setRewardAuctionParams
 
@@ -146,10 +182,12 @@ function setRewardAuctionParams(uint256 maxReward_, uint48 auctionDuration_) ext
 
 **Parameters**
 
-| Name               | Type      | Description                                           |
-| ------------------ | --------- | ----------------------------------------------------- |
-| `maxReward_`       | `uint256` | - New max reward amount, in units of the reward token |
-| `auctionDuration_` | `uint48`  | - New auction duration, in seconds                    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxReward_ | `uint256` | - New max reward amount, in units of the reward token |
+| auctionDuration_ | `uint48` | - New auction duration, in seconds |
+
+<a id="frequency"></a>
 
 ### frequency
 
@@ -159,6 +197,14 @@ Heart beat frequency, in seconds
 function frequency() external view returns (uint48);
 ```
 
+**Returns**
+
+| Name         | Type     | Description |
+| ------------ | -------- | ----------- |
+| &lt;none&gt; | `uint48` |             |
+
+<a id="currentreward"></a>
+
 ### currentReward
 
 Current reward amount based on linear auction
@@ -166,6 +212,14 @@ Current reward amount based on linear auction
 ```solidity
 function currentReward() external view returns (uint256);
 ```
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `uint256` |             |
+
+<a id="active"></a>
 
 ### active
 
@@ -175,6 +229,12 @@ Whether the contract is active
 function active() external view returns (bool);
 ```
 
+**Returns**
+
+| Name         | Type   | Description |
+| ------------ | ------ | ----------- |
+| &lt;none&gt; | `bool` |             |
+
 ## Events
 
 ### Beat
@@ -183,17 +243,37 @@ function active() external view returns (bool);
 event Beat(uint256 timestamp_);
 ```
 
+**Parameters**
+
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| timestamp_ | `uint256` |             |
+
 ### RewardIssued
 
 ```solidity
 event RewardIssued(address to_, uint256 rewardAmount_);
 ```
 
+**Parameters**
+
+| Name          | Type      | Description |
+| ------------- | --------- | ----------- |
+| to_           | `address` |             |
+| rewardAmount_ | `uint256` |             |
+
 ### RewardUpdated
 
 ```solidity
 event RewardUpdated(uint256 maxRewardAmount_, uint48 auctionDuration_);
 ```
+
+**Parameters**
+
+| Name             | Type      | Description |
+| ---------------- | --------- | ----------- |
+| maxRewardAmount_ | `uint256` |             |
+| auctionDuration_ | `uint48`  |             |
 
 ## Errors
 

@@ -1,101 +1,173 @@
 # EIP712
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/OlympusERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/external/OlympusERC20.sol)
 
-<https://eips.ethereum.org/EIPS/eip-712[EIP> 712] is a standard for hashing and signing of typed structured data.
+<i>
+
+<https://eips.ethereum.org/EIPS/eip-712>[EIP 712] is a standard for hashing and signing of typed structured data.
+
 The encoding specified in the EIP is very generic, and such a generic implementation in Solidity is not feasible,
 thus this contract does not implement the encoding itself. Protocols need to implement the type-specific encoding
 they need in their contracts using a combination of `abi.encode` and `keccak256`.
-This contract implements the EIP 712 domain separator ([\_domainSeparatorV4](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.EIP712#_domainseparatorv4)) that is used as part of the encoding
+
+This contract implements the EIP 712 domain separator ([_domainSeparatorV4](#_domainseparatorv4)) that is used as part of the encoding
 scheme, and the final step of the encoding to obtain the message digest that is then signed via ECDSA
-([\_hashTypedDataV4](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.EIP712#_hashtypeddatav4)).
+([_hashTypedDataV4](#_hashtypeddatav4)).
+
 The implementation of the domain separator was designed to be as efficient as possible while still properly updating
 the chain id to protect against replay attacks on an eventual fork of the chain.
+
 NOTE: This contract implements the version of the encoding known as "v4", as implemented by the JSON RPC method
-<https://docs.metamask.io/guide/signing-data.html[`eth_signTypedDataV4`> in MetaMask].
+<https://docs.metamask.io/guide/signing-data.html>[`eth_signTypedDataV4` in MetaMask].
+
 _Available since v3.4._
 
-## State Variables
+</i>
 
-### \_CACHED_DOMAIN_SEPARATOR
+## Constants
+
+### _CACHED_DOMAIN_SEPARATOR
 
 ```solidity
-bytes32 private immutable _CACHED_DOMAIN_SEPARATOR
+bytes32 private immutable _CACHED_DOMAIN_SEPARATOR;
 ```
 
-### \_CACHED_CHAIN_ID
+### _CACHED_CHAIN_ID
 
 ```solidity
-uint256 private immutable _CACHED_CHAIN_ID
+uint256 private immutable _CACHED_CHAIN_ID;
 ```
 
-### \_HASHED_NAME
+### _HASHED_NAME
 
 ```solidity
-bytes32 private immutable _HASHED_NAME
+bytes32 private immutable _HASHED_NAME;
 ```
 
-### \_HASHED_VERSION
+### _HASHED_VERSION
 
 ```solidity
-bytes32 private immutable _HASHED_VERSION
+bytes32 private immutable _HASHED_VERSION;
 ```
 
-### \_TYPE_HASH
+### _TYPE_HASH
 
 ```solidity
-bytes32 private immutable _TYPE_HASH
+bytes32 private immutable _TYPE_HASH;
 ```
 
 ## Functions
 
+<a id="constructor-string-string"></a>
+
 ### constructor
 
+<i>
+
 Initializes the domain separator and parameter caches.
+
 The meaning of `name` and `version` is specified in
-<https://eips.ethereum.org/EIPS/eip-712#definition-of-domainseparator[EIP> 712]:
+<https://eips.ethereum.org/EIPS/eip-712#definition-of-domainseparator>[EIP 712]:
 
 - `name`: the user readable name of the signing domain, i.e. the name of the DApp or the protocol.
 - `version`: the current major version of the signing domain.
-  NOTE: These parameters cannot be changed except through a xref:learn::upgrading-smart-contracts.adoc[smart
-  contract upgrade].
+
+NOTE: These parameters cannot be changed except through a xref:learn::upgrading-smart-contracts.adoc[smart
+contract upgrade].
+
+</i>
 
 ```solidity
-constructor(string memory name, string memory version) ;
+constructor(string memory name, string memory version);
 ```
 
-### \_domainSeparatorV4
+**Parameters**
+
+| Name    | Type     | Description |
+| ------- | -------- | ----------- |
+| name    | `string` |             |
+| version | `string` |             |
+
+<a id="_domainseparatorv4"></a>
+
+### _domainSeparatorV4
+
+<i>
 
 Returns the domain separator for the current chain.
+
+</i>
 
 ```solidity
 function _domainSeparatorV4() internal view returns (bytes32);
 ```
 
-### \_buildDomainSeparator
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `bytes32` |             |
+
+<a id="_builddomainseparator-bytes32-bytes32-bytes32"></a>
+
+### _buildDomainSeparator
 
 ```solidity
-function _buildDomainSeparator(bytes32 typeHash, bytes32 nameHash, bytes32 versionHash)
-    private
-    view
-    returns (bytes32);
+function _buildDomainSeparator(
+        bytes32 typeHash,
+        bytes32 nameHash,
+        bytes32 versionHash
+    ) private view returns (bytes32);
 ```
 
-### \_hashTypedDataV4
+**Parameters**
 
-Given an already <https://eips.ethereum.org/EIPS/eip-712#definition-of-hashstruct[hashed> struct], this
+| Name        | Type      | Description |
+| ----------- | --------- | ----------- |
+| typeHash    | `bytes32` |             |
+| nameHash    | `bytes32` |             |
+| versionHash | `bytes32` |             |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `bytes32` |             |
+
+<a id="_hashtypeddatav4-bytes32"></a>
+
+### _hashTypedDataV4
+
+<i>
+
+Given an already <https://eips.ethereum.org/EIPS/eip-712#definition-of-hashstruct>[hashed struct], this
 function returns the hash of the fully encoded EIP712 message for this domain.
-This hash can be used together with [ECDSA-recover](/main/contracts/docs/src/external/OlympusERC20.sol/library.ECDSA#recover) to obtain the signer of a message. For example:
+
+This hash can be used together with [ECDSA.recover](/main/contracts/docs/src/external/OlympusERC20.sol/library.ECDSA#recover) to obtain the signer of a message. For example:
 
 ```solidity
 bytes32 digest = _hashTypedDataV4(keccak256(abi.encode(
-keccak256("Mail(address to,string contents)"),
-mailTo,
-keccak256(bytes(mailContents))
+    keccak256("Mail(address to,string contents)"),
+    mailTo,
+    keccak256(bytes(mailContents))
 )));
 address signer = ECDSA.recover(digest, signature);
 ```
 
+</i>
+
 ```solidity
 function _hashTypedDataV4(bytes32 structHash) internal view virtual returns (bytes32);
 ```
+
+**Parameters**
+
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| structHash | `bytes32` |             |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `bytes32` |             |

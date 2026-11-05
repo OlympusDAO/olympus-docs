@@ -1,26 +1,29 @@
 # RANGEv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/modules/RANGE/RANGE.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/modules/RANGE/RANGE.v1.sol)
 
-**Inherits:**
-[Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
+**Inherits:** [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
 
 ## State Variables
 
-### \_range
+### _range
 
 ```solidity
-Range internal _range
+Range internal _range;
 ```
 
 ### thresholdFactor
 
 Threshold factor for the change, a percent in 2 decimals (i.e. 1000 = 10%). Determines how much of the capacity must be spent before the side is taken down.
 
+<i>
+
 A threshold is required so that a wall is not "active" with a capacity near zero, but unable to be depleted practically (dust).
 
+</i>
+
 ```solidity
-uint256 public thresholdFactor
+uint256 public thresholdFactor;
 ```
 
 ### ohm
@@ -28,7 +31,7 @@ uint256 public thresholdFactor
 OHM token contract address
 
 ```solidity
-ERC20 public ohm
+ERC20 public ohm;
 ```
 
 ### reserve
@@ -36,10 +39,12 @@ ERC20 public ohm
 Reserve token contract address
 
 ```solidity
-ERC20 public reserve
+ERC20 public reserve;
 ```
 
 ## Functions
+
+<a id="updatecapacity-bool-uint256"></a>
 
 ### updateCapacity
 
@@ -53,10 +58,12 @@ function updateCapacity(bool high_, uint256 capacity_) external virtual;
 
 **Parameters**
 
-| Name        | Type      | Description                                                                                    |
-| ----------- | --------- | ---------------------------------------------------------------------------------------------- |
-| `high_`     | `bool`    | - Specifies the side of the range to update capacity for (true = high side, false = low side). |
-| `capacity_` | `uint256` | - Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side).       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to update capacity for (true = high side, false = low side). |
+| capacity_ | `uint256` | - Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side). |
+
+<a id="updateprices-uint256"></a>
 
 ### updatePrices
 
@@ -70,9 +77,11 @@ function updatePrices(uint256 movingAverage_) external virtual;
 
 **Parameters**
 
-| Name             | Type      | Description                                              |
-| ---------------- | --------- | -------------------------------------------------------- |
-| `movingAverage_` | `uint256` | - Current moving average price to set range prices from. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| movingAverage_ | `uint256` | - Current moving average price to set range prices from. |
+
+<a id="regenerate-bool-uint256"></a>
 
 ### regenerate
 
@@ -86,10 +95,12 @@ function regenerate(bool high_, uint256 capacity_) external virtual;
 
 **Parameters**
 
-| Name        | Type      | Description                                                                              |
-| ----------- | --------- | ---------------------------------------------------------------------------------------- |
-| `high_`     | `bool`    | - Specifies the side of the range to regenerate (true = high side, false = low side).    |
-| `capacity_` | `uint256` | - Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to regenerate (true = high side, false = low side). |
+| capacity_ | `uint256` | - Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side). |
+
+<a id="updatemarket-bool-uint256-uint256"></a>
 
 ### updateMarket
 
@@ -103,11 +114,13 @@ function updateMarket(bool high_, uint256 market_, uint256 marketCapacity_) exte
 
 **Parameters**
 
-| Name              | Type      | Description                                                                                          |
-| ----------------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| `high_`           | `bool`    | - Specifies the side of the range to update market for (true = high side, false = low side).         |
-| `market_`         | `uint256` | - Market ID to set for the side.                                                                     |
-| `marketCapacity_` | `uint256` | - Amount to set the last market capacity to (OHM tokens for high side, Reserve tokens for low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to update market for (true = high side, false = low side). |
+| market_ | `uint256` | - Market ID to set for the side. |
+| marketCapacity_ | `uint256` | - Amount to set the last market capacity to (OHM tokens for high side, Reserve tokens for low side). |
+
+<a id="setspreads-uint256-uint256"></a>
 
 ### setSpreads
 
@@ -115,7 +128,11 @@ Set the wall and cushion spreads.
 
 Access restricted to activated policies.
 
+<i>
+
 The new spreads will not go into effect until the next time updatePrices() is called.
+
+</i>
 
 ```solidity
 function setSpreads(uint256 cushionSpread_, uint256 wallSpread_) external virtual;
@@ -123,10 +140,12 @@ function setSpreads(uint256 cushionSpread_, uint256 wallSpread_) external virtua
 
 **Parameters**
 
-| Name             | Type      | Description                                                                                                   |
-| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------- |
-| `cushionSpread_` | `uint256` | - Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%). |
-| `wallSpread_`    | `uint256` | - Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%).    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cushionSpread_ | `uint256` | - Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%). |
+| wallSpread_ | `uint256` | - Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%). |
+
+<a id="setthresholdfactor-uint256"></a>
 
 ### setThresholdFactor
 
@@ -134,7 +153,11 @@ Set the threshold factor for when a wall is considered "down".
 
 Access restricted to activated policies.
 
+<i>
+
 The new threshold factor will not go into effect until the next time regenerate() is called for each side of the wall.
+
+</i>
 
 ```solidity
 function setThresholdFactor(uint256 thresholdFactor_) external virtual;
@@ -142,9 +165,11 @@ function setThresholdFactor(uint256 thresholdFactor_) external virtual;
 
 **Parameters**
 
-| Name               | Type      | Description                                                                                   |
-| ------------------ | --------- | --------------------------------------------------------------------------------------------- |
-| `thresholdFactor_` | `uint256` | - Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| thresholdFactor_ | `uint256` | - Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%). |
+
+<a id="range"></a>
 
 ### range
 
@@ -153,6 +178,14 @@ Get the full Range data in a struct.
 ```solidity
 function range() external view virtual returns (Range memory);
 ```
+
+**Returns**
+
+| Name         | Type    | Description |
+| ------------ | ------- | ----------- |
+| &lt;none&gt; | `Range` |             |
+
+<a id="capacity-bool"></a>
 
 ### capacity
 
@@ -164,9 +197,17 @@ function capacity(bool high_) external view virtual returns (uint256);
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                 |
-| ------- | ------ | ------------------------------------------------------------------------------------------- |
-| `high_` | `bool` | - Specifies the side of the range to get capacity for (true = high side, false = low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to get capacity for (true = high side, false = low side). |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `uint256` |             |
+
+<a id="active-bool"></a>
 
 ### active
 
@@ -178,9 +219,17 @@ function active(bool high_) external view virtual returns (bool);
 
 **Parameters**
 
-| Name    | Type   | Description                                                                               |
-| ------- | ------ | ----------------------------------------------------------------------------------------- |
-| `high_` | `bool` | - Specifies the side of the range to get status for (true = high side, false = low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to get status for (true = high side, false = low side). |
+
+**Returns**
+
+| Name         | Type   | Description |
+| ------------ | ------ | ----------- |
+| &lt;none&gt; | `bool` |             |
+
+<a id="price-bool-bool"></a>
 
 ### price
 
@@ -192,10 +241,18 @@ function price(bool wall_, bool high_) external view virtual returns (uint256);
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                  |
-| ------- | ------ | -------------------------------------------------------------------------------------------- |
-| `wall_` | `bool` | - Specifies the band to get the price for (true = wall, false = cushion).                    |
-| `high_` | `bool` | - Specifies the side of the range to get the price for (true = high side, false = low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| wall_ | `bool` | - Specifies the band to get the price for (true = wall, false = cushion). |
+| high_ | `bool` | - Specifies the side of the range to get the price for (true = high side, false = low side). |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `uint256` |             |
+
+<a id="spread-bool"></a>
 
 ### spread
 
@@ -207,9 +264,17 @@ function spread(bool wall_) external view virtual returns (uint256);
 
 **Parameters**
 
-| Name    | Type   | Description                                                                |
-| ------- | ------ | -------------------------------------------------------------------------- |
-| `wall_` | `bool` | - Specifies the band to get the spread for (true = wall, false = cushion). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| wall_ | `bool` | - Specifies the band to get the spread for (true = wall, false = cushion). |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `uint256` |             |
+
+<a id="market-bool"></a>
 
 ### market
 
@@ -221,9 +286,17 @@ function market(bool high_) external view virtual returns (uint256);
 
 **Parameters**
 
-| Name    | Type   | Description                                                                               |
-| ------- | ------ | ----------------------------------------------------------------------------------------- |
-| `high_` | `bool` | - Specifies the side of the range to get market for (true = high side, false = low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to get market for (true = high side, false = low side). |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `uint256` |             |
+
+<a id="lastactive-bool"></a>
 
 ### lastActive
 
@@ -235,9 +308,15 @@ function lastActive(bool high_) external view virtual returns (uint256);
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                  |
-| ------- | ------ | -------------------------------------------------------------------------------------------- |
-| `high_` | `bool` | - Specifies the side of the range to get timestamp for (true = high side, false = low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to get timestamp for (true = high side, false = low side). |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `uint256` |             |
 
 ## Events
 
@@ -247,11 +326,27 @@ function lastActive(bool high_) external view virtual returns (uint256);
 event WallUp(bool high_, uint256 timestamp_, uint256 capacity_);
 ```
 
+**Parameters**
+
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| high_      | `bool`    |             |
+| timestamp_ | `uint256` |             |
+| capacity_  | `uint256` |             |
+
 ### WallDown
 
 ```solidity
 event WallDown(bool high_, uint256 timestamp_, uint256 capacity_);
 ```
+
+**Parameters**
+
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| high_      | `bool`    |             |
+| timestamp_ | `uint256` |             |
+| capacity_  | `uint256` |             |
 
 ### CushionUp
 
@@ -259,19 +354,46 @@ event WallDown(bool high_, uint256 timestamp_, uint256 capacity_);
 event CushionUp(bool high_, uint256 timestamp_, uint256 capacity_);
 ```
 
+**Parameters**
+
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| high_      | `bool`    |             |
+| timestamp_ | `uint256` |             |
+| capacity_  | `uint256` |             |
+
 ### CushionDown
 
 ```solidity
 event CushionDown(bool high_, uint256 timestamp_);
 ```
 
+**Parameters**
+
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| high_      | `bool`    |             |
+| timestamp_ | `uint256` |             |
+
 ### PricesChanged
 
 ```solidity
 event PricesChanged(
-    uint256 wallLowPrice_, uint256 cushionLowPrice_, uint256 cushionHighPrice_, uint256 wallHighPrice_
-);
+        uint256 wallLowPrice_,
+        uint256 cushionLowPrice_,
+        uint256 cushionHighPrice_,
+        uint256 wallHighPrice_
+    );
 ```
+
+**Parameters**
+
+| Name              | Type      | Description |
+| ----------------- | --------- | ----------- |
+| wallLowPrice_     | `uint256` |             |
+| cushionLowPrice_  | `uint256` |             |
+| cushionHighPrice_ | `uint256` |             |
+| wallHighPrice_    | `uint256` |             |
 
 ### SpreadsChanged
 
@@ -279,11 +401,24 @@ event PricesChanged(
 event SpreadsChanged(uint256 cushionSpread_, uint256 wallSpread_);
 ```
 
+**Parameters**
+
+| Name           | Type      | Description |
+| -------------- | --------- | ----------- |
+| cushionSpread_ | `uint256` |             |
+| wallSpread_    | `uint256` |             |
+
 ### ThresholdFactorChanged
 
 ```solidity
 event ThresholdFactorChanged(uint256 thresholdFactor_);
 ```
+
+**Parameters**
+
+| Name             | Type      | Description |
+| ---------------- | --------- | ----------- |
+| thresholdFactor_ | `uint256` |             |
 
 ## Errors
 
@@ -299,39 +434,72 @@ error RANGE_InvalidParams();
 
 ```solidity
 struct Line {
-    uint256 price; // Price for the specified level
-}
+        uint256 price; // Price for the specified level
+    }
 ```
+
+**Properties**
+
+| Name  | Type      | Description |
+| ----- | --------- | ----------- |
+| price | `uint256` |             |
 
 ### Band
 
 ```solidity
 struct Band {
-    Line high; // Price of the high side of the band
-    Line low; // Price of the low side of the band
-    uint256 spread; // Spread of the band (increase/decrease from the moving average to set the band prices), percent with 2 decimal places (i.e. 1000 = 10% spread)
-}
+        Line high; // Price of the high side of the band
+        Line low; // Price of the low side of the band
+        uint256 spread; // Spread of the band (increase/decrease from the moving average to set the band prices), percent with 2 decimal places (i.e. 1000 = 10% spread)
+    }
 ```
+
+**Properties**
+
+| Name   | Type      | Description |
+| ------ | --------- | ----------- |
+| high   | `Line`    |             |
+| low    | `Line`    |             |
+| spread | `uint256` |             |
 
 ### Side
 
 ```solidity
 struct Side {
-    bool active; // Whether or not the side is active (i.e. the Operator is performing market operations on this side, true = active, false = inactive)
-    uint48 lastActive; // Unix timestamp when the side was last active (in seconds)
-    uint256 capacity; // Amount of tokens that can be used to defend the side of the range. Specified in OHM tokens on the high side and Reserve tokens on the low side.
-    uint256 threshold; // Minimum number of tokens required in capacity to maintain an active side. Specified in OHM tokens on the high side and Reserve tokens on the low side.
-    uint256 market; // Market ID of the cushion bond market for the side. If no market is active, the market ID is set to max uint256 value.
-}
+        bool active; // Whether or not the side is active (i.e. the Operator is performing market operations on this side, true = active, false = inactive)
+        uint48 lastActive; // Unix timestamp when the side was last active (in seconds)
+        uint256 capacity; // Amount of tokens that can be used to defend the side of the range. Specified in OHM tokens on the high side and Reserve tokens on the low side.
+        uint256 threshold; // Minimum number of tokens required in capacity to maintain an active side. Specified in OHM tokens on the high side and Reserve tokens on the low side.
+        uint256 market; // Market ID of the cushion bond market for the side. If no market is active, the market ID is set to max uint256 value.
+    }
 ```
+
+**Properties**
+
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| active     | `bool`    |             |
+| lastActive | `uint48`  |             |
+| capacity   | `uint256` |             |
+| threshold  | `uint256` |             |
+| market     | `uint256` |             |
 
 ### Range
 
 ```solidity
 struct Range {
-    Side low; // Data specific to the low side of the range
-    Side high; // Data specific to the high side of the range
-    Band cushion; // Data relevant to cushions on both sides of the range
-    Band wall; // Data relevant to walls on both sides of the range
-}
+        Side low; // Data specific to the low side of the range
+        Side high; // Data specific to the high side of the range
+        Band cushion; // Data relevant to cushions on both sides of the range
+        Band wall; // Data relevant to walls on both sides of the range
+    }
 ```
+
+**Properties**
+
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| low     | `Side` |             |
+| high    | `Side` |             |
+| cushion | `Band` |             |
+| wall    | `Band` |             |

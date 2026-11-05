@@ -1,16 +1,26 @@
 # IReserveMigrator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/IReserveMigrator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/IReserveMigrator.sol)
 
 ## Functions
+
+<a id="migrate"></a>
 
 ### migrate
 
 migrate reserves and wrapped reserves in the treasury to the new reserve token
 
+<i>
+
 this function is restricted to the heart role to avoid complications with opportunistic conversions
 
+</i>
+
+<i>
+
 if no migration is required or it is deactivated, the function does nothing
+
+</i>
 
 ```solidity
 function migrate() external;
@@ -23,6 +33,14 @@ function migrate() external;
 ```solidity
 event MigratedReserves(address indexed from, address indexed to, uint256 amount);
 ```
+
+**Parameters**
+
+| Name   | Type      | Description |
+| ------ | --------- | ----------- |
+| from   | `address` |             |
+| to     | `address` |             |
+| amount | `uint256` |             |
 
 ### Activated
 

@@ -1,28 +1,23 @@
 # UniswapV3Price
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/modules/PRICE/submodules/feeds/UniswapV3Price.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/modules/PRICE/submodules/feeds/UniswapV3Price.sol)
 
-**Inherits:**
-[PriceSubmodule](/main/contracts/docs/src/modules/PRICE/PRICE.v2.sol/abstract.PriceSubmodule)
+**Inherits:** [PriceSubmodule](/main/contracts/docs/src/modules/PRICE/PRICE.v2.sol/abstract.PriceSubmodule)
 
-**Title:**
-UniswapV3Price
+**Title:** UniswapV3Price
 
-**Author:**
-0xJem
-
-forge-lint: disable-start(mixed-case-function)
+**Author:** 0xJem
 
 Provides prices derived from the TWAP of a Uniswap V3 pool
 
-## State Variables
+## Constants
 
 ### BASE_10_MAX_EXPONENT
 
 The maximum number of decimals allowed for a token in order to prevent overflows
 
 ```solidity
-uint8 internal constant BASE_10_MAX_EXPONENT = 30
+uint8 internal constant BASE_10_MAX_EXPONENT = 30;
 ```
 
 ### POOL_PARAMS_LENGTH
@@ -30,7 +25,7 @@ uint8 internal constant BASE_10_MAX_EXPONENT = 30
 The expected length of the encoded pool parameters (address + uint32 = 64 bytes)
 
 ```solidity
-uint256 internal constant POOL_PARAMS_LENGTH = 64
+uint256 internal constant POOL_PARAMS_LENGTH = 64;
 ```
 
 ### POOL_ADDRESS_LENGTH
@@ -38,7 +33,7 @@ uint256 internal constant POOL_PARAMS_LENGTH = 64
 The expected length of the encoded pool address (32 bytes)
 
 ```solidity
-uint256 internal constant POOL_ADDRESS_LENGTH = 32
+uint256 internal constant POOL_ADDRESS_LENGTH = 32;
 ```
 
 ### MIN_TICK
@@ -46,7 +41,7 @@ uint256 internal constant POOL_ADDRESS_LENGTH = 32
 The minimum tick that can be used in a pool, as defined by UniswapV3 libraries
 
 ```solidity
-int24 internal constant MIN_TICK = -887272
+int24 internal constant MIN_TICK = -887272;
 ```
 
 ### MAX_TICK
@@ -54,7 +49,7 @@ int24 internal constant MIN_TICK = -887272
 The maximum tick that can be used in a pool, as defined by UniswapV3 libraries
 
 ```solidity
-int24 internal constant MAX_TICK = -MIN_TICK
+int24 internal constant MAX_TICK = -MIN_TICK;
 ```
 
 ### AVERAGE_BLOCK_TIME_SECONDS
@@ -62,7 +57,7 @@ int24 internal constant MAX_TICK = -MIN_TICK
 Assumed average block time used to estimate required observations for TWAP
 
 ```solidity
-uint32 public immutable AVERAGE_BLOCK_TIME_SECONDS
+uint32 public immutable AVERAGE_BLOCK_TIME_SECONDS;
 ```
 
 ### UNISWAP_V3_FACTORY
@@ -70,34 +65,47 @@ uint32 public immutable AVERAGE_BLOCK_TIME_SECONDS
 Canonical Uniswap V3 factory used for pool validation
 
 ```solidity
-address public immutable UNISWAP_V3_FACTORY
+address public immutable UNISWAP_V3_FACTORY;
 ```
 
 ## Functions
 
+<a id="constructor-module-uint32-address"></a>
+
 ### constructor
 
 Initializes the submodule and records the assumed block time for TWAP cardinality checks.
+
+<i>
 
 Calls the `Submodule(parent_)` constructor to bind this feed to the parent PRICE module.
 This function will revert if:
 
 - `averageBlockTimeSeconds_ == 0` (`UniswapV3_AverageBlockTimeInvalid`)
 - `uniswapV3Factory_ == address(0)` (`UniswapV3_FactoryInvalid`)
-  Stores `averageBlockTimeSeconds_` in `AVERAGE_BLOCK_TIME_SECONDS`, which is used by
-  `_checkObservationCardinality` to compute minimum required pool cardinality.
+
+</i>
+
+Stores `averageBlockTimeSeconds_` in `AVERAGE_BLOCK_TIME_SECONDS`, which is used by
+`_checkObservationCardinality` to compute minimum required pool cardinality.
 
 ```solidity
-constructor(Module parent_, uint32 averageBlockTimeSeconds_, address uniswapV3Factory_) Submodule(parent_);
+constructor(
+        Module parent_,
+        uint32 averageBlockTimeSeconds_,
+        address uniswapV3Factory_
+    ) Submodule(parent_);
 ```
 
 **Parameters**
 
-| Name                       | Type      | Description                                        |
-| -------------------------- | --------- | -------------------------------------------------- |
-| `parent_`                  | `Module`  | The PRICE module                                   |
-| `averageBlockTimeSeconds_` | `uint32`  | The average block time used for cardinality checks |
-| `uniswapV3Factory_`        | `address` | The canonical Uniswap V3 factory                   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parent_ | `Module` | The PRICE module |
+| averageBlockTimeSeconds_ | `uint32` | The average block time used for cardinality checks |
+| uniswapV3Factory_ | `address` | The canonical Uniswap V3 factory |
+
+<a id="subkeycode"></a>
 
 ### SUBKEYCODE
 
@@ -107,15 +115,36 @@ constructor(Module parent_, uint32 averageBlockTimeSeconds_, address uniswapV3Fa
 function SUBKEYCODE() public pure override returns (SubKeycode);
 ```
 
+**Returns**
+
+| Name         | Type         | Description |
+| ------------ | ------------ | ----------- |
+| &lt;none&gt; | `SubKeycode` |             |
+
+<a id="version"></a>
+
 ### VERSION
+
+Returns the version of the contract
 
 ```solidity
 function VERSION() public pure override returns (uint8 major, uint8 minor);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| major | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| minor | `uint8` | - Minor version change retains backward-compatible interface. |
+
+<a id="gettokentwap-address-uint8-bytes"></a>
+
 ### getTokenTWAP
 
 Obtains the price of `lookupToken_` in USD, using the TWAP from the specified Uniswap V3 oracle.
+
+<i>
 
 This function will revert if:
 
@@ -124,119 +153,147 @@ This function will revert if:
 - Any tokens in the pool are not set
 - `lookupToken_` is not in the pool
 - The calculated time-weighted tick is outside the bounds of int24
-  NOTE: as a UniswapV3 pool can be manipulated using multi-block MEV, the TWAP values
-  can also be manipulated. Price feeds are a preferred source of price data. Use this function with caution.
-  See <https://chainsecurity.com/oracle-manipulation-after-merge/>
+
+</i>
+
+NOTE: as a UniswapV3 pool can be manipulated using multi-block MEV, the TWAP values
+can also be manipulated. Price feeds are a preferred source of price data. Use this function with caution.
+See <https://chainsecurity.com/oracle-manipulation-after-merge/>
 
 ```solidity
-function getTokenTWAP(address lookupToken_, uint8 outputDecimals_, bytes calldata params_)
-    external
-    view
-    returns (uint256);
+function getTokenTWAP(
+        address lookupToken_,
+        uint8 outputDecimals_,
+        bytes calldata params_
+    ) external view returns (uint256);
 ```
 
 **Parameters**
 
-| Name              | Type      | Description                                                              |
-| ----------------- | --------- | ------------------------------------------------------------------------ |
-| `lookupToken_`    | `address` | The token to determine the price of.                                     |
-| `outputDecimals_` | `uint8`   | The number of output decimals (assumed to be the same as PRICE decimals) |
-| `params_`         | `bytes`   | Pool parameters of type `UniswapV3Params`                                |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| lookupToken_ | `address` | The token to determine the price of. |
+| outputDecimals_ | `uint8` | The number of output decimals (assumed to be the same as PRICE decimals) |
+| params_ | `bytes` | Pool parameters of type `UniswapV3Params` |
 
 **Returns**
 
-| Name     | Type      | Description                                     |
-| -------- | --------- | ----------------------------------------------- |
-| `<none>` | `uint256` | uint256 Price in the scale of `outputDecimals_` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256         Price in the scale of `outputDecimals_` |
+
+<a id="gettokenprice-address-uint8-bytes"></a>
 
 ### getTokenPrice
 
 Obtains the price of `lookupToken_` in USD, using the current Slot0 price from the specified Uniswap V3 oracle.
 
+<i>
+
 This function will revert if:
 
 - Any token decimals or `outputDecimals_` are high enough to cause an overflow
 - Any tokens in the pool are not set
 - `lookupToken_` is not in the pool
-  NOTE: as a UniswapV3 pool can be manipulated using multi-block MEV, the TWAP values
-  can also be manipulated. Price feeds are a preferred source of price data. Use this function with caution.
-  See <https://chainsecurity.com/oracle-manipulation-after-merge/>
+
+</i>
+
+NOTE: as a UniswapV3 pool can be manipulated using multi-block MEV, the TWAP values
+can also be manipulated. Price feeds are a preferred source of price data. Use this function with caution.
+See <https://chainsecurity.com/oracle-manipulation-after-merge/>
 
 ```solidity
-function getTokenPrice(address lookupToken_, uint8 outputDecimals_, bytes calldata params_)
-    external
-    view
-    returns (uint256);
+function getTokenPrice(
+        address lookupToken_,
+        uint8 outputDecimals_,
+        bytes calldata params_
+    ) external view returns (uint256);
 ```
 
 **Parameters**
 
-| Name              | Type      | Description                                                              |
-| ----------------- | --------- | ------------------------------------------------------------------------ |
-| `lookupToken_`    | `address` | The token to determine the price of.                                     |
-| `outputDecimals_` | `uint8`   | The number of output decimals (assumed to be the same as PRICE decimals) |
-| `params_`         | `bytes`   | Encoded Uniswap V3 pool address (32 bytes)                               |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| lookupToken_ | `address` | The token to determine the price of. |
+| outputDecimals_ | `uint8` | The number of output decimals (assumed to be the same as PRICE decimals) |
+| params_ | `bytes` | Encoded Uniswap V3 pool address (32 bytes) |
 
 **Returns**
 
-| Name     | Type      | Description                                     |
-| -------- | --------- | ----------------------------------------------- |
-| `<none>` | `uint256` | uint256 Price in the scale of `outputDecimals_` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256         Price in the scale of `outputDecimals_` |
 
-### \_checkPoolAndTokenParams
+<a id="_checkpoolandtokenparams-address-uint8-iuniswapv3pool"></a>
+
+### _checkPoolAndTokenParams
 
 Performs checks to ensure that the pool, the tokens, and the decimals are valid.
 
+<i>
+
 This function will revert if:
 
 - Any token decimals or `outputDecimals_` are high enough to cause an overflow
 - Any tokens in the pool are not set
 - `lookupToken_` is not in the pool
 
+</i>
+
 ```solidity
-function _checkPoolAndTokenParams(address lookupToken_, uint8 outputDecimals_, IUniswapV3Pool pool_)
-    internal
-    view
-    returns (address, uint8, uint8);
+function _checkPoolAndTokenParams(
+        address lookupToken_,
+        uint8 outputDecimals_,
+        IUniswapV3Pool pool_
+    ) internal view returns (address, uint8, uint8);
 ```
 
 **Parameters**
 
-| Name              | Type             | Description                         |
-| ----------------- | ---------------- | ----------------------------------- |
-| `lookupToken_`    | `address`        | The token to determine the price of |
-| `outputDecimals_` | `uint8`          | The decimals of `baseToken`         |
-| `pool_`           | `IUniswapV3Pool` | The Uniswap V3 pool to use          |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| lookupToken_ | `address` | The token to determine the price of |
+| outputDecimals_ | `uint8` | The decimals of `baseToken` |
+| pool_ | `IUniswapV3Pool` | The Uniswap V3 pool to use |
 
 **Returns**
 
-| Name     | Type      | Description                 |
-| -------- | --------- | --------------------------- |
-| `<none>` | `address` | address Quote token         |
-| `<none>` | `uint8`   | uint8 Quote token decimals  |
-| `<none>` | `uint8`   | uint8 Lookup token decimals |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` | address         Quote token |
+| &lt;none&gt; | `uint8` | uint8           Quote token decimals |
+| &lt;none&gt; | `uint8` | uint8           Lookup token decimals |
 
-### \_checkObservationCardinality
+<a id="_checkobservationcardinality-iuniswapv3pool-uint32"></a>
+
+### _checkObservationCardinality
 
 Validates the observation cardinality for a TWAP window.
+
+<i>
 
 Uses `AVERAGE_BLOCK_TIME_SECONDS` to derive the minimum cardinality required to
 service the requested lookback window.
 This function will revert if:
 
 - Pool observation cardinality is below the minimum required cardinality
-  (`UniswapV3_ObservationCardinalityInsufficient`)
+(`UniswapV3_ObservationCardinalityInsufficient`)
+
+</i>
 
 ```solidity
-function _checkObservationCardinality(IUniswapV3Pool pool_, uint32 observationWindowSeconds_) internal view;
+function _checkObservationCardinality(
+        IUniswapV3Pool pool_,
+        uint32 observationWindowSeconds_
+    ) internal view;
 ```
 
 **Parameters**
 
-| Name                        | Type             | Description                                 |
-| --------------------------- | ---------------- | ------------------------------------------- |
-| `pool_`                     | `IUniswapV3Pool` | The pool used for the TWAP lookup           |
-| `observationWindowSeconds_` | `uint32`         | The requested observation window in seconds |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pool_ | `IUniswapV3Pool` | The pool used for the TWAP lookup |
+| observationWindowSeconds_ | `uint32` | The requested observation window in seconds |
 
 ## Errors
 
@@ -250,25 +307,29 @@ error UniswapV3_ParamsInvalid(bytes params_);
 
 **Parameters**
 
-| Name      | Type    | Description            |
-| --------- | ------- | ---------------------- |
-| `params_` | `bytes` | The encoded parameters |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| params_ | `bytes` | The encoded parameters |
 
 ### UniswapV3_AssetDecimalsOutOfBounds
 
 The decimals of the asset are out of bounds
 
 ```solidity
-error UniswapV3_AssetDecimalsOutOfBounds(address asset_, uint8 assetDecimals_, uint8 maxDecimals_);
+error UniswapV3_AssetDecimalsOutOfBounds(
+        address asset_,
+        uint8 assetDecimals_,
+        uint8 maxDecimals_
+    );
 ```
 
 **Parameters**
 
-| Name             | Type      | Description                            |
-| ---------------- | --------- | -------------------------------------- |
-| `asset_`         | `address` | The address of the asset               |
-| `assetDecimals_` | `uint8`   | The number of decimals of the asset    |
-| `maxDecimals_`   | `uint8`   | The maximum number of decimals allowed |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | The address of the asset |
+| assetDecimals_ | `uint8` | The number of decimals of the asset |
+| maxDecimals_ | `uint8` | The maximum number of decimals allowed |
 
 ### UniswapV3_LookupTokenNotFound
 
@@ -280,10 +341,10 @@ error UniswapV3_LookupTokenNotFound(address pool_, address asset_);
 
 **Parameters**
 
-| Name     | Type      | Description              |
-| -------- | --------- | ------------------------ |
-| `pool_`  | `address` | The address of the pool  |
-| `asset_` | `address` | The address of the asset |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pool_ | `address` | The address of the pool |
+| asset_ | `address` | The address of the asset |
 
 ### UniswapV3_OutputDecimalsOutOfBounds
 
@@ -295,10 +356,10 @@ error UniswapV3_OutputDecimalsOutOfBounds(uint8 outputDecimals_, uint8 maxDecima
 
 **Parameters**
 
-| Name              | Type    | Description                            |
-| ----------------- | ------- | -------------------------------------- |
-| `outputDecimals_` | `uint8` | The number of decimals of the output   |
-| `maxDecimals_`    | `uint8` | The maximum number of decimals allowed |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| outputDecimals_ | `uint8` | The number of decimals of the output |
+| maxDecimals_ | `uint8` | The maximum number of decimals allowed |
 
 ### UniswapV3_ParamsPoolInvalid
 
@@ -310,10 +371,10 @@ error UniswapV3_ParamsPoolInvalid(uint8 paramsIndex_, address pool_);
 
 **Parameters**
 
-| Name           | Type      | Description                |
-| -------------- | --------- | -------------------------- |
-| `paramsIndex_` | `uint8`   | The index of the parameter |
-| `pool_`        | `address` | The address of the pool    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| paramsIndex_ | `uint8` | The index of the parameter |
+| pool_ | `address` | The address of the pool |
 
 ### UniswapV3_PoolTokensInvalid
 
@@ -325,18 +386,22 @@ error UniswapV3_PoolTokensInvalid(address pool_, uint8 tokenIndex_, address toke
 
 **Parameters**
 
-| Name          | Type      | Description              |
-| ------------- | --------- | ------------------------ |
-| `pool_`       | `address` | The address of the pool  |
-| `tokenIndex_` | `uint8`   | The index of the token   |
-| `token_`      | `address` | The address of the token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pool_ | `address` | The address of the pool |
+| tokenIndex_ | `uint8` | The index of the token |
+| token_ | `address` | The address of the token |
 
 ### UniswapV3_PoolTypeInvalid
 
 The pool is invalid
 
+<i>
+
 This is triggered if the pool reverted when called,
 and indicates that the feed address is not a UniswapV3 pool.
+
+</i>
 
 ```solidity
 error UniswapV3_PoolTypeInvalid(address pool_);
@@ -344,9 +409,9 @@ error UniswapV3_PoolTypeInvalid(address pool_);
 
 **Parameters**
 
-| Name    | Type      | Description             |
-| ------- | --------- | ----------------------- |
-| `pool_` | `address` | The address of the pool |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pool_ | `address` | The address of the pool |
 
 ### UniswapV3_FactoryInvalid
 
@@ -358,9 +423,9 @@ error UniswapV3_FactoryInvalid(address factory_);
 
 **Parameters**
 
-| Name       | Type      | Description                    |
-| ---------- | --------- | ------------------------------ |
-| `factory_` | `address` | The configured factory address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| factory_ | `address` | The configured factory address |
 
 ### UniswapV3_PoolFactoryInvalid
 
@@ -372,11 +437,11 @@ error UniswapV3_PoolFactoryInvalid(address pool_, address expectedPool_, address
 
 **Parameters**
 
-| Name            | Type      | Description                                           |
-| --------------- | --------- | ----------------------------------------------------- |
-| `pool_`         | `address` | The provided pool address                             |
-| `expectedPool_` | `address` | The pool returned by the canonical Uniswap V3 factory |
-| `factory_`      | `address` | The canonical Uniswap V3 factory                      |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pool_ | `address` | The provided pool address |
+| expectedPool_ | `address` | The pool returned by the canonical Uniswap V3 factory |
+| factory_ | `address` | The canonical Uniswap V3 factory |
 
 ### UniswapV3_ObservationCardinalityInsufficient
 
@@ -384,18 +449,21 @@ The pool has insufficient observation cardinality for the TWAP window
 
 ```solidity
 error UniswapV3_ObservationCardinalityInsufficient(
-    address pool_, uint16 observationCardinality_, uint32 observationWindow_, uint32 minimumCardinality_
-);
+        address pool_,
+        uint16 observationCardinality_,
+        uint32 observationWindow_,
+        uint32 minimumCardinality_
+    );
 ```
 
 **Parameters**
 
-| Name                      | Type      | Description                                             |
-| ------------------------- | --------- | ------------------------------------------------------- |
-| `pool_`                   | `address` | The address of the pool                                 |
-| `observationCardinality_` | `uint16`  | Current observation cardinality on the pool             |
-| `observationWindow_`      | `uint32`  | Requested TWAP observation window in seconds            |
-| `minimumCardinality_`     | `uint32`  | Minimum cardinality required for the observation window |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pool_ | `address` | The address of the pool |
+| observationCardinality_ | `uint16` | Current observation cardinality on the pool |
+| observationWindow_ | `uint32` | Requested TWAP observation window in seconds |
+| minimumCardinality_ | `uint32` | Minimum cardinality required for the observation window |
 
 ### UniswapV3_AverageBlockTimeInvalid
 
@@ -407,9 +475,9 @@ error UniswapV3_AverageBlockTimeInvalid(uint32 averageBlockTimeSeconds_);
 
 **Parameters**
 
-| Name                       | Type     | Description                                  |
-| -------------------------- | -------- | -------------------------------------------- |
-| `averageBlockTimeSeconds_` | `uint32` | The configured average block time in seconds |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| averageBlockTimeSeconds_ | `uint32` | The configured average block time in seconds |
 
 ### UniswapV3_PoolReentrancy
 
@@ -421,9 +489,9 @@ error UniswapV3_PoolReentrancy(address pool_);
 
 **Parameters**
 
-| Name    | Type      | Description                                 |
-| ------- | --------- | ------------------------------------------- |
-| `pool_` | `address` | The address of the affected Uniswap V3 pool |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pool_ | `address` | The address of the affected Uniswap V3 pool |
 
 ## Structs
 
@@ -433,14 +501,14 @@ The parameters for a Uniswap V3 pool
 
 ```solidity
 struct UniswapV3Params {
-    IUniswapV3Pool pool;
-    uint32 observationWindowSeconds;
-}
+        IUniswapV3Pool pool;
+        uint32 observationWindowSeconds;
+    }
 ```
 
 **Properties**
 
-| Name                       | Type             | Description                                          |
-| -------------------------- | ---------------- | ---------------------------------------------------- |
-| `pool`                     | `IUniswapV3Pool` | The address of the pool                              |
-| `observationWindowSeconds` | `uint32`         | The length of the TWAP observation window in seconds |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pool | `IUniswapV3Pool` | The address of the pool |
+| observationWindowSeconds | `uint32` | The length of the TWAP observation window in seconds |

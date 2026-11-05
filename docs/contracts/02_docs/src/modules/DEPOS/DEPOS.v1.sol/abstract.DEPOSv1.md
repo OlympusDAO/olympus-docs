@@ -1,24 +1,22 @@
 # DEPOSv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/modules/DEPOS/DEPOS.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/modules/DEPOS/DEPOS.v1.sol)
 
-**Inherits:**
-[Module](/main/contracts/docs/src/Kernel.sol/abstract.Module), ERC721, [IDepositPositionManager](/main/contracts/docs/src/modules/DEPOS/IDepositPositionManager.sol/interface.IDepositPositionManager)
+**Inherits:** [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module), ERC721, [IDepositPositionManager](/main/contracts/docs/src/modules/DEPOS/IDepositPositionManager.sol/interface.IDepositPositionManager)
 
-**Title:**
-DEPOSv1
+**Title:** DEPOSv1
 
 This defines the interface for the DEPOS module.
 The objective of this module is to track the terms of a deposit position.
 
-## State Variables
+## Constants
 
 ### NON_CONVERSION_PRICE
 
 The value used for the conversion price if conversion is not supported
 
 ```solidity
-uint256 public constant NON_CONVERSION_PRICE = type(uint256).max
+uint256 public constant NON_CONVERSION_PRICE = type(uint256).max;
 ```
 
 ### NON_CONVERSION_EXPIRY
@@ -26,32 +24,38 @@ uint256 public constant NON_CONVERSION_PRICE = type(uint256).max
 The value used for the conversion expiry if conversion is not supported
 
 ```solidity
-uint48 public constant NON_CONVERSION_EXPIRY = type(uint48).max
+uint48 public constant NON_CONVERSION_EXPIRY = type(uint48).max;
 ```
 
-### \_positionCount
+## State Variables
+
+### _positionCount
 
 The number of positions created
 
 ```solidity
-uint256 internal _positionCount
+uint256 internal _positionCount;
 ```
 
-### \_positions
+### _positions
 
 Mapping of position records to an ID
+
+<i>
 
 IDs are assigned sequentially starting from 0
 Mapping entries should not be deleted, but can be overwritten
 
+</i>
+
 ```solidity
-mapping(uint256 => Position) internal _positions
+mapping(uint256 => Position) internal _positions;
 ```
 
-### \_userPositions
+### _userPositions
 
 Mapping of user addresses to their position IDs
 
 ```solidity
-mapping(address => EnumerableSet.UintSet) internal _userPositions
+mapping(address => EnumerableSet.UintSet) internal _userPositions;
 ```

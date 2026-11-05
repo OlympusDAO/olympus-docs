@@ -1,12 +1,10 @@
 # BondManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/BondManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/BondManager.sol)
 
-**Inherits:**
-[Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
+**Inherits:** [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
 
-**Title:**
-Olympus Bond Manager
+**Title:** Olympus Bond Manager
 
 Olympus Bond Manager (Policy) Contract
 
@@ -15,70 +13,84 @@ Olympus Bond Manager (Policy) Contract
 ### MINTR
 
 ```solidity
-MINTRv1 public MINTR
+MINTRv1 public MINTR;
 ```
 
 ### TRSRY
 
 ```solidity
-TRSRYv1 public TRSRY
+TRSRYv1 public TRSRY;
 ```
 
 ### bondCallback
 
 ```solidity
-IBondCallback public bondCallback
+IBondCallback public bondCallback;
 ```
 
 ### fixedExpiryAuctioneer
 
 ```solidity
-IBondAuctioneer public fixedExpiryAuctioneer
+IBondAuctioneer public fixedExpiryAuctioneer;
 ```
 
 ### fixedExpiryTeller
 
 ```solidity
-IBondFixedExpiryTeller public fixedExpiryTeller
+IBondFixedExpiryTeller public fixedExpiryTeller;
 ```
 
 ### gnosisEasyAuction
 
 ```solidity
-IEasyAuction public gnosisEasyAuction
+IEasyAuction public gnosisEasyAuction;
 ```
 
 ### ohm
 
 ```solidity
-OlympusERC20Token public ohm
+OlympusERC20Token public ohm;
 ```
 
 ### fixedExpiryParameters
 
 ```solidity
-FixedExpiryParameters public fixedExpiryParameters
+FixedExpiryParameters public fixedExpiryParameters;
 ```
 
 ### batchAuctionParameters
 
 ```solidity
-BatchAuctionParameters public batchAuctionParameters
+BatchAuctionParameters public batchAuctionParameters;
 ```
 
 ## Functions
+
+<a id="constructor-kernel-address-address-address-address"></a>
 
 ### constructor
 
 ```solidity
 constructor(
-    Kernel kernel_,
-    address fixedExpiryAuctioneer_,
-    address fixedExpiryTeller_,
-    address gnosisEasyAuction_,
-    address ohm_
-) Policy(kernel_);
+        Kernel kernel_,
+        address fixedExpiryAuctioneer_,
+        address fixedExpiryTeller_,
+        address gnosisEasyAuction_,
+        address ohm_
+    ) Policy(kernel_);
 ```
+
+**Parameters**
+
+| Name                   | Type      | Description |
+| ---------------------- | --------- | ----------- |
+| kernel_                | `Kernel`  |             |
+| fixedExpiryAuctioneer_ | `address` |             |
+| fixedExpiryTeller_     | `address` |             |
+| gnosisEasyAuction_     | `address` |             |
+| ohm_                   | `address` |             |
+
+<a id="configuredependencies"></a>
 
 ### configureDependencies
 
@@ -90,9 +102,11 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-| Name           | Type        | Description                             |
-| -------------- | ----------- | --------------------------------------- |
-| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dependencies | `Keycode[]` | - Keycode array of module dependencies. |
+
+<a id="requestpermissions"></a>
 
 ### requestPermissions
 
@@ -104,45 +118,63 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-| Name       | Type            | Description                                                           |
-| ---------- | --------------- | --------------------------------------------------------------------- |
-| `requests` | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| requests | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
+
+<a id="createfixedexpirybondmarket-uint256-uint48"></a>
 
 ### createFixedExpiryBondMarket
 
 Creates a market on the Bond Protocol contracts to auction off OHM bonds
 
 ```solidity
-function createFixedExpiryBondMarket(uint256 capacity_, uint48 bondTerm_)
-    external
-    onlyRole("bondmanager_admin")
-    returns (uint256 marketId);
+function createFixedExpiryBondMarket(
+        uint256 capacity_,
+        uint48 bondTerm_
+    ) external onlyRole("bondmanager_admin") returns (uint256 marketId);
 ```
 
 **Parameters**
 
-| Name        | Type      | Description                                   |
-| ----------- | --------- | --------------------------------------------- |
-| `capacity_` | `uint256` | The budget of OHM to payout through OHM bonds |
-| `bondTerm_` | `uint48`  | How long should the OHM be locked in the bond |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| capacity_ | `uint256` | The budget of OHM to payout through OHM bonds |
+| bondTerm_ | `uint48` | How long should the OHM be locked in the bond |
+
+**Returns**
+
+| Name     | Type      | Description |
+| -------- | --------- | ----------- |
+| marketId | `uint256` |             |
+
+<a id="createbatchauction-uint96-uint48"></a>
 
 ### createBatchAuction
 
 Creates a bond token using Bond Protocol and creates a Gnosis Auction to sell it
 
 ```solidity
-function createBatchAuction(uint96 capacity_, uint48 bondTerm_)
-    external
-    onlyRole("bondmanager_admin")
-    returns (uint256 auctionId);
+function createBatchAuction(
+        uint96 capacity_,
+        uint48 bondTerm_
+    ) external onlyRole("bondmanager_admin") returns (uint256 auctionId);
 ```
 
 **Parameters**
 
-| Name        | Type     | Description                                   |
-| ----------- | -------- | --------------------------------------------- |
-| `capacity_` | `uint96` | The amount of OHM to use in the OHM bonds     |
-| `bondTerm_` | `uint48` | How long should the OHM be locked in the bond |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| capacity_ | `uint96` | The amount of OHM to use in the OHM bonds |
+| bondTerm_ | `uint48` | How long should the OHM be locked in the bond |
+
+**Returns**
+
+| Name      | Type      | Description |
+| --------- | --------- | ----------- |
+| auctionId | `uint256` |             |
+
+<a id="closefixedexpirybondmarket-uint256"></a>
 
 ### closeFixedExpiryBondMarket
 
@@ -154,9 +186,11 @@ function closeFixedExpiryBondMarket(uint256 marketId_) external onlyRole("bondma
 
 **Parameters**
 
-| Name        | Type      | Description                         |
-| ----------- | --------- | ----------------------------------- |
-| `marketId_` | `uint256` | The ID of the Bond Protocol auction |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| marketId_ | `uint256` | The ID of the Bond Protocol auction |
+
+<a id="settlebatchauction-uint256"></a>
 
 ### settleBatchAuction
 
@@ -168,9 +202,11 @@ function settleBatchAuction(uint256 auctionId_) external onlyRole("bondmanager_a
 
 **Parameters**
 
-| Name         | Type      | Description                  |
-| ------------ | --------- | ---------------------------- |
-| `auctionId_` | `uint256` | The ID of the Gnosis auction |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| auctionId_ | `uint256` | The ID of the Gnosis auction |
+
+<a id="setfixedexpiryparameters-uint256-uint256-uint48-uint32-uint32-bool"></a>
 
 ### setFixedExpiryParameters
 
@@ -178,25 +214,27 @@ Sets the parameters that will likely be consistent across Bond Protocol market l
 
 ```solidity
 function setFixedExpiryParameters(
-    uint256 initialPrice_,
-    uint256 minPrice_,
-    uint48 auctionTime_,
-    uint32 debtBuffer_,
-    uint32 depositInterval_,
-    bool capacityInQuote_
-) external onlyRole("bondmanager_admin");
+        uint256 initialPrice_,
+        uint256 minPrice_,
+        uint48 auctionTime_,
+        uint32 debtBuffer_,
+        uint32 depositInterval_,
+        bool capacityInQuote_
+    ) external onlyRole("bondmanager_admin");
 ```
 
 **Parameters**
 
-| Name               | Type      | Description                                                                                     |
-| ------------------ | --------- | ----------------------------------------------------------------------------------------------- |
-| `initialPrice_`    | `uint256` | The initial ratio of OHM to OHM bonds that the bonds will sell for                              |
-| `minPrice_`        | `uint256` | The minim ratio of OHM to OHM bonds that the bonds will sell for                                |
-| `auctionTime_`     | `uint48`  | How long should the auctioning of the bond tokens last (should be less than planned bond terms) |
-| `debtBuffer_`      | `uint32`  | Variable used to calculate maximum capacity (should generally be set to 100_000)                |
-| `depositInterval_` | `uint32`  | Desired frequency of purchases                                                                  |
-| `capacityInQuote_` | `bool`    |                                                                                                 |
+| Name             | Type      | Description                                                                                     |
+| ---------------- | --------- | ----------------------------------------------------------------------------------------------- |
+| initialPrice_    | `uint256` | The initial ratio of OHM to OHM bonds that the bonds will sell for                              |
+| minPrice_        | `uint256` | The minim ratio of OHM to OHM bonds that the bonds will sell for                                |
+| auctionTime_     | `uint48`  | How long should the auctioning of the bond tokens last (should be less than planned bond terms) |
+| debtBuffer_      | `uint32`  | Variable used to calculate maximum capacity (should generally be set to 100_000)                |
+| depositInterval_ | `uint32`  | Desired frequency of purchases                                                                  |
+| capacityInQuote_ | `bool`    |                                                                                                 |
+
+<a id="setbatchauctionparameters-uint48-uint48-uint96-uint256-uint256"></a>
 
 ### setBatchAuctionParameters
 
@@ -204,23 +242,25 @@ Sets the parameters that will likely be consistent across Gnosis Auction launche
 
 ```solidity
 function setBatchAuctionParameters(
-    uint48 auctionCancelTime_,
-    uint48 auctionTime_,
-    uint96 minPctSold_,
-    uint256 minBuyAmount_,
-    uint256 minFundingThreshold_
-) external onlyRole("bondmanager_admin");
+        uint48 auctionCancelTime_,
+        uint48 auctionTime_,
+        uint96 minPctSold_,
+        uint256 minBuyAmount_,
+        uint256 minFundingThreshold_
+    ) external onlyRole("bondmanager_admin");
 ```
 
 **Parameters**
 
-| Name                   | Type      | Description                                                                                     |
-| ---------------------- | --------- | ----------------------------------------------------------------------------------------------- |
-| `auctionCancelTime_`   | `uint48`  | How long should users have to cancel their bids (should be less than auctionTime\_)             |
-| `auctionTime_`         | `uint48`  | How long should the auctioning of the bond tokens last (should be less than planned bond terms) |
-| `minPctSold_`          | `uint96`  | What percent of capacity is the minimum acceptable level to sell (2 decimals, i.e. 50 = 50%)    |
-| `minBuyAmount_`        | `uint256` | Minimum purchase size (in OHM) from a user                                                      |
-| `minFundingThreshold_` | `uint256` | Minimum funding threshold                                                                       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| auctionCancelTime_ | `uint48` | How long should users have to cancel their bids (should be less than auctionTime_) |
+| auctionTime_ | `uint48` | How long should the auctioning of the bond tokens last (should be less than planned bond terms) |
+| minPctSold_ | `uint96` | What percent of capacity is the minimum acceptable level to sell (2 decimals, i.e. 50 = 50%) |
+| minBuyAmount_ | `uint256` | Minimum purchase size (in OHM) from a user |
+| minFundingThreshold_ | `uint256` | Minimum funding threshold |
+
+<a id="setcallback-ibondcallback"></a>
 
 ### setCallback
 
@@ -232,40 +272,55 @@ function setCallback(IBondCallback newCallback_) external onlyRole("bondmanager_
 
 **Parameters**
 
-| Name           | Type            | Description                      |
-| -------------- | --------------- | -------------------------------- |
-| `newCallback_` | `IBondCallback` | The bond callback address to set |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newCallback_ | `IBondCallback` | The bond callback address to set |
+
+<a id="emergencyshutdownfixedexpirymarket-uint256"></a>
 
 ### emergencyShutdownFixedExpiryMarket
 
 Blacklists the specified market to prevent the bond callback from minting more OHM on purchases
 
 ```solidity
-function emergencyShutdownFixedExpiryMarket(uint256 marketId_) external onlyRole("bondmanager_admin");
+function emergencyShutdownFixedExpiryMarket(
+        uint256 marketId_
+    ) external onlyRole("bondmanager_admin");
 ```
 
 **Parameters**
 
-| Name        | Type      | Description                                     |
-| ----------- | --------- | ----------------------------------------------- |
-| `marketId_` | `uint256` | The ID of the Bond Protocol auction to shutdown |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| marketId_ | `uint256` | The ID of the Bond Protocol auction to shutdown |
+
+<a id="emergencysetapproval-address-uint256"></a>
 
 ### emergencySetApproval
 
 Increases a contract's allowance to spend the Bond Manager's OHM
 
+<i>
+
 This shouldn't be needed but is a safegaurd in the event of accounting errors in the market creation functions
 
+</i>
+
 ```solidity
-function emergencySetApproval(address contract_, uint256 amount_) external onlyRole("bondmanager_admin");
+function emergencySetApproval(
+        address contract_,
+        uint256 amount_
+    ) external onlyRole("bondmanager_admin");
 ```
 
 **Parameters**
 
-| Name        | Type      | Description                                           |
-| ----------- | --------- | ----------------------------------------------------- |
-| `contract_` | `address` | The contract to give spending permission to           |
-| `amount_`   | `uint256` | The amount to increase the OHM spending permission by |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| contract_ | `address` | The contract to give spending permission to |
+| amount_ | `uint256` | The amount to increase the OHM spending permission by |
+
+<a id="emergencywithdraw-uint256"></a>
 
 ### emergencyWithdraw
 
@@ -277,23 +332,51 @@ function emergencyWithdraw(uint256 amount_) external onlyRole("bondmanager_admin
 
 **Parameters**
 
-| Name      | Type      | Description                               |
-| --------- | --------- | ----------------------------------------- |
-| `amount_` | `uint256` | The amount of OHM to send to the treasury |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` | The amount of OHM to send to the treasury |
 
 ## Events
 
 ### BondProtocolMarketLaunched
 
 ```solidity
-event BondProtocolMarketLaunched(uint256 marketId, address bondToken, uint256 capacity, uint48 bondTerm);
+event BondProtocolMarketLaunched(
+        uint256 marketId,
+        address bondToken,
+        uint256 capacity,
+        uint48 bondTerm
+    );
 ```
+
+**Parameters**
+
+| Name      | Type      | Description |
+| --------- | --------- | ----------- |
+| marketId  | `uint256` |             |
+| bondToken | `address` |             |
+| capacity  | `uint256` |             |
+| bondTerm  | `uint48`  |             |
 
 ### GnosisAuctionLaunched
 
 ```solidity
-event GnosisAuctionLaunched(uint256 marketId, address bondToken, uint96 capacity, uint48 bondTerm);
+event GnosisAuctionLaunched(
+        uint256 marketId,
+        address bondToken,
+        uint96 capacity,
+        uint48 bondTerm
+    );
 ```
+
+**Parameters**
+
+| Name      | Type      | Description |
+| --------- | --------- | ----------- |
+| marketId  | `uint256` |             |
+| bondToken | `address` |             |
+| capacity  | `uint96`  |             |
+| bondTerm  | `uint48`  |             |
 
 ## Errors
 
@@ -351,23 +434,44 @@ error BondManager_MinPctSoldTooLow();
 
 ```solidity
 struct FixedExpiryParameters {
-    uint256 initialPrice;
-    uint256 minPrice;
-    uint48 auctionTime;
-    uint32 debtBuffer;
-    uint32 depositInterval;
-    bool capacityInQuote;
-}
+        uint256 initialPrice;
+        uint256 minPrice;
+        uint48 auctionTime;
+        uint32 debtBuffer;
+        uint32 depositInterval;
+        bool capacityInQuote;
+    }
 ```
+
+**Properties**
+
+| Name            | Type      | Description |
+| --------------- | --------- | ----------- |
+| initialPrice    | `uint256` |             |
+| minPrice        | `uint256` |             |
+| auctionTime     | `uint48`  |             |
+| debtBuffer      | `uint32`  |             |
+| depositInterval | `uint32`  |             |
+| capacityInQuote | `bool`    |             |
 
 ### BatchAuctionParameters
 
 ```solidity
 struct BatchAuctionParameters {
-    uint48 auctionCancelTime;
-    uint48 auctionTime;
-    uint96 minPctSold;
-    uint256 minBuyAmount;
-    uint256 minFundingThreshold;
-}
+        uint48 auctionCancelTime;
+        uint48 auctionTime;
+        uint96 minPctSold;
+        uint256 minBuyAmount;
+        uint256 minFundingThreshold;
+    }
 ```
+
+**Properties**
+
+| Name                | Type      | Description |
+| ------------------- | --------- | ----------- |
+| auctionCancelTime   | `uint48`  |             |
+| auctionTime         | `uint48`  |             |
+| minPctSold          | `uint96`  |             |
+| minBuyAmount        | `uint256` |             |
+| minFundingThreshold | `uint256` |             |

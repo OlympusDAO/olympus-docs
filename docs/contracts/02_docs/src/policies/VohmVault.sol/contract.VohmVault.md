@@ -1,39 +1,50 @@
 # VohmVault
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/VohmVault.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/VohmVault.sol)
 
-**Inherits:**
-[Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy)
+**Inherits:** [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy)
 
 Policy to mint and burn VOTES to arbitrary addresses
+
+## Constants
+
+### VESTING_PERIOD
+
+```solidity
+uint256 public constant VESTING_PERIOD = 1 hours;
+```
 
 ## State Variables
 
 ### gOHM
 
 ```solidity
-ERC20 public gOHM
-```
-
-### VESTING_PERIOD
-
-```solidity
-uint256 public constant VESTING_PERIOD = 1 hours
+ERC20 public gOHM;
 ```
 
 ### VOTES
 
 ```solidity
-VOTESv1 public VOTES
+VOTESv1 public VOTES;
 ```
 
 ## Functions
+
+<a id="constructor-kernel"></a>
 
 ### constructor
 
 ```solidity
 constructor(Kernel kernel_) Policy(kernel_);
 ```
+
+**Parameters**
+
+| Name    | Type     | Description |
+| ------- | -------- | ----------- |
+| kernel_ | `Kernel` |             |
+
+<a id="configuredependencies"></a>
 
 ### configureDependencies
 
@@ -45,29 +56,39 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-| Name           | Type        | Description                             |
-| -------------- | ----------- | --------------------------------------- |
-| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dependencies | `Keycode[]` | - Keycode array of module dependencies. |
+
+<a id="requestpermissions"></a>
 
 ### requestPermissions
 
 Function called by kernel to set module function permissions.
 
 ```solidity
-function requestPermissions() external view override returns (Permissions[] memory permissions);
+function requestPermissions()
+        external
+        view
+        override
+        returns (Permissions[] memory permissions);
 ```
 
 **Returns**
 
-| Name          | Type            | Description                                                                    |
-| ------------- | --------------- | ------------------------------------------------------------------------------ |
-| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| permissions | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
+
+<a id="onlyvested"></a>
 
 ### onlyVested
 
 ```solidity
-modifier onlyVested() ;
+modifier onlyVested();
 ```
+
+<a id="deposit-uint256"></a>
 
 ### deposit
 
@@ -75,11 +96,27 @@ modifier onlyVested() ;
 function deposit(uint256 assets_) public;
 ```
 
+**Parameters**
+
+| Name    | Type      | Description |
+| ------- | --------- | ----------- |
+| assets_ | `uint256` |             |
+
+<a id="mint-uint256"></a>
+
 ### mint
 
 ```solidity
 function mint(uint256 shares_) public;
 ```
+
+**Parameters**
+
+| Name    | Type      | Description |
+| ------- | --------- | ----------- |
+| shares_ | `uint256` |             |
+
+<a id="withdraw-uint256"></a>
 
 ### withdraw
 
@@ -87,8 +124,22 @@ function mint(uint256 shares_) public;
 function withdraw(uint256 assets_) public onlyVested;
 ```
 
+**Parameters**
+
+| Name    | Type      | Description |
+| ------- | --------- | ----------- |
+| assets_ | `uint256` |             |
+
+<a id="redeem-uint256"></a>
+
 ### redeem
 
 ```solidity
 function redeem(uint256 shares_) public onlyVested;
 ```
+
+**Parameters**
+
+| Name    | Type      | Description |
+| ------- | --------- | ----------- |
+| shares_ | `uint256` |             |

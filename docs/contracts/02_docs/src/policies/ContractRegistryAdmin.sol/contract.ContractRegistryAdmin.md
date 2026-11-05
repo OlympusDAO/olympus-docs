@@ -1,19 +1,32 @@
 # ContractRegistryAdmin
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/ContractRegistryAdmin.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/ContractRegistryAdmin.sol)
 
-**Inherits:**
-[Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
+**Inherits:** [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
 
-**Title:**
-ContractRegistryAdmin
+**Title:** ContractRegistryAdmin
 
 This policy is used to register and deregister contracts in the RGSTY module.
+
+<i>
 
 This contract utilises the following roles:
 
 - `contract_registry_admin`: Can register and deregister contracts
-  This policy provides permissioned access to the state-changing functions on the RGSTY module. The view functions can be called directly on the module.
+
+</i>
+
+This policy provides permissioned access to the state-changing functions on the RGSTY module. The view functions can be called directly on the module.
+
+## Constants
+
+### CONTRACT_REGISTRY_ADMIN_ROLE
+
+The role for the contract registry admin
+
+```solidity
+bytes32 public constant CONTRACT_REGISTRY_ADMIN_ROLE = "contract_registry_admin";
+```
 
 ## State Variables
 
@@ -21,27 +34,33 @@ This contract utilises the following roles:
 
 The RGSTY module
 
+<i>
+
 The value is set when the policy is activated
 
-```solidity
-RGSTYv1 internal RGSTY
-```
-
-### CONTRACT_REGISTRY_ADMIN_ROLE
-
-The role for the contract registry admin
+</i>
 
 ```solidity
-bytes32 public constant CONTRACT_REGISTRY_ADMIN_ROLE = "contract_registry_admin"
+RGSTYv1 internal RGSTY;
 ```
 
 ## Functions
+
+<a id="constructor-address"></a>
 
 ### constructor
 
 ```solidity
 constructor(address kernel_) Policy(Kernel(kernel_));
 ```
+
+**Parameters**
+
+| Name    | Type      | Description |
+| ------- | --------- | ----------- |
+| kernel_ | `address` |             |
+
+<a id="configuredependencies"></a>
 
 ### configureDependencies
 
@@ -53,23 +72,31 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-| Name           | Type        | Description                             |
-| -------------- | ----------- | --------------------------------------- |
-| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dependencies | `Keycode[]` | - Keycode array of module dependencies. |
+
+<a id="requestpermissions"></a>
 
 ### requestPermissions
 
 Function called by kernel to set module function permissions.
 
 ```solidity
-function requestPermissions() external pure override returns (Permissions[] memory permissions);
+function requestPermissions()
+        external
+        pure
+        override
+        returns (Permissions[] memory permissions);
 ```
 
 **Returns**
 
-| Name          | Type            | Description                                                                    |
-| ------------- | --------------- | ------------------------------------------------------------------------------ |
-| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| permissions | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
+
+<a id="version"></a>
 
 ### VERSION
 
@@ -79,105 +106,139 @@ The version of the policy
 function VERSION() external pure returns (uint8);
 ```
 
+**Returns**
+
+| Name         | Type    | Description |
+| ------------ | ------- | ----------- |
+| &lt;none&gt; | `uint8` |             |
+
+<a id="onlypolicyactive"></a>
+
 ### onlyPolicyActive
 
 Modifier to check that the contract is activated as a policy
 
 ```solidity
-modifier onlyPolicyActive() ;
+modifier onlyPolicyActive();
 ```
+
+<a id="registerimmutablecontract-bytes5-address"></a>
 
 ### registerImmutableContract
 
 Register an immutable contract in the contract registry
 
+<i>
+
 This function will revert if:
 
 - This contract is not activated as a policy
 - The caller does not have the required role
 - The RGSTY module reverts
 
+</i>
+
 ```solidity
-function registerImmutableContract(bytes5 name_, address contractAddress_)
-    external
-    onlyPolicyActive
-    onlyRole(CONTRACT_REGISTRY_ADMIN_ROLE);
+function registerImmutableContract(
+        bytes5 name_,
+        address contractAddress_
+    ) external onlyPolicyActive onlyRole(CONTRACT_REGISTRY_ADMIN_ROLE);
 ```
 
 **Parameters**
 
-| Name               | Type      | Description                 |
-| ------------------ | --------- | --------------------------- |
-| `name_`            | `bytes5`  | The name of the contract    |
-| `contractAddress_` | `address` | The address of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `bytes5` | The name of the contract |
+| contractAddress_ | `address` | The address of the contract |
+
+<a id="registercontract-bytes5-address"></a>
 
 ### registerContract
 
 Register a contract in the contract registry
 
+<i>
+
 This function will revert if:
 
 - This contract is not activated as a policy
 - The caller does not have the required role
 - The RGSTY module reverts
 
+</i>
+
 ```solidity
-function registerContract(bytes5 name_, address contractAddress_)
-    external
-    onlyPolicyActive
-    onlyRole(CONTRACT_REGISTRY_ADMIN_ROLE);
+function registerContract(
+        bytes5 name_,
+        address contractAddress_
+    ) external onlyPolicyActive onlyRole(CONTRACT_REGISTRY_ADMIN_ROLE);
 ```
 
 **Parameters**
 
-| Name               | Type      | Description                 |
-| ------------------ | --------- | --------------------------- |
-| `name_`            | `bytes5`  | The name of the contract    |
-| `contractAddress_` | `address` | The address of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `bytes5` | The name of the contract |
+| contractAddress_ | `address` | The address of the contract |
+
+<a id="updatecontract-bytes5-address"></a>
 
 ### updateContract
 
 Update a contract in the contract registry
 
+<i>
+
 This function will revert if:
 
 - This contract is not activated as a policy
 - The caller does not have the required role
 - The RGSTY module reverts
 
+</i>
+
 ```solidity
-function updateContract(bytes5 name_, address contractAddress_)
-    external
-    onlyPolicyActive
-    onlyRole(CONTRACT_REGISTRY_ADMIN_ROLE);
+function updateContract(
+        bytes5 name_,
+        address contractAddress_
+    ) external onlyPolicyActive onlyRole(CONTRACT_REGISTRY_ADMIN_ROLE);
 ```
 
 **Parameters**
 
-| Name               | Type      | Description                 |
-| ------------------ | --------- | --------------------------- |
-| `name_`            | `bytes5`  | The name of the contract    |
-| `contractAddress_` | `address` | The address of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `bytes5` | The name of the contract |
+| contractAddress_ | `address` | The address of the contract |
+
+<a id="deregistercontract-bytes5"></a>
 
 ### deregisterContract
 
 Deregister a contract in the contract registry
 
+<i>
+
 This function will revert if:
 
 - This contract is not activated as a policy
 - The caller does not have the required role
 - The RGSTY module reverts
 
+</i>
+
 ```solidity
-function deregisterContract(bytes5 name_) external onlyPolicyActive onlyRole(CONTRACT_REGISTRY_ADMIN_ROLE);
+function deregisterContract(
+        bytes5 name_
+    ) external onlyPolicyActive onlyRole(CONTRACT_REGISTRY_ADMIN_ROLE);
 ```
 
 **Parameters**
 
-| Name    | Type     | Description              |
-| ------- | -------- | ------------------------ |
-| `name_` | `bytes5` | The name of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `bytes5` | The name of the contract |
 
 ## Errors
 

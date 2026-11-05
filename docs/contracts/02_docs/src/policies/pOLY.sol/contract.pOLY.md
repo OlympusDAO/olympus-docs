@@ -1,118 +1,136 @@
 # pOLY
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/pOLY.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/pOLY.sol)
 
-**Inherits:**
-[IPOLY](/main/contracts/docs/src/policies/interfaces/IPOLY.sol/interface.IPOLY), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
+**Inherits:** [IPOLY](/main/contracts/docs/src/policies/interfaces/IPOLY.sol/interface.IPOLY), [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
+
+## Constants
+
+### PERCENT_PRECISION
+
+```solidity
+uint256 public constant PERCENT_PRECISION = 1_000_000;
+```
+
+### OHM_PRECISION
+
+```solidity
+uint256 public constant OHM_PRECISION = 1_000_000_000;
+```
+
+### DAI_PRECISION
+
+```solidity
+uint256 public constant DAI_PRECISION = 1_000_000_000_000_000_000;
+```
 
 ## State Variables
 
 ### MINTR
 
 ```solidity
-MINTRv1 public MINTR
+MINTRv1 public MINTR;
 ```
 
 ### TRSRY
 
 ```solidity
-TRSRYv1 public TRSRY
+TRSRYv1 public TRSRY;
 ```
 
 ### previous
 
 ```solidity
-IPreviousPOLY public previous
+IPreviousPOLY public previous;
 ```
 
 ### previousGenesis
 
 ```solidity
-IGenesisClaim public previousGenesis
+IGenesisClaim public previousGenesis;
 ```
 
 ### OHM
 
 ```solidity
-ERC20 public OHM
+ERC20 public OHM;
 ```
 
 ### gOHM
 
 ```solidity
-IgOHM public gOHM
+IgOHM public gOHM;
 ```
 
 ### DAI
 
 ```solidity
-ERC20 public DAI
+ERC20 public DAI;
 ```
 
 ### dao
 
 ```solidity
-address public dao
+address public dao;
 ```
 
 ### terms
 
 ```solidity
-mapping(address => Term) public terms
+mapping(address => Term) public terms;
 ```
 
 ### walletChange
 
 ```solidity
-mapping(address => address) public walletChange
+mapping(address => address) public walletChange;
 ```
 
 ### totalAllocated
 
 ```solidity
-uint256 public totalAllocated
+uint256 public totalAllocated;
 ```
 
 ### maximumAllocated
 
 ```solidity
-uint256 public maximumAllocated
-```
-
-### PERCENT_PRECISION
-
-```solidity
-uint256 public constant PERCENT_PRECISION = 1_000_000
-```
-
-### OHM_PRECISION
-
-```solidity
-uint256 public constant OHM_PRECISION = 1_000_000_000
-```
-
-### DAI_PRECISION
-
-```solidity
-uint256 public constant DAI_PRECISION = 1_000_000_000_000_000_000
+uint256 public maximumAllocated;
 ```
 
 ## Functions
+
+<a id="constructor-kernel-address-address-address-address-address-address-uint256"></a>
 
 ### constructor
 
 ```solidity
 constructor(
-    Kernel kernel_,
-    address previous_,
-    address previousGenesis_,
-    address ohm_,
-    address gohm_,
-    address dai_,
-    address dao_,
-    uint256 maximumAllocated_
-) Policy(kernel_);
+        Kernel kernel_,
+        address previous_,
+        address previousGenesis_,
+        address ohm_,
+        address gohm_,
+        address dai_,
+        address dao_,
+        uint256 maximumAllocated_
+    ) Policy(kernel_);
 ```
+
+**Parameters**
+
+| Name              | Type      | Description |
+| ----------------- | --------- | ----------- |
+| kernel_           | `Kernel`  |             |
+| previous_         | `address` |             |
+| previousGenesis_  | `address` |             |
+| ohm_              | `address` |             |
+| gohm_             | `address` |             |
+| dai_              | `address` |             |
+| dao_              | `address` |             |
+| maximumAllocated_ | `uint256` |             |
+
+<a id="configuredependencies"></a>
 
 ### configureDependencies
 
@@ -124,23 +142,31 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-| Name           | Type        | Description                             |
-| -------------- | ----------- | --------------------------------------- |
-| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dependencies | `Keycode[]` | - Keycode array of module dependencies. |
+
+<a id="requestpermissions"></a>
 
 ### requestPermissions
 
 Function called by kernel to set module function permissions.
 
 ```solidity
-function requestPermissions() external view override returns (Permissions[] memory permissions);
+function requestPermissions()
+        external
+        view
+        override
+        returns (Permissions[] memory permissions);
 ```
 
 **Returns**
 
-| Name          | Type            | Description                                                                    |
-| ------------- | --------------- | ------------------------------------------------------------------------------ |
-| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| permissions | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
+
+<a id="claim-address-uint256"></a>
 
 ### claim
 
@@ -152,10 +178,12 @@ function claim(address to_, uint256 amount_) external;
 
 **Parameters**
 
-| Name      | Type      | Description                    |
-| --------- | --------- | ------------------------------ |
-| `to_`     | `address` | Address to send OHM to         |
-| `amount_` | `uint256` | DAI amount to exchange for OHM |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` | Address to send OHM to |
+| amount_ | `uint256` | DAI amount to exchange for OHM |
+
+<a id="pushwalletchange-address"></a>
 
 ### pushWalletChange
 
@@ -167,9 +195,11 @@ function pushWalletChange(address newAddress_) external;
 
 **Parameters**
 
-| Name          | Type      | Description              |
-| ------------- | --------- | ------------------------ |
-| `newAddress_` | `address` | Address to send claim to |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newAddress_ | `address` | Address to send claim to |
+
+<a id="pullwalletchange-address"></a>
 
 ### pullWalletChange
 
@@ -181,9 +211,11 @@ function pullWalletChange(address oldAddress_) external;
 
 **Parameters**
 
-| Name          | Type      | Description                 |
-| ------------- | --------- | --------------------------- |
-| `oldAddress_` | `address` | Address to pull change from |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldAddress_ | `address` | Address to pull change from |
+
+<a id="redeemablefor-address"></a>
 
 ### redeemableFor
 
@@ -195,15 +227,17 @@ function redeemableFor(address account_) public view returns (uint256);
 
 **Parameters**
 
-| Name       | Type      | Description                                    |
-| ---------- | --------- | ---------------------------------------------- |
-| `account_` | `address` | The account to check the redeemable amount for |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` | The account to check the redeemable amount for |
 
 **Returns**
 
-| Name     | Type      | Description                                      |
-| -------- | --------- | ------------------------------------------------ |
-| `<none>` | `uint256` | uint256 The amount of OHM the account can redeem |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256 The amount of OHM the account can redeem |
+
+<a id="redeemablefor-term"></a>
 
 ### redeemableFor
 
@@ -215,15 +249,17 @@ function redeemableFor(Term memory accountTerms_) public view returns (uint256);
 
 **Parameters**
 
-| Name            | Type   | Description                                                 |
-| --------------- | ------ | ----------------------------------------------------------- |
-| `accountTerms_` | `Term` | The terms of the account to check the redeemable amount for |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| accountTerms_ | `Term` | The terms of the account to check the redeemable amount for |
 
 **Returns**
 
-| Name     | Type      | Description                                      |
-| -------- | --------- | ------------------------------------------------ |
-| `<none>` | `uint256` | uint256 The amount of OHM the account can redeem |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256 The amount of OHM the account can redeem |
+
+<a id="getcirculatingsupply"></a>
 
 ### getCirculatingSupply
 
@@ -235,9 +271,11 @@ function getCirculatingSupply() public view returns (uint256);
 
 **Returns**
 
-| Name     | Type      | Description                    |
-| -------- | --------- | ------------------------------ |
-| `<none>` | `uint256` | uint256 OHM circulating supply |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256 OHM circulating supply |
+
+<a id="getaccountclaimed-address"></a>
 
 ### getAccountClaimed
 
@@ -249,15 +287,17 @@ function getAccountClaimed(address account_) public view returns (uint256);
 
 **Parameters**
 
-| Name       | Type      | Description                        |
-| ---------- | --------- | ---------------------------------- |
-| `account_` | `address` | The account to check the claim for |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` | The account to check the claim for |
 
 **Returns**
 
-| Name     | Type      | Description                                       |
-| -------- | --------- | ------------------------------------------------- |
-| `<none>` | `uint256` | uint256 The amount of OHM the account has claimed |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256 The amount of OHM the account has claimed |
+
+<a id="getaccountclaimed-term"></a>
 
 ### getAccountClaimed
 
@@ -269,40 +309,49 @@ function getAccountClaimed(Term memory accountTerms_) public view returns (uint2
 
 **Parameters**
 
-| Name            | Type   | Description                                     |
-| --------------- | ------ | ----------------------------------------------- |
-| `accountTerms_` | `Term` | The terms of the account to check the claim for |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| accountTerms_ | `Term` | The terms of the account to check the claim for |
 
 **Returns**
 
-| Name     | Type      | Description                                       |
-| -------- | --------- | ------------------------------------------------- |
-| `<none>` | `uint256` | uint256 The amount of OHM the account has claimed |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256 The amount of OHM the account has claimed |
+
+<a id="validateclaim-uint256-term"></a>
 
 ### validateClaim
 
 Calculates the amount of OHM to send to the user and validates the claim
 
 ```solidity
-function validateClaim(uint256 amount_, Term memory accountTerms_) public view returns (uint256);
+function validateClaim(
+        uint256 amount_,
+        Term memory accountTerms_
+    ) public view returns (uint256);
 ```
 
 **Parameters**
 
-| Name            | Type      | Description                           |
-| --------------- | --------- | ------------------------------------- |
-| `amount_`       | `uint256` | The amount of DAI to exchange for OHM |
-| `accountTerms_` | `Term`    | The terms to check the claim against  |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` | The amount of DAI to exchange for OHM |
+| accountTerms_ | `Term` | The terms to check the claim against |
 
 **Returns**
 
-| Name     | Type      | Description                                   |
-| -------- | --------- | --------------------------------------------- |
-| `<none>` | `uint256` | uint256 The amount of OHM to send to the user |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256 The amount of OHM to send to the user |
+
+<a id="migrate-address"></a>
 
 ### migrate
 
 Migrates claim data from old pOLY contracts to this one
+
+Can only be called by the poly_admin role
 
 ```solidity
 function migrate(address[] calldata accounts_) external onlyRole("poly_admin");
@@ -310,17 +359,25 @@ function migrate(address[] calldata accounts_) external onlyRole("poly_admin");
 
 **Parameters**
 
-| Name        | Type        | Description                  |
-| ----------- | ----------- | ---------------------------- |
-| `accounts_` | `address[]` | Array of accounts to migrate |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| accounts_ | `address[]` | Array of accounts to migrate |
+
+<a id="migrategenesis-address"></a>
 
 ### migrateGenesis
 
 Migrates claim data from the Genesis Claim contract to this one
 
+Can only be called by the poly_admin role
+
+<i>
+
 The Genesis Claim contract originally did not count the full claimed amount as staked,
 only 90% of it, given that there is no longer a staking rate, we can combine the two
 claim contracts by counting the 10% that wasn't considered staked as staked at the current index
+
+</i>
 
 ```solidity
 function migrateGenesis(address[] calldata accounts_) external onlyRole("poly_admin");
@@ -328,31 +385,52 @@ function migrateGenesis(address[] calldata accounts_) external onlyRole("poly_ad
 
 **Parameters**
 
-| Name        | Type        | Description                  |
-| ----------- | ----------- | ---------------------------- |
-| `accounts_` | `address[]` | Array of accounts to migrate |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| accounts_ | `address[]` | Array of accounts to migrate |
+
+<a id="setterms-address-uint256-uint256-uint256"></a>
 
 ### setTerms
 
 Sets the claim terms for an account
 
+Can only be called by the poly_admin role
+
 ```solidity
-function setTerms(address account_, uint256 percent_, uint256 gClaimed_, uint256 max_)
-    public
-    onlyRole("poly_admin");
+function setTerms(
+        address account_,
+        uint256 percent_,
+        uint256 gClaimed_,
+        uint256 max_
+    ) public onlyRole("poly_admin");
 ```
 
 **Parameters**
 
-| Name        | Type      | Description                                                      |
-| ----------- | --------- | ---------------------------------------------------------------- |
-| `account_`  | `address` | The account to set the terms for                                 |
-| `percent_`  | `uint256` | The percent of the circulating supply the account is entitled to |
-| `gClaimed_` | `uint256` | The amount of gOHM the account has claimed                       |
-| `max_`      | `uint256` | The maximum amount of OHM the account can claim                  |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` | The account to set the terms for |
+| percent_ | `uint256` | The percent of the circulating supply the account is entitled to |
+| gClaimed_ | `uint256` | The amount of gOHM the account has claimed |
+| max_ | `uint256` | The maximum amount of OHM the account can claim |
 
-### \_claim
+<a id="_claim-uint256"></a>
+
+### _claim
 
 ```solidity
 function _claim(uint256 amount_) internal returns (uint256 toSend);
 ```
+
+**Parameters**
+
+| Name    | Type      | Description |
+| ------- | --------- | ----------- |
+| amount_ | `uint256` |             |
+
+**Returns**
+
+| Name   | Type      | Description |
+| ------ | --------- | ----------- |
+| toSend | `uint256` |             |

@@ -1,19 +1,18 @@
 # IMorphoOracle
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/price/IMorphoOracle.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/price/IMorphoOracle.sol)
 
-**Inherits:**
-[IOracle](/main/contracts/docs/src/interfaces/morpho/IOracle.sol/interface.IOracle)
+**Inherits:** [IOracle](/main/contracts/docs/src/interfaces/morpho/IOracle.sol/interface.IOracle)
 
-**Title:**
-IMorphoOracle
+**Title:** IMorphoOracle
 
-**Author:**
-OlympusDAO
+**Author:** OlympusDAO
 
 Interface for a Morpho oracle
 
 ## Functions
+
+<a id="collateraltoken"></a>
 
 ### collateralToken
 
@@ -25,9 +24,11 @@ function collateralToken() external view returns (address collateralToken_);
 
 **Returns**
 
-| Name               | Type      | Description                  |
-| ------------------ | --------- | ---------------------------- |
-| `collateralToken_` | `address` | The collateral token address |
+| Name             | Type      | Description                  |
+| ---------------- | --------- | ---------------------------- |
+| collateralToken_ | `address` | The collateral token address |
+
+<a id="loantoken"></a>
 
 ### loanToken
 
@@ -39,9 +40,11 @@ function loanToken() external view returns (address loantoken_);
 
 **Returns**
 
-| Name         | Type      | Description            |
-| ------------ | --------- | ---------------------- |
-| `loantoken_` | `address` | The loan token address |
+| Name       | Type      | Description            |
+| ---------- | --------- | ---------------------- |
+| loantoken_ | `address` | The loan token address |
+
+<a id="maxage"></a>
 
 ### maxAge
 
@@ -53,18 +56,24 @@ function maxAge() external view returns (uint48 maxAge_);
 
 **Returns**
 
-| Name      | Type     | Description                                 |
-| --------- | -------- | ------------------------------------------- |
-| `maxAge_` | `uint48` | The configured maximum cache age in seconds |
+| Name    | Type     | Description                                 |
+| ------- | -------- | ------------------------------------------- |
+| maxAge_ | `uint48` | The configured maximum cache age in seconds |
+
+<a id="scalefactor"></a>
 
 ### scaleFactor
 
 The current scale factor for the oracle
 
+<i>
+
 Uses the active price cache's current asset decimals. For non-contract assets,
 decimals are PriceCache metadata rather than token metadata, so this value can
 change when `PriceCache.setNonContractAssetMetadata()` updates decimals. Call
 `PriceCache.assetDecimals()` to confirm the active NCA scale.
+
+</i>
 
 ```solidity
 function scaleFactor() external view returns (uint256 scaleFactor_);
@@ -72,9 +81,11 @@ function scaleFactor() external view returns (uint256 scaleFactor_);
 
 **Returns**
 
-| Name           | Type      | Description      |
-| -------------- | --------- | ---------------- |
-| `scaleFactor_` | `uint256` | The scale factor |
+| Name         | Type      | Description      |
+| ------------ | --------- | ---------------- |
+| scaleFactor_ | `uint256` | The scale factor |
+
+<a id="name"></a>
 
 ### name
 
@@ -86,9 +97,11 @@ function name() external view returns (string memory name_);
 
 **Returns**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| `name_` | `string` | The name    |
+| Name  | Type     | Description |
+| ----- | -------- | ----------- |
+| name_ | `string` | The name    |
+
+<a id="isstale"></a>
 
 ### isStale
 
@@ -100,9 +113,11 @@ function isStale() external view returns (bool isStale_);
 
 **Returns**
 
-| Name       | Type   | Description                                                   |
-| ---------- | ------ | ------------------------------------------------------------- |
-| `isStale_` | `bool` | Returns true if the pair cache is unset or older than maxAge. |
+| Name     | Type   | Description                                                   |
+| -------- | ------ | ------------------------------------------------------------- |
+| isStale_ | `bool` | Returns true if the pair cache is unset or older than maxAge. |
+
+<a id="timestamp"></a>
 
 ### timestamp
 
@@ -114,9 +129,9 @@ function timestamp() external view returns (uint48 timestamp_);
 
 **Returns**
 
-| Name         | Type     | Description                                |
-| ------------ | -------- | ------------------------------------------ |
-| `timestamp_` | `uint48` | Returns the timestamp of the cached prices |
+| Name       | Type     | Description                                |
+| ---------- | -------- | ------------------------------------------ |
+| timestamp_ | `uint48` | Returns the timestamp of the cached prices |
 
 ## Errors
 
@@ -142,18 +157,21 @@ Thrown when token decimals result in an invalid scale factor
 
 ```solidity
 error MorphoOracle_TokenDecimalsOutOfBounds(
-    address collateralToken, address loanToken, uint8 collateralDecimals, uint8 loanDecimals
-);
+        address collateralToken,
+        address loanToken,
+        uint8 collateralDecimals,
+        uint8 loanDecimals
+    );
 ```
 
 **Parameters**
 
-| Name                 | Type      | Description                                                      |
-| -------------------- | --------- | ---------------------------------------------------------------- |
-| `collateralToken`    | `address` | The collateral token address                                     |
-| `loanToken`          | `address` | The loan token address                                           |
-| `collateralDecimals` | `uint8`   | The collateral token decimals reported by the active price cache |
-| `loanDecimals`       | `uint8`   | The loan token decimals reported by the active price cache       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateralToken | `address` | The collateral token address |
+| loanToken | `address` | The loan token address |
+| collateralDecimals | `uint8` | The collateral token decimals reported by the active price cache |
+| loanDecimals | `uint8` | The loan token decimals reported by the active price cache |
 
 ### MorphoOracle_Stale
 
@@ -165,7 +183,7 @@ error MorphoOracle_Stale(uint256 cachedTimestamp, uint256 latestPermissibleTimes
 
 **Parameters**
 
-| Name                         | Type      | Description                                                     |
-| ---------------------------- | --------- | --------------------------------------------------------------- |
-| `cachedTimestamp`            | `uint256` | The cached timestamp used for the collateral/loan pair          |
-| `latestPermissibleTimestamp` | `uint256` | The oldest permissible timestamp (`block.timestamp - maxAge()`) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cachedTimestamp | `uint256` | The cached timestamp used for the collateral/loan pair |
+| latestPermissibleTimestamp | `uint256` | The oldest permissible timestamp (`block.timestamp - maxAge()`) |

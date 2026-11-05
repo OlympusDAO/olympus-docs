@@ -1,19 +1,23 @@
 # IOraclePriceCache
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/price/IOraclePriceCache.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/price/IOraclePriceCache.sol)
 
-**Title:**
-IOraclePriceCache
+**Title:** IOraclePriceCache
 
-**Author:**
-OlympusDAO
+**Author:** OlympusDAO
 
 Interface for pair oracle contracts that can trigger caching for their configured pair
+
+<i>
 
 Use this for pair oracles where the cached pair is embedded in oracle configuration,
 so callers do not pass pair arguments.
 
+</i>
+
 ## Functions
+
+<a id="cacheprice"></a>
 
 ### cachePrice
 
@@ -22,6 +26,8 @@ Triggers a cache update for the oracle's configured pair
 ```solidity
 function cachePrice() external;
 ```
+
+<a id="cachepriceifnecessary"></a>
 
 ### cachePriceIfNecessary
 

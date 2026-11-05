@@ -1,17 +1,22 @@
 # ITimelockQueue
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/utils/ITimelockQueue.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/utils/ITimelockQueue.sol)
 
-**Title:**
-ITimelockQueue
+**Title:** ITimelockQueue
 
 Interface for contracts that queue, execute, and cancel timelocked actions.
+
+<i>
 
 Implementations are expected to enforce action-specific authorization and execution
 checks in the concrete contract. Standard queued-action state checks, timestamp checks,
 and terminal payload clearing are handled by the abstract implementation.
 
+</i>
+
 ## Functions
+
+<a id="timelockdelay"></a>
 
 ### timelockDelay
 
@@ -21,6 +26,14 @@ Current timelock delay in seconds.
 function timelockDelay() external view returns (uint48);
 ```
 
+**Returns**
+
+| Name         | Type     | Description |
+| ------------ | -------- | ----------- |
+| &lt;none&gt; | `uint48` |             |
+
+<a id="nextactionid"></a>
+
 ### nextActionId
 
 Next queued action ID.
@@ -29,11 +42,23 @@ Next queued action ID.
 function nextActionId() external view returns (uint64);
 ```
 
+**Returns**
+
+| Name         | Type     | Description |
+| ------------ | -------- | ----------- |
+| &lt;none&gt; | `uint64` |             |
+
+<a id="getqueuedaction-uint64"></a>
+
 ### getQueuedAction
 
 Get a queued action.
 
+<i>
+
 Reverts if the action does not exist.
+
+</i>
 
 ```solidity
 function getQueuedAction(uint64 actionId_) external view returns (QueuedAction memory action_);
@@ -41,23 +66,29 @@ function getQueuedAction(uint64 actionId_) external view returns (QueuedAction m
 
 **Parameters**
 
-| Name        | Type     | Description           |
-| ----------- | -------- | --------------------- |
-| `actionId_` | `uint64` | The queued action ID. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` | The queued action ID. |
 
 **Returns**
 
-| Name      | Type           | Description        |
-| --------- | -------------- | ------------------ |
-| `action_` | `QueuedAction` | The queued action. |
+| Name    | Type           | Description        |
+| ------- | -------------- | ------------------ |
+| action_ | `QueuedAction` | The queued action. |
+
+<a id="executequeuedaction-uint64"></a>
 
 ### executeQueuedAction
 
 Execute a queued action after its timelock has elapsed.
 
+<i>
+
 Implementations must revert from implementation-specific hooks if the caller,
 target, selector, or payload should not be executed. Standard action state and
 timestamp checks revert from the abstract implementation.
+
+</i>
 
 ```solidity
 function executeQueuedAction(uint64 actionId_) external;
@@ -65,16 +96,22 @@ function executeQueuedAction(uint64 actionId_) external;
 
 **Parameters**
 
-| Name        | Type     | Description           |
-| ----------- | -------- | --------------------- |
-| `actionId_` | `uint64` | The queued action ID. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` | The queued action ID. |
+
+<a id="cancelqueuedaction-uint64"></a>
 
 ### cancelQueuedAction
 
 Cancel a queued action.
 
+<i>
+
 Implementations must revert from implementation-specific hooks if the caller
 is not authorized to cancel the queued action.
+
+</i>
 
 ```solidity
 function cancelQueuedAction(uint64 actionId_) external;
@@ -82,9 +119,9 @@ function cancelQueuedAction(uint64 actionId_) external;
 
 **Parameters**
 
-| Name        | Type     | Description           |
-| ----------- | -------- | --------------------- |
-| `actionId_` | `uint64` | The queued action ID. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` | The queued action ID. |
 
 ## Events
 
@@ -94,27 +131,27 @@ Emitted when an action is queued.
 
 ```solidity
 event TimelockActionQueued(
-    uint64 indexed actionId,
-    address indexed target,
-    bytes4 indexed selector,
-    address proposer,
-    bytes32 payloadHash,
-    uint48 executableAt,
-    uint48 expiresAt
-);
+        uint64 indexed actionId,
+        address indexed target,
+        bytes4 indexed selector,
+        address proposer,
+        bytes32 payloadHash,
+        uint48 executableAt,
+        uint48 expiresAt
+    );
 ```
 
 **Parameters**
 
-| Name           | Type      | Description                                                 |
-| -------------- | --------- | ----------------------------------------------------------- |
-| `actionId`     | `uint64`  | The queued action ID.                                       |
-| `target`       | `address` | The contract expected to receive the queued action.         |
-| `selector`     | `bytes4`  | The function selector for the queued action.                |
-| `proposer`     | `address` | The account that queued the action.                         |
-| `payloadHash`  | `bytes32` | Hash of the encoded action payload.                         |
-| `executableAt` | `uint48`  | Timestamp at which the action can first be executed.        |
-| `expiresAt`    | `uint48`  | Timestamp after which the action can no longer be executed. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` | The queued action ID. |
+| target | `address` | The contract expected to receive the queued action. |
+| selector | `bytes4` | The function selector for the queued action. |
+| proposer | `address` | The account that queued the action. |
+| payloadHash | `bytes32` | Hash of the encoded action payload. |
+| executableAt | `uint48` | Timestamp at which the action can first be executed. |
+| expiresAt | `uint48` | Timestamp after which the action can no longer be executed. |
 
 ### TimelockActionExecuted
 
@@ -122,18 +159,21 @@ Emitted when a queued action is executed.
 
 ```solidity
 event TimelockActionExecuted(
-    uint64 indexed actionId, address indexed target, bytes4 indexed selector, address executor
-);
+        uint64 indexed actionId,
+        address indexed target,
+        bytes4 indexed selector,
+        address executor
+    );
 ```
 
 **Parameters**
 
-| Name       | Type      | Description                                   |
-| ---------- | --------- | --------------------------------------------- |
-| `actionId` | `uint64`  | The queued action ID.                         |
-| `target`   | `address` | The contract that received the queued action. |
-| `selector` | `bytes4`  | The function selector for the queued action.  |
-| `executor` | `address` | The account that executed the action.         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` | The queued action ID. |
+| target | `address` | The contract that received the queued action. |
+| selector | `bytes4` | The function selector for the queued action. |
+| executor | `address` | The account that executed the action. |
 
 ### TimelockActionCancelled
 
@@ -141,18 +181,21 @@ Emitted when a queued action is cancelled.
 
 ```solidity
 event TimelockActionCancelled(
-    uint64 indexed actionId, address indexed target, bytes4 indexed selector, address canceller
-);
+        uint64 indexed actionId,
+        address indexed target,
+        bytes4 indexed selector,
+        address canceller
+    );
 ```
 
 **Parameters**
 
-| Name        | Type      | Description                                              |
-| ----------- | --------- | -------------------------------------------------------- |
-| `actionId`  | `uint64`  | The queued action ID.                                    |
-| `target`    | `address` | The contract that would have received the queued action. |
-| `selector`  | `bytes4`  | The function selector for the queued action.             |
-| `canceller` | `address` | The account that cancelled the action.                   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` | The queued action ID. |
+| target | `address` | The contract that would have received the queued action. |
+| selector | `bytes4` | The function selector for the queued action. |
+| canceller | `address` | The account that cancelled the action. |
 
 ### TimelockDelaySet
 
@@ -164,9 +207,9 @@ event TimelockDelaySet(uint48 delay);
 
 **Parameters**
 
-| Name    | Type     | Description                        |
-| ------- | -------- | ---------------------------------- |
-| `delay` | `uint48` | The new timelock delay in seconds. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delay | `uint48` | The new timelock delay in seconds. |
 
 ## Errors
 
@@ -180,9 +223,9 @@ error ITimelockQueue_ActionNotFound(uint64 actionId);
 
 **Parameters**
 
-| Name       | Type     | Description           |
-| ---------- | -------- | --------------------- |
-| `actionId` | `uint64` | The queued action ID. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` | The queued action ID. |
 
 ### ITimelockQueue_ActionAlreadyExecuted
 
@@ -194,9 +237,9 @@ error ITimelockQueue_ActionAlreadyExecuted(uint64 actionId);
 
 **Parameters**
 
-| Name       | Type     | Description           |
-| ---------- | -------- | --------------------- |
-| `actionId` | `uint64` | The queued action ID. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` | The queued action ID. |
 
 ### ITimelockQueue_ActionCancelled
 
@@ -208,9 +251,9 @@ error ITimelockQueue_ActionCancelled(uint64 actionId);
 
 **Parameters**
 
-| Name       | Type     | Description           |
-| ---------- | -------- | --------------------- |
-| `actionId` | `uint64` | The queued action ID. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` | The queued action ID. |
 
 ### ITimelockQueue_ActionNotReady
 
@@ -222,10 +265,10 @@ error ITimelockQueue_ActionNotReady(uint64 actionId, uint48 executableAt);
 
 **Parameters**
 
-| Name           | Type     | Description                                          |
-| -------------- | -------- | ---------------------------------------------------- |
-| `actionId`     | `uint64` | The queued action ID.                                |
-| `executableAt` | `uint48` | Timestamp at which the action can first be executed. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` | The queued action ID. |
+| executableAt | `uint48` | Timestamp at which the action can first be executed. |
 
 ### ITimelockQueue_ActionExpired
 
@@ -237,10 +280,10 @@ error ITimelockQueue_ActionExpired(uint64 actionId, uint48 expiresAt);
 
 **Parameters**
 
-| Name        | Type     | Description                                                 |
-| ----------- | -------- | ----------------------------------------------------------- |
-| `actionId`  | `uint64` | The queued action ID.                                       |
-| `expiresAt` | `uint48` | Timestamp after which the action can no longer be executed. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` | The queued action ID. |
+| expiresAt | `uint48` | Timestamp after which the action can no longer be executed. |
 
 ### ITimelockQueue_ActionInvalid
 
@@ -252,10 +295,10 @@ error ITimelockQueue_ActionInvalid(address target, bytes4 selector);
 
 **Parameters**
 
-| Name       | Type      | Description                   |
-| ---------- | --------- | ----------------------------- |
-| `target`   | `address` | The queued target address.    |
-| `selector` | `bytes4`  | The queued function selector. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target | `address` | The queued target address. |
+| selector | `bytes4` | The queued function selector. |
 
 ### ITimelockQueue_TimelockDelayInvalid
 
@@ -267,11 +310,11 @@ error ITimelockQueue_TimelockDelayInvalid(uint48 delay, uint48 minimum, uint48 m
 
 **Parameters**
 
-| Name      | Type     | Description                 |
-| --------- | -------- | --------------------------- |
-| `delay`   | `uint48` | The proposed delay.         |
-| `minimum` | `uint48` | The minimum accepted delay. |
-| `maximum` | `uint48` | The maximum accepted delay. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delay | `uint48` | The proposed delay. |
+| minimum | `uint48` | The minimum accepted delay. |
+| maximum | `uint48` | The maximum accepted delay. |
 
 ## Structs
 
@@ -281,28 +324,28 @@ Queued timelock action.
 
 ```solidity
 struct QueuedAction {
-    address target;
-    bytes4 selector;
-    address proposer;
-    uint48 queuedAt;
-    uint48 executableAt;
-    uint48 expiresAt;
-    bool executed;
-    bool cancelled;
-    bytes payload;
-}
+        address target;
+        bytes4 selector;
+        address proposer;
+        uint48 queuedAt;
+        uint48 executableAt;
+        uint48 expiresAt;
+        bool executed;
+        bool cancelled;
+        bytes payload;
+    }
 ```
 
 **Properties**
 
-| Name           | Type      | Description                                                 |
-| -------------- | --------- | ----------------------------------------------------------- |
-| `target`       | `address` | The contract expected to receive the queued action.         |
-| `selector`     | `bytes4`  | The function selector for the queued action.                |
-| `proposer`     | `address` | The account that queued the action.                         |
-| `queuedAt`     | `uint48`  | Timestamp at which the action was queued.                   |
-| `executableAt` | `uint48`  | Timestamp at which the action can first be executed.        |
-| `expiresAt`    | `uint48`  | Timestamp after which the action can no longer be executed. |
-| `executed`     | `bool`    | Whether the action has been executed.                       |
-| `cancelled`    | `bool`    | Whether the action has been cancelled.                      |
-| `payload`      | `bytes`   | Encoded parameters for the action.                          |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target | `address` | The contract expected to receive the queued action. |
+| selector | `bytes4` | The function selector for the queued action. |
+| proposer | `address` | The account that queued the action. |
+| queuedAt | `uint48` | Timestamp at which the action was queued. |
+| executableAt | `uint48` | Timestamp at which the action can first be executed. |
+| expiresAt | `uint48` | Timestamp after which the action can no longer be executed. |
+| executed | `bool` | Whether the action has been executed. |
+| cancelled | `bool` | Whether the action has been cancelled. |
+| payload | `bytes` | Encoded parameters for the action. |

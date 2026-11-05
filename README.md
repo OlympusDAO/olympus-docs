@@ -71,7 +71,7 @@ The contract documentation is generated from the `olympus-v3` repository. To upd
    Open `foundry.toml` and update the `rev` field for the olympus-v3 dependency to the desired commit hash.
 
 2. **Update the revision in `soldeer.lock`:**
-   Open `soldeer.lock` and update the `version` field for the olympus-v3 dependency to match the same commit hash.
+   Open `soldeer.lock` and update the `rev` field for the olympus-v3 dependency to match the same commit hash.
 
 3. **Regenerate the contract documentation:**
 
@@ -82,7 +82,7 @@ The contract documentation is generated from the `olympus-v3` repository. To upd
 4. **Commit the changes:**
 
    ```bash
-   git add foundry.toml soldeer.lock
+   git add foundry.toml soldeer.lock docs/contracts/02_docs
    git commit -m "Update contract documentation to latest olympus-v3 commit"
    ```
 
@@ -90,10 +90,11 @@ The contract documentation is generated from the `olympus-v3` repository. To upd
 
 The `pnpm run build:contracts` command (which runs `contracts.sh`):
 
-- Builds the olympus-v3 project
-- Generates forge documentation
-- Cleans up unnecessary directories (scripts, tests)
-- Fixes markdown issues and broken links
+- Installs the pinned olympus-v3 source and its locked Solidity dependencies
+- Generates Forge documentation without installing V3's Node development tools or compiling contracts
+- Converts Forge 1.8 pages to Markdown and preserves the existing Solidity-based documentation URLs
+- Recovers pages for duplicate symbol names that Forge writes to the same path
+- Excludes scripts and tests, generates directory indexes, and checks Markdown links
 - Updates the contract documentation in `docs/contracts/02_docs/`
 
 ### Partial Editing with Netlify CMS

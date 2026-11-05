@@ -1,18 +1,20 @@
 # BLREGv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/modules/BLREG/BLREG.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/modules/BLREG/BLREG.v1.sol)
 
-**Inherits:**
-[Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
+**Inherits:** [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
 
-**Title:**
-Olympus Boosted Liquidity Vault Registry
+**Title:** Olympus Boosted Liquidity Vault Registry
 
 Olympus Boosted Liquidity Vault Registry (Module) Contract
+
+<i>
 
 The Olympus Boosted Liquidity Vault Registry Module tracks the boosted liquidity vaults
 that are approved to be used by the Olympus protocol. This allows for a single-soure
 of truth for reporting purposes around total OHM deployed and net emissions.
+
+</i>
 
 ## State Variables
 
@@ -20,11 +22,15 @@ of truth for reporting purposes around total OHM deployed and net emissions.
 
 Count of active vaults
 
+<i>
+
 This is a useless variable in contracts but useful for any frontends or
 off-chain requests where the array is not easily accessible.
 
+</i>
+
 ```solidity
-uint256 public activeVaultCount
+uint256 public activeVaultCount;
 ```
 
 ### activeVaults
@@ -32,10 +38,12 @@ uint256 public activeVaultCount
 Tracks all active vaults
 
 ```solidity
-address[] public activeVaults
+address[] public activeVaults;
 ```
 
 ## Functions
+
+<a id="addvault-address"></a>
 
 ### addVault
 
@@ -47,9 +55,11 @@ function addVault(address vault_) external virtual;
 
 **Parameters**
 
-| Name     | Type      | Description                     |
-| -------- | --------- | ------------------------------- |
-| `vault_` | `address` | The address of the vault to add |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| vault_ | `address` | The address of the vault to add |
+
+<a id="removevault-address"></a>
 
 ### removeVault
 
@@ -61,9 +71,9 @@ function removeVault(address vault_) external virtual;
 
 **Parameters**
 
-| Name     | Type      | Description                        |
-| -------- | --------- | ---------------------------------- |
-| `vault_` | `address` | The address of the vault to remove |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| vault_ | `address` | The address of the vault to remove |
 
 ## Events
 
@@ -73,8 +83,20 @@ function removeVault(address vault_) external virtual;
 event VaultAdded(address indexed vault);
 ```
 
+**Parameters**
+
+| Name  | Type      | Description |
+| ----- | --------- | ----------- |
+| vault | `address` |             |
+
 ### VaultRemoved
 
 ```solidity
 event VaultRemoved(address indexed vault);
 ```
+
+**Parameters**
+
+| Name  | Type      | Description |
+| ----- | --------- | ----------- |
+| vault | `address` |             |

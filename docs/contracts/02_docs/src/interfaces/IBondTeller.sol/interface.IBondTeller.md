@@ -1,35 +1,43 @@
 # IBondTeller
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/interfaces/IBondTeller.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/interfaces/IBondTeller.sol)
 
 ## Functions
+
+<a id="purchase-address-address-uint256-uint256-uint256"></a>
 
 ### purchase
 
 Exchange quote tokens for a bond in a specified market
 
 ```solidity
-function purchase(address recipient_, address referrer_, uint256 id_, uint256 amount_, uint256 minAmountOut_)
-    external
-    returns (uint256, uint48);
+function purchase(
+        address recipient_,
+        address referrer_,
+        uint256 id_,
+        uint256 amount_,
+        uint256 minAmountOut_
+    ) external returns (uint256, uint48);
 ```
 
 **Parameters**
 
-| Name            | Type      | Description                                                                                                                          |
-| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `recipient_`    | `address` | Address of recipient of bond. Allows deposits for other addresses                                                                    |
-| `referrer_`     | `address` | Address of referrer who will receive referral fee. For frontends to fill. Direct calls can use the zero address for no referrer fee. |
-| `id_`           | `uint256` | ID of the Market the bond is being purchased from                                                                                    |
-| `amount_`       | `uint256` | Amount to deposit in exchange for bond                                                                                               |
-| `minAmountOut_` | `uint256` | Minimum acceptable amount of bond to receive. Prevents frontrunning                                                                  |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| recipient_ | `address` | Address of recipient of bond. Allows deposits for other addresses |
+| referrer_ | `address` | Address of referrer who will receive referral fee. For frontends to fill.<br/>Direct calls can use the zero address for no referrer fee. |
+| id_ | `uint256` | ID of the Market the bond is being purchased from |
+| amount_ | `uint256` | Amount to deposit in exchange for bond |
+| minAmountOut_ | `uint256` | Minimum acceptable amount of bond to receive. Prevents frontrunning |
 
 **Returns**
 
-| Name     | Type      | Description                                                                |
-| -------- | --------- | -------------------------------------------------------------------------- |
-| `<none>` | `uint256` | Amount of payout token to be received from the bond                        |
-| `<none>` | `uint48`  | Timestamp at which the bond token can be redeemed for the underlying token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | Amount of payout token to be received from the bond |
+| &lt;none&gt; | `uint48` | Timestamp at which the bond token can be redeemed for the underlying token |
+
+<a id="getfee-address"></a>
 
 ### getFee
 
@@ -41,15 +49,17 @@ function getFee(address referrer_) external view returns (uint48);
 
 **Parameters**
 
-| Name        | Type      | Description             |
-| ----------- | --------- | ----------------------- |
-| `referrer_` | `address` | Address of the referrer |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| referrer_ | `address` | Address of the referrer |
 
 **Returns**
 
-| Name     | Type     | Description                            |
-| -------- | -------- | -------------------------------------- |
-| `<none>` | `uint48` | Fee in basis points (3 decimal places) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` | Fee in basis points (3 decimal places) |
+
+<a id="setprotocolfee-uint48"></a>
 
 ### setProtocolFee
 
@@ -63,16 +73,22 @@ function setProtocolFee(uint48 fee_) external;
 
 **Parameters**
 
-| Name   | Type     | Description                                     |
-| ------ | -------- | ----------------------------------------------- |
-| `fee_` | `uint48` | Protocol fee in basis points (3 decimal places) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fee_ | `uint48` | Protocol fee in basis points (3 decimal places) |
+
+<a id="setcreatefeediscount-uint48"></a>
 
 ### setCreateFeeDiscount
 
 Set the discount for creating bond tokens from the base protocol fee
 
+<i>
+
 The discount is subtracted from the protocol fee to determine the fee
 when using create() to mint bond tokens without using an Auctioneer
+
+</i>
 
 ```solidity
 function setCreateFeeDiscount(uint48 discount_) external;
@@ -80,9 +96,11 @@ function setCreateFeeDiscount(uint48 discount_) external;
 
 **Parameters**
 
-| Name        | Type     | Description                                            |
-| ----------- | -------- | ------------------------------------------------------ |
-| `discount_` | `uint48` | Create Fee Discount in basis points (3 decimal places) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| discount_ | `uint48` | Create Fee Discount in basis points (3 decimal places) |
+
+<a id="setreferrerfee-uint48"></a>
 
 ### setReferrerFee
 
@@ -96,9 +114,11 @@ function setReferrerFee(uint48 fee_) external;
 
 **Parameters**
 
-| Name   | Type     | Description                                     |
-| ------ | -------- | ----------------------------------------------- |
-| `fee_` | `uint48` | Referrer fee in basis points (3 decimal places) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fee_ | `uint48` | Referrer fee in basis points (3 decimal places) |
+
+<a id="claimfees-erc20-address"></a>
 
 ### claimFees
 
@@ -110,7 +130,7 @@ function claimFees(ERC20[] memory tokens_, address to_) external;
 
 **Parameters**
 
-| Name      | Type      | Description                       |
-| --------- | --------- | --------------------------------- |
-| `tokens_` | `ERC20[]` | Array of tokens to claim fees for |
-| `to_`     | `address` | Address to send fees to           |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokens_ | `ERC20[]` | Array of tokens to claim fees for |
+| to_ | `address` | Address to send fees to |

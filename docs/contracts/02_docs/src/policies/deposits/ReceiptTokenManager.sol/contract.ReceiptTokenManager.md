@@ -1,38 +1,45 @@
 # ReceiptTokenManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/deposits/ReceiptTokenManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/deposits/ReceiptTokenManager.sol)
 
-**Inherits:**
-[ERC6909Wrappable](/main/contracts/docs/src/libraries/ERC6909Wrappable.sol/abstract.ERC6909Wrappable), [IReceiptTokenManager](/main/contracts/docs/src/policies/interfaces/deposits/IReceiptTokenManager.sol/interface.IReceiptTokenManager)
+**Inherits:** [ERC6909Wrappable](/main/contracts/docs/src/libraries/ERC6909Wrappable.sol/abstract.ERC6909Wrappable), [IReceiptTokenManager](/main/contracts/docs/src/policies/interfaces/deposits/IReceiptTokenManager.sol/interface.IReceiptTokenManager)
 
-**Title:**
-ReceiptTokenManager
+**Title:** ReceiptTokenManager
 
 Manager contract for creating and managing ERC6909 receipt tokens for deposits
 
+<i>
+
 Extracted from DepositManager to reduce contract size.
+
+</i>
+
 Key Features:
 
 - Creator-only minting/burning: Only the contract that creates a token can mint/burn it
 - ERC6909 compatibility with optional ERC20 wrapping via CloneableReceiptToken clones
 - Deterministic token ID generation based on owner, asset, deposit period, and operator
 - Automatic wrapped token creation for seamless DeFi integration
-  Security Model:
+
+Security Model:
+
 - Token ownership is immutable and set to msg.sender during creation
 - All mint/burn operations are gated by onlyTokenOwner modifier
 - Token IDs include owner address to prevent collision attacks
 
 ## State Variables
 
-### \_tokenOwners
+### _tokenOwners
 
 Maps token ID to the authorized owner (for mint/burn operations)
 
 ```solidity
-mapping(uint256 tokenId => address authorizedOwner) internal _tokenOwners
+mapping(uint256 tokenId => address authorizedOwner) internal _tokenOwners;
 ```
 
 ## Functions
+
+<a id="constructor"></a>
 
 ### constructor
 
@@ -40,9 +47,13 @@ mapping(uint256 tokenId => address authorizedOwner) internal _tokenOwners
 constructor() ERC6909Wrappable(address(new CloneableReceiptToken()));
 ```
 
+<a id="createtoken-ierc20-uint8-address-string"></a>
+
 ### createToken
 
 Creates a new receipt token
+
+<i>
 
 This function reverts if:
 
@@ -51,42 +62,67 @@ This function reverts if:
 - The operator is the zero address
 - A token with the same parameters already exists
 
+</i>
+
 ```solidity
-function createToken(IERC20 asset_, uint8 depositPeriod_, address operator_, string memory operatorName_)
-    external
-    returns (uint256 tokenId);
+function createToken(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_,
+        string memory operatorName_
+    ) external returns (uint256 tokenId);
 ```
 
 **Parameters**
 
-| Name             | Type      | Description                          |
-| ---------------- | --------- | ------------------------------------ |
-| `asset_`         | `IERC20`  | The underlying asset                 |
-| `depositPeriod_` | `uint8`   | The deposit period                   |
-| `operator_`      | `address` | The operator address                 |
-| `operatorName_`  | `string`  | The operator name for token metadata |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The underlying asset |
+| depositPeriod_ | `uint8` | The deposit period |
+| operator_ | `address` | The operator address |
+| operatorName_ | `string` | The operator name for token metadata |
 
 **Returns**
 
-| Name      | Type      | Description          |
-| --------- | --------- | -------------------- |
-| `tokenId` | `uint256` | The created token ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` | The created token ID |
 
-### \_onlyTokenOwner
+<a id="_onlytokenowner-uint256"></a>
+
+### _onlyTokenOwner
 
 ```solidity
 function _onlyTokenOwner(uint256 tokenId_) internal view;
 ```
 
+**Parameters**
+
+| Name     | Type      | Description |
+| -------- | --------- | ----------- |
+| tokenId_ | `uint256` |             |
+
+<a id="onlytokenowner-uint256"></a>
+
 ### onlyTokenOwner
 
 ```solidity
-modifier onlyTokenOwner(uint256 tokenId_) ;
+modifier onlyTokenOwner(uint256 tokenId_);
 ```
+
+**Parameters**
+
+| Name     | Type      | Description |
+| -------- | --------- | ----------- |
+| tokenId_ | `uint256` |             |
+
+<a id="mint-address-uint256-uint256-bool"></a>
 
 ### mint
 
 Mints tokens to a recipient
+
+<i>
 
 This function reverts if:
 
@@ -95,25 +131,33 @@ This function reverts if:
 - The recipient is the zero address
 - The amount is 0
 
+</i>
+
 ```solidity
-function mint(address to_, uint256 tokenId_, uint256 amount_, bool shouldWrap_)
-    external
-    onlyValidTokenId(tokenId_)
-    onlyTokenOwner(tokenId_);
+function mint(
+        address to_,
+        uint256 tokenId_,
+        uint256 amount_,
+        bool shouldWrap_
+    ) external onlyValidTokenId(tokenId_) onlyTokenOwner(tokenId_);
 ```
 
 **Parameters**
 
-| Name          | Type      | Description              |
-| ------------- | --------- | ------------------------ |
-| `to_`         | `address` | The recipient            |
-| `tokenId_`    | `uint256` | The token ID             |
-| `amount_`     | `uint256` | The amount to mint       |
-| `shouldWrap_` | `bool`    | Whether to wrap as ERC20 |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` | The recipient |
+| tokenId_ | `uint256` | The token ID |
+| amount_ | `uint256` | The amount to mint |
+| shouldWrap_ | `bool` | Whether to wrap as ERC20 |
+
+<a id="burn-address-uint256-uint256-bool"></a>
 
 ### burn
 
 Burns tokens from a holder
+
+<i>
 
 This function reverts if:
 
@@ -125,48 +169,57 @@ This function reverts if:
 - For unwrapped tokens: account has not approved the caller to spend ERC6909 tokens
 - The account has insufficient token balance
 
+</i>
+
 ```solidity
-function burn(address from_, uint256 tokenId_, uint256 amount_, bool isWrapped_)
-    external
-    onlyValidTokenId(tokenId_)
-    onlyTokenOwner(tokenId_);
+function burn(
+        address from_,
+        uint256 tokenId_,
+        uint256 amount_,
+        bool isWrapped_
+    ) external onlyValidTokenId(tokenId_) onlyTokenOwner(tokenId_);
 ```
 
 **Parameters**
 
-| Name         | Type      | Description                    |
-| ------------ | --------- | ------------------------------ |
-| `from_`      | `address` | The holder                     |
-| `tokenId_`   | `uint256` | The token ID                   |
-| `amount_`    | `uint256` | The amount to burn             |
-| `isWrapped_` | `bool`    | Whether the tokens are wrapped |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from_ | `address` | The holder |
+| tokenId_ | `uint256` | The token ID |
+| amount_ | `uint256` | The amount to burn |
+| isWrapped_ | `bool` | Whether the tokens are wrapped |
+
+<a id="getreceipttokenid-address-ierc20-uint8-address"></a>
 
 ### getReceiptTokenId
 
 Generates a receipt token ID
 
 ```solidity
-function getReceiptTokenId(address owner_, IERC20 asset_, uint8 depositPeriod_, address operator_)
-    public
-    pure
-    override
-    returns (uint256);
+function getReceiptTokenId(
+        address owner_,
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    ) public pure override returns (uint256);
 ```
 
 **Parameters**
 
-| Name             | Type      | Description        |
-| ---------------- | --------- | ------------------ |
-| `owner_`         | `address` | The owner address  |
-| `asset_`         | `IERC20`  | The asset          |
-| `depositPeriod_` | `uint8`   | The deposit period |
-| `operator_`      | `address` | The operator       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner_ | `address` | The owner address |
+| asset_ | `IERC20` | The asset |
+| depositPeriod_ | `uint8` | The deposit period |
+| operator_ | `address` | The operator |
 
 **Returns**
 
-| Name     | Type      | Description                    |
-| -------- | --------- | ------------------------------ |
-| `<none>` | `uint256` | tokenId The generated token ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The generated token ID |
+
+<a id="gettokenname-uint256"></a>
 
 ### getTokenName
 
@@ -178,15 +231,17 @@ function getTokenName(uint256 tokenId_) public view override returns (string mem
 
 **Parameters**
 
-| Name       | Type      | Description                 |
-| ---------- | --------- | --------------------------- |
-| `tokenId_` | `uint256` | The ID of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` | The ID of the receipt token |
 
 **Returns**
 
-| Name     | Type     | Description                        |
-| -------- | -------- | ---------------------------------- |
-| `<none>` | `string` | name The name of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` | The name of the receipt token |
+
+<a id="gettokensymbol-uint256"></a>
 
 ### getTokenSymbol
 
@@ -198,15 +253,17 @@ function getTokenSymbol(uint256 tokenId_) public view override returns (string m
 
 **Parameters**
 
-| Name       | Type      | Description                 |
-| ---------- | --------- | --------------------------- |
-| `tokenId_` | `uint256` | The ID of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` | The ID of the receipt token |
 
 **Returns**
 
-| Name     | Type     | Description                            |
-| -------- | -------- | -------------------------------------- |
-| `<none>` | `string` | symbol The symbol of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` | The symbol of the receipt token |
+
+<a id="gettokendecimals-uint256"></a>
 
 ### getTokenDecimals
 
@@ -218,15 +275,17 @@ function getTokenDecimals(uint256 tokenId_) public view override returns (uint8)
 
 **Parameters**
 
-| Name       | Type      | Description                 |
-| ---------- | --------- | --------------------------- |
-| `tokenId_` | `uint256` | The ID of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` | The ID of the receipt token |
 
 **Returns**
 
-| Name     | Type    | Description                                |
-| -------- | ------- | ------------------------------------------ |
-| `<none>` | `uint8` | decimals The decimals of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` | The decimals of the receipt token |
+
+<a id="gettokenowner-uint256"></a>
 
 ### getTokenOwner
 
@@ -238,15 +297,17 @@ function getTokenOwner(uint256 tokenId_) public view override returns (address);
 
 **Parameters**
 
-| Name       | Type      | Description  |
-| ---------- | --------- | ------------ |
-| `tokenId_` | `uint256` | The token ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` | The token ID |
 
 **Returns**
 
-| Name     | Type      | Description           |
-| -------- | --------- | --------------------- |
-| `<none>` | `address` | owner The token owner |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` | The token owner |
+
+<a id="gettokenasset-uint256"></a>
 
 ### getTokenAsset
 
@@ -258,15 +319,17 @@ function getTokenAsset(uint256 tokenId_) external view override returns (IERC20)
 
 **Parameters**
 
-| Name       | Type      | Description  |
-| ---------- | --------- | ------------ |
-| `tokenId_` | `uint256` | The token ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` | The token ID |
 
 **Returns**
 
-| Name     | Type     | Description                |
-| -------- | -------- | -------------------------- |
-| `<none>` | `IERC20` | asset The underlying asset |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` | The underlying asset |
+
+<a id="gettokendepositperiod-uint256"></a>
 
 ### getTokenDepositPeriod
 
@@ -278,15 +341,17 @@ function getTokenDepositPeriod(uint256 tokenId_) external view override returns 
 
 **Parameters**
 
-| Name       | Type      | Description  |
-| ---------- | --------- | ------------ |
-| `tokenId_` | `uint256` | The token ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` | The token ID |
 
 **Returns**
 
-| Name     | Type    | Description                      |
-| -------- | ------- | -------------------------------- |
-| `<none>` | `uint8` | depositPeriod The deposit period |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` | The deposit period |
+
+<a id="gettokenoperator-uint256"></a>
 
 ### getTokenOperator
 
@@ -298,23 +363,34 @@ function getTokenOperator(uint256 tokenId_) external view override returns (addr
 
 **Parameters**
 
-| Name       | Type      | Description  |
-| ---------- | --------- | ------------ |
-| `tokenId_` | `uint256` | The token ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` | The token ID |
 
 **Returns**
 
-| Name     | Type      | Description                   |
-| -------- | --------- | ----------------------------- |
-| `<none>` | `address` | operator The operator address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` | The operator address |
+
+<a id="supportsinterface-bytes4"></a>
 
 ### supportsInterface
 
 ```solidity
-function supportsInterface(bytes4 interfaceId)
-    public
-    view
-    virtual
-    override(ERC6909Wrappable, IERC165)
-    returns (bool);
+function supportsInterface(
+        bytes4 interfaceId
+    ) public view virtual override(ERC6909Wrappable, IERC165) returns (bool);
 ```
+
+**Parameters**
+
+| Name        | Type     | Description |
+| ----------- | -------- | ----------- |
+| interfaceId | `bytes4` |             |
+
+**Returns**
+
+| Name         | Type   | Description |
+| ------------ | ------ | ----------- |
+| &lt;none&gt; | `bool` |             |

@@ -1,39 +1,44 @@
 # MorphoOracleCloneable
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/price/MorphoOracleCloneable.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/price/MorphoOracleCloneable.sol)
 
-**Inherits:**
-[IMorphoOracle](/main/contracts/docs/src/policies/interfaces/price/IMorphoOracle.sol/interface.IMorphoOracle), [IOraclePriceCache](/main/contracts/docs/src/policies/interfaces/price/IOraclePriceCache.sol/interface.IOraclePriceCache), Clone
+**Inherits:** [IMorphoOracle](/main/contracts/docs/src/policies/interfaces/price/IMorphoOracle.sol/interface.IMorphoOracle), [IOraclePriceCache](/main/contracts/docs/src/policies/interfaces/price/IOraclePriceCache.sol/interface.IOraclePriceCache), Clone
 
-**Title:**
-MorphoOracleCloneable
+**Title:** MorphoOracleCloneable
 
-**Author:**
-OlympusDAO
-
-forge-lint: disable-start(mixed-case-function,mixed-case-variable)
+**Author:** OlympusDAO
 
 Oracle adapter that implements Morpho's IOracle interface from cached collateral/loan pair snapshots
+
+<i>
 
 Returns the price of 1 collateral token quoted in loan tokens, scaled by 1e36 as required by Morpho's IOracle interface.
 The price precision is 36 + loan_token_decimals - collateral_token_decimals.
 This contract is deployed as a clone with immutable args.
 
-## State Variables
+</i>
 
-### \_MORPHO_DECIMALS
+## Constants
+
+### _MORPHO_DECIMALS
 
 ```solidity
-uint8 internal constant _MORPHO_DECIMALS = 36
+uint8 internal constant _MORPHO_DECIMALS = 36;
 ```
 
 ## Functions
+
+<a id="factory"></a>
 
 ### factory
 
 The factory address
 
+<i>
+
 Does not revert.
+
+</i>
 
 ```solidity
 function factory() public pure returns (IOracleFactory);
@@ -41,15 +46,21 @@ function factory() public pure returns (IOracleFactory);
 
 **Returns**
 
-| Name     | Type             | Description                                  |
-| -------- | ---------------- | -------------------------------------------- |
-| `<none>` | `IOracleFactory` | The factory address stored in immutable args |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IOracleFactory` | The factory address stored in immutable args |
+
+<a id="collateraltoken"></a>
 
 ### collateralToken
 
 The collateral token address
 
+<i>
+
 Does not revert.
+
+</i>
 
 ```solidity
 function collateralToken() public pure returns (address);
@@ -57,15 +68,21 @@ function collateralToken() public pure returns (address);
 
 **Returns**
 
-| Name     | Type      | Description                                                   |
-| -------- | --------- | ------------------------------------------------------------- |
-| `<none>` | `address` | address The collateral token address stored in immutable args |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` | address The collateral token address stored in immutable args |
+
+<a id="loantoken"></a>
 
 ### loanToken
 
 The loan token address
 
+<i>
+
 Does not revert.
+
+</i>
 
 ```solidity
 function loanToken() public pure returns (address);
@@ -73,18 +90,24 @@ function loanToken() public pure returns (address);
 
 **Returns**
 
-| Name     | Type      | Description                                             |
-| -------- | --------- | ------------------------------------------------------- |
-| `<none>` | `address` | address The loan token address stored in immutable args |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` | address The loan token address stored in immutable args |
+
+<a id="scalefactor"></a>
 
 ### scaleFactor
 
 The scale factor for the oracle
 
+<i>
+
 Uses the current asset decimals reported by the factory's active price cache.
 For non-contract assets, decimals are PriceCache metadata rather than token
 metadata, so this value can change when `PriceCache.setNonContractAssetMetadata()`
 updates decimals. Call `PriceCache.assetDecimals()` to confirm the active NCA scale.
+
+</i>
 
 ```solidity
 function scaleFactor() public view returns (uint256);
@@ -92,15 +115,21 @@ function scaleFactor() public view returns (uint256);
 
 **Returns**
 
-| Name     | Type      | Description                      |
-| -------- | --------- | -------------------------------- |
-| `<none>` | `uint256` | uint256 The current scale factor |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | uint256 The current scale factor |
+
+<a id="maxage"></a>
 
 ### maxAge
 
 The maximum allowed age for cached prices
 
+<i>
+
 Does not revert.
+
+</i>
 
 ```solidity
 function maxAge() public pure override returns (uint48);
@@ -108,15 +137,21 @@ function maxAge() public pure override returns (uint48);
 
 **Returns**
 
-| Name     | Type     | Description                                 |
-| -------- | -------- | ------------------------------------------- |
-| `<none>` | `uint48` | uint48 The max age stored in immutable args |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` | uint48 The max age stored in immutable args |
+
+<a id="name"></a>
 
 ### name
 
 The name of the oracle
 
+<i>
+
 Does not revert.
+
+</i>
 
 ```solidity
 function name() public pure returns (string memory);
@@ -124,18 +159,24 @@ function name() public pure returns (string memory);
 
 **Returns**
 
-| Name     | Type     | Description                              |
-| -------- | -------- | ---------------------------------------- |
-| `<none>` | `string` | string The name stored in immutable args |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` | string The name stored in immutable args |
 
-### \_getEnabledPriceCache
+<a id="_getenabledpricecache"></a>
+
+### _getEnabledPriceCache
 
 Returns the enabled price cache policy for this oracle.
+
+<i>
 
 Calls `factory().getOracleContext(address(this))` to read the enabled state and
 price cache address for the current contract. Reverts with `MorphoOracle_NotEnabled()`
 when the returned enabled flag is false. Assumes the factory returns a valid
 `IPriceCache` address.
+
+</i>
 
 ```solidity
 function _getEnabledPriceCache() internal view returns (IPriceCache priceCache_);
@@ -143,40 +184,62 @@ function _getEnabledPriceCache() internal view returns (IPriceCache priceCache_)
 
 **Returns**
 
-| Name          | Type          | Description                                     |
-| ------------- | ------------- | ----------------------------------------------- |
-| `priceCache_` | `IPriceCache` | The enabled price cache policy for this oracle. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| priceCache_ | `IPriceCache` | The enabled price cache policy for this oracle. |
+
+<a id="price"></a>
 
 ### price
 
 Returns the price of 1 collateral token quoted in loan tokens, scaled by 1e36
 
+<i>
+
 This function uses cached pair snapshots only.
+
+</i>
+
+<i>
 
 The Morpho scale factor is recomputed from the active price cache's current
 collateral and loan decimals. If either asset is a non-contract asset, decimals
 are PriceCache metadata rather than token metadata and can change when
 `PriceCache.setNonContractAssetMetadata()` updates decimals. Call
 `PriceCache.assetDecimals()` to confirm the active NCA scale.
+
+</i>
+
 This function will revert if:
 
 - The oracle is not enabled in the factory context
 - The factory policy is deactivated in Kernel (checked via factory.getOracleContext())
 - The `IPriceCache.getCachedPrice()` call reverts because the cache policy is
-  deactivated in Kernel or the cache contract is disabled
+deactivated in Kernel or the cache contract is disabled
 - The collateral/loan pair is invalid for the configured cache policy
 - Either the collateral or loan token cached price is zero
 - The cached timestamp is stale
-  If callers encounter a feed-state revert, they should cache prices then retry.
-  A caller can alternatively call `isStale()`, call `cachePrice()` (if the result is true), and then this function.
+
+If callers encounter a feed-state revert, they should cache prices then retry.
+A caller can alternatively call `isStale()`, call `cachePrice()` (if the result is true), and then this function.
 
 ```solidity
 function price() external view override returns (uint256);
 ```
 
-### \_scaleFactor
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `uint256` |             |
+
+<a id="_scalefactor-ipricecache"></a>
+
+### _scaleFactor
 
 Calculates the current Morpho scale factor from the active price cache
+
+<i>
 
 Morpho expects prices scaled by 1e36, adjusted for collateral and loan token
 decimals: `10 ** (36 + loanDecimals - collateralDecimals)`.
@@ -186,45 +249,82 @@ recalculated instead of read from immutable args.
 Reverts if the exponent is negative or greater than 77, since `10 ** 78` exceeds
 `uint256`.
 
+</i>
+
 ```solidity
 function _scaleFactor(IPriceCache priceCache_) internal view returns (uint256 scaleFactor_);
 ```
 
 **Parameters**
 
-| Name          | Type          | Description                                                |
-| ------------- | ------------- | ---------------------------------------------------------- |
-| `priceCache_` | `IPriceCache` | The price cache used to resolve the current asset decimals |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| priceCache_ | `IPriceCache` | The price cache used to resolve the current asset decimals |
 
 **Returns**
 
-| Name           | Type      | Description                     |
-| -------------- | --------- | ------------------------------- |
-| `scaleFactor_` | `uint256` | The current Morpho scale factor |
+| Name         | Type      | Description                     |
+| ------------ | --------- | ------------------------------- |
+| scaleFactor_ | `uint256` | The current Morpho scale factor |
 
-### \_isStaleFromTimestamp
+<a id="_isstalefromtimestamp-uint48-uint48"></a>
+
+### _isStaleFromTimestamp
 
 ```solidity
 function _isStaleFromTimestamp(uint48 timestamp_, uint48 maxAge_) internal view returns (bool);
 ```
 
-### \_latestPermissibleTimestamp
+**Parameters**
+
+| Name       | Type     | Description |
+| ---------- | -------- | ----------- |
+| timestamp_ | `uint48` |             |
+| maxAge_    | `uint48` |             |
+
+**Returns**
+
+| Name         | Type   | Description |
+| ------------ | ------ | ----------- |
+| &lt;none&gt; | `bool` |             |
+
+<a id="_latestpermissibletimestamp-uint48"></a>
+
+### _latestPermissibleTimestamp
 
 ```solidity
 function _latestPermissibleTimestamp(uint48 maxAge_) internal view returns (uint256);
 ```
 
+**Parameters**
+
+| Name    | Type     | Description |
+| ------- | -------- | ----------- |
+| maxAge_ | `uint48` |             |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `uint256` |             |
+
+<a id="isstale"></a>
+
 ### isStale
 
 Returns whether the cached feed state is stale.
+
+<i>
 
 Reverts if:
 
 - The oracle is not enabled in the factory context
 - The factory policy is deactivated in Kernel (checked via factory.getOracleContext())
 - The `IPriceCache.isStale()` call reverts because the cache policy is
-  deactivated in Kernel or the cache contract is disabled
+deactivated in Kernel or the cache contract is disabled
 - The configured pair is invalid for the active cache policy
+
+</i>
 
 ```solidity
 function isStale() external view override returns (bool);
@@ -232,13 +332,17 @@ function isStale() external view override returns (bool);
 
 **Returns**
 
-| Name     | Type   | Description                                                             |
-| -------- | ------ | ----------------------------------------------------------------------- |
-| `<none>` | `bool` | isStale\_ Returns true if the pair cache is unset or older than maxAge. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | Returns true if the pair cache is unset or older than maxAge. |
+
+<a id="timestamp"></a>
 
 ### timestamp
 
 Returns the cached timestamp for the collateral/loan pair.
+
+<i>
 
 Reverts if:
 
@@ -247,19 +351,25 @@ Reverts if:
 - The cache policy is deactivated in Kernel or the cache contract is disabled
 - The configured pair is invalid for the active cache policy
 
+</i>
+
 ```solidity
 function timestamp() external view override returns (uint48);
 ```
 
 **Returns**
 
-| Name     | Type     | Description                                            |
-| -------- | -------- | ------------------------------------------------------ |
-| `<none>` | `uint48` | timestamp\_ Returns the timestamp of the cached prices |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` | Returns the timestamp of the cached prices |
+
+<a id="cacheprice"></a>
 
 ### cachePrice
 
 Triggers a cache update for the oracle's configured pair
+
+<i>
 
 Unconditionally asks the factory to cache the configured pair.
 The factory validates caller/oracle/factory enabled state.
@@ -271,13 +381,19 @@ Reverts if:
 - The configured pair is invalid in the active cache policy
 - The active cache policy reverts while evaluating staleness or caching
 
+</i>
+
 ```solidity
 function cachePrice() external override;
 ```
 
+<a id="cachepriceifnecessary"></a>
+
 ### cachePriceIfNecessary
 
 Triggers a cache update only when the oracle's configured pair cache is stale
+
+<i>
 
 Defers staleness checks to the factory using this oracle's configured maxAge.
 Reverts if:
@@ -288,15 +404,23 @@ Reverts if:
 - The configured pair is invalid in the active cache policy
 - The active cache policy reverts while evaluating staleness or caching
 
+</i>
+
 ```solidity
 function cachePriceIfNecessary() external override;
 ```
+
+<a id="supportsinterface-bytes4"></a>
 
 ### supportsInterface
 
 Query if a contract implements an interface
 
+<i>
+
 Does not revert.
+
+</i>
 
 ```solidity
 function supportsInterface(bytes4 interfaceId_) public pure returns (bool);
@@ -304,12 +428,12 @@ function supportsInterface(bytes4 interfaceId_) public pure returns (bool);
 
 **Parameters**
 
-| Name           | Type     | Description                                       |
-| -------------- | -------- | ------------------------------------------------- |
-| `interfaceId_` | `bytes4` | The interface identifier, as specified in ERC-165 |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` | The interface identifier, as specified in ERC-165 |
 
 **Returns**
 
-| Name     | Type   | Description                                                            |
-| -------- | ------ | ---------------------------------------------------------------------- |
-| `<none>` | `bool` | bool true if the contract implements interfaceId\_ and false otherwise |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | bool            true if the contract implements interfaceId_ and false otherwise |

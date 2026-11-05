@@ -1,60 +1,72 @@
 # RGSTYv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/modules/RGSTY/RGSTY.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/modules/RGSTY/RGSTY.v1.sol)
 
-**Inherits:**
-[Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
+**Inherits:** [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
 
-**Title:**
-Contract Registry
+**Title:** Contract Registry
 
 Interface for a module that can track the addresses of contracts
 
 ## State Variables
 
-### \_immutableContractNames
+### _immutableContractNames
 
 Stores the names of the registered immutable contracts
 
 ```solidity
-bytes5[] internal _immutableContractNames
+bytes5[] internal _immutableContractNames;
 ```
 
-### \_contractNames
+### _contractNames
 
 Stores the names of the registered contracts
 
 ```solidity
-bytes5[] internal _contractNames
+bytes5[] internal _contractNames;
 ```
 
-### \_immutableContracts
+### _immutableContracts
 
 Mapping to store the immutable address of a contract
 
+<i>
+
 The address of an immutable contract can be retrieved by `getImmutableContract()`, and the names of all immutable contracts can be retrieved by `getImmutableContractNames()`.
 
+</i>
+
 ```solidity
-mapping(bytes5 => address) internal _immutableContracts
+mapping(bytes5 => address) internal _immutableContracts;
 ```
 
-### \_contracts
+### _contracts
 
 Mapping to store the address of a contract
 
+<i>
+
 The address of a registered contract can be retrieved by `getContract()`, and the names of all registered contracts can be retrieved by `getContractNames()`.
 
+</i>
+
 ```solidity
-mapping(bytes5 => address) internal _contracts
+mapping(bytes5 => address) internal _contracts;
 ```
 
 ## Functions
+
+<a id="registerimmutablecontract-bytes5-address"></a>
 
 ### registerImmutableContract
 
 Register an immutable contract name and address
 
+<i>
+
 This function should be permissioned to prevent arbitrary contracts from being registered.
+
+</i>
 
 ```solidity
 function registerImmutableContract(bytes5 name_, address contractAddress_) external virtual;
@@ -62,16 +74,22 @@ function registerImmutableContract(bytes5 name_, address contractAddress_) exter
 
 **Parameters**
 
-| Name               | Type      | Description                 |
-| ------------------ | --------- | --------------------------- |
-| `name_`            | `bytes5`  | The name of the contract    |
-| `contractAddress_` | `address` | The address of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `bytes5` | The name of the contract |
+| contractAddress_ | `address` | The address of the contract |
+
+<a id="registercontract-bytes5-address"></a>
 
 ### registerContract
 
 Register a new contract name and address
 
+<i>
+
 This function should be permissioned to prevent arbitrary contracts from being registered.
+
+</i>
 
 ```solidity
 function registerContract(bytes5 name_, address contractAddress_) external virtual;
@@ -79,16 +97,22 @@ function registerContract(bytes5 name_, address contractAddress_) external virtu
 
 **Parameters**
 
-| Name               | Type      | Description                 |
-| ------------------ | --------- | --------------------------- |
-| `name_`            | `bytes5`  | The name of the contract    |
-| `contractAddress_` | `address` | The address of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `bytes5` | The name of the contract |
+| contractAddress_ | `address` | The address of the contract |
+
+<a id="updatecontract-bytes5-address"></a>
 
 ### updateContract
 
 Update the address of an existing contract name
 
+<i>
+
 This function should be permissioned to prevent arbitrary contracts from being updated.
+
+</i>
 
 ```solidity
 function updateContract(bytes5 name_, address contractAddress_) external virtual;
@@ -96,16 +120,22 @@ function updateContract(bytes5 name_, address contractAddress_) external virtual
 
 **Parameters**
 
-| Name               | Type      | Description                 |
-| ------------------ | --------- | --------------------------- |
-| `name_`            | `bytes5`  | The name of the contract    |
-| `contractAddress_` | `address` | The address of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `bytes5` | The name of the contract |
+| contractAddress_ | `address` | The address of the contract |
+
+<a id="deregistercontract-bytes5"></a>
 
 ### deregisterContract
 
 Deregister an existing contract name
 
+<i>
+
 This function should be permissioned to prevent arbitrary contracts from being deregistered.
+
+</i>
 
 ```solidity
 function deregisterContract(bytes5 name_) external virtual;
@@ -113,9 +143,11 @@ function deregisterContract(bytes5 name_) external virtual;
 
 **Parameters**
 
-| Name    | Type     | Description              |
-| ------- | -------- | ------------------------ |
-| `name_` | `bytes5` | The name of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `bytes5` | The name of the contract |
+
+<a id="getimmutablecontract-bytes5"></a>
 
 ### getImmutableContract
 
@@ -127,15 +159,17 @@ function getImmutableContract(bytes5 name_) external view virtual returns (addre
 
 **Parameters**
 
-| Name    | Type     | Description              |
-| ------- | -------- | ------------------------ |
-| `name_` | `bytes5` | The name of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `bytes5` | The name of the contract |
 
 **Returns**
 
-| Name     | Type      | Description                 |
-| -------- | --------- | --------------------------- |
-| `<none>` | `address` | The address of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` | The address of the contract |
+
+<a id="getcontract-bytes5"></a>
 
 ### getContract
 
@@ -147,15 +181,17 @@ function getContract(bytes5 name_) external view virtual returns (address);
 
 **Parameters**
 
-| Name    | Type     | Description              |
-| ------- | -------- | ------------------------ |
-| `name_` | `bytes5` | The name of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `bytes5` | The name of the contract |
 
 **Returns**
 
-| Name     | Type      | Description                 |
-| -------- | --------- | --------------------------- |
-| `<none>` | `address` | The address of the contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` | The address of the contract |
+
+<a id="getimmutablecontractnames"></a>
 
 ### getImmutableContractNames
 
@@ -167,9 +203,11 @@ function getImmutableContractNames() external view virtual returns (bytes5[] mem
 
 **Returns**
 
-| Name     | Type       | Description                                     |
-| -------- | ---------- | ----------------------------------------------- |
-| `<none>` | `bytes5[]` | The names of all registered immutable contracts |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes5[]` | The names of all registered immutable contracts |
+
+<a id="getcontractnames"></a>
 
 ### getContractNames
 
@@ -181,9 +219,9 @@ function getContractNames() external view virtual returns (bytes5[] memory);
 
 **Returns**
 
-| Name     | Type       | Description                                   |
-| -------- | ---------- | --------------------------------------------- |
-| `<none>` | `bytes5[]` | The names of all registered mutable contracts |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes5[]` | The names of all registered mutable contracts |
 
 ## Events
 
@@ -192,8 +230,20 @@ function getContractNames() external view virtual returns (bytes5[] memory);
 Emitted when a contract is registered
 
 ```solidity
-event ContractRegistered(bytes5 indexed name, address indexed contractAddress, bool isImmutable);
+event ContractRegistered(
+        bytes5 indexed name,
+        address indexed contractAddress,
+        bool isImmutable
+    );
 ```
+
+**Parameters**
+
+| Name            | Type      | Description |
+| --------------- | --------- | ----------- |
+| name            | `bytes5`  |             |
+| contractAddress | `address` |             |
+| isImmutable     | `bool`    |             |
 
 ### ContractUpdated
 
@@ -203,6 +253,13 @@ Emitted when a contract is updated
 event ContractUpdated(bytes5 indexed name, address indexed contractAddress);
 ```
 
+**Parameters**
+
+| Name            | Type      | Description |
+| --------------- | --------- | ----------- |
+| name            | `bytes5`  |             |
+| contractAddress | `address` |             |
+
 ### ContractDeregistered
 
 Emitted when a contract is deregistered
@@ -210,6 +267,12 @@ Emitted when a contract is deregistered
 ```solidity
 event ContractDeregistered(bytes5 indexed name);
 ```
+
+**Parameters**
+
+| Name | Type     | Description |
+| ---- | -------- | ----------- |
+| name | `bytes5` |             |
 
 ## Errors
 

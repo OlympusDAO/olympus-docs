@@ -1,37 +1,42 @@
 # IERC7726OracleFactory
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/price/IERC7726OracleFactory.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/price/IERC7726OracleFactory.sol)
 
-**Title:**
-IERC7726OracleFactory
+**Title:** IERC7726OracleFactory
 
-**Author:**
-OlympusDAO
+**Author:** OlympusDAO
 
 Interface for deploying and managing ERC7726 clone oracles parameterized by maxAge
 
 ## Functions
+
+<a id="createoracle-uint48-bytes"></a>
 
 ### createOracle
 
 Creates a new oracle for a specific maxAge
 
 ```solidity
-function createOracle(uint48 maxAge_, bytes calldata customParams_) external returns (address oracle);
+function createOracle(
+        uint48 maxAge_,
+        bytes calldata customParams_
+    ) external returns (address oracle);
 ```
 
 **Parameters**
 
-| Name            | Type     | Description                                                      |
-| --------------- | -------- | ---------------------------------------------------------------- |
-| `maxAge_`       | `uint48` | The maximum age (in seconds) of cached prices used by the oracle |
-| `customParams_` | `bytes`  | Optional params for factory-specific customization               |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxAge_ | `uint48` | The maximum age (in seconds) of cached prices used by the oracle |
+| customParams_ | `bytes` | Optional params for factory-specific customization |
 
 **Returns**
 
-| Name     | Type      | Description                       |
-| -------- | --------- | --------------------------------- |
-| `oracle` | `address` | The address of the created oracle |
+| Name   | Type      | Description                       |
+| ------ | --------- | --------------------------------- |
+| oracle | `address` | The address of the created oracle |
+
+<a id="getoracle-uint48"></a>
 
 ### getOracle
 
@@ -43,15 +48,17 @@ function getOracle(uint48 maxAge_) external view returns (address oracle);
 
 **Parameters**
 
-| Name      | Type     | Description                        |
-| --------- | -------- | ---------------------------------- |
-| `maxAge_` | `uint48` | The maximum age used by the oracle |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxAge_ | `uint48` | The maximum age used by the oracle |
 
 **Returns**
 
-| Name     | Type      | Description                                    |
-| -------- | --------- | ---------------------------------------------- |
-| `oracle` | `address` | The oracle address, or address(0) if not found |
+| Name   | Type      | Description                                    |
+| ------ | --------- | ---------------------------------------------- |
+| oracle | `address` | The oracle address, or address(0) if not found |
+
+<a id="getoracles"></a>
 
 ### getOracles
 
@@ -63,9 +70,11 @@ function getOracles() external view returns (address[] memory oracles);
 
 **Returns**
 
-| Name      | Type        | Description                   |
-| --------- | ----------- | ----------------------------- |
-| `oracles` | `address[]` | Array of all oracle addresses |
+| Name    | Type        | Description                   |
+| ------- | ----------- | ----------------------------- |
+| oracles | `address[]` | Array of all oracle addresses |
+
+<a id="getpricecache"></a>
 
 ### getPriceCache
 
@@ -77,9 +86,11 @@ function getPriceCache() external view returns (address policy);
 
 **Returns**
 
-| Name     | Type      | Description                    |
-| -------- | --------- | ------------------------------ |
-| `policy` | `address` | The price cache policy address |
+| Name   | Type      | Description                    |
+| ------ | --------- | ------------------------------ |
+| policy | `address` | The price cache policy address |
+
+<a id="enableoracle-address"></a>
 
 ### enableOracle
 
@@ -91,9 +102,11 @@ function enableOracle(address oracle_) external;
 
 **Parameters**
 
-| Name      | Type      | Description                  |
-| --------- | --------- | ---------------------------- |
-| `oracle_` | `address` | The oracle address to enable |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle_ | `address` | The oracle address to enable |
+
+<a id="disableoracle-address"></a>
 
 ### disableOracle
 
@@ -105,9 +118,11 @@ function disableOracle(address oracle_) external;
 
 **Parameters**
 
-| Name      | Type      | Description                   |
-| --------- | --------- | ----------------------------- |
-| `oracle_` | `address` | The oracle address to disable |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle_ | `address` | The oracle address to disable |
+
+<a id="isoracleenabled-address"></a>
 
 ### isOracleEnabled
 
@@ -119,24 +134,30 @@ function isOracleEnabled(address oracle_) external view returns (bool enabled);
 
 **Parameters**
 
-| Name      | Type      | Description                 |
-| --------- | --------- | --------------------------- |
-| `oracle_` | `address` | The oracle address to check |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle_ | `address` | The oracle address to check |
 
 **Returns**
 
-| Name      | Type   | Description                                    |
-| --------- | ------ | ---------------------------------------------- |
-| `enabled` | `bool` | True if the oracle is enabled, false otherwise |
+| Name    | Type   | Description                                    |
+| ------- | ------ | ---------------------------------------------- |
+| enabled | `bool` | True if the oracle is enabled, false otherwise |
+
+<a id="getoraclecontext-address"></a>
 
 ### getOracleContext
 
 Checks if a factory-created oracle is enabled and returns the configured price cache
 
+<i>
+
 Reverts if:
 
 - The policy is deactivated in Kernel
 - `oracle_` was not created by this factory
+
+</i>
 
 ```solidity
 function getOracleContext(address oracle_) external view returns (bool enabled, address policy);
@@ -144,16 +165,18 @@ function getOracleContext(address oracle_) external view returns (bool enabled, 
 
 **Parameters**
 
-| Name      | Type      | Description                 |
-| --------- | --------- | --------------------------- |
-| `oracle_` | `address` | The oracle address to check |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle_ | `address` | The oracle address to check |
 
 **Returns**
 
-| Name      | Type      | Description                                    |
-| --------- | --------- | ---------------------------------------------- |
-| `enabled` | `bool`    | True if the oracle is enabled, false otherwise |
-| `policy`  | `address` | The configured price cache policy address      |
+| Name    | Type      | Description                                    |
+| ------- | --------- | ---------------------------------------------- |
+| enabled | `bool`    | True if the oracle is enabled, false otherwise |
+| policy  | `address` | The configured price cache policy address      |
+
+<a id="cacheprice-address-address"></a>
 
 ### cachePrice
 
@@ -165,10 +188,12 @@ function cachePrice(address base_, address quote_) external;
 
 **Parameters**
 
-| Name     | Type      | Description              |
-| -------- | --------- | ------------------------ |
-| `base_`  | `address` | The base asset to cache  |
-| `quote_` | `address` | The quote asset to cache |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| base_ | `address` | The base asset to cache |
+| quote_ | `address` | The quote asset to cache |
+
+<a id="cachepriceifnecessary-address-address"></a>
 
 ### cachePriceIfNecessary
 
@@ -180,10 +205,12 @@ function cachePriceIfNecessary(address base_, address quote_) external;
 
 **Parameters**
 
-| Name     | Type      | Description                            |
-| -------- | --------- | -------------------------------------- |
-| `base_`  | `address` | The base asset to conditionally cache  |
-| `quote_` | `address` | The quote asset to conditionally cache |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| base_ | `address` | The base asset to conditionally cache |
+| quote_ | `address` | The quote asset to conditionally cache |
+
+<a id="enablecreation"></a>
 
 ### enableCreation
 
@@ -193,6 +220,8 @@ Enables oracle creation
 function enableCreation() external;
 ```
 
+<a id="disablecreation"></a>
+
 ### disableCreation
 
 Disables oracle creation
@@ -200,6 +229,8 @@ Disables oracle creation
 ```solidity
 function disableCreation() external;
 ```
+
+<a id="setpricecache-address"></a>
 
 ### setPriceCache
 
@@ -211,9 +242,9 @@ function setPriceCache(address policy_) external;
 
 **Parameters**
 
-| Name      | Type      | Description                    |
-| --------- | --------- | ------------------------------ |
-| `policy_` | `address` | The price cache policy address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` | The price cache policy address |
 
 ## Events
 
@@ -227,10 +258,10 @@ event OracleCreated(address indexed oracle, uint48 indexed maxAge);
 
 **Parameters**
 
-| Name     | Type      | Description                            |
-| -------- | --------- | -------------------------------------- |
-| `oracle` | `address` | The created oracle address             |
-| `maxAge` | `uint48`  | The max age configured for this oracle |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle | `address` | The created oracle address |
+| maxAge | `uint48` | The max age configured for this oracle |
 
 ### CreationEnabled
 
@@ -258,9 +289,9 @@ event OracleEnabled(address indexed oracle);
 
 **Parameters**
 
-| Name     | Type      | Description                |
-| -------- | --------- | -------------------------- |
-| `oracle` | `address` | The enabled oracle address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle | `address` | The enabled oracle address |
 
 ### OracleDisabled
 
@@ -272,9 +303,9 @@ event OracleDisabled(address indexed oracle);
 
 **Parameters**
 
-| Name     | Type      | Description                 |
-| -------- | --------- | --------------------------- |
-| `oracle` | `address` | The disabled oracle address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle | `address` | The disabled oracle address |
 
 ### PriceCacheSet
 
@@ -286,9 +317,9 @@ event PriceCacheSet(address indexed policy);
 
 **Parameters**
 
-| Name     | Type      | Description                            |
-| -------- | --------- | -------------------------------------- |
-| `policy` | `address` | The updated price cache policy address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy | `address` | The updated price cache policy address |
 
 ## Errors
 
@@ -302,11 +333,11 @@ error ERC7726OracleFactory_UnsupportedModuleVersion(bytes5 keycode, uint8 major,
 
 **Parameters**
 
-| Name      | Type     | Description                     |
-| --------- | -------- | ------------------------------- |
-| `keycode` | `bytes5` | The keycode of the module       |
-| `major`   | `uint8`  | The major version of the module |
-| `minor`   | `uint8`  | The minor version of the module |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode | `bytes5` | The keycode of the module |
+| major | `uint8` | The major version of the module |
+| minor | `uint8` | The minor version of the module |
 
 ### ERC7726OracleFactory_PolicyNotActive
 
@@ -326,10 +357,10 @@ error ERC7726OracleFactory_UnsupportedModuleInterface(bytes5 keycode, bytes4 int
 
 **Parameters**
 
-| Name          | Type     | Description                                       |
-| ------------- | -------- | ------------------------------------------------- |
-| `keycode`     | `bytes5` | The keycode of the module                         |
-| `interfaceId` | `bytes4` | The interface identifier, as specified in ERC-165 |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode | `bytes5` | The keycode of the module |
+| interfaceId | `bytes4` | The interface identifier, as specified in ERC-165 |
 
 ### ERC7726OracleFactory_CreationDisabled
 
@@ -349,9 +380,9 @@ error ERC7726OracleFactory_OracleAlreadyExists(uint48 maxAge);
 
 **Parameters**
 
-| Name     | Type     | Description                           |
-| -------- | -------- | ------------------------------------- |
-| `maxAge` | `uint48` | The maxAge that already has an oracle |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxAge | `uint48` | The maxAge that already has an oracle |
 
 ### ERC7726OracleFactory_CreationAlreadyEnabled
 
@@ -379,9 +410,9 @@ error ERC7726OracleFactory_InvalidOracle(address oracle);
 
 **Parameters**
 
-| Name     | Type      | Description                |
-| -------- | --------- | -------------------------- |
-| `oracle` | `address` | The invalid oracle address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle | `address` | The invalid oracle address |
 
 ### ERC7726OracleFactory_OracleAlreadyEnabled
 
@@ -393,9 +424,9 @@ error ERC7726OracleFactory_OracleAlreadyEnabled(address oracle);
 
 **Parameters**
 
-| Name     | Type      | Description                        |
-| -------- | --------- | ---------------------------------- |
-| `oracle` | `address` | The already enabled oracle address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle | `address` | The already enabled oracle address |
 
 ### ERC7726OracleFactory_OracleAlreadyDisabled
 
@@ -407,9 +438,9 @@ error ERC7726OracleFactory_OracleAlreadyDisabled(address oracle);
 
 **Parameters**
 
-| Name     | Type      | Description                         |
-| -------- | --------- | ----------------------------------- |
-| `oracle` | `address` | The already disabled oracle address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle | `address` | The already disabled oracle address |
 
 ### ERC7726OracleFactory_OracleDisabled
 
@@ -421,9 +452,9 @@ error ERC7726OracleFactory_OracleDisabled(address oracle);
 
 **Parameters**
 
-| Name     | Type      | Description                 |
-| -------- | --------- | --------------------------- |
-| `oracle` | `address` | The disabled oracle address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle | `address` | The disabled oracle address |
 
 ### ERC7726OracleFactory_InvalidCustomParams
 
@@ -435,9 +466,9 @@ error ERC7726OracleFactory_InvalidCustomParams(uint256 length);
 
 **Parameters**
 
-| Name     | Type      | Description              |
-| -------- | --------- | ------------------------ |
-| `length` | `uint256` | The custom params length |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| length | `uint256` | The custom params length |
 
 ### ERC7726OracleFactory_InvalidPriceCache
 
@@ -449,9 +480,9 @@ error ERC7726OracleFactory_InvalidPriceCache(address policy);
 
 **Parameters**
 
-| Name     | Type      | Description                            |
-| -------- | --------- | -------------------------------------- |
-| `policy` | `address` | The invalid price cache policy address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy | `address` | The invalid price cache policy address |
 
 ### ERC7726OracleFactory_InvalidEnableData
 
@@ -463,7 +494,7 @@ error ERC7726OracleFactory_InvalidEnableData(uint256 baseTokenLength, uint256 qu
 
 **Parameters**
 
-| Name               | Type      | Description                |
-| ------------------ | --------- | -------------------------- |
-| `baseTokenLength`  | `uint256` | The number of base tokens  |
-| `quoteTokenLength` | `uint256` | The number of quote tokens |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| baseTokenLength | `uint256` | The number of base tokens |
+| quoteTokenLength | `uint256` | The number of quote tokens |

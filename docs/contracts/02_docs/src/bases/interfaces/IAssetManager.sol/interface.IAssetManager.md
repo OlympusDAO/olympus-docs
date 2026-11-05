@@ -1,9 +1,8 @@
 # IAssetManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/bases/interfaces/IAssetManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/bases/interfaces/IAssetManager.sol)
 
-**Title:**
-IAssetManager
+**Title:** IAssetManager
 
 This interface defines the functions for custodying assets.
 A depositor can deposit assets into a vault, and withdraw them later.
@@ -11,50 +10,58 @@ An operator is the contract that acts on behalf of the depositor. Only operators
 
 ## Functions
 
+<a id="getoperatorassets-ierc20-address"></a>
+
 ### getOperatorAssets
 
 Get the number of assets deposited for an asset and operator
 
 ```solidity
-function getOperatorAssets(IERC20 asset_, address operator_)
-    external
-    view
-    returns (uint256 shares, uint256 sharesInAssets);
+function getOperatorAssets(
+        IERC20 asset_,
+        address operator_
+    ) external view returns (uint256 shares, uint256 sharesInAssets);
 ```
 
 **Parameters**
 
-| Name        | Type      | Description                                  |
-| ----------- | --------- | -------------------------------------------- |
-| `asset_`    | `IERC20`  | The asset to get the deposited shares for    |
-| `operator_` | `address` | The operator to get the deposited shares for |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The asset to get the deposited shares for |
+| operator_ | `address` | The operator to get the deposited shares for |
 
 **Returns**
 
-| Name             | Type      | Description                                         |
-| ---------------- | --------- | --------------------------------------------------- |
-| `shares`         | `uint256` | The number of shares deposited                      |
-| `sharesInAssets` | `uint256` | The number of shares deposited (in terms of assets) |
+| Name           | Type      | Description                                         |
+| -------------- | --------- | --------------------------------------------------- |
+| shares         | `uint256` | The number of shares deposited                      |
+| sharesInAssets | `uint256` | The number of shares deposited (in terms of assets) |
+
+<a id="getassetconfiguration-ierc20"></a>
 
 ### getAssetConfiguration
 
 Get the configuration for an asset
 
 ```solidity
-function getAssetConfiguration(IERC20 asset_) external view returns (AssetConfiguration memory configuration);
+function getAssetConfiguration(
+        IERC20 asset_
+    ) external view returns (AssetConfiguration memory configuration);
 ```
 
 **Parameters**
 
-| Name     | Type     | Description                            |
-| -------- | -------- | -------------------------------------- |
-| `asset_` | `IERC20` | The asset to get the configuration for |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The asset to get the configuration for |
 
 **Returns**
 
-| Name            | Type                 | Description                     |
-| --------------- | -------------------- | ------------------------------- |
-| `configuration` | `AssetConfiguration` | The configuration for the asset |
+| Name          | Type                 | Description                     |
+| ------------- | -------------------- | ------------------------------- |
+| configuration | `AssetConfiguration` | The configuration for the asset |
+
+<a id="getconfiguredassets"></a>
 
 ### getConfiguredAssets
 
@@ -66,9 +73,9 @@ function getConfiguredAssets() external view returns (IERC20[] memory assets);
 
 **Returns**
 
-| Name     | Type       | Description                    |
-| -------- | ---------- | ------------------------------ |
-| `assets` | `IERC20[]` | The assets that are configured |
+| Name   | Type       | Description                    |
+| ------ | ---------- | ------------------------------ |
+| assets | `IERC20[]` | The assets that are configured |
 
 ## Events
 
@@ -77,6 +84,13 @@ function getConfiguredAssets() external view returns (IERC20[] memory assets);
 ```solidity
 event AssetConfigured(address indexed asset, address indexed vault);
 ```
+
+**Parameters**
+
+| Name  | Type      | Description |
+| ----- | --------- | ----------- |
+| asset | `address` |             |
+| vault | `address` |             |
 
 ### AssetDepositCapSet
 
@@ -88,10 +102,10 @@ event AssetDepositCapSet(address indexed asset, uint256 depositCap);
 
 **Parameters**
 
-| Name         | Type      | Description                                 |
-| ------------ | --------- | ------------------------------------------- |
-| `asset`      | `address` | The ERC20 asset                             |
-| `depositCap` | `uint256` | The new deposit cap amount (in asset units) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` | The ERC20 asset |
+| depositCap | `uint256` | The new deposit cap amount (in asset units) |
 
 ### AssetMinimumDepositSet
 
@@ -103,26 +117,54 @@ event AssetMinimumDepositSet(address indexed asset, uint256 minimumDeposit);
 
 **Parameters**
 
-| Name             | Type      | Description                                     |
-| ---------------- | --------- | ----------------------------------------------- |
-| `asset`          | `address` | The ERC20 asset                                 |
-| `minimumDeposit` | `uint256` | The new minimum deposit amount (in asset units) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` | The ERC20 asset |
+| minimumDeposit | `uint256` | The new minimum deposit amount (in asset units) |
 
 ### AssetDeposited
 
 ```solidity
 event AssetDeposited(
-    address indexed asset, address indexed depositor, address indexed operator, uint256 amount, uint256 shares
-);
+        address indexed asset,
+        address indexed depositor,
+        address indexed operator,
+        uint256 amount,
+        uint256 shares
+    );
 ```
+
+**Parameters**
+
+| Name      | Type      | Description |
+| --------- | --------- | ----------- |
+| asset     | `address` |             |
+| depositor | `address` |             |
+| operator  | `address` |             |
+| amount    | `uint256` |             |
+| shares    | `uint256` |             |
 
 ### AssetWithdrawn
 
 ```solidity
 event AssetWithdrawn(
-    address indexed asset, address indexed withdrawer, address indexed operator, uint256 amount, uint256 shares
-);
+        address indexed asset,
+        address indexed withdrawer,
+        address indexed operator,
+        uint256 amount,
+        uint256 shares
+    );
 ```
+
+**Parameters**
+
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| asset      | `address` |             |
+| withdrawer | `address` |             |
+| operator   | `address` |             |
+| amount     | `uint256` |             |
+| shares     | `uint256` |             |
 
 ## Errors
 
@@ -159,20 +201,56 @@ error AssetManager_ZeroAmount();
 ### AssetManager_DepositCapExceeded
 
 ```solidity
-error AssetManager_DepositCapExceeded(address asset, uint256 existingDepositAmount, uint256 depositCap);
+error AssetManager_DepositCapExceeded(
+        address asset,
+        uint256 existingDepositAmount,
+        uint256 depositCap
+    );
 ```
+
+**Parameters**
+
+| Name                  | Type      | Description |
+| --------------------- | --------- | ----------- |
+| asset                 | `address` |             |
+| existingDepositAmount | `uint256` |             |
+| depositCap            | `uint256` |             |
 
 ### AssetManager_MinimumDepositNotMet
 
 ```solidity
-error AssetManager_MinimumDepositNotMet(address asset, uint256 depositAmount, uint256 minimumDeposit);
+error AssetManager_MinimumDepositNotMet(
+        address asset,
+        uint256 depositAmount,
+        uint256 minimumDeposit
+    );
 ```
+
+**Parameters**
+
+| Name           | Type      | Description |
+| -------------- | --------- | ----------- |
+| asset          | `address` |             |
+| depositAmount  | `uint256` |             |
+| minimumDeposit | `uint256` |             |
 
 ### AssetManager_MinimumDepositExceedsDepositCap
 
 ```solidity
-error AssetManager_MinimumDepositExceedsDepositCap(address asset, uint256 minimumDeposit, uint256 depositCap);
+error AssetManager_MinimumDepositExceedsDepositCap(
+        address asset,
+        uint256 minimumDeposit,
+        uint256 depositCap
+    );
 ```
+
+**Parameters**
+
+| Name           | Type      | Description |
+| -------------- | --------- | ----------- |
+| asset          | `address` |             |
+| minimumDeposit | `uint256` |             |
+| depositCap     | `uint256` |             |
 
 ## Structs
 
@@ -182,18 +260,18 @@ Configuration for an asset
 
 ```solidity
 struct AssetConfiguration {
-    bool isConfigured;
-    uint256 depositCap;
-    uint256 minimumDeposit;
-    address vault;
-}
+        bool isConfigured;
+        uint256 depositCap;
+        uint256 minimumDeposit;
+        address vault;
+    }
 ```
 
 **Properties**
 
-| Name             | Type      | Description                                                                                                |
-| ---------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
-| `isConfigured`   | `bool`    | Whether the asset is configured                                                                            |
-| `depositCap`     | `uint256` | The maximum amount of assets that can be deposited. Set to 0 to disable deposits.                          |
-| `minimumDeposit` | `uint256` | The minimum amount of assets that can be deposited in a single transaction (set to 0 to disable the check) |
-| `vault`          | `address` | The ERC4626 vault that the asset is deposited into                                                         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isConfigured | `bool` | Whether the asset is configured |
+| depositCap | `uint256` | The maximum amount of assets that can be deposited. Set to 0 to disable deposits. |
+| minimumDeposit | `uint256` | The minimum amount of assets that can be deposited in a single transaction (set to 0 to disable the check) |
+| vault | `address` | The ERC4626 vault that the asset is deposited into |

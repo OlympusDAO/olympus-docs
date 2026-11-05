@@ -1,44 +1,51 @@
 # ICoolerV2Migrator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/periphery/interfaces/ICoolerV2Migrator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/periphery/interfaces/ICoolerV2Migrator.sol)
 
-**Title:**
-Cooler V2 Migrator
+**Title:** Cooler V2 Migrator
 
 Interface for contracts that migrate Cooler V1 loans to Cooler V2
 
 ## Functions
+
+<a id="previewconsolidate-address"></a>
 
 ### previewConsolidate
 
 Preview the consolidation of a set of loans.
 
 ```solidity
-function previewConsolidate(address[] calldata coolers_)
-    external
-    view
-    returns (uint256 collateralAmount, uint256 borrowAmount);
+function previewConsolidate(
+        address[] calldata coolers_
+    ) external view returns (uint256 collateralAmount, uint256 borrowAmount);
 ```
 
 **Parameters**
 
-| Name       | Type        | Description                                |
-| ---------- | ----------- | ------------------------------------------ |
-| `coolers_` | `address[]` | The Coolers to consolidate the loans from. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| coolers_ | `address[]` | The Coolers to consolidate the loans from. |
 
 **Returns**
 
-| Name               | Type      | Description                                                    |
-| ------------------ | --------- | -------------------------------------------------------------- |
-| `collateralAmount` | `uint256` | The amount of collateral that will be migrated into Cooler V2. |
-| `borrowAmount`     | `uint256` | The amount of debt that will be borrowed from Cooler V2.       |
+| Name             | Type      | Description                                                    |
+| ---------------- | --------- | -------------------------------------------------------------- |
+| collateralAmount | `uint256` | The amount of collateral that will be migrated into Cooler V2. |
+| borrowAmount     | `uint256` | The amount of debt that will be borrowed from Cooler V2.       |
+
+<a id="consolidate-address-address-imonocooler-authorization-imonocooler-signature-idlgtev1-delegationrequest"></a>
 
 ### consolidate
 
 Consolidate Cooler V1 loans into Cooler V2
+
 This function supports consolidation of loans from multiple Clearinghouses and Coolers, provided that the caller is the owner.
+
 The funds for paying interest owed and fees will be borrowed from Cooler V2.
+
 It is expected that the caller will have already provided approval for this contract to spend the required tokens. See `previewConsolidate()` for more details.
+
+<i>
 
 The implementing function is expected to handle the following:
 
@@ -48,25 +55,29 @@ The implementing function is expected to handle the following:
 - Deposit the collateral into Cooler V2
 - Borrow the required amount from Cooler V2 to repay the Cooler V1 loans
 
+</i>
+
 ```solidity
 function consolidate(
-    address[] memory coolers_,
-    address newOwner_,
-    IMonoCooler.Authorization memory authorization_,
-    IMonoCooler.Signature calldata signature_,
-    IDLGTEv1.DelegationRequest[] calldata delegationRequests_
-) external;
+        address[] memory coolers_,
+        address newOwner_,
+        IMonoCooler.Authorization memory authorization_,
+        IMonoCooler.Signature calldata signature_,
+        IDLGTEv1.DelegationRequest[] calldata delegationRequests_
+    ) external;
 ```
 
 **Parameters**
 
-| Name                  | Type                           | Description                                                                                                                                                                                |
-| --------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `coolers_`            | `address[]`                    | The Coolers from which the loans will be migrated.                                                                                                                                         |
-| `newOwner_`           | `address`                      | Address of the owner of the Cooler V2 position. This can be the same as the caller, or a different address.                                                                                |
-| `authorization_`      | `IMonoCooler.Authorization`    | Authorization parameters for the new owner. Set the `account` field to the zero address to indicate that authorization has already been provided through `IMonoCooler.setAuthorization()`. |
-| `signature_`          | `IMonoCooler.Signature`        | Authorization signature for the new owner. Ignored if `authorization_.account` is the zero address.                                                                                        |
-| `delegationRequests_` | `IDLGTEv1.DelegationRequest[]` | Delegation requests for the new owner.                                                                                                                                                     |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| coolers_ | `address[]` | The Coolers from which the loans will be migrated. |
+| newOwner_ | `address` | Address of the owner of the Cooler V2 position. This can be the same as the caller, or a different address. |
+| authorization_ | `IMonoCooler.Authorization` | Authorization parameters for the new owner. Set the `account` field to the zero address to indicate that authorization has already been provided through `IMonoCooler.setAuthorization()`. |
+| signature_ | `IMonoCooler.Signature` | Authorization signature for the new owner. Ignored if `authorization_.account` is the zero address. |
+| delegationRequests_ | `IDLGTEv1.DelegationRequest[]` | Delegation requests for the new owner. |
+
+<a id="addcoolerfactory-address"></a>
 
 ### addCoolerFactory
 
@@ -78,9 +89,11 @@ function addCoolerFactory(address coolerFactory_) external;
 
 **Parameters**
 
-| Name             | Type      | Description              |
-| ---------------- | --------- | ------------------------ |
-| `coolerFactory_` | `address` | The CoolerFactory to add |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| coolerFactory_ | `address` | The CoolerFactory to add |
+
+<a id="removecoolerfactory-address"></a>
 
 ### removeCoolerFactory
 
@@ -92,9 +105,11 @@ function removeCoolerFactory(address coolerFactory_) external;
 
 **Parameters**
 
-| Name             | Type      | Description                 |
-| ---------------- | --------- | --------------------------- |
-| `coolerFactory_` | `address` | The CoolerFactory to remove |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| coolerFactory_ | `address` | The CoolerFactory to remove |
+
+<a id="getcoolerfactories"></a>
 
 ### getCoolerFactories
 
@@ -106,9 +121,9 @@ function getCoolerFactories() external view returns (address[] memory coolerFact
 
 **Returns**
 
-| Name              | Type        | Description                 |
-| ----------------- | ----------- | --------------------------- |
-| `coolerFactories` | `address[]` | The list of CoolerFactories |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| coolerFactories | `address[]` | The list of CoolerFactories |
 
 ## Events
 
@@ -120,6 +135,12 @@ Emitted when a CoolerFactory is added to the migrator
 event CoolerFactoryAdded(address indexed coolerFactory);
 ```
 
+**Parameters**
+
+| Name          | Type      | Description |
+| ------------- | --------- | ----------- |
+| coolerFactory | `address` |             |
+
 ### CoolerFactoryRemoved
 
 Emitted when a CoolerFactory is removed from the migrator
@@ -128,6 +149,12 @@ Emitted when a CoolerFactory is removed from the migrator
 event CoolerFactoryRemoved(address indexed coolerFactory);
 ```
 
+**Parameters**
+
+| Name          | Type      | Description |
+| ------------- | --------- | ----------- |
+| coolerFactory | `address` |             |
+
 ### TokenRefunded
 
 Emitted when a token is refunded to the recipient
@@ -135,6 +162,14 @@ Emitted when a token is refunded to the recipient
 ```solidity
 event TokenRefunded(address indexed token, address indexed recipient, uint256 amount);
 ```
+
+**Parameters**
+
+| Name      | Type      | Description |
+| --------- | --------- | ----------- |
+| token     | `address` |             |
+| recipient | `address` |             |
+| amount    | `uint256` |             |
 
 ## Errors
 
@@ -201,3 +236,9 @@ Thrown when the address is invalid
 ```solidity
 error Params_InvalidAddress(string reason_);
 ```
+
+**Parameters**
+
+| Name    | Type     | Description |
+| ------- | -------- | ----------- |
+| reason_ | `string` |             |

@@ -1,14 +1,20 @@
 # IBondAuctioneer
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/interfaces/IBondAuctioneer.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/interfaces/IBondAuctioneer.sol)
 
 ## Functions
+
+<a id="createmarket-bytes"></a>
 
 ### createMarket
 
 Creates a new bond market
 
+<i>
+
 See specific auctioneer implementations for details on encoding the parameters.
+
+</i>
 
 ```solidity
 function createMarket(bytes memory params_) external returns (uint256);
@@ -16,15 +22,17 @@ function createMarket(bytes memory params_) external returns (uint256);
 
 **Parameters**
 
-| Name      | Type    | Description                                                             |
-| --------- | ------- | ----------------------------------------------------------------------- |
-| `params_` | `bytes` | Configuration data needed for market creation, encoded in a bytes array |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| params_ | `bytes` | Configuration data needed for market creation, encoded in a bytes array |
 
 **Returns**
 
-| Name     | Type      | Description              |
-| -------- | --------- | ------------------------ |
-| `<none>` | `uint256` | id ID of new bond market |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | id              ID of new bond market |
+
+<a id="closemarket-uint256"></a>
 
 ### closeMarket
 
@@ -38,9 +46,11 @@ function closeMarket(uint256 id_) external;
 
 **Parameters**
 
-| Name  | Type      | Description           |
-| ----- | --------- | --------------------- |
-| `id_` | `uint256` | ID of market to close |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | ID of market to close |
+
+<a id="purchasebond-uint256-uint256-uint256"></a>
 
 ### purchaseBond
 
@@ -49,22 +59,28 @@ Exchange quote tokens for a bond in a specified market
 Must be teller
 
 ```solidity
-function purchaseBond(uint256 id_, uint256 amount_, uint256 minAmountOut_) external returns (uint256 payout);
+function purchaseBond(
+        uint256 id_,
+        uint256 amount_,
+        uint256 minAmountOut_
+    ) external returns (uint256 payout);
 ```
 
 **Parameters**
 
-| Name            | Type      | Description                                                          |
-| --------------- | --------- | -------------------------------------------------------------------- |
-| `id_`           | `uint256` | ID of the Market the bond is being purchased from                    |
-| `amount_`       | `uint256` | Amount to deposit in exchange for bond (after fee has been deducted) |
-| `minAmountOut_` | `uint256` | Minimum acceptable amount of bond to receive. Prevents frontrunning  |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | ID of the Market the bond is being purchased from |
+| amount_ | `uint256` | Amount to deposit in exchange for bond (after fee has been deducted) |
+| minAmountOut_ | `uint256` | Minimum acceptable amount of bond to receive. Prevents frontrunning |
 
 **Returns**
 
-| Name     | Type      | Description                                         |
-| -------- | --------- | --------------------------------------------------- |
-| `payout` | `uint256` | Amount of payout token to be received from the bond |
+| Name   | Type      | Description                                         |
+| ------ | --------- | --------------------------------------------------- |
+| payout | `uint256` | Amount of payout token to be received from the bond |
+
+<a id="setintervals-uint256-uint32-3"></a>
 
 ### setIntervals
 
@@ -72,8 +88,12 @@ Set market intervals to different values than the defaults
 
 Must be market owner
 
+<i>
+
 Changing the intervals could cause markets to behave in unexpected way
 tuneInterval should be greater than tuneAdjustmentDelay
+
+</i>
 
 ```solidity
 function setIntervals(uint256 id_, uint32[3] calldata intervals_) external;
@@ -81,10 +101,12 @@ function setIntervals(uint256 id_, uint32[3] calldata intervals_) external;
 
 **Parameters**
 
-| Name         | Type        | Description                                                                                                                                                                                                      |
-| ------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id_`        | `uint256`   | Market ID                                                                                                                                                                                                        |
-| `intervals_` | `uint32[3]` | Array of intervals (3) 1. Tune interval - Frequency of tuning 2. Tune adjustment delay - Time to implement downward tuning adjustments 3. Debt decay interval - Interval over which debt should decay completely |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | Market ID |
+| intervals_ | `uint32[3]` | Array of intervals (3)<br/>1. Tune interval - Frequency of tuning<br/>2. Tune adjustment delay - Time to implement downward tuning adjustments<br/>3. Debt decay interval - Interval over which debt should decay completely |
+
+<a id="pushownership-uint256-address"></a>
 
 ### pushOwnership
 
@@ -92,7 +114,11 @@ Designate a new owner of a market
 
 Must be market owner
 
+<i>
+
 Doesn't change permissions until newOwner calls pullOwnership
+
+</i>
 
 ```solidity
 function pushOwnership(uint256 id_, address newOwner_) external;
@@ -100,10 +126,12 @@ function pushOwnership(uint256 id_, address newOwner_) external;
 
 **Parameters**
 
-| Name        | Type      | Description                      |
-| ----------- | --------- | -------------------------------- |
-| `id_`       | `uint256` | Market ID                        |
-| `newOwner_` | `address` | New address to give ownership to |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | Market ID |
+| newOwner_ | `address` | New address to give ownership to |
+
+<a id="pullownership-uint256"></a>
 
 ### pullOwnership
 
@@ -111,7 +139,11 @@ Accept ownership of a market
 
 Must be market newOwner
 
+<i>
+
 The existing owner must call pushOwnership prior to the newOwner calling this function
+
+</i>
 
 ```solidity
 function pullOwnership(uint256 id_) external;
@@ -119,9 +151,11 @@ function pullOwnership(uint256 id_) external;
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| `id_` | `uint256` | Market ID   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | Market ID |
+
+<a id="setdefaults-uint32-6"></a>
 
 ### setDefaults
 
@@ -129,9 +163,17 @@ Set the auctioneer defaults
 
 Must be policy
 
+<i>
+
 The defaults set here are important to avoid edge cases in market behavior, e.g. a very short market reacts doesn't tune well
 
+</i>
+
+<i>
+
 Only applies to new markets that are created after the change
+
+</i>
 
 ```solidity
 function setDefaults(uint32[6] memory defaults_) external;
@@ -139,15 +181,21 @@ function setDefaults(uint32[6] memory defaults_) external;
 
 **Parameters**
 
-| Name        | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `defaults_` | `uint32[6]` | Array of default values 1. Tune interval - amount of time between tuning adjustments 2. Tune adjustment delay - amount of time to apply downward tuning adjustments 3. Minimum debt decay interval - minimum amount of time to let debt decay to zero 4. Minimum deposit interval - minimum amount of time to wait between deposits 5. Minimum market duration - minimum amount of time a market can be created for 6. Minimum debt buffer - the minimum amount of debt over the initial debt to trigger a market shutdown |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| defaults_ | `uint32[6]` | Array of default values<br/>1. Tune interval - amount of time between tuning adjustments<br/>2. Tune adjustment delay - amount of time to apply downward tuning adjustments<br/>3. Minimum debt decay interval - minimum amount of time to let debt decay to zero<br/>4. Minimum deposit interval - minimum amount of time to wait between deposits<br/>5. Minimum market duration - minimum amount of time a market can be created for<br/>6. Minimum debt buffer - the minimum amount of debt over the initial debt to trigger a market shutdown |
+
+<a id="setallownewmarkets-bool"></a>
 
 ### setAllowNewMarkets
 
 Change the status of the auctioneer to allow creation of new markets
 
+<i>
+
 Setting to false and allowing active markets to end will sunset the auctioneer
+
+</i>
 
 ```solidity
 function setAllowNewMarkets(bool status_) external;
@@ -155,9 +203,11 @@ function setAllowNewMarkets(bool status_) external;
 
 **Parameters**
 
-| Name      | Type   | Description                                                     |
-| --------- | ------ | --------------------------------------------------------------- |
-| `status_` | `bool` | Allow market creation (true) : Disallow market creation (false) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| status_ | `bool` | Allow market creation (true) : Disallow market creation (false) |
+
+<a id="setcallbackauthstatus-address-bool"></a>
 
 ### setCallbackAuthStatus
 
@@ -165,7 +215,11 @@ Change whether a market creator is allowed to use a callback address in their ma
 
 Must be guardian
 
+<i>
+
 Callback is believed to be safe, but a whitelist is implemented to prevent abuse
+
+</i>
 
 ```solidity
 function setCallbackAuthStatus(address creator_, bool status_) external;
@@ -173,10 +227,12 @@ function setCallbackAuthStatus(address creator_, bool status_) external;
 
 **Parameters**
 
-| Name       | Type      | Description                                       |
-| ---------- | --------- | ------------------------------------------------- |
-| `creator_` | `address` | Address of market creator                         |
-| `status_`  | `bool`    | Allow callback (true) : Disallow callback (false) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| creator_ | `address` | Address of market creator |
+| status_ | `bool` | Allow callback (true) : Disallow callback (false) |
+
+<a id="callbackauthorized-address"></a>
 
 ### callbackAuthorized
 
@@ -188,50 +244,56 @@ function callbackAuthorized(address creator_) external view returns (bool isAuth
 
 **Parameters**
 
-| Name       | Type      | Description               |
-| ---------- | --------- | ------------------------- |
-| `creator_` | `address` | Address of market creator |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| creator_ | `address` | Address of market creator |
 
 **Returns**
 
-| Name           | Type   | Description                            |
-| -------------- | ------ | -------------------------------------- |
-| `isAuthorized` | `bool` | True if the creator can use a callback |
+| Name         | Type   | Description                            |
+| ------------ | ------ | -------------------------------------- |
+| isAuthorized | `bool` | True if the creator can use a callback |
+
+<a id="getmarketinfoforpurchase-uint256"></a>
 
 ### getMarketInfoForPurchase
 
 Provides information for the Teller to execute purchases on a Market
 
 ```solidity
-function getMarketInfoForPurchase(uint256 id_)
-    external
-    view
-    returns (
-        address owner,
-        address callbackAddr,
-        ERC20 payoutToken,
-        ERC20 quoteToken,
-        uint48 vesting,
-        uint256 maxPayout
-    );
+function getMarketInfoForPurchase(
+        uint256 id_
+    )
+        external
+        view
+        returns (
+            address owner,
+            address callbackAddr,
+            ERC20 payoutToken,
+            ERC20 quoteToken,
+            uint48 vesting,
+            uint256 maxPayout
+        );
 ```
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| `id_` | `uint256` | Market ID   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | Market ID |
 
 **Returns**
 
-| Name           | Type      | Description                                                                       |
-| -------------- | --------- | --------------------------------------------------------------------------------- |
-| `owner`        | `address` | Address of the market owner (tokens transferred from this address if no callback) |
-| `callbackAddr` | `address` | Address of the callback contract to get tokens for payouts                        |
-| `payoutToken`  | `ERC20`   | Payout Token (token paid out) for the Market                                      |
-| `quoteToken`   | `ERC20`   | Quote Token (token received) for the Market                                       |
-| `vesting`      | `uint48`  | Timestamp or duration for vesting, implementation-dependent                       |
-| `maxPayout`    | `uint256` | Maximum amount of payout tokens you can purchase in one transaction               |
+| Name         | Type      | Description                                                                       |
+| ------------ | --------- | --------------------------------------------------------------------------------- |
+| owner        | `address` | Address of the market owner (tokens transferred from this address if no callback) |
+| callbackAddr | `address` | Address of the callback contract to get tokens for payouts                        |
+| payoutToken  | `ERC20`   | Payout Token (token paid out) for the Market                                      |
+| quoteToken   | `ERC20`   | Quote Token (token received) for the Market                                       |
+| vesting      | `uint48`  | Timestamp or duration for vesting, implementation-dependent                       |
+| maxPayout    | `uint256` | Maximum amount of payout tokens you can purchase in one transaction               |
+
+<a id="marketprice-uint256"></a>
 
 ### marketPrice
 
@@ -243,15 +305,17 @@ function marketPrice(uint256 id_) external view returns (uint256);
 
 **Parameters**
 
-| Name  | Type      | Description  |
-| ----- | --------- | ------------ |
-| `id_` | `uint256` | ID of market |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | ID of market |
 
 **Returns**
 
-| Name     | Type      | Description                             |
-| -------- | --------- | --------------------------------------- |
-| `<none>` | `uint256` | Price for market in configured decimals |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | Price for market in configured decimals |
+
+<a id="marketscale-uint256"></a>
 
 ### marketScale
 
@@ -263,39 +327,51 @@ function marketScale(uint256 id_) external view returns (uint256);
 
 **Parameters**
 
-| Name  | Type      | Description  |
-| ----- | --------- | ------------ |
-| `id_` | `uint256` | ID of market |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | ID of market |
 
 **Returns**
 
-| Name     | Type      | Description                                      |
-| -------- | --------- | ------------------------------------------------ |
-| `<none>` | `uint256` | Scaling factor for market in configured decimals |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | Scaling factor for market in configured decimals |
+
+<a id="payoutfor-uint256-uint256-address"></a>
 
 ### payoutFor
 
 Payout due for amount of quote tokens
 
+<i>
+
 Accounts for debt and control variable decay so it is up to date
 
+</i>
+
 ```solidity
-function payoutFor(uint256 amount_, uint256 id_, address referrer_) external view returns (uint256);
+function payoutFor(
+        uint256 amount_,
+        uint256 id_,
+        address referrer_
+    ) external view returns (uint256);
 ```
 
 **Parameters**
 
-| Name        | Type      | Description                                                                                                                                         |
-| ----------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `amount_`   | `uint256` | Amount of quote tokens to spend                                                                                                                     |
-| `id_`       | `uint256` | ID of market                                                                                                                                        |
-| `referrer_` | `address` | Address of referrer, used to get fees to calculate accurate payout amount. Inputting the zero address will take into account just the protocol fee. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` | Amount of quote tokens to spend |
+| id_ | `uint256` | ID of market |
+| referrer_ | `address` | Address of referrer, used to get fees to calculate accurate payout amount.<br/>Inputting the zero address will take into account just the protocol fee. |
 
 **Returns**
 
-| Name     | Type      | Description                        |
-| -------- | --------- | ---------------------------------- |
-| `<none>` | `uint256` | amount of payout tokens to be paid |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | amount of payout tokens to be paid |
+
+<a id="maxamountaccepted-uint256-address"></a>
 
 ### maxAmountAccepted
 
@@ -307,10 +383,18 @@ function maxAmountAccepted(uint256 id_, address referrer_) external view returns
 
 **Parameters**
 
-| Name        | Type      | Description                                                                                                                                         |
-| ----------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id_`       | `uint256` | ID of market                                                                                                                                        |
-| `referrer_` | `address` | Address of referrer, used to get fees to calculate accurate payout amount. Inputting the zero address will take into account just the protocol fee. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | ID of market |
+| referrer_ | `address` | Address of referrer, used to get fees to calculate accurate payout amount.<br/>Inputting the zero address will take into account just the protocol fee. |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `uint256` |             |
+
+<a id="isinstantswap-uint256"></a>
 
 ### isInstantSwap
 
@@ -322,9 +406,17 @@ function isInstantSwap(uint256 id_) external view returns (bool);
 
 **Parameters**
 
-| Name  | Type      | Description             |
-| ----- | --------- | ----------------------- |
-| `id_` | `uint256` | Market ID to search for |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | Market ID to search for |
+
+**Returns**
+
+| Name         | Type   | Description |
+| ------------ | ------ | ----------- |
+| &lt;none&gt; | `bool` |             |
+
+<a id="islive-uint256"></a>
 
 ### isLive
 
@@ -336,9 +428,17 @@ function isLive(uint256 id_) external view returns (bool);
 
 **Parameters**
 
-| Name  | Type      | Description  |
-| ----- | --------- | ------------ |
-| `id_` | `uint256` | ID of market |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | ID of market |
+
+**Returns**
+
+| Name         | Type   | Description |
+| ------------ | ------ | ----------- |
+| &lt;none&gt; | `bool` |             |
+
+<a id="ownerof-uint256"></a>
 
 ### ownerOf
 
@@ -350,9 +450,17 @@ function ownerOf(uint256 id_) external view returns (address);
 
 **Parameters**
 
-| Name  | Type      | Description  |
-| ----- | --------- | ------------ |
-| `id_` | `uint256` | ID of market |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` | ID of market |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `address` |             |
+
+<a id="getteller"></a>
 
 ### getTeller
 
@@ -362,6 +470,14 @@ Returns the Teller that services the Auctioneer
 function getTeller() external view returns (IBondTeller);
 ```
 
+**Returns**
+
+| Name         | Type          | Description |
+| ------------ | ------------- | ----------- |
+| &lt;none&gt; | `IBondTeller` |             |
+
+<a id="getaggregator"></a>
+
 ### getAggregator
 
 Returns the Aggregator that services the Auctioneer
@@ -370,6 +486,14 @@ Returns the Aggregator that services the Auctioneer
 function getAggregator() external view returns (IBondAggregator);
 ```
 
+**Returns**
+
+| Name         | Type              | Description |
+| ------------ | ----------------- | ----------- |
+| &lt;none&gt; | `IBondAggregator` |             |
+
+<a id="currentcapacity-uint256"></a>
+
 ### currentCapacity
 
 Returns current capacity of a market
@@ -377,3 +501,15 @@ Returns current capacity of a market
 ```solidity
 function currentCapacity(uint256 id_) external view returns (uint256);
 ```
+
+**Parameters**
+
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| id_  | `uint256` |             |
+
+**Returns**
+
+| Name         | Type      | Description |
+| ------------ | --------- | ----------- |
+| &lt;none&gt; | `uint256` |             |
