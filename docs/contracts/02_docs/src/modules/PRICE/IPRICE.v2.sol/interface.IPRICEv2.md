@@ -180,16 +180,7 @@ Returns the requested variant of the asset price in the system unit of account a
 
 Reverts with `PRICE_MovingAverageStale` when a configured moving average is stale
 
-</i>
-
-<i>
-
 - Variant.LAST: last stored observation price
-
-</i>
-
-<i>
-
 - Variant.MOVINGAVERAGE: raw stored moving average price (no staleness check)
 
 </i>
@@ -488,34 +479,10 @@ Validates entire configuration atomically after updates
 
 Will revert if:
 
-</i>
-
-<i>
-
 - `asset_` is not approved
-
-</i>
-
-<i>
-
 - The caller is not permissioned
-
-</i>
-
-<i>
-
 - Any updated submodule is not installed
-
-</i>
-
-<i>
-
 - The final configuration is invalid
-
-</i>
-
-<i>
-
 - All update flags are false (no-op)
 
 </i>
@@ -1269,16 +1236,7 @@ Variant of price to retrieve
 
 Reverts with `PRICE_MovingAverageStale` when a configured moving average is stale
 
-</i>
-
-<i>
-
 - LAST: The last stored observation price
-
-</i>
-
-<i>
-
 - MOVINGAVERAGE: The raw stored moving average price of the asset
 
 </i>

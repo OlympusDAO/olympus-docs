@@ -29,6 +29,12 @@ function addPage(file, route) {
     "0.25 * 1e3 * decayInterval / marketDuration",
     "`0.25 * 1e3 * decayInterval / marketDuration`",
   );
+  // Repeated @dev tags split list items into separate italic blocks. Keep
+  // fenced examples verbatim while joining list items and parenthetical continuations.
+  content = content.replace(
+    /(^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\2[ \t]*$)|\n\n<\/i>\n\n<i>\n\n(?=[ \t]*(?:[-*+] |\d+[.)] |\())/gm,
+    (_, code) => code ?? "\n",
+  );
   const source = content.match(
     /\[Git Source\]\(https:\/\/github\.com\/OlympusDAO\/olympus-v3\/blob\/[^/]+\/(src\/[^)]+)\)/,
   )?.[1];

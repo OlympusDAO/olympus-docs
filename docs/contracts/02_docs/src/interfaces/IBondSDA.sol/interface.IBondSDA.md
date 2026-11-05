@@ -235,52 +235,13 @@ scaleAdjustment - see below
 - In the above definitions, the "prices" need to have the same unit of account (i.e. both in OHM, $, ETH, etc.)
 If price is not provided in this format, the market will not behave as intended.
 
-</i>
-
-<i>
-
 0. Payout Token (token paid out)
-
-</i>
-
-<i>
-
 1. Quote Token (token to be received)
-
-</i>
-
-<i>
-
 2. Callback contract address, should conform to IBondCallback. If 0x00, tokens will be transferred from market.owner
-
-</i>
-
-<i>
-
 3. Is Capacity in Quote Token?
-
-</i>
-
-<i>
-
 4. Capacity (amount in quoteDecimals or amount in payoutDecimals)
-
-</i>
-
-<i>
-
 5. Formatted initial price (see note above)
-
-</i>
-
-<i>
-
 6. Formatted minimum price (see note above)
-
-</i>
-
-<i>
-
 7. Debt buffer. Percent with 3 decimals. Percentage over the initial debt to allow the market to accumulate at anyone time.
 
 </i>
@@ -325,10 +286,6 @@ in a short duration as a percent, e.g. 25%. Then a reasonable debtBuffer would b
 
 where decayInterval = max(3 days, 5 * depositInterval) and marketDuration = conclusion - creation time.
 
-</i>
-
-<i>
-
 8. Is fixed term ? Vesting length (seconds) : Vesting expiry (timestamp).
 
 </i>
@@ -337,22 +294,8 @@ where decayInterval = max(3 days, 5 * depositInterval) and marketDuration = conc
 
 A 'vesting' param longer than 50 years is considered a timestamp for fixed expiry.
 
-</i>
-
-<i>
-
 9. Conclusion (timestamp)
-
-</i>
-
-<i>
-
 10. Deposit interval (seconds)
-
-</i>
-
-<i>
-
 11. Market scaling factor adjustment, ranges from -24 to +24 within the configured market bounds.
 
 </i>

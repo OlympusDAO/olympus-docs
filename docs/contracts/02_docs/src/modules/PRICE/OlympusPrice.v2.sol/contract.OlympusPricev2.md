@@ -22,10 +22,6 @@ Constructor to create OlympusPrice V2
 
 The constructor reverts if:
 
-</i>
-
-<i>
-
 - `observationFrequency_` is invalid (zero)
 
 </i>
@@ -194,22 +190,8 @@ Registers a non-contract asset
 
 Will revert if:
 
-</i>
-
-<i>
-
 - `asset_` is the zero address
-
-</i>
-
-<i>
-
 - `asset_` is a contract
-
-</i>
-
-<i>
-
 - `asset_` is already registered
 
 </i>
@@ -234,22 +216,8 @@ Unregisters a non-contract asset
 
 Will revert if:
 
-</i>
-
-<i>
-
 - `asset_` is the reserved unit of account
-
-</i>
-
-<i>
-
 - `asset_` is not registered
-
-</i>
-
-<i>
-
 - `asset_` still has an active PRICE configuration
 
 </i>
@@ -324,10 +292,6 @@ Reverts unless `asset_` is an approved asset
 
 Will revert if:
 
-</i>
-
-<i>
-
 - `asset_` is not approved
 
 </i>
@@ -351,10 +315,6 @@ Returns the most recent stored observation for an asset
 <i>
 
 Will revert if:
-
-</i>
-
-<i>
 
 - `asset_` does not store the moving average (and thus does not have stored observations)
 
@@ -401,16 +361,7 @@ The reserved unit-of-account returns `10 ** decimals()`.
 
 Will revert if:
 
-</i>
-
-<i>
-
 - `asset_` is not approved
-
-</i>
-
-<i>
-
 - No price could be determined
 
 </i>
@@ -441,22 +392,8 @@ Returns the requested variant of the asset price in the system unit of account a
 
 The reserved unit of account returns:
 
-</i>
-
-<i>
-
 - `(10 ** decimals(), block.timestamp)` for `Variant.CURRENT`
-
-</i>
-
-<i>
-
 - `(10 ** decimals(), block.timestamp)` for `Variant.LAST`
-
-</i>
-
-<i>
-
 - reverts `PRICE_MovingAverageNotStored(asset_)` for `Variant.MOVINGAVERAGE`
 
 </i>
@@ -465,28 +402,9 @@ The reserved unit of account returns:
 
 Will revert if:
 
-</i>
-
-<i>
-
 - `asset_` is not approved
-
-</i>
-
-<i>
-
 - No price could be determined
-
-</i>
-
-<i>
-
 - `variant_ == Variant.CURRENT` and a configured moving average is stale
-
-</i>
-
-<i>
-
 - An invalid variant is requested
 
 </i>
@@ -627,28 +545,9 @@ Gets the current price of the asset
 
 This function follows this logic:
 
-</i>
-
-<i>
-
 - Get the price from each feed
-
-</i>
-
-<i>
-
 - If using the moving average, append the moving average to the results
-
-</i>
-
-<i>
-
 - If there is only one price and it is not zero, return it
-
-</i>
-
-<i>
-
 - Process the prices with the configured strategy
 
 </i>
@@ -657,22 +556,8 @@ This function follows this logic:
 
 Will revert if:
 
-</i>
-
-<i>
-
 - The resulting price is zero
-
-</i>
-
-<i>
-
 - The configured strategy cannot aggregate the prices
-
-</i>
-
-<i>
-
 - The moving average is used, but is stale
 
 </i>
@@ -741,22 +626,8 @@ If either side is the unit of account, that side resolves to `10 ** decimals()`.
 
 Will revert if:
 
-</i>
-
-<i>
-
 - `asset_` is not approved (and not the unit of account)
-
-</i>
-
-<i>
-
 - `quote_` is not approved (and not the unit of account)
-
-</i>
-
-<i>
-
 - No price could be determined for either non-unit asset
 
 </i>
@@ -794,40 +665,11 @@ Derives the pair quote from per-asset variants.
 
 Reverts if:
 
-</i>
-
-<i>
-
 - `variant_` is invalid
-
-</i>
-
-<i>
-
 - `asset_` is not approved (and not the unit of account)
-
-</i>
-
-<i>
-
 - `quote_` is not approved (and not the unit of account)
-
-</i>
-
-<i>
-
 - The requested variant is unavailable for either side
-
-</i>
-
-<i>
-
 (for example `Variant.LAST`/`Variant.MOVINGAVERAGE` without stored observations)
-
-</i>
-
-<i>
-
 - A price cannot be determined for either side
 
 </i>
@@ -865,40 +707,11 @@ Stores a price observation for moving average calculation
 
 Implements the following logic:
 
-</i>
-
-<i>
-
 - Get the current price using `_getCurrentPrice()`
-
-</i>
-
-<i>
-
 - Store the price in the asset's observation array at the index corresponding to the asset's value of `nextObsIndex`
-
-</i>
-
-<i>
-
 - Updates the asset's `lastObservationTime` to the current block timestamp
-
-</i>
-
-<i>
-
 - Increments the asset's `nextObsIndex` by 1, wrapping around to 0 if necessary
-
-</i>
-
-<i>
-
 - If the asset is configured to store the moving average, update the `cumulativeObs` value subtracting the previous value and adding the new one
-
-</i>
-
-<i>
-
 - Emit a `PriceStored` event
 
 </i>
@@ -907,28 +720,9 @@ Implements the following logic:
 
 Will revert if:
 
-</i>
-
-<i>
-
 - The asset is not approved
-
-</i>
-
-<i>
-
 - The asset does not store moving average
-
-</i>
-
-<i>
-
 - The caller is not permissioned
-
-</i>
-
-<i>
-
 - The price was not able to be determined
 
 </i>
@@ -995,40 +789,11 @@ Stores an observation for an asset
 
 Will revert if:
 
-</i>
-
-<i>
-
 - The asset is not approved
-
-</i>
-
-<i>
-
 - The moving average is not stored for the asset
-
-</i>
-
-<i>
-
 - Getting the prices fails
-
-</i>
-
-<i>
-
 - Aggregating the prices fails
-
-</i>
-
-<i>
-
 - The observation timestamp is before the implementation-defined earliest allowed time
-
-</i>
-
-<i>
-
 - Cadence beyond same-block writes is not enforced in this module
 
 </i>
@@ -1053,22 +818,8 @@ Calculates and stores the current price of assets that track a moving average
 
 Implements the following logic:
 
-</i>
-
-<i>
-
 - Iterate over all assets
-
-</i>
-
-<i>
-
 - Ignores assets that do not store the moving average
-
-</i>
-
-<i>
-
 - Store the price for each asset using `storeObservation()`
 
 </i>
@@ -1077,16 +828,7 @@ Implements the following logic:
 
 Reverts if:
 
-</i>
-
-<i>
-
 - The caller is not permissioned
-
-</i>
-
-<i>
-
 - Observation storage fails for any configured moving-average asset
 
 </i>
@@ -1147,22 +889,8 @@ Validates asset configuration for feeds, strategy, and moving average
 
 Will revert if:
 
-</i>
-
-<i>
-
 - Moving average is used but not stored
-
-</i>
-
-<i>
-
 - Multiple feeds exist but no strategy is configured
-
-</i>
-
-<i>
-
 - Only one feed exists but a strategy is configured
 
 </i>
@@ -1663,34 +1391,10 @@ Adds a new asset definition
 
 Implements the following logic:
 
-</i>
-
-<i>
-
 - Performs basic checks on the parameters
-
-</i>
-
-<i>
-
 - Sets the price strategy using `_updateAssetPriceStrategy()`
-
-</i>
-
-<i>
-
 - Sets the price feeds using `_updateAssetPriceFeeds()`
-
-</i>
-
-<i>
-
 - Sets the moving average data using `_updateAssetMovingAverage()`
-
-</i>
-
-<i>
-
 - Validates the configuration using `_getCurrentPrice()` or, when using a moving average,
 
 </i>
@@ -1698,10 +1402,6 @@ Implements the following logic:
 <i>
 
 both the raw observation and MA-inclusive CURRENT strategy input shapes
-
-</i>
-
-<i>
 
 - Adds the asset to the `assets` array and marks it as approved
 
@@ -1718,46 +1418,12 @@ If the last stored observation is out of consensus, call `storeObservation(asset
 
 Will revert if:
 
-</i>
-
-<i>
-
 - The caller is not permissioned
-
-</i>
-
-<i>
-
 - `asset_` is neither a contract nor a registered non-contract asset
-
-</i>
-
-<i>
-
 - `asset_` is already approved
-
-</i>
-
-<i>
-
 - `asset_` is the reserved unit-of-account address
-
-</i>
-
-<i>
-
 - The moving average is being used, but not stored
-
-</i>
-
-<i>
-
 - An empty strategy was specified, but the number of feeds requires a strategy
-
-</i>
-
-<i>
-
 - The call to get the current price of any feed fails
 
 </i>
@@ -1805,22 +1471,8 @@ Removes an asset definition
 
 Will revert if:
 
-</i>
-
-<i>
-
 - `asset_` is the reserved unit-of-account address
-
-</i>
-
-<i>
-
 - `asset_` is not approved
-
-</i>
-
-<i>
-
 - The caller is not permissioned
 
 </i>
@@ -1850,10 +1502,6 @@ Updates the price feeds for the asset
 <i>
 
 Implements the following logic:
-
-</i>
-
-<i>
 
 - Sets the price feeds for the asset
 
@@ -1886,16 +1534,7 @@ Updates the price strategy for the asset
 
 Implements the following logic:
 
-</i>
-
-<i>
-
 - Sets the price strategy for the asset
-
-</i>
-
-<i>
-
 - Sets the `useMovingAverage` flag for the asset
 
 </i>
@@ -1932,22 +1571,8 @@ Updates the moving average data for the asset
 
 Implements the following logic:
 
-</i>
-
-<i>
-
 - Removes existing moving average data
-
-</i>
-
-<i>
-
 - Sets the moving average data for the asset
-
-</i>
-
-<i>
-
 - If `storeMovingAverage_` is false, clears moving-average state
 
 </i>
@@ -1989,46 +1614,12 @@ Updates an asset configuration atomically
 
 Implements the following logic:
 
-</i>
-
-<i>
-
 - Validates that at least one update flag is true
-
-</i>
-
-<i>
-
 - Validates that asset is approved
-
-</i>
-
-<i>
-
 - Calculates final state (before any updates)
-
-</i>
-
-<i>
-
 - Validates the final configuration atomically
-
-</i>
-
-<i>
-
 - Validates submodules are installed for updated components
-
-</i>
-
-<i>
-
 - Calls update functions for flagged updates
-
-</i>
-
-<i>
-
 - Validates final configuration with `_getCurrentPrice()` or, when using a moving average,
 
 </i>
@@ -2036,10 +1627,6 @@ Implements the following logic:
 <i>
 
 both the raw observation and MA-inclusive CURRENT strategy input shapes
-
-</i>
-
-<i>
 
 - Emits events based on which updates occurred
 
@@ -2056,34 +1643,10 @@ If the last stored observation is stale or out of consensus, call `storeObservat
 
 Will revert if:
 
-</i>
-
-<i>
-
 - All update flags are false (no-op)
-
-</i>
-
-<i>
-
 - `asset_` is the reserved unit-of-account address
-
-</i>
-
-<i>
-
 - `asset_` is not approved
-
-</i>
-
-<i>
-
 - The final configuration is invalid
-
-</i>
-
-<i>
-
 - Any updated submodule is not installed
 
 </i>

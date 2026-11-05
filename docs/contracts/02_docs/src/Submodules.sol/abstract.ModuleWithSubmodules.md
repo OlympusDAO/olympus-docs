@@ -43,28 +43,9 @@ Install a new submodule
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - The new submodule is not a contract
-
-</i>
-
-<i>
-
 - The new submodule does not have the same keycode prefix as this module
-
-</i>
-
-<i>
-
 - The new submodule has the same keycode as an existing submodule
-
-</i>
-
-<i>
-
 - The caller is not permissioned
 
 </i>
@@ -89,34 +70,10 @@ Upgrades an existing submodule
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - The new submodule is not a contract
-
-</i>
-
-<i>
-
 - The new submodule does not have the same keycode prefix as this module
-
-</i>
-
-<i>
-
 - The new submodule is the zero address
-
-</i>
-
-<i>
-
 - The new submodule has the same address as an existing submodule
-
-</i>
-
-<i>
-
 - The caller is not permissioned
 
 </i>
@@ -159,22 +116,8 @@ ensure that the submodule has the same keycode as this module.
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - The submodule is not installed
-
-</i>
-
-<i>
-
 - The caller is not permissioned
-
-</i>
-
-<i>
-
 - The call to the submodule reverts
 
 </i>

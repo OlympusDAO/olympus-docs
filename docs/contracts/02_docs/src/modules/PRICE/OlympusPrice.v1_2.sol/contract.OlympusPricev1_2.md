@@ -70,16 +70,7 @@ Constructor for PRICEv1_2 compatibility layer
 
 The constructor reverts if:
 
-</i>
-
-<i>
-
 - `observationFrequency_` is invalid (from `OlympusPricev2`)
-
-</i>
-
-<i>
-
 - `ohm_ == address(0)` (`PRICE_InvalidOHM`)
 
 </i>
@@ -185,16 +176,7 @@ Compatibility function for PRICEv1.
 
 Reverts if:
 
-</i>
-
-<i>
-
 - OHM is not approved in PRICE
-
-</i>
-
-<i>
-
 - A current OHM price cannot be determined
 
 </i>
@@ -231,16 +213,7 @@ Compatibility function for PRICEv1.
 
 Reverts if:
 
-</i>
-
-<i>
-
 - OHM is not approved in PRICE
-
-</i>
-
-<i>
-
 - OHM does not store moving-average observations
 
 </i>
@@ -283,16 +256,7 @@ Returns the raw stored moving average, which may be stale.
 
 Reverts if:
 
-</i>
-
-<i>
-
 - OHM is not approved in PRICE
-
-</i>
-
-<i>
-
 - OHM does not store moving-average observations
 
 </i>
@@ -329,22 +293,8 @@ Compatibility function for PRICEv1.
 
 Reverts if:
 
-</i>
-
-<i>
-
 - OHM is not approved in PRICE
-
-</i>
-
-<i>
-
 - OHM does not store moving-average observations
-
-</i>
-
-<i>
-
 - OHM moving average is stale relative to `observationFrequency()`
 
 </i>
@@ -381,16 +331,7 @@ Compatibility function for PRICEv1.
 
 Reverts if:
 
-</i>
-
-<i>
-
 - OHM is not approved in PRICE
-
-</i>
-
-<i>
-
 - OHM does not store moving-average observations
 
 </i>
@@ -443,16 +384,7 @@ Provided as a compatibility function for PRICEv1.
 
 Reverts if:
 
-</i>
-
-<i>
-
 - The caller is not permissioned by the Kernel
-
-</i>
-
-<i>
-
 - Any configured moving-average asset fails observation storage
 
 </i>

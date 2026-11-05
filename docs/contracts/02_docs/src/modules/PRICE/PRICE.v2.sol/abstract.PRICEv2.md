@@ -132,10 +132,6 @@ Reverts unless `asset_` is a contract or a registered non-contract asset
 
 Will revert if:
 
-</i>
-
-<i>
-
 - `asset_` is a non-contract address that is not registered
 
 </i>

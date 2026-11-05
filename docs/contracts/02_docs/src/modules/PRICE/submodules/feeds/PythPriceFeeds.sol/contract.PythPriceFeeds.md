@@ -101,22 +101,8 @@ Validates the result of the price feed
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - Price &lt;= 0
-
-</i>
-
-<i>
-
 - Publish time is before the update threshold from the current time
-
-</i>
-
-<i>
-
 - Confidence interval exceeds the maximum allowed
 
 </i>
@@ -266,22 +252,8 @@ Returns the price from a single Pyth feed, as specified in `params_`.
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - Any parameter is invalid
-
-</i>
-
-<i>
-
 - The exponent calculation would result in an overflow
-
-</i>
-
-<i>
-
 - The price feed's results are invalid
 
 </i>
@@ -324,34 +296,10 @@ For example, passing in ETH/USD and DAI/USD will return the ETH/DAI price.
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - Any parameter is invalid
-
-</i>
-
-<i>
-
 - The exponent calculation would result in an overflow
-
-</i>
-
-<i>
-
 - Any of the price feeds' results are invalid
-
-</i>
-
-<i>
-
 - The denominator confidence interval is greater than or equal to the denominator price
-
-</i>
-
-<i>
-
 - The derived output confidence interval exceeds `outputMaxConfidence`
 
 </i>
@@ -394,28 +342,9 @@ For example, passing in ETH/DAI and DAI/USD will return the ETH/USD price.
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - Any parameter is invalid
-
-</i>
-
-<i>
-
 - The exponent calculation would result in an overflow
-
-</i>
-
-<i>
-
 - Any of the price feeds' results are invalid
-
-</i>
-
-<i>
-
 - The derived output confidence interval exceeds `outputMaxConfidence`
 
 </i>
@@ -565,10 +494,6 @@ The price returned by the price feed is invalid
 
 This could be because:
 
-</i>
-
-<i>
-
 - The price is &lt;= 0
 
 </i>
@@ -592,10 +517,6 @@ The data returned by the price feed is stale
 <i>
 
 This could be because:
-
-</i>
-
-<i>
 
 - The price feed was last updated before the update threshold
 

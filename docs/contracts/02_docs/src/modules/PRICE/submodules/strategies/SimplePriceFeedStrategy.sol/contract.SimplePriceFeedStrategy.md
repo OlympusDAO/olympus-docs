@@ -205,10 +205,6 @@ Returns the first non-zero price in the array.
 
 Reverts if:
 
-</i>
-
-<i>
-
 - The length of prices_ array is 0, which would represent a mis-configuration.
 
 </i>

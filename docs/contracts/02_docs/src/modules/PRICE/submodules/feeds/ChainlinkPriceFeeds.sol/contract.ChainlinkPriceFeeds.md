@@ -95,16 +95,7 @@ Validates the result of the price feed
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - Answer &lt;= 0
-
-</i>
-
-<i>
-
 - Updated at timestamp before the update threshold from the current time
 
 </i>
@@ -173,16 +164,7 @@ Returns the price from a single Chainlink feed, as specified in `params_`.
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - PRICE's priceDecimals or the feed's decimals are out of bounds and would lead to an overflow
-
-</i>
-
-<i>
-
 - The price feed's results are invalid
 
 </i>
@@ -225,16 +207,7 @@ For example, passing in ETH-DAI and USD-DAI will return the ETH-USD price.
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - PRICE's priceDecimals or any of the feed's decimals are out of bounds and would lead to an overflow
-
-</i>
-
-<i>
-
 - Any of the price feeds' results are invalid
 
 </i>
@@ -277,16 +250,7 @@ For example, passing in ETH-DAI and DAI-USD will return the ETH-USD price.
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - PRICE's priceDecimals or any of the feed's decimals are out of bounds and would lead to an overflow
-
-</i>
-
-<i>
-
 - Any of the price feeds' results are invalid
 
 </i>
@@ -353,10 +317,6 @@ The price returned by the price feed is invalid
 
 This could be because:
 
-</i>
-
-<i>
-
 - The price is &lt;= 0
 
 </i>
@@ -379,10 +339,6 @@ The data returned by the price feed is stale
 <i>
 
 This could be because:
-
-</i>
-
-<i>
 
 - The price feed was last updated before the update threshold
 

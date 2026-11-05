@@ -147,10 +147,6 @@ Converts the given value from the ERC20 token's decimals to `outputDecimals_`
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - Converting the token's decimals would result in an overflow.
 
 </i>
@@ -233,16 +229,7 @@ Determines the spot price of the specified token from the UniswapV2 pool specifi
 
 It does this by:
 
-</i>
-
-<i>
-
 - Determining the price and reserves of the token paired with `lookupToken_`
-
-</i>
-
-<i>
-
 - Determining the corresponding price of `lookupToken_`
 
 </i>

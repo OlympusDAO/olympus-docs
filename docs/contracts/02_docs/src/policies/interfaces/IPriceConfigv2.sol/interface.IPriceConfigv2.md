@@ -291,10 +291,6 @@ because PRICE.execOnSubmodule() can call mutable submodule functions.
 
 This function reverts if:
 
-</i>
-
-<i>
-
 - The submodule is not installed
 
 </i>

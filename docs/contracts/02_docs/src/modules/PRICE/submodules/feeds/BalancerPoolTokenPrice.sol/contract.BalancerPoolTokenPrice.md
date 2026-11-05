@@ -104,10 +104,6 @@ Converts `value_` from the ERC20 token's decimals to `outputDecimals_`
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - Converting the token's decimals would result in an overflow.
 
 </i>
@@ -143,10 +139,6 @@ Obtains the balance/weight ratio of the token at index `index_` in the pool
 <i>
 
 This function will revert if:
-
-</i>
-
-<i>
 
 - Converting the pool's decimals would result in an overflow.
 
@@ -196,16 +188,7 @@ Calculates the value of a token in a Balancer weighted pool
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - The provided token is address(0)
-
-</i>
-
-<i>
-
 - The provided weight is 0
 
 </i>
@@ -292,16 +275,7 @@ To avoid price manipulation, this function calculated the pool token price in th
 
 Balancer at <https://docs.balancer.fi/concepts/advanced/valuing-bpt/valuing-bpt.html#on-chain-price-evaluation> :
 
-</i>
-
-<i>
-
 - Obtains the prices of all tokens in the pool from PRICE (usually using price feeds)
-
-</i>
-
-<i>
-
 - Applies a guard to protect against re-entrancy attacks on the Balancer pool
 
 </i>
@@ -310,22 +284,8 @@ Balancer at <https://docs.balancer.fi/concepts/advanced/valuing-bpt/valuing-bpt.
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - The scale of `outputDecimals_` or the pool's decimals is too high
-
-</i>
-
-<i>
-
 - The pool is mis-configured
-
-</i>
-
-<i>
-
 - If the pool is not a weighted pool
 
 </i>
@@ -362,16 +322,7 @@ Determines the unit price of the pool token for the Balancer stable pool specifi
 
 To avoid price manipulation, this function calculated the pool token price in the following manner:
 
-</i>
-
-<i>
-
 - Applies a guard to protect against re-entrancy attacks on the Balancer pool
-
-</i>
-
-<i>
-
 - Utilises the formula suggested by Balancer: <https://docs.balancer.fi/concepts/advanced/valuing-bpt/valuing-bpt.html#on-chain-price-evaluation>
 
 </i>
@@ -380,22 +331,8 @@ To avoid price manipulation, this function calculated the pool token price in th
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - The scale of `outputDecimals_` or the pool's decimals is too high
-
-</i>
-
-<i>
-
 - The pool is mis-configured
-
-</i>
-
-<i>
-
 - If the pool is not a stable pool or is a composable stable pool (determined by the absence of the `getLastInvariant()` function)
 
 </i>
@@ -438,16 +375,7 @@ Determines the spot price of the specified token from the Balancer pool specifie
 
 It does this by:
 
-</i>
-
-<i>
-
 - Determining the price and reserves of the token paired with `lookupToken_`
-
-</i>
-
-<i>
-
 - Determining the corresponding price of `lookupToken_`
 
 </i>
@@ -456,22 +384,8 @@ It does this by:
 
 Will revert upon the following:
 
-</i>
-
-<i>
-
 - If `outputDecimals_` or the pool's decimals are too high
-
-</i>
-
-<i>
-
 - If the transaction involves reentrancy on the Balancer pool
-
-</i>
-
-<i>
-
 - If the pool is not a weighted pool
 
 </i>
@@ -520,10 +434,6 @@ Determines the spot price of the specified token from the Balancer pool specifie
 
 It does this by:
 
-</i>
-
-<i>
-
 - Using the Balancer StableMath library to determine the quantity of `lookupToken_` returned for 1 of
 
 </i>
@@ -538,16 +448,7 @@ any token paired with `lookupToken_` for which a price is available
 
 Will revert upon the following:
 
-</i>
-
-<i>
-
 - If the transaction involves reentrancy on the Balancer pool
-
-</i>
-
-<i>
-
 - If the pool is not a stable pool or is a composable stable pool (determined by the absence of the `getLastInvariant()` function)
 
 </i>

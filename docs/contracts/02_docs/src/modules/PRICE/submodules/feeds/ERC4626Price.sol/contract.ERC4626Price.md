@@ -79,28 +79,9 @@ Determines the price of `asset_` in USD
 
 This function performs the following:
 
-</i>
-
-<i>
-
 - Performs basic checks
-
-</i>
-
-<i>
-
 - Determines the underlying assets per share of `asset_`
-
-</i>
-
-<i>
-
 - Determines the price of the underlying asset
-
-</i>
-
-<i>
-
 - Returns the product
 
 </i>
@@ -109,34 +90,10 @@ This function performs the following:
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - The output decimals are more than the maximum decimals allowed
-
-</i>
-
-<i>
-
 - The asset decimals are more than the maximum decimals allowed
-
-</i>
-
-<i>
-
 - The underlying decimals are more than the maximum decimals allowed
-
-</i>
-
-<i>
-
 - The underlying asset is not set
-
-</i>
-
-<i>
-
 - The price of the underlying asset cannot be determined using PRICE
 
 </i>
@@ -144,10 +101,6 @@ This function will revert if:
 <i>
 
 Limitations:
-
-</i>
-
-<i>
 
 - This adapter trusts the raw ERC4626 `convertToAssets()` share rate. It does not
 
@@ -168,10 +121,6 @@ only be configured for vaults whose share conversion is already trusted on oracl
 <i>
 
 timescales.
-
-</i>
-
-<i>
 
 - This adapter reports the ERC4626 idealized average-user conversion. It does not
 

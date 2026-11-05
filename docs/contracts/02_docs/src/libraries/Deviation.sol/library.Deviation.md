@@ -14,10 +14,6 @@ Checks if the deviation between two values is greater than the given deviation
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - `deviationBps_` is greater than `deviationMax_`
 
 </i>
@@ -85,10 +81,6 @@ Checks if the deviation between two values is greater than the given deviation
 <i>
 
 This function will revert if:
-
-</i>
-
-<i>
 
 - `benchmark_` is zero
 

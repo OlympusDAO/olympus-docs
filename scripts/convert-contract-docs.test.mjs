@@ -144,3 +144,50 @@ fs.copyFileSync(path.join(args[args.indexOf("--root") + 1], process.env.FOUNDRY_
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("joins condition lists split across Forge italic blocks and preserves code examples", () => {
+  const root = mkdtempSync(join(tmpdir(), "contract-docs-lists-"));
+  try {
+    const input = join(root, "input");
+    const output = join(root, "output");
+    mkdirSync(join(input, "src"), { recursive: true });
+    const fragmented = [
+      "<i>\n\nThis function will revert if:\n\n</i>",
+      "<i>\n\n- The caller is not permissioned\n\n</i>",
+      "<i>\n\n- The target is not a contract\n\n</i>",
+      "<i>\n\n(or the target is not configured)\n\n</i>",
+      "<i>\n\n- The amount is zero\n\n</i>",
+    ].join("\n\n");
+    const example = `\`\`\`markdown\n${fragmented}\n\`\`\``;
+    writeFileSync(
+      join(input, "src/contract.Example.mdx"),
+      `# Example\n\n[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/abc/src/Example.sol)\n\n${fragmented}\n\n${example}\n`,
+    );
+    execFileSync(process.execPath, [
+      "scripts/convert-contract-docs.mjs",
+      input,
+      output,
+    ]);
+    const result = readFileSync(
+      join(output, "src/Example.sol/contract.Example.md"),
+      "utf8",
+    );
+    const prose = result.slice(0, result.indexOf("```markdown"));
+    assert.equal(prose.match(/<i>/g)?.length, 1);
+    assert.equal(prose.match(/<\/i>/g)?.length, 1);
+    assert.match(
+      prose,
+      /- The caller is not permissioned\n- The target is not a contract/,
+    );
+    assert.match(
+      prose,
+      /- The target is not a contract\n\(or the target is not configured\)\n- The amount is zero/,
+    );
+    assert.ok(
+      result.includes(example),
+      "literal Markdown examples must remain unchanged",
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});

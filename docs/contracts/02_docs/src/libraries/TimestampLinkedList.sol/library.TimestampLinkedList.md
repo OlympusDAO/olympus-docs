@@ -30,10 +30,6 @@ Does nothing if timestamp already exists
 
 This function will revert if:
 
-</i>
-
-<i>
-
 - The timestamp is 0
 
 </i>
