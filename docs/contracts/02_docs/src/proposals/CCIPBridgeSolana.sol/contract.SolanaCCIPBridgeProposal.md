@@ -1,21 +1,22 @@
 # SolanaCCIPBridgeProposal
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/proposals/CCIPBridgeSolana.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/proposals/CCIPBridgeSolana.sol)
 
-**Inherits:**
-GovernorBravoProposal
+**Inherits:** GovernorBravoProposal
 
 Proposal for activation of the CCIP Bridge for Solana
 
 ## State Variables
 
-### \_kernel
+### _kernel
 
 ```solidity
-address public _kernel
+address public _kernel;
 ```
 
 ## Functions
+
+<a id="id"></a>
 
 ### id
 
@@ -23,11 +24,27 @@ address public _kernel
 function id() public pure override returns (uint256);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="name"></a>
+
 ### name
 
 ```solidity
 function name() public pure override returns (string memory);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
+
+<a id="description"></a>
 
 ### description
 
@@ -35,32 +52,67 @@ function name() public pure override returns (string memory);
 function description() public pure override returns (string memory);
 ```
 
-### \_deploy
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
+
+<a id="_deploy-addresses-address"></a>
+
+### _deploy
 
 ```solidity
 function _deploy(Addresses addresses, address) internal override;
 ```
 
-### \_afterDeploy
+**Parameters**
 
-```solidity
-function _afterDeploy(Addresses addresses, address deployer) internal override;
-```
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |
 
-### \_build
+<a id="_build-addresses"></a>
+
+### _build
 
 ```solidity
 function _build(Addresses addresses) internal override;
 ```
 
-### \_run
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+
+<a id="_run-addresses-address"></a>
+
+### _run
 
 ```solidity
 function _run(Addresses addresses, address) internal override;
 ```
 
-### \_validate
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |
+
+<a id="_validate-addresses-address"></a>
+
+### _validate
 
 ```solidity
 function _validate(Addresses addresses, address) internal view override;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |

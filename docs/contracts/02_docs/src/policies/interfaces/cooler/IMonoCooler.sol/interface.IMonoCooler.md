@@ -1,9 +1,8 @@
 # IMonoCooler
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/cooler/IMonoCooler.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/cooler/IMonoCooler.sol)
 
-**Title:**
-Mono Cooler
+**Title:** Mono Cooler
 
 A borrow/lend market where users can deposit their gOHM as collateral and then
 borrow a stablecoin debt token up to a certain LTV
@@ -19,6 +18,8 @@ borrow a stablecoin debt token up to a certain LTV
 
 ## Functions
 
+<a id="collateraltoken"></a>
+
 ### collateralToken
 
 The collateral token supplied by users/accounts, eg gOHM
@@ -26,6 +27,14 @@ The collateral token supplied by users/accounts, eg gOHM
 ```solidity
 function collateralToken() external view returns (IERC20);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
+
+<a id="debttoken"></a>
 
 ### debtToken
 
@@ -35,6 +44,14 @@ The debt token which can be borrowed, eg DAI or USDS
 function debtToken() external view returns (IERC20);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
+
+<a id="ohm"></a>
+
 ### ohm
 
 Unwrapped gOHM
@@ -42,6 +59,14 @@ Unwrapped gOHM
 ```solidity
 function ohm() external view returns (IERC20);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
+
+<a id="staking"></a>
 
 ### staking
 
@@ -51,37 +76,81 @@ staking contract to unstake (and burn) OHM from liquidations
 function staking() external view returns (IStaking);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IStaking` |  |
+
+<a id="mindebtrequired"></a>
+
 ### minDebtRequired
 
 The minimum debt a user needs to maintain
 
+<i>
+
 It costs gas to liquidate users, so we don't want dust amounts.
 To 18 decimal places
+
+</i>
 
 ```solidity
 function minDebtRequired() external view returns (uint256);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="totalcollateral"></a>
+
 ### totalCollateral
 
 The total amount of collateral posted across all accounts.
 
+<i>
+
 To 18 decimal places
+
+</i>
 
 ```solidity
 function totalCollateral() external view returns (uint128);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint128` |  |
+
+<a id="totaldebt"></a>
 
 ### totalDebt
 
 The total amount of debt which has been borrowed across all users
 as of the latest checkpoint
 
+<i>
+
 To 18 decimal places
+
+</i>
 
 ```solidity
 function totalDebt() external view returns (uint128);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint128` |  |
+
+<a id="liquidationspaused"></a>
 
 ### liquidationsPaused
 
@@ -92,6 +161,14 @@ emergency actions or interest rate changes
 function liquidationsPaused() external view returns (bool);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
+
+<a id="borrowspaused"></a>
+
 ### borrowsPaused
 
 Borrows may be paused for emergency actions or deprecating the facility
@@ -100,17 +177,41 @@ Borrows may be paused for emergency actions or deprecating the facility
 function borrowsPaused() external view returns (bool);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
+
+<a id="interestratewad"></a>
+
 ### interestRateWad
 
 The flat interest rate (APR).
 
+<i>
+
 Interest (approximately) continuously compounds at this rate.
 
+</i>
+
+<i>
+
 To 18 decimal places
+
+</i>
 
 ```solidity
 function interestRateWad() external view returns (uint96);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
+
+<a id="ltvoracle"></a>
 
 ### ltvOracle
 
@@ -120,6 +221,14 @@ The oracle serving both the Max Origination LTV and the Liquidation LTV
 function ltvOracle() external view returns (ICoolerLtvOracle);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `ICoolerLtvOracle` |  |
+
+<a id="treasuryborrower"></a>
+
 ### treasuryBorrower
 
 The policy which borrows/repays from Treasury on behalf of Cooler
@@ -128,15 +237,36 @@ The policy which borrows/repays from Treasury on behalf of Cooler
 function treasuryBorrower() external view returns (ICoolerTreasuryBorrower);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `ICoolerTreasuryBorrower` |  |
+
+<a id="loantovalues"></a>
+
 ### loanToValues
 
 The current Max Origination LTV and Liquidation LTV from the `ltvOracle()`
 
+<i>
+
 Both to 18 decimal places
+
+</i>
 
 ```solidity
 function loanToValues() external view returns (uint96 maxOriginationLtv, uint96 liquidationLtv);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxOriginationLtv | `uint96` |  |
+| liquidationLtv | `uint96` |  |
+
+<a id="interestaccumulatorupdatedat"></a>
 
 ### interestAccumulatorUpdatedAt
 
@@ -146,26 +276,68 @@ The last time the global debt accumulator was updated
 function interestAccumulatorUpdatedAt() external view returns (uint40);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint40` |  |
+
+<a id="interestaccumulatorray"></a>
+
 ### interestAccumulatorRay
 
 The accumulator index used to track the compounding of debt, starting at 1e27 at genesis
 
+<i>
+
 To RAY (1e27) precision
+
+</i>
 
 ```solidity
 function interestAccumulatorRay() external view returns (uint256);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="authorizations-address-address"></a>
 
 ### authorizations
 
 Whether `authorized` is authorized to act on `authorizer`'s behalf for all user actions
 up until the `authorizationDeadline` unix timestamp.
 
+<i>
+
 Anyone is authorized to modify their own positions, regardless of this variable.
 
+</i>
+
 ```solidity
-function authorizations(address authorizer, address authorized) external view returns (uint96 authorizationDeadline);
+function authorizations(
+        address authorizer,
+        address authorized
+    ) external view returns (uint96 authorizationDeadline);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| authorizer | `address` |  |
+| authorized | `address` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| authorizationDeadline | `uint96` |  |
+
+<a id="authorizationnonces-address"></a>
 
 ### authorizationNonces
 
@@ -175,19 +347,49 @@ The `authorizer`'s current nonce. Used to prevent replay attacks with EIP-712 si
 function authorizationNonces(address authorizer) external view returns (uint256);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| authorizer | `address` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="domain_separator"></a>
+
 ### DOMAIN_SEPARATOR
 
-Returns the domain separator used in the encoding of the signature for `setAuthorizationWithSig()`, as defined by {EIP712}.
+<i>
+
+Returns the domain separator used in the encoding of the signature for `setAuthorizationWithSig()`, as defined by [EIP712](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.EIP712).
+
+</i>
 
 ```solidity
 function DOMAIN_SEPARATOR() external view returns (bytes32);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
+
+<a id="setauthorization-address-uint96"></a>
+
 ### setAuthorization
 
 Sets the authorization for `authorized` to manage `msg.sender`'s positions until `authorizationDeadline`
 
+<i>
+
 Authorization can be revoked by setting the `authorizationDeadline` into the past
+
+</i>
 
 ```solidity
 function setAuthorization(address authorized, uint96 authorizationDeadline) external;
@@ -195,42 +397,84 @@ function setAuthorization(address authorized, uint96 authorizationDeadline) exte
 
 **Parameters**
 
-| Name                    | Type      | Description                                                    |
-| ----------------------- | --------- | -------------------------------------------------------------- |
-| `authorized`            | `address` | The authorized address.                                        |
-| `authorizationDeadline` | `uint96`  | The unix timestamp that they the authorization is valid until. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| authorized | `address` | The authorized address. |
+| authorizationDeadline | `uint96` | The unix timestamp that they the authorization is valid until. |
+
+<a id="setauthorizationwithsig-authorization-signature"></a>
 
 ### setAuthorizationWithSig
 
 Sets the authorization for `authorization.authorized` to manage `authorization.authorizer`'s positions
 until `authorization.authorizationDeadline`.
 
+<i>
+
 Warning: Reverts if the signature has already been submitted.
+
+</i>
+
+<i>
 
 The signature is malleable, but it has no impact on the security here.
 
+</i>
+
+<i>
+
 The nonce is passed as argument to be able to revert with a different error message.
+
+</i>
+
+<i>
 
 Authorization can be revoked by calling `setAuthorization()` and setting the `authorizationDeadline` into the past
 
+</i>
+
 ```solidity
-function setAuthorizationWithSig(Authorization calldata authorization, Signature calldata signature) external;
+function setAuthorizationWithSig(
+        Authorization calldata authorization,
+        Signature calldata signature
+    ) external;
 ```
 
 **Parameters**
 
-| Name            | Type            | Description                 |
-| --------------- | --------------- | --------------------------- |
-| `authorization` | `Authorization` | The `Authorization` struct. |
-| `signature`     | `Signature`     | The signature.              |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| authorization | `Authorization` | The `Authorization` struct. |
+| signature | `Signature` | The signature. |
+
+<a id="issenderauthorized-address-address"></a>
 
 ### isSenderAuthorized
 
+<i>
+
 Returns whether the `sender` is authorized to manage `onBehalf`'s positions.
+
+</i>
 
 ```solidity
 function isSenderAuthorized(address sender, address onBehalf) external view returns (bool);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | `address` |  |
+| onBehalf | `address` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
+
+<a id="addcollateral-uint128-address-idlgtev1-delegationrequest"></a>
 
 ### addCollateral
 
@@ -238,19 +482,21 @@ Deposit gOHM as collateral
 
 ```solidity
 function addCollateral(
-    uint128 collateralAmount,
-    address onBehalfOf,
-    IDLGTEv1.DelegationRequest[] calldata delegationRequests
-) external;
+        uint128 collateralAmount,
+        address onBehalfOf,
+        IDLGTEv1.DelegationRequest[] calldata delegationRequests
+    ) external;
 ```
 
 **Parameters**
 
-| Name                 | Type                           | Description                                                                                                                                                                                                                                                                                                                                                  |
-| -------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `collateralAmount`   | `uint128`                      | The amount to deposit to 18 decimal places - MUST be greater than zero                                                                                                                                                                                                                                                                                       |
-| `onBehalfOf`         | `address`                      | A caller can add collateral on behalf of themselves or another address. - MUST NOT be address(0)                                                                                                                                                                                                                                                             |
-| `delegationRequests` | `IDLGTEv1.DelegationRequest[]` | The set of delegations to apply after adding collateral. - MAY be empty, meaning no delegations are applied. - MUST ONLY be requests to add delegations, and that total MUST BE less than the `collateralAmount` argument - If `onBehalfOf` does not equal the caller, the caller must be authorized via `setAuthorization()` or `setAuthorizationWithSig()` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateralAmount | `uint128` | The amount to deposit to 18 decimal places<br/>   - MUST be greater than zero |
+| onBehalfOf | `address` | A caller can add collateral on behalf of themselves or another address.<br/>   - MUST NOT be address(0) |
+| delegationRequests | `IDLGTEv1.DelegationRequest[]` | The set of delegations to apply after adding collateral.<br/>   - MAY be empty, meaning no delegations are applied.<br/>   - MUST ONLY be requests to add delegations, and that total MUST BE less than the `collateralAmount` argument<br/>   - If `onBehalfOf` does not equal the caller, the caller must be authorized via<br/>     `setAuthorization()` or `setAuthorizationWithSig()` |
+
+<a id="withdrawcollateral-uint128-address-address-idlgtev1-delegationrequest"></a>
 
 ### withdrawCollateral
 
@@ -262,38 +508,59 @@ Withdraw gOHM collateral.
 
 ```solidity
 function withdrawCollateral(
-    uint128 collateralAmount,
-    address onBehalfOf,
-    address recipient,
-    IDLGTEv1.DelegationRequest[] calldata delegationRequests
-) external returns (uint128 collateralWithdrawn);
+        uint128 collateralAmount,
+        address onBehalfOf,
+        address recipient,
+        IDLGTEv1.DelegationRequest[] calldata delegationRequests
+    ) external returns (uint128 collateralWithdrawn);
 ```
 
 **Parameters**
 
-| Name                 | Type                           | Description                                                                                                                                                                                                                         |
-| -------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `collateralAmount`   | `uint128`                      | The amount of collateral to remove to 18 decimal places - MUST be greater than zero - If set to type(uint128).max then withdraw the max amount up to maxOriginationLtv                                                              |
-| `onBehalfOf`         | `address`                      | A caller can withdraw collateral on behalf of themselves or another address if authorized via `setAuthorization()` or `setAuthorizationWithSig()`                                                                                   |
-| `recipient`          | `address`                      | Send the gOHM collateral to a specified recipient address. - MUST NOT be address(0)                                                                                                                                                 |
-| `delegationRequests` | `IDLGTEv1.DelegationRequest[]` | The set of delegations to apply before removing collateral. - MAY be empty, meaning no delegations are applied. - MUST ONLY be requests to undelegate, and that total undelegated MUST BE less than the `collateralAmount` argument |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateralAmount | `uint128` | The amount of collateral to remove to 18 decimal places<br/>   - MUST be greater than zero<br/>   - If set to type(uint128).max then withdraw the max amount up to maxOriginationLtv |
+| onBehalfOf | `address` | A caller can withdraw collateral on behalf of themselves or another address if<br/>     authorized via `setAuthorization()` or `setAuthorizationWithSig()` |
+| recipient | `address` | Send the gOHM collateral to a specified recipient address.<br/>   - MUST NOT be address(0) |
+| delegationRequests | `IDLGTEv1.DelegationRequest[]` | The set of delegations to apply before removing collateral.<br/>   - MAY be empty, meaning no delegations are applied.<br/>   - MUST ONLY be requests to undelegate, and that total undelegated MUST BE less than the `collateralAmount` argument |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateralWithdrawn | `uint128` |  |
+
+<a id="applydelegations-idlgtev1-delegationrequest-address"></a>
 
 ### applyDelegations
 
 Apply a set of delegation requests on behalf of a given user.
 
 ```solidity
-function applyDelegations(IDLGTEv1.DelegationRequest[] calldata delegationRequests, address onBehalfOf)
-    external
-    returns (uint256 totalDelegated, uint256 totalUndelegated, uint256 undelegatedBalance);
+function applyDelegations(
+        IDLGTEv1.DelegationRequest[] calldata delegationRequests,
+        address onBehalfOf
+    )
+        external
+        returns (uint256 totalDelegated, uint256 totalUndelegated, uint256 undelegatedBalance);
 ```
 
 **Parameters**
 
-| Name                 | Type                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| -------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `delegationRequests` | `IDLGTEv1.DelegationRequest[]` | The set of delegations to apply. - MAY be empty, meaning no delegations are applied. - Total collateral delegated as part of these requests MUST BE less than the account collateral. - MUST NOT apply delegations that results in more collateral being undelegated than the account has collateral for. - It applies across total gOHM balances for a given account across all calling policies So this may (un)delegate the account's gOHM set by another policy |
-| `onBehalfOf`         | `address`                      | A caller can apply delegations on behalf of themselves or another address if authorized via `setAuthorization()` or `setAuthorizationWithSig()`                                                                                                                                                                                                                                                                                                                     |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delegationRequests | `IDLGTEv1.DelegationRequest[]` | The set of delegations to apply.<br/>   - MAY be empty, meaning no delegations are applied.<br/>   - Total collateral delegated as part of these requests MUST BE less than the account collateral.<br/>   - MUST NOT apply delegations that results in more collateral being undelegated than<br/>     the account has collateral for.<br/>   - It applies across total gOHM balances for a given account across all calling policies<br/>     So this may (un)delegate the account's gOHM set by another policy |
+| onBehalfOf | `address` | A caller can apply delegations on behalf of themselves or another address if<br/>     authorized via `setAuthorization()` or `setAuthorizationWithSig()` |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalDelegated | `uint256` |  |
+| totalUndelegated | `uint256` |  |
+| undelegatedBalance | `uint256` |  |
+
+<a id="borrow-uint128-address-address"></a>
 
 ### borrow
 
@@ -304,24 +571,28 @@ Borrow `debtToken`
   after the borrow is applied
 
 ```solidity
-function borrow(uint128 borrowAmountInWad, address onBehalfOf, address recipient)
-    external
-    returns (uint128 amountBorrowedInWad);
+function borrow(
+        uint128 borrowAmountInWad,
+        address onBehalfOf,
+        address recipient
+    ) external returns (uint128 amountBorrowedInWad);
 ```
 
 **Parameters**
 
-| Name                | Type      | Description                                                                                                                                                                                   |
-| ------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `borrowAmountInWad` | `uint128` | The amount of `debtToken` to borrow, to 18 decimals regardless of the debt token - MUST be greater than zero - If set to type(uint128).max then borrow the max amount up to maxOriginationLtv |
-| `onBehalfOf`        | `address` | A caller can borrow on behalf of themselves or another address if authorized via `setAuthorization()` or `setAuthorizationWithSig()`                                                          |
-| `recipient`         | `address` | Send the borrowed token to a specified recipient address. - MUST NOT be address(0)                                                                                                            |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| borrowAmountInWad | `uint128` | The amount of `debtToken` to borrow, to 18 decimals regardless of the debt token<br/>   - MUST be greater than zero<br/>   - If set to type(uint128).max then borrow the max amount up to maxOriginationLtv |
+| onBehalfOf | `address` | A caller can borrow on behalf of themselves or another address if<br/>     authorized via `setAuthorization()` or `setAuthorizationWithSig()` |
+| recipient | `address` | Send the borrowed token to a specified recipient address.<br/>   - MUST NOT be address(0) |
 
 **Returns**
 
-| Name                  | Type      | Description                   |
-| --------------------- | --------- | ----------------------------- |
-| `amountBorrowedInWad` | `uint128` | The amount actually borrowed. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amountBorrowedInWad | `uint128` | The amount actually borrowed. |
+
+<a id="repay-uint128-address"></a>
 
 ### repay
 
@@ -332,35 +603,66 @@ Repay a portion, or all of the debt
   MUST be greater than or equal to the `minDebtRequired` after the borrow is applied
 
 ```solidity
-function repay(uint128 repayAmountInWad, address onBehalfOf) external returns (uint128 amountRepaidInWad);
+function repay(
+        uint128 repayAmountInWad,
+        address onBehalfOf
+    ) external returns (uint128 amountRepaidInWad);
 ```
 
 **Parameters**
 
-| Name               | Type      | Description                                                                                                                                                                                              |
-| ------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repayAmountInWad` | `uint128` | The amount to repay, to 18 decimals regardless of the debt token - MUST be greater than zero - MAY be greater than the latest debt as of this block. In which case it will be capped to that latest debt |
-| `onBehalfOf`       | `address` | A caller can repay the debt on behalf of themselves or another address                                                                                                                                   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| repayAmountInWad | `uint128` | The amount to repay, to 18 decimals regardless of the debt token<br/>   - MUST be greater than zero<br/>   - MAY be greater than the latest debt as of this block. In which case it will be capped<br/>     to that latest debt |
+| onBehalfOf | `address` | A caller can repay the debt on behalf of themselves or another address |
 
 **Returns**
 
-| Name                | Type      | Description                 |
-| ------------------- | --------- | --------------------------- |
-| `amountRepaidInWad` | `uint128` | The amount actually repaid. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amountRepaidInWad | `uint128` | The amount actually repaid. |
+
+<a id="batchliquidate-address"></a>
 
 ### batchLiquidate
 
 Liquidate one or more accounts which have exceeded the `liquidationLtv`
 The gOHM collateral is seized (unstaked to OHM and burned), and the accounts debt is wiped.
 
+<i>
+
 - If one of the provided accounts in the batch hasn't exceeded the max LTV then it is skipped.
-- Delegations are auto-rescinded if required. Ordering of this is not guaranteed.
+  - Delegations are auto-rescinded if required. Ordering of this is not guaranteed.
+
+</i>
 
 ```solidity
-function batchLiquidate(address[] calldata accounts)
-    external
-    returns (uint128 totalCollateralClaimed, uint128 totalDebtWiped, uint128 totalLiquidationIncentive);
+function batchLiquidate(
+        address[] calldata accounts
+    )
+        external
+        returns (
+            uint128 totalCollateralClaimed,
+            uint128 totalDebtWiped,
+            uint128 totalLiquidationIncentive
+        );
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| accounts | `address[]` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalCollateralClaimed | `uint128` |  |
+| totalDebtWiped | `uint128` |  |
+| totalLiquidationIncentive | `uint128` |  |
+
+<a id="applyunhealthydelegations-address-uint256"></a>
 
 ### applyUnhealthyDelegations
 
@@ -369,10 +671,27 @@ performed in one transaction, then delegations can be rescinded over multiple tr
 in order to get this account into a state where it can then be liquidated.
 
 ```solidity
-function applyUnhealthyDelegations(address account, uint256 autoRescindMaxNumDelegates)
-    external
-    returns (uint256 totalUndelegated, uint256 undelegatedBalance);
+function applyUnhealthyDelegations(
+        address account,
+        uint256 autoRescindMaxNumDelegates
+    ) external returns (uint256 totalUndelegated, uint256 undelegatedBalance);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| autoRescindMaxNumDelegates | `uint256` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalUndelegated | `uint256` |  |
+| undelegatedBalance | `uint256` |  |
+
+<a id="setltvoracle-address"></a>
 
 ### setLtvOracle
 
@@ -382,6 +701,14 @@ Set the oracle which serves the max Origination LTV and the Liquidation LTV
 function setLtvOracle(address newOracle) external;
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newOracle | `address` |  |
+
+<a id="settreasuryborrower-address"></a>
+
 ### setTreasuryBorrower
 
 Set the policy which borrows/repays from Treasury on behalf of Cooler
@@ -390,25 +717,57 @@ Set the policy which borrows/repays from Treasury on behalf of Cooler
 function setTreasuryBorrower(address newTreasuryBorrower) external;
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newTreasuryBorrower | `address` |  |
+
+<a id="setliquidationspaused-bool"></a>
+
 ### setLiquidationsPaused
 
 Liquidation may be paused in order for users to recover/repay debt after emergency actions
 
+<i>
+
 Can only be called by emergency or admin roles
+
+</i>
 
 ```solidity
 function setLiquidationsPaused(bool isPaused) external;
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isPaused | `bool` |  |
+
+<a id="setborrowpaused-bool"></a>
+
 ### setBorrowPaused
 
 Pause any new borrows of `debtToken`
 
+<i>
+
 Can only be called by emergency or admin roles
+
+</i>
 
 ```solidity
 function setBorrowPaused(bool isPaused) external;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isPaused | `bool` |  |
+
+<a id="setinterestratewad-uint96"></a>
 
 ### setInterestRateWad
 
@@ -421,6 +780,14 @@ Update the interest rate (APR), specified in Wad (18 decimals)
 function setInterestRateWad(uint96 newInterestRateWad) external;
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newInterestRateWad | `uint96` |  |
+
+<a id="setmaxdelegateaddresses-address-uint32"></a>
+
 ### setMaxDelegateAddresses
 
 Allow an account to have more or less than the DEFAULT_MAX_DELEGATE_ADDRESSES
@@ -430,15 +797,39 @@ number of delegates.
 function setMaxDelegateAddresses(address account, uint32 maxDelegateAddresses) external;
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| maxDelegateAddresses | `uint32` |  |
+
+<a id="checkpointdebt"></a>
+
 ### checkpointDebt
 
 Update and checkpoint the total debt up until now
 
+<i>
+
 May be useful in case there are no new user actions for some time.
 
+</i>
+
 ```solidity
-function checkpointDebt() external returns (uint128 totalDebtInWad, uint256 interestAccumulatorRay);
+function checkpointDebt()
+        external
+        returns (uint128 totalDebtInWad, uint256 interestAccumulatorRay);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalDebtInWad | `uint128` |  |
+| interestAccumulatorRay | `uint256` |  |
+
+<a id="debtdeltaformaxoriginationltv-address-int128"></a>
 
 ### debtDeltaForMaxOriginationLtv
 
@@ -448,58 +839,122 @@ from the current position.
 A positive `debtDeltaInWad` means the account can borrow that amount after adding that `collateralDelta` collateral
 A negative `debtDeltaInWad` means it needs to repay that amount in order to withdraw that `collateralDelta` collateral
 
+<i>
+
 debtDeltaInWad is always to 18 decimal places
 
+</i>
+
 ```solidity
-function debtDeltaForMaxOriginationLtv(address account, int128 collateralDelta)
-    external
-    view
-    returns (int128 debtDeltaInWad);
+function debtDeltaForMaxOriginationLtv(
+        address account,
+        int128 collateralDelta
+    ) external view returns (int128 debtDeltaInWad);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| collateralDelta | `int128` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtDeltaInWad | `int128` |  |
+
+<a id="accountposition-address"></a>
 
 ### accountPosition
 
 An view of an accounts current and up to date position as of this block
 
 ```solidity
-function accountPosition(address account) external view returns (AccountPosition memory position);
+function accountPosition(
+        address account
+    ) external view returns (AccountPosition memory position);
 ```
 
 **Parameters**
 
-| Name      | Type      | Description                       |
-| --------- | --------- | --------------------------------- |
-| `account` | `address` | The account to get a position for |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` | The account to get a position for |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| position | `AccountPosition` |  |
+
+<a id="computeliquidity-address"></a>
 
 ### computeLiquidity
 
 Compute the liquidity status for a set of accounts.
 
+<i>
+
 This can be used to verify if accounts can be liquidated or not.
 
+</i>
+
 ```solidity
-function computeLiquidity(address[] calldata accounts) external view returns (LiquidationStatus[] memory status);
+function computeLiquidity(
+        address[] calldata accounts
+    ) external view returns (LiquidationStatus[] memory status);
 ```
 
 **Parameters**
 
-| Name       | Type        | Description                         |
-| ---------- | ----------- | ----------------------------------- |
-| `accounts` | `address[]` | The accounts to get the status for. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| accounts | `address[]` | The accounts to get the status for. |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| status | `LiquidationStatus[]` |  |
+
+<a id="accountdelegationslist-address-uint256-uint256"></a>
 
 ### accountDelegationsList
 
 Paginated view of an account's delegations
 
+<i>
+
 Can call sequentially increasing the `startIndex` each time by the number of items returned in the previous call,
 until number of items returned is less than `maxItems`
 
+</i>
+
 ```solidity
-function accountDelegationsList(address account, uint256 startIndex, uint256 maxItems)
-    external
-    view
-    returns (IDLGTEv1.AccountDelegation[] memory delegations);
+function accountDelegationsList(
+        address account,
+        uint256 startIndex,
+        uint256 maxItems
+    ) external view returns (IDLGTEv1.AccountDelegation[] memory delegations);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| startIndex | `uint256` |  |
+| maxItems | `uint256` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delegations | `IDLGTEv1.AccountDelegation[]` |  |
+
+<a id="accountstate-address"></a>
 
 ### accountState
 
@@ -509,15 +964,47 @@ A view of the last checkpoint of account data (not as of this block)
 function accountState(address account) external view returns (AccountState memory);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `AccountState` |  |
+
+<a id="accountcollateral-address"></a>
+
 ### accountCollateral
 
 An account's current collateral
 
+<i>
+
 to 18 decimal places
+
+</i>
 
 ```solidity
 function accountCollateral(address account) external view returns (uint128 collateralInWad);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateralInWad | `uint128` |  |
+
+<a id="accountdebt-address"></a>
 
 ### accountDebt
 
@@ -527,13 +1014,37 @@ An account's current debt as of this block
 function accountDebt(address account) external view returns (uint128 debtInWad);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtInWad | `uint128` |  |
+
+<a id="globalstate"></a>
+
 ### globalState
 
 A view of the derived/internal cache data.
 
 ```solidity
-function globalState() external view returns (uint128 totalDebt, uint256 interestAccumulatorRay);
+function globalState()
+        external
+        view
+        returns (uint128 totalDebt, uint256 interestAccumulatorRay);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalDebt | `uint128` |  |
+| interestAccumulatorRay | `uint256` |  |
 
 ## Events
 
@@ -543,11 +1054,23 @@ function globalState() external view returns (uint128 totalDebt, uint256 interes
 event BorrowPausedSet(bool isPaused);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isPaused | `bool` |  |
+
 ### LiquidationsPausedSet
 
 ```solidity
 event LiquidationsPausedSet(bool isPaused);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isPaused | `bool` |  |
 
 ### InterestRateSet
 
@@ -555,11 +1078,23 @@ event LiquidationsPausedSet(bool isPaused);
 event InterestRateSet(uint96 interestRateWad);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interestRateWad | `uint96` |  |
+
 ### LtvOracleSet
 
 ```solidity
 event LtvOracleSet(address indexed oracle);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle | `address` |  |
 
 ### TreasuryBorrowerSet
 
@@ -567,25 +1102,69 @@ event LtvOracleSet(address indexed oracle);
 event TreasuryBorrowerSet(address indexed treasuryBorrower);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| treasuryBorrower | `address` |  |
+
 ### CollateralAdded
 
 ```solidity
-event CollateralAdded(address indexed caller, address indexed onBehalfOf, uint128 collateralAmount);
+event CollateralAdded(
+        address indexed caller,
+        address indexed onBehalfOf,
+        uint128 collateralAmount
+    );
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| onBehalfOf | `address` |  |
+| collateralAmount | `uint128` |  |
 
 ### CollateralWithdrawn
 
 ```solidity
 event CollateralWithdrawn(
-    address indexed caller, address indexed onBehalfOf, address indexed recipient, uint128 collateralAmount
-);
+        address indexed caller,
+        address indexed onBehalfOf,
+        address indexed recipient,
+        uint128 collateralAmount
+    );
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| onBehalfOf | `address` |  |
+| recipient | `address` |  |
+| collateralAmount | `uint128` |  |
 
 ### Borrow
 
 ```solidity
-event Borrow(address indexed caller, address indexed onBehalfOf, address indexed recipient, uint128 amount);
+event Borrow(
+        address indexed caller,
+        address indexed onBehalfOf,
+        address indexed recipient,
+        uint128 amount
+    );
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| onBehalfOf | `address` |  |
+| recipient | `address` |  |
+| amount | `uint128` |  |
 
 ### Repay
 
@@ -593,21 +1172,55 @@ event Borrow(address indexed caller, address indexed onBehalfOf, address indexed
 event Repay(address indexed caller, address indexed onBehalfOf, uint128 repayAmount);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| onBehalfOf | `address` |  |
+| repayAmount | `uint128` |  |
+
 ### Liquidated
 
 ```solidity
 event Liquidated(
-    address indexed caller, address indexed account, uint128 collateralSeized, uint128 debtWiped, uint128 incentives
-);
+        address indexed caller,
+        address indexed account,
+        uint128 collateralSeized,
+        uint128 debtWiped,
+        uint128 incentives
+    );
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| account | `address` |  |
+| collateralSeized | `uint128` |  |
+| debtWiped | `uint128` |  |
+| incentives | `uint128` |  |
 
 ### AuthorizationSet
 
 ```solidity
 event AuthorizationSet(
-    address indexed caller, address indexed account, address indexed authorized, uint96 authorizationDeadline
-);
+        address indexed caller,
+        address indexed account,
+        address indexed authorized,
+        uint96 authorizationDeadline
+    );
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| account | `address` |  |
+| authorized | `address` |  |
+| authorizationDeadline | `uint96` |  |
 
 ## Errors
 
@@ -616,6 +1229,13 @@ event AuthorizationSet(
 ```solidity
 error ExceededMaxOriginationLtv(uint256 newLtv, uint256 maxOriginationLtv);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newLtv | `uint256` |  |
+| maxOriginationLtv | `uint256` |  |
 
 ### ExceededCollateralBalance
 
@@ -628,6 +1248,13 @@ error ExceededCollateralBalance();
 ```solidity
 error MinDebtNotMet(uint256 minRequired, uint256 current);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| minRequired | `uint256` |  |
+| current | `uint256` |  |
 
 ### InvalidAddress
 
@@ -671,6 +1298,13 @@ error InvalidDelegationRequests();
 error ExceededPreviousLtv(uint256 oldLtv, uint256 newLtv);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldLtv | `uint256` |  |
+| newLtv | `uint256` |  |
+
 ### InvalidCollateralDelta
 
 ```solidity
@@ -683,17 +1317,36 @@ error InvalidCollateralDelta();
 error ExpiredSignature(uint256 deadline);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| deadline | `uint256` |  |
+
 ### InvalidNonce
 
 ```solidity
 error InvalidNonce(uint256 deadline);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| deadline | `uint256` |  |
+
 ### InvalidSigner
 
 ```solidity
 error InvalidSigner(address signer, address owner);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| signer | `address` |  |
+| owner | `address` |  |
 
 ### UnauthorizedOnBehalfOf
 
@@ -709,48 +1362,74 @@ The record of an individual account's collateral and debt data
 
 ```solidity
 struct AccountState {
-    /// @notice The amount of gOHM collateral the account has posted
-    uint128 collateral;
-    /**
-     * @notice A checkpoint of user debt, updated after a borrow/repay/liquidation
-     * @dev Debt as of now =  (
-     *    `account.debtCheckpoint` *
-     *    `debtTokenData.interestAccumulator` /
-     *    `account.interestAccumulator`
-     * )
-     */
-    uint128 debtCheckpoint;
-    /// @notice The account's last interest accumulator checkpoint
-    uint256 interestAccumulatorRay;
-}
+        /// @notice The amount of gOHM collateral the account has posted
+        uint128 collateral;
+        /**
+         * @notice A checkpoint of user debt, updated after a borrow/repay/liquidation
+         * @dev Debt as of now =  (
+         *    `account.debtCheckpoint` *
+         *    `debtTokenData.interestAccumulator` /
+         *    `account.interestAccumulator`
+         * )
+         */
+        uint128 debtCheckpoint;
+        /// @notice The account's last interest accumulator checkpoint
+        uint256 interestAccumulatorRay;
+    }
 ```
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateral | `uint128` |  |
+| debtCheckpoint | `uint128` |  |
+| interestAccumulatorRay | `uint256` |  |
 
 ### Authorization
 
 ```solidity
 struct Authorization {
-    /// @notice The address of the account granting authorization
-    address account;
-    /// @notice The address of who is authorized to act on the the accounts behalf
-    address authorized;
-    /// @notice The unix timestamp that the access is automatically revoked
-    uint96 authorizationDeadline;
-    /// @notice For replay protection
-    uint256 nonce;
-    /// @notice A unix timestamp for when the signature is valid until
-    uint256 signatureDeadline;
-}
+        /// @notice The address of the account granting authorization
+        address account;
+        /// @notice The address of who is authorized to act on the the accounts behalf
+        address authorized;
+        /// @notice The unix timestamp that the access is automatically revoked
+        uint96 authorizationDeadline;
+        /// @notice For replay protection
+        uint256 nonce;
+        /// @notice A unix timestamp for when the signature is valid until
+        uint256 signatureDeadline;
+    }
 ```
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| authorized | `address` |  |
+| authorizationDeadline | `uint96` |  |
+| nonce | `uint256` |  |
+| signatureDeadline | `uint256` |  |
 
 ### Signature
 
 ```solidity
 struct Signature {
-    uint8 v;
-    bytes32 r;
-    bytes32 s;
-}
+        uint8 v;
+        bytes32 r;
+        bytes32 s;
+    }
 ```
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| v | `uint8` |  |
+| r | `bytes32` |  |
+| s | `bytes32` |  |
 
 ### LiquidationStatus
 
@@ -758,21 +1437,32 @@ The status for whether an account can be liquidated or not
 
 ```solidity
 struct LiquidationStatus {
-    /// @notice The amount [in gOHM collateral terms] of collateral which has been provided by the user
-    uint128 collateral;
-    /// @notice The up to date amount of debt [in debtToken terms]
-    uint128 currentDebt;
-    /// @notice The current LTV of this account [in debtTokens per gOHM collateral terms]
-    uint128 currentLtv;
-    /// @notice Has this account exceeded the liquidation LTV
-    bool exceededLiquidationLtv;
-    /// @notice Has this account exceeded the max origination LTV
-    bool exceededMaxOriginationLtv;
-    /// @notice A liquidator will receive this amount [in gOHM collateral terms] if
-    /// this account is liquidated as of this block
-    uint128 currentIncentive;
-}
+        /// @notice The amount [in gOHM collateral terms] of collateral which has been provided by the user
+        uint128 collateral;
+        /// @notice The up to date amount of debt [in debtToken terms]
+        uint128 currentDebt;
+        /// @notice The current LTV of this account [in debtTokens per gOHM collateral terms]
+        uint128 currentLtv;
+        /// @notice Has this account exceeded the liquidation LTV
+        bool exceededLiquidationLtv;
+        /// @notice Has this account exceeded the max origination LTV
+        bool exceededMaxOriginationLtv;
+        /// @notice A liquidator will receive this amount [in gOHM collateral terms] if
+        /// this account is liquidated as of this block
+        uint128 currentIncentive;
+    }
 ```
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateral | `uint128` |  |
+| currentDebt | `uint128` |  |
+| currentLtv | `uint128` |  |
+| exceededLiquidationLtv | `bool` |  |
+| exceededMaxOriginationLtv | `bool` |  |
+| currentIncentive | `uint128` |  |
 
 ### AccountPosition
 
@@ -781,33 +1471,47 @@ Provided for UX
 
 ```solidity
 struct AccountPosition {
-    /// @notice The amount [in gOHM collateral terms] of collateral which has been provided by the user
-    /// @dev To 18 decimal places
-    uint256 collateral;
-    /// @notice The up to date amount of debt
-    /// @dev To 18 decimal places
-    uint256 currentDebt;
-    /// @notice The maximum amount of debtToken's this account can borrow given the
-    /// collateral posted, up to `maxOriginationLtv`
-    /// @dev To 18 decimal places
-    uint256 maxOriginationDebtAmount;
-    /// @notice The maximum amount of debtToken's this account can accrue before being
-    /// eligable to be liquidated, up to `liquidationLtv`
-    /// @dev To 18 decimal places
-    uint256 liquidationDebtAmount;
-    /// @notice The health factor of this accounts position.
-    /// Anything less than 1 can be liquidated, relative to `liquidationLtv`
-    /// @dev To 18 decimal places
-    uint256 healthFactor;
-    /// @notice The current LTV of this account [in debtTokens per gOHM collateral terms]
-    /// @dev To 18 decimal places
-    uint256 currentLtv;
-    /// @notice The total collateral delegated for this user across all delegates
-    /// @dev To 18 decimal places
-    uint256 totalDelegated;
-    /// @notice The current number of addresses this account has delegated to
-    uint256 numDelegateAddresses;
-    /// @notice The max number of delegates this account is allowed to delegate to
-    uint256 maxDelegateAddresses;
-}
+        /// @notice The amount [in gOHM collateral terms] of collateral which has been provided by the user
+        /// @dev To 18 decimal places
+        uint256 collateral;
+        /// @notice The up to date amount of debt
+        /// @dev To 18 decimal places
+        uint256 currentDebt;
+        /// @notice The maximum amount of debtToken's this account can borrow given the
+        /// collateral posted, up to `maxOriginationLtv`
+        /// @dev To 18 decimal places
+        uint256 maxOriginationDebtAmount;
+        /// @notice The maximum amount of debtToken's this account can accrue before being
+        /// eligable to be liquidated, up to `liquidationLtv`
+        /// @dev To 18 decimal places
+        uint256 liquidationDebtAmount;
+        /// @notice The health factor of this accounts position.
+        /// Anything less than 1 can be liquidated, relative to `liquidationLtv`
+        /// @dev To 18 decimal places
+        uint256 healthFactor;
+        /// @notice The current LTV of this account [in debtTokens per gOHM collateral terms]
+        /// @dev To 18 decimal places
+        uint256 currentLtv;
+        /// @notice The total collateral delegated for this user across all delegates
+        /// @dev To 18 decimal places
+        uint256 totalDelegated;
+        /// @notice The current number of addresses this account has delegated to
+        uint256 numDelegateAddresses;
+        /// @notice The max number of delegates this account is allowed to delegate to
+        uint256 maxDelegateAddresses;
+    }
 ```
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateral | `uint256` |  |
+| currentDebt | `uint256` |  |
+| maxOriginationDebtAmount | `uint256` |  |
+| liquidationDebtAmount | `uint256` |  |
+| healthFactor | `uint256` |  |
+| currentLtv | `uint256` |  |
+| totalDelegated | `uint256` |  |
+| numDelegateAddresses | `uint256` |  |
+| maxDelegateAddresses | `uint256` |  |

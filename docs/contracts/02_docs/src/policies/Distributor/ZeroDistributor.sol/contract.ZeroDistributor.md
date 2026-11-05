@@ -1,31 +1,50 @@
 # ZeroDistributor
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/Distributor/ZeroDistributor.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/Distributor/ZeroDistributor.sol)
 
-**Inherits:**
-[IDistributor](/main/contracts/docs/src/policies/interfaces/IDistributor.sol/interface.IDistributor)
+**Inherits:** [IDistributor](/main/contracts/docs/src/policies/interfaces/IDistributor.sol/interface.IDistributor)
 
-## State Variables
+## Constants
 
 ### staking
 
+Getter function for the staking contract address.
+
 ```solidity
-IStaking public immutable staking
+IStaking public immutable staking;
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` | address The staking contract address. |
+
+## State Variables
 
 ### unlockRebase
 
 ```solidity
-bool private unlockRebase
+bool private unlockRebase;
 ```
 
 ## Functions
 
+<a id="constructor-address"></a>
+
 ### constructor
 
 ```solidity
-constructor(address staking_) ;
+constructor(address staking_);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| staking_ | `address` |  |
+
+<a id="triggerrebase"></a>
 
 ### triggerRebase
 
@@ -39,6 +58,8 @@ function.
 function triggerRebase() external;
 ```
 
+<a id="distribute"></a>
+
 ### distribute
 
 Endpoint must be available for Staking to call. Zero emission.
@@ -47,6 +68,8 @@ Endpoint must be available for Staking to call. Zero emission.
 function distribute() external;
 ```
 
+<a id="retrievebounty"></a>
+
 ### retrieveBounty
 
 Endpoint must be available for Staking to call. Zero emission.
@@ -54,3 +77,9 @@ Endpoint must be available for Staking to call. Zero emission.
 ```solidity
 function retrieveBounty() external pure returns (uint256);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

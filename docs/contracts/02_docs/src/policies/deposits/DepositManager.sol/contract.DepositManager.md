@@ -1,16 +1,14 @@
 # DepositManager
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/deposits/DepositManager.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/deposits/DepositManager.sol)
 
-**Inherits:**
-[Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IDepositManager](/main/contracts/docs/src/policies/interfaces/deposits/IDepositManager.sol/interface.IDepositManager), [BaseAssetManager](/main/contracts/docs/src/bases/BaseAssetManager.sol/abstract.BaseAssetManager)
+**Inherits:** [Policy](/main/contracts/docs/src/Kernel.sol/abstract.Policy), [PolicyEnabler](/main/contracts/docs/src/policies/utils/PolicyEnabler.sol/abstract.PolicyEnabler), [IDepositManager](/main/contracts/docs/src/policies/interfaces/deposits/IDepositManager.sol/interface.IDepositManager), [BaseAssetManager](/main/contracts/docs/src/bases/BaseAssetManager.sol/abstract.BaseAssetManager)
 
-**Title:**
-Deposit Manager
-
-forge-lint: disable-start(asm-keccak256, mixed-case-function)
+**Title:** Deposit Manager
 
 This policy manages deposits and withdrawals for Olympus protocol contracts
+
+<i>
 
 Key Features:
 
@@ -19,49 +17,24 @@ Key Features:
 - Borrowing functionality
 - Configurable reclaim rates for risk management
 
-## State Variables
+</i>
+
+## Constants
 
 ### ROLE_DEPOSIT_OPERATOR
 
 The role that is allowed to deposit and withdraw funds
 
 ```solidity
-bytes32 public constant ROLE_DEPOSIT_OPERATOR = "deposit_operator"
+bytes32 public constant ROLE_DEPOSIT_OPERATOR = "deposit_operator";
 ```
 
-### \_RECEIPT_TOKEN_MANAGER
+### _RECEIPT_TOKEN_MANAGER
 
 The receipt token manager for creating receipt tokens
 
 ```solidity
-ReceiptTokenManager internal immutable _RECEIPT_TOKEN_MANAGER
-```
-
-### \_assetLiabilities
-
-Maps asset liabilities key to the number of receipt tokens that have been minted
-
-This is used to ensure that the receipt tokens are solvent
-As with the BaseAssetManager, deposited asset tokens with different deposit periods are co-mingled.
-
-```solidity
-mapping(bytes32 key => uint256 receiptTokenSupply) internal _assetLiabilities
-```
-
-### \_assetPeriods
-
-Maps token ID to the asset period
-
-```solidity
-mapping(uint256 tokenId => AssetPeriod) internal _assetPeriods
-```
-
-### \_ownedTokenIds
-
-Set of token IDs that this DepositManager owns
-
-```solidity
-EnumerableSet.UintSet internal _ownedTokenIds
+ReceiptTokenManager internal immutable _RECEIPT_TOKEN_MANAGER;
 ```
 
 ### ONE_HUNDRED_PERCENT
@@ -69,72 +42,180 @@ EnumerableSet.UintSet internal _ownedTokenIds
 Constant equivalent to 100%
 
 ```solidity
-uint16 public constant ONE_HUNDRED_PERCENT = 100e2
+uint16 public constant ONE_HUNDRED_PERCENT = 100e2;
 ```
 
-### \_operatorToName
+## State Variables
+
+### _assetLiabilities
+
+Maps asset liabilities key to the number of receipt tokens that have been minted
+
+<i>
+
+This is used to ensure that the receipt tokens are solvent
+As with the BaseAssetManager, deposited asset tokens with different deposit periods are co-mingled.
+
+</i>
+
+```solidity
+mapping(bytes32 key => uint256 receiptTokenSupply) internal _assetLiabilities;
+```
+
+### _assetPeriods
+
+Maps token ID to the asset period
+
+```solidity
+mapping(uint256 tokenId => AssetPeriod) internal _assetPeriods;
+```
+
+### _ownedTokenIds
+
+Set of token IDs that this DepositManager owns
+
+```solidity
+EnumerableSet.UintSet internal _ownedTokenIds;
+```
+
+### _operatorToName
 
 Maps operator address to its name
 
 ```solidity
-mapping(address operator => bytes3 name) internal _operatorToName
+mapping(address operator => bytes3 name) internal _operatorToName;
 ```
 
-### \_operatorNames
+### _operatorNames
 
 A set of operator names
 
+<i>
+
 This contains unique values
 
+</i>
+
 ```solidity
-mapping(bytes3 name => bool isRegistered) internal _operatorNames
+mapping(bytes3 name => bool isRegistered) internal _operatorNames;
 ```
 
-### \_borrowedAmounts
+### _borrowedAmounts
 
 Maps asset-operator key to current borrowed amounts
 
+<i>
+
 The key is the keccak256 of the asset address and the operator address
 
+</i>
+
 ```solidity
-mapping(bytes32 key => uint256 borrowedAmount) internal _borrowedAmounts
+mapping(bytes32 key => uint256 borrowedAmount) internal _borrowedAmounts;
 ```
 
 ## Functions
 
-### \_onlyAssetPeriodExists
+<a id="_onlyassetperiodexists-ierc20-uint8-address"></a>
+
+### _onlyAssetPeriodExists
 
 ```solidity
-function _onlyAssetPeriodExists(IERC20 asset_, uint8 depositPeriod_, address operator_) internal view;
+function _onlyAssetPeriodExists(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    ) internal view;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| operator_ | `address` |  |
+
+<a id="onlyassetperiodexists-ierc20-uint8-address"></a>
 
 ### onlyAssetPeriodExists
 
 Reverts if the asset period is not configured
 
 ```solidity
-modifier onlyAssetPeriodExists(IERC20 asset_, uint8 depositPeriod_, address operator_) ;
+modifier onlyAssetPeriodExists(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    );
 ```
 
-### \_onlyAssetPeriodEnabled
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| operator_ | `address` |  |
+
+<a id="_onlyassetperiodenabled-ierc20-uint8-address"></a>
+
+### _onlyAssetPeriodEnabled
 
 ```solidity
-function _onlyAssetPeriodEnabled(IERC20 asset_, uint8 depositPeriod_, address operator_) internal view;
+function _onlyAssetPeriodEnabled(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    ) internal view;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| operator_ | `address` |  |
+
+<a id="onlyassetperiodenabled-ierc20-uint8-address"></a>
 
 ### onlyAssetPeriodEnabled
 
 Reverts if the asset period is not enabled
 
 ```solidity
-modifier onlyAssetPeriodEnabled(IERC20 asset_, uint8 depositPeriod_, address operator_) ;
+modifier onlyAssetPeriodEnabled(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    );
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| operator_ | `address` |  |
+
+<a id="constructor-address-address"></a>
 
 ### constructor
 
 ```solidity
 constructor(address kernel_, address tokenManager_) Policy(Kernel(kernel_));
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| tokenManager_ | `address` |  |
+
+<a id="configuredependencies"></a>
 
 ### configureDependencies
 
@@ -146,23 +227,31 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-| Name           | Type        | Description                             |
-| -------------- | ----------- | --------------------------------------- |
-| `dependencies` | `Keycode[]` | - Keycode array of module dependencies. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dependencies | `Keycode[]` | - Keycode array of module dependencies. |
+
+<a id="requestpermissions"></a>
 
 ### requestPermissions
 
 Function called by kernel to set module function permissions.
 
 ```solidity
-function requestPermissions() external view override returns (Permissions[] memory permissions);
+function requestPermissions()
+        external
+        view
+        override
+        returns (Permissions[] memory permissions);
 ```
 
 **Returns**
 
-| Name          | Type            | Description                                                                    |
-| ------------- | --------------- | ------------------------------------------------------------------------------ |
-| `permissions` | `Permissions[]` | requests - Array of keycodes and function selectors for requested permissions. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| permissions | `Permissions[]` | - Array of keycodes and function selectors for requested permissions. |
+
+<a id="version"></a>
 
 ### VERSION
 
@@ -170,12 +259,25 @@ function requestPermissions() external view override returns (Permissions[] memo
 function VERSION() external pure returns (uint8 major, uint8 minor);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| major | `uint8` |  |
+| minor | `uint8` |  |
+
+<a id="deposit-depositparams"></a>
+
 ### deposit
 
-Deposits the given amount of the underlying asset in exchange for a receipt token
+<i>
 
 This function is only callable by addresses with the deposit operator role
+
+</i>
+
 The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
+
 This function reverts if:
 
 - The contract is not enabled
@@ -189,32 +291,39 @@ This function reverts if:
 - Zero shares would be received from the vault
 
 ```solidity
-function deposit(DepositParams calldata params_)
-    external
-    onlyEnabled
-    onlyRole(ROLE_DEPOSIT_OPERATOR)
-    onlyAssetPeriodEnabled(params_.asset, params_.depositPeriod, msg.sender)
-    returns (uint256 receiptTokenId, uint256 actualAmount);
+function deposit(
+        DepositParams calldata params_
+    )
+        external
+        onlyEnabled
+        onlyRole(ROLE_DEPOSIT_OPERATOR)
+        onlyAssetPeriodEnabled(params_.asset, params_.depositPeriod, msg.sender)
+        returns (uint256 receiptTokenId, uint256 actualAmount);
 ```
 
 **Parameters**
 
-| Name      | Type            | Description                    |
-| --------- | --------------- | ------------------------------ |
-| `params_` | `DepositParams` | The parameters for the deposit |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| params_ | `DepositParams` | The parameters for the deposit |
 
 **Returns**
 
-| Name             | Type      | Description                                            |
-| ---------------- | --------- | ------------------------------------------------------ |
-| `receiptTokenId` | `uint256` | The ID of the receipt token                            |
-| `actualAmount`   | `uint256` | The quantity of receipt tokens minted to the depositor |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiptTokenId | `uint256` | The ID of the receipt token |
+| actualAmount | `uint256` | The quantity of receipt tokens minted to the depositor |
+
+<a id="maxclaimyield-ierc20-address"></a>
 
 ### maxClaimYield
 
-Returns the maximum yield that can be claimed for an asset and operator pair
+<i>
 
 The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
+
+</i>
+
 Note that the returned value is a theoretical maximum. The theoretical value may not be accurate or possible due to rounding and other behaviours in an ERC4626 vault.
 
 ```solidity
@@ -223,66 +332,81 @@ function maxClaimYield(IERC20 asset_, address operator_) external view returns (
 
 **Parameters**
 
-| Name        | Type      | Description                         |
-| ----------- | --------- | ----------------------------------- |
-| `asset_`    | `IERC20`  | The address of the underlying asset |
-| `operator_` | `address` | The address of the operator         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| operator_ | `address` | The address of the operator |
 
 **Returns**
 
-| Name     | Type      | Description                                         |
-| -------- | --------- | --------------------------------------------------- |
-| `<none>` | `uint256` | yieldAssets The amount of yield that can be claimed |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The amount of yield that can be claimed |
+
+<a id="claimyield-ierc20-address-uint256"></a>
 
 ### claimYield
 
-Claims the yield from the underlying asset
-This does not burn receipt tokens, but should reduce the amount of shares the caller has in the vault.
+<i>
 
 Notes:
 
 - This function is only callable by addresses with the deposit operator role
 - The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
 - Given a low enough amount, the actual amount withdrawn may be 0. This function will not revert in such a case.
-  This function reverts if:
+
+</i>
+
+This function reverts if:
+
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The asset is not configured in BaseAssetManager
-- The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)
+- The operator becomes insolvent after the withdrawal (assets + borrowed &lt; liabilities)
 
 ```solidity
-function claimYield(IERC20 asset_, address recipient_, uint256 amount_)
-    external
-    onlyEnabled
-    onlyRole(ROLE_DEPOSIT_OPERATOR)
-    onlyConfiguredAsset(asset_)
-    returns (uint256 actualAmount);
+function claimYield(
+        IERC20 asset_,
+        address recipient_,
+        uint256 amount_
+    )
+        external
+        onlyEnabled
+        onlyRole(ROLE_DEPOSIT_OPERATOR)
+        onlyConfiguredAsset(asset_)
+        returns (uint256 actualAmount);
 ```
 
 **Parameters**
 
-| Name         | Type      | Description                         |
-| ------------ | --------- | ----------------------------------- |
-| `asset_`     | `IERC20`  | The address of the underlying asset |
-| `recipient_` | `address` | The recipient of the claimed yield  |
-| `amount_`    | `uint256` | The amount to claim yield for       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| recipient_ | `address` | The recipient of the claimed yield |
+| amount_ | `uint256` | The amount to claim yield for |
 
 **Returns**
 
-| Name           | Type      | Description                                                    |
-| -------------- | --------- | -------------------------------------------------------------- |
-| `actualAmount` | `uint256` | The quantity of underlying assets transferred to the recipient |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` | The quantity of underlying assets transferred to the recipient |
+
+<a id="withdraw-withdrawparams"></a>
 
 ### withdraw
 
-Withdraws the given amount of the underlying asset
+<i>
 
 Notes:
 
 - This function is only callable by addresses with the deposit operator role
 - The actions of the calling deposit operator are restricted to its own namespace, preventing the operator from accessing funds of other operators.
 - Given a low enough amount, the actual amount withdrawn may be 0. This function will not revert in such a case.
-  This function will revert if:
+
+</i>
+
+This function will revert if:
+
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The recipient is the zero address
@@ -290,65 +414,97 @@ Notes:
 - The depositor has insufficient receipt token balance
 - For wrapped tokens: depositor has not approved ReceiptTokenManager to spend the wrapped ERC20 token
 - For unwrapped tokens: depositor has not approved the caller to spend ERC6909 tokens
-- The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)
+- The operator becomes insolvent after the withdrawal (assets + borrowed &lt; liabilities)
 
 ```solidity
-function withdraw(WithdrawParams calldata params_)
-    external
-    onlyEnabled
-    onlyRole(ROLE_DEPOSIT_OPERATOR)
-    returns (uint256 actualAmount);
+function withdraw(
+        WithdrawParams calldata params_
+    ) external onlyEnabled onlyRole(ROLE_DEPOSIT_OPERATOR) returns (uint256 actualAmount);
 ```
 
 **Parameters**
 
-| Name      | Type             | Description                       |
-| --------- | ---------------- | --------------------------------- |
-| `params_` | `WithdrawParams` | The parameters for the withdrawal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| params_ | `WithdrawParams` | The parameters for the withdrawal |
 
 **Returns**
 
-| Name           | Type      | Description                                                    |
-| -------------- | --------- | -------------------------------------------------------------- |
-| `actualAmount` | `uint256` | The quantity of underlying assets transferred to the recipient |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` | The quantity of underlying assets transferred to the recipient |
+
+<a id="getoperatorliabilities-ierc20-address"></a>
 
 ### getOperatorLiabilities
 
 Returns the liabilities for an asset and operator pair
 
 ```solidity
-function getOperatorLiabilities(IERC20 asset_, address operator_) external view returns (uint256);
+function getOperatorLiabilities(
+        IERC20 asset_,
+        address operator_
+    ) external view returns (uint256);
 ```
 
 **Parameters**
 
-| Name        | Type      | Description                         |
-| ----------- | --------- | ----------------------------------- |
-| `asset_`    | `IERC20`  | The address of the underlying asset |
-| `operator_` | `address` | The address of the operator         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| operator_ | `address` | The address of the operator |
 
 **Returns**
 
-| Name     | Type      | Description                                                                                      |
-| -------- | --------- | ------------------------------------------------------------------------------------------------ |
-| `<none>` | `uint256` | liabilities The quantity of assets that the contract is custodying for the operator's depositors |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The quantity of assets that the contract is custodying for the operator's depositors |
 
-### \_getAssetLiabilitiesKey
+<a id="_getassetliabilitieskey-ierc20-address"></a>
+
+### _getAssetLiabilitiesKey
 
 Get the key for the asset liabilities mapping
 
+<i>
+
 The key is the keccak256 of the asset address and the operator address
 
+</i>
+
 ```solidity
-function _getAssetLiabilitiesKey(IERC20 asset_, address operator_) internal pure returns (bytes32);
+function _getAssetLiabilitiesKey(
+        IERC20 asset_,
+        address operator_
+    ) internal pure returns (bytes32);
 ```
 
-### \_validateOperatorSolvency
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| operator_ | `address` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
+
+<a id="_validateoperatorsolvency-ierc20-address"></a>
+
+### _validateOperatorSolvency
 
 Validates that an operator remains solvent after a withdrawal
 
+<i>
+
 This function ensures that operator assets + borrowed amount >= operator liabilities
 This is the core solvency constraint for the DepositManager
+
+</i>
+
 Notes:
 
 - The solvency checks assume that the value of each vault share is increasing, and will not reduce.
@@ -360,16 +516,21 @@ function _validateOperatorSolvency(IERC20 asset_, address operator_) internal vi
 
 **Parameters**
 
-| Name        | Type      | Description                           |
-| ----------- | --------- | ------------------------------------- |
-| `asset_`    | `IERC20`  | The asset to validate solvency for    |
-| `operator_` | `address` | The operator to validate solvency for |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The asset to validate solvency for |
+| operator_ | `address` | The operator to validate solvency for |
+
+<a id="setoperatorname-address-string"></a>
 
 ### setOperatorName
 
-Sets the name of an operator. This is included in the name and symbol of receipt tokens.
+<i>
 
 Note that once set, an operator name cannot be changed.
+
+</i>
+
 This function reverts if:
 
 - The contract is not enabled
@@ -381,8 +542,20 @@ This function reverts if:
 - The operator name contains characters that are not a-z or 0-9
 
 ```solidity
-function setOperatorName(address operator_, string calldata name_) external onlyEnabled onlyManagerOrAdminRole;
+function setOperatorName(
+        address operator_,
+        string calldata name_
+    ) external onlyEnabled onlyManagerOrAdminRole;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator_ | `address` |  |
+| name_ | `string` |  |
+
+<a id="getoperatorname-address"></a>
 
 ### getOperatorName
 
@@ -394,126 +567,160 @@ function getOperatorName(address operator_) public view returns (string memory);
 
 **Parameters**
 
-| Name        | Type      | Description                 |
-| ----------- | --------- | --------------------------- |
-| `operator_` | `address` | The address of the operator |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator_ | `address` | The address of the operator |
 
 **Returns**
 
-| Name     | Type     | Description                                      |
-| -------- | -------- | ------------------------------------------------ |
-| `<none>` | `string` | name The name of the operator or an empty string |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` | The name of the operator or an empty string |
+
+<a id="isassetperiod-ierc20-uint8-address"></a>
 
 ### isAssetPeriod
 
 Returns whether a deposit asset, period and operator combination are configured
 
+<i>
+
 A asset period that is disabled will not accept further deposits
 
+</i>
+
 ```solidity
-function isAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
-    public
-    view
-    override
-    returns (AssetPeriodStatus memory status);
+function isAssetPeriod(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    ) public view override returns (AssetPeriodStatus memory status);
 ```
 
 **Parameters**
 
-| Name             | Type      | Description                         |
-| ---------------- | --------- | ----------------------------------- |
-| `asset_`         | `IERC20`  | The address of the underlying asset |
-| `depositPeriod_` | `uint8`   | The deposit period, in months       |
-| `operator_`      | `address` | The address of the operator         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| depositPeriod_ | `uint8` | The deposit period, in months |
+| operator_ | `address` | The address of the operator |
 
 **Returns**
 
-| Name     | Type                | Description                    |
-| -------- | ------------------- | ------------------------------ |
-| `status` | `AssetPeriodStatus` | The status of the asset period |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| status | `AssetPeriodStatus` | The status of the asset period |
+
+<a id="addasset-ierc20-ierc4626-uint256-uint256"></a>
 
 ### addAsset
 
-Adds a new asset
+<i>
 
 This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the admin or manager role
-- asset\_ is the zero address
-- minimumDeposit*> depositCap*
-  Notes:
+- asset_ is the zero address
+- minimumDeposit_ > depositCap_
+
+</i>
+
+Notes:
+
 - A limitation of the current implementation is that the vault is assumed to be monotonically-increasing in value.
 - The pairing of the asset and vault is immutable, to prevent a governance attack on user deposits.
 
 ```solidity
-function addAsset(IERC20 asset_, IERC4626 vault_, uint256 depositCap_, uint256 minimumDeposit_)
-    external
-    onlyEnabled
-    onlyManagerOrAdminRole;
+function addAsset(
+        IERC20 asset_,
+        IERC4626 vault_,
+        uint256 depositCap_,
+        uint256 minimumDeposit_
+    ) external onlyEnabled onlyManagerOrAdminRole;
 ```
 
 **Parameters**
 
-| Name              | Type       | Description                                                                      |
-| ----------------- | ---------- | -------------------------------------------------------------------------------- |
-| `asset_`          | `IERC20`   | The address of the underlying asset                                              |
-| `vault_`          | `IERC4626` | The address of the ERC4626 vault to deposit the asset into (or the zero address) |
-| `depositCap_`     | `uint256`  | The deposit cap of the asset                                                     |
-| `minimumDeposit_` | `uint256`  | The minimum deposit amount for the asset                                         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| vault_ | `IERC4626` | The address of the ERC4626 vault to deposit the asset into (or the zero address) |
+| depositCap_ | `uint256` | The deposit cap of the asset |
+| minimumDeposit_ | `uint256` | The minimum deposit amount for the asset |
+
+<a id="setassetdepositcap-ierc20-uint256"></a>
 
 ### setAssetDepositCap
 
 Sets the deposit cap for an asset
 
+<i>
+
 This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the admin or manager role
-- asset\_ is not configured
-- The existing minimum deposit > depositCap\_
+- asset_ is not configured
+- The existing minimum deposit > depositCap_
+
+</i>
 
 ```solidity
-function setAssetDepositCap(IERC20 asset_, uint256 depositCap_) external onlyEnabled onlyManagerOrAdminRole;
+function setAssetDepositCap(
+        IERC20 asset_,
+        uint256 depositCap_
+    ) external onlyEnabled onlyManagerOrAdminRole;
 ```
 
 **Parameters**
 
-| Name          | Type      | Description                          |
-| ------------- | --------- | ------------------------------------ |
-| `asset_`      | `IERC20`  | The address of the underlying asset  |
-| `depositCap_` | `uint256` | The deposit cap to set for the asset |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| depositCap_ | `uint256` | The deposit cap to set for the asset |
+
+<a id="setassetminimumdeposit-ierc20-uint256"></a>
 
 ### setAssetMinimumDeposit
 
 Sets the minimum deposit for an asset
 
+<i>
+
 This function reverts if:
 
 - The contract is not enabled
 - The caller does not have the admin or manager role
-- asset\_ is not configured
-- minimumDeposit\_ > the existing deposit cap
+- asset_ is not configured
+- minimumDeposit_ > the existing deposit cap
+
+</i>
 
 ```solidity
-function setAssetMinimumDeposit(IERC20 asset_, uint256 minimumDeposit_)
-    external
-    onlyEnabled
-    onlyManagerOrAdminRole;
+function setAssetMinimumDeposit(
+        IERC20 asset_,
+        uint256 minimumDeposit_
+    ) external onlyEnabled onlyManagerOrAdminRole;
 ```
 
 **Parameters**
 
-| Name              | Type      | Description                              |
-| ----------------- | --------- | ---------------------------------------- |
-| `asset_`          | `IERC20`  | The address of the underlying asset      |
-| `minimumDeposit_` | `uint256` | The minimum deposit to set for the asset |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| minimumDeposit_ | `uint256` | The minimum deposit to set for the asset |
+
+<a id="addassetperiod-ierc20-uint8-address"></a>
 
 ### addAssetPeriod
 
-Adds a new asset period
+<i>
 
 This function is only callable by the manager or admin role
+
+</i>
+
 This function reverts if:
 
 - The contract is not enabled
@@ -526,33 +733,42 @@ This function reverts if:
 - Receipt token creation fails (invalid parameters in ReceiptTokenManager)
 
 ```solidity
-function addAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
-    external
-    onlyEnabled
-    onlyManagerOrAdminRole
-    onlyConfiguredAsset(asset_)
-    returns (uint256 receiptTokenId);
+function addAssetPeriod(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    )
+        external
+        onlyEnabled
+        onlyManagerOrAdminRole
+        onlyConfiguredAsset(asset_)
+        returns (uint256 receiptTokenId);
 ```
 
 **Parameters**
 
-| Name             | Type      | Description                         |
-| ---------------- | --------- | ----------------------------------- |
-| `asset_`         | `IERC20`  | The address of the underlying asset |
-| `depositPeriod_` | `uint8`   | The deposit period, in months       |
-| `operator_`      | `address` | The address of the operator         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| depositPeriod_ | `uint8` | The deposit period, in months |
+| operator_ | `address` | The address of the operator |
 
 **Returns**
 
-| Name             | Type      | Description                     |
-| ---------------- | --------- | ------------------------------- |
-| `receiptTokenId` | `uint256` | The ID of the new receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiptTokenId | `uint256` | The ID of the new receipt token |
+
+<a id="enableassetperiod-ierc20-uint8-address"></a>
 
 ### enableAssetPeriod
 
-Enables an asset period, which allows new deposits
+<i>
 
 This function is only callable by the manager or admin role
+
+</i>
+
 This function reverts if:
 
 - The contract is not enabled
@@ -561,26 +777,35 @@ This function reverts if:
 - The asset period is already enabled
 
 ```solidity
-function enableAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
-    external
-    onlyEnabled
-    onlyManagerOrAdminRole
-    onlyAssetPeriodExists(asset_, depositPeriod_, operator_);
+function enableAssetPeriod(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    )
+        external
+        onlyEnabled
+        onlyManagerOrAdminRole
+        onlyAssetPeriodExists(asset_, depositPeriod_, operator_);
 ```
 
 **Parameters**
 
-| Name             | Type      | Description                         |
-| ---------------- | --------- | ----------------------------------- |
-| `asset_`         | `IERC20`  | The address of the underlying asset |
-| `depositPeriod_` | `uint8`   | The deposit period, in months       |
-| `operator_`      | `address` | The address of the operator         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| depositPeriod_ | `uint8` | The deposit period, in months |
+| operator_ | `address` | The address of the operator |
+
+<a id="disableassetperiod-ierc20-uint8-address"></a>
 
 ### disableAssetPeriod
 
-Disables an asset period, which prevents new deposits
+<i>
 
 This function is only callable by the manager or admin role
+
+</i>
+
 This function reverts if:
 
 - The contract is not enabled
@@ -589,20 +814,26 @@ This function reverts if:
 - The asset period is already disabled
 
 ```solidity
-function disableAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
-    external
-    onlyEnabled
-    onlyManagerOrAdminRole
-    onlyAssetPeriodExists(asset_, depositPeriod_, operator_);
+function disableAssetPeriod(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    )
+        external
+        onlyEnabled
+        onlyManagerOrAdminRole
+        onlyAssetPeriodExists(asset_, depositPeriod_, operator_);
 ```
 
 **Parameters**
 
-| Name             | Type      | Description                         |
-| ---------------- | --------- | ----------------------------------- |
-| `asset_`         | `IERC20`  | The address of the underlying asset |
-| `depositPeriod_` | `uint8`   | The deposit period, in months       |
-| `operator_`      | `address` | The address of the operator         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| depositPeriod_ | `uint8` | The deposit period, in months |
+| operator_ | `address` | The address of the operator |
+
+<a id="getassetperiods"></a>
 
 ### getAssetPeriods
 
@@ -614,9 +845,11 @@ function getAssetPeriods() external view override returns (AssetPeriod[] memory 
 
 **Returns**
 
-| Name           | Type            | Description                       |
-| -------------- | --------------- | --------------------------------- |
-| `assetPeriods` | `AssetPeriod[]` | Array of configured asset periods |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assetPeriods | `AssetPeriod[]` | Array of configured asset periods |
+
+<a id="getassetperiod-uint256"></a>
 
 ### getAssetPeriod
 
@@ -628,88 +861,100 @@ function getAssetPeriod(uint256 tokenId_) public view override returns (AssetPer
 
 **Parameters**
 
-| Name       | Type      | Description                 |
-| ---------- | --------- | --------------------------- |
-| `tokenId_` | `uint256` | The ID of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` | The ID of the receipt token |
 
 **Returns**
 
-| Name     | Type          | Description                    |
-| -------- | ------------- | ------------------------------ |
-| `<none>` | `AssetPeriod` | configuration The asset period |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `AssetPeriod` | The asset period |
+
+<a id="getassetperiod-ierc20-uint8-address"></a>
 
 ### getAssetPeriod
 
 Returns the asset period for an asset, period and operator
 
 ```solidity
-function getAssetPeriod(IERC20 asset_, uint8 depositPeriod_, address operator_)
-    public
-    view
-    override
-    returns (AssetPeriod memory);
+function getAssetPeriod(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    ) public view override returns (AssetPeriod memory);
 ```
 
 **Parameters**
 
-| Name             | Type      | Description                         |
-| ---------------- | --------- | ----------------------------------- |
-| `asset_`         | `IERC20`  | The address of the underlying asset |
-| `depositPeriod_` | `uint8`   | The deposit period, in months       |
-| `operator_`      | `address` | The address of the operator         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| depositPeriod_ | `uint8` | The deposit period, in months |
+| operator_ | `address` | The address of the operator |
 
 **Returns**
 
-| Name     | Type          | Description                    |
-| -------- | ------------- | ------------------------------ |
-| `<none>` | `AssetPeriod` | configuration The asset period |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `AssetPeriod` | The asset period |
+
+<a id="borrowingwithdraw-borrowingwithdrawparams"></a>
 
 ### borrowingWithdraw
 
-Borrows funds from deposits
+<i>
 
 Notes:
 
 - This function is only callable by addresses with the deposit operator role
 - Given a low enough amount, the actual amount withdrawn may be 0. This function will not revert in such a case.
-  This function reverts if:
+
+</i>
+
+This function reverts if:
+
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The recipient is the zero address
 - The asset has not been added via addAsset()
 - The amount exceeds the operator's available borrowing capacity
-- The operator becomes insolvent after the withdrawal (assets + borrowed < liabilities)
+- The operator becomes insolvent after the withdrawal (assets + borrowed &lt; liabilities)
 
 ```solidity
-function borrowingWithdraw(BorrowingWithdrawParams calldata params_)
-    external
-    onlyEnabled
-    onlyRole(ROLE_DEPOSIT_OPERATOR)
-    returns (uint256 actualAmount);
+function borrowingWithdraw(
+        BorrowingWithdrawParams calldata params_
+    ) external onlyEnabled onlyRole(ROLE_DEPOSIT_OPERATOR) returns (uint256 actualAmount);
 ```
 
 **Parameters**
 
-| Name      | Type                      | Description                                 |
-| --------- | ------------------------- | ------------------------------------------- |
-| `params_` | `BorrowingWithdrawParams` | The parameters for the borrowing withdrawal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| params_ | `BorrowingWithdrawParams` | The parameters for the borrowing withdrawal |
 
 **Returns**
 
-| Name           | Type      | Description                                                    |
-| -------------- | --------- | -------------------------------------------------------------- |
-| `actualAmount` | `uint256` | The quantity of underlying assets transferred to the recipient |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` | The quantity of underlying assets transferred to the recipient |
+
+<a id="borrowingrepay-borrowingrepayparams"></a>
 
 ### borrowingRepay
 
-Repays borrowed funds
+<i>
 
 Notes:
 
 - This function is only callable by addresses with the deposit operator role
 - This function does not check for over-payment. It is expected to be handled by the calling contract.
 - If the actual amount repaid is greater than the maximum amount provided, updates to the state variables are capped at the maximum amount.
-  This function reverts if:
+
+</i>
+
+This function reverts if:
+
 - The contract is not enabled
 - The caller does not have the deposit operator role
 - The asset has not been added via addAsset()
@@ -717,33 +962,36 @@ Notes:
 - The payer has insufficient asset token balance
 - The asset is a fee-on-transfer token
 - Zero shares would be deposited into the vault
-- The operator becomes insolvent after the repayment (assets + borrowed < liabilities)
+- The operator becomes insolvent after the repayment (assets + borrowed &lt; liabilities)
 
 ```solidity
-function borrowingRepay(BorrowingRepayParams calldata params_)
-    external
-    onlyEnabled
-    onlyRole(ROLE_DEPOSIT_OPERATOR)
-    returns (uint256 actualAmount);
+function borrowingRepay(
+        BorrowingRepayParams calldata params_
+    ) external onlyEnabled onlyRole(ROLE_DEPOSIT_OPERATOR) returns (uint256 actualAmount);
 ```
 
 **Parameters**
 
-| Name      | Type                   | Description                                |
-| --------- | ---------------------- | ------------------------------------------ |
-| `params_` | `BorrowingRepayParams` | The parameters for the borrowing repayment |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| params_ | `BorrowingRepayParams` | The parameters for the borrowing repayment |
 
 **Returns**
 
-| Name           | Type      | Description                                               |
-| -------------- | --------- | --------------------------------------------------------- |
-| `actualAmount` | `uint256` | The quantity of underlying assets received from the payer |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` | The quantity of underlying assets received from the payer |
+
+<a id="borrowingdefault-borrowingdefaultparams"></a>
 
 ### borrowingDefault
 
-Defaults on a borrowed amount
+<i>
 
 This function is only callable by addresses with the deposit operator role
+
+</i>
+
 This function reverts if:
 
 - The contract is not enabled
@@ -752,92 +1000,133 @@ This function reverts if:
 - The amount exceeds the current borrowed amount for the operator
 - The payer has insufficient receipt token balance
 - The payer has not approved the caller to spend ERC6909 tokens
-- The operator becomes insolvent after the default (assets + borrowed < liabilities)
+- The operator becomes insolvent after the default (assets + borrowed &lt; liabilities)
 
 ```solidity
-function borrowingDefault(BorrowingDefaultParams calldata params_)
-    external
-    onlyEnabled
-    onlyRole(ROLE_DEPOSIT_OPERATOR);
+function borrowingDefault(
+        BorrowingDefaultParams calldata params_
+    ) external onlyEnabled onlyRole(ROLE_DEPOSIT_OPERATOR);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| params_ | `BorrowingDefaultParams` |  |
+
+<a id="getborrowedamount-ierc20-address"></a>
 
 ### getBorrowedAmount
 
 Gets the current borrowed amount for an operator
 
 ```solidity
-function getBorrowedAmount(IERC20 asset_, address operator_) public view returns (uint256 borrowed);
+function getBorrowedAmount(
+        IERC20 asset_,
+        address operator_
+    ) public view returns (uint256 borrowed);
 ```
 
 **Parameters**
 
-| Name        | Type      | Description                         |
-| ----------- | --------- | ----------------------------------- |
-| `asset_`    | `IERC20`  | The address of the underlying asset |
-| `operator_` | `address` | The address of the operator         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| operator_ | `address` | The address of the operator |
 
 **Returns**
 
-| Name       | Type      | Description                                  |
-| ---------- | --------- | -------------------------------------------- |
-| `borrowed` | `uint256` | The current borrowed amount for the operator |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| borrowed | `uint256` | The current borrowed amount for the operator |
+
+<a id="getborrowingcapacity-ierc20-address"></a>
 
 ### getBorrowingCapacity
 
 Gets the available borrowing capacity for an operator
 
 ```solidity
-function getBorrowingCapacity(IERC20 asset_, address operator_) public view returns (uint256 capacity);
+function getBorrowingCapacity(
+        IERC20 asset_,
+        address operator_
+    ) public view returns (uint256 capacity);
 ```
 
 **Parameters**
 
-| Name        | Type      | Description                         |
-| ----------- | --------- | ----------------------------------- |
-| `asset_`    | `IERC20`  | The address of the underlying asset |
-| `operator_` | `address` | The address of the operator         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| operator_ | `address` | The address of the operator |
 
 **Returns**
 
-| Name       | Type      | Description                                       |
-| ---------- | --------- | ------------------------------------------------- |
-| `capacity` | `uint256` | The available borrowing capacity for the operator |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| capacity | `uint256` | The available borrowing capacity for the operator |
 
-### \_setReceiptTokenData
+<a id="_setreceipttokendata-ierc20-uint8-address"></a>
+
+### _setReceiptTokenData
 
 ```solidity
-function _setReceiptTokenData(IERC20 asset_, uint8 depositPeriod_, address operator_)
-    internal
-    returns (uint256 tokenId);
+function _setReceiptTokenData(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    ) internal returns (uint256 tokenId);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| operator_ | `address` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` |  |
+
+<a id="getreceipttokenid-ierc20-uint8-address"></a>
 
 ### getReceiptTokenId
 
 Returns the ID of the receipt token for an asset period and operator
 
-The ID returned is not a guarantee that the asset period is configured or enabled. {isAssetPeriod} should be used for that purpose.
+<i>
+
+The ID returned is not a guarantee that the asset period is configured or enabled. [isAssetPeriod](#isassetperiod) should be used for that purpose.
+
+</i>
 
 ```solidity
-function getReceiptTokenId(IERC20 asset_, uint8 depositPeriod_, address operator_)
-    public
-    view
-    override
-    returns (uint256);
+function getReceiptTokenId(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    ) public view override returns (uint256);
 ```
 
 **Parameters**
 
-| Name             | Type      | Description                         |
-| ---------------- | --------- | ----------------------------------- |
-| `asset_`         | `IERC20`  | The address of the underlying asset |
-| `depositPeriod_` | `uint8`   | The deposit period, in months       |
-| `operator_`      | `address` | The address of the operator         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The address of the underlying asset |
+| depositPeriod_ | `uint8` | The deposit period, in months |
+| operator_ | `address` | The address of the operator |
 
 **Returns**
 
-| Name     | Type      | Description                                |
-| -------- | --------- | ------------------------------------------ |
-| `<none>` | `uint256` | receiptTokenId The ID of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The ID of the receipt token |
+
+<a id="getreceipttokenmanager"></a>
 
 ### getReceiptTokenManager
 
@@ -849,9 +1138,11 @@ function getReceiptTokenManager() external view override returns (IReceiptTokenM
 
 **Returns**
 
-| Name     | Type                   | Description                                |
-| -------- | ---------------------- | ------------------------------------------ |
-| `<none>` | `IReceiptTokenManager` | manager The receipt token manager contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IReceiptTokenManager` | The receipt token manager contract |
+
+<a id="getreceipttokenids"></a>
 
 ### getReceiptTokenIds
 
@@ -863,57 +1154,76 @@ function getReceiptTokenIds() external view override returns (uint256[] memory);
 
 **Returns**
 
-| Name     | Type        | Description                         |
-| -------- | ----------- | ----------------------------------- |
-| `<none>` | `uint256[]` | tokenIds Array of receipt token IDs |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256[]` | Array of receipt token IDs |
+
+<a id="getreceipttoken-ierc20-uint8-address"></a>
 
 ### getReceiptToken
 
 Convenience function that returns both receipt token ID and wrapped token address
 
 ```solidity
-function getReceiptToken(IERC20 asset_, uint8 depositPeriod_, address operator_)
-    external
-    view
-    override
-    returns (uint256 tokenId, address wrappedToken);
+function getReceiptToken(
+        IERC20 asset_,
+        uint8 depositPeriod_,
+        address operator_
+    ) external view override returns (uint256 tokenId, address wrappedToken);
 ```
 
 **Parameters**
 
-| Name             | Type      | Description                  |
-| ---------------- | --------- | ---------------------------- |
-| `asset_`         | `IERC20`  | The asset contract           |
-| `depositPeriod_` | `uint8`   | The deposit period in months |
-| `operator_`      | `address` | The operator address         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` | The asset contract |
+| depositPeriod_ | `uint8` | The deposit period in months |
+| operator_ | `address` | The operator address |
 
 **Returns**
 
-| Name           | Type      | Description                                                     |
-| -------------- | --------- | --------------------------------------------------------------- |
-| `tokenId`      | `uint256` | The receipt token ID                                            |
-| `wrappedToken` | `address` | The address of the wrapped ERC20 token (0x0 if not created yet) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` | The receipt token ID |
+| wrappedToken | `address` | The address of the wrapped ERC20 token (0x0 if not created yet) |
+
+<a id="supportsinterface-bytes4"></a>
 
 ### supportsInterface
 
 ```solidity
-function supportsInterface(bytes4 interfaceId)
-    public
-    view
-    virtual
-    override(BaseAssetManager, PolicyEnabler)
-    returns (bool);
+function supportsInterface(
+        bytes4 interfaceId
+    ) public view virtual override(BaseAssetManager, PolicyEnabler) returns (bool);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
+
+<a id="rescue-address"></a>
 
 ### rescue
 
 Rescue any ERC20 token sent to this contract and send it to the TRSRY
 
+<i>
+
 This function reverts if:
 
 - The caller does not have the admin role
-- token\_ is a managed asset or vault
-- token\_ is the zero address
+- token_ is a managed asset or vault
+- token_ is the zero address
+
+</i>
 
 ```solidity
 function rescue(address token_) external onlyEnabled onlyAdminRole;
@@ -921,6 +1231,6 @@ function rescue(address token_) external onlyEnabled onlyAdminRole;
 
 **Parameters**
 
-| Name     | Type      | Description                              |
-| -------- | --------- | ---------------------------------------- |
-| `token_` | `address` | The address of the ERC20 token to rescue |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token_ | `address` | The address of the ERC20 token to rescue |

@@ -1,15 +1,14 @@
 # IVersioned
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/interfaces/IVersioned.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/interfaces/IVersioned.sol)
 
-**Title:**
-IVersioned
-
-forge-lint: disable-start(mixed-case-function)
+**Title:** IVersioned
 
 Interface for contracts that have a version
 
 ## Functions
+
+<a id="version"></a>
 
 ### VERSION
 
@@ -21,7 +20,7 @@ function VERSION() external view returns (uint8 major, uint8 minor);
 
 **Returns**
 
-| Name    | Type    | Description                                                         |
-| ------- | ------- | ------------------------------------------------------------------- |
-| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
-| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| major | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| minor | `uint8` | - Minor version change retains backward-compatible interface. |

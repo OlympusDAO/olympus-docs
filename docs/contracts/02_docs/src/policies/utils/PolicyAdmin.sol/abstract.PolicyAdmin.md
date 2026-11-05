@@ -1,53 +1,64 @@
 # PolicyAdmin
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/utils/PolicyAdmin.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/utils/PolicyAdmin.sol)
 
-**Inherits:**
-[RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
+**Inherits:** [RolesConsumer](/main/contracts/docs/src/modules/ROLES/OlympusRoles.sol/abstract.RolesConsumer)
 
 ## Functions
+
+<a id="onlyemergencyoradminrole"></a>
 
 ### onlyEmergencyOrAdminRole
 
 Modifier that reverts if the caller does not have the emergency or admin role
 
 ```solidity
-modifier onlyEmergencyOrAdminRole() ;
+modifier onlyEmergencyOrAdminRole();
 ```
+
+<a id="onlymanageroradminrole"></a>
 
 ### onlyManagerOrAdminRole
 
 Modifier that reverts if the caller does not have the manager or admin role
 
 ```solidity
-modifier onlyManagerOrAdminRole() ;
+modifier onlyManagerOrAdminRole();
 ```
+
+<a id="onlyadminrole"></a>
 
 ### onlyAdminRole
 
 Modifier that reverts if the caller does not have the admin role
 
 ```solidity
-modifier onlyAdminRole() ;
+modifier onlyAdminRole();
 ```
+
+<a id="onlyemergencyrole"></a>
 
 ### onlyEmergencyRole
 
 Modifier that reverts if the caller does not have the emergency role
 
 ```solidity
-modifier onlyEmergencyRole() ;
+modifier onlyEmergencyRole();
 ```
+
+<a id="onlymanagerrole"></a>
 
 ### onlyManagerRole
 
 Modifier that reverts if the caller does not have the manager role
 
 ```solidity
-modifier onlyManagerRole() ;
+modifier onlyManagerRole();
 ```
 
-### \_isAdmin
+<a id="_isadmin-address"></a>
+
+### _isAdmin
 
 Check if an account has the admin role
 
@@ -57,17 +68,19 @@ function _isAdmin(address account_) internal view returns (bool);
 
 **Parameters**
 
-| Name       | Type      | Description          |
-| ---------- | --------- | -------------------- |
-| `account_` | `address` | The account to check |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` | The account to check |
 
 **Returns**
 
-| Name     | Type   | Description                                             |
-| -------- | ------ | ------------------------------------------------------- |
-| `<none>` | `bool` | true if the account has the admin role, false otherwise |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | true if the account has the admin role, false otherwise |
 
-### \_isEmergency
+<a id="_isemergency-address"></a>
+
+### _isEmergency
 
 Check if an account has the emergency role
 
@@ -77,17 +90,19 @@ function _isEmergency(address account_) internal view returns (bool);
 
 **Parameters**
 
-| Name       | Type      | Description          |
-| ---------- | --------- | -------------------- |
-| `account_` | `address` | The account to check |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` | The account to check |
 
 **Returns**
 
-| Name     | Type   | Description                                                 |
-| -------- | ------ | ----------------------------------------------------------- |
-| `<none>` | `bool` | true if the account has the emergency role, false otherwise |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | true if the account has the emergency role, false otherwise |
 
-### \_isManager
+<a id="_ismanager-address"></a>
+
+### _isManager
 
 Check if an account has the manager role
 
@@ -97,15 +112,15 @@ function _isManager(address account_) internal view returns (bool);
 
 **Parameters**
 
-| Name       | Type      | Description          |
-| ---------- | --------- | -------------------- |
-| `account_` | `address` | The account to check |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` | The account to check |
 
 **Returns**
 
-| Name     | Type   | Description                                               |
-| -------- | ------ | --------------------------------------------------------- |
-| `<none>` | `bool` | true if the account has the manager role, false otherwise |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | true if the account has the manager role, false otherwise |
 
 ## Errors
 

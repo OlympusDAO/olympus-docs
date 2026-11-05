@@ -7,5 +7,5 @@
 - [OlympusPricev1_2](OlympusPrice.v1_2.sol/contract.OlympusPricev1_2.md)
 - [OlympusPricev2](OlympusPrice.v2.sol/contract.OlympusPricev2.md)
 - [PRICEv1](PRICE.v1.sol/abstract.PRICEv1.md)
-- [PRICEv2](PRICE.v2.sol/abstract.PRICEv2.md)
 - [PriceSubmodule](PRICE.v2.sol/abstract.PriceSubmodule.md)
+- [PRICEv2](PRICE.v2.sol/abstract.PRICEv2.md)

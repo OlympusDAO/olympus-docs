@@ -1,11 +1,12 @@
 # CoolerV2ProposalScript
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/proposals/CoolerV2DelegatesForHohmProposal.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/proposals/CoolerV2DelegatesForHohmProposal.sol)
 
-**Inherits:**
-[ProposalScript](/main/contracts/docs/src/proposals/ProposalScript.sol/abstract.ProposalScript)
+**Inherits:** ProposalScript
 
 ## Functions
+
+<a id="constructor"></a>
 
 ### constructor
 

@@ -1,45 +1,63 @@
 # OlympusRange
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/modules/RANGE/OlympusRange.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/modules/RANGE/OlympusRange.sol)
 
-**Inherits:**
-[RANGEv2](/main/contracts/docs/src/modules/RANGE/RANGE.v2.sol/abstract.RANGEv2)
+**Inherits:** [RANGEv2](/main/contracts/docs/src/modules/RANGE/RANGE.v2.sol/abstract.RANGEv2)
 
 Olympus Range data storage module
+
+<i>
 
 The Olympus Range contract stores information about the Olympus Range market operations status.
 It provides a standard interface for Range data, including range prices and capacities of each range side.
 The data provided by this contract is used by the Olympus Range Operator to perform market operations.
 The Olympus Range Data is updated each epoch by the Olympus Range Operator contract.
 
-## State Variables
+</i>
+
+## Constants
 
 ### ONE_HUNDRED_PERCENT
 
 ```solidity
-uint256 public constant ONE_HUNDRED_PERCENT = 100e2
+uint256 public constant ONE_HUNDRED_PERCENT = 100e2;
 ```
 
 ### ONE_PERCENT
 
 ```solidity
-uint256 public constant ONE_PERCENT = 1e2
+uint256 public constant ONE_PERCENT = 1e2;
 ```
 
 ## Functions
+
+<a id="constructor-kernel-erc20-erc20-uint256-uint256-2-uint256-2"></a>
 
 ### constructor
 
 ```solidity
 constructor(
-    Kernel kernel_,
-    ERC20 ohm_,
-    ERC20 reserve_,
-    uint256 thresholdFactor_,
-    uint256[2] memory lowSpreads_, // [cushion, wall]
-    uint256[2] memory highSpreads_ // [cushion, wall]
-) Module(kernel_);
+        Kernel kernel_,
+        ERC20 ohm_,
+        ERC20 reserve_,
+        uint256 thresholdFactor_,
+        uint256[2] memory lowSpreads_, // [cushion, wall]
+        uint256[2] memory highSpreads_ // [cushion, wall]
+    ) Module(kernel_);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| ohm_ | `ERC20` |  |
+| reserve_ | `ERC20` |  |
+| thresholdFactor_ | `uint256` |  |
+| lowSpreads_ | `uint256[2]` |  |
+| highSpreads_ | `uint256[2]` |  |
+
+<a id="keycode"></a>
 
 ### KEYCODE
 
@@ -48,6 +66,14 @@ constructor(
 ```solidity
 function KEYCODE() public pure override returns (Keycode);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
+
+<a id="version"></a>
 
 ### VERSION
 
@@ -59,14 +85,18 @@ function VERSION() external pure override returns (uint8 major, uint8 minor);
 
 **Returns**
 
-| Name    | Type    | Description                                                         |
-| ------- | ------- | ------------------------------------------------------------------- |
-| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
-| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| major | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| minor | `uint8` | - Minor version change retains backward-compatible interface. |
+
+<a id="updatecapacity-bool-uint256"></a>
 
 ### updateCapacity
 
 Update the capacity for a side of the range.
+
+Access restricted to activated policies.
 
 ```solidity
 function updateCapacity(bool high_, uint256 capacity_) external override permissioned;
@@ -74,14 +104,18 @@ function updateCapacity(bool high_, uint256 capacity_) external override permiss
 
 **Parameters**
 
-| Name        | Type      | Description                                                                                    |
-| ----------- | --------- | ---------------------------------------------------------------------------------------------- |
-| `high_`     | `bool`    | - Specifies the side of the range to update capacity for (true = high side, false = low side). |
-| `capacity_` | `uint256` | - Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side).       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to update capacity for (true = high side, false = low side). |
+| capacity_ | `uint256` | - Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side). |
+
+<a id="updateprices-uint256"></a>
 
 ### updatePrices
 
 Update the prices for the low and high sides.
+
+Access restricted to activated policies.
 
 ```solidity
 function updatePrices(uint256 target_) external override permissioned;
@@ -89,13 +123,17 @@ function updatePrices(uint256 target_) external override permissioned;
 
 **Parameters**
 
-| Name      | Type      | Description                              |
-| --------- | --------- | ---------------------------------------- |
-| `target_` | `uint256` | - Target price to set range prices from. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target_ | `uint256` | - Target price to set range prices from. |
+
+<a id="regenerate-bool-uint256"></a>
 
 ### regenerate
 
 Regenerate a side of the range to a specific capacity.
+
+Access restricted to activated policies.
 
 ```solidity
 function regenerate(bool high_, uint256 capacity_) external override permissioned;
@@ -103,50 +141,78 @@ function regenerate(bool high_, uint256 capacity_) external override permissione
 
 **Parameters**
 
-| Name        | Type      | Description                                                                              |
-| ----------- | --------- | ---------------------------------------------------------------------------------------- |
-| `high_`     | `bool`    | - Specifies the side of the range to regenerate (true = high side, false = low side).    |
-| `capacity_` | `uint256` | - Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to regenerate (true = high side, false = low side). |
+| capacity_ | `uint256` | - Amount to set the capacity to (OHM tokens for high side, Reserve tokens for low side). |
+
+<a id="updatemarket-bool-uint256-uint256"></a>
 
 ### updateMarket
 
 Update the market ID (cushion) for a side of the range.
 
+Access restricted to activated policies.
+
 ```solidity
-function updateMarket(bool high_, uint256 market_, uint256 marketCapacity_) public override permissioned;
+function updateMarket(
+        bool high_,
+        uint256 market_,
+        uint256 marketCapacity_
+    ) public override permissioned;
 ```
 
 **Parameters**
 
-| Name              | Type      | Description                                                                                          |
-| ----------------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| `high_`           | `bool`    | - Specifies the side of the range to update market for (true = high side, false = low side).         |
-| `market_`         | `uint256` | - Market ID to set for the side.                                                                     |
-| `marketCapacity_` | `uint256` | - Amount to set the last market capacity to (OHM tokens for high side, Reserve tokens for low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to update market for (true = high side, false = low side). |
+| market_ | `uint256` | - Market ID to set for the side. |
+| marketCapacity_ | `uint256` | - Amount to set the last market capacity to (OHM tokens for high side, Reserve tokens for low side). |
+
+<a id="setspreads-bool-uint256-uint256"></a>
 
 ### setSpreads
 
 Set the wall and cushion spreads.
 
+Access restricted to activated policies.
+
+<i>
+
 The new spreads will not go into effect until the next time updatePrices() is called.
 
+</i>
+
 ```solidity
-function setSpreads(bool high_, uint256 cushionSpread_, uint256 wallSpread_) external override permissioned;
+function setSpreads(
+        bool high_,
+        uint256 cushionSpread_,
+        uint256 wallSpread_
+    ) external override permissioned;
 ```
 
 **Parameters**
 
-| Name             | Type      | Description                                                                                                   |
-| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------- |
-| `high_`          | `bool`    | - Specifies the side of the range to set spreads for (true = high side, false = low side).                    |
-| `cushionSpread_` | `uint256` | - Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%). |
-| `wallSpread_`    | `uint256` | - Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%).    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to set spreads for (true = high side, false = low side). |
+| cushionSpread_ | `uint256` | - Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%). |
+| wallSpread_ | `uint256` | - Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%). |
+
+<a id="setthresholdfactor-uint256"></a>
 
 ### setThresholdFactor
 
 Set the threshold factor for when a wall is considered "down".
 
+Access restricted to activated policies.
+
+<i>
+
 The new threshold factor will not go into effect until the next time regenerate() is called for each side of the wall.
+
+</i>
 
 ```solidity
 function setThresholdFactor(uint256 thresholdFactor_) external override permissioned;
@@ -154,9 +220,11 @@ function setThresholdFactor(uint256 thresholdFactor_) external override permissi
 
 **Parameters**
 
-| Name               | Type      | Description                                                                                   |
-| ------------------ | --------- | --------------------------------------------------------------------------------------------- |
-| `thresholdFactor_` | `uint256` | - Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| thresholdFactor_ | `uint256` | - Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%). |
+
+<a id="range"></a>
 
 ### range
 
@@ -165,6 +233,14 @@ Get the full Range data in a struct.
 ```solidity
 function range() external view override returns (Range memory);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Range` |  |
+
+<a id="capacity-bool"></a>
 
 ### capacity
 
@@ -176,9 +252,17 @@ function capacity(bool high_) external view override returns (uint256);
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                 |
-| ------- | ------ | ------------------------------------------------------------------------------------------- |
-| `high_` | `bool` | - Specifies the side of the range to get capacity for (true = high side, false = low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to get capacity for (true = high side, false = low side). |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="active-bool"></a>
 
 ### active
 
@@ -190,9 +274,17 @@ function active(bool high_) external view override returns (bool);
 
 **Parameters**
 
-| Name    | Type   | Description                                                                               |
-| ------- | ------ | ----------------------------------------------------------------------------------------- |
-| `high_` | `bool` | - Specifies the side of the range to get status for (true = high side, false = low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to get status for (true = high side, false = low side). |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
+
+<a id="price-bool-bool"></a>
 
 ### price
 
@@ -204,10 +296,18 @@ function price(bool high_, bool wall_) external view override returns (uint256);
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                  |
-| ------- | ------ | -------------------------------------------------------------------------------------------- |
-| `high_` | `bool` | - Specifies the side of the range to get the price for (true = high side, false = low side). |
-| `wall_` | `bool` | - Specifies the band to get the price for (true = wall, false = cushion).                    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to get the price for (true = high side, false = low side). |
+| wall_ | `bool` | - Specifies the band to get the price for (true = wall, false = cushion). |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="spread-bool-bool"></a>
 
 ### spread
 
@@ -219,10 +319,18 @@ function spread(bool high_, bool wall_) external view override returns (uint256)
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                   |
-| ------- | ------ | --------------------------------------------------------------------------------------------- |
-| `high_` | `bool` | - Specifies the side of the range to get the spread for (true = high side, false = low side). |
-| `wall_` | `bool` | - Specifies the band to get the spread for (true = wall, false = cushion).                    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to get the spread for (true = high side, false = low side). |
+| wall_ | `bool` | - Specifies the band to get the spread for (true = wall, false = cushion). |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="market-bool"></a>
 
 ### market
 
@@ -234,9 +342,17 @@ function market(bool high_) external view override returns (uint256);
 
 **Parameters**
 
-| Name    | Type   | Description                                                                               |
-| ------- | ------ | ----------------------------------------------------------------------------------------- |
-| `high_` | `bool` | - Specifies the side of the range to get market for (true = high side, false = low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to get market for (true = high side, false = low side). |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="lastactive-bool"></a>
 
 ### lastActive
 
@@ -248,6 +364,12 @@ function lastActive(bool high_) external view override returns (uint256);
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                  |
-| ------- | ------ | -------------------------------------------------------------------------------------------- |
-| `high_` | `bool` | - Specifies the side of the range to get timestamp for (true = high side, false = low side). |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` | - Specifies the side of the range to get timestamp for (true = high side, false = low side). |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

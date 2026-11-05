@@ -1,16 +1,16 @@
 # IPriceCache
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/interfaces/IPriceCache.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/interfaces/IPriceCache.sol)
 
-**Title:**
-IPriceCache
+**Title:** IPriceCache
 
-**Author:**
-OlympusDAO
+**Author:** OlympusDAO
 
 Interface for caching explicit asset/quote pair snapshots
 
 ## Functions
+
+<a id="decimals"></a>
 
 ### decimals
 
@@ -22,9 +22,11 @@ function decimals() external view returns (uint8 decimals_);
 
 **Returns**
 
-| Name        | Type    | Description                                                     |
-| ----------- | ------- | --------------------------------------------------------------- |
-| `decimals_` | `uint8` | USD decimal scale for cached assetPriceUsd/quotePriceUsd values |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| decimals_ | `uint8` |   USD decimal scale for cached assetPriceUsd/quotePriceUsd values |
+
+<a id="cacheprice-address-address"></a>
 
 ### cachePrice
 
@@ -36,10 +38,12 @@ function cachePrice(address asset_, address quote_) external;
 
 **Parameters**
 
-| Name     | Type      | Description                    |
-| -------- | --------- | ------------------------------ |
-| `asset_` | `address` | Asset in requested orientation |
-| `quote_` | `address` | Quote in requested orientation |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Asset in requested orientation |
+| quote_ | `address` | Quote in requested orientation |
+
+<a id="assetdecimals-address"></a>
 
 ### assetDecimals
 
@@ -51,15 +55,17 @@ function assetDecimals(address asset_) external view returns (uint8 decimals_);
 
 **Parameters**
 
-| Name     | Type      | Description      |
-| -------- | --------- | ---------------- |
-| `asset_` | `address` | Asset identifier |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Asset identifier |
 
 **Returns**
 
-| Name        | Type    | Description                       |
-| ----------- | ------- | --------------------------------- |
-| `decimals_` | `uint8` | Amount decimal scale for `asset_` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| decimals_ | `uint8` |   Amount decimal scale for `asset_` |
+
+<a id="assetsymbol-address"></a>
 
 ### assetSymbol
 
@@ -71,31 +77,39 @@ function assetSymbol(address asset_) external view returns (string memory symbol
 
 **Parameters**
 
-| Name     | Type      | Description      |
-| -------- | --------- | ---------------- |
-| `asset_` | `address` | Asset identifier |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Asset identifier |
 
 **Returns**
 
-| Name      | Type     | Description         |
-| --------- | -------- | ------------------- |
-| `symbol_` | `string` | Symbol for `asset_` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| symbol_ | `string` |     Symbol for `asset_` |
+
+<a id="setnoncontractassetmetadata-address-uint8-string"></a>
 
 ### setNonContractAssetMetadata
 
 Set the metadata for a registered non-contract asset
 
 ```solidity
-function setNonContractAssetMetadata(address asset_, uint8 decimals_, string calldata symbol_) external;
+function setNonContractAssetMetadata(
+        address asset_,
+        uint8 decimals_,
+        string calldata symbol_
+    ) external;
 ```
 
 **Parameters**
 
-| Name        | Type      | Description                       |
-| ----------- | --------- | --------------------------------- |
-| `asset_`    | `address` | Non-contract asset identifier     |
-| `decimals_` | `uint8`   | Amount decimal scale for `asset_` |
-| `symbol_`   | `string`  | Display symbol for `asset_`       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Non-contract asset identifier |
+| decimals_ | `uint8` | Amount decimal scale for `asset_` |
+| symbol_ | `string` | Display symbol for `asset_` |
+
+<a id="removenoncontractassetmetadata-address"></a>
 
 ### removeNonContractAssetMetadata
 
@@ -107,13 +121,15 @@ function removeNonContractAssetMetadata(address asset_) external;
 
 **Parameters**
 
-| Name     | Type      | Description                   |
-| -------- | --------- | ----------------------------- |
-| `asset_` | `address` | Non-contract asset identifier |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Non-contract asset identifier |
+
+<a id="cachepriceifnecessary-address-address-uint48"></a>
 
 ### cachePriceIfNecessary
 
-Cache an explicit pair only when stale for maxAge\_
+Cache an explicit pair only when stale for maxAge_
 
 ```solidity
 function cachePriceIfNecessary(address asset_, address quote_, uint48 maxAge_) external;
@@ -121,56 +137,71 @@ function cachePriceIfNecessary(address asset_, address quote_, uint48 maxAge_) e
 
 **Parameters**
 
-| Name      | Type      | Description                                |
-| --------- | --------- | ------------------------------------------ |
-| `asset_`  | `address` | Asset in requested orientation             |
-| `quote_`  | `address` | Quote in requested orientation             |
-| `maxAge_` | `uint48`  | Maximum acceptable snapshot age in seconds |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Asset in requested orientation |
+| quote_ | `address` | Quote in requested orientation |
+| maxAge_ | `uint48` | Maximum acceptable snapshot age in seconds |
+
+<a id="getcachedprice-address-address"></a>
 
 ### getCachedPrice
 
 Get the last cached snapshot for a pair in requested orientation
 
+<i>
+
 Returns a zeroed snapshot for valid pairs when no snapshot exists in the current cache epoch
 
+</i>
+
 ```solidity
-function getCachedPrice(address asset_, address quote_) external view returns (CachedPrice memory cachedPrice);
+function getCachedPrice(
+        address asset_,
+        address quote_
+    ) external view returns (CachedPrice memory cachedPrice);
 ```
 
 **Parameters**
 
-| Name     | Type      | Description                    |
-| -------- | --------- | ------------------------------ |
-| `asset_` | `address` | Asset in requested orientation |
-| `quote_` | `address` | Quote in requested orientation |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Asset in requested orientation |
+| quote_ | `address` | Quote in requested orientation |
 
 **Returns**
 
-| Name          | Type          | Description                                                                 |
-| ------------- | ------------- | --------------------------------------------------------------------------- |
-| `cachedPrice` | `CachedPrice` | Last cached pair snapshot data; all fields are zero when no snapshot exists |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cachedPrice | `CachedPrice` | Last cached pair snapshot data; all fields are zero when no snapshot exists |
+
+<a id="isstale-address-address-uint48"></a>
 
 ### isStale
 
-Return whether pair snapshot is stale for maxAge\_
+Return whether pair snapshot is stale for maxAge_
 
 ```solidity
-function isStale(address asset_, address quote_, uint48 maxAge_) external view returns (bool stale);
+function isStale(
+        address asset_,
+        address quote_,
+        uint48 maxAge_
+    ) external view returns (bool stale);
 ```
 
 **Parameters**
 
-| Name      | Type      | Description                                |
-| --------- | --------- | ------------------------------------------ |
-| `asset_`  | `address` | Asset in requested orientation             |
-| `quote_`  | `address` | Quote in requested orientation             |
-| `maxAge_` | `uint48`  | Maximum acceptable snapshot age in seconds |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Asset in requested orientation |
+| quote_ | `address` | Quote in requested orientation |
+| maxAge_ | `uint48` | Maximum acceptable snapshot age in seconds |
 
 **Returns**
 
-| Name    | Type   | Description                                               |
-| ------- | ------ | --------------------------------------------------------- |
-| `stale` | `bool` | True when no cache exists or cache is older than maxAge\_ |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| stale | `bool` |   True when no cache exists or cache is older than maxAge_ |
 
 ## Errors
 
@@ -192,11 +223,11 @@ error PriceCache_UnsupportedModuleVersion(bytes5 keycode, uint8 major, uint8 min
 
 **Parameters**
 
-| Name      | Type     | Description          |
-| --------- | -------- | -------------------- |
-| `keycode` | `bytes5` | Module keycode       |
-| `major`   | `uint8`  | Module major version |
-| `minor`   | `uint8`  | Module minor version |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode | `bytes5` | Module keycode |
+| major | `uint8` | Module major version |
+| minor | `uint8` | Module minor version |
 
 ### PriceCache_UnsupportedModuleInterface
 
@@ -208,10 +239,10 @@ error PriceCache_UnsupportedModuleInterface(bytes5 keycode, bytes4 interfaceId);
 
 **Parameters**
 
-| Name          | Type     | Description                                   |
-| ------------- | -------- | --------------------------------------------- |
-| `keycode`     | `bytes5` | Module keycode                                |
-| `interfaceId` | `bytes4` | Interface identifier, as specified in ERC-165 |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode | `bytes5` | Module keycode |
+| interfaceId | `bytes4` | Interface identifier, as specified in ERC-165 |
 
 ### PriceCache_InvalidPair
 
@@ -223,10 +254,10 @@ error PriceCache_InvalidPair(address asset_, address quote_);
 
 **Parameters**
 
-| Name     | Type      | Description                    |
-| -------- | --------- | ------------------------------ |
-| `asset_` | `address` | Asset in requested orientation |
-| `quote_` | `address` | Quote in requested orientation |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Asset in requested orientation |
+| quote_ | `address` | Quote in requested orientation |
 
 ### PriceCache_NonContractAssetNotRegistered
 
@@ -238,9 +269,9 @@ error PriceCache_NonContractAssetNotRegistered(address asset_);
 
 **Parameters**
 
-| Name     | Type      | Description                   |
-| -------- | --------- | ----------------------------- |
-| `asset_` | `address` | Non-contract asset identifier |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Non-contract asset identifier |
 
 ### PriceCache_NonContractAssetDecimalsNotRegistered
 
@@ -252,9 +283,9 @@ error PriceCache_NonContractAssetDecimalsNotRegistered(address asset_);
 
 **Parameters**
 
-| Name     | Type      | Description                   |
-| -------- | --------- | ----------------------------- |
-| `asset_` | `address` | Non-contract asset identifier |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Non-contract asset identifier |
 
 ### PriceCache_NonContractAssetSymbolNotRegistered
 
@@ -266,9 +297,9 @@ error PriceCache_NonContractAssetSymbolNotRegistered(address asset_);
 
 **Parameters**
 
-| Name     | Type      | Description                   |
-| -------- | --------- | ----------------------------- |
-| `asset_` | `address` | Non-contract asset identifier |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Non-contract asset identifier |
 
 ### PriceCache_InvalidAsset
 
@@ -280,9 +311,9 @@ error PriceCache_InvalidAsset(address asset_);
 
 **Parameters**
 
-| Name     | Type      | Description      |
-| -------- | --------- | ---------------- |
-| `asset_` | `address` | Asset identifier |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | Asset identifier |
 
 ### PriceCache_InvalidAssetSymbol
 
@@ -300,21 +331,21 @@ Pair cache snapshot in requested orientation
 
 ```solidity
 struct CachedPrice {
-    uint256 assetPriceUsd;
-    uint256 quotePriceUsd;
-    uint48 updatedAt;
-    uint80 roundId;
-}
+        uint256 assetPriceUsd;
+        uint256 quotePriceUsd;
+        uint48 updatedAt;
+        uint80 roundId;
+    }
 ```
 
 **Properties**
 
-| Name            | Type      | Description                        |
-| --------------- | --------- | ---------------------------------- |
-| `assetPriceUsd` | `uint256` | Cached asset USD price             |
-| `quotePriceUsd` | `uint256` | Cached quote USD price             |
-| `updatedAt`     | `uint48`  | Timestamp of snapshot write        |
-| `roundId`       | `uint80`  | Monotonic pair cache write counter |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assetPriceUsd | `uint256` | Cached asset USD price |
+| quotePriceUsd | `uint256` | Cached quote USD price |
+| updatedAt | `uint48` | Timestamp of snapshot write |
+| roundId | `uint80` | Monotonic pair cache write counter |
 
 ### NonContractAssetMetadata
 
@@ -322,19 +353,19 @@ Stored metadata for a non-contract asset
 
 ```solidity
 struct NonContractAssetMetadata {
-    bool registered;
-    uint8 decimals;
-    string symbol;
-}
+        bool registered;
+        uint8 decimals;
+        string symbol;
+    }
 ```
 
 **Properties**
 
-| Name         | Type     | Description                                  |
-| ------------ | -------- | -------------------------------------------- |
-| `registered` | `bool`   | Whether metadata is configured for the asset |
-| `decimals`   | `uint8`  | Amount decimal scale for the asset           |
-| `symbol`     | `string` | Display symbol for the asset                 |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| registered | `bool` | Whether metadata is configured for the asset |
+| decimals | `uint8` | Amount decimal scale for the asset |
+| symbol | `string` | Display symbol for the asset |
 
 ### PairSnapshot
 
@@ -342,22 +373,22 @@ Internal pair snapshot storage in canonical token order
 
 ```solidity
 struct PairSnapshot {
-    uint256 token0PriceUsd;
-    uint256 token1PriceUsd;
-    uint48 updatedAt;
-    uint80 roundId;
-    uint64 token0Epoch;
-    uint64 token1Epoch;
-}
+        uint256 token0PriceUsd;
+        uint256 token1PriceUsd;
+        uint48 updatedAt;
+        uint80 roundId;
+        uint64 token0Epoch;
+        uint64 token1Epoch;
+    }
 ```
 
 **Properties**
 
-| Name             | Type      | Description                                       |
-| ---------------- | --------- | ------------------------------------------------- |
-| `token0PriceUsd` | `uint256` | Cached USD price for the lower-sorted asset       |
-| `token1PriceUsd` | `uint256` | Cached USD price for the higher-sorted asset      |
-| `updatedAt`      | `uint48`  | Timestamp of snapshot write                       |
-| `roundId`        | `uint80`  | Monotonic pair cache write counter                |
-| `token0Epoch`    | `uint64`  | Asset invalidation epoch for token0 at cache time |
-| `token1Epoch`    | `uint64`  | Asset invalidation epoch for token1 at cache time |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token0PriceUsd | `uint256` | Cached USD price for the lower-sorted asset |
+| token1PriceUsd | `uint256` | Cached USD price for the higher-sorted asset |
+| updatedAt | `uint48` | Timestamp of snapshot write |
+| roundId | `uint80` | Monotonic pair cache write counter |
+| token0Epoch | `uint64` | Asset invalidation epoch for token0 at cache time |
+| token1Epoch | `uint64` | Asset invalidation epoch for token1 at cache time |

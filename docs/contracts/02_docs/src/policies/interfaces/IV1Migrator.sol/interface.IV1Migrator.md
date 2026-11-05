@@ -1,19 +1,17 @@
 # IV1Migrator
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/IV1Migrator.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/IV1Migrator.sol)
 
-**Inherits:**
-[IEnabler](/main/contracts/docs/src/periphery/interfaces/IEnabler.sol/interface.IEnabler), [IVersioned](/main/contracts/docs/src/interfaces/IVersioned.sol/interface.IVersioned)
+**Inherits:** [IEnabler](/main/contracts/docs/src/periphery/interfaces/IEnabler.sol/interface.IEnabler), [IVersioned](/main/contracts/docs/src/interfaces/IVersioned.sol/interface.IVersioned)
 
-**Title:**
-IV1Migrator
-
-forge-lint: disable-start(mixed-case-function,mixed-case-variable)
+**Title:** IV1Migrator
 
 Interface for the V1Migrator policy that allows OHM v1 holders to migrate to OHM v2
 via merkle proof verification
 
 ## Functions
+
+<a id="ohmv1"></a>
 
 ### ohmV1
 
@@ -25,9 +23,11 @@ function ohmV1() external view returns (IERC20 ohmV1_);
 
 **Returns**
 
-| Name     | Type     | Description      |
-| -------- | -------- | ---------------- |
-| `ohmV1_` | `IERC20` | The OHM v1 token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmV1_ | `IERC20` | The OHM v1 token |
+
+<a id="ohmv2"></a>
 
 ### ohmV2
 
@@ -39,15 +39,21 @@ function ohmV2() external view returns (IERC20 ohmV2_);
 
 **Returns**
 
-| Name     | Type     | Description      |
-| -------- | -------- | ---------------- |
-| `ohmV2_` | `IERC20` | The OHM v2 token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmV2_ | `IERC20` | The OHM v2 token |
+
+<a id="gohm"></a>
 
 ### gOHM
 
 The gOHM token contract used for conversion calculations
 
+<i>
+
 Used to calculate OHM v2 amount via balanceTo/balanceFrom to match production flow
+
+</i>
 
 ```solidity
 function gOHM() external view returns (address gOHM_);
@@ -55,9 +61,11 @@ function gOHM() external view returns (address gOHM_);
 
 **Returns**
 
-| Name    | Type      | Description    |
-| ------- | --------- | -------------- |
-| `gOHM_` | `address` | The gOHM token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gOHM_ | `address` | The gOHM token |
+
+<a id="merkleroot"></a>
 
 ### merkleRoot
 
@@ -69,9 +77,11 @@ function merkleRoot() external view returns (bytes32 merkleRoot_);
 
 **Returns**
 
-| Name          | Type      | Description             |
-| ------------- | --------- | ----------------------- |
-| `merkleRoot_` | `bytes32` | The current merkle root |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| merkleRoot_ | `bytes32` | The current merkle root |
+
+<a id="migratedamounts-address"></a>
 
 ### migratedAmounts
 
@@ -83,22 +93,28 @@ function migratedAmounts(address account_) external view returns (uint256 migrat
 
 **Parameters**
 
-| Name       | Type      | Description          |
-| ---------- | --------- | -------------------- |
-| `account_` | `address` | The account to check |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` | The account to check |
 
 **Returns**
 
-| Name              | Type      | Description                     |
-| ----------------- | --------- | ------------------------------- |
-| `migratedAmount_` | `uint256` | The amount migrated by the user |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| migratedAmount_ | `uint256` | The amount migrated by the user |
+
+<a id="remainingmintapproval"></a>
 
 ### remainingMintApproval
 
 The remaining amount of OHM that can be minted by this contract
 
+<i>
+
 Returns the actual MINTR mint approval, not a stored value. This is the
 remaining amount available for migration and is always in sync with MINTR state.
+
+</i>
 
 ```solidity
 function remainingMintApproval() external view returns (uint256 remaining_);
@@ -106,9 +122,11 @@ function remainingMintApproval() external view returns (uint256 remaining_);
 
 **Returns**
 
-| Name         | Type      | Description                          |
-| ------------ | --------- | ------------------------------------ |
-| `remaining_` | `uint256` | The remaining OHM that can be minted |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| remaining_ | `uint256` | The remaining OHM that can be minted |
+
+<a id="totalmigrated"></a>
 
 ### totalMigrated
 
@@ -120,17 +138,23 @@ function totalMigrated() external view returns (uint256 totalMigrated_);
 
 **Returns**
 
-| Name             | Type      | Description               |
-| ---------------- | --------- | ------------------------- |
-| `totalMigrated_` | `uint256` | The total migrated amount |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalMigrated_ | `uint256` | The total migrated amount |
+
+<a id="previewmigrate-uint256"></a>
 
 ### previewMigrate
 
 Preview the OHM v2 amount that will be received for a given OHM v1 amount
 
+<i>
+
 Performs the same gOHM conversion as migrate() without state changes.
 Users migrating multiple times will lose dust on each transaction.
 Recommended: migrate full allocation in one transaction.
+
+</i>
 
 ```solidity
 function previewMigrate(uint256 amount_) external view returns (uint256 ohmV2Amount_);
@@ -138,22 +162,28 @@ function previewMigrate(uint256 amount_) external view returns (uint256 ohmV2Amo
 
 **Parameters**
 
-| Name      | Type      | Description                                  |
-| --------- | --------- | -------------------------------------------- |
-| `amount_` | `uint256` | The amount of OHM v1 to preview (9 decimals) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` | The amount of OHM v1 to preview (9 decimals) |
 
 **Returns**
 
-| Name           | Type      | Description                                                                                 |
-| -------------- | --------- | ------------------------------------------------------------------------------------------- |
-| `ohmV2Amount_` | `uint256` | The amount of OHM v2 that would be received (9 decimals), or 0 if conversion rounds to zero |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmV2Amount_ | `uint256` | The amount of OHM v2 that would be received (9 decimals), or 0 if conversion rounds to zero |
+
+<a id="migrate-uint256-bytes32-uint256"></a>
 
 ### migrate
 
 Migrate OHM v1 to OHM v2
 
+<i>
+
 User must approve this contract to transfer their OHM v1
 Users can migrate any amount up to their allocated amount in multiple transactions
+
+</i>
 
 ```solidity
 function migrate(uint256 amount_, bytes32[] calldata proof_, uint256 allocatedAmount_) external;
@@ -161,11 +191,13 @@ function migrate(uint256 amount_, bytes32[] calldata proof_, uint256 allocatedAm
 
 **Parameters**
 
-| Name               | Type        | Description                                      |
-| ------------------ | ----------- | ------------------------------------------------ |
-| `amount_`          | `uint256`   | The amount of OHM v1 to migrate (9 decimals)     |
-| `proof_`           | `bytes32[]` | The merkle proof proving the user is eligible    |
-| `allocatedAmount_` | `uint256`   | The user's allocated amount from the merkle tree |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` | The amount of OHM v1 to migrate (9 decimals) |
+| proof_ | `bytes32[]` | The merkle proof proving the user is eligible |
+| allocatedAmount_ | `uint256` | The user's allocated amount from the merkle tree |
+
+<a id="setmerkleroot-bytes32"></a>
 
 ### setMerkleRoot
 
@@ -177,18 +209,24 @@ function setMerkleRoot(bytes32 merkleRoot_) external;
 
 **Parameters**
 
-| Name          | Type      | Description         |
-| ------------- | --------- | ------------------- |
-| `merkleRoot_` | `bytes32` | The new merkle root |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| merkleRoot_ | `bytes32` | The new merkle root |
+
+<a id="setremainingmintapproval-uint256"></a>
 
 ### setRemainingMintApproval
 
 Set the remaining MINTR mint approval for migration
 
+<i>
+
 This sets the remaining amount that can be minted, NOT a lifetime total.
 If you want 1000 OHM v2 to be available for migration and 600 has already
 been minted, call this with 1000 (not 400). Queries the current MINTR
 approval and adjusts it to the target approval.
+
+</i>
 
 ```solidity
 function setRemainingMintApproval(uint256 approval_) external;
@@ -196,15 +234,21 @@ function setRemainingMintApproval(uint256 approval_) external;
 
 **Parameters**
 
-| Name        | Type      | Description                                     |
-| ----------- | --------- | ----------------------------------------------- |
-| `approval_` | `uint256` | The target remaining mint approval (9 decimals) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| approval_ | `uint256` | The target remaining mint approval (9 decimals) |
+
+<a id="rescue-ierc20"></a>
 
 ### rescue
 
 Rescue accidentally sent tokens
 
+<i>
+
 Only callable by admin or legacy migration admin. Sweeps entire balance to caller.
+
+</i>
 
 ```solidity
 function rescue(IERC20 token_) external;
@@ -212,34 +256,37 @@ function rescue(IERC20 token_) external;
 
 **Parameters**
 
-| Name     | Type     | Description               |
-| -------- | -------- | ------------------------- |
-| `token_` | `IERC20` | The ERC20 token to rescue |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token_ | `IERC20` | The ERC20 token to rescue |
+
+<a id="verifyclaim-address-uint256-bytes32"></a>
 
 ### verifyClaim
 
 Verify if a claim is valid for a given account and allocated amount
 
 ```solidity
-function verifyClaim(address account_, uint256 allocatedAmount_, bytes32[] calldata proof_)
-    external
-    view
-    returns (bool valid_);
+function verifyClaim(
+        address account_,
+        uint256 allocatedAmount_,
+        bytes32[] calldata proof_
+    ) external view returns (bool valid_);
 ```
 
 **Parameters**
 
-| Name               | Type        | Description                    |
-| ------------------ | ----------- | ------------------------------ |
-| `account_`         | `address`   | The account to verify          |
-| `allocatedAmount_` | `uint256`   | The allocated amount to verify |
-| `proof_`           | `bytes32[]` | The merkle proof               |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` | The account to verify |
+| allocatedAmount_ | `uint256` | The allocated amount to verify |
+| proof_ | `bytes32[]` | The merkle proof |
 
 **Returns**
 
-| Name     | Type   | Description                |
-| -------- | ------ | -------------------------- |
-| `valid_` | `bool` | True if the claim is valid |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| valid_ | `bool` | True if the claim is valid |
 
 ## Events
 
@@ -253,11 +300,11 @@ event Migrated(address indexed user, uint256 ohmV1Amount, uint256 ohmV2Amount);
 
 **Parameters**
 
-| Name          | Type      | Description                       |
-| ------------- | --------- | --------------------------------- |
-| `user`        | `address` | The address of the user migrating |
-| `ohmV1Amount` | `uint256` | The amount of OHM v1 burned       |
-| `ohmV2Amount` | `uint256` | The amount of OHM v2 minted       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` | The address of the user migrating |
+| ohmV1Amount | `uint256` | The amount of OHM v1 burned |
+| ohmV2Amount | `uint256` | The amount of OHM v2 minted |
 
 ### MerkleRootUpdated
 
@@ -269,10 +316,10 @@ event MerkleRootUpdated(bytes32 indexed newRoot, address indexed updater);
 
 **Parameters**
 
-| Name      | Type      | Description                       |
-| --------- | --------- | --------------------------------- |
-| `newRoot` | `bytes32` | The new merkle root               |
-| `updater` | `address` | The address that updated the root |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newRoot | `bytes32` | The new merkle root |
+| updater | `address` | The address that updated the root |
 
 ### RemainingMintApprovalUpdated
 
@@ -284,10 +331,10 @@ event RemainingMintApprovalUpdated(uint256 indexed newApproval, uint256 indexed 
 
 **Parameters**
 
-| Name          | Type      | Description                     |
-| ------------- | --------- | ------------------------------- |
-| `newApproval` | `uint256` | The new remaining mint approval |
-| `oldApproval` | `uint256` | The old remaining mint approval |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newApproval | `uint256` | The new remaining mint approval |
+| oldApproval | `uint256` | The old remaining mint approval |
 
 ### Rescued
 
@@ -299,11 +346,11 @@ event Rescued(address indexed token, address indexed to, uint256 amount);
 
 **Parameters**
 
-| Name     | Type      | Description               |
-| -------- | --------- | ------------------------- |
-| `token`  | `address` | The rescued token address |
-| `to`     | `address` | The recipient address     |
-| `amount` | `uint256` | The amount rescued        |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | `address` | The rescued token address |
+| to | `address` | The recipient address |
+| amount | `uint256` | The amount rescued |
 
 ## Errors
 
@@ -325,11 +372,11 @@ error AmountExceedsAllowance(uint256 requested, uint256 allocated, uint256 migra
 
 **Parameters**
 
-| Name        | Type      | Description                                      |
-| ----------- | --------- | ------------------------------------------------ |
-| `requested` | `uint256` | The amount requested to migrate                  |
-| `allocated` | `uint256` | The user's allocated amount from the merkle tree |
-| `migrated`  | `uint256` | The amount already migrated by the user          |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| requested | `uint256` | The amount requested to migrate |
+| allocated | `uint256` | The user's allocated amount from the merkle tree |
+| migrated | `uint256` | The amount already migrated by the user |
 
 ### CapExceeded
 
@@ -341,17 +388,21 @@ error CapExceeded(uint256 amount, uint256 remaining);
 
 **Parameters**
 
-| Name        | Type      | Description                                            |
-| ----------- | --------- | ------------------------------------------------------ |
-| `amount`    | `uint256` | The amount requested to migrate                        |
-| `remaining` | `uint256` | The remaining MINTR approval for the migrator contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount | `uint256` | The amount requested to migrate |
+| remaining | `uint256` | The remaining MINTR approval for the migrator contract |
 
 ### ZeroAmount
 
 Thrown when the OHM v2 amount after gOHM conversion is zero
 
+<i>
+
 This can happen when the input OHM v1 amount is very small and
 gOHM conversion rounds down to zero
+
+</i>
 
 ```solidity
 error ZeroAmount();

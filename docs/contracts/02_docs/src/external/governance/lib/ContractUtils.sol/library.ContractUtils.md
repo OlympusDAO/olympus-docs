@@ -1,8 +1,10 @@
 # ContractUtils
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/governance/lib/ContractUtils.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/external/governance/lib/ContractUtils.sol)
 
 ## Functions
+
+<a id="getcodehash-address"></a>
 
 ### getCodeHash
 
@@ -14,12 +16,12 @@ function getCodeHash(address target_) internal view returns (bytes32);
 
 **Parameters**
 
-| Name      | Type      | Description                         |
-| --------- | --------- | ----------------------------------- |
-| `target_` | `address` | The address to get the codehash for |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target_ | `address` | The address to get the codehash for |
 
 **Returns**
 
-| Name     | Type      | Description  |
-| -------- | --------- | ------------ |
-| `<none>` | `bytes32` | The codehash |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` | The codehash |

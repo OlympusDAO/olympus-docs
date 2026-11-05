@@ -1,18 +1,22 @@
 # IDepositReceiptToken
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/interfaces/IDepositReceiptToken.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/interfaces/IDepositReceiptToken.sol)
 
-**Inherits:**
-[IERC20](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20)
+**Inherits:** [IERC20](/main/contracts/docs/src/interfaces/IERC20.sol/interface.IERC20)
 
-**Title:**
-IDepositReceiptToken
+**Title:** IDepositReceiptToken
 
 Interface for a deposit receipt token
 
+<i>
+
 This interface adds additional metadata to the IERC20 interface that is necessary for deposit receipt tokens.
 
+</i>
+
 ## Functions
+
+<a id="owner"></a>
 
 ### owner
 
@@ -20,11 +24,27 @@ This interface adds additional metadata to the IERC20 interface that is necessar
 function owner() external view returns (address _owner);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _owner | `address` |  |
+
+<a id="asset"></a>
+
 ### asset
 
 ```solidity
 function asset() external view returns (IERC20 _asset);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _asset | `IERC20` |  |
+
+<a id="depositperiod"></a>
 
 ### depositPeriod
 
@@ -32,11 +52,25 @@ function asset() external view returns (IERC20 _asset);
 function depositPeriod() external view returns (uint8 _depositPeriod);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _depositPeriod | `uint8` |  |
+
+<a id="operator"></a>
+
 ### operator
 
 ```solidity
 function operator() external view returns (address _operator);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _operator | `address` |  |
 
 ## Errors
 

@@ -1,32 +1,37 @@
 # DelegateEscrowFactory
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/cooler/DelegateEscrowFactory.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/external/cooler/DelegateEscrowFactory.sol)
 
-**Title:**
-Delegate Escrow Factory.
+**Title:** Delegate Escrow Factory.
 
 The Delegate Escrow Factory creates new escrow contracts, each holding the delegated
 gOHM from other accounts
 
+<i>
+
 This contract uses Clones (<https://github.com/wighawag/clones-with-immutable-args>)
 to save gas on deployment.
 
-## State Variables
+</i>
+
+## Constants
 
 ### escrowImplementation
 
 Reference implementation (deployed on creation to clone from).
 
 ```solidity
-DelegateEscrow public immutable escrowImplementation
+DelegateEscrow public immutable escrowImplementation;
 ```
+
+## State Variables
 
 ### created
 
 Mapping to validate deployed escrows.
 
 ```solidity
-mapping(address => bool) public created
+mapping(address => bool) public created;
 ```
 
 ### escrowFor
@@ -34,16 +39,26 @@ mapping(address => bool) public created
 Mapping to query escrows for a given delegate.
 
 ```solidity
-mapping(address => DelegateEscrow) public escrowFor
+mapping(address => DelegateEscrow) public escrowFor;
 ```
 
 ## Functions
 
+<a id="constructor-address"></a>
+
 ### constructor
 
 ```solidity
-constructor(address gohm_) ;
+constructor(address gohm_);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gohm_ | `address` |  |
+
+<a id="create-address"></a>
 
 ### create
 
@@ -53,20 +68,48 @@ creates a new escrow contract for a delegate.
 function create(address delegate) external returns (DelegateEscrow escrow);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delegate | `address` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| escrow | `DelegateEscrow` |  |
+
+<a id="logdelegate-address-address-int256"></a>
+
 ### logDelegate
 
 Emit a global event when a new loan request is created.
 
 ```solidity
-function logDelegate(address caller, address onBehalfOf, int256 delegationAmountDelta) external onlyFromFactory;
+function logDelegate(
+        address caller,
+        address onBehalfOf,
+        int256 delegationAmountDelta
+    ) external onlyFromFactory;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| onBehalfOf | `address` |  |
+| delegationAmountDelta | `int256` |  |
+
+<a id="onlyfromfactory"></a>
 
 ### onlyFromFactory
 
 Ensure that the called is a Cooler.
 
 ```solidity
-modifier onlyFromFactory() ;
+modifier onlyFromFactory();
 ```
 
 ## Events
@@ -76,21 +119,45 @@ modifier onlyFromFactory() ;
 A caller has created a new escrow for a delegate
 
 ```solidity
-event DelegateEscrowCreated(address indexed caller, address indexed delegate, address indexed escrow);
+event DelegateEscrowCreated(
+        address indexed caller,
+        address indexed delegate,
+        address indexed escrow
+    );
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| delegate | `address` |  |
+| escrow | `address` |  |
 
 ### Delegate
 
 A `caller` has (un)delegated their gOHM amount from `escrow` on behalf of a user
 
 delegationAmountDelta > 0: It has been delegated to this escrow
-delegationAmountDelta < 0: It has been undelegated from this escrow
+delegationAmountDelta &lt; 0: It has been undelegated from this escrow
 
 ```solidity
 event Delegate(
-    address indexed escrow, address indexed caller, address indexed onBehalfOf, int256 delegationAmountDelta
-);
+        address indexed escrow,
+        address indexed caller,
+        address indexed onBehalfOf,
+        int256 delegationAmountDelta
+    );
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| escrow | `address` |  |
+| caller | `address` |  |
+| onBehalfOf | `address` |  |
+| delegationAmountDelta | `int256` |  |
 
 ## Errors
 

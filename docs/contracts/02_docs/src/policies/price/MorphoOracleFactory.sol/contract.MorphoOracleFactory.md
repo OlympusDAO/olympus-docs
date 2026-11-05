@@ -1,30 +1,29 @@
 # MorphoOracleFactory
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/price/MorphoOracleFactory.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/price/MorphoOracleFactory.sol)
 
-**Inherits:**
-[BaseOracleFactory](/main/contracts/docs/src/policies/price/BaseOracleFactory.sol/abstract.BaseOracleFactory)
+**Inherits:** [BaseOracleFactory](/main/contracts/docs/src/policies/price/BaseOracleFactory.sol/abstract.BaseOracleFactory)
 
-**Title:**
-MorphoOracleFactory
+**Title:** MorphoOracleFactory
 
-**Author:**
-OlympusDAO
-
-forge-lint: disable-start(mixed-case-function,mixed-case-variable)
+**Author:** OlympusDAO
 
 Factory contract for deploying MorphoOracle clones for collateral/loan token pairs
 
+<i>
+
 Uses ClonesWithImmutableArgs for gas-efficient oracle deployment
 
-## State Variables
+</i>
+
+## Constants
 
 ### ORACLE_IMPLEMENTATION
 
 Reference implementation for cloning
 
 ```solidity
-MorphoOracleCloneable public immutable ORACLE_IMPLEMENTATION
+MorphoOracleCloneable public immutable ORACLE_IMPLEMENTATION;
 ```
 
 ### MORPHO_DECIMALS
@@ -32,16 +31,22 @@ MorphoOracleCloneable public immutable ORACLE_IMPLEMENTATION
 The Morpho scale factor decimals
 
 ```solidity
-uint8 internal constant MORPHO_DECIMALS = 36
+uint8 internal constant MORPHO_DECIMALS = 36;
 ```
 
 ## Functions
+
+<a id="constructor-kernel-address"></a>
 
 ### constructor
 
 Constructs a new MorphoOracleFactory
 
+<i>
+
 Reverts if `priceCache_` is not a valid IPriceCache policy for this Kernel.
+
+</i>
 
 ```solidity
 constructor(Kernel kernel_, address priceCache_) BaseOracleFactory(kernel_, priceCache_);
@@ -49,12 +54,14 @@ constructor(Kernel kernel_, address priceCache_) BaseOracleFactory(kernel_, pric
 
 **Parameters**
 
-| Name          | Type      | Description                    |
-| ------------- | --------- | ------------------------------ |
-| `kernel_`     | `Kernel`  | The Kernel address             |
-| `priceCache_` | `address` | The price cache policy address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` | The Kernel address |
+| priceCache_ | `address` | The price cache policy address |
 
-### \_getOracleImplementation
+<a id="_getoracleimplementation"></a>
+
+### _getOracleImplementation
 
 Returns the Morpho oracle implementation address for cloning
 
@@ -64,43 +71,50 @@ function _getOracleImplementation() internal view override returns (address);
 
 **Returns**
 
-| Name     | Type      | Description                                             |
-| -------- | --------- | ------------------------------------------------------- |
-| `<none>` | `address` | The address of the MorphoOracleCloneable implementation |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` | The address of the MorphoOracleCloneable implementation |
 
-### \_encodeOracleData
+<a id="_encodeoracledata-address-address-uint48-bytes"></a>
+
+### _encodeOracleData
 
 Encodes Morpho-specific oracle data for cloning
 
+<i>
+
 Performs Morpho-specific validation (decimals bounds check),
 generates oracle name, and encodes immutable args.
-Note: baseToken*is used as collateralToken, quoteToken* is used as loanToken.
+Note: baseToken_ is used as collateralToken, quoteToken_ is used as loanToken.
 If either token is a non-contract asset, decimals are PriceCache metadata rather
 than token metadata. The clone recalculates from `PriceCache.assetDecimals()` on
 reads, so later NCA decimal updates can change the live Morpho scale factor.
 
+</i>
+
 ```solidity
-function _encodeOracleData(address collateralToken_, address loanToken_, uint48 maxAge_, bytes calldata)
-    internal
-    view
-    override
-    returns (bytes memory);
+function _encodeOracleData(
+        address collateralToken_,
+        address loanToken_,
+        uint48 maxAge_,
+        bytes calldata
+    ) internal view override returns (bytes memory);
 ```
 
 **Parameters**
 
-| Name               | Type      | Description                                                      |
-| ------------------ | --------- | ---------------------------------------------------------------- |
-| `collateralToken_` | `address` |                                                                  |
-| `loanToken_`       | `address` |                                                                  |
-| `maxAge_`          | `uint48`  | The maximum age (in seconds) of cached prices used by the oracle |
-| `<none>`           | `bytes`   |                                                                  |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateralToken_ | `address` | The base token address |
+| loanToken_ | `address` | The quote token address |
+| maxAge_ | `uint48` | The maximum age (in seconds) of cached prices used by the oracle |
+| _ | `bytes` | Service-specific custom parameters (can be empty) |
 
 **Returns**
 
-| Name     | Type    | Description                         |
-| -------- | ------- | ----------------------------------- |
-| `<none>` | `bytes` | bytes The encoded bytes for cloning |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes` | bytes          The encoded bytes for cloning |
 
 ## Errors
 
@@ -114,7 +128,7 @@ error MorphoOracleFactory_TokenDecimalsOutOfBounds(address collateralToken, addr
 
 **Parameters**
 
-| Name              | Type      | Description                  |
-| ----------------- | --------- | ---------------------------- |
-| `collateralToken` | `address` | The collateral token address |
-| `loanToken`       | `address` | The loan token address       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateralToken | `address` | The collateral token address |
+| loanToken | `address` | The loan token address |
