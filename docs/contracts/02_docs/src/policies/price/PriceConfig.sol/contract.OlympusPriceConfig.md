@@ -24,9 +24,9 @@ constructor(Kernel kernel_) Policy(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="configuredependencies"></a>
 

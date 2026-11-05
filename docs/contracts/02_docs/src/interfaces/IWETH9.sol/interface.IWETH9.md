@@ -28,6 +28,6 @@ function withdraw(uint256) external;
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| _    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `uint256` |  |

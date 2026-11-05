@@ -28,9 +28,9 @@ function timelockDelay() external view returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="nextactionid"></a>
 
@@ -44,9 +44,9 @@ function nextActionId() external view returns (uint64);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint64` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint64` |  |
 
 <a id="getqueuedaction-uint64"></a>
 
@@ -72,9 +72,9 @@ function getQueuedAction(uint64 actionId_) external view returns (QueuedAction m
 
 **Returns**
 
-| Name    | Type           | Description        |
-| ------- | -------------- | ------------------ |
-| action_ | `QueuedAction` | The queued action. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action_ | `QueuedAction` |   The queued action. |
 
 <a id="executequeuedaction-uint64"></a>
 

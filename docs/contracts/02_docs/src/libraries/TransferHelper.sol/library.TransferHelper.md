@@ -18,12 +18,12 @@ function safeTransferFrom(ERC20 token, address from, address to, uint256 amount)
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| token  | `ERC20`   |             |
-| from   | `address` |             |
-| to     | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | `ERC20` |  |
+| from | `address` |  |
+| to | `address` |  |
+| amount | `uint256` |  |
 
 <a id="safetransfer-erc20-address-uint256"></a>
 
@@ -35,11 +35,11 @@ function safeTransfer(ERC20 token, address to, uint256 amount) internal;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| token  | `ERC20`   |             |
-| to     | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | `ERC20` |  |
+| to | `address` |  |
+| amount | `uint256` |  |
 
 <a id="safeapprove-erc20-address-uint256"></a>
 
@@ -51,8 +51,8 @@ function safeApprove(ERC20 token, address to, uint256 amount) internal;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| token  | `ERC20`   |             |
-| to     | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | `ERC20` |  |
+| to | `address` |  |
+| amount | `uint256` |  |

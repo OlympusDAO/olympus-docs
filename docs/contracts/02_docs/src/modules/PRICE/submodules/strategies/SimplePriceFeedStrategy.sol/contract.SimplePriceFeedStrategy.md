@@ -50,9 +50,9 @@ constructor(Module parent_) Submodule(parent_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| parent_ | `Module` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parent_ | `Module` |  |
 
 <a id="subkeycode"></a>
 
@@ -66,9 +66,9 @@ function SUBKEYCODE() public pure override returns (SubKeycode);
 
 **Returns**
 
-| Name         | Type         | Description |
-| ------------ | ------------ | ----------- |
-| &lt;none&gt; | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `SubKeycode` |  |
 
 <a id="version"></a>
 
@@ -545,9 +545,9 @@ function _filterByMedianDeviationUntilStable(
 
 **Returns**
 
-| Name         | Type        | Description                                      |
-| ------------ | ----------- | ------------------------------------------------ |
-| validPrices_ | `uint256[]` | Sorted array of prices after iterative filtering |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| validPrices_ | `uint256[]` |       Sorted array of prices after iterative filtering |
 
 <a id="_filterbydeviation-uint256-uint256-uint16-uint256"></a>
 
@@ -581,7 +581,7 @@ function _filterByDeviation(
 
 **Returns**
 
-| Name         | Type        | Description                          |
-| ------------ | ----------- | ------------------------------------ |
-| validPrices_ | `uint256[]` | Sorted array of non-deviating prices |
-| validCount_  | `uint256`   | Number of non-deviating prices found |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| validPrices_ | `uint256[]` |       Sorted array of non-deviating prices |
+| validCount_ | `uint256` |        Number of non-deviating prices found |

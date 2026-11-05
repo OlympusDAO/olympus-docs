@@ -26,9 +26,9 @@ function collateralToken() external view returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="debttoken"></a>
 
@@ -42,9 +42,9 @@ function debtToken() external view returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="currentltvs"></a>
 
@@ -58,10 +58,10 @@ function currentLtvs() external view returns (uint96 originationLtv, uint96 liqu
 
 **Returns**
 
-| Name           | Type     | Description |
-| -------------- | -------- | ----------- |
-| originationLtv | `uint96` |             |
-| liquidationLtv | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| originationLtv | `uint96` |  |
+| liquidationLtv | `uint96` |  |
 
 <a id="currentoriginationltv"></a>
 
@@ -75,9 +75,9 @@ function currentOriginationLtv() external view returns (uint96);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
 
 <a id="currentliquidationltv"></a>
 
@@ -91,9 +91,9 @@ function currentLiquidationLtv() external view returns (uint96);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
 
 <a id="maxoriginationltvdelta"></a>
 
@@ -115,9 +115,9 @@ function maxOriginationLtvDelta() external view returns (uint96);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
 
 <a id="minoriginationltvtargettimedelta"></a>
 
@@ -139,9 +139,9 @@ function minOriginationLtvTargetTimeDelta() external view returns (uint32);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint32` |  |
 
 <a id="maxoriginationltvrateofchange"></a>
 
@@ -162,9 +162,9 @@ function maxOriginationLtvRateOfChange() external view returns (uint96);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
 
 <a id="originationltvdata"></a>
 
@@ -187,13 +187,13 @@ function originationLtvData()
 
 **Returns**
 
-| Name          | Type     | Description |
-| ------------- | -------- | ----------- |
-| startingValue | `uint96` |             |
-| startTime     | `uint40` |             |
-| targetValue   | `uint96` |             |
-| targetTime    | `uint40` |             |
-| slope         | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| startingValue | `uint96` |  |
+| startTime | `uint40` |  |
+| targetValue | `uint96` |  |
+| targetTime | `uint40` |  |
+| slope | `uint96` |  |
 
 <a id="maxliquidationltvpremiumbps"></a>
 
@@ -208,9 +208,9 @@ function maxLiquidationLtvPremiumBps() external view returns (uint16);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint16` |  |
 
 <a id="liquidationltvpremiumbps"></a>
 
@@ -224,9 +224,9 @@ function liquidationLtvPremiumBps() external view returns (uint16);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint16` |  |
 
 <a id="setliquidationltvpremiumbps-uint16"></a>
 
@@ -241,9 +241,9 @@ function setLiquidationLtvPremiumBps(uint16 premiumBps) external;
 
 **Parameters**
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| premiumBps | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| premiumBps | `uint16` |  |
 
 <a id="setmaxliquidationltvpremiumbps-uint16"></a>
 
@@ -257,9 +257,9 @@ function setMaxLiquidationLtvPremiumBps(uint16 premiumBps) external;
 
 **Parameters**
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| premiumBps | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| premiumBps | `uint16` |  |
 
 <a id="setmaxoriginationltvdelta-uint96"></a>
 
@@ -280,9 +280,9 @@ function setMaxOriginationLtvDelta(uint96 maxDelta) external;
 
 **Parameters**
 
-| Name     | Type     | Description |
-| -------- | -------- | ----------- |
-| maxDelta | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxDelta | `uint96` |  |
 
 <a id="setminoriginationltvtargettimedelta-uint32"></a>
 
@@ -303,9 +303,9 @@ function setMinOriginationLtvTargetTimeDelta(uint32 minTargetTimeDelta) external
 
 **Parameters**
 
-| Name               | Type     | Description |
-| ------------------ | -------- | ----------- |
-| minTargetTimeDelta | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| minTargetTimeDelta | `uint32` |  |
 
 <a id="setmaxoriginationltvrateofchange-uint96-uint32"></a>
 
@@ -329,10 +329,10 @@ function setMaxOriginationLtvRateOfChange(
 
 **Parameters**
 
-| Name                | Type     | Description |
-| ------------------- | -------- | ----------- |
-| originationLtvDelta | `uint96` |             |
-| timeDelta           | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| originationLtvDelta | `uint96` |  |
+| timeDelta | `uint32` |  |
 
 <a id="setoriginationltvat-uint96-uint40"></a>
 
@@ -353,10 +353,10 @@ function setOriginationLtvAt(uint96 targetOriginationLtv, uint40 targetTime) ext
 
 **Parameters**
 
-| Name                 | Type     | Description |
-| -------------------- | -------- | ----------- |
-| targetOriginationLtv | `uint96` |             |
-| targetTime           | `uint40` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| targetOriginationLtv | `uint96` |  |
+| targetTime | `uint40` |  |
 
 <a id="decimals"></a>
 
@@ -370,9 +370,9 @@ function DECIMALS() external view returns (uint8);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 ## Events
 
@@ -388,11 +388,11 @@ event OriginationLtvSetAt(
 
 **Parameters**
 
-| Name                    | Type      | Description |
-| ----------------------- | --------- | ----------- |
-| oldOriginationLtv       | `uint96`  |             |
-| newOriginationLtvTarget | `uint96`  |             |
-| targetTime              | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldOriginationLtv | `uint96` |  |
+| newOriginationLtvTarget | `uint96` |  |
+| targetTime | `uint256` |  |
 
 ### MaxOriginationLtvDeltaSet
 
@@ -402,9 +402,9 @@ event MaxOriginationLtvDeltaSet(uint256 maxDelta);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| maxDelta | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxDelta | `uint256` |  |
 
 ### MinOriginationLtvTargetTimeDeltaSet
 
@@ -414,9 +414,9 @@ event MinOriginationLtvTargetTimeDeltaSet(uint32 maxTargetTimeDelta);
 
 **Parameters**
 
-| Name               | Type     | Description |
-| ------------------ | -------- | ----------- |
-| maxTargetTimeDelta | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxTargetTimeDelta | `uint32` |  |
 
 ### MaxOriginationLtvRateOfChangeSet
 
@@ -426,9 +426,9 @@ event MaxOriginationLtvRateOfChangeSet(uint96 maxRateOfChange);
 
 **Parameters**
 
-| Name            | Type     | Description |
-| --------------- | -------- | ----------- |
-| maxRateOfChange | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxRateOfChange | `uint96` |  |
 
 ### MaxLiquidationLtvPremiumBpsSet
 
@@ -438,9 +438,9 @@ event MaxLiquidationLtvPremiumBpsSet(uint96 maxPremiumBps);
 
 **Parameters**
 
-| Name          | Type     | Description |
-| ------------- | -------- | ----------- |
-| maxPremiumBps | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxPremiumBps | `uint96` |  |
 
 ### LiquidationLtvPremiumBpsSet
 
@@ -450,9 +450,9 @@ event LiquidationLtvPremiumBpsSet(uint96 premiumBps);
 
 **Parameters**
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| premiumBps | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| premiumBps | `uint96` |  |
 
 ## Errors
 
@@ -468,11 +468,11 @@ error BreachedMaxOriginationLtvDelta(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| oldOriginationLtv | `uint96`  |             |
-| newOriginationLtv | `uint96`  |             |
-| maxDelta          | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldOriginationLtv | `uint96` |  |
+| newOriginationLtv | `uint96` |  |
+| maxDelta | `uint256` |  |
 
 ### BreachedMinDateDelta
 
@@ -482,11 +482,11 @@ error BreachedMinDateDelta(uint40 targetTime, uint40 currentDate, uint32 maxTarg
 
 **Parameters**
 
-| Name               | Type     | Description |
-| ------------------ | -------- | ----------- |
-| targetTime         | `uint40` |             |
-| currentDate        | `uint40` |             |
-| maxTargetTimeDelta | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| targetTime | `uint40` |  |
+| currentDate | `uint40` |  |
+| maxTargetTimeDelta | `uint32` |  |
 
 ### BreachedMaxOriginationLtvRateOfChange
 
@@ -496,10 +496,10 @@ error BreachedMaxOriginationLtvRateOfChange(uint96 targetRateOfChange, uint96 ma
 
 **Parameters**
 
-| Name               | Type     | Description |
-| ------------------ | -------- | ----------- |
-| targetRateOfChange | `uint96` |             |
-| maxRateOfChange    | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| targetRateOfChange | `uint96` |  |
+| maxRateOfChange | `uint96` |  |
 
 ### CannotDecreaseLtv
 

@@ -33,6 +33,6 @@ function ensureNotInVaultContext(IVault vault) internal view;
 
 **Parameters**
 
-| Name  | Type     | Description |
-| ----- | -------- | ----------- |
-| vault | `IVault` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| vault | `IVault` |  |

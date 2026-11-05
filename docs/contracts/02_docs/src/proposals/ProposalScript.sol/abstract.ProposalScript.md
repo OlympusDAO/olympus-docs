@@ -34,9 +34,9 @@ constructor(IProposal _proposal) ScriptSuite(ADDRESSES_PATH, _proposal);
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| _proposal | `IProposal` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _proposal | `IProposal` |  |
 
 <a id="run"></a>
 

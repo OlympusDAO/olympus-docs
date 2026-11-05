@@ -82,10 +82,10 @@ function _depositAsset(
 
 **Returns**
 
-| Name         | Type      | Description                                          |
-| ------------ | --------- | ---------------------------------------------------- |
-| actualAmount | `uint256` | The actual amount of assets redeemable by the shares |
-| shares       | `uint256` | The number of shares received                        |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` |    The actual amount of assets redeemable by the shares |
+| shares | `uint256` |          The number of shares received |
 
 <a id="_withdrawasset-ierc20-address-uint256"></a>
 
@@ -121,9 +121,9 @@ function _withdrawAsset(
 
 **Returns**
 
-| Name        | Type      | Description                               |
-| ----------- | --------- | ----------------------------------------- |
-| shares      | `uint256` | The number of shares withdrawn (can be 0) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |      The number of shares withdrawn (can be 0) |
 | assetAmount | `uint256` | The amount of assets withdrawn (can be 0) |
 
 <a id="getoperatorassets-ierc20-address"></a>
@@ -165,16 +165,16 @@ function _getOperatorKey(IERC20 asset_, address operator_) internal pure returns
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| asset_    | `IERC20`  |             |
-| operator_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| operator_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="_addasset-ierc20-ierc4626-uint256-uint256"></a>
 
@@ -285,15 +285,15 @@ function _isConfiguredAsset(IERC20 asset_) internal view returns (bool);
 
 **Parameters**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| asset_ | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_onlyconfiguredasset-ierc20"></a>
 
@@ -305,9 +305,9 @@ function _onlyConfiguredAsset(IERC20 asset_) internal view;
 
 **Parameters**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| asset_ | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
 
 <a id="onlyconfiguredasset-ierc20"></a>
 
@@ -319,9 +319,9 @@ modifier onlyConfiguredAsset(IERC20 asset_);
 
 **Parameters**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| asset_ | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
 
 <a id="getassetconfiguration-ierc20"></a>
 
@@ -343,9 +343,9 @@ function getAssetConfiguration(
 
 **Returns**
 
-| Name          | Type                 | Description                     |
-| ------------- | -------------------- | ------------------------------- |
-| configuration | `AssetConfiguration` | The configuration for the asset |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | `AssetConfiguration` |   The configuration for the asset |
 
 <a id="getconfiguredassets"></a>
 
@@ -373,12 +373,12 @@ function supportsInterface(bytes4 interfaceId) public view virtual returns (bool
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

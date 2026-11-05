@@ -71,12 +71,12 @@ constructor(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| _governor | `address` |             |
-| _guardian | `address` |             |
-| _policy   | `address` |             |
-| _vault    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _governor | `address` |  |
+| _guardian | `address` |  |
+| _policy | `address` |  |
+| _vault | `address` |  |
 
 <a id="pushgovernor-address-bool"></a>
 
@@ -88,10 +88,10 @@ function pushGovernor(address _newGovernor, bool _effectiveImmediately) external
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| _newGovernor          | `address` |             |
-| _effectiveImmediately | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _newGovernor | `address` |  |
+| _effectiveImmediately | `bool` |  |
 
 <a id="pushguardian-address-bool"></a>
 
@@ -103,10 +103,10 @@ function pushGuardian(address _newGuardian, bool _effectiveImmediately) external
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| _newGuardian          | `address` |             |
-| _effectiveImmediately | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _newGuardian | `address` |  |
+| _effectiveImmediately | `bool` |  |
 
 <a id="pushpolicy-address-bool"></a>
 
@@ -118,10 +118,10 @@ function pushPolicy(address _newPolicy, bool _effectiveImmediately) external onl
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| _newPolicy            | `address` |             |
-| _effectiveImmediately | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _newPolicy | `address` |  |
+| _effectiveImmediately | `bool` |  |
 
 <a id="pushvault-address-bool"></a>
 
@@ -133,10 +133,10 @@ function pushVault(address _newVault, bool _effectiveImmediately) external onlyG
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| _newVault             | `address` |             |
-| _effectiveImmediately | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _newVault | `address` |  |
+| _effectiveImmediately | `bool` |  |
 
 <a id="pullgovernor"></a>
 

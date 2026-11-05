@@ -181,9 +181,9 @@ function range() external view virtual returns (Range memory);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `Range` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Range` |  |
 
 <a id="capacity-bool"></a>
 
@@ -203,9 +203,9 @@ function capacity(bool high_) external view virtual returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="active-bool"></a>
 
@@ -225,9 +225,9 @@ function active(bool high_) external view virtual returns (bool);
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="price-bool-bool"></a>
 
@@ -248,9 +248,9 @@ function price(bool wall_, bool high_) external view virtual returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="spread-bool"></a>
 
@@ -270,9 +270,9 @@ function spread(bool wall_) external view virtual returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="market-bool"></a>
 
@@ -292,9 +292,9 @@ function market(bool high_) external view virtual returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="lastactive-bool"></a>
 
@@ -314,9 +314,9 @@ function lastActive(bool high_) external view virtual returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Events
 
@@ -328,11 +328,11 @@ event WallUp(bool high_, uint256 timestamp_, uint256 capacity_);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| high_      | `bool`    |             |
-| timestamp_ | `uint256` |             |
-| capacity_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` |  |
+| timestamp_ | `uint256` |  |
+| capacity_ | `uint256` |  |
 
 ### WallDown
 
@@ -342,11 +342,11 @@ event WallDown(bool high_, uint256 timestamp_, uint256 capacity_);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| high_      | `bool`    |             |
-| timestamp_ | `uint256` |             |
-| capacity_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` |  |
+| timestamp_ | `uint256` |  |
+| capacity_ | `uint256` |  |
 
 ### CushionUp
 
@@ -356,11 +356,11 @@ event CushionUp(bool high_, uint256 timestamp_, uint256 capacity_);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| high_      | `bool`    |             |
-| timestamp_ | `uint256` |             |
-| capacity_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` |  |
+| timestamp_ | `uint256` |  |
+| capacity_ | `uint256` |  |
 
 ### CushionDown
 
@@ -370,10 +370,10 @@ event CushionDown(bool high_, uint256 timestamp_);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| high_      | `bool`    |             |
-| timestamp_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high_ | `bool` |  |
+| timestamp_ | `uint256` |  |
 
 ### PricesChanged
 
@@ -388,12 +388,12 @@ event PricesChanged(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| wallLowPrice_     | `uint256` |             |
-| cushionLowPrice_  | `uint256` |             |
-| cushionHighPrice_ | `uint256` |             |
-| wallHighPrice_    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| wallLowPrice_ | `uint256` |  |
+| cushionLowPrice_ | `uint256` |  |
+| cushionHighPrice_ | `uint256` |  |
+| wallHighPrice_ | `uint256` |  |
 
 ### SpreadsChanged
 
@@ -403,10 +403,10 @@ event SpreadsChanged(uint256 cushionSpread_, uint256 wallSpread_);
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| cushionSpread_ | `uint256` |             |
-| wallSpread_    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cushionSpread_ | `uint256` |  |
+| wallSpread_ | `uint256` |  |
 
 ### ThresholdFactorChanged
 
@@ -416,9 +416,9 @@ event ThresholdFactorChanged(uint256 thresholdFactor_);
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| thresholdFactor_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| thresholdFactor_ | `uint256` |  |
 
 ## Errors
 
@@ -440,9 +440,9 @@ struct Line {
 
 **Properties**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| price | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | `uint256` |  |
 
 ### Band
 
@@ -456,11 +456,11 @@ struct Band {
 
 **Properties**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| high   | `Line`    |             |
-| low    | `Line`    |             |
-| spread | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| high | `Line` |  |
+| low | `Line` |  |
+| spread | `uint256` |  |
 
 ### Side
 
@@ -476,13 +476,13 @@ struct Side {
 
 **Properties**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| active     | `bool`    |             |
-| lastActive | `uint48`  |             |
-| capacity   | `uint256` |             |
-| threshold  | `uint256` |             |
-| market     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| active | `bool` |  |
+| lastActive | `uint48` |  |
+| capacity | `uint256` |  |
+| threshold | `uint256` |  |
+| market | `uint256` |  |
 
 ### Range
 
@@ -497,9 +497,9 @@ struct Range {
 
 **Properties**
 
-| Name    | Type   | Description |
-| ------- | ------ | ----------- |
-| low     | `Side` |             |
-| high    | `Side` |             |
-| cushion | `Band` |             |
-| wall    | `Band` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| low | `Side` |  |
+| high | `Side` |  |
+| cushion | `Band` |  |
+| wall | `Band` |  |

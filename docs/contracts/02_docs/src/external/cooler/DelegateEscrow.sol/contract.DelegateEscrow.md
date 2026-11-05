@@ -58,9 +58,9 @@ constructor(address gohm_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| gohm_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gohm_ | `address` |  |
 
 <a id="initialize"></a>
 
@@ -82,9 +82,9 @@ function delegateAccount() public pure returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="factory"></a>
 
@@ -98,9 +98,9 @@ function factory() public pure returns (DelegateEscrowFactory _factory);
 
 **Returns**
 
-| Name     | Type                    | Description |
-| -------- | ----------------------- | ----------- |
-| _factory | `DelegateEscrowFactory` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _factory | `DelegateEscrowFactory` |  |
 
 <a id="delegate-address-uint256"></a>
 
@@ -124,16 +124,16 @@ function delegate(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| onBehalfOf | `address` |             |
-| gohmAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| onBehalfOf | `address` |  |
+| gohmAmount | `uint256` |  |
 
 **Returns**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| delegatedAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delegatedAmount | `uint256` |  |
 
 <a id="rescinddelegation-address-uint256"></a>
 
@@ -150,16 +150,16 @@ function rescindDelegation(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| onBehalfOf | `address` |             |
-| gohmAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| onBehalfOf | `address` |  |
+| gohmAmount | `uint256` |  |
 
 **Returns**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| delegatedAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delegatedAmount | `uint256` |  |
 
 <a id="totaldelegated"></a>
 
@@ -173,9 +173,9 @@ function totalDelegated() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="onlyfactory"></a>
 

@@ -38,9 +38,9 @@ uint48 public timelockDelay;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 ### nextActionId
 
@@ -52,9 +52,9 @@ uint64 public nextActionId;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint64` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint64` |  |
 
 ### _queuedActions
 

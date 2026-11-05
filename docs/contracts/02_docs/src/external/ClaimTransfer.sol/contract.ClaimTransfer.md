@@ -60,12 +60,12 @@ constructor(address poly_, address ohm_, address dai_, address gohm_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| poly_ | `address` |             |
-| ohm_  | `address` |             |
-| dai_  | `address` |             |
-| gohm_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| poly_ | `address` |  |
+| ohm_ | `address` |  |
+| dai_ | `address` |  |
+| gohm_ | `address` |  |
 
 <a id="fractionalizeclaim"></a>
 
@@ -218,11 +218,11 @@ function _transfer(address from_, address to_, uint256 amount_) internal;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| from_   | `address` |             |
-| to_     | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from_ | `address` |  |
+| to_ | `address` |  |
+| amount_ | `uint256` |  |
 
 ## Errors
 
@@ -246,8 +246,8 @@ struct Term {
 
 **Properties**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| percent  | `uint256` |             |
-| gClaimed | `uint256` |             |
-| max      | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| percent | `uint256` |  |
+| gClaimed | `uint256` |  |
+| max | `uint256` |  |

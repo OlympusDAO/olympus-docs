@@ -83,10 +83,10 @@ constructor(string memory name, string memory version);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| name    | `string` |             |
-| version | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | `string` |  |
+| version | `string` |  |
 
 <a id="_domainseparatorv4"></a>
 
@@ -104,9 +104,9 @@ function _domainSeparatorV4() internal view returns (bytes32);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="_builddomainseparator-bytes32-bytes32-bytes32"></a>
 
@@ -122,17 +122,17 @@ function _buildDomainSeparator(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| typeHash    | `bytes32` |             |
-| nameHash    | `bytes32` |             |
-| versionHash | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| typeHash | `bytes32` |  |
+| nameHash | `bytes32` |  |
+| versionHash | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="_hashtypeddatav4-bytes32"></a>
 
@@ -162,12 +162,12 @@ function _hashTypedDataV4(bytes32 structHash) internal view virtual returns (byt
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| structHash | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| structHash | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |

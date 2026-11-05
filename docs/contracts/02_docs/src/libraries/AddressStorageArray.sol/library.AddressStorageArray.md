@@ -20,11 +20,11 @@ function insert(address[] storage array, address value_, uint256 index_) interna
 
 **Parameters**
 
-| Name   | Type        | Description |
-| ------ | ----------- | ----------- |
-| array  | `address[]` |             |
-| value_ | `address`   |             |
-| index_ | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| array | `address[]` |  |
+| value_ | `address` |  |
+| index_ | `uint256` |  |
 
 <a id="remove-address-uint256"></a>
 
@@ -38,16 +38,16 @@ function remove(address[] storage array, uint256 index_) internal returns (addre
 
 **Parameters**
 
-| Name   | Type        | Description |
-| ------ | ----------- | ----------- |
-| array  | `address[]` |             |
-| index_ | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| array | `address[]` |  |
+| index_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ## Errors
 
@@ -59,7 +59,7 @@ error AddressStorageArray_IndexOutOfBounds(uint256 index, uint256 length);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| index  | `uint256` |             |
-| length | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| index | `uint256` |  |
+| length | `uint256` |  |

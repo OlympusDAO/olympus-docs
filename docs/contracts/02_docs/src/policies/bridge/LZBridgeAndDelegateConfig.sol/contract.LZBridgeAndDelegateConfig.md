@@ -40,9 +40,9 @@ uint48 public constant override MIN_TIMELOCK_DELAY = 1 days;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 ### MAX_TIMELOCK_DELAY
 
@@ -54,9 +54,9 @@ uint48 public constant override MAX_TIMELOCK_DELAY = 30 days;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 ### EXECUTION_WINDOW
 
@@ -69,9 +69,9 @@ uint48 public constant override EXECUTION_WINDOW = 3 days;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 ### _LEN_SINGLE_WORD
 
@@ -164,9 +164,9 @@ address public override gateway;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ### delegate
 
@@ -178,9 +178,9 @@ address public override delegate;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ### facilitator
 
@@ -192,9 +192,9 @@ address public override facilitator;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ### subActionTargetKind
 
@@ -658,12 +658,12 @@ function _requireTargetUnchanged(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| actionId_ | `uint64`  |             |
-| index_    | `uint256` |             |
-| queued_   | `address` |             |
-| current_  | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |  |
+| index_ | `uint256` |  |
+| queued_ | `address` |  |
+| current_ | `address` |  |
 
 <a id="_validatetimelockdelay-uint48"></a>
 
@@ -725,15 +725,15 @@ function supportsInterface(
 
 **Parameters**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| interfaceId_ | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_requirebridgeadminproposer-address"></a>
 
@@ -747,9 +747,9 @@ function _requireBridgeAdminProposer(address caller_) private view;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| caller_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
 
 <a id="_requireratelimiterproposer-address"></a>
 
@@ -763,9 +763,9 @@ function _requireRateLimiterProposer(address caller_) private view;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| caller_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
 
 <a id="_requireadminproposer-address"></a>
 
@@ -779,9 +779,9 @@ function _requireAdminProposer(address caller_) private view;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| caller_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
 
 <a id="_validategatewaysubaction-address-itimelockbatchqueue-batchaction"></a>
 
@@ -796,10 +796,10 @@ function _validateGatewaySubAction(
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| caller_ | `address`                         |             |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 <a id="_validatedelegatesubaction-address-itimelockbatchqueue-batchaction"></a>
 
@@ -814,10 +814,10 @@ function _validateDelegateSubAction(
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| caller_ | `address`                         |             |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 <a id="_validatefacilitatorsubaction-address-itimelockbatchqueue-batchaction"></a>
 
@@ -832,10 +832,10 @@ function _validateFacilitatorSubAction(
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| caller_ | `address`                         |             |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 <a id="_validateselfsubaction-address-itimelockbatchqueue-batchaction"></a>
 
@@ -850,10 +850,10 @@ function _validateSelfSubAction(
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| caller_ | `address`                         |             |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 <a id="_decodegatewayratelimitpayload-address-bytes4-bytes"></a>
 
@@ -880,11 +880,11 @@ function _decodeGatewayRateLimitPayload(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| target_  | `address` |             |
-| sel_     | `bytes4`  |             |
-| payload_ | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target_ | `address` |  |
+| sel_ | `bytes4` |  |
+| payload_ | `bytes` |  |
 
 <a id="_decodegatewayadminpayload-address-bytes4-bytes"></a>
 
@@ -909,11 +909,11 @@ function _decodeGatewayAdminPayload(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| target_  | `address` |             |
-| sel_     | `bytes4`  |             |
-| payload_ | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target_ | `address` |  |
+| sel_ | `bytes4` |  |
+| payload_ | `bytes` |  |
 
 <a id="_decodedelegatepayload-address-bytes4-bytes"></a>
 
@@ -940,11 +940,11 @@ function _decodeDelegatePayload(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| target_  | `address` |             |
-| sel_     | `bytes4`  |             |
-| payload_ | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target_ | `address` |  |
+| sel_ | `bytes4` |  |
+| payload_ | `bytes` |  |
 
 <a id="_decodefacilitatorpayload-address-bytes4-bytes"></a>
 
@@ -970,11 +970,11 @@ function _decodeFacilitatorPayload(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| target_  | `address` |             |
-| sel_     | `bytes4`  |             |
-| payload_ | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target_ | `address` |  |
+| sel_ | `bytes4` |  |
+| payload_ | `bytes` |  |
 
 <a id="_executegatewaysubaction-itimelockbatchqueue-batchaction"></a>
 
@@ -986,9 +986,9 @@ function _executeGatewaySubAction(ITimelockBatchQueue.BatchAction memory action_
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 <a id="_executedelegatesubaction-itimelockbatchqueue-batchaction"></a>
 
@@ -1000,9 +1000,9 @@ function _executeDelegateSubAction(ITimelockBatchQueue.BatchAction memory action
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 <a id="_executefacilitatorsubaction-itimelockbatchqueue-batchaction"></a>
 
@@ -1014,9 +1014,9 @@ function _executeFacilitatorSubAction(ITimelockBatchQueue.BatchAction memory act
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 <a id="_executeselfsubaction-itimelockbatchqueue-batchaction"></a>
 
@@ -1036,9 +1036,9 @@ function _executeSelfSubAction(ITimelockBatchQueue.BatchAction memory action_) p
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 <a id="_settargetgateway-address"></a>
 
@@ -1053,9 +1053,9 @@ function _setTargetGateway(address gateway_) private;
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| gateway_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gateway_ | `address` |  |
 
 <a id="_settargetdelegate-address"></a>
 
@@ -1070,9 +1070,9 @@ function _setTargetDelegate(address delegate_) private;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| delegate_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delegate_ | `address` |  |
 
 <a id="_settargetfacilitator-address"></a>
 
@@ -1087,9 +1087,9 @@ function _setTargetFacilitator(address facilitator_) private;
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| facilitator_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| facilitator_ | `address` |  |
 
 <a id="_validategraceperiod-uint32"></a>
 
@@ -1105,9 +1105,9 @@ function _validateGracePeriod(uint32 period_) private pure;
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| period_ | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| period_ | `uint32` |  |
 
 <a id="_requirenonzeroaddress-address-string"></a>
 
@@ -1119,10 +1119,10 @@ function _requireNonzeroAddress(address address_, string memory parameter_) priv
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| address_   | `address` |             |
-| parameter_ | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| address_ | `address` |  |
+| parameter_ | `string` |  |
 
 <a id="_revertactioninvalid-address-bytes4"></a>
 
@@ -1143,7 +1143,7 @@ function _revertActionInvalid(address target_, bytes4 selector_) private pure;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| target_   | `address` |             |
-| selector_ | `bytes4`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target_ | `address` |  |
+| selector_ | `bytes4` |  |

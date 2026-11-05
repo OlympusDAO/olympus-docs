@@ -40,9 +40,9 @@ constructor(address staking_);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| staking_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| staking_ | `address` |  |
 
 <a id="triggerrebase"></a>
 
@@ -80,6 +80,6 @@ function retrieveBounty() external pure returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

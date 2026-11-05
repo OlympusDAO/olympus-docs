@@ -76,9 +76,9 @@ function purchaseBond(
 
 **Returns**
 
-| Name   | Type      | Description                                         |
-| ------ | --------- | --------------------------------------------------- |
-| payout | `uint256` | Amount of payout token to be received from the bond |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| payout | `uint256` |          Amount of payout token to be received from the bond |
 
 <a id="setintervals-uint256-uint32-3"></a>
 
@@ -250,9 +250,9 @@ function callbackAuthorized(address creator_) external view returns (bool isAuth
 
 **Returns**
 
-| Name         | Type   | Description                            |
-| ------------ | ------ | -------------------------------------- |
-| isAuthorized | `bool` | True if the creator can use a callback |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isAuthorized | `bool` |    True if the creator can use a callback |
 
 <a id="getmarketinfoforpurchase-uint256"></a>
 
@@ -284,14 +284,14 @@ function getMarketInfoForPurchase(
 
 **Returns**
 
-| Name         | Type      | Description                                                                       |
-| ------------ | --------- | --------------------------------------------------------------------------------- |
-| owner        | `address` | Address of the market owner (tokens transferred from this address if no callback) |
-| callbackAddr | `address` | Address of the callback contract to get tokens for payouts                        |
-| payoutToken  | `ERC20`   | Payout Token (token paid out) for the Market                                      |
-| quoteToken   | `ERC20`   | Quote Token (token received) for the Market                                       |
-| vesting      | `uint48`  | Timestamp or duration for vesting, implementation-dependent                       |
-| maxPayout    | `uint256` | Maximum amount of payout tokens you can purchase in one transaction               |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |           Address of the market owner (tokens transferred from this address if no callback) |
+| callbackAddr | `address` |    Address of the callback contract to get tokens for payouts |
+| payoutToken | `ERC20` |     Payout Token (token paid out) for the Market |
+| quoteToken | `ERC20` |      Quote Token (token received) for the Market |
+| vesting | `uint48` |         Timestamp or duration for vesting, implementation-dependent |
+| maxPayout | `uint256` |       Maximum amount of payout tokens you can purchase in one transaction |
 
 <a id="marketprice-uint256"></a>
 
@@ -390,9 +390,9 @@ function maxAmountAccepted(uint256 id_, address referrer_) external view returns
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="isinstantswap-uint256"></a>
 
@@ -412,9 +412,9 @@ function isInstantSwap(uint256 id_) external view returns (bool);
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="islive-uint256"></a>
 
@@ -434,9 +434,9 @@ function isLive(uint256 id_) external view returns (bool);
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="ownerof-uint256"></a>
 
@@ -456,9 +456,9 @@ function ownerOf(uint256 id_) external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="getteller"></a>
 
@@ -472,9 +472,9 @@ function getTeller() external view returns (IBondTeller);
 
 **Returns**
 
-| Name         | Type          | Description |
-| ------------ | ------------- | ----------- |
-| &lt;none&gt; | `IBondTeller` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IBondTeller` |  |
 
 <a id="getaggregator"></a>
 
@@ -488,9 +488,9 @@ function getAggregator() external view returns (IBondAggregator);
 
 **Returns**
 
-| Name         | Type              | Description |
-| ------------ | ----------------- | ----------- |
-| &lt;none&gt; | `IBondAggregator` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IBondAggregator` |  |
 
 <a id="currentcapacity-uint256"></a>
 
@@ -504,12 +504,12 @@ function currentCapacity(uint256 id_) external view returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

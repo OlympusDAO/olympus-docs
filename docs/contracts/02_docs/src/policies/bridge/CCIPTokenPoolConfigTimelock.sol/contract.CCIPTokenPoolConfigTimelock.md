@@ -55,9 +55,9 @@ uint48 public constant override MIN_TIMELOCK_DELAY = 1 days;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 ### MAX_TIMELOCK_DELAY
 
@@ -69,9 +69,9 @@ uint48 public constant override MAX_TIMELOCK_DELAY = 30 days;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 ### EXECUTION_WINDOW
 
@@ -86,9 +86,9 @@ uint48 public constant override EXECUTION_WINDOW = 3 days;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 ### _MAX_CONFIG_KEYS_PER_BATCH
 
@@ -769,15 +769,15 @@ function _configDestination(
 
 **Parameters**
 
-| Name | Type                              | Description |
-| ---- | --------------------------------- | ----------- |
-| _    | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `ITimelockBatchQueue.BatchAction` |  |
 
 **Returns**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| destination | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| destination | `address` |  |
 
 <a id="_configkeys-itimelockbatchqueue-batchaction"></a>
 
@@ -804,15 +804,15 @@ function _configKeys(
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 **Returns**
 
-| Name | Type        | Description |
-| ---- | ----------- | ----------- |
-| keys | `bytes32[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keys | `bytes32[]` |  |
 
 <a id="_currentconfigstatehash-uint64-uint256-bytes32-itimelockbatchqueue-batchaction"></a>
 
@@ -908,11 +908,11 @@ function _executeConfigSubAction(
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| _       | `uint64`                          |             |
-| _       | `uint256`                         |             |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `uint64` |  |
+| _ | `uint256` |  |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 <a id="_maxconfigkeysperbatch"></a>
 
@@ -933,9 +933,9 @@ function _maxConfigKeysPerBatch() internal pure override returns (uint256 maximu
 
 **Returns**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| maximum | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maximum | `uint256` |  |
 
 <a id="_validateexecution-address-uint64-itimelockbatchqueue-queuedaction"></a>
 
@@ -1114,9 +1114,9 @@ function _beforeEnable(bytes calldata) internal view override;
 
 **Parameters**
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| _    | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `bytes` |  |
 
 <a id="_beforereenable"></a>
 
@@ -1373,12 +1373,12 @@ function supportsInterface(
 
 **Parameters**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| interfaceId_ | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

@@ -12,7 +12,7 @@ function ensureValidSubKeycode(SubKeycode subKeycode_, Keycode parentKeycode_) p
 
 **Parameters**
 
-| Name           | Type         | Description |
-| -------------- | ------------ | ----------- |
-| subKeycode_    | `SubKeycode` |             |
-| parentKeycode_ | `Keycode`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| subKeycode_ | `SubKeycode` |  |
+| parentKeycode_ | `Keycode` |  |

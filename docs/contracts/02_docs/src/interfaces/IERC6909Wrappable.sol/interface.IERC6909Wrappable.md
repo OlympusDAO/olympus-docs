@@ -66,9 +66,9 @@ function getWrappedToken(uint256 tokenId_) external view returns (address wrappe
 
 **Returns**
 
-| Name         | Type      | Description                                              |
-| ------------ | --------- | -------------------------------------------------------- |
-| wrappedToken | `address` | The address of the wrapped ERC20 token (or zero address) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| wrappedToken | `address` |    The address of the wrapped ERC20 token (or zero address) |
 
 <a id="isvalidtokenid-uint256"></a>
 
@@ -88,9 +88,9 @@ function isValidTokenId(uint256 tokenId_) external view returns (bool isValid);
 
 **Returns**
 
-| Name    | Type   | Description                   |
-| ------- | ------ | ----------------------------- |
-| isValid | `bool` | Whether the token ID is valid |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isValid | `bool` |         Whether the token ID is valid |
 
 <a id="getwrappabletokens"></a>
 
@@ -107,10 +107,10 @@ function getWrappableTokens()
 
 **Returns**
 
-| Name          | Type        | Description                               |
-| ------------- | ----------- | ----------------------------------------- |
-| tokenIds      | `uint256[]` | The IDs of all tokens                     |
-| wrappedTokens | `address[]` | The wrapped token addresses of all tokens |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenIds | `uint256[]` |        The IDs of all tokens |
+| wrappedTokens | `address[]` |   The wrapped token addresses of all tokens |
 
 ## Events
 
@@ -127,12 +127,12 @@ event Wrapped(
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| tokenId      | `uint256` |             |
-| wrappedToken | `address` |             |
-| account      | `address` |             |
-| amount       | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` |  |
+| wrappedToken | `address` |  |
+| account | `address` |  |
+| amount | `uint256` |  |
 
 ### Unwrapped
 
@@ -147,12 +147,12 @@ event Unwrapped(
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| tokenId      | `uint256` |             |
-| wrappedToken | `address` |             |
-| account      | `address` |             |
-| amount       | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` |  |
+| wrappedToken | `address` |  |
+| account | `address` |  |
+| amount | `uint256` |  |
 
 ## Errors
 
@@ -164,9 +164,9 @@ error ERC6909Wrappable_TokenIdAlreadyExists(uint256 tokenId);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| tokenId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` |  |
 
 ### ERC6909Wrappable_InvalidTokenId
 
@@ -176,9 +176,9 @@ error ERC6909Wrappable_InvalidTokenId(uint256 tokenId);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| tokenId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` |  |
 
 ### ERC6909Wrappable_InvalidERC20Implementation
 
@@ -188,9 +188,9 @@ error ERC6909Wrappable_InvalidERC20Implementation(address erc20Implementation);
 
 **Parameters**
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| erc20Implementation | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| erc20Implementation | `address` |  |
 
 ### ERC6909Wrappable_ZeroAmount
 

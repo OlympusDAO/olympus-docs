@@ -116,9 +116,9 @@ function getPeriodicTaskCount() external view returns (uint256 _taskCount);
 
 **Returns**
 
-| Name       | Type      | Description                  |
-| ---------- | --------- | ---------------------------- |
-| _taskCount | `uint256` | The number of periodic tasks |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _taskCount | `uint256` |  The number of periodic tasks |
 
 <a id="getperiodictaskatindex-uint256"></a>
 
@@ -140,10 +140,10 @@ function getPeriodicTaskAtIndex(
 
 **Returns**
 
-| Name            | Type      | Description                                             |
-| --------------- | --------- | ------------------------------------------------------- |
-| _task           | `address` | The address of the periodic task at the specified index |
-| _customSelector | `bytes4`  | The custom selector for the task (or 0)                 |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _task | `address` |           The address of the periodic task at the specified index |
+| _customSelector | `bytes4` | The custom selector for the task (or 0) |
 
 <a id="getperiodictasks"></a>
 
@@ -160,10 +160,10 @@ function getPeriodicTasks()
 
 **Returns**
 
-| Name             | Type        | Description                               |
-| ---------------- | ----------- | ----------------------------------------- |
-| _tasks           | `address[]` | An array of all periodic tasks in order   |
-| _customSelectors | `bytes4[]`  | An array of all custom selectors in order |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _tasks | `address[]` |              An array of all periodic tasks in order |
+| _customSelectors | `bytes4[]` |    An array of all custom selectors in order |
 
 <a id="getperiodictaskindex-address"></a>
 
@@ -183,9 +183,9 @@ function getPeriodicTaskIndex(address task_) external view returns (uint256 _ind
 
 **Returns**
 
-| Name   | Type      | Description                                              |
-| ------ | --------- | -------------------------------------------------------- |
-| _index | `uint256` | The index of the task, or type(uint256).max if not found |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _index | `uint256` |  The index of the task, or type(uint256).max if not found |
 
 <a id="hasperiodictask-address"></a>
 
@@ -221,11 +221,11 @@ event PeriodicTaskAdded(address indexed task_, bytes4 customSelector_, uint256 i
 
 **Parameters**
 
-| Name            | Type      | Description                        |
-| --------------- | --------- | ---------------------------------- |
-| task_           | `address` | The address of the periodic task   |
-| customSelector_ | `bytes4`  |                                    |
-| index_          | `uint256` | The index where the task was added |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| task_ | `address` | The address of the periodic task |
+| customSelector_ | `bytes4` |  |
+| index_ | `uint256` | The index where the task was added |
 
 ### PeriodicTaskRemoved
 
@@ -254,9 +254,9 @@ error PeriodicTaskManager_TaskNotFound(address task_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| task_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| task_ | `address` |  |
 
 ### PeriodicTaskManager_TaskAlreadyExists
 
@@ -268,9 +268,9 @@ error PeriodicTaskManager_TaskAlreadyExists(address task_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| task_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| task_ | `address` |  |
 
 ### PeriodicTaskManager_ZeroAddress
 
@@ -290,9 +290,9 @@ error PeriodicTaskManager_NotPeriodicTask(address task_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| task_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| task_ | `address` |  |
 
 ### PeriodicTaskManager_CustomSelectorFailed
 
@@ -308,8 +308,8 @@ error PeriodicTaskManager_CustomSelectorFailed(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| task_           | `address` |             |
-| customSelector_ | `bytes4`  |             |
-| reason_         | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| task_ | `address` |  |
+| customSelector_ | `bytes4` |  |
+| reason_ | `bytes` |  |

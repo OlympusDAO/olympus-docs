@@ -24,9 +24,9 @@ function collateralToken() external view returns (address collateralToken_);
 
 **Returns**
 
-| Name             | Type      | Description                  |
-| ---------------- | --------- | ---------------------------- |
-| collateralToken_ | `address` | The collateral token address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateralToken_ | `address` |    The collateral token address |
 
 <a id="loantoken"></a>
 
@@ -40,9 +40,9 @@ function loanToken() external view returns (address loantoken_);
 
 **Returns**
 
-| Name       | Type      | Description            |
-| ---------- | --------- | ---------------------- |
-| loantoken_ | `address` | The loan token address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loantoken_ | `address` |  The loan token address |
 
 <a id="maxage"></a>
 
@@ -56,9 +56,9 @@ function maxAge() external view returns (uint48 maxAge_);
 
 **Returns**
 
-| Name    | Type     | Description                                 |
-| ------- | -------- | ------------------------------------------- |
-| maxAge_ | `uint48` | The configured maximum cache age in seconds |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxAge_ | `uint48` |  The configured maximum cache age in seconds |
 
 <a id="scalefactor"></a>
 
@@ -81,9 +81,9 @@ function scaleFactor() external view returns (uint256 scaleFactor_);
 
 **Returns**
 
-| Name         | Type      | Description      |
-| ------------ | --------- | ---------------- |
-| scaleFactor_ | `uint256` | The scale factor |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| scaleFactor_ | `uint256` |    The scale factor |
 
 <a id="name"></a>
 
@@ -97,9 +97,9 @@ function name() external view returns (string memory name_);
 
 **Returns**
 
-| Name  | Type     | Description |
-| ----- | -------- | ----------- |
-| name_ | `string` | The name    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `string` |   The name |
 
 <a id="isstale"></a>
 
@@ -113,9 +113,9 @@ function isStale() external view returns (bool isStale_);
 
 **Returns**
 
-| Name     | Type   | Description                                                   |
-| -------- | ------ | ------------------------------------------------------------- |
-| isStale_ | `bool` | Returns true if the pair cache is unset or older than maxAge. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isStale_ | `bool` |    Returns true if the pair cache is unset or older than maxAge. |
 
 <a id="timestamp"></a>
 
@@ -129,9 +129,9 @@ function timestamp() external view returns (uint48 timestamp_);
 
 **Returns**
 
-| Name       | Type     | Description                                |
-| ---------- | -------- | ------------------------------------------ |
-| timestamp_ | `uint48` | Returns the timestamp of the cached prices |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| timestamp_ | `uint48` |  Returns the timestamp of the cached prices |
 
 ## Errors
 

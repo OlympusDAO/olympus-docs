@@ -21,10 +21,10 @@ constructor(
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
-| gOhm_   | `ERC20`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| gOhm_ | `ERC20` |  |
 
 <a id="keycode"></a>
 
@@ -38,9 +38,9 @@ function KEYCODE() public pure override returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="version"></a>
 
@@ -72,16 +72,16 @@ function deposit(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| assets_   | `uint256` |             |
-| receiver_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets_ | `uint256` |  |
+| receiver_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="mint-uint256-address"></a>
 
@@ -96,16 +96,16 @@ function mint(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| shares_   | `uint256` |             |
-| receiver_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares_ | `uint256` |  |
+| receiver_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="withdraw-uint256-address-address"></a>
 
@@ -121,17 +121,17 @@ function withdraw(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| assets_   | `uint256` |             |
-| receiver_ | `address` |             |
-| owner_    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets_ | `uint256` |  |
+| receiver_ | `address` |  |
+| owner_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="redeem-uint256-address-address"></a>
 
@@ -147,17 +147,17 @@ function redeem(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| shares_   | `uint256` |             |
-| receiver_ | `address` |             |
-| owner_    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares_ | `uint256` |  |
+| receiver_ | `address` |  |
+| owner_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="transfer-address-uint256"></a>
 
@@ -171,16 +171,16 @@ function transfer(address to_, uint256 amt_) public override permissioned return
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| to_  | `address` |             |
-| amt_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` |  |
+| amt_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="transferfrom-address-address-uint256"></a>
 
@@ -198,17 +198,17 @@ function transferFrom(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| from_   | `address` |             |
-| to_     | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from_ | `address` |  |
+| to_ | `address` |  |
+| amount_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="resetactiontimestamp-address"></a>
 
@@ -220,9 +220,9 @@ function resetActionTimestamp(address _wallet) external override permissioned;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| _wallet | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _wallet | `address` |  |
 
 <a id="totalassets"></a>
 
@@ -234,6 +234,6 @@ function totalAssets() public view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

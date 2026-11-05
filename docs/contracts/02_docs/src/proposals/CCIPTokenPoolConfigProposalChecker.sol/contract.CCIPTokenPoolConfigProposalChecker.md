@@ -221,9 +221,9 @@ function _requireActive(address policy_) internal view;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
 
 <a id="_requireroutesabsent-uint64"></a>
 
@@ -237,9 +237,9 @@ function _requireRoutesAbsent(uint64[] calldata chainSelectors_) internal view;
 
 **Parameters**
 
-| Name            | Type       | Description |
-| --------------- | ---------- | ----------- |
-| chainSelectors_ | `uint64[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| chainSelectors_ | `uint64[]` |  |
 
 <a id="_requirenonzero-address-string"></a>
 
@@ -253,10 +253,10 @@ function _requireNonZero(address value_, string memory parameter_) internal pure
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| value_     | `address` |             |
-| parameter_ | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value_ | `address` |  |
+| parameter_ | `string` |  |
 
 <a id="_requirebinding-string-address-address"></a>
 
@@ -274,8 +274,8 @@ function _requireBinding(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| binding_  | `string`  |             |
-| actual_   | `address` |             |
-| expected_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| binding_ | `string` |  |
+| actual_ | `address` |  |
+| expected_ | `address` |  |

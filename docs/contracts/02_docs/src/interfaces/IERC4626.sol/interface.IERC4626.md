@@ -28,9 +28,9 @@ function asset() external view returns (address assetTokenAddress);
 
 **Returns**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| assetTokenAddress | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assetTokenAddress | `address` |  |
 
 <a id="totalassets"></a>
 
@@ -48,9 +48,9 @@ function totalAssets() external view returns (uint256 totalManagedAssets);
 
 **Returns**
 
-| Name               | Type      | Description |
-| ------------------ | --------- | ----------- |
-| totalManagedAssets | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalManagedAssets | `uint256` |  |
 
 <a id="converttoshares-uint256"></a>
 
@@ -74,15 +74,15 @@ function convertToShares(uint256 assets) external view returns (uint256 shares);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| assets | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| shares | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |  |
 
 <a id="converttoassets-uint256"></a>
 
@@ -106,15 +106,15 @@ function convertToAssets(uint256 shares) external view returns (uint256 assets);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| shares | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| assets | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |  |
 
 <a id="maxdeposit-address"></a>
 
@@ -133,15 +133,15 @@ function maxDeposit(address receiver) external view returns (uint256 maxAssets);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| receiver | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiver | `address` |  |
 
 **Returns**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| maxAssets | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxAssets | `uint256` |  |
 
 <a id="previewdeposit-uint256"></a>
 
@@ -167,15 +167,15 @@ function previewDeposit(uint256 assets) external view returns (uint256 shares);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| assets | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| shares | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |  |
 
 <a id="deposit-uint256-address"></a>
 
@@ -197,16 +197,16 @@ function deposit(uint256 assets, address receiver) external returns (uint256 sha
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| assets   | `uint256` |             |
-| receiver | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |  |
+| receiver | `address` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| shares | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |  |
 
 <a id="maxmint-address"></a>
 
@@ -224,15 +224,15 @@ function maxMint(address receiver) external view returns (uint256 maxShares);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| receiver | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiver | `address` |  |
 
 **Returns**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| maxShares | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxShares | `uint256` |  |
 
 <a id="previewmint-uint256"></a>
 
@@ -258,15 +258,15 @@ function previewMint(uint256 shares) external view returns (uint256 assets);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| shares | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| assets | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |  |
 
 <a id="mint-uint256-address"></a>
 
@@ -288,16 +288,16 @@ function mint(uint256 shares, address receiver) external returns (uint256 assets
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| shares   | `uint256` |             |
-| receiver | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |  |
+| receiver | `address` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| assets | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |  |
 
 <a id="maxwithdraw-address"></a>
 
@@ -315,15 +315,15 @@ function maxWithdraw(address owner) external view returns (uint256 maxAssets);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| owner | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
 
 **Returns**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| maxAssets | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxAssets | `uint256` |  |
 
 <a id="previewwithdraw-uint256"></a>
 
@@ -350,15 +350,15 @@ function previewWithdraw(uint256 assets) external view returns (uint256 shares);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| assets | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| shares | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |  |
 
 <a id="withdraw-uint256-address-address"></a>
 
@@ -385,17 +385,17 @@ function withdraw(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| assets   | `uint256` |             |
-| receiver | `address` |             |
-| owner    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |  |
+| receiver | `address` |  |
+| owner | `address` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| shares | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |  |
 
 <a id="maxredeem-address"></a>
 
@@ -414,15 +414,15 @@ function maxRedeem(address owner) external view returns (uint256 maxShares);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| owner | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
 
 **Returns**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| maxShares | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxShares | `uint256` |  |
 
 <a id="previewredeem-uint256"></a>
 
@@ -448,15 +448,15 @@ function previewRedeem(uint256 shares) external view returns (uint256 assets);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| shares | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| assets | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |  |
 
 <a id="redeem-uint256-address-address"></a>
 
@@ -483,17 +483,17 @@ function redeem(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| shares   | `uint256` |             |
-| receiver | `address` |             |
-| owner    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |  |
+| receiver | `address` |  |
+| owner | `address` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| assets | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |  |
 
 ## Events
 
@@ -505,12 +505,12 @@ event Deposit(address indexed sender, address indexed owner, uint256 assets, uin
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| sender | `address` |             |
-| owner  | `address` |             |
-| assets | `uint256` |             |
-| shares | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | `address` |  |
+| owner | `address` |  |
+| assets | `uint256` |  |
+| shares | `uint256` |  |
 
 ### Withdraw
 
@@ -526,10 +526,10 @@ event Withdraw(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| sender   | `address` |             |
-| receiver | `address` |             |
-| owner    | `address` |             |
-| assets   | `uint256` |             |
-| shares   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | `address` |  |
+| receiver | `address` |  |
+| owner | `address` |  |
+| assets | `uint256` |  |
+| shares | `uint256` |  |

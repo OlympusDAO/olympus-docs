@@ -180,13 +180,13 @@ constructor(
 
 **Parameters**
 
-| Name         | Type            | Description |
-| ------------ | --------------- | ----------- |
-| kernel_      | `Kernel`        |             |
-| auctioneer_  | `IBondSDA`      |             |
-| callback_    | `IBondCallback` |             |
-| tokens_      | `address[4]`    |             |
-| configParams | `uint32[8]`     |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| auctioneer_ | `IBondSDA` |  |
+| callback_ | `IBondCallback` |  |
+| tokens_ | `address[4]` |  |
+| configParams | `uint32[8]` |  |
 
 <a id="configuredependencies"></a>
 
@@ -407,11 +407,11 @@ function _updateRegenOnObservation(
 
 **Parameters**
 
-| Name      | Type     | Description |
-| --------- | -------- | ----------- |
-| regen_    | `Regen`  |             |
-| positive_ | `bool`   |             |
-| observe_  | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| regen_ | `Regen` |  |
+| positive_ | `bool` |  |
+| observe_ | `uint32` |  |
 
 <a id="_regenerate-bool"></a>
 
@@ -725,9 +725,9 @@ function _checkFactor(uint32 factor_) internal pure;
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| factor_ | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| factor_ | `uint32` |  |
 
 <a id="getamountout-erc20-uint256"></a>
 
@@ -776,9 +776,9 @@ function fullCapacity(bool high_) public view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="status"></a>
 
@@ -792,9 +792,9 @@ function status() external view override returns (Status memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `Status` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Status` |  |
 
 <a id="config"></a>
 
@@ -808,6 +808,6 @@ function config() external view override returns (Config memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `Config` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Config` |  |

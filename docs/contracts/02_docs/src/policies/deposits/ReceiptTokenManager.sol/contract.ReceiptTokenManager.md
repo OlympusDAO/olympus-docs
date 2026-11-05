@@ -98,9 +98,9 @@ function _onlyTokenOwner(uint256 tokenId_) internal view;
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| tokenId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` |  |
 
 <a id="onlytokenowner-uint256"></a>
 
@@ -112,9 +112,9 @@ modifier onlyTokenOwner(uint256 tokenId_);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| tokenId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` |  |
 
 <a id="mint-address-uint256-uint256-bool"></a>
 
@@ -385,12 +385,12 @@ function supportsInterface(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

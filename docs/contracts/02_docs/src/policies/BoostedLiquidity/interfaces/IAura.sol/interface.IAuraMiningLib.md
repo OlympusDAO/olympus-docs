@@ -14,12 +14,12 @@ function convertCrvToCvx(uint256 amount_) external view returns (uint256);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

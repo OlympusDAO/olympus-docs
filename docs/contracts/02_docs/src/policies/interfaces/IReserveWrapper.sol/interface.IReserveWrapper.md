@@ -20,9 +20,9 @@ function getReserve() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="getsreserve"></a>
 
@@ -36,9 +36,9 @@ function getSReserve() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ## Events
 
@@ -50,11 +50,11 @@ event ReserveWrapped(address indexed reserve, address indexed sReserve, uint256 
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| reserve  | `address` |             |
-| sReserve | `address` |             |
-| amount   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reserve | `address` |  |
+| sReserve | `address` |  |
+| amount | `uint256` |  |
 
 ## Errors
 

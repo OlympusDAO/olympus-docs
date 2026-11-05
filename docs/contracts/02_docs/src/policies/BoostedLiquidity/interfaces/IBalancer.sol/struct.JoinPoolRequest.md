@@ -13,9 +13,9 @@ struct JoinPoolRequest {
 
 **Properties**
 
-| Name                | Type        | Description |
-| ------------------- | ----------- | ----------- |
-| assets              | `address[]` |             |
-| maxAmountsIn        | `uint256[]` |             |
-| userData            | `bytes`     |             |
-| fromInternalBalance | `bool`      |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `address[]` |  |
+| maxAmountsIn | `uint256[]` |  |
+| userData | `bytes` |  |
+| fromInternalBalance | `bool` |  |

@@ -117,9 +117,9 @@ function SUBKEYCODE() public pure override returns (SubKeycode);
 
 **Returns**
 
-| Name         | Type         | Description |
-| ------------ | ------------ | ----------- |
-| &lt;none&gt; | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `SubKeycode` |  |
 
 <a id="version"></a>
 

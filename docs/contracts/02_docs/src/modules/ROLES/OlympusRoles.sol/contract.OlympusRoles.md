@@ -18,9 +18,9 @@ constructor(Kernel kernel_) Module(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="keycode"></a>
 
@@ -34,9 +34,9 @@ function KEYCODE() public pure override returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="version"></a>
 
@@ -67,10 +67,10 @@ function saveRole(bytes32 role_, address addr_) external override permissioned;
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
-| addr_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
+| addr_ | `address` |  |
 
 <a id="removerole-bytes32-address"></a>
 
@@ -84,10 +84,10 @@ function removeRole(bytes32 role_, address addr_) external override permissioned
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
-| addr_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
+| addr_ | `address` |  |
 
 <a id="requirerole-bytes32-address"></a>
 
@@ -107,10 +107,10 @@ function requireRole(bytes32 role_, address caller_) external view override;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| role_   | `bytes32` |             |
-| caller_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
+| caller_ | `address` |  |
 
 <a id="ensurevalidrole-bytes32"></a>
 
@@ -124,6 +124,6 @@ function ensureValidRole(bytes32 role_) public pure override;
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |

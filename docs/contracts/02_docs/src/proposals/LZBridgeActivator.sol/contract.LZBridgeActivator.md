@@ -240,10 +240,10 @@ function _requireNonzeroAddress(address address_, string memory parameter_) priv
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| address_   | `address` |             |
-| parameter_ | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| address_ | `address` |  |
+| parameter_ | `string` |  |
 
 ## Events
 
@@ -255,9 +255,9 @@ event Activated(address caller);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| caller | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
 
 ## Errors
 
@@ -275,6 +275,6 @@ error InvalidParams(string reason);
 
 **Parameters**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| reason | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason | `string` |  |

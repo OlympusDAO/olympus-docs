@@ -126,15 +126,15 @@ function isPolicyActive(Policy policy_) public view returns (bool);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| policy_ | `Policy` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `Policy` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="executeaction-actions-address"></a>
 
@@ -148,10 +148,10 @@ function executeAction(Actions action_, address target_) external onlyExecutor;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| action_ | `Actions` |             |
-| target_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action_ | `Actions` |  |
+| target_ | `address` |  |
 
 <a id="_installmodule-module"></a>
 
@@ -163,9 +163,9 @@ function _installModule(Module newModule_) internal;
 
 **Parameters**
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| newModule_ | `Module` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newModule_ | `Module` |  |
 
 <a id="_upgrademodule-module"></a>
 
@@ -177,9 +177,9 @@ function _upgradeModule(Module newModule_) internal;
 
 **Parameters**
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| newModule_ | `Module` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newModule_ | `Module` |  |
 
 <a id="_activatepolicy-policy"></a>
 
@@ -191,9 +191,9 @@ function _activatePolicy(Policy policy_) internal;
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| policy_ | `Policy` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `Policy` |  |
 
 <a id="_deactivatepolicy-policy"></a>
 
@@ -205,9 +205,9 @@ function _deactivatePolicy(Policy policy_) internal;
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| policy_ | `Policy` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `Policy` |  |
 
 <a id="_migratekernel-kernel"></a>
 
@@ -233,9 +233,9 @@ function _migrateKernel(Kernel newKernel_) internal;
 
 **Parameters**
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| newKernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newKernel_ | `Kernel` |  |
 
 <a id="_reconfigurepolicies-keycode"></a>
 
@@ -247,9 +247,9 @@ function _reconfigurePolicies(Keycode keycode_) internal;
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| keycode_ | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode_ | `Keycode` |  |
 
 <a id="_setpolicypermissions-policy-permissions-bool"></a>
 
@@ -265,11 +265,11 @@ function _setPolicyPermissions(
 
 **Parameters**
 
-| Name      | Type            | Description |
-| --------- | --------------- | ----------- |
-| policy_   | `Policy`        |             |
-| requests_ | `Permissions[]` |             |
-| grant_    | `bool`          |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `Policy` |  |
+| requests_ | `Permissions[]` |  |
+| grant_ | `bool` |  |
 
 <a id="_prunefromdependents-policy"></a>
 
@@ -281,9 +281,9 @@ function _pruneFromDependents(Policy policy_) internal;
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| policy_ | `Policy` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `Policy` |  |
 
 ## Events
 
@@ -300,12 +300,12 @@ event PermissionsUpdated(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| keycode_      | `Keycode` |             |
-| policy_       | `Policy`  |             |
-| funcSelector_ | `bytes4`  |             |
-| granted_      | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode_ | `Keycode` |  |
+| policy_ | `Policy` |  |
+| funcSelector_ | `bytes4` |  |
+| granted_ | `bool` |  |
 
 ### ActionExecuted
 
@@ -315,10 +315,10 @@ event ActionExecuted(Actions indexed action_, address indexed target_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| action_ | `Actions` |             |
-| target_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action_ | `Actions` |  |
+| target_ | `address` |  |
 
 ## Errors
 
@@ -330,9 +330,9 @@ error Kernel_OnlyExecutor(address caller_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| caller_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
 
 ### Kernel_ModuleAlreadyInstalled
 
@@ -342,9 +342,9 @@ error Kernel_ModuleAlreadyInstalled(Keycode module_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| module_ | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| module_ | `Keycode` |  |
 
 ### Kernel_InvalidModuleUpgrade
 
@@ -354,9 +354,9 @@ error Kernel_InvalidModuleUpgrade(Keycode module_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| module_ | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| module_ | `Keycode` |  |
 
 ### Kernel_PolicyAlreadyActivated
 
@@ -366,9 +366,9 @@ error Kernel_PolicyAlreadyActivated(address policy_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
 
 ### Kernel_PolicyNotActivated
 
@@ -378,6 +378,6 @@ error Kernel_PolicyNotActivated(address policy_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |

@@ -14,9 +14,9 @@ function getPoolId() external view returns (bytes32);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="balanceof-address"></a>
 
@@ -28,15 +28,15 @@ function balanceOf(address user_) external view returns (uint256);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| user_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="totalsupply"></a>
 
@@ -48,9 +48,9 @@ function totalSupply() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="approve-address-uint256"></a>
 
@@ -62,13 +62,13 @@ function approve(address spender_, uint256 amount_) external returns (bool);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| spender_ | `address` |             |
-| amount_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| spender_ | `address` |  |
+| amount_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

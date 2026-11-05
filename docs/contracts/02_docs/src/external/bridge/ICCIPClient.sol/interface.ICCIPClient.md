@@ -21,10 +21,10 @@ struct EVMTokenAmount {
 
 **Properties**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| token  | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | `address` |  |
+| amount | `uint256` |  |
 
 ### Any2EVMMessage
 
@@ -40,10 +40,10 @@ struct Any2EVMMessage {
 
 **Properties**
 
-| Name                | Type               | Description |
-| ------------------- | ------------------ | ----------- |
-| messageId           | `bytes32`          |             |
-| sourceChainSelector | `uint64`           |             |
-| sender              | `bytes`            |             |
-| data                | `bytes`            |             |
-| destTokenAmounts    | `EVMTokenAmount[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | `bytes32` |  |
+| sourceChainSelector | `uint64` |  |
+| sender | `bytes` |  |
+| data | `bytes` |  |
+| destTokenAmounts | `EVMTokenAmount[]` |  |

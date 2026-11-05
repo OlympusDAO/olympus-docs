@@ -102,9 +102,9 @@ uint48 public epoch;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 ### nextYield
 
@@ -134,9 +134,9 @@ bool public isShutdown;
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 ## Functions
 
@@ -156,13 +156,13 @@ constructor(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| kernel_     | `Kernel`  |             |
-| ohm_        | `address` |             |
-| sReserve_   | `address` |             |
-| teller_     | `address` |             |
-| auctioneer_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| ohm_ | `address` |  |
+| sReserve_ | `address` |  |
+| teller_ | `address` |  |
+| auctioneer_ | `address` |  |
 
 <a id="initialize-uint256-uint256-uint256"></a>
 
@@ -178,11 +178,11 @@ function initialize(
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| initialReserveBalance | `uint256` |             |
-| initialConversionRate | `uint256` |             |
-| initialYield          | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| initialReserveBalance | `uint256` |  |
+| initialConversionRate | `uint256` |  |
+| initialYield | `uint256` |  |
 
 <a id="configuredependencies"></a>
 
@@ -361,9 +361,9 @@ function getReserveBalance() public view override returns (uint256 balance);
 
 **Returns**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| balance | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| balance | `uint256` |  |
 
 <a id="getnextyield"></a>
 
@@ -377,9 +377,9 @@ function getNextYield() public view override returns (uint256 yield);
 
 **Returns**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| yield | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| yield | `uint256` |  |
 
 <a id="getohmbalanceandbacking"></a>
 
@@ -397,10 +397,10 @@ function getOhmBalanceAndBacking()
 
 **Returns**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| balance | `uint256` |             |
-| backing | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| balance | `uint256` |  |
+| backing | `uint256` |  |
 
 ## Events
 
@@ -412,10 +412,10 @@ event RepoMarket(uint256 marketId, uint256 bidAmount);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| marketId  | `uint256` |             |
-| bidAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| marketId | `uint256` |  |
+| bidAmount | `uint256` |  |
 
 ### NextYieldSet
 
@@ -425,9 +425,9 @@ event NextYieldSet(uint256 nextYield);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| nextYield | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| nextYield | `uint256` |  |
 
 ### Shutdown
 

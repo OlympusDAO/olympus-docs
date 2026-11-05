@@ -24,9 +24,9 @@ function baseToken() external view returns (address baseToken_);
 
 **Returns**
 
-| Name       | Type      | Description            |
-| ---------- | --------- | ---------------------- |
-| baseToken_ | `address` | The base token address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| baseToken_ | `address` |  The base token address |
 
 <a id="quotetoken"></a>
 
@@ -56,9 +56,9 @@ function maxAge() external view returns (uint48 maxAge_);
 
 **Returns**
 
-| Name    | Type     | Description                                 |
-| ------- | -------- | ------------------------------------------- |
-| maxAge_ | `uint48` | The configured maximum cache age in seconds |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxAge_ | `uint48` |  The configured maximum cache age in seconds |
 
 <a id="name"></a>
 
@@ -72,9 +72,9 @@ function name() external view returns (string memory name_);
 
 **Returns**
 
-| Name  | Type     | Description |
-| ----- | -------- | ----------- |
-| name_ | `string` | The name    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `string` |   The name |
 
 <a id="isstale"></a>
 
@@ -88,9 +88,9 @@ function isStale() external view returns (bool isStale_);
 
 **Returns**
 
-| Name     | Type   | Description                                                     |
-| -------- | ------ | --------------------------------------------------------------- |
-| isStale_ | `bool` | true if the direct pair cache is unset or older than `maxAge()` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isStale_ | `bool` |    true if the direct pair cache is unset or older than `maxAge()` |
 
 ## Errors
 

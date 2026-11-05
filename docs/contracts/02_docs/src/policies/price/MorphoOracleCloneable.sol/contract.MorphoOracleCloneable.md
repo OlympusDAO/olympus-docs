@@ -229,9 +229,9 @@ function price() external view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_scalefactor-ipricecache"></a>
 
@@ -263,9 +263,9 @@ function _scaleFactor(IPriceCache priceCache_) internal view returns (uint256 sc
 
 **Returns**
 
-| Name         | Type      | Description                     |
-| ------------ | --------- | ------------------------------- |
-| scaleFactor_ | `uint256` | The current Morpho scale factor |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| scaleFactor_ | `uint256` |    The current Morpho scale factor |
 
 <a id="_isstalefromtimestamp-uint48-uint48"></a>
 
@@ -277,16 +277,16 @@ function _isStaleFromTimestamp(uint48 timestamp_, uint48 maxAge_) internal view 
 
 **Parameters**
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| timestamp_ | `uint48` |             |
-| maxAge_    | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| timestamp_ | `uint48` |  |
+| maxAge_ | `uint48` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_latestpermissibletimestamp-uint48"></a>
 
@@ -298,15 +298,15 @@ function _latestPermissibleTimestamp(uint48 maxAge_) internal view returns (uint
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| maxAge_ | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxAge_ | `uint48` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="isstale"></a>
 

@@ -74,11 +74,11 @@ constructor(Kernel kernel_, IBondAggregator aggregator_, ERC20 ohm_) Policy(kern
 
 **Parameters**
 
-| Name        | Type              | Description |
-| ----------- | ----------------- | ----------- |
-| kernel_     | `Kernel`          |             |
-| aggregator_ | `IBondAggregator` |             |
-| ohm_        | `ERC20`           |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| aggregator_ | `IBondAggregator` |  |
+| ohm_ | `ERC20` |  |
 
 <a id="configuredependencies"></a>
 
@@ -291,9 +291,9 @@ error Callback_MarketNotSupported(uint256 id);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | `uint256` |  |
 
 ### Callback_TokensNotReceived
 

@@ -1402,9 +1402,9 @@ function _validateRateLimiterConfig(ICCIPRateLimiter.Config memory config_) inte
 
 **Parameters**
 
-| Name    | Type                      | Description |
-| ------- | ------------------------- | ----------- |
-| config_ | `ICCIPRateLimiter.Config` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| config_ | `ICCIPRateLimiter.Config` |  |
 
 <a id="_requireremoteaddresslength-bytes"></a>
 
@@ -1436,9 +1436,9 @@ function _requireSupportedChain(uint64 chainSelector_) internal view;
 
 **Parameters**
 
-| Name           | Type     | Description |
-| -------------- | -------- | ----------- |
-| chainSelector_ | `uint64` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| chainSelector_ | `uint64` |  |
 
 <a id="_requireliquiditycontainer"></a>
 
@@ -1624,12 +1624,12 @@ function supportsInterface(
 
 **Parameters**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| interfaceId_ | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

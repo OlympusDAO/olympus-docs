@@ -54,10 +54,10 @@ function amountsForMarket(uint256 id_) external view returns (uint256 in_, uint2
 
 **Returns**
 
-| Name | Type      | Description                                    |
-| ---- | --------- | ---------------------------------------------- |
-| in_  | `uint256` | Amount of quote tokens bonded to the market    |
-| out_ | `uint256` | Amount of payout tokens paid out to the market |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| in_ | `uint256` |     Amount of quote tokens bonded to the market |
+| out_ | `uint256` |    Amount of payout tokens paid out to the market |
 
 <a id="whitelist-address-uint256"></a>
 

@@ -14,6 +14,6 @@ function burn(uint256 amount) external;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount | `uint256` |  |

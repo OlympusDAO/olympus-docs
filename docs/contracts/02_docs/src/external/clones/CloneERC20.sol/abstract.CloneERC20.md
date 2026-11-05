@@ -26,9 +26,9 @@ uint256 public totalSupply;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ### balanceOf
 
@@ -40,15 +40,15 @@ mapping(address => uint256) public balanceOf;
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ### allowance
 
@@ -61,16 +61,16 @@ mapping(address => mapping(address => uint256)) public allowance;
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
+| &lt;none&gt; | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Functions
 
@@ -86,9 +86,9 @@ function name() external pure returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="symbol"></a>
 
@@ -102,9 +102,9 @@ function symbol() external pure returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="decimals"></a>
 
@@ -118,9 +118,9 @@ function decimals() external pure returns (uint8);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 <a id="approve-address-uint256"></a>
 
@@ -140,16 +140,16 @@ function approve(address spender, uint256 amount) public virtual returns (bool);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| spender | `address` |             |
-| amount  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| spender | `address` |  |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="increaseallowance-address-uint256"></a>
 
@@ -161,16 +161,16 @@ function increaseAllowance(address spender, uint256 amount) public virtual retur
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| spender | `address` |             |
-| amount  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| spender | `address` |  |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="decreaseallowance-address-uint256"></a>
 
@@ -182,16 +182,16 @@ function decreaseAllowance(address spender, uint256 amount) public virtual retur
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| spender | `address` |             |
-| amount  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| spender | `address` |  |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="transfer-address-uint256"></a>
 
@@ -205,16 +205,16 @@ function transfer(address to, uint256 amount) public virtual returns (bool);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| to     | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to | `address` |  |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="transferfrom-address-address-uint256"></a>
 
@@ -229,17 +229,17 @@ function transferFrom(address from, address to, uint256 amount) public virtual r
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| from   | `address` |             |
-| to     | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_mint-address-uint256"></a>
 
@@ -251,10 +251,10 @@ function _mint(address to, uint256 amount) internal virtual;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| to     | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to | `address` |  |
+| amount | `uint256` |  |
 
 <a id="_burn-address-uint256"></a>
 
@@ -266,7 +266,7 @@ function _burn(address from, uint256 amount) internal virtual;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| from   | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| amount | `uint256` |  |

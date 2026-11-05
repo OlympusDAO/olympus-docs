@@ -32,9 +32,9 @@ constructor(Module parent_) Submodule(parent_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| parent_ | `Module` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parent_ | `Module` |  |
 
 <a id="subkeycode"></a>
 
@@ -48,9 +48,9 @@ function SUBKEYCODE() public pure override returns (SubKeycode);
 
 **Returns**
 
-| Name         | Type         | Description |
-| ------------ | ------------ | ----------- |
-| &lt;none&gt; | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `SubKeycode` |  |
 
 <a id="version"></a>
 
@@ -199,11 +199,11 @@ function getPriceFromUnderlying(
 
 **Parameters**
 
-| Name            | Type      | Description                                                              |
-| --------------- | --------- | ------------------------------------------------------------------------ |
-| asset_          | `address` | The address of the ERC4626 asset                                         |
-| outputDecimals_ | `uint8`   | The number of output decimals (assumed to be the same as PRICE decimals) |
-| _               | `bytes`   |                                                                          |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` | The address of the ERC4626 asset |
+| outputDecimals_ | `uint8` | The number of output decimals (assumed to be the same as PRICE decimals) |
+| _ | `bytes` |  |
 
 **Returns**
 

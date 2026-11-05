@@ -35,16 +35,16 @@ constructor(
 
 **Parameters**
 
-| Name                       | Type                      | Description |
-| -------------------------- | ------------------------- | ----------- |
-| kernel_                    | `Kernel`                  |             |
-| ohmEthPriceFeed_           | `AggregatorV2V3Interface` |             |
-| ohmEthUpdateThreshold_     | `uint48`                  |             |
-| reserveEthPriceFeed_       | `AggregatorV2V3Interface` |             |
-| reserveEthUpdateThreshold_ | `uint48`                  |             |
-| observationFrequency_      | `uint48`                  |             |
-| movingAverageDuration_     | `uint48`                  |             |
-| minimumTargetPrice_        | `uint256`                 |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| ohmEthPriceFeed_ | `AggregatorV2V3Interface` |  |
+| ohmEthUpdateThreshold_ | `uint48` |  |
+| reserveEthPriceFeed_ | `AggregatorV2V3Interface` |  |
+| reserveEthUpdateThreshold_ | `uint48` |  |
+| observationFrequency_ | `uint48` |  |
+| movingAverageDuration_ | `uint48` |  |
+| minimumTargetPrice_ | `uint256` |  |
 
 <a id="keycode"></a>
 
@@ -58,9 +58,9 @@ function KEYCODE() public pure override returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="version"></a>
 
@@ -236,9 +236,9 @@ function getCurrentPrice() public view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getlastprice"></a>
 
@@ -252,9 +252,9 @@ function getLastPrice() external view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getmovingaverage"></a>
 
@@ -268,9 +268,9 @@ function getMovingAverage() public view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="gettargetprice"></a>
 
@@ -290,6 +290,6 @@ function getTargetPrice() external view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

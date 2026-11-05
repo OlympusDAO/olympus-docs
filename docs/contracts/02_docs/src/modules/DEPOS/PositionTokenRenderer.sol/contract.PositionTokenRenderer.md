@@ -70,15 +70,15 @@ function _getTimeString(uint48 time_) internal pure returns (string memory);
 
 **Parameters**
 
-| Name  | Type     | Description |
-| ----- | -------- | ----------- |
-| time_ | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| time_ | `uint48` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_rendersvg-idepositpositionmanager-position-string-bool"></a>
 
@@ -94,17 +94,17 @@ function _renderSVG(
 
 **Parameters**
 
-| Name                   | Type                               | Description |
-| ---------------------- | ---------------------------------- | ----------- |
-| position_              | `IDepositPositionManager.Position` |             |
-| cdSymbol_              | `string`                           |             |
-| positionIsConvertible_ | `bool`                             |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| position_ | `IDepositPositionManager.Position` |  |
+| cdSymbol_ | `string` |  |
+| positionIsConvertible_ | `bool` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="supportsinterface-bytes4"></a>
 
@@ -116,12 +116,12 @@ function supportsInterface(bytes4 interfaceId_) external pure returns (bool);
 
 **Parameters**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| interfaceId_ | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

@@ -24,9 +24,9 @@ constructor(Kernel kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="onlykernel"></a>
 
@@ -50,9 +50,9 @@ function changeKernel(Kernel newKernel_) external onlyKernel;
 
 **Parameters**
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| newKernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newKernel_ | `Kernel` |  |
 
 ## Errors
 
@@ -64,6 +64,6 @@ error KernelAdapter_OnlyKernel(address caller_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| caller_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |

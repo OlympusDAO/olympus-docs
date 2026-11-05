@@ -86,12 +86,12 @@ constructor(
 
 **Parameters**
 
-| Name             | Type           | Description |
-| ---------------- | -------------- | ----------- |
-| kernel_          | `Kernel`       |             |
-| distributor_     | `IDistributor` |             |
-| maxReward_       | `uint256`      |             |
-| auctionDuration_ | `uint48`       |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| distributor_ | `IDistributor` |  |
+| maxReward_ | `uint256` |  |
+| auctionDuration_ | `uint48` |  |
 
 <a id="configuredependencies"></a>
 
@@ -302,9 +302,9 @@ function frequency() public view returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="currentreward"></a>
 
@@ -318,6 +318,6 @@ function currentReward() public view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

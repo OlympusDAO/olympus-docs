@@ -14,14 +14,14 @@ function deposit(uint256 pid_, uint256 amount_, bool stake_) external returns (b
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| pid_    | `uint256` |             |
-| amount_ | `uint256` |             |
-| stake_  | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pid_ | `uint256` |  |
+| amount_ | `uint256` |  |
+| stake_ | `bool` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

@@ -104,9 +104,9 @@ function logRequestLoan(uint256 reqID_) external onlyFromFactory;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| reqID_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reqID_ | `uint256` |  |
 
 <a id="logrescindrequest-uint256"></a>
 
@@ -120,9 +120,9 @@ function logRescindRequest(uint256 reqID_) external onlyFromFactory;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| reqID_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reqID_ | `uint256` |  |
 
 <a id="logclearrequest-uint256-uint256"></a>
 
@@ -136,10 +136,10 @@ function logClearRequest(uint256 reqID_, uint256 loanID_) external onlyFromFacto
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| reqID_  | `uint256` |             |
-| loanID_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reqID_ | `uint256` |  |
+| loanID_ | `uint256` |  |
 
 <a id="logrepayloan-uint256-uint256"></a>
 
@@ -153,10 +153,10 @@ function logRepayLoan(uint256 loanID_, uint256 repayment_) external onlyFromFact
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| loanID_    | `uint256` |             |
-| repayment_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` |  |
+| repayment_ | `uint256` |  |
 
 <a id="logextendloan-uint256-uint8"></a>
 
@@ -170,10 +170,10 @@ function logExtendLoan(uint256 loanID_, uint8 times_) external onlyFromFactory;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| loanID_ | `uint256` |             |
-| times_  | `uint8`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` |  |
+| times_ | `uint8` |  |
 
 <a id="logdefaultloan-uint256-uint256"></a>
 
@@ -187,10 +187,10 @@ function logDefaultLoan(uint256 loanID_, uint256 collateral_) external onlyFromF
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| loanID_     | `uint256` |             |
-| collateral_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` |  |
+| collateral_ | `uint256` |  |
 
 <a id="getcoolerfor-address-address-address"></a>
 
@@ -208,17 +208,17 @@ function getCoolerFor(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| user_       | `address` |             |
-| collateral_ | `address` |             |
-| debt_       | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user_ | `address` |  |
+| collateral_ | `address` |  |
+| debt_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ## Events
 
@@ -232,12 +232,12 @@ event RequestLoan(address indexed cooler, address collateral, address debt, uint
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| cooler     | `address` |             |
-| collateral | `address` |             |
-| debt       | `address` |             |
-| reqID      | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| collateral | `address` |  |
+| debt | `address` |  |
+| reqID | `uint256` |  |
 
 ### RescindRequest
 
@@ -249,10 +249,10 @@ event RescindRequest(address indexed cooler, uint256 reqID);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| cooler | `address` |             |
-| reqID  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| reqID | `uint256` |  |
 
 ### ClearRequest
 
@@ -264,11 +264,11 @@ event ClearRequest(address indexed cooler, uint256 reqID, uint256 loanID);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| cooler | `address` |             |
-| reqID  | `uint256` |             |
-| loanID | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| reqID | `uint256` |  |
+| loanID | `uint256` |  |
 
 ### RepayLoan
 
@@ -280,11 +280,11 @@ event RepayLoan(address indexed cooler, uint256 loanID, uint256 amount);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| cooler | `address` |             |
-| loanID | `uint256` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| loanID | `uint256` |  |
+| amount | `uint256` |  |
 
 ### ExtendLoan
 
@@ -296,11 +296,11 @@ event ExtendLoan(address indexed cooler, uint256 loanID, uint8 times);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| cooler | `address` |             |
-| loanID | `uint256` |             |
-| times  | `uint8`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| loanID | `uint256` |  |
+| times | `uint8` |  |
 
 ### DefaultLoan
 
@@ -312,11 +312,11 @@ event DefaultLoan(address indexed cooler, uint256 loanID, uint256 amount);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| cooler | `address` |             |
-| loanID | `uint256` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| loanID | `uint256` |  |
+| amount | `uint256` |  |
 
 ## Errors
 

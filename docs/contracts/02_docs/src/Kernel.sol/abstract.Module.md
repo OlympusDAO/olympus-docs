@@ -25,9 +25,9 @@ constructor(Kernel kernel_) KernelAdapter(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="permissioned"></a>
 
@@ -51,9 +51,9 @@ function KEYCODE() public pure virtual returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="version"></a>
 
@@ -104,6 +104,6 @@ error Module_PolicyNotPermitted(address policy_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |

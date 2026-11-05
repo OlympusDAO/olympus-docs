@@ -14,9 +14,9 @@ function dai() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="daijoin"></a>
 
@@ -28,9 +28,9 @@ function daiJoin() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="daitousds-address-uint256"></a>
 
@@ -42,10 +42,10 @@ function daiToUsds(address usr, uint256 wad) external;
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| usr  | `address` |             |
-| wad  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| usr | `address` |  |
+| wad | `uint256` |  |
 
 <a id="usds"></a>
 
@@ -57,9 +57,9 @@ function usds() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="usdsjoin"></a>
 
@@ -71,9 +71,9 @@ function usdsJoin() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="usdstodai-address-uint256"></a>
 
@@ -85,10 +85,10 @@ function usdsToDai(address usr, uint256 wad) external;
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| usr  | `address` |             |
-| wad  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| usr | `address` |  |
+| wad | `uint256` |  |
 
 ## Events
 
@@ -100,11 +100,11 @@ event DaiToUsds(address indexed caller, address indexed usr, uint256 wad);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| caller | `address` |             |
-| usr    | `address` |             |
-| wad    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| usr | `address` |  |
+| wad | `uint256` |  |
 
 ### UsdsToDai
 
@@ -114,8 +114,8 @@ event UsdsToDai(address indexed caller, address indexed usr, uint256 wad);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| caller | `address` |             |
-| usr    | `address` |             |
-| wad    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| usr | `address` |  |
+| wad | `uint256` |  |

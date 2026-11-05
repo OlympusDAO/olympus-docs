@@ -95,12 +95,12 @@ constructor(
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| kernel_      | `Kernel`  |             |
-| ohm_         | `address` |             |
-| staking_     | `address` |             |
-| initialRate_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| ohm_ | `address` |  |
+| staking_ | `address` |  |
+| initialRate_ | `uint256` |  |
 
 <a id="configuredependencies"></a>
 

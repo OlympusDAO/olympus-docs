@@ -82,9 +82,9 @@ bytes32 public immutable override DOMAIN_SEPARATOR;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 ### _RAY
 
@@ -176,9 +176,9 @@ uint128 public override totalCollateral;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint128` |  |
 
 ### totalDebt
 
@@ -197,9 +197,9 @@ uint128 public override totalDebt;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint128` |  |
 
 ### interestAccumulatorRay
 
@@ -217,9 +217,9 @@ uint256 public override interestAccumulatorRay;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ### interestRateWad
 
@@ -243,9 +243,9 @@ uint96 public override interestRateWad;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
 
 ### ltvOracle
 
@@ -257,9 +257,9 @@ ICoolerLtvOracle public override ltvOracle;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ### liquidationsPaused
 
@@ -272,9 +272,9 @@ bool public override liquidationsPaused;
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 ### borrowsPaused
 
@@ -286,9 +286,9 @@ bool public override borrowsPaused;
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 ### interestAccumulatorUpdatedAt
 
@@ -300,9 +300,9 @@ uint40 public override interestAccumulatorUpdatedAt;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint40` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint40` |  |
 
 ### treasuryBorrower
 
@@ -314,9 +314,9 @@ ICoolerTreasuryBorrower public override treasuryBorrower;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ### allAccountState
 
@@ -349,16 +349,16 @@ mapping(address /* account */ => mapping(address /* authorized */ => uint96 /* a
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
+| &lt;none&gt; | `address` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
 
 ### authorizationNonces
 
@@ -370,15 +370,15 @@ mapping(address /* account */ => uint256) public override authorizationNonces;
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Functions
 
@@ -400,15 +400,15 @@ constructor(
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| ohm_             | `address` |             |
-| gohm_            | `address` |             |
-| staking_         | `address` |             |
-| kernel_          | `address` |             |
-| ltvOracle_       | `address` |             |
-| interestRateWad_ | `uint96`  |             |
-| minDebtRequired_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohm_ | `address` |  |
+| gohm_ | `address` |  |
+| staking_ | `address` |  |
+| kernel_ | `address` |  |
+| ltvOracle_ | `address` |  |
+| interestRateWad_ | `uint96` |  |
+| minDebtRequired_ | `uint256` |  |
 
 <a id="configuredependencies"></a>
 
@@ -529,16 +529,16 @@ function isSenderAuthorized(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| sender     | `address` |             |
-| onBehalfOf | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | `address` |  |
+| onBehalfOf | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_requiresenderauthorized-address-address"></a>
 
@@ -550,10 +550,10 @@ function _requireSenderAuthorized(address sender, address onBehalfOf) internal v
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| sender     | `address` |             |
-| onBehalfOf | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | `address` |  |
+| onBehalfOf | `address` |  |
 
 <a id="addcollateral-uint128-address-idlgtev1-delegationrequest"></a>
 
@@ -607,9 +607,9 @@ function withdrawCollateral(
 
 **Returns**
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| collateralWithdrawn | `uint128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateralWithdrawn | `uint128` |  |
 
 <a id="borrow-uint128-address-address"></a>
 
@@ -698,11 +698,11 @@ function applyDelegations(
 
 **Returns**
 
-| Name               | Type      | Description |
-| ------------------ | --------- | ----------- |
-| totalDelegated     | `uint256` |             |
-| totalUndelegated   | `uint256` |             |
-| undelegatedBalance | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalDelegated | `uint256` |  |
+| totalUndelegated | `uint256` |  |
+| undelegatedBalance | `uint256` |  |
 
 <a id="applyunhealthydelegations-address-uint256"></a>
 
@@ -721,17 +721,17 @@ function applyUnhealthyDelegations(
 
 **Parameters**
 
-| Name                       | Type      | Description |
-| -------------------------- | --------- | ----------- |
-| account                    | `address` |             |
-| autoRescindMaxNumDelegates | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| autoRescindMaxNumDelegates | `uint256` |  |
 
 **Returns**
 
-| Name               | Type      | Description |
-| ------------------ | --------- | ----------- |
-| totalUndelegated   | `uint256` |             |
-| undelegatedBalance | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalUndelegated | `uint256` |  |
+| undelegatedBalance | `uint256` |  |
 
 <a id="batchliquidate-address"></a>
 
@@ -762,17 +762,17 @@ function batchLiquidate(
 
 **Parameters**
 
-| Name     | Type        | Description |
-| -------- | ----------- | ----------- |
-| accounts | `address[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| accounts | `address[]` |  |
 
 **Returns**
 
-| Name                      | Type      | Description |
-| ------------------------- | --------- | ----------- |
-| totalCollateralClaimed    | `uint128` |             |
-| totalDebtWiped            | `uint128` |             |
-| totalLiquidationIncentive | `uint128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalCollateralClaimed | `uint128` |  |
+| totalDebtWiped | `uint128` |  |
+| totalLiquidationIncentive | `uint128` |  |
 
 <a id="setltvoracle-address"></a>
 
@@ -786,9 +786,9 @@ function setLtvOracle(address newOracle) external override onlyAdminRole;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| newOracle | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newOracle | `address` |  |
 
 <a id="settreasuryborrower-address"></a>
 
@@ -802,9 +802,9 @@ function setTreasuryBorrower(address newTreasuryBorrower) external override;
 
 **Parameters**
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| newTreasuryBorrower | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newTreasuryBorrower | `address` |  |
 
 <a id="setliquidationspaused-bool"></a>
 
@@ -824,9 +824,9 @@ function setLiquidationsPaused(bool isPaused) external override onlyEmergencyOrA
 
 **Parameters**
 
-| Name     | Type   | Description |
-| -------- | ------ | ----------- |
-| isPaused | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isPaused | `bool` |  |
 
 <a id="setborrowpaused-bool"></a>
 
@@ -846,9 +846,9 @@ function setBorrowPaused(bool isPaused) external override onlyEmergencyOrAdminRo
 
 **Parameters**
 
-| Name     | Type   | Description |
-| -------- | ------ | ----------- |
-| isPaused | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isPaused | `bool` |  |
 
 <a id="setinterestratewad-uint96"></a>
 
@@ -869,9 +869,9 @@ function setInterestRateWad(uint96 newInterestRate) external override onlyAdminR
 
 **Parameters**
 
-| Name            | Type     | Description |
-| --------------- | -------- | ----------- |
-| newInterestRate | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newInterestRate | `uint96` |  |
 
 <a id="setmaxdelegateaddresses-address-uint32"></a>
 
@@ -889,10 +889,10 @@ function setMaxDelegateAddresses(
 
 **Parameters**
 
-| Name                 | Type      | Description |
-| -------------------- | --------- | ----------- |
-| account              | `address` |             |
-| maxDelegateAddresses | `uint32`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| maxDelegateAddresses | `uint32` |  |
 
 <a id="checkpointdebt"></a>
 
@@ -915,10 +915,10 @@ function checkpointDebt()
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint128` |             |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint128` |  |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="collateraltoken"></a>
 
@@ -932,9 +932,9 @@ function collateralToken() external view override returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="ohm"></a>
 
@@ -948,9 +948,9 @@ function ohm() external view override returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="debttoken"></a>
 
@@ -964,9 +964,9 @@ function debtToken() external view override returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="staking"></a>
 
@@ -980,9 +980,9 @@ function staking() external view override returns (IStaking);
 
 **Returns**
 
-| Name         | Type       | Description |
-| ------------ | ---------- | ----------- |
-| &lt;none&gt; | `IStaking` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IStaking` |  |
 
 <a id="mindebtrequired"></a>
 
@@ -1003,9 +1003,9 @@ function minDebtRequired() external view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="loantovalues"></a>
 
@@ -1029,10 +1029,10 @@ function loanToValues()
 
 **Returns**
 
-| Name              | Type     | Description |
-| ----------------- | -------- | ----------- |
-| maxOriginationLtv | `uint96` |             |
-| liquidationLtv    | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxOriginationLtv | `uint96` |  |
+| liquidationLtv | `uint96` |  |
 
 <a id="debtdeltaformaxoriginationltv-address-int128"></a>
 
@@ -1059,16 +1059,16 @@ function debtDeltaForMaxOriginationLtv(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| account         | `address` |             |
-| collateralDelta | `int128`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| collateralDelta | `int128` |  |
 
 **Returns**
 
-| Name      | Type     | Description |
-| --------- | -------- | ----------- |
-| debtDelta | `int128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtDelta | `int128` |  |
 
 <a id="accountposition-address"></a>
 
@@ -1090,9 +1090,9 @@ function accountPosition(
 
 **Returns**
 
-| Name     | Type              | Description |
-| -------- | ----------------- | ----------- |
-| position | `AccountPosition` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| position | `AccountPosition` |  |
 
 <a id="computeliquidity-address"></a>
 
@@ -1120,9 +1120,9 @@ function computeLiquidity(
 
 **Returns**
 
-| Name   | Type                  | Description |
-| ------ | --------------------- | ----------- |
-| status | `LiquidationStatus[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| status | `LiquidationStatus[]` |  |
 
 <a id="accountdelegationslist-address-uint256-uint256"></a>
 
@@ -1147,17 +1147,17 @@ function accountDelegationsList(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| account    | `address` |             |
-| startIndex | `uint256` |             |
-| maxItems   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| startIndex | `uint256` |  |
+| maxItems | `uint256` |  |
 
 **Returns**
 
-| Name        | Type                           | Description |
-| ----------- | ------------------------------ | ----------- |
-| delegations | `IDLGTEv1.AccountDelegation[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delegations | `IDLGTEv1.AccountDelegation[]` |  |
 
 <a id="accountstate-address"></a>
 
@@ -1171,15 +1171,15 @@ function accountState(address account) external view override returns (AccountSt
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| account | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
 
 **Returns**
 
-| Name         | Type           | Description |
-| ------------ | -------------- | ----------- |
-| &lt;none&gt; | `AccountState` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `AccountState` |  |
 
 <a id="accountcollateral-address"></a>
 
@@ -1199,15 +1199,15 @@ function accountCollateral(address account) external view override returns (uint
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| account | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint128` |  |
 
 <a id="accountdebt-address"></a>
 
@@ -1221,15 +1221,15 @@ function accountDebt(address account) external view override returns (uint128);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| account | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint128` |  |
 
 <a id="globalstate"></a>
 
@@ -1247,10 +1247,10 @@ function globalState()
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint128` |             |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint128` |  |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_globalstaterw"></a>
 
@@ -1269,9 +1269,9 @@ function _globalStateRW() private returns (GlobalStateCache memory gStateCache);
 
 **Returns**
 
-| Name        | Type               | Description |
-| ----------- | ------------------ | ----------- |
-| gStateCache | `GlobalStateCache` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gStateCache | `GlobalStateCache` |  |
 
 <a id="_globalstatero"></a>
 
@@ -1290,9 +1290,9 @@ function _globalStateRO() private view returns (GlobalStateCache memory gStateCa
 
 **Returns**
 
-| Name        | Type               | Description |
-| ----------- | ------------------ | ----------- |
-| gStateCache | `GlobalStateCache` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gStateCache | `GlobalStateCache` |  |
 
 <a id="_initglobalstatecache-globalstatecache"></a>
 
@@ -1312,15 +1312,15 @@ function _initGlobalStateCache(
 
 **Parameters**
 
-| Name        | Type               | Description |
-| ----------- | ------------------ | ----------- |
-| gStateCache | `GlobalStateCache` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gStateCache | `GlobalStateCache` |  |
 
 **Returns**
 
-| Name  | Type   | Description |
-| ----- | ------ | ----------- |
-| dirty | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dirty | `bool` |  |
 
 <a id="_reducetotaldebt-globalstatecache-uint128"></a>
 
@@ -1341,10 +1341,10 @@ function _reduceTotalDebt(GlobalStateCache memory gStateCache, uint128 repayAmou
 
 **Parameters**
 
-| Name        | Type               | Description |
-| ----------- | ------------------ | ----------- |
-| gStateCache | `GlobalStateCache` |             |
-| repayAmount | `uint128`          |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gStateCache | `GlobalStateCache` |  |
+| repayAmount | `uint128` |  |
 
 <a id="_maxdebt-uint128-uint256"></a>
 
@@ -1366,16 +1366,16 @@ function _maxDebt(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| collateral        | `uint128` |             |
-| maxOriginationLtv | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateral | `uint128` |  |
+| maxOriginationLtv | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint128` |  |
 
 <a id="_mincollateral-uint128-uint256"></a>
 
@@ -1397,16 +1397,16 @@ function _minCollateral(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| debt              | `uint128` |             |
-| maxOriginationLtv | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debt | `uint128` |  |
+| maxOriginationLtv | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint128` |  |
 
 <a id="_validateoriginationltv-uint128-uint256"></a>
 
@@ -1424,10 +1424,10 @@ function _validateOriginationLtv(uint128 ltv, uint256 maxOriginationLtv) private
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| ltv               | `uint128` |             |
-| maxOriginationLtv | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ltv | `uint128` |  |
+| maxOriginationLtv | `uint256` |  |
 
 <a id="_calculatecurrentltv-uint128-uint128"></a>
 
@@ -1448,16 +1448,16 @@ function _calculateCurrentLtv(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| currentDebt | `uint128` |             |
-| collateral  | `uint128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| currentDebt | `uint128` |  |
+| collateral | `uint128` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint128` |  |
 
 <a id="_computeliquidity-accountstate-globalstatecache"></a>
 
@@ -1479,16 +1479,16 @@ function _computeLiquidity(
 
 **Parameters**
 
-| Name        | Type               | Description |
-| ----------- | ------------------ | ----------- |
-| aStateCache | `AccountState`     |             |
-| gStateCache | `GlobalStateCache` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| aStateCache | `AccountState` |  |
+| gStateCache | `GlobalStateCache` |  |
 
 **Returns**
 
-| Name   | Type                | Description |
-| ------ | ------------------- | ----------- |
-| status | `LiquidationStatus` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| status | `LiquidationStatus` |  |
 
 <a id="_currentaccountdebt-uint128-uint256-uint256"></a>
 
@@ -1511,17 +1511,17 @@ function _currentAccountDebt(
 
 **Parameters**
 
-| Name                           | Type      | Description |
-| ------------------------------ | --------- | ----------- |
-| accountDebtCheckpoint_         | `uint128` |             |
-| accountInterestAccumulatorRay_ | `uint256` |             |
-| globalInterestAccumulatorRay_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| accountDebtCheckpoint_ | `uint128` |  |
+| accountInterestAccumulatorRay_ | `uint256` |  |
+| globalInterestAccumulatorRay_ | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| result | `uint128` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| result | `uint128` |  |
 
 <a id="_requireamountnonzero-uint256"></a>
 
@@ -1533,9 +1533,9 @@ function _requireAmountNonZero(uint256 amount_) internal pure;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` |  |
 
 <a id="_requireaddressnonzero-address"></a>
 
@@ -1547,9 +1547,9 @@ function _requireAddressNonZero(address addr_) internal pure;
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| addr_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addr_ | `address` |  |
 
 ## Structs
 
@@ -1582,9 +1582,9 @@ struct GlobalStateCache {
 
 **Properties**
 
-| Name                   | Type      | Description |
-| ---------------------- | --------- | ----------- |
-| totalDebt              | `uint128` |             |
-| interestAccumulatorRay | `uint256` |             |
-| liquidationLtv         | `uint96`  |             |
-| maxOriginationLtv      | `uint96`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalDebt | `uint128` |  |
+| interestAccumulatorRay | `uint256` |  |
+| liquidationLtv | `uint96` |  |
+| maxOriginationLtv | `uint96` |  |

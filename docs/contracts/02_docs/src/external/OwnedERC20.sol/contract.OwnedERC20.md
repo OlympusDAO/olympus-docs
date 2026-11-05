@@ -22,11 +22,11 @@ constructor(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| name_         | `string`  |             |
-| symbol_       | `string`  |             |
-| initialOwner_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `string` |  |
+| symbol_ | `string` |  |
+| initialOwner_ | `address` |  |
 
 <a id="mint-address-uint256"></a>
 
@@ -46,7 +46,7 @@ function mint(address to, uint256 amount) public virtual onlyOwner;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| to     | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to | `address` |  |
+| amount | `uint256` |  |

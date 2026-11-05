@@ -55,9 +55,9 @@ function id() public pure override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="name"></a>
 
@@ -69,9 +69,9 @@ function name() public pure override returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="description"></a>
 
@@ -83,9 +83,9 @@ function description() public pure override returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_descriptionpreamble"></a>
 
@@ -97,9 +97,9 @@ function _descriptionPreamble() private pure returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_descriptionsteps"></a>
 
@@ -111,9 +111,9 @@ function _descriptionSteps() private pure returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_deploy-addresses-address"></a>
 
@@ -125,10 +125,10 @@ function _deploy(Addresses addresses, address) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| _         | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |
 
 <a id="_afterdeploy-addresses-address"></a>
 
@@ -140,10 +140,10 @@ function _afterDeploy(Addresses addresses, address) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| _         | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |
 
 <a id="_build-addresses"></a>
 
@@ -155,9 +155,9 @@ function _build(Addresses addresses) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
 
 <a id="_run-addresses-address"></a>
 
@@ -169,10 +169,10 @@ function _run(Addresses addresses, address) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| _         | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |
 
 <a id="_validate-addresses-address"></a>
 
@@ -184,10 +184,10 @@ function _validate(Addresses addresses, address) internal view override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| _         | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |
 
 <a id="_validatelzconfig-lzbridgegateway-ilayerzeroendpoint256v2"></a>
 
@@ -199,10 +199,10 @@ function _validateLZConfig(LZBridgeGateway gw, ILayerZeroEndpointV2 ep) internal
 
 **Parameters**
 
-| Name | Type                   | Description |
-| ---- | ---------------------- | ----------- |
-| gw   | `LZBridgeGateway`      |             |
-| ep   | `ILayerZeroEndpointV2` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gw | `LZBridgeGateway` |  |
+| ep | `ILayerZeroEndpointV2` |  |
 
 <a id="_validatelibraries-lzbridgegateway-ilayerzeroendpoint256v2-uint32"></a>
 
@@ -218,11 +218,11 @@ function _validateLibraries(
 
 **Parameters**
 
-| Name | Type                   | Description |
-| ---- | ---------------------- | ----------- |
-| gw   | `LZBridgeGateway`      |             |
-| ep   | `ILayerZeroEndpointV2` |             |
-| eid  | `uint32`               |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gw | `LZBridgeGateway` |  |
+| ep | `ILayerZeroEndpointV2` |  |
+| eid | `uint32` |  |
 
 <a id="_validatesendconfig-lzbridgegateway-ilayerzeroendpoint256v2-uint32"></a>
 
@@ -238,11 +238,11 @@ function _validateSendConfig(
 
 **Parameters**
 
-| Name | Type                   | Description |
-| ---- | ---------------------- | ----------- |
-| gw   | `LZBridgeGateway`      |             |
-| ep   | `ILayerZeroEndpointV2` |             |
-| eid  | `uint32`               |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gw | `LZBridgeGateway` |  |
+| ep | `ILayerZeroEndpointV2` |  |
+| eid | `uint32` |  |
 
 <a id="_validaterecvconfig-lzbridgegateway-ilayerzeroendpoint256v2-uint32-uint64"></a>
 
@@ -259,12 +259,12 @@ function _validateRecvConfig(
 
 **Parameters**
 
-| Name         | Type                   | Description |
-| ------------ | ---------------------- | ----------- |
-| gw           | `LZBridgeGateway`      |             |
-| ep           | `ILayerZeroEndpointV2` |             |
-| eid          | `uint32`               |             |
-| expectedConf | `uint64`               |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gw | `LZBridgeGateway` |  |
+| ep | `ILayerZeroEndpointV2` |  |
+| eid | `uint32` |  |
+| expectedConf | `uint64` |  |
 
 <a id="_validatepeers-lzbridgegateway-lzbridgeactivator"></a>
 
@@ -276,10 +276,10 @@ function _validatePeers(LZBridgeGateway gw, LZBridgeActivator activator) interna
 
 **Parameters**
 
-| Name      | Type                | Description |
-| --------- | ------------------- | ----------- |
-| gw        | `LZBridgeGateway`   |             |
-| activator | `LZBridgeActivator` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gw | `LZBridgeGateway` |  |
+| activator | `LZBridgeActivator` |  |
 
 <a id="_validateenforcedoptions-lzbridgegateway"></a>
 
@@ -291,9 +291,9 @@ function _validateEnforcedOptions(LZBridgeGateway gw) internal view;
 
 **Parameters**
 
-| Name | Type              | Description |
-| ---- | ----------------- | ----------- |
-| gw   | `LZBridgeGateway` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gw | `LZBridgeGateway` |  |
 
 <a id="_validateratelimits-lzbridgegateway"></a>
 
@@ -305,9 +305,9 @@ function _validateRateLimits(LZBridgeGateway gw) internal view;
 
 **Parameters**
 
-| Name | Type              | Description |
-| ---- | ----------------- | ----------- |
-| gw   | `LZBridgeGateway` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gw | `LZBridgeGateway` |  |
 
 <a id="_requirenonzeroaddress-address-string"></a>
 
@@ -321,7 +321,7 @@ function _requireNonZeroAddress(address addr_, string memory key_) internal pure
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| addr_ | `address` |             |
-| key_  | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addr_ | `address` |  |
+| key_ | `string` |  |

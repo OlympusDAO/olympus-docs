@@ -59,9 +59,9 @@ function KEYCODE() public pure override returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="version"></a>
 
@@ -354,9 +354,9 @@ function _validateContractName(bytes5 name_) internal pure;
 
 **Parameters**
 
-| Name  | Type     | Description |
-| ----- | -------- | ----------- |
-| name_ | `bytes5` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `bytes5` |  |
 
 <a id="_removecontractname-bytes5"></a>
 

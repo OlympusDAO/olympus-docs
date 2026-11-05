@@ -16,9 +16,9 @@ function setIndex(uint256 _index) external;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| _index | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _index | `uint256` |  |
 
 <a id="setgohm-address"></a>
 
@@ -30,9 +30,9 @@ function setgOHM(address _gOHM) external;
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| _gOHM | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _gOHM | `address` |  |
 
 <a id="initialize-address-address"></a>
 
@@ -44,10 +44,10 @@ function initialize(address _stakingContract, address _treasury) external;
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| _stakingContract | `address` |             |
-| _treasury        | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _stakingContract | `address` |  |
+| _treasury | `address` |  |
 
 <a id="index"></a>
 
@@ -59,9 +59,9 @@ function index() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="gohm"></a>
 
@@ -73,9 +73,9 @@ function gOHM() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="stakingcontract"></a>
 
@@ -87,9 +87,9 @@ function stakingContract() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="treasury"></a>
 
@@ -101,9 +101,9 @@ function treasury() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="circulatingsupply"></a>
 
@@ -115,9 +115,9 @@ function circulatingSupply() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="gonsforbalance-uint256"></a>
 
@@ -129,15 +129,15 @@ function gonsForBalance(uint256 amount) external view returns (uint256);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="balanceforgons-uint256"></a>
 
@@ -149,12 +149,12 @@ function balanceForGons(uint256 gons) external view returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| gons | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gons | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

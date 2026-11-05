@@ -14,9 +14,9 @@ function getPoolId() external view returns (bytes32);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="totalsupply"></a>
 
@@ -28,9 +28,9 @@ function totalSupply() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="decimals"></a>
 
@@ -42,6 +42,6 @@ function decimals() external view returns (uint8);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |

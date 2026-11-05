@@ -74,9 +74,9 @@ function owner() public pure returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="manager"></a>
 
@@ -88,9 +88,9 @@ function manager() public pure returns (BLVaultManagerLusd);
 
 **Returns**
 
-| Name         | Type                 | Description |
-| ------------ | -------------------- | ----------- |
-| &lt;none&gt; | `BLVaultManagerLusd` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `BLVaultManagerLusd` |  |
 
 <a id="trsry"></a>
 
@@ -102,9 +102,9 @@ function TRSRY() public pure returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="mintr"></a>
 
@@ -116,9 +116,9 @@ function MINTR() public pure returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="ohm"></a>
 
@@ -130,9 +130,9 @@ function ohm() public pure returns (OlympusERC20Token);
 
 **Returns**
 
-| Name         | Type                | Description |
-| ------------ | ------------------- | ----------- |
-| &lt;none&gt; | `OlympusERC20Token` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `OlympusERC20Token` |  |
 
 <a id="lusd"></a>
 
@@ -144,9 +144,9 @@ function lusd() public pure returns (ERC20);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `ERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `ERC20` |  |
 
 <a id="aura"></a>
 
@@ -158,9 +158,9 @@ function aura() public pure returns (ERC20);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `ERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `ERC20` |  |
 
 <a id="bal"></a>
 
@@ -172,9 +172,9 @@ function bal() public pure returns (ERC20);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `ERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `ERC20` |  |
 
 <a id="vault"></a>
 
@@ -186,9 +186,9 @@ function vault() public pure returns (IVault);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IVault` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IVault` |  |
 
 <a id="liquiditypool"></a>
 
@@ -200,9 +200,9 @@ function liquidityPool() public pure returns (IBasePool);
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `IBasePool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IBasePool` |  |
 
 <a id="pid"></a>
 
@@ -214,9 +214,9 @@ function pid() public pure returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="aurabooster"></a>
 
@@ -228,9 +228,9 @@ function auraBooster() public pure returns (IAuraBooster);
 
 **Returns**
 
-| Name         | Type           | Description |
-| ------------ | -------------- | ----------- |
-| &lt;none&gt; | `IAuraBooster` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IAuraBooster` |  |
 
 <a id="aurarewardpool"></a>
 
@@ -242,9 +242,9 @@ function auraRewardPool() public pure returns (IAuraRewardPool);
 
 **Returns**
 
-| Name         | Type              | Description |
-| ------------ | ----------------- | ----------- |
-| &lt;none&gt; | `IAuraRewardPool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IAuraRewardPool` |  |
 
 <a id="fee"></a>
 
@@ -256,9 +256,9 @@ function fee() public pure returns (uint64);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint64` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint64` |  |
 
 <a id="onlyowner"></a>
 
@@ -488,11 +488,11 @@ function _joinBalancerPool(
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| ohmAmount_   | `uint256` |             |
-| lusdAmount_  | `uint256` |             |
-| minLpAmount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmAmount_ | `uint256` |  |
+| lusdAmount_ | `uint256` |  |
+| minLpAmount_ | `uint256` |  |
 
 <a id="_exitbalancerpool-uint256-uint256"></a>
 
@@ -504,10 +504,10 @@ function _exitBalancerPool(uint256 lpAmount_, uint256[] calldata minTokenAmounts
 
 **Parameters**
 
-| Name             | Type        | Description |
-| ---------------- | ----------- | ----------- |
-| lpAmount_        | `uint256`   |             |
-| minTokenAmounts_ | `uint256[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| lpAmount_ | `uint256` |  |
+| minTokenAmounts_ | `uint256[]` |  |
 
 <a id="_sendrewards"></a>
 
@@ -527,10 +527,10 @@ event Deposit(uint256 ohmAmount, uint256 lusdAmount);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| ohmAmount  | `uint256` |             |
-| lusdAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmAmount | `uint256` |  |
+| lusdAmount | `uint256` |  |
 
 ### Withdraw
 
@@ -540,10 +540,10 @@ event Withdraw(uint256 ohmAmount, uint256 lusdAmount);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| ohmAmount  | `uint256` |             |
-| lusdAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmAmount | `uint256` |  |
+| lusdAmount | `uint256` |  |
 
 ### RewardsClaimed
 
@@ -553,10 +553,10 @@ event RewardsClaimed(address indexed rewardsToken, uint256 amount);
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| rewardsToken | `address` |             |
-| amount       | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| rewardsToken | `address` |  |
+| amount | `uint256` |  |
 
 ## Errors
 

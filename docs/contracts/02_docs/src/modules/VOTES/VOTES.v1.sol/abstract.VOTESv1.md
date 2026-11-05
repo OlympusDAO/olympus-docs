@@ -36,6 +36,6 @@ function resetActionTimestamp(address wallet_) external virtual;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| wallet_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| wallet_ | `address` |  |

@@ -311,9 +311,9 @@ function getCurrentPrice() external view virtual returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getlastprice"></a>
 
@@ -327,9 +327,9 @@ function getLastPrice() external view virtual returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getmovingaverage"></a>
 
@@ -343,9 +343,9 @@ function getMovingAverage() external view virtual returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="gettargetprice"></a>
 
@@ -365,9 +365,9 @@ function getTargetPrice() external view virtual returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Events
 
@@ -379,11 +379,11 @@ event NewObservation(uint256 timestamp_, uint256 price_, uint256 movingAverage_)
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| timestamp_     | `uint256` |             |
-| price_         | `uint256` |             |
-| movingAverage_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| timestamp_ | `uint256` |  |
+| price_ | `uint256` |  |
+| movingAverage_ | `uint256` |  |
 
 ### MovingAverageDurationChanged
 
@@ -393,9 +393,9 @@ event MovingAverageDurationChanged(uint48 movingAverageDuration_);
 
 **Parameters**
 
-| Name                   | Type     | Description |
-| ---------------------- | -------- | ----------- |
-| movingAverageDuration_ | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| movingAverageDuration_ | `uint48` |  |
 
 ### ObservationFrequencyChanged
 
@@ -405,9 +405,9 @@ event ObservationFrequencyChanged(uint48 observationFrequency_);
 
 **Parameters**
 
-| Name                  | Type     | Description |
-| --------------------- | -------- | ----------- |
-| observationFrequency_ | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| observationFrequency_ | `uint48` |  |
 
 ### UpdateThresholdsChanged
 
@@ -417,10 +417,10 @@ event UpdateThresholdsChanged(uint48 ohmEthUpdateThreshold_, uint48 reserveEthUp
 
 **Parameters**
 
-| Name                       | Type     | Description |
-| -------------------------- | -------- | ----------- |
-| ohmEthUpdateThreshold_     | `uint48` |             |
-| reserveEthUpdateThreshold_ | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmEthUpdateThreshold_ | `uint48` |  |
+| reserveEthUpdateThreshold_ | `uint48` |  |
 
 ### MinimumTargetPriceChanged
 
@@ -430,9 +430,9 @@ event MinimumTargetPriceChanged(uint256 minimumTargetPrice_);
 
 **Parameters**
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| minimumTargetPrice_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| minimumTargetPrice_ | `uint256` |  |
 
 ## Errors
 
@@ -462,6 +462,6 @@ error Price_BadFeed(address priceFeed);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| priceFeed | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| priceFeed | `address` |  |

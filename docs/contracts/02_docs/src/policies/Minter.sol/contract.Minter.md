@@ -58,9 +58,9 @@ constructor(Kernel kernel_) Policy(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="configuredependencies"></a>
 
@@ -104,9 +104,9 @@ modifier onlyApproved(bytes32 category_);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| category_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| category_ | `bytes32` |  |
 
 <a id="mint-address-uint256-bytes32"></a>
 
@@ -124,11 +124,11 @@ function mint(
 
 **Parameters**
 
-| Name      | Type      | Description            |
-| --------- | --------- | ---------------------- |
-| to_       | `address` | Address to mint OHM to |
-| amount_   | `uint256` | Amount of OHM to mint  |
-| category_ | `bytes32` |                        |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` | Address to mint OHM to |
+| amount_ | `uint256` | Amount of OHM to mint |
+| category_ | `bytes32` |  |
 
 <a id="addcategory-bytes32"></a>
 
@@ -174,9 +174,9 @@ function getCategories() external view returns (bytes32[] memory);
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `bytes32[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32[]` |  |
 
 ## Events
 
@@ -188,11 +188,11 @@ event Mint(address indexed to, bytes32 indexed category, uint256 amount);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| to       | `address` |             |
-| category | `bytes32` |             |
-| amount   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to | `address` |  |
+| category | `bytes32` |  |
+| amount | `uint256` |  |
 
 ### CategoryAdded
 
@@ -202,9 +202,9 @@ event CategoryAdded(bytes32 category);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| category | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| category | `bytes32` |  |
 
 ### CategoryRemoved
 
@@ -214,9 +214,9 @@ event CategoryRemoved(bytes32 category);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| category | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| category | `bytes32` |  |
 
 ## Errors
 

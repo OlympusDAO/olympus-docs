@@ -280,13 +280,13 @@ function _latestRoundDataInternal()
 
 **Returns**
 
-| Name            | Type      | Description                                                              |
-| --------------- | --------- | ------------------------------------------------------------------------ |
-| roundId         | `uint80`  | The cached pair round ID                                                 |
-| answer          | `int256`  | The price of 1 base token in quote tokens, scaled by 10^decimals()       |
-| startedAt       | `uint256` | The timestamp when the round started (same as updatedAt)                 |
-| updatedAt       | `uint256` | The timestamp when the round was updated (from the cached pair snapshot) |
-| answeredInRound | `uint80`  | The round ID (same as roundId)                                           |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| roundId | `uint80` |          The cached pair round ID |
+| answer | `int256` |           The price of 1 base token in quote tokens, scaled by 10^decimals() |
+| startedAt | `uint256` |        The timestamp when the round started (same as updatedAt) |
+| updatedAt | `uint256` |        The timestamp when the round was updated (from the cached pair snapshot) |
+| answeredInRound | `uint80` |  The round ID (same as roundId) |
 
 <a id="_isstalefromtimestamp-uint256-uint48"></a>
 
@@ -377,13 +377,13 @@ function _latestRoundDataFreshInternal()
 
 **Returns**
 
-| Name            | Type      | Description                                         |
-| --------------- | --------- | --------------------------------------------------- |
-| roundId         | `uint80`  | Latest round identifier.                            |
-| answer          | `int256`  | Latest answer.                                      |
-| startedAt       | `uint256` | Timestamp when the latest round started.            |
-| updatedAt       | `uint256` | Timestamp when the latest round answer was updated. |
-| answeredInRound | `uint80`  | Round identifier in which the answer was computed.  |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| roundId | `uint80` |         Latest round identifier. |
+| answer | `int256` |          Latest answer. |
+| startedAt | `uint256` |       Timestamp when the latest round started. |
+| updatedAt | `uint256` |       Timestamp when the latest round answer was updated. |
+| answeredInRound | `uint80` | Round identifier in which the answer was computed. |
 
 <a id="latestrounddata"></a>
 
@@ -421,13 +421,13 @@ function latestRoundData()
 
 **Returns**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| roundId         | `uint80`  |             |
-| answer          | `int256`  |             |
-| startedAt       | `uint256` |             |
-| updatedAt       | `uint256` |             |
-| answeredInRound | `uint80`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| roundId | `uint80` |  |
+| answer | `int256` |  |
+| startedAt | `uint256` |  |
+| updatedAt | `uint256` |  |
+| answeredInRound | `uint80` |  |
 
 <a id="isstale"></a>
 
@@ -506,13 +506,13 @@ function getRoundData(
 
 **Returns**
 
-| Name            | Type      | Description                                                        |
-| --------------- | --------- | ------------------------------------------------------------------ |
-| roundId         | `uint80`  | The round ID                                                       |
-| answer          | `int256`  | The price of 1 base token in quote tokens, scaled by 10^decimals() |
-| startedAt       | `uint256` | The timestamp when the round started                               |
-| updatedAt       | `uint256` | The timestamp when the round was updated                           |
-| answeredInRound | `uint80`  | The round ID                                                       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| roundId | `uint80` |          The round ID |
+| answer | `int256` |           The price of 1 base token in quote tokens, scaled by 10^decimals() |
+| startedAt | `uint256` |        The timestamp when the round started |
+| updatedAt | `uint256` |        The timestamp when the round was updated |
+| answeredInRound | `uint80` |  The round ID |
 
 <a id="latestanswer"></a>
 

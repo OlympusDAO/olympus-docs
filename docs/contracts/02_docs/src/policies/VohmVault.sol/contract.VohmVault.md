@@ -40,9 +40,9 @@ constructor(Kernel kernel_) Policy(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="configuredependencies"></a>
 
@@ -98,9 +98,9 @@ function deposit(uint256 assets_) public;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| assets_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets_ | `uint256` |  |
 
 <a id="mint-uint256"></a>
 
@@ -112,9 +112,9 @@ function mint(uint256 shares_) public;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| shares_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares_ | `uint256` |  |
 
 <a id="withdraw-uint256"></a>
 
@@ -126,9 +126,9 @@ function withdraw(uint256 assets_) public onlyVested;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| assets_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets_ | `uint256` |  |
 
 <a id="redeem-uint256"></a>
 
@@ -140,6 +140,6 @@ function redeem(uint256 shares_) public onlyVested;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| shares_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares_ | `uint256` |  |

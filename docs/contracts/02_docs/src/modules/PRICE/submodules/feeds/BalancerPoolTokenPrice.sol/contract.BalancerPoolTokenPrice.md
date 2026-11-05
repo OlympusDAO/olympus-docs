@@ -56,10 +56,10 @@ constructor(Module parent_, IVault balVault_) Submodule(parent_);
 
 **Parameters**
 
-| Name      | Type     | Description |
-| --------- | -------- | ----------- |
-| parent_   | `Module` |             |
-| balVault_ | `IVault` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parent_ | `Module` |  |
+| balVault_ | `IVault` |  |
 
 <a id="subkeycode"></a>
 
@@ -73,9 +73,9 @@ function SUBKEYCODE() public pure override returns (SubKeycode);
 
 **Returns**
 
-| Name         | Type         | Description |
-| ------------ | ------------ | ----------- |
-| &lt;none&gt; | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `SubKeycode` |  |
 
 <a id="version"></a>
 
@@ -262,13 +262,13 @@ function _getWeightedPoolRawValue(
 
 **Parameters**
 
-| Name            | Type        | Description                                         |
-| --------------- | ----------- | --------------------------------------------------- |
-| tokens_         | `address[]` | Array of tokens in the Balancer pool                |
-| weights_        | `uint256[]` | Array of weights of the tokens in the Balancer pool |
-| poolDecimals_   | `uint8`     | The number of decimals of the Balancer pool         |
-| outputDecimals_ | `uint8`     | The desired number of decimals                      |
-| poolId_         | `bytes32`   |                                                     |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokens_ | `address[]` | Array of tokens in the Balancer pool |
+| weights_ | `uint256[]` | Array of weights of the tokens in the Balancer pool |
+| poolDecimals_ | `uint8` | The number of decimals of the Balancer pool |
+| outputDecimals_ | `uint8` | The desired number of decimals |
+| poolId_ | `bytes32` |  |
 
 **Returns**
 
@@ -340,11 +340,11 @@ function getWeightedPoolTokenPrice(
 
 **Parameters**
 
-| Name            | Type      | Description                                                              |
-| --------------- | --------- | ------------------------------------------------------------------------ |
-| _               | `address` |                                                                          |
-| outputDecimals_ | `uint8`   | The number of output decimals (assumed to be the same as PRICE decimals) |
-| params_         | `bytes`   | Balancer pool parameters of type `BalancerWeightedPoolParams`            |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| outputDecimals_ | `uint8` | The number of output decimals (assumed to be the same as PRICE decimals) |
+| params_ | `bytes` | Balancer pool parameters of type `BalancerWeightedPoolParams` |
 
 **Returns**
 
@@ -416,11 +416,11 @@ function getStablePoolTokenPrice(
 
 **Parameters**
 
-| Name            | Type      | Description                                                              |
-| --------------- | --------- | ------------------------------------------------------------------------ |
-| _               | `address` |                                                                          |
-| outputDecimals_ | `uint8`   | The number of output decimals (assumed to be the same as PRICE decimals) |
-| params_         | `bytes`   | Balancer pool parameters of type `BalancerStablePoolParams`              |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| outputDecimals_ | `uint8` | The number of output decimals (assumed to be the same as PRICE decimals) |
+| params_ | `bytes` | Balancer pool parameters of type `BalancerStablePoolParams` |
 
 **Returns**
 
@@ -971,10 +971,10 @@ struct BalancerWeightedPoolCache {
 
 **Properties**
 
-| Name     | Type        | Description |
-| -------- | ----------- | ----------- |
-| tokens   | `address[]` |             |
-| weights  | `uint256[]` |             |
-| balances | `uint256[]` |             |
-| decimals | `uint8`     |             |
-| poolId   | `bytes32`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokens | `address[]` |  |
+| weights | `uint256[]` |  |
+| balances | `uint256[]` |  |
+| decimals | `uint8` |  |
+| poolId | `bytes32` |  |

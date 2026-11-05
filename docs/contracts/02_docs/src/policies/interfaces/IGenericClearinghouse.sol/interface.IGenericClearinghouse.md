@@ -16,9 +16,9 @@ function debtToken() external view returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="collateraltoken"></a>
 
@@ -32,9 +32,9 @@ function collateralToken() external view returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="duration"></a>
 
@@ -48,9 +48,9 @@ function duration() external view returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="interestrate"></a>
 
@@ -65,9 +65,9 @@ function interestRate() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="loantocollateral"></a>
 
@@ -81,9 +81,9 @@ function loanToCollateral() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="maxrewardperloan"></a>
 
@@ -97,9 +97,9 @@ function maxRewardPerLoan() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="lendtocooler-icooler-uint256"></a>
 
@@ -120,9 +120,9 @@ function lendToCooler(ICooler cooler_, uint256 amount_) external returns (uint25
 
 **Returns**
 
-| Name   | Type      | Description                 |
-| ------ | --------- | --------------------------- |
-| loanId | `uint256` | The id of the granted loan. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanId | `uint256` |  The id of the granted loan. |
 
 <a id="extendloan-icooler-uint256-uint8"></a>
 
@@ -208,10 +208,10 @@ function getLoanForCollateral(
 
 **Returns**
 
-| Name      | Type      | Description                                 |
-| --------- | --------- | ------------------------------------------- |
-| principal | `uint256` | The amount of debt tokens for the loan.     |
-| interest  | `uint256` | The amount of interest tokens for the loan. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| principal | `uint256` |   The amount of debt tokens for the loan. |
+| interest | `uint256` |    The amount of interest tokens for the loan. |
 
 <a id="interestforloan-uint256-uint256"></a>
 
@@ -235,9 +235,9 @@ function interestForLoan(
 
 **Returns**
 
-| Name     | Type      | Description                          |
-| -------- | --------- | ------------------------------------ |
-| interest | `uint256` | The amount of interest for the loan. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interest | `uint256` |    The amount of interest for the loan. |
 
 <a id="principalreceivables"></a>
 
@@ -251,9 +251,9 @@ function principalReceivables() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="interestreceivables"></a>
 
@@ -267,9 +267,9 @@ function interestReceivables() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="gettotalreceivables"></a>
 
@@ -284,9 +284,9 @@ function getTotalReceivables() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Events
 
@@ -298,10 +298,10 @@ event YieldSwept(address indexed to, uint256 amount);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| to     | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to | `address` |  |
+| amount | `uint256` |  |
 
 ### InterestRateSet
 
@@ -311,9 +311,9 @@ event InterestRateSet(uint256 interestRate);
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| interestRate | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interestRate | `uint256` |  |
 
 ### MaxRewardPerLoanSet
 
@@ -323,9 +323,9 @@ event MaxRewardPerLoanSet(uint256 maxRewardPerLoan);
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| maxRewardPerLoan | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxRewardPerLoan | `uint256` |  |
 
 ### LoanToCollateralSet
 
@@ -335,9 +335,9 @@ event LoanToCollateralSet(uint256 loanToCollateral);
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| loanToCollateral | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanToCollateral | `uint256` |  |
 
 ### DurationSet
 
@@ -347,9 +347,9 @@ event DurationSet(uint48 duration);
 
 **Parameters**
 
-| Name     | Type     | Description |
-| -------- | -------- | ----------- |
-| duration | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| duration | `uint48` |  |
 
 ## Errors
 
@@ -403,6 +403,6 @@ error InvalidParams(string reason);
 
 **Parameters**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| reason | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason | `string` |  |

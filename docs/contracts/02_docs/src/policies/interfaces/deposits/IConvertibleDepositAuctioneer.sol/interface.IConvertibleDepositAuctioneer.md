@@ -38,12 +38,12 @@ function bid(
 
 **Returns**
 
-| Name           | Type      | Description                                                                                   |
-| -------------- | --------- | --------------------------------------------------------------------------------------------- |
-| ohmOut         | `uint256` | Amount of OHM tokens that the deposit can be converted to                                     |
-| positionId     | `uint256` | The ID of the position created by the DEPOS module to represent the convertible deposit terms |
-| receiptTokenId | `uint256` | The ID of the receipt token created by the DepositManager to represent the deposit            |
-| actualAmount   | `uint256` | The actual amount of deposit assets that were deposited (receipt tokens minted)               |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmOut | `uint256` |          Amount of OHM tokens that the deposit can be converted to |
+| positionId | `uint256` |      The ID of the position created by the DEPOS module to represent the convertible deposit terms |
+| receiptTokenId | `uint256` |  The ID of the receipt token created by the DepositManager to represent the deposit |
+| actualAmount | `uint256` |    The actual amount of deposit assets that were deposited (receipt tokens minted) |
 
 <a id="previewbid-uint8-uint256"></a>
 
@@ -67,9 +67,9 @@ function previewBid(
 
 **Returns**
 
-| Name   | Type      | Description                                                 |
-| ------ | --------- | ----------------------------------------------------------- |
-| ohmOut | `uint256` | Amount of OHM tokens that the deposit could be converted to |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmOut | `uint256` |          Amount of OHM tokens that the deposit could be converted to |
 
 <a id="getprevioustick-uint8"></a>
 
@@ -83,9 +83,9 @@ function getPreviousTick(uint8 depositPeriod_) external view returns (Tick memor
 
 **Parameters**
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| depositPeriod_ | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositPeriod_ | `uint8` |  |
 
 **Returns**
 
@@ -111,9 +111,9 @@ function getCurrentTick(uint8 depositPeriod_) external view returns (Tick memory
 
 **Parameters**
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| depositPeriod_ | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositPeriod_ | `uint8` |  |
 
 **Returns**
 
@@ -348,10 +348,10 @@ function isDepositPeriodEnabled(
 
 **Returns**
 
-| Name             | Type   | Description                                                                                 |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------- |
-| isEnabled        | `bool` | Current state                                                                               |
-| isPendingEnabled | `bool` | Desired state after applying all queued changes (equals isEnabled if no changes are queued) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isEnabled | `bool` |           Current state |
+| isPendingEnabled | `bool` |    Desired state after applying all queued changes (equals isEnabled if no changes are queued) |
 
 <a id="enabledepositperiod-uint8"></a>
 
@@ -578,12 +578,12 @@ event AuctionParametersUpdated(
 
 **Parameters**
 
-| Name         | Type      | Description                 |
-| ------------ | --------- | --------------------------- |
-| depositAsset | `address` |                             |
-| newTarget    | `uint256` | Target for OHM sold per day |
-| newTickSize  | `uint256` | Number of OHM in a tick     |
-| newMinPrice  | `uint256` | Minimum tick price          |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositAsset | `address` |  |
+| newTarget | `uint256` | Target for OHM sold per day |
+| newTickSize | `uint256` | Number of OHM in a tick |
+| newMinPrice | `uint256` | Minimum tick price |
 
 ### AuctionResult
 
@@ -600,12 +600,12 @@ event AuctionResult(
 
 **Parameters**
 
-| Name           | Type      | Description                                            |
-| -------------- | --------- | ------------------------------------------------------ |
-| depositAsset   | `address` |                                                        |
-| ohmConvertible | `uint256` | Amount of OHM that was converted                       |
-| target         | `uint256` | Target for OHM sold per day                            |
-| periodIndex    | `uint8`   | The index of the auction result in the tracking period |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositAsset | `address` |  |
+| ohmConvertible | `uint256` | Amount of OHM that was converted |
+| target | `uint256` | Target for OHM sold per day |
+| periodIndex | `uint8` | The index of the auction result in the tracking period |
 
 ### TickStepUpdated
 
@@ -617,10 +617,10 @@ event TickStepUpdated(address indexed depositAsset, uint24 newTickStep);
 
 **Parameters**
 
-| Name         | Type      | Description                             |
-| ------------ | --------- | --------------------------------------- |
-| depositAsset | `address` |                                         |
-| newTickStep  | `uint24`  | Percentage increase (decrease) per tick |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositAsset | `address` |  |
+| newTickStep | `uint24` | Percentage increase (decrease) per tick |
 
 ### AuctionTrackingPeriodUpdated
 
@@ -635,10 +635,10 @@ event AuctionTrackingPeriodUpdated(
 
 **Parameters**
 
-| Name                     | Type      | Description                                             |
-| ------------------------ | --------- | ------------------------------------------------------- |
-| depositAsset             | `address` |                                                         |
-| newAuctionTrackingPeriod | `uint8`   | The number of days that auction results are tracked for |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositAsset | `address` |  |
+| newAuctionTrackingPeriod | `uint8` | The number of days that auction results are tracked for |
 
 ### MinimumBidUpdated
 
@@ -650,9 +650,9 @@ event MinimumBidUpdated(address indexed depositAsset, uint256 newMinimumBid);
 
 **Parameters**
 
-| Name          | Type      | Description                |
-| ------------- | --------- | -------------------------- |
-| depositAsset  | `address` |                            |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositAsset | `address` |  |
 | newMinimumBid | `uint256` | The new minimum bid amount |
 
 ### TickSizeBaseUpdated
@@ -665,10 +665,10 @@ event TickSizeBaseUpdated(address indexed depositAsset, uint256 newBase);
 
 **Parameters**
 
-| Name         | Type      | Description            |
-| ------------ | --------- | ---------------------- |
-| depositAsset | `address` |                        |
-| newBase      | `uint256` | The new tick size base |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositAsset | `address` |  |
+| newBase | `uint256` | The new tick size base |
 
 ### DepositPeriodEnabled
 
@@ -782,10 +782,10 @@ error ConvertibleDepositAuctioneer_DepositPeriodNotEnabled(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| depositAsset  | `address` |             |
-| depositPeriod | `uint8`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositAsset | `address` |  |
+| depositPeriod | `uint8` |  |
 
 ### ConvertibleDepositAuctioneer_DepositPeriodInvalidState
 
@@ -801,11 +801,11 @@ error ConvertibleDepositAuctioneer_DepositPeriodInvalidState(
 
 **Parameters**
 
-| Name          | Type      | Description                                                   |
-| ------------- | --------- | ------------------------------------------------------------- |
-| depositAsset  | `address` |                                                               |
-| depositPeriod | `uint8`   |                                                               |
-| isEnabled     | `bool`    | The current enabled state: true if enabled, false if disabled |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositAsset | `address` |  |
+| depositPeriod | `uint8` |  |
+| isEnabled | `bool` | The current enabled state: true if enabled, false if disabled |
 
 ### ConvertibleDepositAuctioneer_BidBelowMinimum
 

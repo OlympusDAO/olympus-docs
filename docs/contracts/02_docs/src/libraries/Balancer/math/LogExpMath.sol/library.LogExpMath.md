@@ -227,16 +227,16 @@ function pow(uint256 x, uint256 y) internal pure returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| x    | `uint256` |             |
-| y    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| x | `uint256` |  |
+| y | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="exp-int256"></a>
 
@@ -256,15 +256,15 @@ function exp(int256 x) internal pure returns (int256);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| x    | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| x | `int256` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `int256` |  |
 
 <a id="log-int256-int256"></a>
 
@@ -282,16 +282,16 @@ function log(int256 arg, int256 base) internal pure returns (int256);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| arg  | `int256` |             |
-| base | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| arg | `int256` |  |
+| base | `int256` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `int256` |  |
 
 <a id="ln-int256"></a>
 
@@ -309,15 +309,15 @@ function ln(int256 a) internal pure returns (int256);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| a    | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `int256` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `int256` |  |
 
 <a id="_ln-int256"></a>
 
@@ -335,15 +335,15 @@ function _ln(int256 a) private pure returns (int256);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| a    | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `int256` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `int256` |  |
 
 <a id="_ln_36-int256"></a>
 
@@ -364,12 +364,12 @@ function _ln_36(int256 x) private pure returns (int256);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| x    | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| x | `int256` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `int256` |  |

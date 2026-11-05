@@ -16,10 +16,10 @@ function getLastInvariant() external view returns (uint256, uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getrate"></a>
 
@@ -31,9 +31,9 @@ function getRate() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getscalingfactors"></a>
 
@@ -45,6 +45,6 @@ function getScalingFactors() external view returns (uint256[] memory);
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `uint256[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256[]` |  |

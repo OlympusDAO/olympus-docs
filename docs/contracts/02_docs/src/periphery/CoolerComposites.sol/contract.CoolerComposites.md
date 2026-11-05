@@ -20,9 +20,9 @@ IMonoCooler public immutable COOLER;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ### _COLLATERAL_TOKEN
 
@@ -58,10 +58,10 @@ constructor(IMonoCooler cooler_, address owner_) Owned(owner_);
 
 **Parameters**
 
-| Name    | Type          | Description |
-| ------- | ------------- | ----------- |
-| cooler_ | `IMonoCooler` |             |
-| owner_  | `address`     |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler_ | `IMonoCooler` |  |
+| owner_ | `address` |  |
 
 <a id="addcollateralandborrow-imonocooler-authorization-imonocooler-signature-uint128-uint128-idlgtev1-delegationrequest"></a>
 
@@ -139,9 +139,9 @@ function collateralToken() external view returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="debttoken"></a>
 
@@ -155,9 +155,9 @@ function debtToken() external view returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="onlyenabled"></a>
 

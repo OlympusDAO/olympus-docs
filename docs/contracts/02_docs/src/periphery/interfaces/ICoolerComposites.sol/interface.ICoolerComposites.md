@@ -80,9 +80,9 @@ function COOLER() external view returns (IMonoCooler);
 
 **Returns**
 
-| Name         | Type          | Description |
-| ------------ | ------------- | ----------- |
-| &lt;none&gt; | `IMonoCooler` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IMonoCooler` |  |
 
 <a id="collateraltoken"></a>
 
@@ -96,9 +96,9 @@ function collateralToken() external view returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="debttoken"></a>
 
@@ -112,9 +112,9 @@ function debtToken() external view returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 ## Events
 
@@ -126,8 +126,8 @@ event TokenRefunded(address indexed token, address indexed caller, uint256 amoun
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| token  | `address` |             |
-| caller | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | `address` |  |
+| caller | `address` |  |
+| amount | `uint256` |  |

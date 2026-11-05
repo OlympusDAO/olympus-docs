@@ -82,13 +82,13 @@ constructor(
 
 **Parameters**
 
-| Name                   | Type      | Description |
-| ---------------------- | --------- | ----------- |
-| kernel_                | `Kernel`  |             |
-| fixedExpiryAuctioneer_ | `address` |             |
-| fixedExpiryTeller_     | `address` |             |
-| gnosisEasyAuction_     | `address` |             |
-| ohm_                   | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| fixedExpiryAuctioneer_ | `address` |  |
+| fixedExpiryTeller_ | `address` |  |
+| gnosisEasyAuction_ | `address` |  |
+| ohm_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -144,9 +144,9 @@ function createFixedExpiryBondMarket(
 
 **Returns**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| marketId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| marketId | `uint256` |  |
 
 <a id="createbatchauction-uint96-uint48"></a>
 
@@ -170,9 +170,9 @@ function createBatchAuction(
 
 **Returns**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| auctionId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| auctionId | `uint256` |  |
 
 <a id="closefixedexpirybondmarket-uint256"></a>
 
@@ -225,14 +225,14 @@ function setFixedExpiryParameters(
 
 **Parameters**
 
-| Name             | Type      | Description                                                                                     |
-| ---------------- | --------- | ----------------------------------------------------------------------------------------------- |
-| initialPrice_    | `uint256` | The initial ratio of OHM to OHM bonds that the bonds will sell for                              |
-| minPrice_        | `uint256` | The minim ratio of OHM to OHM bonds that the bonds will sell for                                |
-| auctionTime_     | `uint48`  | How long should the auctioning of the bond tokens last (should be less than planned bond terms) |
-| debtBuffer_      | `uint32`  | Variable used to calculate maximum capacity (should generally be set to 100_000)                |
-| depositInterval_ | `uint32`  | Desired frequency of purchases                                                                  |
-| capacityInQuote_ | `bool`    |                                                                                                 |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| initialPrice_ | `uint256` | The initial ratio of OHM to OHM bonds that the bonds will sell for |
+| minPrice_ | `uint256` | The minim ratio of OHM to OHM bonds that the bonds will sell for |
+| auctionTime_ | `uint48` | How long should the auctioning of the bond tokens last (should be less than planned bond terms) |
+| debtBuffer_ | `uint32` | Variable used to calculate maximum capacity (should generally be set to 100_000) |
+| depositInterval_ | `uint32` | Desired frequency of purchases |
+| capacityInQuote_ | `bool` |  |
 
 <a id="setbatchauctionparameters-uint48-uint48-uint96-uint256-uint256"></a>
 
@@ -351,12 +351,12 @@ event BondProtocolMarketLaunched(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| marketId  | `uint256` |             |
-| bondToken | `address` |             |
-| capacity  | `uint256` |             |
-| bondTerm  | `uint48`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| marketId | `uint256` |  |
+| bondToken | `address` |  |
+| capacity | `uint256` |  |
+| bondTerm | `uint48` |  |
 
 ### GnosisAuctionLaunched
 
@@ -371,12 +371,12 @@ event GnosisAuctionLaunched(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| marketId  | `uint256` |             |
-| bondToken | `address` |             |
-| capacity  | `uint96`  |             |
-| bondTerm  | `uint48`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| marketId | `uint256` |  |
+| bondToken | `address` |  |
+| capacity | `uint96` |  |
+| bondTerm | `uint48` |  |
 
 ## Errors
 
@@ -445,14 +445,14 @@ struct FixedExpiryParameters {
 
 **Properties**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| initialPrice    | `uint256` |             |
-| minPrice        | `uint256` |             |
-| auctionTime     | `uint48`  |             |
-| debtBuffer      | `uint32`  |             |
-| depositInterval | `uint32`  |             |
-| capacityInQuote | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| initialPrice | `uint256` |  |
+| minPrice | `uint256` |  |
+| auctionTime | `uint48` |  |
+| debtBuffer | `uint32` |  |
+| depositInterval | `uint32` |  |
+| capacityInQuote | `bool` |  |
 
 ### BatchAuctionParameters
 
@@ -468,10 +468,10 @@ struct BatchAuctionParameters {
 
 **Properties**
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| auctionCancelTime   | `uint48`  |             |
-| auctionTime         | `uint48`  |             |
-| minPctSold          | `uint96`  |             |
-| minBuyAmount        | `uint256` |             |
-| minFundingThreshold | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| auctionCancelTime | `uint48` |  |
+| auctionTime | `uint48` |  |
+| minPctSold | `uint96` |  |
+| minBuyAmount | `uint256` |  |
+| minFundingThreshold | `uint256` |  |

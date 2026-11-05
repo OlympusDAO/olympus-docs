@@ -14,9 +14,9 @@ function delay() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="grace_period"></a>
 
@@ -28,9 +28,9 @@ function GRACE_PERIOD() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="acceptadmin"></a>
 
@@ -50,15 +50,15 @@ function queuedTransactions(bytes32 hash) external view returns (bool);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| hash | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| hash | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="queuetransaction-uint256-address-uint256-string-bytes-uint256"></a>
 
@@ -77,20 +77,20 @@ function queueTransaction(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| target     | `address` |             |
-| value      | `uint256` |             |
-| signature  | `string`  |             |
-| data       | `bytes`   |             |
-| eta        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| target | `address` |  |
+| value | `uint256` |  |
+| signature | `string` |  |
+| data | `bytes` |  |
+| eta | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="canceltransaction-uint256-address-uint256-string-bytes-uint256"></a>
 
@@ -109,14 +109,14 @@ function cancelTransaction(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| target     | `address` |             |
-| value      | `uint256` |             |
-| signature  | `string`  |             |
-| data       | `bytes`   |             |
-| eta        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| target | `address` |  |
+| value | `uint256` |  |
+| signature | `string` |  |
+| data | `bytes` |  |
+| eta | `uint256` |  |
 
 <a id="executetransaction-uint256-address-uint256-string-bytes-bytes32-uint256"></a>
 
@@ -136,18 +136,18 @@ function executeTransaction(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| target     | `address` |             |
-| value      | `uint256` |             |
-| signature  | `string`  |             |
-| data       | `bytes`   |             |
-| codehash   | `bytes32` |             |
-| eta        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| target | `address` |  |
+| value | `uint256` |  |
+| signature | `string` |  |
+| data | `bytes` |  |
+| codehash | `bytes32` |  |
+| eta | `uint256` |  |
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes` |  |

@@ -58,9 +58,9 @@ function isAuthorizedOperator(address operator_) external view returns (bool isA
 
 **Returns**
 
-| Name         | Type   | Description                        |
-| ------------ | ------ | ---------------------------------- |
-| isAuthorized | `bool` | True if the operator is authorized |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isAuthorized | `bool` |    True if the operator is authorized |
 
 <a id="getoperators"></a>
 
@@ -74,9 +74,9 @@ function getOperators() external view returns (address[] memory operators);
 
 **Returns**
 
-| Name      | Type        | Description           |
-| --------- | ----------- | --------------------- |
-| operators | `address[]` | The list of operators |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operators | `address[]` |   The list of operators |
 
 <a id="handlecommit-ierc20-uint8-uint256"></a>
 
@@ -144,9 +144,9 @@ function handleCommitWithdraw(
 
 **Returns**
 
-| Name         | Type      | Description                      |
-| ------------ | --------- | -------------------------------- |
-| actualAmount | `uint256` | The amount of tokens transferred |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` |    The amount of tokens transferred |
 
 <a id="handlepositionredemption-uint256-uint256"></a>
 
@@ -208,9 +208,9 @@ function handleBorrow(
 
 **Returns**
 
-| Name         | Type      | Description                   |
-| ------------ | --------- | ----------------------------- |
-| actualAmount | `uint256` | The amount of tokens borrowed |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` |    The amount of tokens borrowed |
 
 <a id="handleloanrepay-ierc20-uint8-uint256-uint256-address"></a>
 
@@ -240,9 +240,9 @@ function handleLoanRepay(
 
 **Returns**
 
-| Name         | Type      | Description                 |
-| ------------ | --------- | --------------------------- |
-| actualAmount | `uint256` | The amount of tokens repaid |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` |    The amount of tokens repaid |
 
 <a id="handleloandefault-ierc20-uint8-uint256-address"></a>
 
@@ -300,9 +300,9 @@ function previewReclaim(
 
 **Returns**
 
-| Name      | Type      | Description                                        |
-| --------- | --------- | -------------------------------------------------- |
-| reclaimed | `uint256` | The amount of deposit token returned to the caller |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reclaimed | `uint256` |       The amount of deposit token returned to the caller |
 
 <a id="reclaim-ierc20-uint8-uint256"></a>
 
@@ -340,9 +340,9 @@ function reclaim(
 
 **Returns**
 
-| Name      | Type      | Description                                        |
-| --------- | --------- | -------------------------------------------------- |
-| reclaimed | `uint256` | The amount of deposit token returned to the caller |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reclaimed | `uint256` |       The amount of deposit token returned to the caller |
 
 <a id="setassetperiodreclaimrate-ierc20-uint8-uint16"></a>
 
@@ -388,9 +388,9 @@ function getAssetPeriodReclaimRate(
 
 **Returns**
 
-| Name        | Type     | Description                           |
-| ----------- | -------- | ------------------------------------- |
-| reclaimRate | `uint16` | The reclaim rate for the asset period |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reclaimRate | `uint16` |   The reclaim rate for the asset period |
 
 <a id="split-uint256-uint256-address-bool"></a>
 
@@ -418,9 +418,9 @@ function split(
 
 **Returns**
 
-| Name          | Type      | Description                          |
-| ------------- | --------- | ------------------------------------ |
-| newPositionId | `uint256` | The ID of the newly created position |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newPositionId | `uint256` |   The ID of the newly created position |
 
 <a id="getavailabledeposits-ierc20"></a>
 
@@ -441,9 +441,9 @@ function getAvailableDeposits(IERC20 depositToken_) external view returns (uint2
 
 **Returns**
 
-| Name    | Type      | Description                   |
-| ------- | --------- | ----------------------------- |
-| balance | `uint256` | The available deposit balance |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| balance | `uint256` |     The available deposit balance |
 
 <a id="getcommitteddeposits-ierc20"></a>
 
@@ -465,9 +465,9 @@ function getCommittedDeposits(IERC20 depositToken_) external view returns (uint2
 
 **Returns**
 
-| Name      | Type      | Description                  |
-| --------- | --------- | ---------------------------- |
-| committed | `uint256` | The total committed deposits |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| committed | `uint256` |       The total committed deposits |
 
 <a id="getcommitteddeposits-ierc20-address"></a>
 
@@ -493,9 +493,9 @@ function getCommittedDeposits(
 
 **Returns**
 
-| Name      | Type      | Description                             |
-| --------- | --------- | --------------------------------------- |
-| committed | `uint256` | The committed deposits for the operator |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| committed | `uint256` |       The committed deposits for the operator |
 
 ## Events
 
@@ -507,9 +507,9 @@ event OperatorAuthorized(address indexed operator);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| operator | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator | `address` |  |
 
 ### OperatorDeauthorized
 
@@ -519,9 +519,9 @@ event OperatorDeauthorized(address indexed operator);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| operator | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator | `address` |  |
 
 ### AssetCommitted
 
@@ -531,11 +531,11 @@ event AssetCommitted(address indexed asset, address indexed operator, uint256 am
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| asset    | `address` |             |
-| operator | `address` |             |
-| amount   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| operator | `address` |  |
+| amount | `uint256` |  |
 
 ### AssetCommitCancelled
 
@@ -545,11 +545,11 @@ event AssetCommitCancelled(address indexed asset, address indexed operator, uint
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| asset    | `address` |             |
-| operator | `address` |             |
-| amount   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| operator | `address` |  |
+| amount | `uint256` |  |
 
 ### AssetCommitWithdrawn
 
@@ -559,11 +559,11 @@ event AssetCommitWithdrawn(address indexed asset, address indexed operator, uint
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| asset    | `address` |             |
-| operator | `address` |             |
-| amount   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| operator | `address` |  |
+| amount | `uint256` |  |
 
 ### Reclaimed
 
@@ -579,13 +579,13 @@ event Reclaimed(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| user            | `address` |             |
-| depositToken    | `address` |             |
-| depositPeriod   | `uint8`   |             |
-| reclaimedAmount | `uint256` |             |
-| forfeitedAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| depositToken | `address` |  |
+| depositPeriod | `uint8` |  |
+| reclaimedAmount | `uint256` |  |
+| forfeitedAmount | `uint256` |  |
 
 ### AssetPeriodReclaimRateSet
 
@@ -595,11 +595,11 @@ event AssetPeriodReclaimRateSet(address indexed asset, uint8 depositPeriod, uint
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| asset         | `address` |             |
-| depositPeriod | `uint8`   |             |
-| reclaimRate   | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| depositPeriod | `uint8` |  |
+| reclaimRate | `uint16` |  |
 
 ## Errors
 
@@ -617,9 +617,9 @@ error DepositFacility_InvalidAddress(address operator);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| operator | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator | `address` |  |
 
 ### DepositFacility_UnauthorizedOperator
 
@@ -629,9 +629,9 @@ error DepositFacility_UnauthorizedOperator(address operator);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| operator | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator | `address` |  |
 
 ### DepositFacility_InsufficientDeposits
 
@@ -641,10 +641,10 @@ error DepositFacility_InsufficientDeposits(uint256 requested, uint256 available)
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| requested | `uint256` |             |
-| available | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| requested | `uint256` |  |
+| available | `uint256` |  |
 
 ### DepositFacility_InsufficientCommitment
 
@@ -658,11 +658,11 @@ error DepositFacility_InsufficientCommitment(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| operator  | `address` |             |
-| requested | `uint256` |             |
-| available | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator | `address` |  |
+| requested | `uint256` |  |
+| available | `uint256` |  |
 
 ### DepositFacility_InvalidReclaimRate
 
@@ -672,7 +672,7 @@ error DepositFacility_InvalidReclaimRate(uint16 reclaimRate, uint16 maxReclaimRa
 
 **Parameters**
 
-| Name           | Type     | Description |
-| -------------- | -------- | ----------- |
-| reclaimRate    | `uint16` |             |
-| maxReclaimRate | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reclaimRate | `uint16` |  |
+| maxReclaimRate | `uint16` |  |

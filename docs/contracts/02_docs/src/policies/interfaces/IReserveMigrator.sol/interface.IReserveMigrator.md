@@ -36,11 +36,11 @@ event MigratedReserves(address indexed from, address indexed to, uint256 amount)
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| from   | `address` |             |
-| to     | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
+| amount | `uint256` |  |
 
 ### Activated
 

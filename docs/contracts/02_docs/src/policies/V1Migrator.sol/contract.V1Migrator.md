@@ -145,12 +145,12 @@ constructor(Kernel kernel_, IERC20 ohmV1_, IgOHM gOHM_, bytes32 merkleRoot_) Pol
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| kernel_     | `Kernel`  |             |
-| ohmV1_      | `IERC20`  |             |
-| gOHM_       | `IgOHM`   |             |
-| merkleRoot_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| ohmV1_ | `IERC20` |  |
+| gOHM_ | `IgOHM` |  |
+| merkleRoot_ | `bytes32` |  |
 
 <a id="ohmv1"></a>
 
@@ -433,15 +433,15 @@ function supportsInterface(bytes4 interfaceId) public view virtual override retu
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_onlyadminorlegacymigrationadmin"></a>
 

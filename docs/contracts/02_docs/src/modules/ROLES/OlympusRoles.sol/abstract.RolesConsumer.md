@@ -30,6 +30,6 @@ modifier onlyRole(bytes32 role_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |

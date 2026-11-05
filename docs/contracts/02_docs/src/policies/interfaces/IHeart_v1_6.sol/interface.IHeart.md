@@ -199,9 +199,9 @@ function frequency() external view returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="currentreward"></a>
 
@@ -215,9 +215,9 @@ function currentReward() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="active"></a>
 
@@ -231,9 +231,9 @@ function active() external view returns (bool);
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 ## Events
 
@@ -245,9 +245,9 @@ event Beat(uint256 timestamp_);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| timestamp_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| timestamp_ | `uint256` |  |
 
 ### RewardIssued
 
@@ -257,10 +257,10 @@ event RewardIssued(address to_, uint256 rewardAmount_);
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| to_           | `address` |             |
-| rewardAmount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` |  |
+| rewardAmount_ | `uint256` |  |
 
 ### RewardUpdated
 
@@ -270,10 +270,10 @@ event RewardUpdated(uint256 maxRewardAmount_, uint48 auctionDuration_);
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| maxRewardAmount_ | `uint256` |             |
-| auctionDuration_ | `uint48`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxRewardAmount_ | `uint256` |  |
+| auctionDuration_ | `uint48` |  |
 
 ## Errors
 

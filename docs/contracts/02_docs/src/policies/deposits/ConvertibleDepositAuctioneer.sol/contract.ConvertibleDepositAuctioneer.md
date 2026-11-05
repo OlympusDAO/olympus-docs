@@ -272,11 +272,11 @@ constructor(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| kernel_       | `address` |             |
-| cdFacility_   | `address` |             |
-| depositAsset_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| cdFacility_ | `address` |  |
+| depositAsset_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -324,10 +324,10 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 **Returns**
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| major | `uint8` |             |
-| minor | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| major | `uint8` |  |
+| minor | `uint8` |  |
 
 <a id="bid-uint8-uint256-uint256-bool-bool"></a>
 
@@ -408,18 +408,18 @@ function _bid(BidParams memory params) internal returns (uint256, uint256, uint2
 
 **Parameters**
 
-| Name   | Type        | Description |
-| ------ | ----------- | ----------- |
-| params | `BidParams` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| params | `BidParams` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
-| &lt;none&gt; | `uint256` |             |
-| &lt;none&gt; | `uint256` |             |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_previewbid-uint256-tick"></a>
 
@@ -452,16 +452,16 @@ function _previewBid(
 
 **Parameters**
 
-| Name     | Type      | Description                     |
-| -------- | --------- | ------------------------------- |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
 | deposit_ | `uint256` | The amount of deposit to be bid |
-| tick_    | `Tick`    |                                 |
+| tick_ | `Tick` |  |
 
 **Returns**
 
-| Name   | Type        | Description           |
-| ------ | ----------- | --------------------- |
-| output | `BidOutput` | The output of the bid |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| output | `BidOutput` |              The output of the bid |
 
 <a id="previewbid-uint8-uint256"></a>
 
@@ -523,9 +523,9 @@ function _getConvertedDeposit(
 
 **Returns**
 
-| Name              | Type      | Description                                      |
-| ----------------- | --------- | ------------------------------------------------ |
-| convertibleAmount | `uint256` | The quantity of OHM tokens that can be purchased |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| convertibleAmount | `uint256` |   The quantity of OHM tokens that can be purchased |
 
 <a id="_getnewtickprice-uint256-uint256"></a>
 
@@ -555,9 +555,9 @@ function _getNewTickPrice(
 
 **Returns**
 
-| Name     | Type      | Description               |
-| -------- | --------- | ------------------------- |
-| newPrice | `uint256` | The new price of the tick |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newPrice | `uint256` |            The new price of the tick |
 
 <a id="_getnewticksize-uint256-auctionparameters"></a>
 
@@ -581,10 +581,10 @@ function _getNewTickSize(
 
 **Parameters**
 
-| Name           | Type                | Description                                                  |
-| -------------- | ------------------- | ------------------------------------------------------------ |
-| ohmOut_        | `uint256`           | The amount of OHM that has been converted in the current day |
-| auctionParams_ | `AuctionParameters` |                                                              |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmOut_ | `uint256` | The amount of OHM that has been converted in the current day |
+| auctionParams_ | `AuctionParameters` |  |
 
 **Returns**
 
@@ -614,9 +614,9 @@ function _getOhmUntilNextThreshold(
 
 **Returns**
 
-| Name              | Type      | Description                                          |
-| ----------------- | --------- | ---------------------------------------------------- |
-| ohmUntilThreshold | `uint256` | The amount of OHM remaining until the next threshold |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmUntilThreshold | `uint256` |   The amount of OHM remaining until the next threshold |
 
 <a id="_getcurrenttick-uint8"></a>
 
@@ -628,15 +628,15 @@ function _getCurrentTick(uint8 depositPeriod_) internal view returns (Tick memor
 
 **Parameters**
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| depositPeriod_ | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositPeriod_ | `uint8` |  |
 
 **Returns**
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| tick | `Tick` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tick | `Tick` |  |
 
 <a id="getcurrenttick-uint8"></a>
 
@@ -670,9 +670,9 @@ function getCurrentTick(
 
 **Parameters**
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| depositPeriod_ | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositPeriod_ | `uint8` |  |
 
 **Returns**
 
@@ -699,9 +699,9 @@ function getPreviousTick(uint8 depositPeriod_) public view override returns (Tic
 
 **Parameters**
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| depositPeriod_ | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositPeriod_ | `uint8` |  |
 
 **Returns**
 
@@ -902,9 +902,9 @@ function _getEffectiveDepositPeriodState(
 
 **Returns**
 
-| Name           | Type   | Description                                                   |
-| -------------- | ------ | ------------------------------------------------------------- |
-| effectiveState | `bool` | The effective enabled state (current state + pending changes) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| effectiveState | `bool` |  The effective enabled state (current state + pending changes) |
 
 <a id="_processpendingdepositperiodchanges-uint256-uint256"></a>
 
@@ -1028,9 +1028,9 @@ function _onlyDepositPeriodEnabled(uint8 depositPeriod_) internal view;
 
 **Parameters**
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| depositPeriod_ | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositPeriod_ | `uint8` |  |
 
 <a id="onlydepositperiodenabled-uint8"></a>
 
@@ -1044,9 +1044,9 @@ modifier onlyDepositPeriodEnabled(uint8 depositPeriod_);
 
 **Parameters**
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| depositPeriod_ | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositPeriod_ | `uint8` |  |
 
 <a id="enabledepositperiod-uint8"></a>
 
@@ -1138,9 +1138,9 @@ function getPendingDepositPeriodChanges()
 
 **Returns**
 
-| Name         | Type                           | Description |
-| ------------ | ------------------------------ | ----------- |
-| &lt;none&gt; | `PendingDepositPeriodChange[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `PendingDepositPeriodChange[]` |  |
 
 <a id="_setauctionparameters-uint256-uint256-uint256"></a>
 
@@ -1152,11 +1152,11 @@ function _setAuctionParameters(uint256 target_, uint256 tickSize_, uint256 minPr
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| target_   | `uint256` |             |
-| tickSize_ | `uint256` |             |
-| minPrice_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target_ | `uint256` |  |
+| tickSize_ | `uint256` |  |
+| minPrice_ | `uint256` |  |
 
 <a id="_storeauctionresults-uint256"></a>
 
@@ -1168,9 +1168,9 @@ function _storeAuctionResults(uint256 previousTarget_) internal;
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| previousTarget_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| previousTarget_ | `uint256` |  |
 
 <a id="_setnewtickparameters-uint256-uint256-bool-bool-bool"></a>
 
@@ -1424,13 +1424,13 @@ struct BidOutput {
 
 **Properties**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| tickCapacity | `uint256` |             |
-| tickPrice    | `uint256` |             |
-| tickSize     | `uint256` |             |
-| depositIn    | `uint256` |             |
-| ohmOut       | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tickCapacity | `uint256` |  |
+| tickPrice | `uint256` |  |
+| tickSize | `uint256` |  |
+| depositIn | `uint256` |  |
+| ohmOut | `uint256` |  |
 
 ### BidParams
 
@@ -1446,13 +1446,13 @@ struct BidParams {
 
 **Properties**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| depositPeriod | `uint8`   |             |
-| depositAmount | `uint256` |             |
-| minOhmOut     | `uint256` |             |
-| wrapPosition  | `bool`    |             |
-| wrapReceipt   | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositPeriod | `uint8` |  |
+| depositAmount | `uint256` |  |
+| minOhmOut | `uint256` |  |
+| wrapPosition | `bool` |  |
+| wrapReceipt | `bool` |  |
 
 ### PendingDepositPeriodChange
 
@@ -1465,7 +1465,7 @@ struct PendingDepositPeriodChange {
 
 **Properties**
 
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| depositPeriod | `uint8` |             |
-| enable        | `bool`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositPeriod | `uint8` |  |
+| enable | `bool` |  |

@@ -167,17 +167,17 @@ constructor(
 
 **Parameters**
 
-| Name            | Type        | Description |
-| --------------- | ----------- | ----------- |
-| owner_          | `address`   |             |
-| depositManager_ | `address`   |             |
-| cdAuctioneer_   | `address`   |             |
-| usds_           | `address`   |             |
-| sUsds_          | `address`   |             |
-| positionNft_    | `address`   |             |
-| yieldRecipient_ | `address`   |             |
-| depositPeriods_ | `uint8[]`   |             |
-| receiptTokens_  | `address[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner_ | `address` |  |
+| depositManager_ | `address` |  |
+| cdAuctioneer_ | `address` |  |
+| usds_ | `address` |  |
+| sUsds_ | `address` |  |
+| positionNft_ | `address` |  |
+| yieldRecipient_ | `address` |  |
+| depositPeriods_ | `uint8[]` |  |
+| receiptTokens_ | `address[]` |  |
 
 <a id="version"></a>
 
@@ -324,10 +324,10 @@ function _deposit(
 
 **Returns**
 
-| Name                  | Type      | Description                                              |
-| --------------------- | --------- | -------------------------------------------------------- |
-| actualDepositBudget   | `uint256` | The actual deposit budget (may be less than the input)   |
-| actualIncentiveBudget | `uint256` | The actual incentive budget (may be less than the input) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualDepositBudget | `uint256` |     The actual deposit budget (may be less than the input) |
+| actualIncentiveBudget | `uint256` |   The actual incentive budget (may be less than the input) |
 
 <a id="createorder-uint8-uint256-uint256-uint256-uint256"></a>
 
@@ -370,9 +370,9 @@ function createOrder(
 
 **Returns**
 
-| Name    | Type      | Description                 |
-| ------- | --------- | --------------------------- |
-| orderId | `uint256` | The ID of the created order |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| orderId | `uint256` |          The ID of the created order |
 
 <a id="_calculatefillandincentive-limitorder-uint256"></a>
 
@@ -396,11 +396,11 @@ function _calculateFillAndIncentive(
 
 **Returns**
 
-| Name             | Type      | Description                                     |
-| ---------------- | --------- | ----------------------------------------------- |
-| cappedFill       | `uint256` | The fill amount capped to remaining deposit     |
-| incentive        | `uint256` | The incentive amount (with final fill handling) |
-| remainingDeposit | `uint256` | The remaining deposit budget                    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cappedFill | `uint256` |       The fill amount capped to remaining deposit |
+| incentive | `uint256` |        The incentive amount (with final fill handling) |
+| remainingDeposit | `uint256` | The remaining deposit budget |
 
 <a id="fillorder-uint256-uint256"></a>
 
@@ -596,12 +596,12 @@ function previewFillOrder(
 
 **Returns**
 
-| Name           | Type      | Description                           |
-| -------------- | --------- | ------------------------------------- |
-| canFill        | `bool`    | Whether the order can be filled       |
-| reason         | `string`  | The reason the order cannot be filled |
-| effectivePrice | `uint256` | The effective price of the fill       |
-| incentive      | `uint256` | The incentive amount for the fill     |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| canFill | `bool` |         Whether the order can be filled |
+| reason | `string` |          The reason the order cannot be filled |
+| effectivePrice | `uint256` |  The effective price of the fill |
+| incentive | `uint256` |       The incentive amount for the fill |
 
 <a id="calculateincentive-uint256-uint256"></a>
 
@@ -625,10 +625,10 @@ function calculateIncentive(
 
 **Returns**
 
-| Name          | Type      | Description                       |
-| ------------- | --------- | --------------------------------- |
-| incentive     | `uint256` | The incentive amount for the fill |
-| incentiveRate | `uint256` | The incentive rate for the fill   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| incentive | `uint256` |       The incentive amount for the fill |
+| incentiveRate | `uint256` |   The incentive rate for the fill |
 
 <a id="canfillorder-uint256-uint256"></a>
 
@@ -652,11 +652,11 @@ function canFillOrder(
 
 **Returns**
 
-| Name           | Type      | Description                           |
-| -------------- | --------- | ------------------------------------- |
-| canFill        | `bool`    | Whether the order can be filled       |
-| reason         | `string`  | The reason the order cannot be filled |
-| effectivePrice | `uint256` | The effective price of the fill       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| canFill | `bool` |         Whether the order can be filled |
+| reason | `string` |          The reason the order cannot be filled |
+| effectivePrice | `uint256` |  The effective price of the fill |
 
 <a id="getremaining-uint256"></a>
 
@@ -678,10 +678,10 @@ function getRemaining(
 
 **Returns**
 
-| Name      | Type      | Description                    |
-| --------- | --------- | ------------------------------ |
-| deposit   | `uint256` | The remaining deposit budget   |
-| incentive | `uint256` | The remaining incentive budget |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| deposit | `uint256` |     The remaining deposit budget |
+| incentive | `uint256` |   The remaining incentive budget |
 
 <a id="getexecutionprice-uint8-uint256"></a>
 
@@ -850,9 +850,9 @@ function _requireEnabledDepositPeriod(uint8 depositPeriod_) private view;
 
 **Parameters**
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| depositPeriod_ | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositPeriod_ | `uint8` |  |
 
 <a id="_onlyowner"></a>
 
@@ -947,12 +947,12 @@ function onERC721Received(
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| _    | `address` |             |
-| _    | `address` |             |
-| _    | `uint256` |             |
-| _    | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| _ | `address` |  |
+| _ | `uint256` |  |
+| _ | `bytes` |  |
 
 **Returns**
 
@@ -970,12 +970,12 @@ function supportsInterface(bytes4 interfaceId) public view virtual override retu
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

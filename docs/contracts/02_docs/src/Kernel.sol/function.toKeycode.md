@@ -12,12 +12,12 @@ function toKeycode(bytes5 keycode_) pure returns (Keycode);
 
 **Parameters**
 
-| Name     | Type     | Description |
-| -------- | -------- | ----------- |
-| keycode_ | `bytes5` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode_ | `bytes5` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |

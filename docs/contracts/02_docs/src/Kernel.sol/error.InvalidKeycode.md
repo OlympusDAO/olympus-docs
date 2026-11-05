@@ -8,6 +8,6 @@ error InvalidKeycode(Keycode keycode_);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| keycode_ | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode_ | `Keycode` |  |

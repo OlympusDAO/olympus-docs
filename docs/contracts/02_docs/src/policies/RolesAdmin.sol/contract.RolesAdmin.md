@@ -42,9 +42,9 @@ constructor(Kernel _kernel) Policy(_kernel);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| _kernel | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _kernel | `Kernel` |  |
 
 <a id="configuredependencies"></a>
 
@@ -96,10 +96,10 @@ function grantRole(bytes32 role_, address wallet_) external onlyAdmin;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| role_   | `bytes32` |             |
-| wallet_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
+| wallet_ | `address` |  |
 
 <a id="revokerole-bytes32-address"></a>
 
@@ -111,10 +111,10 @@ function revokeRole(bytes32 role_, address wallet_) external onlyAdmin;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| role_   | `bytes32` |             |
-| wallet_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
+| wallet_ | `address` |  |
 
 <a id="pushnewadmin-address"></a>
 
@@ -126,9 +126,9 @@ function pushNewAdmin(address newAdmin_) external onlyAdmin;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| newAdmin_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newAdmin_ | `address` |  |
 
 <a id="pullnewadmin"></a>
 
@@ -148,9 +148,9 @@ event NewAdminPushed(address indexed newAdmin_);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| newAdmin_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newAdmin_ | `address` |  |
 
 ### NewAdminPulled
 
@@ -160,9 +160,9 @@ event NewAdminPulled(address indexed newAdmin_);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| newAdmin_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newAdmin_ | `address` |  |
 
 ## Errors
 

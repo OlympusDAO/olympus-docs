@@ -30,9 +30,9 @@ constructor(address coolerFactory_);
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| coolerFactory_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| coolerFactory_ | `address` |  |
 
 <a id="iscoolercallback"></a>
 
@@ -46,9 +46,9 @@ function isCoolerCallback() external pure returns (bool);
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="onrepay-uint256-uint256-uint256"></a>
 
@@ -62,11 +62,11 @@ function onRepay(uint256 loanID_, uint256 principlePaid_, uint256 interestPaid_)
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| loanID_        | `uint256` |             |
-| principlePaid_ | `uint256` |             |
-| interestPaid_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` |  |
+| principlePaid_ | `uint256` |  |
+| interestPaid_ | `uint256` |  |
 
 <a id="ondefault-uint256-uint256-uint256-uint256"></a>
 
@@ -85,12 +85,12 @@ function onDefault(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| loanID_    | `uint256` |             |
-| principle  | `uint256` |             |
-| interest   | `uint256` |             |
-| collateral | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` |  |
+| principle | `uint256` |  |
+| interest | `uint256` |  |
+| collateral | `uint256` |  |
 
 <a id="_onrepay-uint256-uint256-uint256"></a>
 
@@ -108,11 +108,11 @@ function _onRepay(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| loanID_        | `uint256` |             |
-| principlePaid_ | `uint256` |             |
-| interestPaid_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` |  |
+| principlePaid_ | `uint256` |  |
+| interestPaid_ | `uint256` |  |
 
 <a id="_ondefault-uint256-uint256-uint256-uint256"></a>
 
@@ -131,12 +131,12 @@ function _onDefault(
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| loanID_      | `uint256` |             |
-| principle_   | `uint256` |             |
-| interestDue_ | `uint256` |             |
-| collateral   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanID_ | `uint256` |  |
+| principle_ | `uint256` |  |
+| interestDue_ | `uint256` |  |
+| collateral | `uint256` |  |
 
 ## Errors
 

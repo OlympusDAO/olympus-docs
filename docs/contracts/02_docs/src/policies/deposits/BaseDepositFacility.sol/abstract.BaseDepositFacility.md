@@ -125,10 +125,10 @@ constructor(address kernel_, address depositManager_) Policy(Kernel(kernel_));
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| kernel_         | `address` |             |
-| depositManager_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| depositManager_ | `address` |  |
 
 <a id="authorizeoperator-address"></a>
 
@@ -213,16 +213,16 @@ function _getCommittedDepositsKey(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| depositToken_ | `IERC20`  |             |
-| operator_     | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositToken_ | `IERC20` |  |
+| operator_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="_getassetperiodkey-ierc20-uint8"></a>
 
@@ -620,10 +620,10 @@ function _validateAvailableDeposits(IERC20 depositToken_, uint256 amount_) inter
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| depositToken_ | `IERC20`  |             |
-| amount_       | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositToken_ | `IERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="_previewreclaim-ierc20-uint8-uint256"></a>
 
@@ -639,17 +639,17 @@ function _previewReclaim(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| depositToken_  | `IERC20`  |             |
-| depositPeriod_ | `uint8`   |             |
-| amount_        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositToken_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| amount_ | `uint256` |  |
 
 **Returns**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| reclaimed | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reclaimed | `uint256` |  |
 
 <a id="previewreclaim-ierc20-uint8-uint256"></a>
 
@@ -786,10 +786,10 @@ function _split(uint256 oldPositionId_, uint256 amount_) internal virtual;
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| oldPositionId_ | `uint256` |             |
-| amount_        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldPositionId_ | `uint256` |  |
+| amount_ | `uint256` |  |
 
 <a id="setassetperiodreclaimrate-ierc20-uint8-uint16"></a>
 
@@ -845,9 +845,9 @@ function getAssetPeriodReclaimRate(
 
 **Returns**
 
-| Name        | Type     | Description                           |
-| ----------- | -------- | ------------------------------------- |
-| reclaimRate | `uint16` | The reclaim rate for the asset period |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reclaimRate | `uint16` |   The reclaim rate for the asset period |
 
 <a id="supportsinterface-bytes4"></a>
 
@@ -859,12 +859,12 @@ function supportsInterface(bytes4 interfaceId) public view virtual override retu
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

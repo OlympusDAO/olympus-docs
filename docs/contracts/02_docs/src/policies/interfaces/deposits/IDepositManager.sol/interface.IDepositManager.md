@@ -48,9 +48,9 @@ function borrowingWithdraw(
 
 **Returns**
 
-| Name         | Type      | Description                                                    |
-| ------------ | --------- | -------------------------------------------------------------- |
-| actualAmount | `uint256` | The quantity of underlying assets transferred to the recipient |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` |    The quantity of underlying assets transferred to the recipient |
 
 <a id="borrowingrepay-borrowingrepayparams"></a>
 
@@ -83,9 +83,9 @@ function borrowingRepay(
 
 **Returns**
 
-| Name         | Type      | Description                                               |
-| ------------ | --------- | --------------------------------------------------------- |
-| actualAmount | `uint256` | The quantity of underlying assets received from the payer |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` |    The quantity of underlying assets received from the payer |
 
 <a id="borrowingdefault-borrowingdefaultparams"></a>
 
@@ -110,9 +110,9 @@ function borrowingDefault(BorrowingDefaultParams calldata params_) external;
 
 **Parameters**
 
-| Name    | Type                     | Description |
-| ------- | ------------------------ | ----------- |
-| params_ | `BorrowingDefaultParams` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| params_ | `BorrowingDefaultParams` |  |
 
 <a id="getborrowedamount-ierc20-address"></a>
 
@@ -136,9 +136,9 @@ function getBorrowedAmount(
 
 **Returns**
 
-| Name     | Type      | Description                                  |
-| -------- | --------- | -------------------------------------------- |
-| borrowed | `uint256` | The current borrowed amount for the operator |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| borrowed | `uint256` |        The current borrowed amount for the operator |
 
 <a id="getborrowingcapacity-ierc20-address"></a>
 
@@ -162,9 +162,9 @@ function getBorrowingCapacity(
 
 **Returns**
 
-| Name     | Type      | Description                                       |
-| -------- | --------- | ------------------------------------------------- |
-| capacity | `uint256` | The available borrowing capacity for the operator |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| capacity | `uint256` |        The available borrowing capacity for the operator |
 
 <a id="deposit-depositparams"></a>
 
@@ -197,10 +197,10 @@ function deposit(
 
 **Returns**
 
-| Name           | Type      | Description                                            |
-| -------------- | --------- | ------------------------------------------------------ |
-| receiptTokenId | `uint256` | The ID of the receipt token                            |
-| actualAmount   | `uint256` | The quantity of receipt tokens minted to the depositor |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiptTokenId | `uint256` |  The ID of the receipt token |
+| actualAmount | `uint256` |    The quantity of receipt tokens minted to the depositor |
 
 <a id="maxclaimyield-ierc20-address"></a>
 
@@ -224,9 +224,9 @@ function maxClaimYield(
 
 **Returns**
 
-| Name        | Type      | Description                             |
-| ----------- | --------- | --------------------------------------- |
-| yieldAssets | `uint256` | The amount of yield that can be claimed |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| yieldAssets | `uint256` |   The amount of yield that can be claimed |
 
 <a id="claimyield-ierc20-address-uint256"></a>
 
@@ -264,9 +264,9 @@ function claimYield(
 
 **Returns**
 
-| Name         | Type      | Description                                                    |
-| ------------ | --------- | -------------------------------------------------------------- |
-| actualAmount | `uint256` | The quantity of underlying assets transferred to the recipient |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` |  The quantity of underlying assets transferred to the recipient |
 
 <a id="withdraw-withdrawparams"></a>
 
@@ -297,9 +297,9 @@ function withdraw(WithdrawParams calldata params_) external returns (uint256 act
 
 **Returns**
 
-| Name         | Type      | Description                                                    |
-| ------------ | --------- | -------------------------------------------------------------- |
-| actualAmount | `uint256` | The quantity of underlying assets transferred to the recipient |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` |    The quantity of underlying assets transferred to the recipient |
 
 <a id="getoperatorliabilities-ierc20-address"></a>
 
@@ -323,9 +323,9 @@ function getOperatorLiabilities(
 
 **Returns**
 
-| Name        | Type      | Description                                                                          |
-| ----------- | --------- | ------------------------------------------------------------------------------------ |
-| liabilities | `uint256` | The quantity of assets that the contract is custodying for the operator's depositors |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| liabilities | `uint256` |     The quantity of assets that the contract is custodying for the operator's depositors |
 
 <a id="setoperatorname-address-string"></a>
 
@@ -349,10 +349,10 @@ function setOperatorName(address operator_, string calldata name_) external;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| operator_ | `address` |             |
-| name_     | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator_ | `address` |  |
+| name_ | `string` |  |
 
 <a id="getoperatorname-address"></a>
 
@@ -372,9 +372,9 @@ function getOperatorName(address operator_) external view returns (string memory
 
 **Returns**
 
-| Name | Type     | Description                                 |
-| ---- | -------- | ------------------------------------------- |
-| name | `string` | The name of the operator or an empty string |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | `string` |        The name of the operator or an empty string |
 
 <a id="addasset-ierc20-ierc4626-uint256-uint256"></a>
 
@@ -498,9 +498,9 @@ function addAssetPeriod(
 
 **Returns**
 
-| Name           | Type      | Description                     |
-| -------------- | --------- | ------------------------------- |
-| receiptTokenId | `uint256` | The ID of the new receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiptTokenId | `uint256` |  The ID of the new receipt token |
 
 <a id="disableassetperiod-ierc20-uint8-address"></a>
 
@@ -582,9 +582,9 @@ function getAssetPeriod(
 
 **Returns**
 
-| Name          | Type          | Description      |
-| ------------- | ------------- | ---------------- |
-| configuration | `AssetPeriod` | The asset period |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | `AssetPeriod` |   The asset period |
 
 <a id="getassetperiod-uint256"></a>
 
@@ -606,9 +606,9 @@ function getAssetPeriod(
 
 **Returns**
 
-| Name          | Type          | Description      |
-| ------------- | ------------- | ---------------- |
-| configuration | `AssetPeriod` | The asset period |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | `AssetPeriod` |   The asset period |
 
 <a id="isassetperiod-ierc20-uint8-address"></a>
 
@@ -640,9 +640,9 @@ function isAssetPeriod(
 
 **Returns**
 
-| Name   | Type                | Description                    |
-| ------ | ------------------- | ------------------------------ |
-| status | `AssetPeriodStatus` | The status of the asset period |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| status | `AssetPeriodStatus` |          The status of the asset period |
 
 <a id="getassetperiods"></a>
 
@@ -656,9 +656,9 @@ function getAssetPeriods() external view returns (AssetPeriod[] memory assetPeri
 
 **Returns**
 
-| Name         | Type            | Description                       |
-| ------------ | --------------- | --------------------------------- |
-| assetPeriods | `AssetPeriod[]` | Array of configured asset periods |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assetPeriods | `AssetPeriod[]` |    Array of configured asset periods |
 
 <a id="getreceipttokenid-ierc20-uint8-address"></a>
 
@@ -690,9 +690,9 @@ function getReceiptTokenId(
 
 **Returns**
 
-| Name           | Type      | Description                 |
-| -------------- | --------- | --------------------------- |
-| receiptTokenId | `uint256` | The ID of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiptTokenId | `uint256` |  The ID of the receipt token |
 
 <a id="getreceipttoken-ierc20-uint8-address"></a>
 
@@ -718,10 +718,10 @@ function getReceiptToken(
 
 **Returns**
 
-| Name         | Type      | Description                                                     |
-| ------------ | --------- | --------------------------------------------------------------- |
-| tokenId      | `uint256` | The receipt token ID                                            |
-| wrappedToken | `address` | The address of the wrapped ERC20 token (0x0 if not created yet) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` |         The receipt token ID |
+| wrappedToken | `address` |    The address of the wrapped ERC20 token (0x0 if not created yet) |
 
 <a id="getreceipttokenmanager"></a>
 
@@ -770,12 +770,12 @@ event OperatorYieldClaimed(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| asset     | `address` |             |
-| depositor | `address` |             |
-| operator  | `address` |             |
-| amount    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| depositor | `address` |  |
+| operator | `address` |  |
+| amount | `uint256` |  |
 
 ### OperatorNameSet
 
@@ -785,10 +785,10 @@ event OperatorNameSet(address indexed operator, string name);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| operator | `address` |             |
-| name     | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator | `address` |  |
+| name | `string` |  |
 
 ### AssetPeriodConfigured
 
@@ -803,12 +803,12 @@ event AssetPeriodConfigured(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| receiptTokenId | `uint256` |             |
-| asset          | `address` |             |
-| operator       | `address` |             |
-| depositPeriod  | `uint8`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiptTokenId | `uint256` |  |
+| asset | `address` |  |
+| operator | `address` |  |
+| depositPeriod | `uint8` |  |
 
 ### AssetPeriodEnabled
 
@@ -823,12 +823,12 @@ event AssetPeriodEnabled(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| receiptTokenId | `uint256` |             |
-| asset          | `address` |             |
-| operator       | `address` |             |
-| depositPeriod  | `uint8`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiptTokenId | `uint256` |  |
+| asset | `address` |  |
+| operator | `address` |  |
+| depositPeriod | `uint8` |  |
 
 ### AssetPeriodDisabled
 
@@ -843,12 +843,12 @@ event AssetPeriodDisabled(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| receiptTokenId | `uint256` |             |
-| asset          | `address` |             |
-| operator       | `address` |             |
-| depositPeriod  | `uint8`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiptTokenId | `uint256` |  |
+| asset | `address` |  |
+| operator | `address` |  |
+| depositPeriod | `uint8` |  |
 
 ### TokenRescued
 
@@ -858,10 +858,10 @@ event TokenRescued(address indexed token, uint256 amount);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| token  | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | `address` |  |
+| amount | `uint256` |  |
 
 ### BorrowingWithdrawal
 
@@ -876,12 +876,12 @@ event BorrowingWithdrawal(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| asset     | `address` |             |
-| operator  | `address` |             |
-| recipient | `address` |             |
-| amount    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| operator | `address` |  |
+| recipient | `address` |  |
+| amount | `uint256` |  |
 
 ### BorrowingRepayment
 
@@ -896,12 +896,12 @@ event BorrowingRepayment(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| asset    | `address` |             |
-| operator | `address` |             |
-| payer    | `address` |             |
-| amount   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| operator | `address` |  |
+| payer | `address` |  |
+| amount | `uint256` |  |
 
 ### BorrowingDefault
 
@@ -916,12 +916,12 @@ event BorrowingDefault(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| asset    | `address` |             |
-| operator | `address` |             |
-| payer    | `address` |             |
-| amount   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| operator | `address` |  |
+| payer | `address` |  |
+| amount | `uint256` |  |
 
 ## Errors
 
@@ -933,9 +933,9 @@ error DepositManager_InvalidParams(string reason);
 
 **Parameters**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| reason | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason | `string` |  |
 
 ### DepositManager_Insolvent
 
@@ -979,9 +979,9 @@ error DepositManager_CannotRescueAsset(address token);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| token | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | `address` |  |
 
 ### DepositManager_OperatorNameNotSet
 
@@ -991,9 +991,9 @@ error DepositManager_OperatorNameNotSet(address operator);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| operator | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator | `address` |  |
 
 ### DepositManager_OperatorNameSet
 
@@ -1003,9 +1003,9 @@ error DepositManager_OperatorNameSet(address operator);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| operator | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator | `address` |  |
 
 ### DepositManager_OperatorNameInvalid
 
@@ -1021,9 +1021,9 @@ error DepositManager_OperatorNameInUse(string name);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| name | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | `string` |  |
 
 ### DepositManager_InvalidAssetPeriod
 
@@ -1033,11 +1033,11 @@ error DepositManager_InvalidAssetPeriod(address asset, uint8 depositPeriod, addr
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| asset         | `address` |             |
-| depositPeriod | `uint8`   |             |
-| operator      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| depositPeriod | `uint8` |  |
+| operator | `address` |  |
 
 ### DepositManager_AssetPeriodExists
 
@@ -1047,11 +1047,11 @@ error DepositManager_AssetPeriodExists(address asset, uint8 depositPeriod, addre
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| asset         | `address` |             |
-| depositPeriod | `uint8`   |             |
-| operator      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| depositPeriod | `uint8` |  |
+| operator | `address` |  |
 
 ### DepositManager_AssetPeriodEnabled
 
@@ -1061,11 +1061,11 @@ error DepositManager_AssetPeriodEnabled(address asset, uint8 depositPeriod, addr
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| asset         | `address` |             |
-| depositPeriod | `uint8`   |             |
-| operator      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| depositPeriod | `uint8` |  |
+| operator | `address` |  |
 
 ### DepositManager_AssetPeriodDisabled
 
@@ -1075,11 +1075,11 @@ error DepositManager_AssetPeriodDisabled(address asset, uint8 depositPeriod, add
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| asset         | `address` |             |
-| depositPeriod | `uint8`   |             |
-| operator      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| depositPeriod | `uint8` |  |
+| operator | `address` |  |
 
 ### DepositManager_BorrowingLimitExceeded
 
@@ -1094,12 +1094,12 @@ error DepositManager_BorrowingLimitExceeded(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| asset     | `address` |             |
-| operator  | `address` |             |
-| requested | `uint256` |             |
-| available | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| operator | `address` |  |
+| requested | `uint256` |  |
+| available | `uint256` |  |
 
 ### DepositManager_BorrowedAmountExceeded
 
@@ -1114,12 +1114,12 @@ error DepositManager_BorrowedAmountExceeded(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| asset    | `address` |             |
-| operator | `address` |             |
-| amount   | `uint256` |             |
-| borrowed | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| operator | `address` |  |
+| amount | `uint256` |  |
+| borrowed | `uint256` |  |
 
 ## Structs
 

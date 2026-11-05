@@ -97,12 +97,12 @@ function getPoolTokenAmounts(
 
 **Returns**
 
-| Name          | Type      | Description           |
-| ------------- | --------- | --------------------- |
-| token0Address | `address` | The address of token0 |
-| token1Address | `address` | The address of token1 |
-| token0Amount  | `uint256` | The amount of token0  |
-| token1Amount  | `uint256` | The amount of token1  |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token0Address | `address` |   The address of token0 |
+| token1Address | `address` |   The address of token1 |
+| token0Amount | `uint256` |    The amount of token0 |
+| token1Amount | `uint256` |    The amount of token1 |
 
 <a id="getamountmin-uint256-uint16"></a>
 

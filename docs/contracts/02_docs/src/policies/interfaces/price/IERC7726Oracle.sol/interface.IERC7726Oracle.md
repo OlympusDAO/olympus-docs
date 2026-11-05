@@ -45,9 +45,9 @@ function isStale(address base, address quote) external view returns (bool isStal
 
 **Returns**
 
-| Name     | Type   | Description                                                   |
-| -------- | ------ | ------------------------------------------------------------- |
-| isStale_ | `bool` | Returns true if the pair cache is unset or older than maxAge. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isStale_ | `bool` |    Returns true if the pair cache is unset or older than maxAge. |
 
 <a id="timestamp-address-address"></a>
 
@@ -68,9 +68,9 @@ function timestamp(address base, address quote) external view returns (uint48 ti
 
 **Returns**
 
-| Name       | Type     | Description                                                                            |
-| ---------- | -------- | -------------------------------------------------------------------------------------- |
-| timestamp_ | `uint48` | The cached UNIX timestamp (`uint48`) for this base/quote pair used to judge staleness. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| timestamp_ | `uint48` |  The cached UNIX timestamp (`uint48`) for this base/quote pair used to judge staleness. |
 
 ## Errors
 

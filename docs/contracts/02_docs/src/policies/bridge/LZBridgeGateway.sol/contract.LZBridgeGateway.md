@@ -25,9 +25,9 @@ uint8 public constant override MSG_BRIDGE_OHM = 1;
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 ### _BRIDGE_OHM_DATA_LENGTH
 
@@ -91,9 +91,9 @@ address public immutable override LZ_ENDPOINT;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ### IS_CANONICAL
 
@@ -105,9 +105,9 @@ bool public immutable override IS_CANONICAL;
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 ## State Variables
 
@@ -129,9 +129,9 @@ address public override ohm;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ### bridgedSupply
 
@@ -143,9 +143,9 @@ uint256 public override bridgedSupply;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ### bridgedSupplyInitialized
 
@@ -157,9 +157,9 @@ bool public override bridgedSupplyInitialized;
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 ### isReceiveEnabled
 
@@ -179,9 +179,9 @@ bool public override isReceiveEnabled;
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 ### peers
 
@@ -313,12 +313,12 @@ constructor(
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| kernel_      | `Kernel`  |             |
-| lzEndpoint_  | `address` |             |
-| isCanonical_ | `bool`    |             |
-| grace_       | `uint32`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| lzEndpoint_ | `address` |  |
+| isCanonical_ | `bool` |  |
+| grace_ | `uint32` |  |
 
 <a id="configuredependencies"></a>
 
@@ -406,9 +406,9 @@ function _beforeEnable(bytes calldata) internal override;
 
 **Parameters**
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| _    | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `bytes` |  |
 
 <a id="_beforedisable-bytes"></a>
 
@@ -426,9 +426,9 @@ function _beforeDisable(bytes calldata) internal override;
 
 **Parameters**
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| _    | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `bytes` |  |
 
 <a id="_beforereenable"></a>
 
@@ -607,13 +607,13 @@ function lzReceive(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| origin_  | `Origin`  |             |
-| guid_    | `bytes32` |             |
-| message_ | `bytes`   |             |
-| _        | `address` |             |
-| _        | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| origin_ | `Origin` |  |
+| guid_ | `bytes32` |  |
+| message_ | `bytes` |  |
+| _ | `address` |  |
+| _ | `bytes` |  |
 
 <a id="allowinitializepath-origin"></a>
 
@@ -625,15 +625,15 @@ function allowInitializePath(Origin calldata origin_) external view override ret
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| origin_ | `Origin` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| origin_ | `Origin` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="nextnonce-uint32-bytes32"></a>
 
@@ -645,16 +645,16 @@ function nextNonce(uint32, bytes32) external pure override returns (uint64);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| _    | `uint32`  |             |
-| _    | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `uint32` |  |
+| _ | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint64` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint64` |  |
 
 <a id="setpeer-uint32-bytes32"></a>
 
@@ -1133,15 +1133,15 @@ function supportsInterface(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_increasesupplyandmintapproval-uint256"></a>
 
@@ -1283,11 +1283,11 @@ function _decodeAndRoute(uint32 srcEid_, bytes32 guid_, bytes calldata payload_)
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| srcEid_  | `uint32`  |             |
-| guid_    | `bytes32` |             |
-| payload_ | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| srcEid_ | `uint32` |  |
+| guid_ | `bytes32` |  |
+| payload_ | `bytes` |  |
 
 <a id="_receivebridgeohm-uint32-bytes32-bytes"></a>
 
@@ -1308,11 +1308,11 @@ function _receiveBridgeOhm(uint32 srcEid_, bytes32 guid_, bytes memory data_) pr
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| srcEid_ | `uint32`  |             |
-| guid_   | `bytes32` |             |
-| data_   | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| srcEid_ | `uint32` |  |
+| guid_ | `bytes32` |  |
+| data_ | `bytes` |  |
 
 <a id="_getpeerorrevert-uint32"></a>
 
@@ -1324,15 +1324,15 @@ function _getPeerOrRevert(uint32 eid_) private view returns (bytes32);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| eid_ | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| eid_ | `uint32` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="_requirecanonical"></a>
 
@@ -1352,10 +1352,10 @@ function _requireNonzeroAddress(address address_, string memory parameter_) priv
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| address_   | `address` |             |
-| parameter_ | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| address_ | `address` |  |
+| parameter_ | `string` |  |
 
 <a id="_requirenonzerorecipient-address"></a>
 
@@ -1389,17 +1389,17 @@ function _combineOptions(
 
 **Parameters**
 
-| Name          | Type     | Description |
-| ------------- | -------- | ----------- |
-| eid_          | `uint32` |             |
-| msgType_      | `uint16` |             |
-| extraOptions_ | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| eid_ | `uint32` |  |
+| msgType_ | `uint16` |  |
+| extraOptions_ | `bytes` |  |
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes` |  |
 
 <a id="_assertoptionstype3-bytes"></a>
 
@@ -1413,6 +1413,6 @@ function _assertOptionsType3(bytes calldata options_) internal pure;
 
 **Parameters**
 
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| options_ | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| options_ | `bytes` |  |

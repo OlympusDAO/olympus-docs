@@ -12,12 +12,12 @@ function toSubKeycode(bytes20 key_) pure returns (SubKeycode);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| key_ | `bytes20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| key_ | `bytes20` |  |
 
 **Returns**
 
-| Name         | Type         | Description |
-| ------------ | ------------ | ----------- |
-| &lt;none&gt; | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `SubKeycode` |  |

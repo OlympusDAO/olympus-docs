@@ -239,11 +239,11 @@ event ContractRegistered(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| name            | `bytes5`  |             |
-| contractAddress | `address` |             |
-| isImmutable     | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | `bytes5` |  |
+| contractAddress | `address` |  |
+| isImmutable | `bool` |  |
 
 ### ContractUpdated
 
@@ -255,10 +255,10 @@ event ContractUpdated(bytes5 indexed name, address indexed contractAddress);
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| name            | `bytes5`  |             |
-| contractAddress | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | `bytes5` |  |
+| contractAddress | `address` |  |
 
 ### ContractDeregistered
 
@@ -270,9 +270,9 @@ event ContractDeregistered(bytes5 indexed name);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| name | `bytes5` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | `bytes5` |  |
 
 ## Errors
 

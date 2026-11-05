@@ -32,9 +32,9 @@ function createOracle(
 
 **Returns**
 
-| Name   | Type      | Description                       |
-| ------ | --------- | --------------------------------- |
-| oracle | `address` | The address of the created oracle |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle | `address` |         The address of the created oracle |
 
 <a id="getoracle-uint48"></a>
 
@@ -54,9 +54,9 @@ function getOracle(uint48 maxAge_) external view returns (address oracle);
 
 **Returns**
 
-| Name   | Type      | Description                                    |
-| ------ | --------- | ---------------------------------------------- |
-| oracle | `address` | The oracle address, or address(0) if not found |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle | `address` |   The oracle address, or address(0) if not found |
 
 <a id="getoracles"></a>
 
@@ -70,9 +70,9 @@ function getOracles() external view returns (address[] memory oracles);
 
 **Returns**
 
-| Name    | Type        | Description                   |
-| ------- | ----------- | ----------------------------- |
-| oracles | `address[]` | Array of all oracle addresses |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracles | `address[]` |  Array of all oracle addresses |
 
 <a id="getpricecache"></a>
 
@@ -86,9 +86,9 @@ function getPriceCache() external view returns (address policy);
 
 **Returns**
 
-| Name   | Type      | Description                    |
-| ------ | --------- | ------------------------------ |
-| policy | `address` | The price cache policy address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy | `address` |   The price cache policy address |
 
 <a id="enableoracle-address"></a>
 
@@ -140,9 +140,9 @@ function isOracleEnabled(address oracle_) external view returns (bool enabled);
 
 **Returns**
 
-| Name    | Type   | Description                                    |
-| ------- | ------ | ---------------------------------------------- |
-| enabled | `bool` | True if the oracle is enabled, false otherwise |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| enabled | `bool` |   True if the oracle is enabled, false otherwise |
 
 <a id="getoraclecontext-address"></a>
 
@@ -171,10 +171,10 @@ function getOracleContext(address oracle_) external view returns (bool enabled, 
 
 **Returns**
 
-| Name    | Type      | Description                                    |
-| ------- | --------- | ---------------------------------------------- |
-| enabled | `bool`    | True if the oracle is enabled, false otherwise |
-| policy  | `address` | The configured price cache policy address      |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| enabled | `bool` |   True if the oracle is enabled, false otherwise |
+| policy | `address` |    The configured price cache policy address |
 
 <a id="cacheprice-address-address"></a>
 

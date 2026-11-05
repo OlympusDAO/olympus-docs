@@ -43,16 +43,16 @@ function _calculateInvariant(
 
 **Parameters**
 
-| Name                   | Type        | Description |
-| ---------------------- | ----------- | ----------- |
-| amplificationParameter | `uint256`   |             |
-| balances               | `uint256[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amplificationParameter | `uint256` |  |
+| balances | `uint256[]` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_calcoutgivenin-uint256-uint256-uint256-uint256-uint256-uint256"></a>
 
@@ -71,20 +71,20 @@ function _calcOutGivenIn(
 
 **Parameters**
 
-| Name                   | Type        | Description |
-| ---------------------- | ----------- | ----------- |
-| amplificationParameter | `uint256`   |             |
-| balances               | `uint256[]` |             |
-| tokenIndexIn           | `uint256`   |             |
-| tokenIndexOut          | `uint256`   |             |
-| tokenAmountIn          | `uint256`   |             |
-| invariant              | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amplificationParameter | `uint256` |  |
+| balances | `uint256[]` |  |
+| tokenIndexIn | `uint256` |  |
+| tokenIndexOut | `uint256` |  |
+| tokenAmountIn | `uint256` |  |
+| invariant | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_calcingivenout-uint256-uint256-uint256-uint256-uint256-uint256"></a>
 
@@ -103,20 +103,20 @@ function _calcInGivenOut(
 
 **Parameters**
 
-| Name                   | Type        | Description |
-| ---------------------- | ----------- | ----------- |
-| amplificationParameter | `uint256`   |             |
-| balances               | `uint256[]` |             |
-| tokenIndexIn           | `uint256`   |             |
-| tokenIndexOut          | `uint256`   |             |
-| tokenAmountOut         | `uint256`   |             |
-| invariant              | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amplificationParameter | `uint256` |  |
+| balances | `uint256[]` |  |
+| tokenIndexIn | `uint256` |  |
+| tokenIndexOut | `uint256` |  |
+| tokenAmountOut | `uint256` |  |
+| invariant | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_calcbptoutgivenexacttokensin-uint256-uint256-uint256-uint256-uint256-uint256"></a>
 
@@ -135,20 +135,20 @@ function _calcBptOutGivenExactTokensIn(
 
 **Parameters**
 
-| Name              | Type        | Description |
-| ----------------- | ----------- | ----------- |
-| amp               | `uint256`   |             |
-| balances          | `uint256[]` |             |
-| amountsIn         | `uint256[]` |             |
-| bptTotalSupply    | `uint256`   |             |
-| currentInvariant  | `uint256`   |             |
-| swapFeePercentage | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amp | `uint256` |  |
+| balances | `uint256[]` |  |
+| amountsIn | `uint256[]` |  |
+| bptTotalSupply | `uint256` |  |
+| currentInvariant | `uint256` |  |
+| swapFeePercentage | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_calctokeningivenexactbptout-uint256-uint256-uint256-uint256-uint256-uint256-uint256"></a>
 
@@ -168,21 +168,21 @@ function _calcTokenInGivenExactBptOut(
 
 **Parameters**
 
-| Name              | Type        | Description |
-| ----------------- | ----------- | ----------- |
-| amp               | `uint256`   |             |
-| balances          | `uint256[]` |             |
-| tokenIndex        | `uint256`   |             |
-| bptAmountOut      | `uint256`   |             |
-| bptTotalSupply    | `uint256`   |             |
-| currentInvariant  | `uint256`   |             |
-| swapFeePercentage | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amp | `uint256` |  |
+| balances | `uint256[]` |  |
+| tokenIndex | `uint256` |  |
+| bptAmountOut | `uint256` |  |
+| bptTotalSupply | `uint256` |  |
+| currentInvariant | `uint256` |  |
+| swapFeePercentage | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_calcbptingivenexacttokensout-uint256-uint256-uint256-uint256-uint256-uint256"></a>
 
@@ -201,20 +201,20 @@ function _calcBptInGivenExactTokensOut(
 
 **Parameters**
 
-| Name              | Type        | Description |
-| ----------------- | ----------- | ----------- |
-| amp               | `uint256`   |             |
-| balances          | `uint256[]` |             |
-| amountsOut        | `uint256[]` |             |
-| bptTotalSupply    | `uint256`   |             |
-| currentInvariant  | `uint256`   |             |
-| swapFeePercentage | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amp | `uint256` |  |
+| balances | `uint256[]` |  |
+| amountsOut | `uint256[]` |  |
+| bptTotalSupply | `uint256` |  |
+| currentInvariant | `uint256` |  |
+| swapFeePercentage | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_calctokenoutgivenexactbptin-uint256-uint256-uint256-uint256-uint256-uint256-uint256"></a>
 
@@ -234,21 +234,21 @@ function _calcTokenOutGivenExactBptIn(
 
 **Parameters**
 
-| Name              | Type        | Description |
-| ----------------- | ----------- | ----------- |
-| amp               | `uint256`   |             |
-| balances          | `uint256[]` |             |
-| tokenIndex        | `uint256`   |             |
-| bptAmountIn       | `uint256`   |             |
-| bptTotalSupply    | `uint256`   |             |
-| currentInvariant  | `uint256`   |             |
-| swapFeePercentage | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amp | `uint256` |  |
+| balances | `uint256[]` |  |
+| tokenIndex | `uint256` |  |
+| bptAmountIn | `uint256` |  |
+| bptTotalSupply | `uint256` |  |
+| currentInvariant | `uint256` |  |
+| swapFeePercentage | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_gettokenbalancegiveninvariantandallotherbalances-uint256-uint256-uint256-uint256"></a>
 
@@ -265,15 +265,15 @@ function _getTokenBalanceGivenInvariantAndAllOtherBalances(
 
 **Parameters**
 
-| Name                   | Type        | Description |
-| ---------------------- | ----------- | ----------- |
-| amplificationParameter | `uint256`   |             |
-| balances               | `uint256[]` |             |
-| invariant              | `uint256`   |             |
-| tokenIndex             | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amplificationParameter | `uint256` |  |
+| balances | `uint256[]` |  |
+| invariant | `uint256` |  |
+| tokenIndex | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

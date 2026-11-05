@@ -137,9 +137,9 @@ function _getOhmPrice(IPRICEv2.Variant variant_) internal view returns (uint256 
 
 **Returns**
 
-| Name   | Type      | Description             |
-| ------ | --------- | ----------------------- |
-| price_ | `uint256` | The requested OHM price |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price_ | `uint256` |          The requested OHM price |
 
 <a id="_unitprice"></a>
 
@@ -159,9 +159,9 @@ function _unitPrice() internal pure override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getcurrentprice"></a>
 
@@ -205,9 +205,9 @@ function getCurrentPrice() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getlastprice"></a>
 
@@ -251,9 +251,9 @@ function getLastPrice() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getmovingaverage"></a>
 
@@ -303,9 +303,9 @@ function getMovingAverage() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="gettargetprice"></a>
 
@@ -355,9 +355,9 @@ function getTargetPrice() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="lastobservationtime"></a>
 
@@ -401,9 +401,9 @@ function lastObservationTime() external view override returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="ohm"></a>
 
@@ -417,9 +417,9 @@ function OHM() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="updatemovingaverage"></a>
 
@@ -497,10 +497,10 @@ function initialize(uint256[] memory, uint48) external pure;
 
 **Parameters**
 
-| Name | Type        | Description |
-| ---- | ----------- | ----------- |
-| _    | `uint256[]` |             |
-| _    | `uint48`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `uint256[]` |  |
+| _ | `uint48` |  |
 
 <a id="changeminimumtargetprice-uint256"></a>
 
@@ -566,10 +566,10 @@ function changeUpdateThresholds(uint48, uint48) external pure;
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| _    | `uint48` |             |
-| _    | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `uint48` |  |
+| _ | `uint48` |  |
 
 <a id="changemovingaverageduration-uint48"></a>
 
@@ -595,9 +595,9 @@ function changeMovingAverageDuration(uint48) external pure;
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| _    | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `uint48` |  |
 
 <a id="changeobservationfrequency-uint48"></a>
 
@@ -623,9 +623,9 @@ function changeObservationFrequency(uint48) external pure;
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| _    | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `uint48` |  |
 
 <a id="decimals"></a>
 
@@ -645,9 +645,9 @@ function decimals() external pure virtual override(IPRICEv1, PRICEv2) returns (u
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 <a id="observationfrequency"></a>
 
@@ -672,9 +672,9 @@ function observationFrequency()
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="supportsinterface-bytes4"></a>
 
@@ -692,15 +692,15 @@ function supportsInterface(bytes4 interfaceId_) public pure virtual override ret
 
 **Parameters**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| interfaceId_ | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 ## Errors
 

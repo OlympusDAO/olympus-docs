@@ -34,9 +34,9 @@ function getFeeSVM(
 
 **Returns**
 
-| Name | Type      | Description                                                |
-| ---- | --------- | ---------------------------------------------------------- |
-| fee_ | `uint256` | The fee for sending OHM to the specified destination chain |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fee_ | `uint256` |                The fee for sending OHM to the specified destination chain |
 
 <a id="getfeeevm-uint64-address-uint256"></a>
 
@@ -68,9 +68,9 @@ function getFeeEVM(
 
 **Returns**
 
-| Name | Type      | Description                                                    |
-| ---- | --------- | -------------------------------------------------------------- |
-| fee_ | `uint256` | The fee for sending OHM to the specified destination EVM chain |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fee_ | `uint256` |                The fee for sending OHM to the specified destination EVM chain |
 
 <a id="sendtosvm-uint64-bytes32-uint256"></a>
 
@@ -102,9 +102,9 @@ function sendToSVM(
 
 **Returns**
 
-| Name      | Type      | Description                        |
-| --------- | --------- | ---------------------------------- |
-| messageId | `bytes32` | The message ID of the sent message |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | `bytes32` |           The message ID of the sent message |
 
 <a id="sendtoevm-uint64-address-uint256"></a>
 
@@ -136,9 +136,9 @@ function sendToEVM(
 
 **Returns**
 
-| Name      | Type      | Description                        |
-| --------- | --------- | ---------------------------------- |
-| messageId | `bytes32` | The message ID of the sent message |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | `bytes32` |           The message ID of the sent message |
 
 <a id="getfailedmessage-bytes32"></a>
 
@@ -411,13 +411,13 @@ event Bridged(
 
 **Parameters**
 
-| Name                     | Type      | Description |
-| ------------------------ | --------- | ----------- |
-| messageId                | `bytes32` |             |
-| destinationChainSelector | `uint64`  |             |
-| sender                   | `address` |             |
-| amount                   | `uint256` |             |
-| fees                     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | `bytes32` |  |
+| destinationChainSelector | `uint64` |  |
+| sender | `address` |  |
+| amount | `uint256` |  |
+| fees | `uint256` |  |
 
 ### Received
 
@@ -432,12 +432,12 @@ event Received(
 
 **Parameters**
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| messageId           | `bytes32` |             |
-| sourceChainSelector | `uint64`  |             |
-| sender              | `address` |             |
-| amount              | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | `bytes32` |  |
+| sourceChainSelector | `uint64` |  |
+| sender | `address` |  |
+| amount | `uint256` |  |
 
 ### Withdrawn
 
@@ -447,10 +447,10 @@ event Withdrawn(address indexed recipient, uint256 amount);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| recipient | `address` |             |
-| amount    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| recipient | `address` |  |
+| amount | `uint256` |  |
 
 ### TrustedRemoteEVMSet
 
@@ -460,10 +460,10 @@ event TrustedRemoteEVMSet(uint64 indexed dstChainSelector, address indexed to);
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| dstChainSelector | `uint64`  |             |
-| to               | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainSelector | `uint64` |  |
+| to | `address` |  |
 
 ### TrustedRemoteEVMUnset
 
@@ -473,9 +473,9 @@ event TrustedRemoteEVMUnset(uint64 indexed dstChainSelector);
 
 **Parameters**
 
-| Name             | Type     | Description |
-| ---------------- | -------- | ----------- |
-| dstChainSelector | `uint64` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainSelector | `uint64` |  |
 
 ### TrustedRemoteSVMSet
 
@@ -485,10 +485,10 @@ event TrustedRemoteSVMSet(uint64 indexed dstChainSelector, bytes32 indexed to);
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| dstChainSelector | `uint64`  |             |
-| to               | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainSelector | `uint64` |  |
+| to | `bytes32` |  |
 
 ### TrustedRemoteSVMUnset
 
@@ -498,9 +498,9 @@ event TrustedRemoteSVMUnset(uint64 indexed dstChainSelector);
 
 **Parameters**
 
-| Name             | Type     | Description |
-| ---------------- | -------- | ----------- |
-| dstChainSelector | `uint64` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainSelector | `uint64` |  |
 
 ### GasLimitSet
 
@@ -510,10 +510,10 @@ event GasLimitSet(uint64 indexed dstChainSelector, uint32 gasLimit);
 
 **Parameters**
 
-| Name             | Type     | Description |
-| ---------------- | -------- | ----------- |
-| dstChainSelector | `uint64` |             |
-| gasLimit         | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainSelector | `uint64` |  |
+| gasLimit | `uint32` |  |
 
 ### MessageFailed
 
@@ -523,9 +523,9 @@ event MessageFailed(bytes32 messageId);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| messageId | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | `bytes32` |  |
 
 ### RetryMessageSuccess
 
@@ -535,9 +535,9 @@ event RetryMessageSuccess(bytes32 messageId);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| messageId | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | `bytes32` |  |
 
 ## Errors
 
@@ -549,9 +549,9 @@ error Bridge_InvalidAddress(string param);
 
 **Parameters**
 
-| Name  | Type     | Description |
-| ----- | -------- | ----------- |
-| param | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| param | `string` |  |
 
 ### Bridge_ZeroAmount
 
@@ -567,10 +567,10 @@ error Bridge_InsufficientAmount(uint256 expected, uint256 actual);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| expected | `uint256` |             |
-| actual   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| expected | `uint256` |  |
+| actual | `uint256` |  |
 
 ### Bridge_InsufficientNativeToken
 
@@ -580,10 +580,10 @@ error Bridge_InsufficientNativeToken(uint256 expected, uint256 actual);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| expected | `uint256` |             |
-| actual   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| expected | `uint256` |  |
+| actual | `uint256` |  |
 
 ### Bridge_TransferFailed
 
@@ -593,11 +593,11 @@ error Bridge_TransferFailed(address caller, address recipient, uint256 amount);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| caller    | `address` |             |
-| recipient | `address` |             |
-| amount    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| recipient | `address` |  |
+| amount | `uint256` |  |
 
 ### Bridge_DestinationNotTrusted
 
@@ -625,9 +625,9 @@ error Bridge_FailedMessageNotFound(bytes32 messageId);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| messageId | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | `bytes32` |  |
 
 ### Bridge_InvalidPayloadTokensLength
 
@@ -660,10 +660,10 @@ struct TrustedRemoteEVM {
 
 **Properties**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| remoteAddress | `address` |             |
-| isSet         | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| remoteAddress | `address` |  |
+| isSet | `bool` |  |
 
 ### TrustedRemoteSVM
 
@@ -676,7 +676,7 @@ struct TrustedRemoteSVM {
 
 **Properties**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| remoteAddress | `bytes32` |             |
-| isSet         | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| remoteAddress | `bytes32` |  |
+| isSet | `bool` |  |

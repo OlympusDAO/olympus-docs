@@ -19,12 +19,12 @@ function joinPool(
 
 **Parameters**
 
-| Name      | Type              | Description |
-| --------- | ----------------- | ----------- |
-| poolId    | `bytes32`         |             |
-| sender    | `address`         |             |
-| recipient | `address`         |             |
-| request   | `JoinPoolRequest` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| poolId | `bytes32` |  |
+| sender | `address` |  |
+| recipient | `address` |  |
+| request | `JoinPoolRequest` |  |
 
 <a id="exitpool-bytes32-address-address-payable-exitpoolrequest"></a>
 
@@ -41,12 +41,12 @@ function exitPool(
 
 **Parameters**
 
-| Name      | Type              | Description |
-| --------- | ----------------- | ----------- |
-| poolId    | `bytes32`         |             |
-| sender    | `address`         |             |
-| recipient | `address payable` |             |
-| request   | `ExitPoolRequest` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| poolId | `bytes32` |  |
+| sender | `address` |  |
+| recipient | `address payable` |  |
+| request | `ExitPoolRequest` |  |
 
 <a id="getpooltokens-bytes32"></a>
 
@@ -60,14 +60,14 @@ function getPoolTokens(
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| poolId | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| poolId | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `address[]` |             |
-| &lt;none&gt; | `uint256[]` |             |
-| &lt;none&gt; | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address[]` |  |
+| &lt;none&gt; | `uint256[]` |  |
+| &lt;none&gt; | `uint256` |  |

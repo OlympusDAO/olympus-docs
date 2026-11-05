@@ -26,9 +26,9 @@ function owner() external view returns (address _owner);
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| _owner | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _owner | `address` |  |
 
 <a id="asset"></a>
 
@@ -40,9 +40,9 @@ function asset() external view returns (IERC20 _asset);
 
 **Returns**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| _asset | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _asset | `IERC20` |  |
 
 <a id="depositperiod"></a>
 
@@ -54,9 +54,9 @@ function depositPeriod() external view returns (uint8 _depositPeriod);
 
 **Returns**
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| _depositPeriod | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _depositPeriod | `uint8` |  |
 
 <a id="operator"></a>
 
@@ -68,9 +68,9 @@ function operator() external view returns (address _operator);
 
 **Returns**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| _operator | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _operator | `address` |  |
 
 ## Errors
 

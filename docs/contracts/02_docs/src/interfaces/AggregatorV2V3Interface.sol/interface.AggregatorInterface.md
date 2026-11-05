@@ -14,9 +14,9 @@ function latestAnswer() external view returns (int256);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `int256` |  |
 
 <a id="latesttimestamp"></a>
 
@@ -28,9 +28,9 @@ function latestTimestamp() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="latestround"></a>
 
@@ -42,9 +42,9 @@ function latestRound() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getanswer-uint256"></a>
 
@@ -56,15 +56,15 @@ function getAnswer(uint256 roundId) external view returns (int256);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| roundId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| roundId | `uint256` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `int256` |  |
 
 <a id="gettimestamp-uint256"></a>
 
@@ -76,15 +76,15 @@ function getTimestamp(uint256 roundId) external view returns (uint256);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| roundId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| roundId | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Events
 
@@ -96,11 +96,11 @@ event AnswerUpdated(int256 indexed current, uint256 indexed roundId, uint256 upd
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| current   | `int256`  |             |
-| roundId   | `uint256` |             |
-| updatedAt | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| current | `int256` |  |
+| roundId | `uint256` |  |
+| updatedAt | `uint256` |  |
 
 ### NewRound
 
@@ -110,8 +110,8 @@ event NewRound(uint256 indexed roundId, address indexed startedBy, uint256 start
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| roundId   | `uint256` |             |
-| startedBy | `address` |             |
-| startedAt | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| roundId | `uint256` |  |
+| startedBy | `address` |  |
+| startedAt | `uint256` |  |

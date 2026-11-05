@@ -70,9 +70,9 @@ constructor(Kernel kernel_) Module(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="observationfrequency"></a>
 
@@ -86,9 +86,9 @@ function observationFrequency() external view virtual override returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="decimals"></a>
 
@@ -102,9 +102,9 @@ function decimals() external view virtual override returns (uint8);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 <a id="unitofaccount"></a>
 
@@ -118,9 +118,9 @@ function unitOfAccount() external pure virtual override returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="_validateassetismanageable-address"></a>
 
@@ -146,9 +146,9 @@ function _validateAssetIsManageable(address asset_) internal view;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| asset_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
 
 <a id="supportsinterface-bytes4"></a>
 
@@ -160,12 +160,12 @@ function supportsInterface(bytes4 interfaceId_) public pure virtual returns (boo
 
 **Parameters**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| interfaceId_ | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

@@ -21,17 +21,17 @@ function create(
 
 **Parameters**
 
-| Name              | Type        | Description |
-| ----------------- | ----------- | ----------- |
-| name              | `string`    |             |
-| symbol            | `string`    |             |
-| tokens            | `ERC20[]`   |             |
-| weights           | `uint256[]` |             |
-| swapFeePercentage | `uint256`   |             |
-| owner             | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | `string` |  |
+| symbol | `string` |  |
+| tokens | `ERC20[]` |  |
+| weights | `uint256[]` |  |
+| swapFeePercentage | `uint256` |  |
+| owner | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |

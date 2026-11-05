@@ -87,10 +87,10 @@ constructor(Kernel kernel_, address endpoint_) Policy(kernel_);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| kernel_   | `Kernel`  |             |
-| endpoint_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| endpoint_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -140,11 +140,11 @@ function sendOhm(uint16 dstChainId_, address to_, uint256 amount_) external paya
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| dstChainId_ | `uint16`  |             |
-| to_         | `address` |             |
-| amount_     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainId_ | `uint16` |  |
+| to_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="_receivemessage-uint16-bytes-uint64-bytes"></a>
 
@@ -169,12 +169,12 @@ function _receiveMessage(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| srcChainId_ | `uint16` |             |
-| _           | `bytes`  |             |
-| _           | `uint64` |             |
-| payload_    | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| srcChainId_ | `uint16` |  |
+| _ | `bytes` |  |
+| _ | `uint64` |  |
+| payload_ | `bytes` |  |
 
 <a id="lzreceive-uint16-bytes-uint64-bytes"></a>
 
@@ -191,12 +191,12 @@ function lzReceive(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| srcChainId_ | `uint16` |             |
-| srcAddress_ | `bytes`  |             |
-| nonce_      | `uint64` |             |
-| payload_    | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| srcChainId_ | `uint16` |  |
+| srcAddress_ | `bytes` |  |
+| nonce_ | `uint64` |  |
+| payload_ | `bytes` |  |
 
 <a id="receivemessage-uint16-bytes-uint64-bytes"></a>
 
@@ -221,12 +221,12 @@ function receiveMessage(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| srcChainId_ | `uint16` |             |
-| srcAddress_ | `bytes`  |             |
-| nonce_      | `uint64` |             |
-| payload_    | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| srcChainId_ | `uint16` |  |
+| srcAddress_ | `bytes` |  |
+| nonce_ | `uint64` |  |
+| payload_ | `bytes` |  |
 
 <a id="retrymessage-uint16-bytes-uint64-bytes"></a>
 
@@ -245,12 +245,12 @@ function retryMessage(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| srcChainId_ | `uint16` |             |
-| srcAddress_ | `bytes`  |             |
-| nonce_      | `uint64` |             |
-| payload_    | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| srcChainId_ | `uint16` |  |
+| srcAddress_ | `bytes` |  |
+| nonce_ | `uint64` |  |
+| payload_ | `bytes` |  |
 
 <a id="_sendmessage-uint16-bytes-address-payable-address-bytes-uint256"></a>
 
@@ -277,14 +277,14 @@ function _sendMessage(
 
 **Parameters**
 
-| Name               | Type              | Description |
-| ------------------ | ----------------- | ----------- |
-| dstChainId_        | `uint16`          |             |
-| payload_           | `bytes`           |             |
-| refundAddress_     | `address payable` |             |
-| zroPaymentAddress_ | `address`         |             |
-| adapterParams_     | `bytes`           |             |
-| nativeFee_         | `uint256`         |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainId_ | `uint16` |  |
+| payload_ | `bytes` |  |
+| refundAddress_ | `address payable` |  |
+| zroPaymentAddress_ | `address` |  |
+| adapterParams_ | `bytes` |  |
+| nativeFee_ | `uint256` |  |
 
 <a id="estimatesendfee-uint16-address-uint256-bytes"></a>
 
@@ -309,12 +309,12 @@ function estimateSendFee(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| dstChainId_    | `uint16`  |             |
-| to_            | `address` |             |
-| amount_        | `uint256` |             |
-| adapterParams_ | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainId_ | `uint16` |  |
+| to_ | `address` |  |
+| amount_ | `uint256` |  |
+| adapterParams_ | `bytes` |  |
 
 **Returns**
 
@@ -340,12 +340,12 @@ function setConfig(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| version_    | `uint16`  |             |
-| chainId_    | `uint16`  |             |
-| configType_ | `uint256` |             |
-| config_     | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| version_ | `uint16` |  |
+| chainId_ | `uint16` |  |
+| configType_ | `uint256` |  |
+| config_ | `bytes` |  |
 
 <a id="setsendversion-uint16"></a>
 
@@ -359,9 +359,9 @@ function setSendVersion(uint16 version_) external override onlyRole("bridge_admi
 
 **Parameters**
 
-| Name     | Type     | Description |
-| -------- | -------- | ----------- |
-| version_ | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| version_ | `uint16` |  |
 
 <a id="setreceiveversion-uint16"></a>
 
@@ -375,9 +375,9 @@ function setReceiveVersion(uint16 version_) external override onlyRole("bridge_a
 
 **Parameters**
 
-| Name     | Type     | Description |
-| -------- | -------- | ----------- |
-| version_ | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| version_ | `uint16` |  |
 
 <a id="forceresumereceive-uint16-bytes"></a>
 
@@ -400,10 +400,10 @@ function forceResumeReceive(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| srcChainId_ | `uint16` |             |
-| srcAddress_ | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| srcChainId_ | `uint16` |  |
+| srcAddress_ | `bytes` |  |
 
 <a id="settrustedremote-uint16-bytes"></a>
 
@@ -426,10 +426,10 @@ function setTrustedRemote(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| srcChainId_ | `uint16` |             |
-| path_       | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| srcChainId_ | `uint16` |  |
+| path_ | `bytes` |  |
 
 <a id="settrustedremoteaddress-uint16-bytes"></a>
 
@@ -446,10 +446,10 @@ function setTrustedRemoteAddress(
 
 **Parameters**
 
-| Name           | Type     | Description |
-| -------------- | -------- | ----------- |
-| remoteChainId_ | `uint16` |             |
-| remoteAddress_ | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| remoteChainId_ | `uint16` |  |
+| remoteAddress_ | `bytes` |  |
 
 <a id="setprecrime-address"></a>
 
@@ -463,9 +463,9 @@ function setPrecrime(address precrime_) external onlyRole("bridge_admin");
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| precrime_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| precrime_ | `address` |  |
 
 <a id="setbridgestatus-bool"></a>
 
@@ -479,9 +479,9 @@ function setBridgeStatus(bool isActive_) external onlyRole("bridge_admin");
 
 **Parameters**
 
-| Name      | Type   | Description |
-| --------- | ------ | ----------- |
-| isActive_ | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isActive_ | `bool` |  |
 
 <a id="getconfig-uint16-uint16-address-uint256"></a>
 
@@ -500,18 +500,18 @@ function getConfig(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| version_    | `uint16`  |             |
-| chainId_    | `uint16`  |             |
-| _           | `address` |             |
-| configType_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| version_ | `uint16` |  |
+| chainId_ | `uint16` |  |
+| _ | `address` |  |
+| configType_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes` |  |
 
 <a id="gettrustedremoteaddress-uint16"></a>
 
@@ -525,15 +525,15 @@ function getTrustedRemoteAddress(uint16 remoteChainId_) external view returns (b
 
 **Parameters**
 
-| Name           | Type     | Description |
-| -------------- | -------- | ----------- |
-| remoteChainId_ | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| remoteChainId_ | `uint16` |  |
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes` |  |
 
 <a id="istrustedremote-uint16-bytes"></a>
 
@@ -548,16 +548,16 @@ function isTrustedRemote(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| srcChainId_ | `uint16` |             |
-| srcAddress_ | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| srcChainId_ | `uint16` |  |
+| srcAddress_ | `bytes` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 ## Events
 
@@ -569,11 +569,11 @@ event BridgeTransferred(address indexed sender_, uint256 amount_, uint16 indexed
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| sender_   | `address` |             |
-| amount_   | `uint256` |             |
-| dstChain_ | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender_ | `address` |  |
+| amount_ | `uint256` |  |
+| dstChain_ | `uint16` |  |
 
 ### BridgeReceived
 
@@ -583,11 +583,11 @@ event BridgeReceived(address indexed receiver_, uint256 amount_, uint16 indexed 
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| receiver_ | `address` |             |
-| amount_   | `uint256` |             |
-| srcChain_ | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiver_ | `address` |  |
+| amount_ | `uint256` |  |
+| srcChain_ | `uint16` |  |
 
 ### MessageFailed
 
@@ -603,13 +603,13 @@ event MessageFailed(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| srcChainId_ | `uint16` |             |
-| srcAddress_ | `bytes`  |             |
-| nonce_      | `uint64` |             |
-| payload_    | `bytes`  |             |
-| reason_     | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| srcChainId_ | `uint16` |  |
+| srcAddress_ | `bytes` |  |
+| nonce_ | `uint64` |  |
+| payload_ | `bytes` |  |
+| reason_ | `bytes` |  |
 
 ### RetryMessageSuccess
 
@@ -624,12 +624,12 @@ event RetryMessageSuccess(
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| srcChainId_  | `uint16`  |             |
-| srcAddress_  | `bytes`   |             |
-| nonce_       | `uint64`  |             |
-| payloadHash_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| srcChainId_ | `uint16` |  |
+| srcAddress_ | `bytes` |  |
+| nonce_ | `uint64` |  |
+| payloadHash_ | `bytes32` |  |
 
 ### SetPrecrime
 
@@ -639,9 +639,9 @@ event SetPrecrime(address precrime_);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| precrime_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| precrime_ | `address` |  |
 
 ### SetTrustedRemote
 
@@ -651,10 +651,10 @@ event SetTrustedRemote(uint16 remoteChainId_, bytes path_);
 
 **Parameters**
 
-| Name           | Type     | Description |
-| -------------- | -------- | ----------- |
-| remoteChainId_ | `uint16` |             |
-| path_          | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| remoteChainId_ | `uint16` |  |
+| path_ | `bytes` |  |
 
 ### SetTrustedRemoteAddress
 
@@ -664,10 +664,10 @@ event SetTrustedRemoteAddress(uint16 remoteChainId_, bytes remoteAddress_);
 
 **Parameters**
 
-| Name           | Type     | Description |
-| -------------- | -------- | ----------- |
-| remoteChainId_ | `uint16` |             |
-| remoteAddress_ | `bytes`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| remoteChainId_ | `uint16` |  |
+| remoteAddress_ | `bytes` |  |
 
 ### SetMinDstGas
 
@@ -677,11 +677,11 @@ event SetMinDstGas(uint16 dstChainId_, uint16 type_, uint256 _minDstGas);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| dstChainId_ | `uint16`  |             |
-| type_       | `uint16`  |             |
-| _minDstGas  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainId_ | `uint16` |  |
+| type_ | `uint16` |  |
+| _minDstGas | `uint256` |  |
 
 ### BridgeStatusSet
 
@@ -691,9 +691,9 @@ event BridgeStatusSet(bool isActive_);
 
 **Parameters**
 
-| Name      | Type   | Description |
-| --------- | ------ | ----------- |
-| isActive_ | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isActive_ | `bool` |  |
 
 ## Errors
 

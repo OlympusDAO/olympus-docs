@@ -57,15 +57,15 @@ function permit(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| owner    | `address` |             |
-| spender  | `address` |             |
-| value    | `uint256` |             |
-| deadline | `uint256` |             |
-| v        | `uint8`   |             |
-| r        | `bytes32` |             |
-| s        | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
+| spender | `address` |  |
+| value | `uint256` |  |
+| deadline | `uint256` |  |
+| v | `uint8` |  |
+| r | `bytes32` |  |
+| s | `bytes32` |  |
 
 <a id="nonces-address"></a>
 
@@ -87,15 +87,15 @@ function nonces(address owner) external view returns (uint256);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| owner | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="domain_separator"></a>
 
@@ -113,6 +113,6 @@ function DOMAIN_SEPARATOR() external view returns (bytes32);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |

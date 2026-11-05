@@ -106,13 +106,13 @@ constructor(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| owner_          | `address` |             |
-| admin_          | `address` |             |
-| burner_         | `address` |             |
-| tempOHM_        | `address` |             |
-| OHMv1ToMigrate_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner_ | `address` |  |
+| admin_ | `address` |  |
+| burner_ | `address` |  |
+| tempOHM_ | `address` |  |
+| OHMv1ToMigrate_ | `uint256` |  |
 
 <a id="_onlyowneroradmin"></a>
 
@@ -194,9 +194,9 @@ function getTempOHMToDeposit() public view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="activate"></a>
 
@@ -302,9 +302,9 @@ event Activated(address caller);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| caller | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
 
 ### OHMv1ToMigrateUpdated
 
@@ -314,9 +314,9 @@ event OHMv1ToMigrateUpdated(uint256 newMax);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| newMax | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newMax | `uint256` |  |
 
 ### Rescued
 
@@ -326,11 +326,11 @@ event Rescued(address indexed token, address indexed to, uint256 amount);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| token  | `address` |             |
-| to     | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | `address` |  |
+| to | `address` |  |
+| amount | `uint256` |  |
 
 ## Errors
 
@@ -348,9 +348,9 @@ error InvalidParams(string reason);
 
 **Parameters**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| reason | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason | `string` |  |
 
 ### Unauthorized
 

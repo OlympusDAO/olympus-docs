@@ -40,9 +40,9 @@ function timelockDelay() external view returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="nextactionid"></a>
 
@@ -56,9 +56,9 @@ function nextActionId() external view returns (uint64);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint64` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint64` |  |
 
 <a id="getqueuedaction-uint64"></a>
 
@@ -92,9 +92,9 @@ function getQueuedAction(uint64 actionId_) external view returns (QueuedAction m
 
 **Returns**
 
-| Name   | Type           | Description        |
-| ------ | -------------- | ------------------ |
-| action | `QueuedAction` | The queued action. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action | `QueuedAction` |   The queued action. |
 
 <a id="getqueuedactionlength-uint64"></a>
 
@@ -124,9 +124,9 @@ function getQueuedActionLength(uint64 actionId_) external view returns (uint256 
 
 **Returns**
 
-| Name   | Type      | Description                                      |
-| ------ | --------- | ------------------------------------------------ |
-| length | `uint256` | The number of sub-actions stored for the action. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| length | `uint256` |   The number of sub-actions stored for the action. |
 
 <a id="getqueuedsubaction-uint64-uint256"></a>
 
@@ -161,11 +161,11 @@ function getQueuedSubAction(
 
 **Returns**
 
-| Name     | Type      | Description                                      |
-| -------- | --------- | ------------------------------------------------ |
-| target   | `address` | The contract expected to receive the sub-action. |
-| selector | `bytes4`  | The function selector for the sub-action.        |
-| payload  | `bytes`   | Encoded parameters for the sub-action.           |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target | `address` |    The contract expected to receive the sub-action. |
+| selector | `bytes4` |  The function selector for the sub-action. |
+| payload | `bytes` |   Encoded parameters for the sub-action. |
 
 <a id="executequeuedaction-uint64"></a>
 

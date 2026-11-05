@@ -32,10 +32,10 @@ function getOperatorAssets(
 
 **Returns**
 
-| Name           | Type      | Description                                         |
-| -------------- | --------- | --------------------------------------------------- |
-| shares         | `uint256` | The number of shares deposited                      |
-| sharesInAssets | `uint256` | The number of shares deposited (in terms of assets) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| shares | `uint256` |          The number of shares deposited |
+| sharesInAssets | `uint256` |  The number of shares deposited (in terms of assets) |
 
 <a id="getassetconfiguration-ierc20"></a>
 
@@ -57,9 +57,9 @@ function getAssetConfiguration(
 
 **Returns**
 
-| Name          | Type                 | Description                     |
-| ------------- | -------------------- | ------------------------------- |
-| configuration | `AssetConfiguration` | The configuration for the asset |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | `AssetConfiguration` |   The configuration for the asset |
 
 <a id="getconfiguredassets"></a>
 
@@ -73,9 +73,9 @@ function getConfiguredAssets() external view returns (IERC20[] memory assets);
 
 **Returns**
 
-| Name   | Type       | Description                    |
-| ------ | ---------- | ------------------------------ |
-| assets | `IERC20[]` | The assets that are configured |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `IERC20[]` |  The assets that are configured |
 
 ## Events
 
@@ -87,10 +87,10 @@ event AssetConfigured(address indexed asset, address indexed vault);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| asset | `address` |             |
-| vault | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| vault | `address` |  |
 
 ### AssetDepositCapSet
 
@@ -136,13 +136,13 @@ event AssetDeposited(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| asset     | `address` |             |
-| depositor | `address` |             |
-| operator  | `address` |             |
-| amount    | `uint256` |             |
-| shares    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| depositor | `address` |  |
+| operator | `address` |  |
+| amount | `uint256` |  |
+| shares | `uint256` |  |
 
 ### AssetWithdrawn
 
@@ -158,13 +158,13 @@ event AssetWithdrawn(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| asset      | `address` |             |
-| withdrawer | `address` |             |
-| operator   | `address` |             |
-| amount     | `uint256` |             |
-| shares     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| withdrawer | `address` |  |
+| operator | `address` |  |
+| amount | `uint256` |  |
+| shares | `uint256` |  |
 
 ## Errors
 
@@ -210,11 +210,11 @@ error AssetManager_DepositCapExceeded(
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| asset                 | `address` |             |
-| existingDepositAmount | `uint256` |             |
-| depositCap            | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| existingDepositAmount | `uint256` |  |
+| depositCap | `uint256` |  |
 
 ### AssetManager_MinimumDepositNotMet
 
@@ -228,11 +228,11 @@ error AssetManager_MinimumDepositNotMet(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| asset          | `address` |             |
-| depositAmount  | `uint256` |             |
-| minimumDeposit | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| depositAmount | `uint256` |  |
+| minimumDeposit | `uint256` |  |
 
 ### AssetManager_MinimumDepositExceedsDepositCap
 
@@ -246,11 +246,11 @@ error AssetManager_MinimumDepositExceedsDepositCap(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| asset          | `address` |             |
-| minimumDeposit | `uint256` |             |
-| depositCap     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| minimumDeposit | `uint256` |  |
+| depositCap | `uint256` |  |
 
 ## Structs
 

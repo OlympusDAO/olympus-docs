@@ -14,7 +14,7 @@ function daiToUsds(address usr, uint256 wad) external;
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| usr  | `address` |             |
-| wad  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| usr | `address` |  |
+| wad | `uint256` |  |

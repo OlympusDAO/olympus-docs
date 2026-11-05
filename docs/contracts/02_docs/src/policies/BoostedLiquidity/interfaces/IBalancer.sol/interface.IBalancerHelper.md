@@ -19,19 +19,19 @@ function queryJoin(
 
 **Parameters**
 
-| Name      | Type              | Description |
-| --------- | ----------------- | ----------- |
-| poolId    | `bytes32`         |             |
-| sender    | `address`         |             |
-| recipient | `address`         |             |
-| request   | `JoinPoolRequest` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| poolId | `bytes32` |  |
+| sender | `address` |  |
+| recipient | `address` |  |
+| request | `JoinPoolRequest` |  |
 
 **Returns**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| bptOut    | `uint256`   |             |
-| amountsIn | `uint256[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| bptOut | `uint256` |  |
+| amountsIn | `uint256[]` |  |
 
 <a id="queryexit-bytes32-address-address-exitpoolrequest"></a>
 
@@ -48,16 +48,16 @@ function queryExit(
 
 **Parameters**
 
-| Name      | Type              | Description |
-| --------- | ----------------- | ----------- |
-| poolId    | `bytes32`         |             |
-| sender    | `address`         |             |
-| recipient | `address`         |             |
-| request   | `ExitPoolRequest` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| poolId | `bytes32` |  |
+| sender | `address` |  |
+| recipient | `address` |  |
+| request | `ExitPoolRequest` |  |
 
 **Returns**
 
-| Name       | Type        | Description |
-| ---------- | ----------- | ----------- |
-| bptIn      | `uint256`   |             |
-| amountsOut | `uint256[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| bptIn | `uint256` |  |
+| amountsOut | `uint256[]` |  |

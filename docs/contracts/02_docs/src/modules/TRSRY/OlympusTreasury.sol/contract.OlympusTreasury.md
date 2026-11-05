@@ -18,9 +18,9 @@ constructor(Kernel kernel_) Module(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="keycode"></a>
 
@@ -34,9 +34,9 @@ function KEYCODE() public pure override returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="version"></a>
 
@@ -71,11 +71,11 @@ function increaseWithdrawApproval(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| withdrawer_ | `address` |             |
-| token_      | `ERC20`   |             |
-| amount_     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| withdrawer_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="decreasewithdrawapproval-address-erc20-uint256"></a>
 
@@ -93,11 +93,11 @@ function decreaseWithdrawApproval(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| withdrawer_ | `address` |             |
-| token_      | `ERC20`   |             |
-| amount_     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| withdrawer_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="withdrawreserves-address-erc20-uint256"></a>
 
@@ -115,11 +115,11 @@ function withdrawReserves(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| to_     | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="increasedebtorapproval-address-erc20-uint256"></a>
 
@@ -143,11 +143,11 @@ function increaseDebtorApproval(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| debtor_ | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtor_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="decreasedebtorapproval-address-erc20-uint256"></a>
 
@@ -165,11 +165,11 @@ function decreaseDebtorApproval(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| debtor_ | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtor_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="incurdebt-erc20-uint256"></a>
 
@@ -186,10 +186,10 @@ function incurDebt(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="repaydebt-address-erc20-uint256"></a>
 
@@ -219,11 +219,11 @@ function repayDebt(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| debtor_ | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtor_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="setdebt-address-erc20-uint256"></a>
 
@@ -241,11 +241,11 @@ function setDebt(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| debtor_ | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtor_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="deactivate"></a>
 
@@ -279,12 +279,12 @@ function getReserveBalance(ERC20 token_) external view override returns (uint256
 
 **Parameters**
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| token_ | `ERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token_ | `ERC20` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

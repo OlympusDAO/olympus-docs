@@ -119,16 +119,16 @@ constructor(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| kernel_           | `Kernel`  |             |
-| previous_         | `address` |             |
-| previousGenesis_  | `address` |             |
-| ohm_              | `address` |             |
-| gohm_             | `address` |             |
-| dai_              | `address` |             |
-| dao_              | `address` |             |
-| maximumAllocated_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| previous_ | `address` |  |
+| previousGenesis_ | `address` |  |
+| ohm_ | `address` |  |
+| gohm_ | `address` |  |
+| dai_ | `address` |  |
+| dao_ | `address` |  |
+| maximumAllocated_ | `uint256` |  |
 
 <a id="configuredependencies"></a>
 
@@ -425,12 +425,12 @@ function _claim(uint256 amount_) internal returns (uint256 toSend);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| toSend | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| toSend | `uint256` |  |

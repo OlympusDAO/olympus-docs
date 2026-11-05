@@ -77,9 +77,9 @@ constructor(Kernel kernel_) Policy(kernel_) TimelockQueue(MIN_TIMELOCK_DELAY);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="configuredependencies"></a>
 
@@ -443,11 +443,11 @@ function _validateRemoveAssetPayload(address, bytes4, bytes memory payload_) int
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| _        | `address` |             |
-| _        | `bytes4`  |             |
-| payload_ | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| _ | `bytes4` |  |
+| payload_ | `bytes` |  |
 
 <a id="_validateupdateassetpayload-address-bytes4-bytes"></a>
 
@@ -477,11 +477,11 @@ function _validateUpdateAssetPayload(address, bytes4, bytes memory payload_) int
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| _        | `address` |             |
-| _        | `bytes4`  |             |
-| payload_ | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| _ | `bytes4` |  |
+| payload_ | `bytes` |  |
 
 <a id="_validateupgradesubmodulepayload-address-bytes4-bytes"></a>
 
@@ -514,11 +514,11 @@ function _validateUpgradeSubmodulePayload(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| _        | `address` |             |
-| _        | `bytes4`  |             |
-| payload_ | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| _ | `bytes4` |  |
+| payload_ | `bytes` |  |
 
 <a id="_validateexeconsubmodulepayload-address-bytes4-bytes"></a>
 
@@ -549,11 +549,11 @@ function _validateExecOnSubmodulePayload(address, bytes4, bytes memory payload_)
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| _        | `address` |             |
-| _        | `bytes4`  |             |
-| payload_ | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| _ | `bytes4` |  |
+| payload_ | `bytes` |  |
 
 <a id="_validatetimelockdelaypayload-address-bytes4-bytes"></a>
 
@@ -582,11 +582,11 @@ function _validateTimelockDelayPayload(address, bytes4, bytes memory payload_) i
 
 **Parameters**
 
-| Name     | Type      | Description                        |
-| -------- | --------- | ---------------------------------- |
-| _        | `address` |                                    |
-| _        | `bytes4`  |                                    |
-| payload_ | `bytes`   | The encoded queued action payload. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| _ | `bytes4` |  |
+| payload_ | `bytes` | The encoded queued action payload. |
 
 <a id="_validatepricefeedexpectations-address-ipricev2-component-pricefeedexpectation"></a>
 
@@ -632,11 +632,11 @@ function _validateUpdateFeedExpectationCount(
 
 **Parameters**
 
-| Name              | Type                     | Description |
-| ----------------- | ------------------------ | ----------- |
-| asset_            | `address`                |             |
-| expectedCount_    | `uint256`                |             |
-| feedExpectations_ | `PriceFeedExpectation[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
+| expectedCount_ | `uint256` |  |
+| feedExpectations_ | `PriceFeedExpectation[]` |  |
 
 <a id="_executeupdateasset-address-ipricev2-updateassetparams-pricefeedexpectation"></a>
 
@@ -652,11 +652,11 @@ function _executeUpdateAsset(
 
 **Parameters**
 
-| Name              | Type                         | Description |
-| ----------------- | ---------------------------- | ----------- |
-| asset_            | `address`                    |             |
-| params_           | `IPRICEv2.UpdateAssetParams` |             |
-| feedExpectations_ | `PriceFeedExpectation[]`     |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
+| params_ | `IPRICEv2.UpdateAssetParams` |  |
+| feedExpectations_ | `PriceFeedExpectation[]` |  |
 
 <a id="registernoncontractasset-address"></a>
 

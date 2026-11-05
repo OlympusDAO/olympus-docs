@@ -17,11 +17,11 @@ enum Actions {
 
 **Variants**
 
-| Name             | Description |
-| ---------------- | ----------- |
-| InstallModule    |             |
-| UpgradeModule    |             |
-| ActivatePolicy   |             |
-| DeactivatePolicy |             |
-| ChangeExecutor   |             |
-| MigrateKernel    |             |
+| Name | Description |
+| ---- | ----------- |
+| InstallModule |  |
+| UpgradeModule |  |
+| ActivatePolicy |  |
+| DeactivatePolicy |  |
+| ChangeExecutor |  |
+| MigrateKernel |  |

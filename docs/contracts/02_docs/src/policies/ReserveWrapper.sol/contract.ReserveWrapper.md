@@ -42,11 +42,11 @@ constructor(address kernel_, address reserve_, address sReserve_) Policy(Kernel(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| kernel_   | `address` |             |
-| reserve_  | `address` |             |
-| sReserve_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| reserve_ | `address` |  |
+| sReserve_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -113,9 +113,9 @@ function getReserve() external view override returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="getsreserve"></a>
 
@@ -129,9 +129,9 @@ function getSReserve() external view override returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="execute"></a>
 
@@ -168,12 +168,12 @@ function supportsInterface(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

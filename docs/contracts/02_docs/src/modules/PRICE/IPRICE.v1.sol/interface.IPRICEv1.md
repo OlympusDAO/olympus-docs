@@ -24,9 +24,9 @@ function observationFrequency() external view returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="lastobservationtime"></a>
 
@@ -40,9 +40,9 @@ function lastObservationTime() external view returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="decimals"></a>
 
@@ -56,9 +56,9 @@ function decimals() external view returns (uint8);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 <a id="minimumtargetprice"></a>
 
@@ -72,9 +72,9 @@ function minimumTargetPrice() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="updatemovingaverage"></a>
 
@@ -98,10 +98,10 @@ function initialize(uint256[] memory startObservations_, uint48 lastObservationT
 
 **Parameters**
 
-| Name                 | Type        | Description |
-| -------------------- | ----------- | ----------- |
-| startObservations_   | `uint256[]` |             |
-| lastObservationTime_ | `uint48`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| startObservations_ | `uint256[]` |  |
+| lastObservationTime_ | `uint48` |  |
 
 <a id="changemovingaverageduration-uint48"></a>
 
@@ -115,9 +115,9 @@ function changeMovingAverageDuration(uint48 movingAverageDuration_) external;
 
 **Parameters**
 
-| Name                   | Type     | Description |
-| ---------------------- | -------- | ----------- |
-| movingAverageDuration_ | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| movingAverageDuration_ | `uint48` |  |
 
 <a id="changeobservationfrequency-uint48"></a>
 
@@ -131,9 +131,9 @@ function changeObservationFrequency(uint48 observationFrequency_) external;
 
 **Parameters**
 
-| Name                  | Type     | Description |
-| --------------------- | -------- | ----------- |
-| observationFrequency_ | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| observationFrequency_ | `uint48` |  |
 
 <a id="changeupdatethresholds-uint48-uint48"></a>
 
@@ -150,10 +150,10 @@ function changeUpdateThresholds(
 
 **Parameters**
 
-| Name                       | Type     | Description |
-| -------------------------- | -------- | ----------- |
-| ohmEthUpdateThreshold_     | `uint48` |             |
-| reserveEthUpdateThreshold_ | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohmEthUpdateThreshold_ | `uint48` |  |
+| reserveEthUpdateThreshold_ | `uint48` |  |
 
 <a id="changeminimumtargetprice-uint256"></a>
 
@@ -167,9 +167,9 @@ function changeMinimumTargetPrice(uint256 minimumTargetPrice_) external;
 
 **Parameters**
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| minimumTargetPrice_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| minimumTargetPrice_ | `uint256` |  |
 
 <a id="getcurrentprice"></a>
 
@@ -183,9 +183,9 @@ function getCurrentPrice() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getlastprice"></a>
 
@@ -199,9 +199,9 @@ function getLastPrice() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getmovingaverage"></a>
 
@@ -221,9 +221,9 @@ function getMovingAverage() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="gettargetprice"></a>
 
@@ -243,9 +243,9 @@ function getTargetPrice() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Events
 
@@ -257,6 +257,6 @@ event MinimumTargetPriceChanged(uint256 minimumTargetPrice_);
 
 **Parameters**
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| minimumTargetPrice_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| minimumTargetPrice_ | `uint256` |  |

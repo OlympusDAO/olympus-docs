@@ -14,15 +14,15 @@ function balanceOf(address account_) external view returns (uint256);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| account_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="earned-address"></a>
 
@@ -34,15 +34,15 @@ function earned(address account_) external view returns (uint256);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| account_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="rewardrate"></a>
 
@@ -54,9 +54,9 @@ function rewardRate() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="rewardtoken"></a>
 
@@ -68,9 +68,9 @@ function rewardToken() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="extrarewardslength"></a>
 
@@ -82,9 +82,9 @@ function extraRewardsLength() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="extrarewards-uint256"></a>
 
@@ -96,15 +96,15 @@ function extraRewards(uint256 index) external view returns (address);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| index | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| index | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="deposit-uint256-address"></a>
 
@@ -116,10 +116,10 @@ function deposit(uint256 assets_, address receiver_) external;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| assets_   | `uint256` |             |
-| receiver_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets_ | `uint256` |  |
+| receiver_ | `address` |  |
 
 <a id="getreward-address-bool"></a>
 
@@ -131,10 +131,10 @@ function getReward(address account_, bool claimExtras_) external;
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| account_     | `address` |             |
-| claimExtras_ | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` |  |
+| claimExtras_ | `bool` |  |
 
 <a id="withdrawandunwrap-uint256-bool"></a>
 
@@ -146,13 +146,13 @@ function withdrawAndUnwrap(uint256 amount_, bool claim_) external returns (bool)
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| amount_ | `uint256` |             |
-| claim_  | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` |  |
+| claim_ | `bool` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

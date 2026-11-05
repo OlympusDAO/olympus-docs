@@ -41,11 +41,11 @@ function createPosition(
 
 **Returns**
 
-| Name           | Type      | Description                |
-| -------------- | --------- | -------------------------- |
-| positionId     | `uint256` | The ID of the new position |
-| receiptTokenId | `uint256` |                            |
-| actualAmount   | `uint256` |                            |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId | `uint256` |          The ID of the new position |
+| receiptTokenId | `uint256` |  |
+| actualAmount | `uint256` |  |
 
 <a id="deposit-ierc20-uint8-uint256-bool"></a>
 
@@ -73,10 +73,10 @@ function deposit(
 
 **Returns**
 
-| Name           | Type      | Description                                            |
-| -------------- | --------- | ------------------------------------------------------ |
-| receiptTokenId | `uint256` | The ID of the receipt token                            |
-| actualAmount   | `uint256` | The quantity of receipt tokens minted to the depositor |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiptTokenId | `uint256` |      The ID of the receipt token |
+| actualAmount | `uint256` |        The quantity of receipt tokens minted to the depositor |
 
 <a id="convert-uint256-uint256-bool"></a>
 
@@ -117,10 +117,10 @@ function convert(
 
 **Returns**
 
-| Name              | Type      | Description                                  |
-| ----------------- | --------- | -------------------------------------------- |
-| receiptTokenIn    | `uint256` | The total amount of receipt tokens converted |
-| convertedTokenOut | `uint256` | The amount of OHM minted during conversion   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiptTokenIn | `uint256` |      The total amount of receipt tokens converted |
+| convertedTokenOut | `uint256` |   The amount of OHM minted during conversion |
 
 <a id="previewconvert-address-uint256-uint256"></a>
 
@@ -158,10 +158,10 @@ function previewConvert(
 
 **Returns**
 
-| Name              | Type      | Description                                  |
-| ----------------- | --------- | -------------------------------------------- |
-| receiptTokenIn    | `uint256` | The total amount of receipt tokens converted |
-| convertedTokenOut | `uint256` | The amount of OHM minted during conversion   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiptTokenIn | `uint256` |      The total amount of receipt tokens converted |
+| convertedTokenOut | `uint256` |   The amount of OHM minted during conversion |
 
 <a id="previewclaimyield-ierc20"></a>
 
@@ -181,9 +181,9 @@ function previewClaimYield(IERC20 asset_) external view returns (uint256 assets)
 
 **Returns**
 
-| Name   | Type      | Description                                |
-| ------ | --------- | ------------------------------------------ |
-| assets | `uint256` | The amount of assets that would be claimed |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |          The amount of assets that would be claimed |
 
 <a id="claimyield-ierc20"></a>
 
@@ -203,9 +203,9 @@ function claimYield(IERC20 asset_) external returns (uint256 assets);
 
 **Returns**
 
-| Name   | Type      | Description                            |
-| ------ | --------- | -------------------------------------- |
-| assets | `uint256` | The amount of assets that were claimed |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |          The amount of assets that were claimed |
 
 <a id="claimyield-ierc20-uint256"></a>
 
@@ -226,9 +226,9 @@ function claimYield(IERC20 asset_, uint256 amount_) external returns (uint256 as
 
 **Returns**
 
-| Name   | Type      | Description                            |
-| ------ | --------- | -------------------------------------- |
-| assets | `uint256` | The amount of assets that were claimed |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `uint256` |          The amount of assets that were claimed |
 
 <a id="claimallyield"></a>
 
@@ -252,9 +252,9 @@ function convertedToken() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ## Events
 
@@ -272,13 +272,13 @@ event CreatedDeposit(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| asset         | `address` |             |
-| depositor     | `address` |             |
-| positionId    | `uint256` |             |
-| periodMonths  | `uint8`   |             |
-| depositAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| depositor | `address` |  |
+| positionId | `uint256` |  |
+| periodMonths | `uint8` |  |
+| depositAmount | `uint256` |  |
 
 ### ConvertedDeposit
 
@@ -294,13 +294,13 @@ event ConvertedDeposit(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| asset           | `address` |             |
-| depositor       | `address` |             |
-| periodMonths    | `uint8`   |             |
-| depositAmount   | `uint256` |             |
-| convertedAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| depositor | `address` |  |
+| periodMonths | `uint8` |  |
+| depositAmount | `uint256` |  |
+| convertedAmount | `uint256` |  |
 
 ### ClaimedYield
 
@@ -310,10 +310,10 @@ event ClaimedYield(address indexed asset, uint256 amount);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| asset  | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| amount | `uint256` |  |
 
 ### ClaimAllYieldFailed
 
@@ -331,9 +331,9 @@ error CDF_InvalidArgs(string reason_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| reason_ | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason_ | `string` |  |
 
 ### CDF_NotOwner
 
@@ -343,9 +343,9 @@ error CDF_NotOwner(uint256 positionId_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 ### CDF_PositionExpired
 
@@ -355,9 +355,9 @@ error CDF_PositionExpired(uint256 positionId_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 ### CDF_InvalidAmount
 
@@ -367,10 +367,10 @@ error CDF_InvalidAmount(uint256 positionId_, uint256 amount_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
-| amount_     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
+| amount_ | `uint256` |  |
 
 ### CDF_InvalidToken
 
@@ -380,11 +380,11 @@ error CDF_InvalidToken(uint256 positionId_, address token_, uint8 periodMonths_)
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| positionId_   | `uint256` |             |
-| token_        | `address` |             |
-| periodMonths_ | `uint8`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
+| token_ | `address` |  |
+| periodMonths_ | `uint8` |  |
 
 ### CDF_Unsupported
 
@@ -394,9 +394,9 @@ error CDF_Unsupported(uint256 positionId_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 ## Structs
 

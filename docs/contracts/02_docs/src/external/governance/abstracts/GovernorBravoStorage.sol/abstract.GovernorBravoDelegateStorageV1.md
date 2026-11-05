@@ -141,28 +141,28 @@ struct Proposal {
 
 **Properties**
 
-| Name              | Type                          | Description |
-| ----------------- | ----------------------------- | ----------- |
-| id                | `uint256`                     |             |
-| proposer          | `address`                     |             |
-| proposalThreshold | `uint256`                     |             |
-| quorumVotes       | `uint256`                     |             |
-| eta               | `uint256`                     |             |
-| targets           | `address[]`                   |             |
-| values            | `uint256[]`                   |             |
-| signatures        | `string[]`                    |             |
-| calldatas         | `bytes[]`                     |             |
-| codehashes        | `bytes32[]`                   |             |
-| startBlock        | `uint256`                     |             |
-| endBlock          | `uint256`                     |             |
-| forVotes          | `uint256`                     |             |
-| againstVotes      | `uint256`                     |             |
-| abstainVotes      | `uint256`                     |             |
-| votingStarted     | `bool`                        |             |
-| vetoed            | `bool`                        |             |
-| canceled          | `bool`                        |             |
-| executed          | `bool`                        |             |
-| receipts          | `mapping(address => Receipt)` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | `uint256` |  |
+| proposer | `address` |  |
+| proposalThreshold | `uint256` |  |
+| quorumVotes | `uint256` |  |
+| eta | `uint256` |  |
+| targets | `address[]` |  |
+| values | `uint256[]` |  |
+| signatures | `string[]` |  |
+| calldatas | `bytes[]` |  |
+| codehashes | `bytes32[]` |  |
+| startBlock | `uint256` |  |
+| endBlock | `uint256` |  |
+| forVotes | `uint256` |  |
+| againstVotes | `uint256` |  |
+| abstainVotes | `uint256` |  |
+| votingStarted | `bool` |  |
+| vetoed | `bool` |  |
+| canceled | `bool` |  |
+| executed | `bool` |  |
+| receipts | `mapping(address => Receipt)` |  |
 
 ### Receipt
 
@@ -181,11 +181,11 @@ struct Receipt {
 
 **Properties**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| hasVoted | `bool`    |             |
-| support  | `uint8`   |             |
-| votes    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| hasVoted | `bool` |  |
+| support | `uint8` |  |
+| votes | `uint256` |  |
 
 ## Enums
 
@@ -210,15 +210,15 @@ enum ProposalState {
 
 **Variants**
 
-| Name      | Description |
-| --------- | ----------- |
-| Pending   |             |
-| Active    |             |
-| Canceled  |             |
-| Defeated  |             |
-| Succeeded |             |
-| Queued    |             |
-| Expired   |             |
-| Executed  |             |
-| Vetoed    |             |
-| Emergency |             |
+| Name | Description |
+| ---- | ----------- |
+| Pending |  |
+| Active |  |
+| Canceled |  |
+| Defeated |  |
+| Succeeded |  |
+| Queued |  |
+| Expired |  |
+| Executed |  |
+| Vetoed |  |
+| Emergency |  |

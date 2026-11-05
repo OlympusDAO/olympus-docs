@@ -58,10 +58,10 @@ function mintOhm(address to_, uint256 amount_) external virtual;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| to_     | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="burnohm-address-uint256"></a>
 
@@ -75,10 +75,10 @@ function burnOhm(address from_, uint256 amount_) external virtual;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| from_   | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="increasemintapproval-address-uint256"></a>
 
@@ -98,10 +98,10 @@ function increaseMintApproval(address policy_, uint256 amount_) external virtual
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="decreasemintapproval-address-uint256"></a>
 
@@ -115,10 +115,10 @@ function decreaseMintApproval(address policy_, uint256 amount_) external virtual
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="deactivate"></a>
 
@@ -150,10 +150,10 @@ event IncreaseMintApproval(address indexed policy_, uint256 newAmount_);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| policy_    | `address` |             |
-| newAmount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
+| newAmount_ | `uint256` |  |
 
 ### DecreaseMintApproval
 
@@ -163,10 +163,10 @@ event DecreaseMintApproval(address indexed policy_, uint256 newAmount_);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| policy_    | `address` |             |
-| newAmount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
+| newAmount_ | `uint256` |  |
 
 ### Mint
 
@@ -176,11 +176,11 @@ event Mint(address indexed policy_, address indexed to_, uint256 amount_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
-| to_     | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
+| to_ | `address` |  |
+| amount_ | `uint256` |  |
 
 ### Burn
 
@@ -190,11 +190,11 @@ event Burn(address indexed policy_, address indexed from_, uint256 amount_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
-| from_   | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
+| from_ | `address` |  |
+| amount_ | `uint256` |  |
 
 ## Errors
 

@@ -20,10 +20,10 @@ function _require(bool condition, uint256 errorCode) pure;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| condition | `bool`    |             |
-| errorCode | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| condition | `bool` |  |
+| errorCode | `uint256` |  |
 
 <a id="_require-bool-uint256-bytes3"></a>
 
@@ -42,8 +42,8 @@ function _require(bool condition, uint256 errorCode, bytes3 prefix) pure;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| condition | `bool`    |             |
-| errorCode | `uint256` |             |
-| prefix    | `bytes3`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| condition | `bool` |  |
+| errorCode | `uint256` |  |
+| prefix | `bytes3` |  |

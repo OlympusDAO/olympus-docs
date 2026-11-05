@@ -58,9 +58,9 @@ function isAuthorizedFacility(address facility_) external view returns (bool isA
 
 **Returns**
 
-| Name         | Type   | Description                        |
-| ------------ | ------ | ---------------------------------- |
-| isAuthorized | `bool` | True if the facility is authorized |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isAuthorized | `bool` |    True if the facility is authorized |
 
 <a id="getauthorizedfacilities"></a>
 
@@ -74,9 +74,9 @@ function getAuthorizedFacilities() external view returns (address[] memory facil
 
 **Returns**
 
-| Name       | Type        | Description                            |
-| ---------- | ----------- | -------------------------------------- |
-| facilities | `address[]` | Array of authorized facility addresses |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| facilities | `address[]` |  Array of authorized facility addresses |
 
 <a id="getuserredemption-address-uint16"></a>
 
@@ -100,9 +100,9 @@ function getUserRedemption(
 
 **Returns**
 
-| Name       | Type             | Description                   |
-| ---------- | ---------------- | ----------------------------- |
-| redemption | `UserRedemption` | The details of the redemption |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| redemption | `UserRedemption` |       The details of the redemption |
 
 <a id="getuserredemptioncount-address"></a>
 
@@ -174,9 +174,9 @@ function startRedemption(
 
 **Returns**
 
-| Name         | Type     | Description                   |
-| ------------ | -------- | ----------------------------- |
-| redemptionId | `uint16` | The ID of the user redemption |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| redemptionId | `uint16` |    The ID of the user redemption |
 
 <a id="startredemption-uint256-uint256"></a>
 
@@ -200,9 +200,9 @@ function startRedemption(
 
 **Returns**
 
-| Name         | Type     | Description                   |
-| ------------ | -------- | ----------------------------- |
-| redemptionId | `uint16` | The ID of the user redemption |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| redemptionId | `uint16` |    The ID of the user redemption |
 
 <a id="cancelredemption-uint16-uint256"></a>
 
@@ -245,9 +245,9 @@ function finishRedemption(uint16 redemptionId_) external returns (uint256 actual
 
 **Returns**
 
-| Name         | Type      | Description                                              |
-| ------------ | --------- | -------------------------------------------------------- |
-| actualAmount | `uint256` | The quantity of deposit tokens transferred to the caller |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` |    The quantity of deposit tokens transferred to the caller |
 
 <a id="borrowagainstredemption-uint16"></a>
 
@@ -267,9 +267,9 @@ function borrowAgainstRedemption(uint16 redemptionId_) external returns (uint256
 
 **Returns**
 
-| Name         | Type      | Description                                                    |
-| ------------ | --------- | -------------------------------------------------------------- |
-| actualAmount | `uint256` | The quantity of underlying assets transferred to the recipient |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actualAmount | `uint256` |    The quantity of underlying assets transferred to the recipient |
 
 <a id="previewborrowagainstredemption-address-uint16"></a>
 
@@ -293,11 +293,11 @@ function previewBorrowAgainstRedemption(
 
 **Returns**
 
-| Name      | Type      | Description                               |
-| --------- | --------- | ----------------------------------------- |
-| principal | `uint256` | The principal amount that can be borrowed |
-| interest  | `uint256` | The interest amount that will be charged  |
-| dueDate   | `uint48`  | The due date of the loan                  |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| principal | `uint256` |       The principal amount that can be borrowed |
+| interest | `uint256` |        The interest amount that will be charged |
+| dueDate | `uint48` |         The due date of the loan |
 
 <a id="repayloan-uint16-uint256-uint256"></a>
 
@@ -341,9 +341,9 @@ function previewExtendLoan(
 
 **Returns**
 
-| Name            | Type      | Description                         |
-| --------------- | --------- | ----------------------------------- |
-| newDueDate      | `uint48`  | The new due date                    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newDueDate | `uint48` |      The new due date |
 | interestPayable | `uint256` | The interest payable upon extension |
 
 <a id="extendloan-uint16-uint8"></a>
@@ -402,9 +402,9 @@ function getRedemptionLoan(
 
 **Returns**
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| loan | `Loan` | The loan    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loan | `Loan` |            The loan |
 
 <a id="setmaxborrowpercentage-ierc20-address-uint16"></a>
 
@@ -446,9 +446,9 @@ function getMaxBorrowPercentage(
 
 **Returns**
 
-| Name    | Type     | Description                                   |
-| ------- | -------- | --------------------------------------------- |
-| percent | `uint16` | The maximum borrow percentage (100e2 == 100%) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| percent | `uint16` |  The maximum borrow percentage (100e2 == 100%) |
 
 <a id="setannualinterestrate-ierc20-address-uint16"></a>
 
@@ -490,9 +490,9 @@ function getAnnualInterestRate(
 
 **Returns**
 
-| Name | Type     | Description                                 |
-| ---- | -------- | ------------------------------------------- |
-| rate | `uint16` | The annual interest rate, in terms of 100e2 |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| rate | `uint16` |     The annual interest rate, in terms of 100e2 |
 
 <a id="setclaimdefaultrewardpercentage-uint16"></a>
 
@@ -543,14 +543,14 @@ event RedemptionStarted(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| user          | `address` |             |
-| redemptionId  | `uint16`  |             |
-| depositToken  | `address` |             |
-| depositPeriod | `uint8`   |             |
-| amount        | `uint256` |             |
-| facility      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
+| depositToken | `address` |  |
+| depositPeriod | `uint8` |  |
+| amount | `uint256` |  |
+| facility | `address` |  |
 
 ### RedemptionFinished
 
@@ -566,13 +566,13 @@ event RedemptionFinished(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| user          | `address` |             |
-| redemptionId  | `uint16`  |             |
-| depositToken  | `address` |             |
-| depositPeriod | `uint8`   |             |
-| amount        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
+| depositToken | `address` |  |
+| depositPeriod | `uint8` |  |
+| amount | `uint256` |  |
 
 ### RedemptionCancelled
 
@@ -589,14 +589,14 @@ event RedemptionCancelled(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| user            | `address` |             |
-| redemptionId    | `uint16`  |             |
-| depositToken    | `address` |             |
-| depositPeriod   | `uint8`   |             |
-| amount          | `uint256` |             |
-| remainingAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
+| depositToken | `address` |  |
+| depositPeriod | `uint8` |  |
+| amount | `uint256` |  |
+| remainingAmount | `uint256` |  |
 
 ### LoanCreated
 
@@ -611,12 +611,12 @@ event LoanCreated(
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
-| amount       | `uint256` |             |
-| facility     | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
+| amount | `uint256` |  |
+| facility | `address` |  |
 
 ### LoanRepaid
 
@@ -631,12 +631,12 @@ event LoanRepaid(
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
-| principal    | `uint256` |             |
-| interest     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
+| principal | `uint256` |  |
+| interest | `uint256` |  |
 
 ### LoanExtended
 
@@ -646,11 +646,11 @@ event LoanExtended(address indexed user, uint16 indexed redemptionId, uint256 ne
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
-| newDueDate   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
+| newDueDate | `uint256` |  |
 
 ### LoanDefaulted
 
@@ -666,13 +666,13 @@ event LoanDefaulted(
 
 **Parameters**
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| user                | `address` |             |
-| redemptionId        | `uint16`  |             |
-| principal           | `uint256` |             |
-| interest            | `uint256` |             |
-| remainingCollateral | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
+| principal | `uint256` |  |
+| interest | `uint256` |  |
+| remainingCollateral | `uint256` |  |
 
 ### FacilityAuthorized
 
@@ -682,9 +682,9 @@ event FacilityAuthorized(address indexed facility);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| facility | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| facility | `address` |  |
 
 ### FacilityDeauthorized
 
@@ -694,9 +694,9 @@ event FacilityDeauthorized(address indexed facility);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| facility | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| facility | `address` |  |
 
 ### AnnualInterestRateSet
 
@@ -706,11 +706,11 @@ event AnnualInterestRateSet(address indexed asset, address indexed facility, uin
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| asset    | `address` |             |
-| facility | `address` |             |
-| rate     | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| facility | `address` |  |
+| rate | `uint16` |  |
 
 ### MaxBorrowPercentageSet
 
@@ -720,11 +720,11 @@ event MaxBorrowPercentageSet(address indexed asset, address indexed facility, ui
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| asset    | `address` |             |
-| facility | `address` |             |
-| percent  | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| facility | `address` |  |
+| percent | `uint16` |  |
 
 ### ClaimDefaultRewardPercentageSet
 
@@ -734,9 +734,9 @@ event ClaimDefaultRewardPercentageSet(uint16 percent);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| percent | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| percent | `uint16` |  |
 
 ## Errors
 
@@ -748,9 +748,9 @@ error RedemptionVault_InvalidDepositManager(address depositManager);
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| depositManager | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositManager | `address` |  |
 
 ### RedemptionVault_ZeroAmount
 
@@ -766,10 +766,10 @@ error RedemptionVault_InvalidRedemptionId(address user, uint16 redemptionId);
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
 
 ### RedemptionVault_InvalidAmount
 
@@ -779,11 +779,11 @@ error RedemptionVault_InvalidAmount(address user, uint16 redemptionId, uint256 a
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
-| amount       | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
+| amount | `uint256` |  |
 
 ### RedemptionVault_TooEarly
 
@@ -793,11 +793,11 @@ error RedemptionVault_TooEarly(address user, uint16 redemptionId, uint48 redeema
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
-| redeemableAt | `uint48`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
+| redeemableAt | `uint48` |  |
 
 ### RedemptionVault_AlreadyRedeemed
 
@@ -807,10 +807,10 @@ error RedemptionVault_AlreadyRedeemed(address user, uint16 redemptionId);
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
 
 ### RedemptionVault_ZeroAddress
 
@@ -826,9 +826,9 @@ error RedemptionVault_OutOfBounds(uint16 rate);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| rate | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| rate | `uint16` |  |
 
 ### RedemptionVault_UnpaidLoan
 
@@ -838,10 +838,10 @@ error RedemptionVault_UnpaidLoan(address user, uint16 redemptionId);
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
 
 ### RedemptionVault_InvalidFacility
 
@@ -851,9 +851,9 @@ error RedemptionVault_InvalidFacility(address facility);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| facility | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| facility | `address` |  |
 
 ### RedemptionVault_FacilityExists
 
@@ -863,9 +863,9 @@ error RedemptionVault_FacilityExists(address facility);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| facility | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| facility | `address` |  |
 
 ### RedemptionVault_FacilityNotRegistered
 
@@ -875,9 +875,9 @@ error RedemptionVault_FacilityNotRegistered(address facility);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| facility | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| facility | `address` |  |
 
 ### RedemptionVault_InterestRateNotSet
 
@@ -887,10 +887,10 @@ error RedemptionVault_InterestRateNotSet(address asset, address facility);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| asset    | `address` |             |
-| facility | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `address` |  |
+| facility | `address` |  |
 
 ### RedemptionVault_LoanAmountExceeded
 
@@ -900,11 +900,11 @@ error RedemptionVault_LoanAmountExceeded(address user, uint16 redemptionId, uint
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
-| amount       | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
+| amount | `uint256` |  |
 
 ### RedemptionVault_LoanIncorrectState
 
@@ -914,10 +914,10 @@ error RedemptionVault_LoanIncorrectState(address user, uint16 redemptionId);
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
 
 ### RedemptionVault_InvalidLoan
 
@@ -927,10 +927,10 @@ error RedemptionVault_InvalidLoan(address user, uint16 redemptionId);
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
 
 ### RedemptionVault_MaxSlippageExceeded
 
@@ -945,12 +945,12 @@ error RedemptionVault_MaxSlippageExceeded(
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| user         | `address` |             |
-| redemptionId | `uint16`  |             |
-| actualAmount | `uint256` |             |
-| maxAmount    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | `address` |  |
+| redemptionId | `uint16` |  |
+| actualAmount | `uint256` |  |
+| maxAmount | `uint256` |  |
 
 ## Structs
 

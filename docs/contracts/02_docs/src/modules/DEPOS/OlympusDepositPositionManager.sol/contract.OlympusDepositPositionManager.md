@@ -48,10 +48,10 @@ constructor(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| kernel_        | `address` |             |
-| tokenRenderer_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| tokenRenderer_ | `address` |  |
 
 <a id="keycode"></a>
 
@@ -65,9 +65,9 @@ function KEYCODE() public pure override returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="version"></a>
 
@@ -155,16 +155,16 @@ function _create(
 
 **Parameters**
 
-| Name      | Type                                 | Description |
-| --------- | ------------------------------------ | ----------- |
-| operator_ | `address`                            |             |
-| params_   | `IDepositPositionManager.MintParams` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator_ | `address` |  |
+| params_ | `IDepositPositionManager.MintParams` |  |
 
 **Returns**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| positionId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId | `uint256` |  |
 
 <a id="mint-idepositpositionmanager-mint256params"></a>
 
@@ -334,15 +334,15 @@ function tokenURI(uint256 id_) public view virtual override returns (string memo
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="transferfrom-address-address-uint256"></a>
 
@@ -363,11 +363,11 @@ function transferFrom(address from_, address to_, uint256 tokenId_) public overr
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| from_    | `address` |             |
-| to_      | `address` |             |
-| tokenId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from_ | `address` |  |
+| to_ | `address` |  |
+| tokenId_ | `uint256` |  |
 
 <a id="getpositioncount"></a>
 
@@ -395,15 +395,15 @@ function _getPosition(uint256 positionId_) internal view returns (Position memor
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type       | Description |
-| ------------ | ---------- | ----------- |
-| &lt;none&gt; | `Position` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Position` |  |
 
 <a id="getuserpositionids-address"></a>
 
@@ -501,15 +501,15 @@ function _isConvertible(Position memory position_) internal pure returns (bool);
 
 **Parameters**
 
-| Name      | Type       | Description |
-| --------- | ---------- | ----------- |
-| position_ | `Position` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| position_ | `Position` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="isconvertible-uint256"></a>
 
@@ -554,16 +554,16 @@ function _previewConvert(
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| amount_          | `uint256` |             |
-| conversionPrice_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` |  |
+| conversionPrice_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="previewconvert-uint256-uint256"></a>
 
@@ -601,9 +601,9 @@ function _setTokenRenderer(address renderer_) internal;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| renderer_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| renderer_ | `address` |  |
 
 <a id="settokenrenderer-address"></a>
 
@@ -656,15 +656,15 @@ function supportsInterface(bytes4 interfaceId_) public view virtual override ret
 
 **Parameters**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| interfaceId_ | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_onlyvalidposition-uint256"></a>
 
@@ -676,9 +676,9 @@ function _onlyValidPosition(uint256 positionId_) internal view;
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 <a id="onlyvalidposition-uint256"></a>
 
@@ -690,9 +690,9 @@ modifier onlyValidPosition(uint256 positionId_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 <a id="_onlypositionoperator-uint256"></a>
 
@@ -704,9 +704,9 @@ function _onlyPositionOperator(uint256 positionId_) internal view;
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 <a id="onlypositionoperator-uint256"></a>
 
@@ -718,9 +718,9 @@ modifier onlyPositionOperator(uint256 positionId_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 <a id="_onlypositionowner-uint256"></a>
 
@@ -732,9 +732,9 @@ function _onlyPositionOwner(uint256 positionId_) internal view;
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 <a id="onlypositionowner-uint256"></a>
 
@@ -746,6 +746,6 @@ modifier onlyPositionOwner(uint256 positionId_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |

@@ -23,9 +23,9 @@ function _throwError(RecoverError error) private pure;
 
 **Parameters**
 
-| Name  | Type           | Description |
-| ----- | -------------- | ----------- |
-| error | `RecoverError` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| error | `RecoverError` |  |
 
 <a id="tryrecover-bytes32-bytes"></a>
 
@@ -64,17 +64,17 @@ function tryRecover(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| hash      | `bytes32` |             |
-| signature | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| hash | `bytes32` |  |
+| signature | `bytes` |  |
 
 **Returns**
 
-| Name         | Type           | Description |
-| ------------ | -------------- | ----------- |
-| &lt;none&gt; | `address`      |             |
-| &lt;none&gt; | `RecoverError` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
+| &lt;none&gt; | `RecoverError` |  |
 
 <a id="recover-bytes32-bytes"></a>
 
@@ -103,16 +103,16 @@ function recover(bytes32 hash, bytes memory signature) internal pure returns (ad
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| hash      | `bytes32` |             |
-| signature | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| hash | `bytes32` |  |
+| signature | `bytes` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="tryrecover-bytes32-bytes32-bytes32"></a>
 
@@ -138,18 +138,18 @@ function tryRecover(
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| hash | `bytes32` |             |
-| r    | `bytes32` |             |
-| vs   | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| hash | `bytes32` |  |
+| r | `bytes32` |  |
+| vs | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type           | Description |
-| ------------ | -------------- | ----------- |
-| &lt;none&gt; | `address`      |             |
-| &lt;none&gt; | `RecoverError` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
+| &lt;none&gt; | `RecoverError` |  |
 
 <a id="recover-bytes32-bytes32-bytes32"></a>
 
@@ -169,17 +169,17 @@ function recover(bytes32 hash, bytes32 r, bytes32 vs) internal pure returns (add
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| hash | `bytes32` |             |
-| r    | `bytes32` |             |
-| vs   | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| hash | `bytes32` |  |
+| r | `bytes32` |  |
+| vs | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="tryrecover-bytes32-uint8-bytes32-bytes32"></a>
 
@@ -205,19 +205,19 @@ function tryRecover(
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| hash | `bytes32` |             |
-| v    | `uint8`   |             |
-| r    | `bytes32` |             |
-| s    | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| hash | `bytes32` |  |
+| v | `uint8` |  |
+| r | `bytes32` |  |
+| s | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type           | Description |
-| ------------ | -------------- | ----------- |
-| &lt;none&gt; | `address`      |             |
-| &lt;none&gt; | `RecoverError` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
+| &lt;none&gt; | `RecoverError` |  |
 
 <a id="recover-bytes32-uint8-bytes32-bytes32"></a>
 
@@ -236,18 +236,18 @@ function recover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) internal pure retu
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| hash | `bytes32` |             |
-| v    | `uint8`   |             |
-| r    | `bytes32` |             |
-| s    | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| hash | `bytes32` |  |
+| v | `uint8` |  |
+| r | `bytes32` |  |
+| s | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="toethsignedmessagehash-bytes32"></a>
 
@@ -270,15 +270,15 @@ function toEthSignedMessageHash(bytes32 hash) internal pure returns (bytes32);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| hash | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| hash | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="totypeddatahash-bytes32-bytes32"></a>
 
@@ -305,16 +305,16 @@ function toTypedDataHash(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| domainSeparator | `bytes32` |             |
-| structHash      | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| domainSeparator | `bytes32` |  |
+| structHash | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 ## Enums
 
@@ -332,10 +332,10 @@ enum RecoverError {
 
 **Variants**
 
-| Name                   | Description |
-| ---------------------- | ----------- |
-| NoError                |             |
-| InvalidSignature       |             |
-| InvalidSignatureLength |             |
-| InvalidSignatureS      |             |
-| InvalidSignatureV      |             |
+| Name | Description |
+| ---- | ----------- |
+| NoError |  |
+| InvalidSignature |  |
+| InvalidSignatureLength |  |
+| InvalidSignatureS |  |
+| InvalidSignatureV |  |

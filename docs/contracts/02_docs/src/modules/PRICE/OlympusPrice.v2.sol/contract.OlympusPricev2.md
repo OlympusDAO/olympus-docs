@@ -54,9 +54,9 @@ function KEYCODE() public pure override returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="version"></a>
 
@@ -96,15 +96,15 @@ function supportsInterface(bytes4 interfaceId_) public pure virtual override ret
 
 **Parameters**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| interfaceId_ | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="getassets"></a>
 
@@ -282,15 +282,15 @@ function _isUnitOfAccount(address asset_) internal pure returns (bool);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| asset_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_unitprice"></a>
 
@@ -310,9 +310,9 @@ function _unitPrice() internal view virtual returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_validateapprovedasset-address"></a>
 
@@ -338,9 +338,9 @@ function _validateApprovedAsset(address asset_) internal view;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| asset_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
 
 <a id="_getlastobservationprice-address"></a>
 
@@ -374,10 +374,10 @@ function _getLastObservationPrice(
 
 **Returns**
 
-| Name       | Type      | Description                                         |
-| ---------- | --------- | --------------------------------------------------- |
-| price_     | `uint256` | The most recent observation price                   |
-| timestamp_ | `uint48`  | The timestamp of the most recent stored observation |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price_ | `uint256` |          The most recent observation price |
+| timestamp_ | `uint48` |      The timestamp of the most recent stored observation |
 
 <a id="getprice-address"></a>
 

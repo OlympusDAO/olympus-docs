@@ -159,14 +159,14 @@ constructor(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| ohm_           | `address` |             |
-| gohm_          | `address` |             |
-| staking_       | `address` |             |
-| sReserve_      | `address` |             |
-| coolerFactory_ | `address` |             |
-| kernel_        | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohm_ | `address` |  |
+| gohm_ | `address` |  |
+| staking_ | `address` |  |
+| sReserve_ | `address` |  |
+| coolerFactory_ | `address` |  |
+| kernel_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -187,9 +187,9 @@ function configureDependencies() external override returns (Keycode[] memory dep
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| dependencies | `Keycode[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dependencies | `Keycode[]` |  |
 
 <a id="requestpermissions"></a>
 
@@ -210,9 +210,9 @@ function requestPermissions() external view override returns (Permissions[] memo
 
 **Returns**
 
-| Name     | Type            | Description |
-| -------- | --------------- | ----------- |
-| requests | `Permissions[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| requests | `Permissions[]` |  |
 
 <a id="version"></a>
 
@@ -317,11 +317,11 @@ function _onRepay(uint256, uint256 principalPaid_, uint256 interestPaid_) intern
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| _              | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `uint256` |  |
 | principalPaid_ | `uint256` | in reserve. |
-| interestPaid_  | `uint256` | in reserve. |
+| interestPaid_ | `uint256` | in reserve. |
 
 <a id="_ondefault-uint256-uint256-uint256-uint256"></a>
 
@@ -341,12 +341,12 @@ function _onDefault(uint256, uint256, uint256, uint256) internal override;
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| _    | `uint256` |             |
-| _    | `uint256` |             |
-| _    | `uint256` |             |
-| _    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `uint256` |  |
+| _ | `uint256` |  |
+| _ | `uint256` |  |
+| _ | `uint256` |  |
 
 <a id="rebalance"></a>
 
@@ -396,9 +396,9 @@ function _sweepIntoSavingsVault(uint256 amount_) internal;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` |  |
 
 <a id="burn"></a>
 
@@ -482,15 +482,15 @@ function getCollateralForLoan(uint256 principal_) external pure returns (uint256
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| principal_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| principal_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getloanforcollateral-uint256"></a>
 
@@ -510,10 +510,10 @@ function getLoanForCollateral(uint256 collateral_) public pure returns (uint256,
 
 **Returns**
 
-| Name         | Type      | Description                                                        |
-| ------------ | --------- | ------------------------------------------------------------------ |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
 | &lt;none&gt; | `uint256` | debt (amount to be lent + interest) for a given collateral amount. |
-| &lt;none&gt; | `uint256` |                                                                    |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="interestforloan-uint256-uint256"></a>
 
@@ -534,9 +534,9 @@ function interestForLoan(uint256 principal_, uint256 duration_) public pure retu
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="gettotalreceivables"></a>
 
@@ -551,9 +551,9 @@ function getTotalReceivables() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Events
 
@@ -583,10 +583,10 @@ event Defund(address token, uint256 amount);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| token  | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | `address` |  |
+| amount | `uint256` |  |
 
 ### Rebalance
 
@@ -598,10 +598,10 @@ event Rebalance(bool defund, uint256 reserveAmount);
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| defund        | `bool`    |             |
-| reserveAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| defund | `bool` |  |
+| reserveAmount | `uint256` |  |
 
 ## Errors
 

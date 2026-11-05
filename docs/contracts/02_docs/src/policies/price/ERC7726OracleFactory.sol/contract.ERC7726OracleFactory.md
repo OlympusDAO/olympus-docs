@@ -692,15 +692,15 @@ function _decodeOracleName(
 
 **Parameters**
 
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| customParams_ | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| customParams_ | `bytes` |  |
 
 **Returns**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| oracleName | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracleName | `bytes32` |  |
 
 <a id="_validatecachingcaller-address"></a>
 
@@ -712,9 +712,9 @@ function _validateCachingCaller(address caller_) internal view;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| caller_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
 
 <a id="_hasenabledoraclevariant"></a>
 
@@ -726,9 +726,9 @@ function _hasEnabledOracleVariant() internal view returns (bool);
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_setpricecache-address"></a>
 
@@ -740,9 +740,9 @@ function _setPriceCache(address policy_) internal;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
 
 <a id="_implementsipricecache-address"></a>
 
@@ -754,15 +754,15 @@ function _implementsIPriceCache(address policy_) internal view returns (bool);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_hassamekernel-address"></a>
 
@@ -774,15 +774,15 @@ function _hasSameKernel(address policy_) internal view returns (bool);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="supportsinterface-bytes4"></a>
 

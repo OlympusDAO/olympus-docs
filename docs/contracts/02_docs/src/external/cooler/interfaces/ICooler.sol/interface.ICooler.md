@@ -16,9 +16,9 @@ function owner() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="collateral"></a>
 
@@ -32,9 +32,9 @@ function collateral() external view returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="debt"></a>
 
@@ -48,9 +48,9 @@ function debt() external view returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="factory"></a>
 
@@ -64,9 +64,9 @@ function factory() external view returns (ICoolerFactory);
 
 **Returns**
 
-| Name         | Type             | Description |
-| ------------ | ---------------- | ----------- |
-| &lt;none&gt; | `ICoolerFactory` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `ICoolerFactory` |  |
 
 <a id="requestloan-uint256-uint256-uint256-uint256"></a>
 
@@ -95,9 +95,9 @@ function requestLoan(
 
 **Returns**
 
-| Name      | Type      | Description                                                               |
-| --------- | --------- | ------------------------------------------------------------------------- |
-| requestId | `uint256` | of the created request. Equivalent to the index of request in requests[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| requestId | `uint256` |           of the created request. Equivalent to the index of request in requests[]. |
 
 <a id="rescindrequest-uint256"></a>
 
@@ -170,9 +170,9 @@ function clearRequest(
 
 **Returns**
 
-| Name   | Type      | Description                                                      |
-| ------ | --------- | ---------------------------------------------------------------- |
-| loanId | `uint256` | of the granted loan. Equivalent to the index of loan in loans[]. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanId | `uint256` |      of the granted loan. Equivalent to the index of loan in loans[]. |
 
 <a id="extendloanterms-uint256-uint8"></a>
 
@@ -250,9 +250,9 @@ function collateralFor(
 
 **Returns**
 
-| Name       | Type      | Description                                        |
-| ---------- | --------- | -------------------------------------------------- |
-| collateral | `uint256` | amount of collateral tokens required for the loan. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateral | `uint256` |         amount of collateral tokens required for the loan. |
 
 <a id="interestfor-uint256-uint256-uint256"></a>
 
@@ -421,14 +421,14 @@ struct Request {
 
 **Properties**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| amount           | `uint256` |             |
-| interest         | `uint256` |             |
-| loanToCollateral | `uint256` |             |
-| duration         | `uint256` |             |
-| active           | `bool`    |             |
-| requester        | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount | `uint256` |  |
+| interest | `uint256` |  |
+| loanToCollateral | `uint256` |  |
+| duration | `uint256` |  |
+| active | `bool` |  |
+| requester | `address` |  |
 
 ### Loan
 
@@ -449,13 +449,13 @@ struct Loan {
 
 **Properties**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| request     | `Request` |             |
-| principal   | `uint256` |             |
-| interestDue | `uint256` |             |
-| collateral  | `uint256` |             |
-| expiry      | `uint256` |             |
-| lender      | `address` |             |
-| recipient   | `address` |             |
-| callback    | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| request | `Request` |  |
+| principal | `uint256` |  |
+| interestDue | `uint256` |  |
+| collateral | `uint256` |  |
+| expiry | `uint256` |  |
+| lender | `address` |  |
+| recipient | `address` |  |
+| callback | `bool` |  |

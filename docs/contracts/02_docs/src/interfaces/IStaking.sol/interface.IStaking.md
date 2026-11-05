@@ -14,9 +14,9 @@ function OHM() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="sohm"></a>
 
@@ -28,9 +28,9 @@ function sOHM() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="gohm"></a>
 
@@ -42,9 +42,9 @@ function gOHM() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="index"></a>
 
@@ -56,9 +56,9 @@ function index() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="supplyinwarmup"></a>
 
@@ -70,9 +70,9 @@ function supplyInWarmup() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="rebase"></a>
 
@@ -84,9 +84,9 @@ function rebase() external returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="stake-address-uint256-bool-bool"></a>
 
@@ -103,18 +103,18 @@ function stake(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| to_       | `address` |             |
-| amount_   | `uint256` |             |
-| rebasing_ | `bool`    |             |
-| claim_    | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` |  |
+| amount_ | `uint256` |  |
+| rebasing_ | `bool` |  |
+| claim_ | `bool` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="unstake-address-uint256-bool-bool"></a>
 
@@ -131,18 +131,18 @@ function unstake(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| to_       | `address` |             |
-| amount_   | `uint256` |             |
-| trigger_  | `bool`    |             |
-| rebasing_ | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` |  |
+| amount_ | `uint256` |  |
+| trigger_ | `bool` |  |
+| rebasing_ | `bool` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="setdistributor-address"></a>
 
@@ -154,9 +154,9 @@ function setDistributor(address _distributor) external;
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| _distributor | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _distributor | `address` |  |
 
 <a id="secondstonextepoch"></a>
 
@@ -168,9 +168,9 @@ function secondsToNextEpoch() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="epoch"></a>
 
@@ -182,12 +182,12 @@ function epoch() external view returns (uint256, uint256, uint256, uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
-| &lt;none&gt; | `uint256` |             |
-| &lt;none&gt; | `uint256` |             |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
 
 ## Structs
 
@@ -204,9 +204,9 @@ struct Epoch {
 
 **Properties**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| length     | `uint256` |             |
-| number     | `uint256` |             |
-| end        | `uint256` |             |
-| distribute | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| length | `uint256` |  |
+| number | `uint256` |  |
+| end | `uint256` |  |
+| distribute | `uint256` |  |

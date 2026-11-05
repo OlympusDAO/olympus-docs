@@ -18,9 +18,9 @@ constructor(Kernel kernel_) Module(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="keycode"></a>
 
@@ -34,9 +34,9 @@ function KEYCODE() public pure override returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="version"></a>
 
@@ -69,15 +69,15 @@ function getInstructions(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| instructionsId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| instructionsId_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type            | Description |
-| ------------ | --------------- | ----------- |
-| &lt;none&gt; | `Instruction[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Instruction[]` |  |
 
 <a id="store-instruction"></a>
 
@@ -93,12 +93,12 @@ function store(
 
 **Parameters**
 
-| Name          | Type            | Description |
-| ------------- | --------------- | ----------- |
-| instructions_ | `Instruction[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| instructions_ | `Instruction[]` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

@@ -14,12 +14,12 @@ function terms(address account_) external view returns (IPOLY.GenesisTerm memory
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| account_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` |  |
 
 **Returns**
 
-| Name         | Type                | Description |
-| ------------ | ------------------- | ----------- |
-| &lt;none&gt; | `IPOLY.GenesisTerm` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IPOLY.GenesisTerm` |  |

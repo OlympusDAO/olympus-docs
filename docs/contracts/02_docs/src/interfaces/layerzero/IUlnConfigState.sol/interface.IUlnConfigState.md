@@ -41,6 +41,6 @@ function getAppUlnConfig(
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `UlnConfig` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `UlnConfig` |  |

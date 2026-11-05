@@ -14,15 +14,15 @@ function sort(uint256[] memory array) internal pure returns (uint256[] memory);
 
 **Parameters**
 
-| Name  | Type        | Description |
-| ----- | ----------- | ----------- |
-| array | `uint256[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| array | `uint256[]` |  |
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `uint256[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256[]` |  |
 
 <a id="_quicksort-uint256-uint256-uint256"></a>
 
@@ -34,11 +34,11 @@ function _quickSort(uint256[] memory array, uint256 i, uint256 j) private pure;
 
 **Parameters**
 
-| Name  | Type        | Description |
-| ----- | ----------- | ----------- |
-| array | `uint256[]` |             |
-| i     | `uint256`   |             |
-| j     | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| array | `uint256[]` |  |
+| i | `uint256` |  |
+| j | `uint256` |  |
 
 <a id="_swap-uint256-uint256-uint256"></a>
 
@@ -50,8 +50,8 @@ function _swap(uint256[] memory array, uint256 i, uint256 j) private pure;
 
 **Parameters**
 
-| Name  | Type        | Description |
-| ----- | ----------- | ----------- |
-| array | `uint256[]` |             |
-| i     | `uint256`   |             |
-| j     | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| array | `uint256[]` |  |
+| i | `uint256` |  |
+| j | `uint256` |  |

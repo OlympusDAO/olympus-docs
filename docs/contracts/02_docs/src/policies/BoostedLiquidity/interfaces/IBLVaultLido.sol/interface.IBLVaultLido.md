@@ -29,9 +29,9 @@ function deposit(uint256 amount_, uint256 minLpAmount_) external returns (uint25
 
 **Returns**
 
-| Name        | Type      | Description                                         |
-| ----------- | --------- | --------------------------------------------------- |
-| lpAmountOut | `uint256` | The amount of LP tokens received by the transaction |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| lpAmountOut | `uint256` |             The amount of LP tokens received by the transaction |
 
 <a id="withdraw-uint256-uint256-uint256-bool"></a>
 

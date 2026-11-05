@@ -37,9 +37,9 @@ uint32 public constant override DEFAULT_MAX_DELEGATE_ADDRESSES = 10;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint32` |  |
 
 ## Functions
 
@@ -53,9 +53,9 @@ constructor(address gohm_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| gohm_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gohm_ | `address` |  |
 
 <a id="setmaxdelegateaddresses-address-uint32"></a>
 
@@ -73,10 +73,10 @@ function setMaxDelegateAddresses(
 
 **Parameters**
 
-| Name                 | Type      | Description |
-| -------------------- | --------- | ----------- |
-| account              | `address` |             |
-| maxDelegateAddresses | `uint32`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| maxDelegateAddresses | `uint32` |  |
 
 <a id="depositundelegatedgohm-address-uint256"></a>
 
@@ -97,10 +97,10 @@ function depositUndelegatedGohm(address onBehalfOf, uint256 amount) external vir
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| onBehalfOf | `address` |             |
-| amount     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| onBehalfOf | `address` |  |
+| amount | `uint256` |  |
 
 <a id="withdrawundelegatedgohm-address-uint256-uint256"></a>
 
@@ -128,11 +128,11 @@ function withdrawUndelegatedGohm(
 
 **Parameters**
 
-| Name                       | Type      | Description |
-| -------------------------- | --------- | ----------- |
-| onBehalfOf                 | `address` |             |
-| amount                     | `uint256` |             |
-| autoRescindMaxNumDelegates | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| onBehalfOf | `address` |  |
+| amount | `uint256` |  |
+| autoRescindMaxNumDelegates | `uint256` |  |
 
 <a id="applydelegations-address-delegationrequest"></a>
 
@@ -157,18 +157,18 @@ function applyDelegations(
 
 **Parameters**
 
-| Name               | Type                  | Description |
-| ------------------ | --------------------- | ----------- |
-| onBehalfOf         | `address`             |             |
-| delegationRequests | `DelegationRequest[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| onBehalfOf | `address` |  |
+| delegationRequests | `DelegationRequest[]` |  |
 
 **Returns**
 
-| Name               | Type      | Description |
-| ------------------ | --------- | ----------- |
-| totalDelegated     | `uint256` |             |
-| totalUndelegated   | `uint256` |             |
-| undelegatedBalance | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalDelegated | `uint256` |  |
+| totalUndelegated | `uint256` |  |
+| undelegatedBalance | `uint256` |  |
 
 <a id="rescinddelegations-address-uint256-uint256"></a>
 
@@ -202,18 +202,18 @@ function rescindDelegations(
 
 **Parameters**
 
-| Name                        | Type      | Description |
-| --------------------------- | --------- | ----------- |
-| onBehalfOf                  | `address` |             |
-| requestedUndelegatedBalance | `uint256` |             |
-| maxNumDelegates             | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| onBehalfOf | `address` |  |
+| requestedUndelegatedBalance | `uint256` |  |
+| maxNumDelegates | `uint256` |  |
 
 **Returns**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| totalRescinded        | `uint256` |             |
-| newUndelegatedBalance | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalRescinded | `uint256` |  |
+| newUndelegatedBalance | `uint256` |  |
 
 <a id="policyaccountbalances-address-address"></a>
 
@@ -231,16 +231,16 @@ function policyAccountBalances(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy  | `address` |             |
-| account | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy | `address` |  |
+| account | `address` |  |
 
 **Returns**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| gOhmBalance | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gOhmBalance | `uint256` |  |
 
 <a id="accountdelegationslist-address-uint256-uint256"></a>
 
@@ -266,17 +266,17 @@ function accountDelegationsList(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| account    | `address` |             |
-| startIndex | `uint256` |             |
-| maxItems   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| startIndex | `uint256` |  |
+| maxItems | `uint256` |  |
 
 **Returns**
 
-| Name        | Type                  | Description |
-| ----------- | --------------------- | ----------- |
-| delegations | `AccountDelegation[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delegations | `AccountDelegation[]` |  |
 
 <a id="accountdelegationsummary-address"></a>
 
@@ -301,18 +301,18 @@ function accountDelegationSummary(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| account | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
 
 **Returns**
 
-| Name                        | Type      | Description |
-| --------------------------- | --------- | ----------- |
-| totalGOhm                   | `uint256` |             |
-| delegatedGOhm               | `uint256` |             |
-| numDelegateAddresses        | `uint256` |             |
-| maxAllowedDelegateAddresses | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalGOhm | `uint256` |  |
+| delegatedGOhm | `uint256` |  |
+| numDelegateAddresses | `uint256` |  |
+| maxAllowedDelegateAddresses | `uint256` |  |
 
 <a id="totaldelegatedto-address"></a>
 
@@ -327,15 +327,15 @@ function totalDelegatedTo(address delegate) external view virtual returns (uint2
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| delegate | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delegate | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="maxdelegateaddresses-address"></a>
 
@@ -351,15 +351,15 @@ function maxDelegateAddresses(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| account | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
 
 **Returns**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| result | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| result | `uint32` |  |
 
 <a id="gohm"></a>
 
@@ -373,6 +373,6 @@ function gOHM() external view override returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |

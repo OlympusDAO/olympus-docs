@@ -70,13 +70,13 @@ constructor(
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| kernel_          | `Kernel`  |             |
-| ohm_             | `address` |             |
-| bondManager_     | `address` |             |
-| inverseBondDepo_ | `address` |             |
-| reward_          | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| ohm_ | `address` |  |
+| bondManager_ | `address` |  |
+| inverseBondDepo_ | `address` |  |
+| reward_ | `uint256` |  |
 
 <a id="configuredependencies"></a>
 
@@ -148,9 +148,9 @@ function _burnBondManagerOhm(uint256 amount_) internal;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` |  |
 
 <a id="_burninversebonddepoohm"></a>
 
@@ -182,10 +182,10 @@ event Burn(uint256 amount, uint256 reward);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| amount | `uint256` |             |
-| reward | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount | `uint256` |  |
+| reward | `uint256` |  |
 
 ## Errors
 

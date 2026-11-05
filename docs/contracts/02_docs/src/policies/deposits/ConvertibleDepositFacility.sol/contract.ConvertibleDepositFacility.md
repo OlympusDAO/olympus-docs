@@ -48,10 +48,10 @@ constructor(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| kernel_         | `address` |             |
-| depositManager_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| depositManager_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -99,10 +99,10 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 **Returns**
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| major | `uint8` |             |
-| minor | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| major | `uint8` |  |
+| minor | `uint8` |  |
 
 <a id="createposition-createpositionparams"></a>
 
@@ -139,11 +139,11 @@ function createPosition(
 
 **Returns**
 
-| Name           | Type      | Description                |
-| -------------- | --------- | -------------------------- |
-| positionId     | `uint256` | The ID of the new position |
-| receiptTokenId | `uint256` |                            |
-| actualAmount   | `uint256` |                            |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId | `uint256` | The ID of the new position |
+| receiptTokenId | `uint256` |  |
+| actualAmount | `uint256` |  |
 
 <a id="deposit-ierc20-uint8-uint256-bool"></a>
 
@@ -207,11 +207,11 @@ function _previewConvert(
 
 **Returns**
 
-| Name                | Type      | Description                        |
-| ------------------- | --------- | ---------------------------------- |
-| convertedTokenOut   | `uint256` | The amount of converted tokens     |
-| currentAsset        | `address` | The asset of the current position  |
-| currentPeriodMonths | `uint8`   | The period of the current position |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| convertedTokenOut | `uint256` |     The amount of converted tokens |
+| currentAsset | `address` |          The asset of the current position |
+| currentPeriodMonths | `uint8` |   The period of the current position |
 
 <a id="previewconvert-address-uint256-uint256"></a>
 
@@ -411,9 +411,9 @@ function convertedToken() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="execute"></a>
 
@@ -449,12 +449,12 @@ function supportsInterface(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

@@ -24,9 +24,9 @@ function observationFrequency() external view returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="decimals"></a>
 
@@ -40,9 +40,9 @@ function decimals() external view returns (uint8);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 <a id="unitofaccount"></a>
 
@@ -56,9 +56,9 @@ function unitOfAccount() external pure returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="getassets"></a>
 
@@ -72,9 +72,9 @@ function getAssets() external view returns (address[] memory assets);
 
 **Returns**
 
-| Name   | Type        | Description                        |
-| ------ | ----------- | ---------------------------------- |
-| assets | `address[]` | The addresses of registered assets |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `address[]` |  The addresses of registered assets |
 
 <a id="getassetdata-address"></a>
 
@@ -94,9 +94,9 @@ function getAssetData(address asset_) external view returns (Asset memory data);
 
 **Returns**
 
-| Name | Type    | Description                                  |
-| ---- | ------- | -------------------------------------------- |
-| data | `Asset` | The asset configuration as an `Asset` struct |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| data | `Asset` |    The asset configuration as an `Asset` struct |
 
 <a id="isassetapproved-address"></a>
 
@@ -116,9 +116,9 @@ function isAssetApproved(address asset_) external view returns (bool approved);
 
 **Returns**
 
-| Name     | Type   | Description                   |
-| -------- | ------ | ----------------------------- |
-| approved | `bool` | Whether the asset is approved |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| approved | `bool` |    Whether the asset is approved |
 
 <a id="isnoncontractasset-address"></a>
 
@@ -138,9 +138,9 @@ function isNonContractAsset(address asset_) external view returns (bool register
 
 **Returns**
 
-| Name       | Type   | Description                     |
-| ---------- | ------ | ------------------------------- |
-| registered | `bool` | Whether the asset is registered |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| registered | `bool` |  Whether the asset is registered |
 
 <a id="getprice-address"></a>
 
@@ -160,9 +160,9 @@ function getPrice(address asset_) external view returns (uint256 price);
 
 **Returns**
 
-| Name  | Type      | Description                                           |
-| ----- | --------- | ----------------------------------------------------- |
-| price | `uint256` | The USD price of the asset in the scale of `decimals` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | `uint256` |   The USD price of the asset in the scale of `decimals` |
 
 <a id="getprice-address-variant"></a>
 
@@ -210,10 +210,10 @@ function getPrice(
 
 **Returns**
 
-| Name       | Type      | Description                                           |
-| ---------- | --------- | ----------------------------------------------------- |
-| _price     | `uint256` | The USD price of the asset in the scale of `decimals` |
-| _timestamp | `uint48`  | The timestamp at which the price was calculated       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _price | `uint256` |      The USD price of the asset in the scale of `decimals` |
+| _timestamp | `uint48` |  The timestamp at which the price was calculated |
 
 <a id="getpricein-address-address"></a>
 
@@ -234,9 +234,9 @@ function getPriceIn(address asset_, address quote_) external view returns (uint2
 
 **Returns**
 
-| Name  | Type      | Description                                 |
-| ----- | --------- | ------------------------------------------- |
-| price | `uint256` | The price of the asset in units of `quote_` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | `uint256` |   The price of the asset in units of `quote_` |
 
 <a id="getpricein-address-address-variant"></a>
 
@@ -262,10 +262,10 @@ function getPriceIn(
 
 **Returns**
 
-| Name       | Type      | Description                                     |
-| ---------- | --------- | ----------------------------------------------- |
-| _price     | `uint256` | The price of the asset in units of `quote_`     |
-| _timestamp | `uint48`  | The timestamp at which the price was calculated |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _price | `uint256` |      The price of the asset in units of `quote_` |
+| _timestamp | `uint48` |  The timestamp at which the price was calculated |
 
 <a id="storeobservation-address"></a>
 
@@ -1299,8 +1299,8 @@ enum Variant {
 
 **Variants**
 
-| Name          | Description |
-| ------------- | ----------- |
-| CURRENT       |             |
-| LAST          |             |
-| MOVINGAVERAGE |             |
+| Name | Description |
+| ---- | ----------- |
+| CURRENT |  |
+| LAST |  |
+| MOVINGAVERAGE |  |

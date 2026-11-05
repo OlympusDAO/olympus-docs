@@ -22,9 +22,9 @@ function decimals() external view returns (uint8 decimals_);
 
 **Returns**
 
-| Name      | Type    | Description                                                     |
-| --------- | ------- | --------------------------------------------------------------- |
-| decimals_ | `uint8` | USD decimal scale for cached assetPriceUsd/quotePriceUsd values |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| decimals_ | `uint8` |   USD decimal scale for cached assetPriceUsd/quotePriceUsd values |
 
 <a id="cacheprice-address-address"></a>
 
@@ -61,9 +61,9 @@ function assetDecimals(address asset_) external view returns (uint8 decimals_);
 
 **Returns**
 
-| Name      | Type    | Description                       |
-| --------- | ------- | --------------------------------- |
-| decimals_ | `uint8` | Amount decimal scale for `asset_` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| decimals_ | `uint8` |   Amount decimal scale for `asset_` |
 
 <a id="assetsymbol-address"></a>
 
@@ -83,9 +83,9 @@ function assetSymbol(address asset_) external view returns (string memory symbol
 
 **Returns**
 
-| Name    | Type     | Description         |
-| ------- | -------- | ------------------- |
-| symbol_ | `string` | Symbol for `asset_` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| symbol_ | `string` |     Symbol for `asset_` |
 
 <a id="setnoncontractassetmetadata-address-uint8-string"></a>
 
@@ -199,9 +199,9 @@ function isStale(
 
 **Returns**
 
-| Name  | Type   | Description                                              |
-| ----- | ------ | -------------------------------------------------------- |
-| stale | `bool` | True when no cache exists or cache is older than maxAge_ |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| stale | `bool` |   True when no cache exists or cache is older than maxAge_ |
 
 ## Errors
 

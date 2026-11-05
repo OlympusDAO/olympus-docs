@@ -8,6 +8,6 @@ error InvalidSubKeycode(SubKeycode subKeycode_);
 
 **Parameters**
 
-| Name        | Type         | Description |
-| ----------- | ------------ | ----------- |
-| subKeycode_ | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| subKeycode_ | `SubKeycode` |  |

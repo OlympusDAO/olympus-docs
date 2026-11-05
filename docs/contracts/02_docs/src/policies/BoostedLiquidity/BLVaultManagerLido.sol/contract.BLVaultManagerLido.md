@@ -156,9 +156,9 @@ uint48 public minWithdrawalDelay;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 ### isLidoBLVaultActive
 
@@ -191,20 +191,20 @@ constructor(
 
 **Parameters**
 
-| Name                | Type           | Description |
-| ------------------- | -------------- | ----------- |
-| kernel_             | `Kernel`       |             |
-| tokenData_          | `TokenData`    |             |
-| balancerData_       | `BalancerData` |             |
-| auraData_           | `AuraData`     |             |
-| auraMiningLib_      | `address`      |             |
-| ohmEthPriceFeed_    | `OracleFeed`   |             |
-| ethUsdPriceFeed_    | `OracleFeed`   |             |
-| stethUsdPriceFeed_  | `OracleFeed`   |             |
-| implementation_     | `address`      |             |
-| ohmLimit_           | `uint256`      |             |
-| fee_                | `uint64`       |             |
-| minWithdrawalDelay_ | `uint48`       |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| tokenData_ | `TokenData` |  |
+| balancerData_ | `BalancerData` |  |
+| auraData_ | `AuraData` |  |
+| auraMiningLib_ | `address` |  |
+| ohmEthPriceFeed_ | `OracleFeed` |  |
+| ethUsdPriceFeed_ | `OracleFeed` |  |
+| stethUsdPriceFeed_ | `OracleFeed` |  |
+| implementation_ | `address` |  |
+| ohmLimit_ | `uint256` |  |
+| fee_ | `uint64` |  |
+| minWithdrawalDelay_ | `uint48` |  |
 
 <a id="configuredependencies"></a>
 
@@ -588,9 +588,9 @@ function getRewardRate(
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| rewardToken_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| rewardToken_ | `address` |  |
 
 **Returns**
 
@@ -847,16 +847,16 @@ function _validatePrice(
 
 **Parameters**
 
-| Name             | Type                    | Description |
-| ---------------- | ----------------------- | ----------- |
-| priceFeed_       | `AggregatorV3Interface` |             |
-| updateThreshold_ | `uint48`                |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| priceFeed_ | `AggregatorV3Interface` |  |
+| updateThreshold_ | `uint48` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Events
 
@@ -868,11 +868,11 @@ event VaultDeployed(address vault, address owner, uint64 fee);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| vault | `address` |             |
-| owner | `address` |             |
-| fee   | `uint64`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| vault | `address` |  |
+| owner | `address` |  |
+| fee | `uint64` |  |
 
 ## Errors
 

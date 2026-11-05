@@ -65,9 +65,9 @@ constructor(address erc20Implementation_);
 
 **Parameters**
 
-| Name                 | Type      | Description |
-| -------------------- | --------- | ----------- |
-| erc20Implementation_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| erc20Implementation_ | `address` |  |
 
 <a id="_gettokendata-uint256"></a>
 
@@ -87,9 +87,9 @@ function _getTokenData(uint256 tokenId_) internal view returns (bytes memory tok
 
 **Returns**
 
-| Name      | Type    | Description                                                               |
-| --------- | ------- | ------------------------------------------------------------------------- |
-| tokenData | `bytes` | Packed bytes including the name, symbol, decimals and additional metadata |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenData | `bytes` |   Packed bytes including the name, symbol, decimals and additional metadata |
 
 <a id="_gettokenadditionaldata-uint256"></a>
 
@@ -111,9 +111,9 @@ function _getTokenAdditionalData(
 
 **Returns**
 
-| Name           | Type    | Description                   |
-| -------------- | ------- | ----------------------------- |
-| additionalData | `bytes` | The additional metadata bytes |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| additionalData | `bytes` |  The additional metadata bytes |
 
 <a id="_mint-address-uint256-uint256-bool"></a>
 
@@ -190,15 +190,15 @@ function totalSupply(uint256 tokenId_) public view virtual override returns (uin
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| tokenId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_update-address-address-uint256-uint256"></a>
 
@@ -221,12 +221,12 @@ function _update(
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| from   | `address` |             |
-| to     | `address` |             |
-| id     | `uint256` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
+| id | `uint256` |  |
+| amount | `uint256` |  |
 
 <a id="_getwrappedtoken-uint256"></a>
 
@@ -246,15 +246,15 @@ function _getWrappedToken(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| tokenId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type                     | Description |
-| ------------ | ------------------------ | ----------- |
-| wrappedToken | `IERC20BurnableMintable` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| wrappedToken | `IERC20BurnableMintable` |  |
 
 <a id="getwrappedtoken-uint256"></a>
 
@@ -370,9 +370,9 @@ function _onlyValidTokenId(uint256 tokenId_) internal view;
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| tokenId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` |  |
 
 <a id="onlyvalidtokenid-uint256"></a>
 
@@ -384,9 +384,9 @@ modifier onlyValidTokenId(uint256 tokenId_);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| tokenId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` |  |
 
 <a id="_createwrappabletoken-uint256-string-string-uint8-bytes-bool"></a>
 
@@ -413,14 +413,14 @@ function _createWrappableToken(
 
 **Parameters**
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| tokenId_            | `uint256` |             |
-| name_               | `string`  |             |
-| symbol_             | `string`  |             |
-| decimals_           | `uint8`   |             |
-| additionalMetadata_ | `bytes`   |             |
-| createWrappedToken_ | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId_ | `uint256` |  |
+| name_ | `string` |  |
+| symbol_ | `string` |  |
+| decimals_ | `uint8` |  |
+| additionalMetadata_ | `bytes` |  |
+| createWrappedToken_ | `bool` |  |
 
 <a id="getwrappabletokens"></a>
 
@@ -455,12 +455,12 @@ function supportsInterface(
 
 **Parameters**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| interfaceId_ | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

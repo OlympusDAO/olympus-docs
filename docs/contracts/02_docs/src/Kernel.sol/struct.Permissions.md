@@ -13,7 +13,7 @@ struct Permissions {
 
 **Properties**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| keycode      | `Keycode` |             |
-| funcSelector | `bytes4`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode | `Keycode` |  |
+| funcSelector | `bytes4` |  |

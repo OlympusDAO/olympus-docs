@@ -209,9 +209,9 @@ function getSubmodules() external view returns (SubKeycode[] memory);
 
 **Returns**
 
-| Name         | Type           | Description |
-| ------------ | -------------- | ----------- |
-| &lt;none&gt; | `SubKeycode[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `SubKeycode[]` |  |
 
 <a id="_submoduleisinstalled-subkeycode"></a>
 
@@ -223,15 +223,15 @@ function _submoduleIsInstalled(SubKeycode subKeycode_) internal view returns (bo
 
 **Parameters**
 
-| Name        | Type         | Description |
-| ----------- | ------------ | ----------- |
-| subKeycode_ | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| subKeycode_ | `SubKeycode` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_getsubmoduleifinstalled-subkeycode"></a>
 
@@ -243,15 +243,15 @@ function _getSubmoduleIfInstalled(SubKeycode subKeycode_) internal view returns 
 
 **Parameters**
 
-| Name        | Type         | Description |
-| ----------- | ------------ | ----------- |
-| subKeycode_ | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| subKeycode_ | `SubKeycode` |  |
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `Submodule` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Submodule` |  |
 
 <a id="_validatesubmodule-submodule"></a>
 
@@ -263,15 +263,15 @@ function _validateSubmodule(Submodule newSubmodule_) internal view returns (SubK
 
 **Parameters**
 
-| Name          | Type        | Description |
-| ------------- | ----------- | ----------- |
-| newSubmodule_ | `Submodule` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newSubmodule_ | `Submodule` |  |
 
 **Returns**
 
-| Name         | Type         | Description |
-| ------------ | ------------ | ----------- |
-| &lt;none&gt; | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `SubKeycode` |  |
 
 ## Errors
 
@@ -289,9 +289,9 @@ error Module_InvalidSubmoduleUpgrade(SubKeycode subKeycode_);
 
 **Parameters**
 
-| Name        | Type         | Description |
-| ----------- | ------------ | ----------- |
-| subKeycode_ | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| subKeycode_ | `SubKeycode` |  |
 
 ### Module_SubmoduleAlreadyInstalled
 
@@ -301,9 +301,9 @@ error Module_SubmoduleAlreadyInstalled(SubKeycode subKeycode_);
 
 **Parameters**
 
-| Name        | Type         | Description |
-| ----------- | ------------ | ----------- |
-| subKeycode_ | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| subKeycode_ | `SubKeycode` |  |
 
 ### Module_SubmoduleNotInstalled
 
@@ -313,9 +313,9 @@ error Module_SubmoduleNotInstalled(SubKeycode subKeycode_);
 
 **Parameters**
 
-| Name        | Type         | Description |
-| ----------- | ------------ | ----------- |
-| subKeycode_ | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| subKeycode_ | `SubKeycode` |  |
 
 ### Module_SubmoduleExecutionReverted
 
@@ -325,9 +325,9 @@ error Module_SubmoduleExecutionReverted(bytes error_);
 
 **Parameters**
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| error_ | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| error_ | `bytes` |  |
 
 ### Module_SubmoduleInterfaceNotImplemented
 
@@ -337,6 +337,6 @@ error Module_SubmoduleInterfaceNotImplemented(address submodule_);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| submodule_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| submodule_ | `address` |  |

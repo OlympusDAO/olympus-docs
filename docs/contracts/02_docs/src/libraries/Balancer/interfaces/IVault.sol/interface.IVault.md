@@ -14,9 +14,9 @@ function manageUserBalance(UserBalanceOp[] memory ops) external payable;
 
 **Parameters**
 
-| Name | Type              | Description |
-| ---- | ----------------- | ----------- |
-| ops  | `UserBalanceOp[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ops | `UserBalanceOp[]` |  |
 
 <a id="getpooltokens-bytes32"></a>
 
@@ -33,17 +33,17 @@ function getPoolTokens(
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| poolId | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| poolId | `bytes32` |  |
 
 **Returns**
 
-| Name            | Type        | Description |
-| --------------- | ----------- | ----------- |
-| tokens          | `address[]` |             |
-| balances        | `uint256[]` |             |
-| lastChangeBlock | `uint256`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokens | `address[]` |  |
+| balances | `uint256[]` |  |
+| lastChangeBlock | `uint256` |  |
 
 ## Structs
 
@@ -68,13 +68,13 @@ struct UserBalanceOp {
 
 **Properties**
 
-| Name      | Type                | Description |
-| --------- | ------------------- | ----------- |
-| kind      | `UserBalanceOpKind` |             |
-| asset     | `IAsset`            |             |
-| amount    | `uint256`           |             |
-| sender    | `address`           |             |
-| recipient | `address payable`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kind | `UserBalanceOpKind` |  |
+| asset | `IAsset` |  |
+| amount | `uint256` |  |
+| sender | `address` |  |
+| recipient | `address payable` |  |
 
 ## Enums
 
@@ -91,9 +91,9 @@ enum UserBalanceOpKind {
 
 **Variants**
 
-| Name              | Description |
-| ----------------- | ----------- |
-| DEPOSIT_INTERNAL  |             |
-| WITHDRAW_INTERNAL |             |
-| TRANSFER_INTERNAL |             |
-| TRANSFER_EXTERNAL |             |
+| Name | Description |
+| ---- | ----------- |
+| DEPOSIT_INTERNAL |  |
+| WITHDRAW_INTERNAL |  |
+| TRANSFER_INTERNAL |  |
+| TRANSFER_EXTERNAL |  |

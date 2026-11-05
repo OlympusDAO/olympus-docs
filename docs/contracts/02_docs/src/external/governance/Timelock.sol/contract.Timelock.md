@@ -68,10 +68,10 @@ constructor(address admin_, uint256 delay_);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| admin_ | `address` |             |
-| delay_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| admin_ | `address` |  |
+| delay_ | `uint256` |  |
 
 <a id="setfirstadmin-address"></a>
 
@@ -83,9 +83,9 @@ function setFirstAdmin(address admin_) public;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| admin_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| admin_ | `address` |  |
 
 <a id="fallback"></a>
 
@@ -105,9 +105,9 @@ function setDelay(uint256 delay_) public;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| delay_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delay_ | `uint256` |  |
 
 <a id="acceptadmin"></a>
 
@@ -127,9 +127,9 @@ function setPendingAdmin(address pendingAdmin_) public;
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| pendingAdmin_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pendingAdmin_ | `address` |  |
 
 <a id="queuetransaction-uint256-address-uint256-string-bytes-uint256"></a>
 
@@ -148,20 +148,20 @@ function queueTransaction(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| target     | `address` |             |
-| value      | `uint256` |             |
-| signature  | `string`  |             |
-| data       | `bytes`   |             |
-| eta        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| target | `address` |  |
+| value | `uint256` |  |
+| signature | `string` |  |
+| data | `bytes` |  |
+| eta | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="canceltransaction-uint256-address-uint256-string-bytes-uint256"></a>
 
@@ -180,14 +180,14 @@ function cancelTransaction(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| target     | `address` |             |
-| value      | `uint256` |             |
-| signature  | `string`  |             |
-| data       | `bytes`   |             |
-| eta        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| target | `address` |  |
+| value | `uint256` |  |
+| signature | `string` |  |
+| data | `bytes` |  |
+| eta | `uint256` |  |
 
 <a id="executetransaction-uint256-address-uint256-string-bytes-bytes32-uint256"></a>
 
@@ -207,21 +207,21 @@ function executeTransaction(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| target     | `address` |             |
-| value      | `uint256` |             |
-| signature  | `string`  |             |
-| data       | `bytes`   |             |
-| codehash   | `bytes32` |             |
-| eta        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| target | `address` |  |
+| value | `uint256` |  |
+| signature | `string` |  |
+| data | `bytes` |  |
+| codehash | `bytes32` |  |
+| eta | `uint256` |  |
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes` |  |
 
 ## Events
 
@@ -233,9 +233,9 @@ event NewAdmin(address indexed newAdmin);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| newAdmin | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newAdmin | `address` |  |
 
 ### NewPendingAdmin
 
@@ -245,9 +245,9 @@ event NewPendingAdmin(address indexed newPendingAdmin);
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| newPendingAdmin | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newPendingAdmin | `address` |  |
 
 ### NewDelay
 
@@ -257,9 +257,9 @@ event NewDelay(uint256 indexed newDelay);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| newDelay | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newDelay | `uint256` |  |
 
 ### CancelTransaction
 
@@ -277,15 +277,15 @@ event CancelTransaction(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| txHash     | `bytes32` |             |
-| target     | `address` |             |
-| value      | `uint256` |             |
-| signature  | `string`  |             |
-| data       | `bytes`   |             |
-| eta        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| txHash | `bytes32` |  |
+| target | `address` |  |
+| value | `uint256` |  |
+| signature | `string` |  |
+| data | `bytes` |  |
+| eta | `uint256` |  |
 
 ### ExecuteTransaction
 
@@ -303,15 +303,15 @@ event ExecuteTransaction(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| txHash     | `bytes32` |             |
-| target     | `address` |             |
-| value      | `uint256` |             |
-| signature  | `string`  |             |
-| data       | `bytes`   |             |
-| eta        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| txHash | `bytes32` |  |
+| target | `address` |  |
+| value | `uint256` |  |
+| signature | `string` |  |
+| data | `bytes` |  |
+| eta | `uint256` |  |
 
 ### QueueTransaction
 
@@ -329,15 +329,15 @@ event QueueTransaction(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| txHash     | `bytes32` |             |
-| target     | `address` |             |
-| value      | `uint256` |             |
-| signature  | `string`  |             |
-| data       | `bytes`   |             |
-| eta        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| txHash | `bytes32` |  |
+| target | `address` |  |
+| value | `uint256` |  |
+| signature | `string` |  |
+| data | `bytes` |  |
+| eta | `uint256` |  |
 
 ## Errors
 

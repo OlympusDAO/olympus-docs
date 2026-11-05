@@ -28,10 +28,10 @@ function previewConsolidate(
 
 **Returns**
 
-| Name             | Type      | Description                                                    |
-| ---------------- | --------- | -------------------------------------------------------------- |
-| collateralAmount | `uint256` | The amount of collateral that will be migrated into Cooler V2. |
-| borrowAmount     | `uint256` | The amount of debt that will be borrowed from Cooler V2.       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateralAmount | `uint256` |    The amount of collateral that will be migrated into Cooler V2. |
+| borrowAmount | `uint256` |        The amount of debt that will be borrowed from Cooler V2. |
 
 <a id="consolidate-address-address-imonocooler-authorization-imonocooler-signature-idlgtev1-delegationrequest"></a>
 
@@ -137,9 +137,9 @@ event CoolerFactoryAdded(address indexed coolerFactory);
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| coolerFactory | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| coolerFactory | `address` |  |
 
 ### CoolerFactoryRemoved
 
@@ -151,9 +151,9 @@ event CoolerFactoryRemoved(address indexed coolerFactory);
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| coolerFactory | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| coolerFactory | `address` |  |
 
 ### TokenRefunded
 
@@ -165,11 +165,11 @@ event TokenRefunded(address indexed token, address indexed recipient, uint256 am
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| token     | `address` |             |
-| recipient | `address` |             |
-| amount    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | `address` |  |
+| recipient | `address` |  |
+| amount | `uint256` |  |
 
 ## Errors
 
@@ -239,6 +239,6 @@ error Params_InvalidAddress(string reason_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| reason_ | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason_ | `string` |  |

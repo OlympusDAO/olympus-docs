@@ -150,10 +150,10 @@ constructor(address kernel_, address depositManager_) Policy(Kernel(kernel_));
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| kernel_         | `address` |             |
-| depositManager_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| depositManager_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -278,12 +278,12 @@ function _pullReceiptToken(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| depositToken_  | `IERC20`  |             |
-| depositPeriod_ | `uint8`   |             |
-| facility_      | `address` |             |
-| amount_        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositToken_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| facility_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="_getuserredemptionkey-address-uint16"></a>
 
@@ -298,16 +298,16 @@ function _getUserRedemptionKey(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| user_         | `address` |             |
-| redemptionId_ | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user_ | `address` |  |
+| redemptionId_ | `uint16` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="_getassetfacilitykey-address-address"></a>
 
@@ -425,10 +425,10 @@ function _onlyValidRedemptionId(address user_, uint16 redemptionId_) internal vi
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| user_         | `address` |             |
-| redemptionId_ | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user_ | `address` |  |
+| redemptionId_ | `uint16` |  |
 
 <a id="onlyvalidredemptionid-address-uint16"></a>
 
@@ -440,10 +440,10 @@ modifier onlyValidRedemptionId(address user_, uint16 redemptionId_);
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| user_         | `address` |             |
-| redemptionId_ | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user_ | `address` |  |
+| redemptionId_ | `uint16` |  |
 
 <a id="_validatefacility-address"></a>
 
@@ -455,9 +455,9 @@ function _validateFacility(address facility_) internal view;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| facility_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| facility_ | `address` |  |
 
 <a id="onlyvalidfacility-address"></a>
 
@@ -469,9 +469,9 @@ modifier onlyValidFacility(address facility_);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| facility_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| facility_ | `address` |  |
 
 <a id="startredemption-ierc20-uint8-uint256-address"></a>
 
@@ -640,17 +640,17 @@ function _calculateInterest(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| principal_     | `uint256` |             |
-| interestRate_  | `uint256` |             |
-| depositPeriod_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| principal_ | `uint256` |  |
+| interestRate_ | `uint256` |  |
+| depositPeriod_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_previewborrowagainstredemption-address-uint16"></a>
 
@@ -665,18 +665,18 @@ function _previewBorrowAgainstRedemption(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| user_         | `address` |             |
-| redemptionId_ | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user_ | `address` |  |
+| redemptionId_ | `uint16` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
-| &lt;none&gt; | `uint256` |             |
-| &lt;none&gt; | `uint48`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="previewborrowagainstredemption-address-uint16"></a>
 
@@ -810,20 +810,20 @@ function _previewExtendLoan(
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| asset_           | `address` |             |
-| facility_        | `address` |             |
-| principal_       | `uint256` |             |
-| dueDate_         | `uint48`  |             |
-| extensionMonths_ | `uint8`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
+| facility_ | `address` |  |
+| principal_ | `uint256` |  |
+| dueDate_ | `uint48` |  |
+| extensionMonths_ | `uint8` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint48`  |             |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="previewextendloan-address-uint16-uint8"></a>
 
@@ -1133,12 +1133,12 @@ function supportsInterface(bytes4 interfaceId) public view virtual override retu
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

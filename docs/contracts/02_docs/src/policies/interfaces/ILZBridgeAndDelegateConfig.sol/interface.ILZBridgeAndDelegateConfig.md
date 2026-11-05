@@ -43,9 +43,9 @@ function gateway() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="delegate"></a>
 
@@ -59,9 +59,9 @@ function delegate() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="facilitator"></a>
 
@@ -75,9 +75,9 @@ function facilitator() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="min_timelock_delay"></a>
 
@@ -91,9 +91,9 @@ function MIN_TIMELOCK_DELAY() external view returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="max_timelock_delay"></a>
 
@@ -107,9 +107,9 @@ function MAX_TIMELOCK_DELAY() external view returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="execution_window"></a>
 
@@ -124,9 +124,9 @@ function EXECUTION_WINDOW() external view returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="queuesettargetgateway-address"></a>
 
@@ -384,10 +384,10 @@ enum TargetKind {
 
 **Variants**
 
-| Name        | Description |
-| ----------- | ----------- |
-| NONE        |             |
-| GATEWAY     |             |
-| DELEGATE    |             |
-| FACILITATOR |             |
-| SELF        |             |
+| Name | Description |
+| ---- | ----------- |
+| NONE |  |
+| GATEWAY |  |
+| DELEGATE |  |
+| FACILITATOR |  |
+| SELF |  |

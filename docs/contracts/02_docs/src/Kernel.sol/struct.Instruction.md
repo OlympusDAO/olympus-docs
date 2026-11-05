@@ -13,7 +13,7 @@ struct Instruction {
 
 **Properties**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| action | `Actions` |             |
-| target | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action | `Actions` |  |
+| target | `address` |  |

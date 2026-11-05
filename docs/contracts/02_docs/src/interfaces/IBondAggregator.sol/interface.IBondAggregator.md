@@ -52,9 +52,9 @@ function registerMarket(
 
 **Returns**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| marketId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| marketId | `uint256` |  |
 
 <a id="getauctioneer-uint256"></a>
 
@@ -74,9 +74,9 @@ function getAuctioneer(uint256 id_) external view returns (IBondAuctioneer);
 
 **Returns**
 
-| Name         | Type              | Description |
-| ------------ | ----------------- | ----------- |
-| &lt;none&gt; | `IBondAuctioneer` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IBondAuctioneer` |  |
 
 <a id="marketprice-uint256"></a>
 
@@ -181,9 +181,9 @@ function maxAmountAccepted(uint256 id_, address referrer_) external view returns
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="isinstantswap-uint256"></a>
 
@@ -203,9 +203,9 @@ function isInstantSwap(uint256 id_) external view returns (bool);
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="islive-uint256"></a>
 
@@ -225,9 +225,9 @@ function isLive(uint256 id_) external view returns (bool);
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="livemarketsbetween-uint256-uint256"></a>
 
@@ -250,16 +250,16 @@ function liveMarketsBetween(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| firstIndex_ | `uint256` |             |
-| lastIndex_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| firstIndex_ | `uint256` |  |
+| lastIndex_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `uint256[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256[]` |  |
 
 <a id="livemarketsfor-address-bool"></a>
 
@@ -283,9 +283,9 @@ function liveMarketsFor(
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `uint256[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256[]` |  |
 
 <a id="livemarketsby-address-uint256-uint256"></a>
 
@@ -311,9 +311,9 @@ function liveMarketsBy(
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `uint256[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256[]` |  |
 
 <a id="marketsfor-address-address"></a>
 
@@ -334,9 +334,9 @@ function marketsFor(address payout_, address quote_) external view returns (uint
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `uint256[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256[]` |  |
 
 <a id="findmarketfor-address-address-uint256-uint256-uint256"></a>
 
@@ -366,9 +366,9 @@ function findMarketFor(
 
 **Returns**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | `uint256` |  |
 
 <a id="getteller-uint256"></a>
 
@@ -382,15 +382,15 @@ function getTeller(uint256 id_) external view returns (IBondTeller);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type          | Description |
-| ------------ | ------------- | ----------- |
-| &lt;none&gt; | `IBondTeller` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IBondTeller` |  |
 
 <a id="currentcapacity-uint256"></a>
 
@@ -404,12 +404,12 @@ function currentCapacity(uint256 id_) external view returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

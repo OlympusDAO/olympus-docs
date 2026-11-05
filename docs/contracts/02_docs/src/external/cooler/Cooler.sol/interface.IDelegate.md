@@ -14,6 +14,6 @@ function delegate(address to_) external;
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| to_  | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` |  |

@@ -14,12 +14,12 @@ function terms(address account_) external view returns (IPOLY.Term memory);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| account_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` |  |
 
 **Returns**
 
-| Name         | Type         | Description |
-| ------------ | ------------ | ----------- |
-| &lt;none&gt; | `IPOLY.Term` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IPOLY.Term` |  |

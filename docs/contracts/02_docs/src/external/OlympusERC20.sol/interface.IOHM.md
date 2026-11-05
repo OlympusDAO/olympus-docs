@@ -16,10 +16,10 @@ function mint(address account_, uint256 amount_) external;
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| account_ | `address` |             |
-| amount_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="burn-uint256"></a>
 
@@ -31,9 +31,9 @@ function burn(uint256 amount) external;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount | `uint256` |  |
 
 <a id="burnfrom-address-uint256"></a>
 
@@ -45,7 +45,7 @@ function burnFrom(address account_, uint256 amount_) external;
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| account_ | `address` |             |
-| amount_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` |  |
+| amount_ | `uint256` |  |

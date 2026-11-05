@@ -56,9 +56,9 @@ constructor(string memory name) EIP712(name, "1");
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| name | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | `string` |  |
 
 <a id="permit-address-address-uint256-uint256-uint8-bytes32-bytes32"></a>
 
@@ -84,15 +84,15 @@ function permit(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| owner    | `address` |             |
-| spender  | `address` |             |
-| value    | `uint256` |             |
-| deadline | `uint256` |             |
-| v        | `uint8`   |             |
-| r        | `bytes32` |             |
-| s        | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
+| spender | `address` |  |
+| value | `uint256` |  |
+| deadline | `uint256` |  |
+| v | `uint8` |  |
+| r | `bytes32` |  |
+| s | `bytes32` |  |
 
 <a id="nonces-address"></a>
 
@@ -110,15 +110,15 @@ function nonces(address owner) public view virtual override returns (uint256);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| owner | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="domain_separator"></a>
 
@@ -136,9 +136,9 @@ function DOMAIN_SEPARATOR() external view override returns (bytes32);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="_usenonce-address"></a>
 
@@ -158,12 +158,12 @@ function _useNonce(address owner) internal virtual returns (uint256 current);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| owner | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
 
 **Returns**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| current | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| current | `uint256` |  |

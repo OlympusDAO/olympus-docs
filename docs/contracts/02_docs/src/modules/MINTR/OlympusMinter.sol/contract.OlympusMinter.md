@@ -18,10 +18,10 @@ constructor(Kernel kernel_, address ohm_) Module(kernel_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| kernel_ | `Kernel`  |             |
-| ohm_    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| ohm_ | `address` |  |
 
 <a id="keycode"></a>
 
@@ -35,9 +35,9 @@ function KEYCODE() public pure override returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="version"></a>
 
@@ -68,10 +68,10 @@ function mintOhm(address to_, uint256 amount_) external override permissioned on
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| to_     | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="burnohm-address-uint256"></a>
 
@@ -88,10 +88,10 @@ function burnOhm(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| from_   | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="increasemintapproval-address-uint256"></a>
 
@@ -111,10 +111,10 @@ function increaseMintApproval(address policy_, uint256 amount_) external overrid
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="decreasemintapproval-address-uint256"></a>
 
@@ -128,10 +128,10 @@ function decreaseMintApproval(address policy_, uint256 amount_) external overrid
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="deactivate"></a>
 

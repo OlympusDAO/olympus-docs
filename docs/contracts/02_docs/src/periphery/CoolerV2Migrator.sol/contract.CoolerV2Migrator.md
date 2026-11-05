@@ -129,17 +129,17 @@ constructor(
 
 **Parameters**
 
-| Name             | Type        | Description |
-| ---------------- | ----------- | ----------- |
-| owner_           | `address`   |             |
-| coolerV2_        | `address`   |             |
-| dai_             | `address`   |             |
-| usds_            | `address`   |             |
-| gohm_            | `address`   |             |
-| migrator_        | `address`   |             |
-| flash_           | `address`   |             |
-| chreg_           | `address`   |             |
-| coolerFactories_ | `address[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner_ | `address` |  |
+| coolerV2_ | `address` |  |
+| dai_ | `address` |  |
+| usds_ | `address` |  |
+| gohm_ | `address` |  |
+| migrator_ | `address` |  |
+| flash_ | `address` |  |
+| chreg_ | `address` |  |
+| coolerFactories_ | `address[]` |  |
 
 <a id="previewconsolidate-address"></a>
 
@@ -266,19 +266,19 @@ function _handleRepayments(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| cooler_    | `Cooler`  |             |
-| debtToken_ | `ERC20`   |             |
-| numLoans_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler_ | `Cooler` |  |
+| debtToken_ | `ERC20` |  |
+| numLoans_ | `uint256` |  |
 
 **Returns**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| principal  | `uint256` |             |
-| interest   | `uint256` |             |
-| collateral | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| principal | `uint256` |  |
+| interest | `uint256` |  |
+| collateral | `uint256` |  |
 
 <a id="_getdebtforcooler-cooler-address"></a>
 
@@ -302,20 +302,20 @@ function _getDebtForCooler(
 
 **Parameters**
 
-| Name            | Type        | Description |
-| --------------- | ----------- | ----------- |
-| cooler_         | `Cooler`    |             |
-| clearinghouses_ | `address[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler_ | `Cooler` |  |
+| clearinghouses_ | `address[]` |  |
 
 **Returns**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| coolerPrincipal  | `uint256` |             |
-| coolerInterest   | `uint256` |             |
-| coolerCollateral | `uint256` |             |
-| debtToken        | `address` |             |
-| numLoans         | `uint8`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| coolerPrincipal | `uint256` |  |
+| coolerInterest | `uint256` |  |
+| coolerCollateral | `uint256` |  |
+| debtToken | `address` |  |
+| numLoans | `uint8` |  |
 
 <a id="_isvalidcooler-address"></a>
 
@@ -349,16 +349,16 @@ function _inArray(address[] memory array_, address item_) internal pure returns 
 
 **Parameters**
 
-| Name   | Type        | Description |
-| ------ | ----------- | ----------- |
-| array_ | `address[]` |             |
-| item_  | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| array_ | `address[]` |  |
+| item_ | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_getclearinghouses"></a>
 
@@ -492,11 +492,11 @@ struct CoolerData {
 
 **Properties**
 
-| Name      | Type     | Description |
-| --------- | -------- | ----------- |
-| cooler    | `Cooler` |             |
-| debtToken | `ERC20`  |             |
-| numLoans  | `uint8`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `Cooler` |  |
+| debtToken | `ERC20` |  |
+| numLoans | `uint8` |  |
 
 ### CoolerTotal
 
@@ -517,12 +517,12 @@ struct CoolerTotal {
 
 **Properties**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| daiPrincipal  | `uint256` |             |
-| daiInterest   | `uint256` |             |
-| usdsPrincipal | `uint256` |             |
-| usdsInterest  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| daiPrincipal | `uint256` |  |
+| daiInterest | `uint256` |  |
+| usdsPrincipal | `uint256` |  |
+| usdsInterest | `uint256` |  |
 
 ### FlashLoanData
 
@@ -540,10 +540,10 @@ struct FlashLoanData {
 
 **Properties**
 
-| Name               | Type                           | Description |
-| ------------------ | ------------------------------ | ----------- |
-| coolers            | `CoolerData[]`                 |             |
-| currentOwner       | `address`                      |             |
-| newOwner           | `address`                      |             |
-| usdsRequired       | `uint256`                      |             |
-| delegationRequests | `IDLGTEv1.DelegationRequest[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| coolers | `CoolerData[]` |  |
+| currentOwner | `address` |  |
+| newOwner | `address` |  |
+| usdsRequired | `uint256` |  |
+| delegationRequests | `IDLGTEv1.DelegationRequest[]` |  |

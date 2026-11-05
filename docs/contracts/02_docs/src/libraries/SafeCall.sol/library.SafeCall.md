@@ -64,10 +64,10 @@ function safeCall(
 
 **Returns**
 
-| Name         | Type    | Description                                                                         |
-| ------------ | ------- | ----------------------------------------------------------------------------------- |
-| &lt;none&gt; | `bool`  | success and returndata, as `.call()`. Returndata is capped to<br/>`_maxCopy` bytes. |
-| &lt;none&gt; | `bytes` |                                                                                     |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | success and returndata, as `.call()`. Returndata is capped to<br/>`_maxCopy` bytes. |
+| &lt;none&gt; | `bytes` |  |
 
 <a id="safestaticcall-address-uint256-uint16-bytes"></a>
 
@@ -107,7 +107,7 @@ function safeStaticCall(
 
 **Returns**
 
-| Name         | Type    | Description                                                                         |
-| ------------ | ------- | ----------------------------------------------------------------------------------- |
-| &lt;none&gt; | `bool`  | success and returndata, as `.call()`. Returndata is capped to<br/>`_maxCopy` bytes. |
-| &lt;none&gt; | `bytes` |                                                                                     |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | success and returndata, as `.call()`. Returndata is capped to<br/>`_maxCopy` bytes. |
+| &lt;none&gt; | `bytes` |  |

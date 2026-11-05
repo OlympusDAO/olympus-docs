@@ -23,16 +23,16 @@ event ProposalCreated(
 
 **Parameters**
 
-| Name        | Type        | Description |
-| ----------- | ----------- | ----------- |
-| id          | `uint256`   |             |
-| proposer    | `address`   |             |
-| targets     | `address[]` |             |
-| values      | `uint256[]` |             |
-| signatures  | `string[]`  |             |
-| calldatas   | `bytes[]`   |             |
-| startBlock  | `uint256`   |             |
-| description | `string`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | `uint256` |  |
+| proposer | `address` |  |
+| targets | `address[]` |  |
+| values | `uint256[]` |  |
+| signatures | `string[]` |  |
+| calldatas | `bytes[]` |  |
+| startBlock | `uint256` |  |
+| description | `string` |  |
 
 ### ProposalVotingStarted
 
@@ -44,9 +44,9 @@ event ProposalVotingStarted(uint256 id);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | `uint256` |  |
 
 ### VoteCast
 
@@ -82,9 +82,9 @@ event ProposalVetoed(uint256 id);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | `uint256` |  |
 
 ### ProposalCanceled
 
@@ -96,9 +96,9 @@ event ProposalCanceled(uint256 id);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | `uint256` |  |
 
 ### ProposalQueued
 
@@ -110,10 +110,10 @@ event ProposalQueued(uint256 id, uint256 eta);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id   | `uint256` |             |
-| eta  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | `uint256` |  |
+| eta | `uint256` |  |
 
 ### ProposalExecuted
 
@@ -125,9 +125,9 @@ event ProposalExecuted(uint256 id);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | `uint256` |  |
 
 ### VotingDelaySet
 
@@ -139,10 +139,10 @@ event VotingDelaySet(uint256 oldVotingDelay, uint256 newVotingDelay);
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| oldVotingDelay | `uint256` |             |
-| newVotingDelay | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldVotingDelay | `uint256` |  |
+| newVotingDelay | `uint256` |  |
 
 ### VotingPeriodSet
 
@@ -154,10 +154,10 @@ event VotingPeriodSet(uint256 oldVotingPeriod, uint256 newVotingPeriod);
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| oldVotingPeriod | `uint256` |             |
-| newVotingPeriod | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldVotingPeriod | `uint256` |  |
+| newVotingPeriod | `uint256` |  |
 
 ### NewImplementation
 
@@ -169,10 +169,10 @@ event NewImplementation(address oldImplementation, address newImplementation);
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| oldImplementation | `address` |             |
-| newImplementation | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldImplementation | `address` |  |
+| newImplementation | `address` |  |
 
 ### ProposalThresholdSet
 
@@ -184,10 +184,10 @@ event ProposalThresholdSet(uint256 oldProposalThreshold, uint256 newProposalThre
 
 **Parameters**
 
-| Name                 | Type      | Description |
-| -------------------- | --------- | ----------- |
-| oldProposalThreshold | `uint256` |             |
-| newProposalThreshold | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldProposalThreshold | `uint256` |  |
+| newProposalThreshold | `uint256` |  |
 
 ### NewPendingAdmin
 
@@ -199,10 +199,10 @@ event NewPendingAdmin(address oldPendingAdmin, address newPendingAdmin);
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| oldPendingAdmin | `address` |             |
-| newPendingAdmin | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldPendingAdmin | `address` |  |
+| newPendingAdmin | `address` |  |
 
 ### NewAdmin
 
@@ -214,10 +214,10 @@ event NewAdmin(address oldAdmin, address newAdmin);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| oldAdmin | `address` |             |
-| newAdmin | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldAdmin | `address` |  |
+| newAdmin | `address` |  |
 
 ### WhitelistAccountExpirationSet
 
@@ -229,10 +229,10 @@ event WhitelistAccountExpirationSet(address account, uint256 expiration);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| account    | `address` |             |
-| expiration | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| expiration | `uint256` |  |
 
 ### WhitelistGuardianSet
 
@@ -244,10 +244,10 @@ event WhitelistGuardianSet(address oldGuardian, address newGuardian);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| oldGuardian | `address` |             |
-| newGuardian | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldGuardian | `address` |  |
+| newGuardian | `address` |  |
 
 ### VetoGuardianSet
 
@@ -259,10 +259,10 @@ event VetoGuardianSet(address oldGuardian, address newGuardian);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| oldGuardian | `address` |             |
-| newGuardian | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oldGuardian | `address` |  |
+| newGuardian | `address` |  |
 
 ## Errors
 

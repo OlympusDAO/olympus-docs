@@ -23,15 +23,15 @@ function pendingActionId(bytes32 key_) external view returns (uint64 actionId);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| key_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| key_ | `bytes32` |  |
 
 **Returns**
 
-| Name     | Type     | Description |
-| -------- | -------- | ----------- |
-| actionId | `uint64` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` |  |
 
 <a id="maxconfigkeysperbatch"></a>
 
@@ -45,9 +45,9 @@ function maxConfigKeysPerBatch() external view returns (uint256 maximum);
 
 **Returns**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| maximum | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maximum | `uint256` |  |
 
 <a id="getqueuedconfigstatecount-uint64-uint256"></a>
 
@@ -64,16 +64,16 @@ function getQueuedConfigStateCount(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| actionId_ | `uint64`  |             |
-| index_    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |  |
+| index_ | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| length | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| length | `uint256` |  |
 
 <a id="getqueuedconfigdestination-uint64-uint256"></a>
 
@@ -90,16 +90,16 @@ function getQueuedConfigDestination(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| actionId_ | `uint64`  |             |
-| index_    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |  |
+| index_ | `uint256` |  |
 
 **Returns**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| destination | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| destination | `address` |  |
 
 <a id="getqueuedconfigstate-uint64-uint256-uint256"></a>
 
@@ -117,18 +117,18 @@ function getQueuedConfigState(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| actionId_         | `uint64`  |             |
-| index_            | `uint256` |             |
-| configStateIndex_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |  |
+| index_ | `uint256` |  |
+| configStateIndex_ | `uint256` |  |
 
 **Returns**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| key               | `bytes32` |             |
-| expectedStateHash | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| key | `bytes32` |  |
+| expectedStateHash | `bytes32` |  |
 
 ## Events
 
@@ -149,14 +149,14 @@ event ConfigStateQueued(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| actionId          | `uint64`  |             |
-| index             | `uint256` |             |
-| key               | `bytes32` |             |
-| configStateIndex  | `uint256` |             |
-| destination       | `address` |             |
-| expectedStateHash | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` |  |
+| index | `uint256` |  |
+| key | `bytes32` |  |
+| configStateIndex | `uint256` |  |
+| destination | `address` |  |
+| expectedStateHash | `bytes32` |  |
 
 ## Errors
 
@@ -168,10 +168,10 @@ error IConfigTimelockBatchQueue_ConfigKeysEmpty(uint64 actionId, uint256 index);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| actionId | `uint64`  |             |
-| index    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` |  |
+| index | `uint256` |  |
 
 ### IConfigTimelockBatchQueue_ConfigKeyZero
 
@@ -185,11 +185,11 @@ error IConfigTimelockBatchQueue_ConfigKeyZero(
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| actionId         | `uint64`  |             |
-| index            | `uint256` |             |
-| configStateIndex | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` |  |
+| index | `uint256` |  |
+| configStateIndex | `uint256` |  |
 
 ### IConfigTimelockBatchQueue_ConfigKeyPending
 
@@ -199,10 +199,10 @@ error IConfigTimelockBatchQueue_ConfigKeyPending(bytes32 key, uint64 pendingActi
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| key             | `bytes32` |             |
-| pendingActionId | `uint64`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| key | `bytes32` |  |
+| pendingActionId | `uint64` |  |
 
 ### IConfigTimelockBatchQueue_ConfigKeysTooMany
 
@@ -212,10 +212,10 @@ error IConfigTimelockBatchQueue_ConfigKeysTooMany(uint256 length, uint256 maximu
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| length  | `uint256` |             |
-| maximum | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| length | `uint256` |  |
+| maximum | `uint256` |  |
 
 ### IConfigTimelockBatchQueue_ConfigDestinationZero
 
@@ -225,10 +225,10 @@ error IConfigTimelockBatchQueue_ConfigDestinationZero(uint64 actionId, uint256 i
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| actionId | `uint64`  |             |
-| index    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` |  |
+| index | `uint256` |  |
 
 ### IConfigTimelockBatchQueue_ConfigDestinationChanged
 
@@ -243,12 +243,12 @@ error IConfigTimelockBatchQueue_ConfigDestinationChanged(
 
 **Parameters**
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| actionId            | `uint64`  |             |
-| index               | `uint256` |             |
-| expectedDestination | `address` |             |
-| currentDestination  | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` |  |
+| index | `uint256` |  |
+| expectedDestination | `address` |  |
+| currentDestination | `address` |  |
 
 ### IConfigTimelockBatchQueue_ConfigStateChanged
 
@@ -264,13 +264,13 @@ error IConfigTimelockBatchQueue_ConfigStateChanged(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| actionId          | `uint64`  |             |
-| index             | `uint256` |             |
-| key               | `bytes32` |             |
-| expectedStateHash | `bytes32` |             |
-| currentStateHash  | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` |  |
+| index | `uint256` |  |
+| key | `bytes32` |  |
+| expectedStateHash | `bytes32` |  |
+| currentStateHash | `bytes32` |  |
 
 ### IConfigTimelockBatchQueue_ConfigKeyOwnershipInvalid
 
@@ -285,12 +285,12 @@ error IConfigTimelockBatchQueue_ConfigKeyOwnershipInvalid(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| actionId        | `uint64`  |             |
-| index           | `uint256` |             |
-| key             | `bytes32` |             |
-| pendingActionId | `uint64`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` |  |
+| index | `uint256` |  |
+| key | `bytes32` |  |
+| pendingActionId | `uint64` |  |
 
 ### IConfigTimelockBatchQueue_ConfigStateIndexOutOfBounds
 
@@ -305,9 +305,9 @@ error IConfigTimelockBatchQueue_ConfigStateIndexOutOfBounds(
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| actionId         | `uint64`  |             |
-| index            | `uint256` |             |
-| configStateIndex | `uint256` |             |
-| length           | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` |  |
+| index | `uint256` |  |
+| configStateIndex | `uint256` |  |
+| length | `uint256` |  |

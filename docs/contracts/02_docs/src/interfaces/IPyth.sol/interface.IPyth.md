@@ -42,9 +42,9 @@ function getPriceNoOlderThan(
 
 **Returns**
 
-| Name  | Type    | Description                                                                   |
-| ----- | ------- | ----------------------------------------------------------------------------- |
-| price | `Price` | Price struct containing price, confidence interval, exponent, and publishTime |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | `Price` |           Price struct containing price, confidence interval, exponent, and publishTime |
 
 ## Structs
 

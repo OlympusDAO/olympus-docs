@@ -40,9 +40,9 @@ constructor(Module parent_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| parent_ | `Module` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parent_ | `Module` |  |
 
 <a id="_onlyparent"></a>
 
@@ -74,9 +74,9 @@ function PARENT() public pure virtual returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="subkeycode"></a>
 
@@ -90,9 +90,9 @@ function SUBKEYCODE() public pure virtual returns (SubKeycode);
 
 **Returns**
 
-| Name         | Type         | Description |
-| ------------ | ------------ | ----------- |
-| &lt;none&gt; | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `SubKeycode` |  |
 
 <a id="version"></a>
 
@@ -165,9 +165,9 @@ error Submodule_OnlyParent(address caller_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| caller_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
 
 ### Submodule_ModuleDoesNotExist
 
@@ -177,9 +177,9 @@ error Submodule_ModuleDoesNotExist(Keycode keycode_);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| keycode_ | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode_ | `Keycode` |  |
 
 ### Submodule_InvalidParent
 

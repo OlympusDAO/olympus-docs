@@ -86,11 +86,11 @@ function increaseWithdrawApproval(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| withdrawer_ | `address` |             |
-| token_      | `ERC20`   |             |
-| amount_     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| withdrawer_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="decreasewithdrawapproval-address-erc20-uint256"></a>
 
@@ -108,11 +108,11 @@ function decreaseWithdrawApproval(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| withdrawer_ | `address` |             |
-| token_      | `ERC20`   |             |
-| amount_     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| withdrawer_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="withdrawreserves-address-erc20-uint256"></a>
 
@@ -126,11 +126,11 @@ function withdrawReserves(address to_, ERC20 token_, uint256 amount_) external v
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| to_     | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="increasedebtorapproval-address-erc20-uint256"></a>
 
@@ -154,11 +154,11 @@ function increaseDebtorApproval(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| debtor_ | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtor_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="decreasedebtorapproval-address-erc20-uint256"></a>
 
@@ -176,11 +176,11 @@ function decreaseDebtorApproval(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| debtor_ | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtor_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="incurdebt-erc20-uint256"></a>
 
@@ -194,10 +194,10 @@ function incurDebt(ERC20 token_, uint256 amount_) external virtual;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="repaydebt-address-erc20-uint256"></a>
 
@@ -223,11 +223,11 @@ function repayDebt(address debtor_, ERC20 token_, uint256 amount_) external virt
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| debtor_ | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtor_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="setdebt-address-erc20-uint256"></a>
 
@@ -241,11 +241,11 @@ function setDebt(address debtor_, ERC20 token_, uint256 amount_) external virtua
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| debtor_ | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtor_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="getreservebalance-erc20"></a>
 
@@ -259,15 +259,15 @@ function getReserveBalance(ERC20 token_) external view virtual returns (uint256)
 
 **Parameters**
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| token_ | `ERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token_ | `ERC20` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="deactivate"></a>
 
@@ -303,11 +303,11 @@ event IncreaseWithdrawApproval(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| withdrawer_ | `address` |             |
-| token_      | `ERC20`   |             |
-| newAmount_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| withdrawer_ | `address` |  |
+| token_ | `ERC20` |  |
+| newAmount_ | `uint256` |  |
 
 ### DecreaseWithdrawApproval
 
@@ -321,11 +321,11 @@ event DecreaseWithdrawApproval(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| withdrawer_ | `address` |             |
-| token_      | `ERC20`   |             |
-| newAmount_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| withdrawer_ | `address` |  |
+| token_ | `ERC20` |  |
+| newAmount_ | `uint256` |  |
 
 ### Withdrawal
 
@@ -340,12 +340,12 @@ event Withdrawal(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| policy_     | `address` |             |
-| withdrawer_ | `address` |             |
-| token_      | `ERC20`   |             |
-| amount_     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
+| withdrawer_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 ### IncreaseDebtorApproval
 
@@ -355,11 +355,11 @@ event IncreaseDebtorApproval(address indexed debtor_, ERC20 indexed token_, uint
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| debtor_    | `address` |             |
-| token_     | `ERC20`   |             |
-| newAmount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtor_ | `address` |  |
+| token_ | `ERC20` |  |
+| newAmount_ | `uint256` |  |
 
 ### DecreaseDebtorApproval
 
@@ -369,11 +369,11 @@ event DecreaseDebtorApproval(address indexed debtor_, ERC20 indexed token_, uint
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| debtor_    | `address` |             |
-| token_     | `ERC20`   |             |
-| newAmount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtor_ | `address` |  |
+| token_ | `ERC20` |  |
+| newAmount_ | `uint256` |  |
 
 ### DebtIncurred
 
@@ -383,11 +383,11 @@ event DebtIncurred(ERC20 indexed token_, address indexed policy_, uint256 amount
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| token_  | `ERC20`   |             |
-| policy_ | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token_ | `ERC20` |  |
+| policy_ | `address` |  |
+| amount_ | `uint256` |  |
 
 ### DebtRepaid
 
@@ -397,11 +397,11 @@ event DebtRepaid(ERC20 indexed token_, address indexed policy_, uint256 amount_)
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| token_  | `ERC20`   |             |
-| policy_ | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token_ | `ERC20` |  |
+| policy_ | `address` |  |
+| amount_ | `uint256` |  |
 
 ### DebtSet
 
@@ -411,11 +411,11 @@ event DebtSet(ERC20 indexed token_, address indexed policy_, uint256 amount_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| token_  | `ERC20`   |             |
-| policy_ | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token_ | `ERC20` |  |
+| policy_ | `address` |  |
+| amount_ | `uint256` |  |
 
 ## Errors
 

@@ -12,6 +12,6 @@ function ensureContract(address target_) view;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| target_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target_ | `address` |  |

@@ -59,12 +59,12 @@ constructor(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| kernel_     | `address` |             |
-| ohm_        | `address` |             |
-| rmnProxy_   | `address` |             |
-| ccipRouter_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| ohm_ | `address` |  |
+| rmnProxy_ | `address` |  |
+| ccipRouter_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -137,9 +137,9 @@ function _burn(uint256 amount_) internal override onlyEnabled;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` |  |
 
 <a id="_mint-address-uint256"></a>
 
@@ -159,10 +159,10 @@ function _mint(address receiver_, uint256 amount_) internal override onlyEnabled
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| receiver_ | `address` |             |
-| amount_   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiver_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="getbridgedsupply"></a>
 
@@ -182,9 +182,9 @@ function getBridgedSupply() external pure returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="typeandversion"></a>
 
@@ -196,9 +196,9 @@ function typeAndVersion() external pure override returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="supportsinterface-bytes4"></a>
 
@@ -212,12 +212,12 @@ function supportsInterface(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

@@ -296,16 +296,16 @@ constructor(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| kernel_         | `Kernel`  |             |
-| ohm_            | `address` |             |
-| gohm_           | `address` |             |
-| reserve_        | `address` |             |
-| sReserve_       | `address` |             |
-| bondAuctioneer_ | `address` |             |
-| cdAuctioneer_   | `address` |             |
-| teller_         | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| ohm_ | `address` |  |
+| gohm_ | `address` |  |
+| reserve_ | `address` |  |
+| sReserve_ | `address` |  |
+| bondAuctioneer_ | `address` |  |
+| cdAuctioneer_ | `address` |  |
+| teller_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -353,10 +353,10 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 **Returns**
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| major | `uint8` |             |
-| minor | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| major | `uint8` |  |
+| minor | `uint8` |  |
 
 <a id="execute"></a>
 
@@ -425,11 +425,11 @@ function callback(uint256 id_, uint256 inputAmount_, uint256 outputAmount_) exte
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| id_           | `uint256` |             |
-| inputAmount_  | `uint256` |             |
-| outputAmount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` |  |
+| inputAmount_ | `uint256` |  |
+| outputAmount_ | `uint256` |  |
 
 <a id="_createmarket-uint256"></a>
 
@@ -853,9 +853,9 @@ function getReserves() public view returns (uint256 reserves);
 
 **Returns**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| reserves | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reserves | `uint256` |  |
 
 <a id="getsupply"></a>
 
@@ -869,9 +869,9 @@ function getSupply() public view returns (uint256 supply);
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| supply | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| supply | `uint256` |  |
 
 <a id="getpremium"></a>
 
@@ -885,9 +885,9 @@ function getPremium() public view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getnextemission"></a>
 
@@ -904,11 +904,11 @@ function getNextEmission()
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| premium      | `uint256` |             |
-| emissionRate | `uint256` |             |
-| emission     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| premium | `uint256` |  |
+| emissionRate | `uint256` |  |
+| emission | `uint256` |  |
 
 <a id="getsizefor-uint256"></a>
 
@@ -964,9 +964,9 @@ function getMinPriceFor(uint256 price) public view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="_getcurrentprice"></a>
 
@@ -1020,12 +1020,12 @@ function supportsInterface(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |

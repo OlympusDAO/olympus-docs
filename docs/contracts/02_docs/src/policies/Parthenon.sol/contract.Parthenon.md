@@ -152,9 +152,9 @@ constructor(Kernel kernel_) Policy(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="configuredependencies"></a>
 
@@ -198,16 +198,16 @@ function _max(uint256 a, uint256 b) public pure returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="submitproposal-instruction-string-string"></a>
 
@@ -223,11 +223,11 @@ function submitProposal(
 
 **Parameters**
 
-| Name          | Type            | Description |
-| ------------- | --------------- | ----------- |
-| instructions_ | `Instruction[]` |             |
-| title_        | `string`        |             |
-| proposalURI_  | `string`        |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| instructions_ | `Instruction[]` |  |
+| title_ | `string` |  |
+| proposalURI_ | `string` |  |
 
 <a id="activateproposal-uint256"></a>
 
@@ -239,9 +239,9 @@ function activateProposal(uint256 proposalId_) external;
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| proposalId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId_ | `uint256` |  |
 
 <a id="vote-uint256-bool"></a>
 
@@ -253,10 +253,10 @@ function vote(uint256 proposalId_, bool approve_) external;
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| proposalId_ | `uint256` |             |
-| approve_    | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId_ | `uint256` |  |
+| approve_ | `bool` |  |
 
 <a id="executeproposal-uint256"></a>
 
@@ -268,9 +268,9 @@ function executeProposal(uint256 proposalId_) external;
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| proposalId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId_ | `uint256` |  |
 
 <a id="reclaimcollateral-uint256"></a>
 
@@ -282,9 +282,9 @@ function reclaimCollateral(uint256 proposalId_) external;
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| proposalId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId_ | `uint256` |  |
 
 ## Events
 
@@ -296,11 +296,11 @@ event ProposalSubmitted(uint256 proposalId, string title, string proposalURI);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| proposalId  | `uint256` |             |
-| title       | `string`  |             |
-| proposalURI | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| title | `string` |  |
+| proposalURI | `string` |  |
 
 ### ProposalActivated
 
@@ -310,10 +310,10 @@ event ProposalActivated(uint256 proposalId, uint256 timestamp);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| timestamp  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| timestamp | `uint256` |  |
 
 ### VotesCast
 
@@ -323,12 +323,12 @@ event VotesCast(uint256 proposalId, address voter, bool approve, uint256 userVot
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| voter      | `address` |             |
-| approve    | `bool`    |             |
-| userVotes  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| voter | `address` |  |
+| approve | `bool` |  |
+| userVotes | `uint256` |  |
 
 ### ProposalExecuted
 
@@ -338,9 +338,9 @@ event ProposalExecuted(uint256 proposalId);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
 
 ### CollateralReclaimed
 
@@ -350,10 +350,10 @@ event CollateralReclaimed(uint256 proposalId, uint256 tokensReclaimed_);
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| proposalId       | `uint256` |             |
-| tokensReclaimed_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| tokensReclaimed_ | `uint256` |  |
 
 ## Errors
 
@@ -474,15 +474,15 @@ struct ProposalMetadata {
 
 **Properties**
 
-| Name                 | Type                          | Description |
-| -------------------- | ----------------------------- | ----------- |
-| submitter            | `address`                     |             |
-| submissionTimestamp  | `uint256`                     |             |
-| collateralAmt        | `uint256`                     |             |
-| activationTimestamp  | `uint256`                     |             |
-| totalRegisteredVotes | `uint256`                     |             |
-| yesVotes             | `uint256`                     |             |
-| noVotes              | `uint256`                     |             |
-| isExecuted           | `bool`                        |             |
-| isCollateralReturned | `bool`                        |             |
-| votesCastByUser      | `mapping(address => uint256)` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| submitter | `address` |  |
+| submissionTimestamp | `uint256` |  |
+| collateralAmt | `uint256` |  |
+| activationTimestamp | `uint256` |  |
+| totalRegisteredVotes | `uint256` |  |
+| yesVotes | `uint256` |  |
+| noVotes | `uint256` |  |
+| isExecuted | `bool` |  |
+| isCollateralReturned | `bool` |  |
+| votesCastByUser | `mapping(address => uint256)` |  |

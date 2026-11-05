@@ -14,16 +14,16 @@ function add(uint256 a, uint256 b) internal pure returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="sub-uint256-uint256"></a>
 
@@ -35,16 +35,16 @@ function sub(uint256 a, uint256 b) internal pure returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="sub-uint256-uint256-string"></a>
 
@@ -56,17 +56,17 @@ function sub(uint256 a, uint256 b, string memory errorMessage) internal pure ret
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| a            | `uint256` |             |
-| b            | `uint256` |             |
-| errorMessage | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
+| errorMessage | `string` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="mul-uint256-uint256"></a>
 
@@ -78,16 +78,16 @@ function mul(uint256 a, uint256 b) internal pure returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="div-uint256-uint256"></a>
 
@@ -99,16 +99,16 @@ function div(uint256 a, uint256 b) internal pure returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="div-uint256-uint256-string"></a>
 
@@ -120,17 +120,17 @@ function div(uint256 a, uint256 b, string memory errorMessage) internal pure ret
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| a            | `uint256` |             |
-| b            | `uint256` |             |
-| errorMessage | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
+| errorMessage | `string` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="sqrrt-uint256"></a>
 
@@ -142,12 +142,12 @@ function sqrrt(uint256 a) internal pure returns (uint256 c);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
 
 **Returns**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| c    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| c | `uint256` |  |

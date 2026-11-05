@@ -37,6 +37,6 @@ function continuouslyCompounded(
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| result | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| result | `uint256` |  |

@@ -30,9 +30,9 @@ constructor(Kernel kernel_) Policy(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="configuredependencies"></a>
 
@@ -146,7 +146,7 @@ event Status(bool treasury_, bool minter_);
 
 **Parameters**
 
-| Name      | Type   | Description |
-| --------- | ------ | ----------- |
-| treasury_ | `bool` |             |
-| minter_   | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| treasury_ | `bool` |  |
+| minter_ | `bool` |  |

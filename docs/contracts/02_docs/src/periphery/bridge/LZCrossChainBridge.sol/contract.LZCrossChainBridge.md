@@ -41,9 +41,9 @@ address public immutable override OHM;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ## State Variables
 
@@ -57,9 +57,9 @@ address public override gateway;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ### reEnabler
 
@@ -77,9 +77,9 @@ address public override reEnabler;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ### configurator
 
@@ -97,9 +97,9 @@ address public override configurator;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ## Functions
 
@@ -153,13 +153,13 @@ constructor(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| ohm_       | `address` |             |
-| owner_     | `address` |             |
-| gateway_   | `address` |             |
-| reEnabler_ | `address` |             |
-| grace_     | `uint32`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohm_ | `address` |  |
+| owner_ | `address` |  |
+| gateway_ | `address` |  |
+| reEnabler_ | `address` |  |
+| grace_ | `uint32` |  |
 
 <a id="version"></a>
 
@@ -417,15 +417,15 @@ function supportsInterface(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_authorizeenable-bytes"></a>
 
@@ -594,9 +594,9 @@ function _setGateway(address gateway_) private;
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| gateway_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gateway_ | `address` |  |
 
 <a id="_setreenabler-address"></a>
 
@@ -608,9 +608,9 @@ function _setReEnabler(address reEnabler_) private;
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| reEnabler_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reEnabler_ | `address` |  |
 
 <a id="_requirenonzeroaddress-address-string"></a>
 
@@ -622,7 +622,7 @@ function _requireNonzeroAddress(address address_, string memory parameter_) priv
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| address_   | `address` |             |
-| parameter_ | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| address_ | `address` |  |
+| parameter_ | `string` |  |

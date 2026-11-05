@@ -14,17 +14,17 @@ function terms(address account_) external view returns (uint256, uint256, uint25
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| account_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
-| &lt;none&gt; | `uint256` |             |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="claim-address-uint256"></a>
 
@@ -280,11 +280,11 @@ event Claim(address indexed account, address indexed to, uint256 amount);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| account | `address` |             |
-| to      | `address` |             |
-| amount  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| to | `address` |  |
+| amount | `uint256` |  |
 
 ### Transfer
 
@@ -294,11 +294,11 @@ event Transfer(address indexed from, address indexed to, uint256 amount);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| from   | `address` |             |
-| to     | `address` |             |
-| amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
+| amount | `uint256` |  |
 
 ### WalletChange
 
@@ -308,11 +308,11 @@ event WalletChange(address indexed account, address indexed newAddress, bool isP
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| account    | `address` |             |
-| newAddress | `address` |             |
-| isPull     | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| newAddress | `address` |  |
+| isPull | `bool` |  |
 
 ### TermsSet
 
@@ -322,12 +322,12 @@ event TermsSet(address indexed account, uint256 percent, uint256 gClaimed, uint2
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| account  | `address` |             |
-| percent  | `uint256` |             |
-| gClaimed | `uint256` |             |
-| max      | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| percent | `uint256` |  |
+| gClaimed | `uint256` |  |
+| max | `uint256` |  |
 
 ## Errors
 
@@ -363,9 +363,9 @@ error POLY_ClaimMoreThanVested(uint256 vested_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| vested_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| vested_ | `uint256` |  |
 
 ### POLY_ClaimMoreThanMax
 
@@ -375,9 +375,9 @@ error POLY_ClaimMoreThanMax(uint256 max_);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| max_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| max_ | `uint256` |  |
 
 ## Structs
 
@@ -394,12 +394,12 @@ struct GenesisTerm {
 
 **Properties**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| percent  | `uint256` |             |
-| claimed  | `uint256` |             |
-| gClaimed | `uint256` |             |
-| max      | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| percent | `uint256` |  |
+| claimed | `uint256` |  |
+| gClaimed | `uint256` |  |
+| max | `uint256` |  |
 
 ### Term
 
@@ -413,8 +413,8 @@ struct Term {
 
 **Properties**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| percent  | `uint256` |             |
-| gClaimed | `uint256` |             |
-| max      | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| percent | `uint256` |  |
+| gClaimed | `uint256` |  |
+| max | `uint256` |  |

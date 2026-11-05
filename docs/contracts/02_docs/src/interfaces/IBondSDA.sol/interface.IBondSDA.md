@@ -115,20 +115,20 @@ struct BondMarket {
 
 **Properties**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| owner           | `address` |             |
-| payoutToken     | `ERC20`   |             |
-| quoteToken      | `ERC20`   |             |
-| callbackAddr    | `address` |             |
-| capacityInQuote | `bool`    |             |
-| capacity        | `uint256` |             |
-| totalDebt       | `uint256` |             |
-| minPrice        | `uint256` |             |
-| maxPayout       | `uint256` |             |
-| sold            | `uint256` |             |
-| purchased       | `uint256` |             |
-| scale           | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
+| payoutToken | `ERC20` |  |
+| quoteToken | `ERC20` |  |
+| callbackAddr | `address` |  |
+| capacityInQuote | `bool` |  |
+| capacity | `uint256` |  |
+| totalDebt | `uint256` |  |
+| minPrice | `uint256` |  |
+| maxPayout | `uint256` |  |
+| sold | `uint256` |  |
+| purchased | `uint256` |  |
+| scale | `uint256` |  |
 
 ### BondTerms
 
@@ -145,12 +145,12 @@ struct BondTerms {
 
 **Properties**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| controlVariable | `uint256` |             |
-| maxDebt         | `uint256` |             |
-| vesting         | `uint48`  |             |
-| conclusion      | `uint48`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| controlVariable | `uint256` |  |
+| maxDebt | `uint256` |  |
+| vesting | `uint48` |  |
+| conclusion | `uint48` |  |
 
 ### BondMetadata
 
@@ -179,18 +179,18 @@ struct BondMetadata {
 
 **Properties**
 
-| Name                 | Type      | Description |
-| -------------------- | --------- | ----------- |
-| lastTune             | `uint48`  |             |
-| lastDecay            | `uint48`  |             |
-| length               | `uint32`  |             |
-| depositInterval      | `uint32`  |             |
-| tuneInterval         | `uint32`  |             |
-| tuneAdjustmentDelay  | `uint32`  |             |
-| debtDecayInterval    | `uint32`  |             |
-| tuneIntervalCapacity | `uint256` |             |
-| tuneBelowCapacity    | `uint256` |             |
-| lastTuneDebt         | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| lastTune | `uint48` |  |
+| lastDecay | `uint48` |  |
+| length | `uint32` |  |
+| depositInterval | `uint32` |  |
+| tuneInterval | `uint32` |  |
+| tuneAdjustmentDelay | `uint32` |  |
+| debtDecayInterval | `uint32` |  |
+| tuneIntervalCapacity | `uint256` |  |
+| tuneBelowCapacity | `uint256` |  |
+| lastTuneDebt | `uint256` |  |
 
 ### Adjustment
 
@@ -207,12 +207,12 @@ struct Adjustment {
 
 **Properties**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| change         | `uint256` |             |
-| lastAdjustment | `uint48`  |             |
-| timeToAdjusted | `uint48`  |             |
-| active         | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| change | `uint256` |  |
+| lastAdjustment | `uint48` |  |
+| timeToAdjusted | `uint48` |  |
+| active | `bool` |  |
 
 ### MarketParams
 
@@ -388,17 +388,17 @@ struct MarketParams {
 
 **Properties**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| payoutToken           | `ERC20`   |             |
-| quoteToken            | `ERC20`   |             |
-| callbackAddr          | `address` |             |
-| capacityInQuote       | `bool`    |             |
-| capacity              | `uint256` |             |
-| formattedInitialPrice | `uint256` |             |
-| formattedMinimumPrice | `uint256` |             |
-| debtBuffer            | `uint32`  |             |
-| vesting               | `uint48`  |             |
-| conclusion            | `uint48`  |             |
-| depositInterval       | `uint32`  |             |
-| scaleAdjustment       | `int8`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| payoutToken | `ERC20` |  |
+| quoteToken | `ERC20` |  |
+| callbackAddr | `address` |  |
+| capacityInQuote | `bool` |  |
+| capacity | `uint256` |  |
+| formattedInitialPrice | `uint256` |  |
+| formattedMinimumPrice | `uint256` |  |
+| debtBuffer | `uint32` |  |
+| vesting | `uint48` |  |
+| conclusion | `uint48` |  |
+| depositInterval | `uint32` |  |
+| scaleAdjustment | `int8` |  |

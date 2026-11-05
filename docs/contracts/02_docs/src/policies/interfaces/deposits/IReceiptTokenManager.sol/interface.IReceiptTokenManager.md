@@ -42,9 +42,9 @@ function createToken(
 
 **Returns**
 
-| Name    | Type      | Description          |
-| ------- | --------- | -------------------- |
-| tokenId | `uint256` | The created token ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` |         The created token ID |
 
 <a id="mint-address-uint256-uint256-bool"></a>
 
@@ -122,9 +122,9 @@ function getReceiptTokenId(
 
 **Returns**
 
-| Name    | Type      | Description            |
-| ------- | --------- | ---------------------- |
-| tokenId | `uint256` | The generated token ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` |         The generated token ID |
 
 <a id="gettokenname-uint256"></a>
 
@@ -144,9 +144,9 @@ function getTokenName(uint256 tokenId_) external view returns (string memory nam
 
 **Returns**
 
-| Name | Type     | Description                   |
-| ---- | -------- | ----------------------------- |
-| name | `string` | The name of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | `string` |        The name of the receipt token |
 
 <a id="gettokensymbol-uint256"></a>
 
@@ -166,9 +166,9 @@ function getTokenSymbol(uint256 tokenId_) external view returns (string memory s
 
 **Returns**
 
-| Name   | Type     | Description                     |
-| ------ | -------- | ------------------------------- |
-| symbol | `string` | The symbol of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| symbol | `string` |      The symbol of the receipt token |
 
 <a id="gettokendecimals-uint256"></a>
 
@@ -188,9 +188,9 @@ function getTokenDecimals(uint256 tokenId_) external view returns (uint8 decimal
 
 **Returns**
 
-| Name     | Type    | Description                       |
-| -------- | ------- | --------------------------------- |
-| decimals | `uint8` | The decimals of the receipt token |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| decimals | `uint8` |    The decimals of the receipt token |
 
 <a id="gettokenowner-uint256"></a>
 
@@ -210,9 +210,9 @@ function getTokenOwner(uint256 tokenId_) external view returns (address owner);
 
 **Returns**
 
-| Name  | Type      | Description     |
-| ----- | --------- | --------------- |
-| owner | `address` | The token owner |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |       The token owner |
 
 <a id="gettokenasset-uint256"></a>
 
@@ -232,9 +232,9 @@ function getTokenAsset(uint256 tokenId_) external view returns (IERC20 asset);
 
 **Returns**
 
-| Name  | Type     | Description          |
-| ----- | -------- | -------------------- |
-| asset | `IERC20` | The underlying asset |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset | `IERC20` |       The underlying asset |
 
 <a id="gettokendepositperiod-uint256"></a>
 
@@ -254,9 +254,9 @@ function getTokenDepositPeriod(uint256 tokenId_) external view returns (uint8 de
 
 **Returns**
 
-| Name          | Type    | Description        |
-| ------------- | ------- | ------------------ |
-| depositPeriod | `uint8` | The deposit period |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| depositPeriod | `uint8` |   The deposit period |
 
 <a id="gettokenoperator-uint256"></a>
 
@@ -276,9 +276,9 @@ function getTokenOperator(uint256 tokenId_) external view returns (address opera
 
 **Returns**
 
-| Name     | Type      | Description          |
-| -------- | --------- | -------------------- |
-| operator | `address` | The operator address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator | `address` |    The operator address |
 
 ## Events
 
@@ -296,13 +296,13 @@ event TokenCreated(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| tokenId       | `uint256` |             |
-| owner         | `address` |             |
-| asset         | `address` |             |
-| depositPeriod | `uint8`   |             |
-| operator      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` |  |
+| owner | `address` |  |
+| asset | `address` |  |
+| depositPeriod | `uint8` |  |
+| operator | `address` |  |
 
 ## Errors
 
@@ -314,9 +314,9 @@ error ReceiptTokenManager_TokenExists(uint256 tokenId);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| tokenId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` |  |
 
 ### ReceiptTokenManager_NotOwner
 
@@ -326,10 +326,10 @@ error ReceiptTokenManager_NotOwner(address caller, address owner);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| caller | `address` |             |
-| owner  | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| owner | `address` |  |
 
 ### ReceiptTokenManager_InvalidParams
 
@@ -339,6 +339,6 @@ error ReceiptTokenManager_InvalidParams(string reason);
 
 **Parameters**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| reason | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason | `string` |  |

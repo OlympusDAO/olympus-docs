@@ -44,9 +44,9 @@ address public immutable override LZ_ENDPOINT;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ### GATEWAY
 
@@ -58,9 +58,9 @@ address public immutable override GATEWAY;
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ## Functions
 
@@ -149,10 +149,10 @@ constructor(Kernel kernel_, address gateway_) Policy(kernel_);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| kernel_  | `Kernel`  |             |
-| gateway_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| gateway_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -489,15 +489,15 @@ function supportsInterface(
 
 **Parameters**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| interfaceId_ | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_requirenonzeroaddress-address-string"></a>
 
@@ -509,7 +509,7 @@ function _requireNonzeroAddress(address address_, string memory parameter_) priv
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| address_   | `address` |             |
-| parameter_ | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| address_ | `address` |  |
+| parameter_ | `string` |  |

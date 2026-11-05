@@ -14,11 +14,11 @@ function migrate(uint256 _amount, TYPE _from, TYPE _to) external;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| _amount | `uint256` |             |
-| _from   | `TYPE`    |             |
-| _to     | `TYPE`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _amount | `uint256` |  |
+| _from | `TYPE` |  |
+| _to | `TYPE` |  |
 
 <a id="oldsupply"></a>
 
@@ -30,9 +30,9 @@ function oldSupply() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Enums
 
@@ -48,8 +48,8 @@ enum TYPE {
 
 **Variants**
 
-| Name     | Description |
-| -------- | ----------- |
-| UNSTAKED |             |
-| STAKED   |             |
-| WRAPPED  |             |
+| Name | Description |
+| ---- | ----------- |
+| UNSTAKED |  |
+| STAKED |  |
+| WRAPPED |  |

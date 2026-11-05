@@ -16,15 +16,15 @@ function truncate32(string memory str_) internal pure returns (string memory);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| str_ | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| str_ | `string` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="bytes32tostring-bytes32"></a>
 
@@ -118,10 +118,10 @@ error EndBeforeStartIndex(uint256 startIndex, uint256 endIndex);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| startIndex | `uint256` |             |
-| endIndex   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| startIndex | `uint256` |  |
+| endIndex | `uint256` |  |
 
 ### EndIndexOutOfBounds
 
@@ -131,7 +131,7 @@ error EndIndexOutOfBounds(uint256 endIndex, uint256 length);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| endIndex | `uint256` |             |
-| length   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| endIndex | `uint256` |  |
+| length | `uint256` |  |

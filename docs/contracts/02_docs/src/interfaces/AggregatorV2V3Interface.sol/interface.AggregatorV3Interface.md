@@ -14,9 +14,9 @@ function decimals() external view returns (uint8);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 <a id="description"></a>
 
@@ -28,9 +28,9 @@ function description() external view returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="version"></a>
 
@@ -42,9 +42,9 @@ function version() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getrounddata-uint80"></a>
 
@@ -67,19 +67,19 @@ function getRoundData(
 
 **Parameters**
 
-| Name     | Type     | Description |
-| -------- | -------- | ----------- |
-| _roundId | `uint80` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _roundId | `uint80` |  |
 
 **Returns**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| roundId         | `uint80`  |             |
-| answer          | `int256`  |             |
-| startedAt       | `uint256` |             |
-| updatedAt       | `uint256` |             |
-| answeredInRound | `uint80`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| roundId | `uint80` |  |
+| answer | `int256` |  |
+| startedAt | `uint256` |  |
+| updatedAt | `uint256` |  |
+| answeredInRound | `uint80` |  |
 
 <a id="latestrounddata"></a>
 
@@ -100,10 +100,10 @@ function latestRoundData()
 
 **Returns**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| roundId         | `uint80`  |             |
-| answer          | `int256`  |             |
-| startedAt       | `uint256` |             |
-| updatedAt       | `uint256` |             |
-| answeredInRound | `uint80`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| roundId | `uint80` |  |
+| answer | `int256` |  |
+| startedAt | `uint256` |  |
+| updatedAt | `uint256` |  |
+| answeredInRound | `uint80` |  |

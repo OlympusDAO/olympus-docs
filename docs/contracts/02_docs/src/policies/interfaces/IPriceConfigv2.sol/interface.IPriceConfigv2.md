@@ -188,9 +188,9 @@ function queueUpdateAsset(
 
 **Returns**
 
-| Name      | Type     | Description          |
-| --------- | -------- | -------------------- |
-| actionId_ | `uint64` | The queued action ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |         The queued action ID |
 
 <a id="storeobservation-address"></a>
 
@@ -270,9 +270,9 @@ function queueUpgradeSubmodule(address submodule_) external returns (uint64 acti
 
 **Returns**
 
-| Name      | Type     | Description          |
-| --------- | -------- | -------------------- |
-| actionId_ | `uint64` | The queued action ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |   The queued action ID |
 
 <a id="queueexeconsubmodule-bytes20-bytes"></a>
 
@@ -315,9 +315,9 @@ function queueExecOnSubmodule(
 
 **Returns**
 
-| Name      | Type     | Description          |
-| --------- | -------- | -------------------- |
-| actionId_ | `uint64` | The queued action ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |   The queued action ID |
 
 ## Errors
 

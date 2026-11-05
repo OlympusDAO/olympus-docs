@@ -98,11 +98,11 @@ constructor(
 
 **Parameters**
 
-| Name                   | Type     | Description |
-| ---------------------- | -------- | ----------- |
-| kernel_                | `Kernel` |             |
-| unitOfAccountDecimals_ | `uint8`  |             |
-| unitOfAccountSymbol_   | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| unitOfAccountDecimals_ | `uint8` |  |
+| unitOfAccountSymbol_ | `string` |  |
 
 <a id="configuredependencies"></a>
 
@@ -523,10 +523,10 @@ function _cachePrice(address asset_, address quote_) internal;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| asset_ | `address` |             |
-| quote_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
+| quote_ | `address` |  |
 
 <a id="_getcachedprice-address-address"></a>
 
@@ -541,16 +541,16 @@ function _getCachedPrice(
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| asset_ | `address` |             |
-| quote_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
+| quote_ | `address` |  |
 
 **Returns**
 
-| Name        | Type          | Description |
-| ----------- | ------------- | ----------- |
-| cachedPrice | `CachedPrice` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cachedPrice | `CachedPrice` |  |
 
 <a id="_isstale-address-address-uint48"></a>
 
@@ -566,17 +566,17 @@ function _isStale(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| asset_  | `address` |             |
-| quote_  | `address` |             |
-| maxAge_ | `uint48`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
+| quote_ | `address` |  |
+| maxAge_ | `uint48` |  |
 
 **Returns**
 
-| Name  | Type   | Description |
-| ----- | ------ | ----------- |
-| stale | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| stale | `bool` |  |
 
 <a id="_isunitofaccount-address"></a>
 
@@ -588,15 +588,15 @@ function _isUnitOfAccount(address asset_) internal view returns (bool);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| asset_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_validatepair-address-address"></a>
 
@@ -608,10 +608,10 @@ function _validatePair(address asset_, address quote_) internal view;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| asset_ | `address` |             |
-| quote_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
+| quote_ | `address` |  |
 
 <a id="_validatepairdecimals-address-address"></a>
 
@@ -671,9 +671,9 @@ function _assetDecimals(address asset_) internal view returns (uint8 decimals_);
 
 **Returns**
 
-| Name      | Type    | Description                       |
-| --------- | ------- | --------------------------------- |
-| decimals_ | `uint8` | Amount-decimal scale for `asset_` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| decimals_ | `uint8` |    Amount-decimal scale for `asset_` |
 
 <a id="_assetsymbol-address"></a>
 
@@ -710,9 +710,9 @@ function _assetSymbol(address asset_) internal view returns (string memory symbo
 
 **Returns**
 
-| Name    | Type     | Description         |
-| ------- | -------- | ------------------- |
-| symbol_ | `string` | Symbol for `asset_` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| symbol_ | `string` |    Symbol for `asset_` |
 
 <a id="_isknownnoncontractasset-address"></a>
 
@@ -825,9 +825,9 @@ function _validateSymbol(string memory symbol_) internal pure;
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| symbol_ | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| symbol_ | `string` |  |
 
 <a id="_stringtobytes32-string"></a>
 
@@ -841,15 +841,15 @@ function _stringToBytes32(string memory value_) internal pure returns (bytes32 r
 
 **Parameters**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| value_ | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value_ | `string` |  |
 
 **Returns**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| result_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| result_ | `bytes32` |  |
 
 <a id="_bytes32tostring-bytes32"></a>
 
@@ -863,15 +863,15 @@ function _bytes32ToString(bytes32 value_) internal pure returns (string memory r
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| value_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value_ | `bytes32` |  |
 
 **Returns**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| result_ | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| result_ | `string` |  |
 
 <a id="_invalidateasset-address"></a>
 
@@ -908,16 +908,16 @@ function _getPriceOrUnit(
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| asset_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
 
 **Returns**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| price_     | `uint256` |             |
-| timestamp_ | `uint48`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price_ | `uint256` |  |
+| timestamp_ | `uint48` |  |
 
 <a id="_pairkey-address-address"></a>
 
@@ -932,17 +932,17 @@ function _pairKey(
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| asset_ | `address` |             |
-| quote_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `address` |  |
+| quote_ | `address` |  |
 
 **Returns**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| key_           | `bytes32` |             |
-| assetIsToken0_ | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| key_ | `bytes32` |  |
+| assetIsToken0_ | `bool` |  |
 
 <a id="supportsinterface-bytes4"></a>
 

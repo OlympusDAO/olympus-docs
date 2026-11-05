@@ -21,12 +21,12 @@ function delegates(address oapp) external view returns (address);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| oapp | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oapp | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |

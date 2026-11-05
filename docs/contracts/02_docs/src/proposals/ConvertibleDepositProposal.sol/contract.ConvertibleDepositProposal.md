@@ -142,9 +142,9 @@ function id() public pure override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="name"></a>
 
@@ -156,9 +156,9 @@ function name() public pure override returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="description"></a>
 
@@ -170,9 +170,9 @@ function description() public pure override returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_getheadersection"></a>
 
@@ -190,9 +190,9 @@ function _getHeaderSection() private pure returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_getcontractssection"></a>
 
@@ -210,9 +210,9 @@ function _getContractsSection() private pure returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_getresourcesandprerequisitessection"></a>
 
@@ -230,9 +230,9 @@ function _getResourcesAndPrerequisitesSection() private pure returns (string mem
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_getproposalstepssection"></a>
 
@@ -250,9 +250,9 @@ function _getProposalStepsSection() private pure returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_getproposalstepsphase1and2"></a>
 
@@ -270,9 +270,9 @@ function _getProposalStepsPhase1and2() private pure returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_getproposalstepsphase3part1"></a>
 
@@ -290,9 +290,9 @@ function _getProposalStepsPhase3Part1() private pure returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_getproposalstepsphase3part2"></a>
 
@@ -310,9 +310,9 @@ function _getProposalStepsPhase3Part2() private pure returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_getconclusionsection"></a>
 
@@ -330,9 +330,9 @@ function _getConclusionSection() private pure returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_deploy-addresses-address"></a>
 
@@ -344,10 +344,10 @@ function _deploy(Addresses addresses, address) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| _         | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |
 
 <a id="_afterdeploy-addresses-address"></a>
 
@@ -359,10 +359,10 @@ function _afterDeploy(Addresses addresses, address deployer) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| deployer  | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| deployer | `address` |  |
 
 <a id="_build-addresses"></a>
 
@@ -374,9 +374,9 @@ function _build(Addresses addresses) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
 
 <a id="_run-addresses-address"></a>
 
@@ -388,10 +388,10 @@ function _run(Addresses addresses, address) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| _         | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |
 
 <a id="_validate-addresses-address"></a>
 
@@ -403,7 +403,7 @@ function _validate(Addresses addresses, address) internal view override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| _         | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |

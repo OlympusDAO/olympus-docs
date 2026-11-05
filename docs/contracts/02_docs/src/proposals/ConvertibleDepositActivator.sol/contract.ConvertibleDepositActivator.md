@@ -237,16 +237,16 @@ constructor(
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| owner_           | `address` |             |
-| depositManager_  | `address` |             |
-| cdFacility_      | `address` |             |
-| cdAuctioneer_    | `address` |             |
-| redemptionVault_ | `address` |             |
-| emissionManager_ | `address` |             |
-| heart_           | `address` |             |
-| reserveWrapper_  | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner_ | `address` |  |
+| depositManager_ | `address` |  |
+| cdFacility_ | `address` |  |
+| cdAuctioneer_ | `address` |  |
+| redemptionVault_ | `address` |  |
+| emissionManager_ | `address` |  |
+| heart_ | `address` |  |
+| reserveWrapper_ | `address` |  |
 
 <a id="_activatecontracts"></a>
 
@@ -313,9 +313,9 @@ event Activated(address caller);
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| caller | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
 
 ## Errors
 
@@ -333,6 +333,6 @@ error InvalidParams(string reason);
 
 **Parameters**
 
-| Name   | Type     | Description |
-| ------ | -------- | ----------- |
-| reason | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason | `string` |  |

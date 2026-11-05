@@ -104,9 +104,9 @@ event ClearinghouseActivated(address indexed clearinghouse);
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| clearinghouse | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| clearinghouse | `address` |  |
 
 ### ClearinghouseDeactivated
 
@@ -118,9 +118,9 @@ event ClearinghouseDeactivated(address indexed clearinghouse);
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| clearinghouse | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| clearinghouse | `address` |  |
 
 ## Errors
 
@@ -138,9 +138,9 @@ error CHREG_NotActivated(address clearinghouse_);
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| clearinghouse_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| clearinghouse_ | `address` |  |
 
 ### CHREG_AlreadyActivated
 
@@ -150,6 +150,6 @@ error CHREG_AlreadyActivated(address clearinghouse_);
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| clearinghouse_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| clearinghouse_ | `address` |  |

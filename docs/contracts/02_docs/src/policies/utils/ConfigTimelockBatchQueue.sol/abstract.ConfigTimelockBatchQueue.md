@@ -62,9 +62,9 @@ constructor(uint48 initialTimelockDelay_) TimelockBatchQueue(initialTimelockDela
 
 **Parameters**
 
-| Name                  | Type     | Description |
-| --------------------- | -------- | ----------- |
-| initialTimelockDelay_ | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| initialTimelockDelay_ | `uint48` |  |
 
 <a id="pendingactionid-bytes32"></a>
 
@@ -78,15 +78,15 @@ function pendingActionId(bytes32 key_) external view returns (uint64 actionId);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| key_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| key_ | `bytes32` |  |
 
 **Returns**
 
-| Name     | Type     | Description |
-| -------- | -------- | ----------- |
-| actionId | `uint64` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId | `uint64` |  |
 
 <a id="maxconfigkeysperbatch"></a>
 
@@ -100,9 +100,9 @@ function maxConfigKeysPerBatch() external view returns (uint256 maximum);
 
 **Returns**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| maximum | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maximum | `uint256` |  |
 
 <a id="getqueuedconfigstatecount-uint64-uint256"></a>
 
@@ -119,16 +119,16 @@ function getQueuedConfigStateCount(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| actionId_ | `uint64`  |             |
-| index_    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |  |
+| index_ | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| length | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| length | `uint256` |  |
 
 <a id="getqueuedconfigdestination-uint64-uint256"></a>
 
@@ -145,16 +145,16 @@ function getQueuedConfigDestination(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| actionId_ | `uint64`  |             |
-| index_    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |  |
+| index_ | `uint256` |  |
 
 **Returns**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| destination | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| destination | `address` |  |
 
 <a id="getqueuedconfigstate-uint64-uint256-uint256"></a>
 
@@ -172,18 +172,18 @@ function getQueuedConfigState(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| actionId_         | `uint64`  |             |
-| index_            | `uint256` |             |
-| configStateIndex_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |  |
+| index_ | `uint256` |  |
+| configStateIndex_ | `uint256` |  |
 
 **Returns**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| key               | `bytes32` |             |
-| expectedStateHash | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| key | `bytes32` |  |
+| expectedStateHash | `bytes32` |  |
 
 <a id="_onsubactionqueued-address-uint64-uint256-itimelockbatchqueue-batchaction"></a>
 
@@ -233,11 +233,11 @@ function _onBatchQueued(
 
 **Parameters**
 
-| Name      | Type                                | Description |
-| --------- | ----------------------------------- | ----------- |
-| caller_   | `address`                           |             |
-| actionId_ | `uint64`                            |             |
-| actions_  | `ITimelockBatchQueue.BatchAction[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
+| actionId_ | `uint64` |  |
+| actions_ | `ITimelockBatchQueue.BatchAction[]` |  |
 
 <a id="_executesubaction-uint64-uint256-itimelockbatchqueue-batchaction"></a>
 
@@ -334,10 +334,10 @@ function _releaseConfigKeys(uint64 actionId_, uint256 subActionCount_) private;
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| actionId_       | `uint64`  |             |
-| subActionCount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |  |
+| subActionCount_ | `uint256` |  |
 
 <a id="_queuedconfigkeycount-uint64-uint256"></a>
 
@@ -352,16 +352,16 @@ function _queuedConfigKeyCount(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| actionId_ | `uint64`  |             |
-| endIndex_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |  |
+| endIndex_ | `uint256` |  |
 
 **Returns**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| count | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| count | `uint256` |  |
 
 <a id="_validateconfigqueue-address"></a>
 
@@ -439,15 +439,15 @@ function _configDestination(
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 **Returns**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| destination | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| destination | `address` |  |
 
 <a id="_configkeys-itimelockbatchqueue-batchaction"></a>
 
@@ -470,15 +470,15 @@ function _configKeys(
 
 **Parameters**
 
-| Name    | Type                              | Description |
-| ------- | --------------------------------- | ----------- |
-| action_ | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 **Returns**
 
-| Name | Type        | Description |
-| ---- | ----------- | ----------- |
-| keys | `bytes32[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keys | `bytes32[]` |  |
 
 <a id="_currentconfigstatehash-uint64-uint256-bytes32-itimelockbatchqueue-batchaction"></a>
 
@@ -568,11 +568,11 @@ function _executeConfigSubAction(
 
 **Parameters**
 
-| Name      | Type                              | Description |
-| --------- | --------------------------------- | ----------- |
-| actionId_ | `uint64`                          |             |
-| index_    | `uint256`                         |             |
-| action_   | `ITimelockBatchQueue.BatchAction` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| actionId_ | `uint64` |  |
+| index_ | `uint256` |  |
+| action_ | `ITimelockBatchQueue.BatchAction` |  |
 
 <a id="_maxconfigkeysperbatch"></a>
 
@@ -593,9 +593,9 @@ function _maxConfigKeysPerBatch() internal view virtual returns (uint256 maximum
 
 **Returns**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| maximum | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maximum | `uint256` |  |
 
 <a id="supportsinterface-bytes4"></a>
 
@@ -640,7 +640,7 @@ struct QueuedConfigState {
 
 **Properties**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| localKey          | `bytes32` |             |
-| expectedStateHash | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| localKey | `bytes32` |  |
+| expectedStateHash | `bytes32` |  |

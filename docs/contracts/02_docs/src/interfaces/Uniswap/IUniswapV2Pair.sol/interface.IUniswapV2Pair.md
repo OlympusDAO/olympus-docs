@@ -16,9 +16,9 @@ function token0() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="token1"></a>
 
@@ -30,9 +30,9 @@ function token1() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="swap-uint256-uint256-address-bytes"></a>
 
@@ -44,12 +44,12 @@ function swap(uint256 amount0Out, uint256 amount1Out, address to, bytes calldata
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| amount0Out | `uint256` |             |
-| amount1Out | `uint256` |             |
-| to         | `address` |             |
-| data       | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount0Out | `uint256` |  |
+| amount1Out | `uint256` |  |
+| to | `address` |  |
+| data | `bytes` |  |
 
 <a id="getreserves"></a>
 
@@ -64,11 +64,11 @@ function getReserves()
 
 **Returns**
 
-| Name               | Type      | Description |
-| ------------------ | --------- | ----------- |
-| reserve0           | `uint112` |             |
-| reserve1           | `uint112` |             |
-| blockTimestampLast | `uint32`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reserve0 | `uint112` |  |
+| reserve1 | `uint112` |  |
+| blockTimestampLast | `uint32` |  |
 
 <a id="mint-address"></a>
 
@@ -80,15 +80,15 @@ function mint(address to) external returns (uint256 liquidity);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| to   | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to | `address` |  |
 
 **Returns**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| liquidity | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| liquidity | `uint256` |  |
 
 <a id="sync"></a>
 

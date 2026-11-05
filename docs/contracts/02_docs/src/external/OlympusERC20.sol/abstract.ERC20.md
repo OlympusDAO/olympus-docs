@@ -62,11 +62,11 @@ constructor(string memory name_, string memory symbol_, uint8 decimals_);
 
 **Parameters**
 
-| Name      | Type     | Description |
-| --------- | -------- | ----------- |
-| name_     | `string` |             |
-| symbol_   | `string` |             |
-| decimals_ | `uint8`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `string` |  |
+| symbol_ | `string` |  |
+| decimals_ | `uint8` |  |
 
 <a id="name"></a>
 
@@ -78,9 +78,9 @@ function name() public view returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="symbol"></a>
 
@@ -92,9 +92,9 @@ function symbol() public view returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="decimals"></a>
 
@@ -106,9 +106,9 @@ function decimals() public view virtual returns (uint8);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 <a id="totalsupply"></a>
 
@@ -126,9 +126,9 @@ function totalSupply() public view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="balanceof-address"></a>
 
@@ -146,15 +146,15 @@ function balanceOf(address account) public view virtual override returns (uint25
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| account | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="transfer-address-uint256"></a>
 
@@ -176,16 +176,16 @@ function transfer(address recipient, uint256 amount) public virtual override ret
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| recipient | `address` |             |
-| amount    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| recipient | `address` |  |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="allowance-address-address"></a>
 
@@ -210,16 +210,16 @@ function allowance(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| owner   | `address` |             |
-| spender | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
+| spender | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="approve-address-uint256"></a>
 
@@ -248,16 +248,16 @@ function approve(address spender, uint256 amount) public virtual override return
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| spender | `address` |             |
-| amount  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| spender | `address` |  |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="transferfrom-address-address-uint256"></a>
 
@@ -285,17 +285,17 @@ function transferFrom(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| sender    | `address` |             |
-| recipient | `address` |             |
-| amount    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | `address` |  |
+| recipient | `address` |  |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="increaseallowance-address-uint256"></a>
 
@@ -307,16 +307,16 @@ function increaseAllowance(address spender, uint256 addedValue) public virtual r
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| spender    | `address` |             |
-| addedValue | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| spender | `address` |  |
+| addedValue | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="decreaseallowance-address-uint256"></a>
 
@@ -331,16 +331,16 @@ function decreaseAllowance(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| spender         | `address` |             |
-| subtractedValue | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| spender | `address` |  |
+| subtractedValue | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_transfer-address-address-uint256"></a>
 
@@ -352,11 +352,11 @@ function _transfer(address sender, address recipient, uint256 amount) internal v
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| sender    | `address` |             |
-| recipient | `address` |             |
-| amount    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | `address` |  |
+| recipient | `address` |  |
+| amount | `uint256` |  |
 
 <a id="_mint-address-uint256"></a>
 
@@ -368,10 +368,10 @@ function _mint(address account, uint256 amount) internal virtual;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| account | `address` |             |
-| amount  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| amount | `uint256` |  |
 
 <a id="_burn-address-uint256"></a>
 
@@ -383,10 +383,10 @@ function _burn(address account, uint256 amount) internal virtual;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| account | `address` |             |
-| amount  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| amount | `uint256` |  |
 
 <a id="_approve-address-address-uint256"></a>
 
@@ -398,11 +398,11 @@ function _approve(address owner, address spender, uint256 amount) internal virtu
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| owner   | `address` |             |
-| spender | `address` |             |
-| amount  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
+| spender | `address` |  |
+| amount | `uint256` |  |
 
 <a id="_beforetokentransfer-address-address-uint256"></a>
 
@@ -414,8 +414,8 @@ function _beforeTokenTransfer(address from_, address to_, uint256 amount_) inter
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| from_   | `address` |             |
-| to_     | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from_ | `address` |  |
+| to_ | `address` |  |
+| amount_ | `uint256` |  |

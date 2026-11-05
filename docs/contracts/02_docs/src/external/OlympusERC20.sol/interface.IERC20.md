@@ -20,9 +20,9 @@ function totalSupply() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="balanceof-address"></a>
 
@@ -40,15 +40,15 @@ function balanceOf(address account) external view returns (uint256);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| account | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="transfer-address-uint256"></a>
 
@@ -70,16 +70,16 @@ function transfer(address recipient, uint256 amount) external returns (bool);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| recipient | `address` |             |
-| amount    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| recipient | `address` |  |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="allowance-address-address"></a>
 
@@ -101,16 +101,16 @@ function allowance(address owner, address spender) external view returns (uint25
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| owner   | `address` |             |
-| spender | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
+| spender | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="approve-address-uint256"></a>
 
@@ -139,16 +139,16 @@ function approve(address spender, uint256 amount) external returns (bool);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| spender | `address` |             |
-| amount  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| spender | `address` |  |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="transferfrom-address-address-uint256"></a>
 
@@ -176,17 +176,17 @@ function transferFrom(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| sender    | `address` |             |
-| recipient | `address` |             |
-| amount    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | `address` |  |
+| recipient | `address` |  |
+| amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 ## Events
 
@@ -207,11 +207,11 @@ event Transfer(address indexed from, address indexed to, uint256 value);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| from  | `address` |             |
-| to    | `address` |             |
-| value | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
+| value | `uint256` |  |
 
 ### Approval
 
@@ -228,8 +228,8 @@ event Approval(address indexed owner, address indexed spender, uint256 value);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| owner   | `address` |             |
-| spender | `address` |             |
-| value   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | `address` |  |
+| spender | `address` |  |
+| value | `uint256` |  |

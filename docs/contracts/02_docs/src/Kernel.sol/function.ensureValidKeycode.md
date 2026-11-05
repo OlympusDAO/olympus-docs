@@ -12,6 +12,6 @@ function ensureValidKeycode(Keycode keycode_) pure;
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| keycode_ | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode_ | `Keycode` |  |

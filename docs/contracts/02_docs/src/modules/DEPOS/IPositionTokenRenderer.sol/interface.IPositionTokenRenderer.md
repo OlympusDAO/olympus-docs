@@ -36,9 +36,9 @@ function tokenURI(
 
 **Returns**
 
-| Name | Type     | Description               |
-| ---- | -------- | ------------------------- |
-| uri  | `string` | The token URI as a string |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| uri | `string` |              The token URI as a string |
 
 ## Errors
 

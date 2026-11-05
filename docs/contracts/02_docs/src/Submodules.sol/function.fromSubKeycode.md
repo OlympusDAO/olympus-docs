@@ -12,12 +12,12 @@ function fromSubKeycode(SubKeycode key_) pure returns (bytes20);
 
 **Parameters**
 
-| Name | Type         | Description |
-| ---- | ------------ | ----------- |
-| key_ | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| key_ | `SubKeycode` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes20` |  |

@@ -50,9 +50,9 @@ uint8 public constant override DECIMALS = 18;
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 ### BASIS_POINTS_DIVISOR
 
@@ -72,13 +72,13 @@ OriginationLtvData public override originationLtvData;
 
 **Returns**
 
-| Name          | Type     | Description |
-| ------------- | -------- | ----------- |
-| startingValue | `uint96` |             |
-| startTime     | `uint40` |             |
-| targetValue   | `uint96` |             |
-| targetTime    | `uint40` |             |
-| slope         | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| startingValue | `uint96` |  |
+| startTime | `uint40` |  |
+| targetValue | `uint96` |  |
+| targetTime | `uint40` |  |
+| slope | `uint96` |  |
 
 ### maxOriginationLtvDelta
 
@@ -98,9 +98,9 @@ uint96 public override maxOriginationLtvDelta;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
 
 ### minOriginationLtvTargetTimeDelta
 
@@ -120,9 +120,9 @@ uint32 public override minOriginationLtvTargetTimeDelta;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint32` |  |
 
 ### maxOriginationLtvRateOfChange
 
@@ -141,9 +141,9 @@ uint96 public override maxOriginationLtvRateOfChange;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
 
 ### maxLiquidationLtvPremiumBps
 
@@ -156,9 +156,9 @@ uint16 public override maxLiquidationLtvPremiumBps;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint16` |  |
 
 ### liquidationLtvPremiumBps
 
@@ -170,9 +170,9 @@ uint16 public override liquidationLtvPremiumBps;
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint16` |  |
 
 ## Functions
 
@@ -196,17 +196,17 @@ constructor(
 
 **Parameters**
 
-| Name                              | Type      | Description |
-| --------------------------------- | --------- | ----------- |
-| kernel_                           | `address` |             |
-| collateralToken_                  | `address` |             |
-| debtToken_                        | `address` |             |
-| initialOriginationLtv_            | `uint96`  |             |
-| maxOriginationLtvDelta_           | `uint96`  |             |
-| minOriginationLtvTargetTimeDelta_ | `uint32`  |             |
-| maxOriginationLtvRateOfChange_    | `uint96`  |             |
-| maxLiquidationLtvPremiumBps_      | `uint16`  |             |
-| liquidationLtvPremiumBps_         | `uint16`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| collateralToken_ | `address` |  |
+| debtToken_ | `address` |  |
+| initialOriginationLtv_ | `uint96` |  |
+| maxOriginationLtvDelta_ | `uint96` |  |
+| minOriginationLtvTargetTimeDelta_ | `uint32` |  |
+| maxOriginationLtvRateOfChange_ | `uint96` |  |
+| maxLiquidationLtvPremiumBps_ | `uint16` |  |
+| liquidationLtvPremiumBps_ | `uint16` |  |
 
 <a id="configuredependencies"></a>
 
@@ -243,9 +243,9 @@ function setMaxOriginationLtvDelta(uint96 maxDelta) external override onlyAdminR
 
 **Parameters**
 
-| Name     | Type     | Description |
-| -------- | -------- | ----------- |
-| maxDelta | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxDelta | `uint96` |  |
 
 <a id="setminoriginationltvtargettimedelta-uint32"></a>
 
@@ -268,9 +268,9 @@ function setMinOriginationLtvTargetTimeDelta(
 
 **Parameters**
 
-| Name               | Type     | Description |
-| ------------------ | -------- | ----------- |
-| minTargetTimeDelta | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| minTargetTimeDelta | `uint32` |  |
 
 <a id="setmaxoriginationltvrateofchange-uint96-uint32"></a>
 
@@ -294,10 +294,10 @@ function setMaxOriginationLtvRateOfChange(
 
 **Parameters**
 
-| Name                | Type     | Description |
-| ------------------- | -------- | ----------- |
-| originationLtvDelta | `uint96` |             |
-| timeDelta           | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| originationLtvDelta | `uint96` |  |
+| timeDelta | `uint32` |  |
 
 <a id="setoriginationltvat-uint96-uint40"></a>
 
@@ -321,10 +321,10 @@ function setOriginationLtvAt(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| targetValue | `uint96` |             |
-| targetTime  | `uint40` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| targetValue | `uint96` |  |
+| targetTime | `uint40` |  |
 
 <a id="setmaxliquidationltvpremiumbps-uint16"></a>
 
@@ -338,9 +338,9 @@ function setMaxLiquidationLtvPremiumBps(uint16 maxPremiumBps) external override 
 
 **Parameters**
 
-| Name          | Type     | Description |
-| ------------- | -------- | ----------- |
-| maxPremiumBps | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxPremiumBps | `uint16` |  |
 
 <a id="setliquidationltvpremiumbps-uint16"></a>
 
@@ -355,9 +355,9 @@ function setLiquidationLtvPremiumBps(uint16 premiumBps) external override onlyAd
 
 **Parameters**
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| premiumBps | `uint16` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| premiumBps | `uint16` |  |
 
 <a id="collateraltoken"></a>
 
@@ -371,9 +371,9 @@ function collateralToken() external view override returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="debttoken"></a>
 
@@ -387,9 +387,9 @@ function debtToken() external view override returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="currentltvs"></a>
 
@@ -407,10 +407,10 @@ function currentLtvs()
 
 **Returns**
 
-| Name           | Type     | Description |
-| -------------- | -------- | ----------- |
-| originationLtv | `uint96` |             |
-| liquidationLtv | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| originationLtv | `uint96` |  |
+| liquidationLtv | `uint96` |  |
 
 <a id="currentliquidationltv"></a>
 
@@ -424,9 +424,9 @@ function currentLiquidationLtv() external view override returns (uint96);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
 
 <a id="currentoriginationltv"></a>
 
@@ -440,9 +440,9 @@ function currentOriginationLtv() public view override returns (uint96);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
 
 <a id="_currentliquidationltv-uint96"></a>
 
@@ -454,15 +454,15 @@ function _currentLiquidationLtv(uint96 oltv) private view returns (uint96);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| oltv | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oltv | `uint96` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint96` |  |
 
 ## Structs
 
@@ -485,10 +485,10 @@ struct OriginationLtvData {
 
 **Properties**
 
-| Name          | Type     | Description |
-| ------------- | -------- | ----------- |
-| startingValue | `uint96` |             |
-| startTime     | `uint40` |             |
-| targetValue   | `uint96` |             |
-| targetTime    | `uint40` |             |
-| slope         | `uint96` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| startingValue | `uint96` |  |
+| startTime | `uint40` |  |
+| targetValue | `uint96` |  |
+| targetTime | `uint40` |  |
+| slope | `uint96` |  |

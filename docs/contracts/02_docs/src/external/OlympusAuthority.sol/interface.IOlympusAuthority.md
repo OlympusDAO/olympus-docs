@@ -22,9 +22,9 @@ function governor() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="guardian"></a>
 
@@ -36,9 +36,9 @@ function guardian() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="policy"></a>
 
@@ -50,9 +50,9 @@ function policy() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="vault"></a>
 
@@ -64,9 +64,9 @@ function vault() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 ## Events
 
@@ -78,11 +78,11 @@ event GovernorPushed(address indexed from, address indexed to, bool _effectiveIm
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| from                  | `address` |             |
-| to                    | `address` |             |
-| _effectiveImmediately | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
+| _effectiveImmediately | `bool` |  |
 
 ### GuardianPushed
 
@@ -92,11 +92,11 @@ event GuardianPushed(address indexed from, address indexed to, bool _effectiveIm
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| from                  | `address` |             |
-| to                    | `address` |             |
-| _effectiveImmediately | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
+| _effectiveImmediately | `bool` |  |
 
 ### PolicyPushed
 
@@ -106,11 +106,11 @@ event PolicyPushed(address indexed from, address indexed to, bool _effectiveImme
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| from                  | `address` |             |
-| to                    | `address` |             |
-| _effectiveImmediately | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
+| _effectiveImmediately | `bool` |  |
 
 ### VaultPushed
 
@@ -120,11 +120,11 @@ event VaultPushed(address indexed from, address indexed to, bool _effectiveImmed
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| from                  | `address` |             |
-| to                    | `address` |             |
-| _effectiveImmediately | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
+| _effectiveImmediately | `bool` |  |
 
 ### GovernorPulled
 
@@ -134,10 +134,10 @@ event GovernorPulled(address indexed from, address indexed to);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| from | `address` |             |
-| to   | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
 
 ### GuardianPulled
 
@@ -147,10 +147,10 @@ event GuardianPulled(address indexed from, address indexed to);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| from | `address` |             |
-| to   | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
 
 ### PolicyPulled
 
@@ -160,10 +160,10 @@ event PolicyPulled(address indexed from, address indexed to);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| from | `address` |             |
-| to   | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |
 
 ### VaultPulled
 
@@ -173,7 +173,7 @@ event VaultPulled(address indexed from, address indexed to);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| from | `address` |             |
-| to   | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| to | `address` |  |

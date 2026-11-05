@@ -19,9 +19,9 @@ function _revert(uint256 errorCode) pure;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| errorCode | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| errorCode | `uint256` |  |
 
 <a id="_revert-uint256-bytes3"></a>
 
@@ -39,7 +39,7 @@ function _revert(uint256 errorCode, bytes3 prefix) pure;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| errorCode | `uint256` |             |
-| prefix    | `bytes3`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| errorCode | `uint256` |  |
+| prefix | `bytes3` |  |

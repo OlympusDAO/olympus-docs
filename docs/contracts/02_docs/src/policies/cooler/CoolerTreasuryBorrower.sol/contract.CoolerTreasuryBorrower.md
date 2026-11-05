@@ -34,9 +34,9 @@ uint8 public constant override DECIMALS = 18;
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 ### SUSDS
 
@@ -86,10 +86,10 @@ constructor(address kernel_, address susds_) Policy(Kernel(kernel_));
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| kernel_ | `address` |             |
-| susds_  | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| susds_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -144,10 +144,10 @@ function borrow(
 
 **Parameters**
 
-| Name        | Type      | Description                                                                                 |
-| ----------- | --------- | ------------------------------------------------------------------------------------------- |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
 | amountInWad | `uint256` | The amount to borrow. Always 18 decimal places<br/>regardless of the `debtToken.decimals()` |
-| recipient   | `address` |                                                                                             |
+| recipient | `address` |  |
 
 <a id="repay"></a>
 
@@ -185,9 +185,9 @@ function writeOffDebt(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| debtTokenAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtTokenAmount | `uint256` |  |
 
 <a id="setdebt-uint256"></a>
 
@@ -219,9 +219,9 @@ function debtToken() external view override returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="converttodebttokenamount-uint256"></a>
 
@@ -237,16 +237,16 @@ function convertToDebtTokenAmount(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| amountInWad | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amountInWad | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| dToken       | `IERC20`  |             |
-| dTokenAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dToken | `IERC20` |  |
+| dTokenAmount | `uint256` |  |
 
 <a id="_reducedebttotreasury-uint256"></a>
 
@@ -264,6 +264,6 @@ function _reduceDebtToTreasury(uint256 debtTokenAmount) private;
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| debtTokenAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtTokenAmount | `uint256` |  |

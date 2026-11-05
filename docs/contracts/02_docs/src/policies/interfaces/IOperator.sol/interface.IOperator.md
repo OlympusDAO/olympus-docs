@@ -356,9 +356,9 @@ function fullCapacity(bool high_) external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="status"></a>
 
@@ -372,9 +372,9 @@ function status() external view returns (Status memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `Status` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Status` |  |
 
 <a id="config"></a>
 
@@ -388,9 +388,9 @@ function config() external view returns (Config memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `Config` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Config` |  |
 
 ## Events
 
@@ -407,12 +407,12 @@ event Swap(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| tokenIn_   | `ERC20`   |             |
-| tokenOut_  | `ERC20`   |             |
-| amountIn_  | `uint256` |             |
-| amountOut_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenIn_ | `ERC20` |  |
+| tokenOut_ | `ERC20` |  |
+| amountIn_ | `uint256` |  |
+| amountOut_ | `uint256` |  |
 
 ### CushionFactorChanged
 
@@ -422,9 +422,9 @@ event CushionFactorChanged(uint32 cushionFactor_);
 
 **Parameters**
 
-| Name           | Type     | Description |
-| -------------- | -------- | ----------- |
-| cushionFactor_ | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cushionFactor_ | `uint32` |  |
 
 ### CushionParamsChanged
 
@@ -434,11 +434,11 @@ event CushionParamsChanged(uint32 duration_, uint32 debtBuffer_, uint32 depositI
 
 **Parameters**
 
-| Name             | Type     | Description |
-| ---------------- | -------- | ----------- |
-| duration_        | `uint32` |             |
-| debtBuffer_      | `uint32` |             |
-| depositInterval_ | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| duration_ | `uint32` |  |
+| debtBuffer_ | `uint32` |  |
+| depositInterval_ | `uint32` |  |
 
 ### ReserveFactorChanged
 
@@ -448,9 +448,9 @@ event ReserveFactorChanged(uint32 reserveFactor_);
 
 **Parameters**
 
-| Name           | Type     | Description |
-| -------------- | -------- | ----------- |
-| reserveFactor_ | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reserveFactor_ | `uint32` |  |
 
 ### RegenParamsChanged
 
@@ -460,11 +460,11 @@ event RegenParamsChanged(uint32 wait_, uint32 threshold_, uint32 observe_);
 
 **Parameters**
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| wait_      | `uint32` |             |
-| threshold_ | `uint32` |             |
-| observe_   | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| wait_ | `uint32` |  |
+| threshold_ | `uint32` |  |
+| observe_ | `uint32` |  |
 
 ## Errors
 
@@ -488,10 +488,10 @@ error Operator_AmountLessThanMinimum(uint256 amountOut, uint256 minAmountOut);
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| amountOut    | `uint256` |             |
-| minAmountOut | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amountOut | `uint256` |  |
+| minAmountOut | `uint256` |  |
 
 ### Operator_WallDown
 
@@ -538,16 +538,16 @@ struct Config {
 
 **Properties**
 
-| Name                   | Type     | Description |
-| ---------------------- | -------- | ----------- |
-| cushionFactor          | `uint32` |             |
-| cushionDuration        | `uint32` |             |
-| cushionDebtBuffer      | `uint32` |             |
-| cushionDepositInterval | `uint32` |             |
-| reserveFactor          | `uint32` |             |
-| regenWait              | `uint32` |             |
-| regenThreshold         | `uint32` |             |
-| regenObserve           | `uint32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cushionFactor | `uint32` |  |
+| cushionDuration | `uint32` |  |
+| cushionDebtBuffer | `uint32` |  |
+| cushionDepositInterval | `uint32` |  |
+| reserveFactor | `uint32` |  |
+| regenWait | `uint32` |  |
+| regenThreshold | `uint32` |  |
+| regenObserve | `uint32` |  |
 
 ### Status
 
@@ -562,10 +562,10 @@ struct Status {
 
 **Properties**
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| low  | `Regen` |             |
-| high | `Regen` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| low | `Regen` |  |
+| high | `Regen` |  |
 
 ### Regen
 
@@ -582,9 +582,9 @@ struct Regen {
 
 **Properties**
 
-| Name            | Type     | Description |
-| --------------- | -------- | ----------- |
-| count           | `uint32` |             |
-| lastRegen       | `uint48` |             |
-| nextObservation | `uint32` |             |
-| observations    | `bool[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| count | `uint32` |  |
+| lastRegen | `uint48` |  |
+| nextObservation | `uint32` |  |
+| observations | `bool[]` |  |

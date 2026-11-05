@@ -54,9 +54,9 @@ constructor(address gohm_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| gohm_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gohm_ | `address` |  |
 
 <a id="create-address"></a>
 
@@ -70,15 +70,15 @@ function create(address delegate) external returns (DelegateEscrow escrow);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| delegate | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| delegate | `address` |  |
 
 **Returns**
 
-| Name   | Type             | Description |
-| ------ | ---------------- | ----------- |
-| escrow | `DelegateEscrow` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| escrow | `DelegateEscrow` |  |
 
 <a id="logdelegate-address-address-int256"></a>
 
@@ -96,11 +96,11 @@ function logDelegate(
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| caller                | `address` |             |
-| onBehalfOf            | `address` |             |
-| delegationAmountDelta | `int256`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| onBehalfOf | `address` |  |
+| delegationAmountDelta | `int256` |  |
 
 <a id="onlyfromfactory"></a>
 
@@ -128,11 +128,11 @@ event DelegateEscrowCreated(
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| caller   | `address` |             |
-| delegate | `address` |             |
-| escrow   | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller | `address` |  |
+| delegate | `address` |  |
+| escrow | `address` |  |
 
 ### Delegate
 
@@ -152,12 +152,12 @@ event Delegate(
 
 **Parameters**
 
-| Name                  | Type      | Description |
-| --------------------- | --------- | ----------- |
-| escrow                | `address` |             |
-| caller                | `address` |             |
-| onBehalfOf            | `address` |             |
-| delegationAmountDelta | `int256`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| escrow | `address` |  |
+| caller | `address` |  |
+| onBehalfOf | `address` |  |
+| delegationAmountDelta | `int256` |  |
 
 ## Errors
 

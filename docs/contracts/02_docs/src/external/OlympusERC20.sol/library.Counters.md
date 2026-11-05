@@ -14,15 +14,15 @@ function current(Counter storage counter) internal view returns (uint256);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| counter | `Counter` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| counter | `Counter` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="increment-counter"></a>
 
@@ -34,9 +34,9 @@ function increment(Counter storage counter) internal;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| counter | `Counter` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| counter | `Counter` |  |
 
 <a id="decrement-counter"></a>
 
@@ -48,9 +48,9 @@ function decrement(Counter storage counter) internal;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| counter | `Counter` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| counter | `Counter` |  |
 
 ## Structs
 
@@ -67,6 +67,6 @@ struct Counter {
 
 **Properties**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| _value | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _value | `uint256` |  |

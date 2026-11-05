@@ -64,9 +64,9 @@ function owner() public pure returns (address _owner);
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| _owner | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _owner | `address` |  |
 
 <a id="collateral"></a>
 
@@ -80,9 +80,9 @@ function collateral() public pure returns (ERC20 _collateral);
 
 **Returns**
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| _collateral | `ERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _collateral | `ERC20` |  |
 
 <a id="debt"></a>
 
@@ -96,9 +96,9 @@ function debt() public pure returns (ERC20 _debt);
 
 **Returns**
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| _debt | `ERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _debt | `ERC20` |  |
 
 <a id="factory"></a>
 
@@ -112,9 +112,9 @@ function factory() public pure returns (CoolerFactory _factory);
 
 **Returns**
 
-| Name     | Type            | Description |
-| -------- | --------------- | ----------- |
-| _factory | `CoolerFactory` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _factory | `CoolerFactory` |  |
 
 <a id="requestloan-uint256-uint256-uint256-uint256"></a>
 
@@ -281,12 +281,12 @@ function claimDefaulted(uint256 loanID_) external returns (uint256, uint256, uin
 
 **Returns**
 
-| Name         | Type      | Description                                                                               |
-| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
 | &lt;none&gt; | `uint256` | defaulted debt by the borrower, collateral kept by the lender, elapsed time since expiry. |
-| &lt;none&gt; | `uint256` |                                                                                           |
-| &lt;none&gt; | `uint256` |                                                                                           |
-| &lt;none&gt; | `uint256` |                                                                                           |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="approvetransfer-address-uint256"></a>
 
@@ -360,9 +360,9 @@ function collateralFor(
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="interestfor-uint256-uint256-uint256"></a>
 
@@ -531,14 +531,14 @@ struct Request {
 
 **Properties**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| amount           | `uint256` |             |
-| interest         | `uint256` |             |
-| loanToCollateral | `uint256` |             |
-| duration         | `uint256` |             |
-| active           | `bool`    |             |
-| requester        | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount | `uint256` |  |
+| interest | `uint256` |  |
+| loanToCollateral | `uint256` |  |
+| duration | `uint256` |  |
+| active | `bool` |  |
+| requester | `address` |  |
 
 ### Loan
 
@@ -559,13 +559,13 @@ struct Loan {
 
 **Properties**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| request     | `Request` |             |
-| principal   | `uint256` |             |
-| interestDue | `uint256` |             |
-| collateral  | `uint256` |             |
-| expiry      | `uint256` |             |
-| lender      | `address` |             |
-| recipient   | `address` |             |
-| callback    | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| request | `Request` |  |
+| principal | `uint256` |  |
+| interestDue | `uint256` |  |
+| collateral | `uint256` |  |
+| expiry | `uint256` |  |
+| lender | `address` |  |
+| recipient | `address` |  |
+| callback | `bool` |  |

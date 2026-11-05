@@ -27,15 +27,15 @@ function abs(int256 a) internal pure returns (uint256 result);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| a    | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `int256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| result | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| result | `uint256` |  |
 
 <a id="add-uint256-uint256"></a>
 
@@ -53,16 +53,16 @@ function add(uint256 a, uint256 b) internal pure returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="add-int256-int256"></a>
 
@@ -80,16 +80,16 @@ function add(int256 a, int256 b) internal pure returns (int256);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| a    | `int256` |             |
-| b    | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `int256` |  |
+| b | `int256` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `int256` |  |
 
 <a id="sub-uint256-uint256"></a>
 
@@ -107,16 +107,16 @@ function sub(uint256 a, uint256 b) internal pure returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="sub-int256-int256"></a>
 
@@ -134,16 +134,16 @@ function sub(int256 a, int256 b) internal pure returns (int256);
 
 **Parameters**
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| a    | `int256` |             |
-| b    | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `int256` |  |
+| b | `int256` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `int256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `int256` |  |
 
 <a id="max-uint256-uint256"></a>
 
@@ -161,16 +161,16 @@ function max(uint256 a, uint256 b) internal pure returns (uint256 result);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| result | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| result | `uint256` |  |
 
 <a id="min-uint256-uint256"></a>
 
@@ -188,16 +188,16 @@ function min(uint256 a, uint256 b) internal pure returns (uint256 result);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| result | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| result | `uint256` |  |
 
 <a id="mul-uint256-uint256"></a>
 
@@ -209,16 +209,16 @@ function mul(uint256 a, uint256 b) internal pure returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="div-uint256-uint256-bool"></a>
 
@@ -230,17 +230,17 @@ function div(uint256 a, uint256 b, bool roundUp) internal pure returns (uint256)
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| a       | `uint256` |             |
-| b       | `uint256` |             |
-| roundUp | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
+| roundUp | `bool` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="divdown-uint256-uint256"></a>
 
@@ -252,16 +252,16 @@ function divDown(uint256 a, uint256 b) internal pure returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="divup-uint256-uint256"></a>
 
@@ -273,13 +273,13 @@ function divUp(uint256 a, uint256 b) internal pure returns (uint256 result);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| a    | `uint256` |             |
-| b    | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | `uint256` |  |
+| b | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| result | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| result | `uint256` |  |

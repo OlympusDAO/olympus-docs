@@ -28,9 +28,9 @@ constructor(IOlympusAuthority _authority);
 
 **Parameters**
 
-| Name       | Type                | Description |
-| ---------- | ------------------- | ----------- |
-| _authority | `IOlympusAuthority` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _authority | `IOlympusAuthority` |  |
 
 <a id="onlygovernor"></a>
 
@@ -74,9 +74,9 @@ function setAuthority(IOlympusAuthority _newAuthority) external onlyGovernor;
 
 **Parameters**
 
-| Name          | Type                | Description |
-| ------------- | ------------------- | ----------- |
-| _newAuthority | `IOlympusAuthority` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _newAuthority | `IOlympusAuthority` |  |
 
 ## Events
 
@@ -88,6 +88,6 @@ event AuthorityUpdated(IOlympusAuthority indexed authority);
 
 **Parameters**
 
-| Name      | Type                | Description |
-| --------- | ------------------- | ----------- |
-| authority | `IOlympusAuthority` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| authority | `IOlympusAuthority` |  |

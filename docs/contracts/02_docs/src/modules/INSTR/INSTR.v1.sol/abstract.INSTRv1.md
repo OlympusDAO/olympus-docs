@@ -40,15 +40,15 @@ function getInstructions(
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| instructionsId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| instructionsId_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type            | Description |
-| ------------ | --------------- | ----------- |
-| &lt;none&gt; | `Instruction[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Instruction[]` |  |
 
 <a id="store-instruction"></a>
 
@@ -62,15 +62,15 @@ function store(Instruction[] calldata instructions_) external virtual returns (u
 
 **Parameters**
 
-| Name          | Type            | Description |
-| ------------- | --------------- | ----------- |
-| instructions_ | `Instruction[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| instructions_ | `Instruction[]` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Events
 
@@ -82,9 +82,9 @@ event InstructionsStored(uint256 instructionsId);
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| instructionsId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| instructionsId | `uint256` |  |
 
 ## Errors
 

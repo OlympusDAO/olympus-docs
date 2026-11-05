@@ -130,11 +130,11 @@ function _onlyAssetPeriodExists(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| asset_         | `IERC20`  |             |
-| depositPeriod_ | `uint8`   |             |
-| operator_      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| operator_ | `address` |  |
 
 <a id="onlyassetperiodexists-ierc20-uint8-address"></a>
 
@@ -152,11 +152,11 @@ modifier onlyAssetPeriodExists(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| asset_         | `IERC20`  |             |
-| depositPeriod_ | `uint8`   |             |
-| operator_      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| operator_ | `address` |  |
 
 <a id="_onlyassetperiodenabled-ierc20-uint8-address"></a>
 
@@ -172,11 +172,11 @@ function _onlyAssetPeriodEnabled(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| asset_         | `IERC20`  |             |
-| depositPeriod_ | `uint8`   |             |
-| operator_      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| operator_ | `address` |  |
 
 <a id="onlyassetperiodenabled-ierc20-uint8-address"></a>
 
@@ -194,11 +194,11 @@ modifier onlyAssetPeriodEnabled(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| asset_         | `IERC20`  |             |
-| depositPeriod_ | `uint8`   |             |
-| operator_      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| operator_ | `address` |  |
 
 <a id="constructor-address-address"></a>
 
@@ -210,10 +210,10 @@ constructor(address kernel_, address tokenManager_) Policy(Kernel(kernel_));
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| kernel_       | `address` |             |
-| tokenManager_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| tokenManager_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -261,10 +261,10 @@ function VERSION() external pure returns (uint8 major, uint8 minor);
 
 **Returns**
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| major | `uint8` |             |
-| minor | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| major | `uint8` |  |
+| minor | `uint8` |  |
 
 <a id="deposit-depositparams"></a>
 
@@ -481,16 +481,16 @@ function _getAssetLiabilitiesKey(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| asset_    | `IERC20`  |             |
-| operator_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| operator_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="_validateoperatorsolvency-ierc20-address"></a>
 
@@ -550,10 +550,10 @@ function setOperatorName(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| operator_ | `address` |             |
-| name_     | `string`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operator_ | `address` |  |
+| name_ | `string` |  |
 
 <a id="getoperatorname-address"></a>
 
@@ -1010,9 +1010,9 @@ function borrowingDefault(
 
 **Parameters**
 
-| Name    | Type                     | Description |
-| ------- | ------------------------ | ----------- |
-| params_ | `BorrowingDefaultParams` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| params_ | `BorrowingDefaultParams` |  |
 
 <a id="getborrowedamount-ierc20-address"></a>
 
@@ -1080,17 +1080,17 @@ function _setReceiptTokenData(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| asset_         | `IERC20`  |             |
-| depositPeriod_ | `uint8`   |             |
-| operator_      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| asset_ | `IERC20` |  |
+| depositPeriod_ | `uint8` |  |
+| operator_ | `address` |  |
 
 **Returns**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| tokenId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenId | `uint256` |  |
 
 <a id="getreceipttokenid-ierc20-uint8-address"></a>
 
@@ -1199,15 +1199,15 @@ function supportsInterface(
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="rescue-address"></a>
 

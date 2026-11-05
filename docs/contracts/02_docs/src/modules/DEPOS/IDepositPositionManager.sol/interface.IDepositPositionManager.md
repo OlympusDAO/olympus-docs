@@ -96,9 +96,9 @@ function mint(MintParams calldata params_) external returns (uint256 _positionId
 
 **Returns**
 
-| Name        | Type      | Description                |
-| ----------- | --------- | -------------------------- |
-| _positionId | `uint256` | The ID of the new position |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _positionId | `uint256` |                 The ID of the new position |
 
 <a id="setremainingdeposit-uint256-uint256"></a>
 
@@ -195,9 +195,9 @@ function split(
 
 **Returns**
 
-| Name          | Type      | Description                |
-| ------------- | --------- | -------------------------- |
-| newPositionId | `uint256` | The ID of the new position |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newPositionId | `uint256` |   The ID of the new position |
 
 <a id="getpositioncount"></a>
 
@@ -235,9 +235,9 @@ function getUserPositionIds(
 
 **Returns**
 
-| Name         | Type        | Description              |
-| ------------ | ----------- | ------------------------ |
-| _positionIds | `uint256[]` | An array of position IDs |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _positionIds | `uint256[]` |    An array of position IDs |
 
 <a id="getposition-uint256"></a>
 
@@ -257,9 +257,9 @@ function getPosition(uint256 positionId_) external view returns (Position memory
 
 **Returns**
 
-| Name      | Type       | Description                   |
-| --------- | ---------- | ----------------------------- |
-| _position | `Position` | The position for the given ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _position | `Position` |   The position for the given ID |
 
 <a id="isexpired-uint256"></a>
 
@@ -279,9 +279,9 @@ function isExpired(uint256 positionId_) external view returns (bool _expired);
 
 **Returns**
 
-| Name     | Type   | Description                     |
-| -------- | ------ | ------------------------------- |
-| _expired | `bool` | Whether the position is expired |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _expired | `bool` |    Whether the position is expired |
 
 <a id="isconvertible-uint256"></a>
 
@@ -301,9 +301,9 @@ function isConvertible(uint256 positionId_) external view returns (bool _convert
 
 **Returns**
 
-| Name         | Type   | Description                         |
-| ------------ | ------ | ----------------------------------- |
-| _convertible | `bool` | Whether the position is convertible |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _convertible | `bool` |    Whether the position is convertible |
 
 <a id="previewconvert-uint256-uint256"></a>
 
@@ -327,9 +327,9 @@ function previewConvert(
 
 **Returns**
 
-| Name    | Type      | Description                              |
-| ------- | --------- | ---------------------------------------- |
-| _ohmOut | `uint256` | The amount of OHM that would be received |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ohmOut | `uint256` |     The amount of OHM that would be received |
 
 <a id="settokenrenderer-address"></a>
 
@@ -395,16 +395,16 @@ event PositionCreated(
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| positionId       | `uint256` |             |
-| owner            | `address` |             |
-| asset            | `address` |             |
-| periodMonths     | `uint8`   |             |
-| remainingDeposit | `uint256` |             |
-| conversionPrice  | `uint256` |             |
-| expiry           | `uint48`  |             |
-| wrapped          | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId | `uint256` |  |
+| owner | `address` |  |
+| asset | `address` |  |
+| periodMonths | `uint8` |  |
+| remainingDeposit | `uint256` |  |
+| conversionPrice | `uint256` |  |
+| expiry | `uint48` |  |
+| wrapped | `bool` |  |
 
 ### PositionRemainingDepositUpdated
 
@@ -416,10 +416,10 @@ event PositionRemainingDepositUpdated(uint256 indexed positionId, uint256 remain
 
 **Parameters**
 
-| Name             | Type      | Description |
-| ---------------- | --------- | ----------- |
-| positionId       | `uint256` |             |
-| remainingDeposit | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId | `uint256` |  |
+| remainingDeposit | `uint256` |  |
 
 ### PositionAdditionalDataUpdated
 
@@ -431,10 +431,10 @@ event PositionAdditionalDataUpdated(uint256 indexed positionId, bytes additional
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| positionId     | `uint256` |             |
-| additionalData | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId | `uint256` |  |
+| additionalData | `bytes` |  |
 
 ### PositionSplit
 
@@ -454,15 +454,15 @@ event PositionSplit(
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| positionId    | `uint256` |             |
-| newPositionId | `uint256` |             |
-| asset         | `address` |             |
-| periodMonths  | `uint8`   |             |
-| amount        | `uint256` |             |
-| to            | `address` |             |
-| wrap          | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId | `uint256` |  |
+| newPositionId | `uint256` |  |
+| asset | `address` |  |
+| periodMonths | `uint8` |  |
+| amount | `uint256` |  |
+| to | `address` |  |
+| wrap | `bool` |  |
 
 ### PositionWrapped
 
@@ -474,9 +474,9 @@ event PositionWrapped(uint256 indexed positionId);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| positionId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId | `uint256` |  |
 
 ### PositionUnwrapped
 
@@ -488,9 +488,9 @@ event PositionUnwrapped(uint256 indexed positionId);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| positionId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId | `uint256` |  |
 
 ### TokenRendererSet
 
@@ -502,9 +502,9 @@ event TokenRendererSet(address indexed renderer);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| renderer | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| renderer | `address` |  |
 
 ## Errors
 
@@ -518,9 +518,9 @@ error DEPOS_NotOwner(uint256 positionId_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 ### DEPOS_NotOperator
 
@@ -532,9 +532,9 @@ error DEPOS_NotOperator(uint256 positionId_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 ### DEPOS_InvalidPositionId
 
@@ -546,9 +546,9 @@ error DEPOS_InvalidPositionId(uint256 id_);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| id_  | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id_ | `uint256` |  |
 
 ### DEPOS_AlreadyWrapped
 
@@ -560,9 +560,9 @@ error DEPOS_AlreadyWrapped(uint256 positionId_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 ### DEPOS_NotWrapped
 
@@ -574,9 +574,9 @@ error DEPOS_NotWrapped(uint256 positionId_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 ### DEPOS_InvalidParams
 
@@ -588,9 +588,9 @@ error DEPOS_InvalidParams(string reason_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| reason_ | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason_ | `string` |  |
 
 ### DEPOS_NotConvertible
 
@@ -602,9 +602,9 @@ error DEPOS_NotConvertible(uint256 positionId_);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| positionId_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| positionId_ | `uint256` |  |
 
 ### DEPOS_InvalidRenderer
 
@@ -616,9 +616,9 @@ error DEPOS_InvalidRenderer(address renderer_);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| renderer_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| renderer_ | `address` |  |
 
 ## Structs
 

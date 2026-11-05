@@ -78,10 +78,10 @@ constructor(Kernel kernel_, ERC20 ohm_) Policy(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
-| ohm_    | `ERC20`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| ohm_ | `ERC20` |  |
 
 <a id="configuredependencies"></a>
 
@@ -125,9 +125,9 @@ modifier onlyApproved(bytes32 category_);
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| category_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| category_ | `bytes32` |  |
 
 <a id="_onlyapproved-bytes32"></a>
 
@@ -139,9 +139,9 @@ function _onlyApproved(bytes32 category_) internal view;
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| category_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| category_ | `bytes32` |  |
 
 <a id="burnfromtreasury-uint256-bytes32"></a>
 
@@ -158,10 +158,10 @@ function burnFromTreasury(
 
 **Parameters**
 
-| Name      | Type      | Description           |
-| --------- | --------- | --------------------- |
-| amount_   | `uint256` | Amount of OHM to burn |
-| category_ | `bytes32` |                       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` | Amount of OHM to burn |
+| category_ | `bytes32` |  |
 
 <a id="burnfrom-address-uint256-bytes32"></a>
 
@@ -187,11 +187,11 @@ function burnFrom(
 
 **Parameters**
 
-| Name      | Type      | Description              |
-| --------- | --------- | ------------------------ |
-| from_     | `address` | Address to burn OHM from |
-| amount_   | `uint256` | Amount of OHM to burn    |
-| category_ | `bytes32` |                          |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from_ | `address` | Address to burn OHM from |
+| amount_ | `uint256` | Amount of OHM to burn |
+| category_ | `bytes32` |  |
 
 <a id="burn-uint256-bytes32"></a>
 
@@ -208,10 +208,10 @@ function burn(
 
 **Parameters**
 
-| Name      | Type      | Description           |
-| --------- | --------- | --------------------- |
-| amount_   | `uint256` | Amount of OHM to burn |
-| category_ | `bytes32` |                       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount_ | `uint256` | Amount of OHM to burn |
+| category_ | `bytes32` |  |
 
 <a id="addcategory-bytes32"></a>
 
@@ -280,15 +280,15 @@ function supportsInterface(bytes4 interfaceId) public view virtual override retu
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| interfaceId | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="getcategories"></a>
 
@@ -302,9 +302,9 @@ function getCategories() external view returns (bytes32[] memory);
 
 **Returns**
 
-| Name         | Type        | Description |
-| ------------ | ----------- | ----------- |
-| &lt;none&gt; | `bytes32[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32[]` |  |
 
 ## Events
 
@@ -316,11 +316,11 @@ event Burn(address indexed from, bytes32 indexed category, uint256 amount);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| from     | `address` |             |
-| category | `bytes32` |             |
-| amount   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | `address` |  |
+| category | `bytes32` |  |
+| amount | `uint256` |  |
 
 ### CategoryAdded
 
@@ -330,9 +330,9 @@ event CategoryAdded(bytes32 category);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| category | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| category | `bytes32` |  |
 
 ### CategoryRemoved
 
@@ -342,9 +342,9 @@ event CategoryRemoved(bytes32 category);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| category | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| category | `bytes32` |  |
 
 ## Errors
 

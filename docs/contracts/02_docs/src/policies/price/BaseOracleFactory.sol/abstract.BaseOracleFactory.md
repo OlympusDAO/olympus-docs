@@ -783,11 +783,11 @@ function _cachePriceIfNecessary(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| oracle_     | `address` |             |
-| baseToken_  | `address` |             |
-| quoteToken_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| oracle_ | `address` |  |
+| baseToken_ | `address` |  |
+| quoteToken_ | `address` |  |
 
 <a id="_enable-bytes"></a>
 
@@ -835,15 +835,15 @@ function _hasOracleVariant(bytes32 pairKey_) internal view returns (bool);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| pairKey_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pairKey_ | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_hasenabledoraclevariant-bytes32"></a>
 
@@ -857,15 +857,15 @@ function _hasEnabledOracleVariant(bytes32 pairKey_) internal view returns (bool)
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| pairKey_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pairKey_ | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_oraclepairkey-address-address"></a>
 
@@ -882,16 +882,16 @@ function _oraclePairKey(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| baseToken_  | `address` |             |
-| quoteToken_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| baseToken_ | `address` |  |
+| quoteToken_ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="_setpricecache-address"></a>
 
@@ -903,9 +903,9 @@ function _setPriceCache(address policy_) internal;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
 
 <a id="_implementsipricecache-address"></a>
 
@@ -917,15 +917,15 @@ function _implementsIPriceCache(address policy_) internal view returns (bool);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_hassamekernel-address"></a>
 
@@ -937,15 +937,15 @@ function _hasSameKernel(address policy_) internal view returns (bool);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_validatecachingcaller-address"></a>
 
@@ -957,9 +957,9 @@ function _validateCachingCaller(address caller_) internal view;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| caller_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
 
 <a id="_validatecachingpair-address-address-address"></a>
 
@@ -975,11 +975,11 @@ function _validateCachingPair(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| caller_     | `address` |             |
-| baseToken_  | `address` |             |
-| quoteToken_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caller_ | `address` |  |
+| baseToken_ | `address` |  |
+| quoteToken_ | `address` |  |
 
 <a id="supportsinterface-bytes4"></a>
 

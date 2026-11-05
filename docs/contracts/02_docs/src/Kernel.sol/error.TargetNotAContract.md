@@ -8,6 +8,6 @@ error TargetNotAContract(address target_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| target_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target_ | `address` |  |

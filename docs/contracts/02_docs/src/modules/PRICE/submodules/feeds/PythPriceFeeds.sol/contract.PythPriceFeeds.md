@@ -54,9 +54,9 @@ constructor(Module parent_) Submodule(parent_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| parent_ | `Module` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parent_ | `Module` |  |
 
 <a id="subkeycode"></a>
 
@@ -70,9 +70,9 @@ function SUBKEYCODE() public pure override returns (SubKeycode);
 
 **Returns**
 
-| Name         | Type         | Description |
-| ------------ | ------------ | ----------- |
-| &lt;none&gt; | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `SubKeycode` |  |
 
 <a id="version"></a>
 
@@ -296,11 +296,11 @@ function getOneFeedPrice(
 
 **Parameters**
 
-| Name            | Type      | Description                                                              |
-| --------------- | --------- | ------------------------------------------------------------------------ |
-| _               | `address` |                                                                          |
-| outputDecimals_ | `uint8`   | The number of output decimals (assumed to be the same as PRICE decimals) |
-| params_         | `bytes`   | Pyth feed parameters of type `OneFeedParams`                             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| outputDecimals_ | `uint8` | The number of output decimals (assumed to be the same as PRICE decimals) |
+| params_ | `bytes` | Pyth feed parameters of type `OneFeedParams` |
 
 **Returns**
 
@@ -366,11 +366,11 @@ function getTwoFeedPriceDiv(
 
 **Parameters**
 
-| Name            | Type      | Description                                                              |
-| --------------- | --------- | ------------------------------------------------------------------------ |
-| _               | `address` |                                                                          |
-| outputDecimals_ | `uint8`   | The number of output decimals (assumed to be the same as PRICE decimals) |
-| params_         | `bytes`   | Pyth feed parameters of type `TwoFeedParams`                             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| outputDecimals_ | `uint8` | The number of output decimals (assumed to be the same as PRICE decimals) |
+| params_ | `bytes` | Pyth feed parameters of type `TwoFeedParams` |
 
 **Returns**
 
@@ -430,11 +430,11 @@ function getTwoFeedPriceMul(
 
 **Parameters**
 
-| Name            | Type      | Description                                                              |
-| --------------- | --------- | ------------------------------------------------------------------------ |
-| _               | `address` |                                                                          |
-| outputDecimals_ | `uint8`   | The number of output decimals (assumed to be the same as PRICE decimals) |
-| params_         | `bytes`   | Pyth feed parameters of type `TwoFeedParams`                             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| outputDecimals_ | `uint8` | The number of output decimals (assumed to be the same as PRICE decimals) |
+| params_ | `bytes` | Pyth feed parameters of type `TwoFeedParams` |
 
 **Returns**
 

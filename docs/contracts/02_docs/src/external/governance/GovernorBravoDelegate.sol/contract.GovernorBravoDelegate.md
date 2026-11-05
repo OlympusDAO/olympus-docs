@@ -157,16 +157,16 @@ function initialize(
 
 **Parameters**
 
-| Name                   | Type      | Description                                                              |
-| ---------------------- | --------- | ------------------------------------------------------------------------ |
-| timelock_              | `address` | The address of the Timelock                                              |
-| gohm_                  | `address` | The address of the gOHM token                                            |
-| kernel_                | `address` | The address of the kernel                                                |
-| vetoGuardian_          | `address` | The address of the veto guardian                                         |
-| votingPeriod_          | `uint256` | The initial voting period                                                |
-| votingDelay_           | `uint256` | The initial voting delay                                                 |
-| activationGracePeriod_ | `uint256` |                                                                          |
-| proposalThreshold_     | `uint256` | The initial proposal threshold (percentage of total supply. out of 1000) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| timelock_ | `address` | The address of the Timelock |
+| gohm_ | `address` | The address of the gOHM token |
+| kernel_ | `address` | The address of the kernel |
+| vetoGuardian_ | `address` | The address of the veto guardian |
+| votingPeriod_ | `uint256` | The initial voting period |
+| votingDelay_ | `uint256` | The initial voting delay |
+| activationGracePeriod_ | `uint256` |  |
+| proposalThreshold_ | `uint256` | The initial proposal threshold (percentage of total supply. out of 1000) |
 
 <a id="propose-address-uint256-string-bytes-string"></a>
 
@@ -232,9 +232,9 @@ function emergencyPropose(
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="activate-uint256"></a>
 
@@ -254,9 +254,9 @@ function activate(uint256 proposalId) external;
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
 
 <a id="queue-uint256"></a>
 
@@ -291,14 +291,14 @@ function _queueOrRevertInternal(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| target     | `address` |             |
-| value      | `uint256` |             |
-| signature  | `string`  |             |
-| data       | `bytes`   |             |
-| eta        | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| target | `address` |  |
+| value | `uint256` |  |
+| signature | `string` |  |
+| data | `bytes` |  |
+| eta | `uint256` |  |
 
 <a id="execute-uint256"></a>
 
@@ -411,13 +411,13 @@ function castVoteBySig(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| proposalId | `uint256` |             |
-| support    | `uint8`   |             |
-| v          | `uint8`   |             |
-| r          | `bytes32` |             |
-| s          | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| support | `uint8` |  |
+| v | `uint8` |  |
+| r | `bytes32` |  |
+| s | `bytes32` |  |
 
 <a id="castvoteinternal-address-uint256-uint8"></a>
 
@@ -594,9 +594,9 @@ function _isEmergency() internal view returns (bool);
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_ishighriskproposal-address-string-bytes"></a>
 
@@ -621,17 +621,17 @@ function _isHighRiskProposal(
 
 **Parameters**
 
-| Name       | Type        | Description |
-| ---------- | ----------- | ----------- |
-| targets    | `address[]` |             |
-| signatures | `string[]`  |             |
-| calldatas  | `bytes[]`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| targets | `address[]` |  |
+| signatures | `string[]` |  |
+| calldatas | `bytes[]` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="getchainidinternal"></a>
 
@@ -783,11 +783,11 @@ function getProposalVotes(
 
 **Returns**
 
-| Name         | Type      | Description                                                |
-| ------------ | --------- | ---------------------------------------------------------- |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
 | &lt;none&gt; | `uint256` | The against, for, and abstain votes for the given proposal |
-| &lt;none&gt; | `uint256` |                                                            |
-| &lt;none&gt; | `uint256` |                                                            |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="getactions-uint256"></a>
 

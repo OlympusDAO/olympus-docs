@@ -12,12 +12,12 @@ function uint2str(uint256 _i) pure returns (string memory);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| _i   | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _i | `uint256` |  |
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |

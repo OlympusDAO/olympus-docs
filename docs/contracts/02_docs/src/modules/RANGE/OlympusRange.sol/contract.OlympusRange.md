@@ -48,14 +48,14 @@ constructor(
 
 **Parameters**
 
-| Name             | Type         | Description |
-| ---------------- | ------------ | ----------- |
-| kernel_          | `Kernel`     |             |
-| ohm_             | `ERC20`      |             |
-| reserve_         | `ERC20`      |             |
-| thresholdFactor_ | `uint256`    |             |
-| lowSpreads_      | `uint256[2]` |             |
-| highSpreads_     | `uint256[2]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| ohm_ | `ERC20` |  |
+| reserve_ | `ERC20` |  |
+| thresholdFactor_ | `uint256` |  |
+| lowSpreads_ | `uint256[2]` |  |
+| highSpreads_ | `uint256[2]` |  |
 
 <a id="keycode"></a>
 
@@ -69,9 +69,9 @@ function KEYCODE() public pure override returns (Keycode);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
 
 <a id="version"></a>
 
@@ -236,9 +236,9 @@ function range() external view override returns (Range memory);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `Range` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Range` |  |
 
 <a id="capacity-bool"></a>
 
@@ -258,9 +258,9 @@ function capacity(bool high_) external view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="active-bool"></a>
 
@@ -280,9 +280,9 @@ function active(bool high_) external view override returns (bool);
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="price-bool-bool"></a>
 
@@ -303,9 +303,9 @@ function price(bool high_, bool wall_) external view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="spread-bool-bool"></a>
 
@@ -326,9 +326,9 @@ function spread(bool high_, bool wall_) external view override returns (uint256)
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="market-bool"></a>
 
@@ -348,9 +348,9 @@ function market(bool high_) external view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="lastactive-bool"></a>
 
@@ -370,6 +370,6 @@ function lastActive(bool high_) external view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

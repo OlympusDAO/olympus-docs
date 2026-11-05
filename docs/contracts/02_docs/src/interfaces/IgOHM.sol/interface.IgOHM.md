@@ -16,10 +16,10 @@ function mint(address _to, uint256 _amount) external;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| _to     | `address` |             |
-| _amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _to | `address` |  |
+| _amount | `uint256` |  |
 
 <a id="burn-address-uint256"></a>
 
@@ -31,10 +31,10 @@ function burn(address _from, uint256 _amount) external;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| _from   | `address` |             |
-| _amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _from | `address` |  |
+| _amount | `uint256` |  |
 
 <a id="index"></a>
 
@@ -46,9 +46,9 @@ function index() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="sohm"></a>
 
@@ -60,9 +60,9 @@ function sOHM() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="balancefrom-uint256"></a>
 
@@ -74,15 +74,15 @@ function balanceFrom(uint256 _amount) external view returns (uint256);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| _amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="balanceto-uint256"></a>
 
@@ -94,15 +94,15 @@ function balanceTo(uint256 _amount) external view returns (uint256);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| _amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _amount | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="migrate-address-address"></a>
 
@@ -114,10 +114,10 @@ function migrate(address _staking, address _sOHM) external;
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| _staking | `address` |             |
-| _sOHM    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _staking | `address` |  |
+| _sOHM | `address` |  |
 
 <a id="getpriorvotes-address-uint256"></a>
 
@@ -129,16 +129,16 @@ function getPriorVotes(address account, uint256 blockNumber) external view retur
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| account     | `address` |             |
-| blockNumber | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` |  |
+| blockNumber | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="totalsupply"></a>
 
@@ -156,6 +156,6 @@ function totalSupply() external view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |

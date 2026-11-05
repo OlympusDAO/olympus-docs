@@ -50,9 +50,9 @@ constructor(Module parent_) Submodule(parent_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| parent_ | `Module` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parent_ | `Module` |  |
 
 <a id="subkeycode"></a>
 
@@ -66,9 +66,9 @@ function SUBKEYCODE() public pure override returns (SubKeycode);
 
 **Returns**
 
-| Name         | Type         | Description |
-| ------------ | ------------ | ----------- |
-| &lt;none&gt; | `SubKeycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `SubKeycode` |  |
 
 <a id="version"></a>
 
@@ -211,11 +211,11 @@ function getPoolTokenPrice(
 
 **Parameters**
 
-| Name            | Type      | Description                                                              |
-| --------------- | --------- | ------------------------------------------------------------------------ |
-| _               | `address` |                                                                          |
-| outputDecimals_ | `uint8`   | The number of output decimals (assumed to be the same as PRICE decimals) |
-| params_         | `bytes`   | UniswapV2 pool parameters of type `UniswapV2PoolParams`                  |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
+| outputDecimals_ | `uint8` | The number of output decimals (assumed to be the same as PRICE decimals) |
+| params_ | `bytes` | UniswapV2 pool parameters of type `UniswapV2PoolParams` |
 
 **Returns**
 

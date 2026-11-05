@@ -85,9 +85,9 @@ event VaultAdded(address indexed vault);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| vault | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| vault | `address` |  |
 
 ### VaultRemoved
 
@@ -97,6 +97,6 @@ event VaultRemoved(address indexed vault);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| vault | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| vault | `address` |  |

@@ -30,9 +30,9 @@ function factory() public pure returns (IERC7726OracleFactory);
 
 **Returns**
 
-| Name         | Type                    | Description |
-| ------------ | ----------------------- | ----------- |
-| &lt;none&gt; | `IERC7726OracleFactory` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC7726OracleFactory` |  |
 
 <a id="maxage"></a>
 
@@ -52,9 +52,9 @@ function maxAge() public pure override returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="name"></a>
 
@@ -162,17 +162,17 @@ function _getQuoteInternal(
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| inAmount_ | `uint256` |             |
-| base_     | `address` |             |
-| quote_    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| inAmount_ | `uint256` |  |
+| base_ | `address` |  |
+| quote_ | `address` |  |
 
 **Returns**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| outAmount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| outAmount_ | `uint256` |  |
 
 <a id="getquotes-uint256-address-address"></a>
 
@@ -284,16 +284,16 @@ function _isStaleFromTimestamp(uint48 timestamp_, uint48 maxAge_) internal view 
 
 **Parameters**
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| timestamp_ | `uint48` |             |
-| maxAge_    | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| timestamp_ | `uint48` |  |
+| maxAge_ | `uint48` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_latestpermissibletimestamp-uint48"></a>
 

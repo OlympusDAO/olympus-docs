@@ -11,7 +11,7 @@ struct RewardsData {
 
 **Properties**
 
-| Name               | Type      | Description |
-| ------------------ | --------- | ----------- |
-| rewardToken        | `address` |             |
-| outstandingRewards | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| rewardToken | `address` |  |
+| outstandingRewards | `uint256` |  |

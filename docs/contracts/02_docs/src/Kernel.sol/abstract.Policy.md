@@ -30,9 +30,9 @@ constructor(Kernel kernel_) KernelAdapter(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="isactive"></a>
 
@@ -46,9 +46,9 @@ function isActive() external view returns (bool);
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="getmoduleaddress-keycode"></a>
 
@@ -62,15 +62,15 @@ function getModuleAddress(Keycode keycode_) internal view returns (address);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| keycode_ | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode_ | `Keycode` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -114,9 +114,9 @@ error Policy_ModuleDoesNotExist(Keycode keycode_);
 
 **Parameters**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| keycode_ | `Keycode` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keycode_ | `Keycode` |  |
 
 ### Policy_WrongModuleVersion
 
@@ -126,6 +126,6 @@ error Policy_WrongModuleVersion(bytes expected_);
 
 **Parameters**
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| expected_ | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| expected_ | `bytes` |  |

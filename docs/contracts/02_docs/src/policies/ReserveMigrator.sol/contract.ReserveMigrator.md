@@ -62,12 +62,12 @@ constructor(Kernel kernel_, address sFrom_, address sTo_, address migrator_) Pol
 
 **Parameters**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| kernel_   | `Kernel`  |             |
-| sFrom_    | `address` |             |
-| sTo_      | `address` |             |
-| migrator_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+| sFrom_ | `address` |  |
+| sTo_ | `address` |  |
+| migrator_ | `address` |  |
 
 <a id="configuredependencies"></a>
 

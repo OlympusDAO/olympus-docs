@@ -24,9 +24,9 @@ function id() public view override returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="name"></a>
 
@@ -38,9 +38,9 @@ function name() public pure override returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="description"></a>
 
@@ -52,9 +52,9 @@ function description() public pure override returns (string memory);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `string` |  |
 
 <a id="_deploy-addresses-address"></a>
 
@@ -66,10 +66,10 @@ function _deploy(Addresses addresses, address) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| _         | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |
 
 <a id="_afterdeploy-addresses-address"></a>
 
@@ -81,10 +81,10 @@ function _afterDeploy(Addresses addresses, address deployer) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| deployer  | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| deployer | `address` |  |
 
 <a id="_build-addresses"></a>
 
@@ -96,9 +96,9 @@ function _build(Addresses addresses) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
 
 <a id="_run-addresses-address"></a>
 
@@ -110,10 +110,10 @@ function _run(Addresses addresses, address) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| _         | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |
 
 <a id="_validate-addresses-address"></a>
 
@@ -125,7 +125,7 @@ function _validate(Addresses addresses, address) internal override;
 
 **Parameters**
 
-| Name      | Type        | Description |
-| --------- | ----------- | ----------- |
-| addresses | `Addresses` |             |
-| _         | `address`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addresses | `Addresses` |  |
+| _ | `address` |  |

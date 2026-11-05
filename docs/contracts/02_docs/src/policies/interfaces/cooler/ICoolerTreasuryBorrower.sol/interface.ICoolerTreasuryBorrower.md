@@ -33,10 +33,10 @@ function borrow(uint256 amountInWad, address recipient) external;
 
 **Parameters**
 
-| Name        | Type      | Description                                                                                 |
-| ----------- | --------- | ------------------------------------------------------------------------------------------- |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
 | amountInWad | `uint256` | The amount to borrow. Always 18 decimal places<br/>regardless of the `debtToken.decimals()` |
-| recipient   | `address` |                                                                                             |
+| recipient | `address` |  |
 
 <a id="repay"></a>
 
@@ -72,9 +72,9 @@ function writeOffDebt(uint256 debtTokenAmount) external;
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| debtTokenAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtTokenAmount | `uint256` |  |
 
 <a id="setdebt-uint256"></a>
 
@@ -106,9 +106,9 @@ function debtToken() external view returns (IERC20);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `IERC20` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
 
 <a id="converttodebttokenamount-uint256"></a>
 
@@ -124,16 +124,16 @@ function convertToDebtTokenAmount(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| amountInWad | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amountInWad | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| dToken       | `IERC20`  |             |
-| dTokenAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dToken | `IERC20` |  |
+| dTokenAmount | `uint256` |  |
 
 <a id="decimals"></a>
 
@@ -153,9 +153,9 @@ function DECIMALS() external view returns (uint8);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 ## Errors
 

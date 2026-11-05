@@ -26,17 +26,17 @@ constructor(
 
 **Parameters**
 
-| Name                   | Type      | Description |
-| ---------------------- | --------- | ----------- |
-| timelock_              | `address` |             |
-| gohm_                  | `address` |             |
-| kernel_                | `address` |             |
-| vetoGuardian_          | `address` |             |
-| implementation_        | `address` |             |
-| votingPeriod_          | `uint256` |             |
-| votingDelay_           | `uint256` |             |
-| activationGracePeriod_ | `uint256` |             |
-| proposalThreshold_     | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| timelock_ | `address` |  |
+| gohm_ | `address` |  |
+| kernel_ | `address` |  |
+| vetoGuardian_ | `address` |  |
+| implementation_ | `address` |  |
+| votingPeriod_ | `uint256` |  |
+| votingDelay_ | `uint256` |  |
+| activationGracePeriod_ | `uint256` |  |
+| proposalThreshold_ | `uint256` |  |
 
 <a id="_setimplementation-address"></a>
 

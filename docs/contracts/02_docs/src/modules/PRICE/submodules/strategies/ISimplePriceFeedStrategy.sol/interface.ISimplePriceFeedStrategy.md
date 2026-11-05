@@ -28,9 +28,9 @@ function getFirstNonZeroPrice(
 
 **Returns**
 
-| Name  | Type      | Description        |
-| ----- | --------- | ------------------ |
-| price | `uint256` | The resolved price |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | `uint256` |   The resolved price |
 
 <a id="getaverageprice-uint256-bytes"></a>
 
@@ -54,9 +54,9 @@ function getAveragePrice(
 
 **Returns**
 
-| Name  | Type      | Description                                     |
-| ----- | --------- | ----------------------------------------------- |
-| price | `uint256` | The resolved price (average of non-zero prices) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | `uint256` |    The resolved price (average of non-zero prices) |
 
 <a id="getmedianprice-uint256-bytes"></a>
 
@@ -80,9 +80,9 @@ function getMedianPrice(
 
 **Returns**
 
-| Name  | Type      | Description                                    |
-| ----- | --------- | ---------------------------------------------- |
-| price | `uint256` | The resolved price (median of non-zero prices) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | `uint256` |    The resolved price (median of non-zero prices) |
 
 <a id="getaveragepriceexcludingdeviations-uint256-bytes"></a>
 
@@ -118,9 +118,9 @@ function getAveragePriceExcludingDeviations(
 
 **Returns**
 
-| Name  | Type      | Description                                          |
-| ----- | --------- | ---------------------------------------------------- |
-| price | `uint256` | The resolved price (average of non-deviating prices) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | `uint256` |    The resolved price (average of non-deviating prices) |
 
 <a id="getaveragepriceifdeviation-uint256-bytes"></a>
 
@@ -156,9 +156,9 @@ function getAveragePriceIfDeviation(
 
 **Returns**
 
-| Name  | Type      | Description                                                               |
-| ----- | --------- | ------------------------------------------------------------------------- |
-| price | `uint256` | The resolved price (average if deviation detected, first price otherwise) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | `uint256` |    The resolved price (average if deviation detected, first price otherwise) |
 
 <a id="getmedianpriceifdeviation-uint256-bytes"></a>
 
@@ -188,9 +188,9 @@ function getMedianPriceIfDeviation(
 
 **Returns**
 
-| Name  | Type      | Description                                                              |
-| ----- | --------- | ------------------------------------------------------------------------ |
-| price | `uint256` | The resolved price (median if deviation detected, first price otherwise) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | `uint256` |    The resolved price (median if deviation detected, first price otherwise) |
 
 <a id="getmedianpriceexcludingdeviations-uint256-bytes"></a>
 
@@ -226,9 +226,9 @@ function getMedianPriceExcludingDeviations(
 
 **Returns**
 
-| Name  | Type      | Description                                         |
-| ----- | --------- | --------------------------------------------------- |
-| price | `uint256` | The resolved price (median of non-deviating prices) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | `uint256` |    The resolved price (median of non-deviating prices) |
 
 ## Errors
 

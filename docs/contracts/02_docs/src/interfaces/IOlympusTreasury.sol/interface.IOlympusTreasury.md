@@ -14,16 +14,16 @@ function queue(MANAGING _managing, address _address) external returns (bool);
 
 **Parameters**
 
-| Name      | Type       | Description |
-| --------- | ---------- | ----------- |
-| _managing | `MANAGING` |             |
-| _address  | `address`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _managing | `MANAGING` |  |
+| _address | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="toggle-managing-address-address"></a>
 
@@ -39,17 +39,17 @@ function toggle(
 
 **Parameters**
 
-| Name        | Type       | Description |
-| ----------- | ---------- | ----------- |
-| _managing   | `MANAGING` |             |
-| _address    | `address`  |             |
-| _calculator | `address`  |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _managing | `MANAGING` |  |
+| _address | `address` |  |
+| _calculator | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="isreservetoken-address"></a>
 
@@ -61,15 +61,15 @@ function isReserveToken(address) external view returns (bool);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| _    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="isreservedepositor-address"></a>
 
@@ -81,15 +81,15 @@ function isReserveDepositor(address) external view returns (bool);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| _    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="excessreserves"></a>
 
@@ -101,9 +101,9 @@ function excessReserves() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="valueof-address-uint256"></a>
 
@@ -115,16 +115,16 @@ function valueOf(address _token, uint256 _amount) external view returns (uint256
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| _token  | `address` |             |
-| _amount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _token | `address` |  |
+| _amount | `uint256` |  |
 
 **Returns**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| value_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value_ | `uint256` |  |
 
 <a id="reservetokenqueue-address"></a>
 
@@ -136,15 +136,15 @@ function reserveTokenQueue(address) external view returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| _    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="reservedepositorqueue-address"></a>
 
@@ -156,15 +156,15 @@ function reserveDepositorQueue(address) external view returns (uint256);
 
 **Parameters**
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| _    | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _ | `address` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="deposit-uint256-address-uint256"></a>
 
@@ -180,17 +180,17 @@ function deposit(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| _amount | `uint256` |             |
-| _token  | `address` |             |
-| _profit | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _amount | `uint256` |  |
+| _token | `address` |  |
+| _profit | `uint256` |  |
 
 **Returns**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| send_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| send_ | `uint256` |  |
 
 ## Enums
 
@@ -213,15 +213,15 @@ enum MANAGING {
 
 **Variants**
 
-| Name               | Description |
-| ------------------ | ----------- |
-| RESERVEDEPOSITOR   |             |
-| RESERVESPENDER     |             |
-| RESERVETOKEN       |             |
-| RESERVEMANAGER     |             |
-| LIQUIDITYDEPOSITOR |             |
-| LIQUIDITYTOKEN     |             |
-| LIQUIDITYMANAGER   |             |
-| DEBTOR             |             |
-| REWARDMANAGER      |             |
-| SOHM               |             |
+| Name | Description |
+| ---- | ----------- |
+| RESERVEDEPOSITOR |  |
+| RESERVESPENDER |  |
+| RESERVETOKEN |  |
+| RESERVEMANAGER |  |
+| LIQUIDITYDEPOSITOR |  |
+| LIQUIDITYTOKEN |  |
+| LIQUIDITYMANAGER |  |
+| DEBTOR |  |
+| REWARDMANAGER |  |
+| SOHM |  |

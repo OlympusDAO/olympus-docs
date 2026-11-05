@@ -28,10 +28,10 @@ function saveRole(bytes32 role_, address addr_) external virtual;
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
-| addr_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
+| addr_ | `address` |  |
 
 <a id="removerole-bytes32-address"></a>
 
@@ -45,10 +45,10 @@ function removeRole(bytes32 role_, address addr_) external virtual;
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
-| addr_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
+| addr_ | `address` |  |
 
 <a id="requirerole-bytes32-address"></a>
 
@@ -68,10 +68,10 @@ function requireRole(bytes32 role_, address caller_) external virtual;
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| role_   | `bytes32` |             |
-| caller_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
+| caller_ | `address` |  |
 
 <a id="ensurevalidrole-bytes32"></a>
 
@@ -85,9 +85,9 @@ function ensureValidRole(bytes32 role_) external pure virtual;
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
 
 ## Events
 
@@ -99,10 +99,10 @@ event RoleGranted(bytes32 indexed role_, address indexed addr_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
-| addr_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
+| addr_ | `address` |  |
 
 ### RoleRevoked
 
@@ -112,10 +112,10 @@ event RoleRevoked(bytes32 indexed role_, address indexed addr_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
-| addr_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
+| addr_ | `address` |  |
 
 ## Errors
 
@@ -127,9 +127,9 @@ error ROLES_InvalidRole(bytes32 role_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
 
 ### ROLES_RequireRole
 
@@ -139,9 +139,9 @@ error ROLES_RequireRole(bytes32 role_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |
 
 ### ROLES_AddressAlreadyHasRole
 
@@ -151,10 +151,10 @@ error ROLES_AddressAlreadyHasRole(address addr_, bytes32 role_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| addr_ | `address` |             |
-| role_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addr_ | `address` |  |
+| role_ | `bytes32` |  |
 
 ### ROLES_AddressDoesNotHaveRole
 
@@ -164,10 +164,10 @@ error ROLES_AddressDoesNotHaveRole(address addr_, bytes32 role_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| addr_ | `address` |             |
-| role_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| addr_ | `address` |  |
+| role_ | `bytes32` |  |
 
 ### ROLES_RoleDoesNotExist
 
@@ -177,6 +177,6 @@ error ROLES_RoleDoesNotExist(bytes32 role_);
 
 **Parameters**
 
-| Name  | Type      | Description |
-| ----- | --------- | ----------- |
-| role_ | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| role_ | `bytes32` |  |

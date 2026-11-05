@@ -27,9 +27,9 @@ function yieldRecipient() external view returns (address);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
 
 <a id="nextorderid"></a>
 
@@ -43,9 +43,9 @@ function nextOrderId() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="totalusdsowed"></a>
 
@@ -59,9 +59,9 @@ function totalUsdsOwed() external view returns (uint256);
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="setyieldrecipient-address"></a>
 
@@ -179,9 +179,9 @@ function createOrder(
 
 **Returns**
 
-| Name    | Type      | Description                 |
-| ------- | --------- | --------------------------- |
-| orderId | `uint256` | The ID of the created order |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| orderId | `uint256` |          The ID of the created order |
 
 <a id="fillorder-uint256-uint256"></a>
 
@@ -377,12 +377,12 @@ function previewFillOrder(
 
 **Returns**
 
-| Name           | Type      | Description                           |
-| -------------- | --------- | ------------------------------------- |
-| canFill        | `bool`    | Whether the order can be filled       |
-| reason         | `string`  | The reason the order cannot be filled |
-| effectivePrice | `uint256` | The effective price of the fill       |
-| incentive      | `uint256` | The incentive amount for the fill     |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| canFill | `bool` |         Whether the order can be filled |
+| reason | `string` |          The reason the order cannot be filled |
+| effectivePrice | `uint256` |  The effective price of the fill |
+| incentive | `uint256` |       The incentive amount for the fill |
 
 <a id="calculateincentive-uint256-uint256"></a>
 
@@ -406,10 +406,10 @@ function calculateIncentive(
 
 **Returns**
 
-| Name          | Type      | Description                       |
-| ------------- | --------- | --------------------------------- |
-| incentive     | `uint256` | The incentive amount for the fill |
-| incentiveRate | `uint256` | The incentive rate for the fill   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| incentive | `uint256` |       The incentive amount for the fill |
+| incentiveRate | `uint256` |   The incentive rate for the fill |
 
 <a id="canfillorder-uint256-uint256"></a>
 
@@ -433,11 +433,11 @@ function canFillOrder(
 
 **Returns**
 
-| Name           | Type      | Description                           |
-| -------------- | --------- | ------------------------------------- |
-| canFill        | `bool`    | Whether the order can be filled       |
-| reason         | `string`  | The reason the order cannot be filled |
-| effectivePrice | `uint256` | The effective price of the fill       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| canFill | `bool` |         Whether the order can be filled |
+| reason | `string` |          The reason the order cannot be filled |
+| effectivePrice | `uint256` |  The effective price of the fill |
 
 <a id="getremaining-uint256"></a>
 
@@ -459,10 +459,10 @@ function getRemaining(
 
 **Returns**
 
-| Name      | Type      | Description                    |
-| --------- | --------- | ------------------------------ |
-| deposit   | `uint256` | The remaining deposit budget   |
-| incentive | `uint256` | The remaining incentive budget |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| deposit | `uint256` |     The remaining deposit budget |
+| incentive | `uint256` |   The remaining incentive budget |
 
 <a id="getexecutionprice-uint8-uint256"></a>
 
@@ -699,9 +699,9 @@ error InvalidParam(string param);
 
 **Parameters**
 
-| Name  | Type     | Description |
-| ----- | -------- | ----------- |
-| param | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| param | `string` |  |
 
 ### OrderNotActive
 

@@ -13,9 +13,9 @@ struct ExitPoolRequest {
 
 **Properties**
 
-| Name              | Type        | Description |
-| ----------------- | ----------- | ----------- |
-| assets            | `address[]` |             |
-| minAmountsOut     | `uint256[]` |             |
-| userData          | `bytes`     |             |
-| toInternalBalance | `bool`      |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assets | `address[]` |  |
+| minAmountsOut | `uint256[]` |  |
+| userData | `bytes` |  |
+| toInternalBalance | `bool` |  |

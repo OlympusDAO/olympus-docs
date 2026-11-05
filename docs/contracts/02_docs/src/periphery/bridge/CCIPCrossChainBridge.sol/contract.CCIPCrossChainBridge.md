@@ -97,11 +97,11 @@ constructor(
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| ohm_        | `address` |             |
-| ccipRouter_ | `address` |             |
-| owner_      | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohm_ | `address` |  |
+| ccipRouter_ | `address` |  |
+| owner_ | `address` |  |
 
 <a id="_buildccipmessage-bytes-uint256-bytes-bytes"></a>
 
@@ -118,18 +118,18 @@ function _buildCCIPMessage(
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| to_        | `bytes`   |             |
-| amount_    | `uint256` |             |
-| data_      | `bytes`   |             |
-| extraArgs_ | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `bytes` |  |
+| amount_ | `uint256` |  |
+| data_ | `bytes` |  |
+| extraArgs_ | `bytes` |  |
 
 **Returns**
 
-| Name         | Type                    | Description |
-| ------------ | ----------------------- | ----------- |
-| &lt;none&gt; | `Client.EVM2AnyMessage` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Client.EVM2AnyMessage` |  |
 
 <a id="_getsvmextraargs-uint64-bytes32"></a>
 
@@ -144,16 +144,16 @@ function _getSVMExtraArgs(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| dstChainSelector_ | `uint64`  |             |
-| to_               | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainSelector_ | `uint64` |  |
+| to_ | `bytes32` |  |
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes` |  |
 
 <a id="_getevmextraargs-uint64"></a>
 
@@ -165,15 +165,15 @@ function _getEVMExtraArgs(uint64 dstChainSelector_) internal view returns (bytes
 
 **Parameters**
 
-| Name              | Type     | Description |
-| ----------------- | -------- | ----------- |
-| dstChainSelector_ | `uint64` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainSelector_ | `uint64` |  |
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes` |  |
 
 <a id="_getevmdata-uint64-address"></a>
 
@@ -188,18 +188,18 @@ function _getEVMData(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| dstChainSelector_ | `uint64`  |             |
-| to_               | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainSelector_ | `uint64` |  |
+| to_ | `address` |  |
 
 **Returns**
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| recipient | `bytes` |             |
-| data      | `bytes` |             |
-| extraArgs | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| recipient | `bytes` |  |
+| data | `bytes` |  |
+| extraArgs | `bytes` |  |
 
 <a id="_getsvmdata-uint64-bytes32"></a>
 
@@ -214,18 +214,18 @@ function _getSVMData(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| dstChainSelector_ | `uint64`  |             |
-| to_               | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainSelector_ | `uint64` |  |
+| to_ | `bytes32` |  |
 
 **Returns**
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| recipient | `bytes` |             |
-| data      | `bytes` |             |
-| extraArgs | `bytes` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| recipient | `bytes` |  |
+| data | `bytes` |  |
+| extraArgs | `bytes` |  |
 
 <a id="getfeesvm-uint64-bytes32-uint256"></a>
 
@@ -311,19 +311,19 @@ function _sendOhm(
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| dstChainSelector_ | `uint64`  |             |
-| to_               | `bytes`   |             |
-| amount_           | `uint256` |             |
-| data_             | `bytes`   |             |
-| extraArgs_        | `bytes`   |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dstChainSelector_ | `uint64` |  |
+| to_ | `bytes` |  |
+| amount_ | `uint256` |  |
+| data_ | `bytes` |  |
+| extraArgs_ | `bytes` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `bytes32` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bytes32` |  |
 
 <a id="sendtosvm-uint64-bytes32-uint256"></a>
 
@@ -455,9 +455,9 @@ function _receiveMessage(Client.Any2EVMMessage memory message_) internal;
 
 **Parameters**
 
-| Name     | Type                    | Description |
-| -------- | ----------------------- | ----------- |
-| message_ | `Client.Any2EVMMessage` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message_ | `Client.Any2EVMMessage` |  |
 
 <a id="receivemessage-client-any2evmmessage"></a>
 
@@ -477,9 +477,9 @@ function receiveMessage(Client.Any2EVMMessage calldata message_) external;
 
 **Parameters**
 
-| Name     | Type                    | Description |
-| -------- | ----------------------- | ----------- |
-| message_ | `Client.Any2EVMMessage` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message_ | `Client.Any2EVMMessage` |  |
 
 <a id="retryfailedmessage-bytes32"></a>
 
@@ -756,15 +756,15 @@ function supportsInterface(
 
 **Parameters**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| interfaceId_ | `bytes4` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interfaceId_ | `bytes4` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_enable-bytes"></a>
 

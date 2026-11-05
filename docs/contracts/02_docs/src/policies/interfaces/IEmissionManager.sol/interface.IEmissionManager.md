@@ -14,10 +14,10 @@ event SaleCreated(uint256 marketID, uint256 saleAmount);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| marketID   | `uint256` |             |
-| saleAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| marketID | `uint256` |  |
+| saleAmount | `uint256` |  |
 
 ### BondMarketCreationFailed
 
@@ -27,9 +27,9 @@ event BondMarketCreationFailed(uint256 saleAmount);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| saleAmount | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| saleAmount | `uint256` |  |
 
 ### BackingUpdated
 
@@ -39,11 +39,11 @@ event BackingUpdated(uint256 newBacking, uint256 supplyAdded, uint256 reservesAd
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| newBacking    | `uint256` |             |
-| supplyAdded   | `uint256` |             |
-| reservesAdded | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newBacking | `uint256` |  |
+| supplyAdded | `uint256` |  |
+| reservesAdded | `uint256` |  |
 
 ### BaseRateChanged
 
@@ -55,11 +55,11 @@ event BaseRateChanged(uint256 changeBy, uint48 forNumBeats, bool add);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| changeBy    | `uint256` |             |
-| forNumBeats | `uint48`  |             |
-| add         | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| changeBy | `uint256` |  |
+| forNumBeats | `uint48` |  |
+| add | `bool` |  |
 
 ### MinimumPremiumChanged
 
@@ -71,9 +71,9 @@ event MinimumPremiumChanged(uint256 newMinimumPremium);
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| newMinimumPremium | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newMinimumPremium | `uint256` |  |
 
 ### VestingPeriodChanged
 
@@ -85,9 +85,9 @@ event VestingPeriodChanged(uint48 newVestingPeriod);
 
 **Parameters**
 
-| Name             | Type     | Description |
-| ---------------- | -------- | ----------- |
-| newVestingPeriod | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newVestingPeriod | `uint48` |  |
 
 ### BackingChanged
 
@@ -100,9 +100,9 @@ event BackingChanged(uint256 newBacking);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| newBacking | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newBacking | `uint256` |  |
 
 ### RestartTimeframeChanged
 
@@ -114,9 +114,9 @@ event RestartTimeframeChanged(uint48 newRestartTimeframe);
 
 **Parameters**
 
-| Name                | Type     | Description |
-| ------------------- | -------- | ----------- |
-| newRestartTimeframe | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newRestartTimeframe | `uint48` |  |
 
 ### BondContractsSet
 
@@ -128,10 +128,10 @@ event BondContractsSet(address auctioneer, address teller);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| auctioneer | `address` |             |
-| teller     | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| auctioneer | `address` |  |
+| teller | `address` |  |
 
 ### ConvertibleDepositAuctioneerSet
 
@@ -143,9 +143,9 @@ event ConvertibleDepositAuctioneerSet(address auctioneer);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| auctioneer | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| auctioneer | `address` |  |
 
 ### TickSizeChanged
 
@@ -157,9 +157,9 @@ event TickSizeChanged(uint256 newTickSize);
 
 **Parameters**
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| newTickSize | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newTickSize | `uint256` |  |
 
 ### MinPriceScalarChanged
 
@@ -171,9 +171,9 @@ event MinPriceScalarChanged(uint256 newMinPriceScalar);
 
 **Parameters**
 
-| Name              | Type      | Description |
-| ----------------- | --------- | ----------- |
-| newMinPriceScalar | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newMinPriceScalar | `uint256` |  |
 
 ### BondMarketCapacityScalarChanged
 
@@ -185,9 +185,9 @@ event BondMarketCapacityScalarChanged(uint256 newBondMarketCapacityScalar);
 
 **Parameters**
 
-| Name                        | Type      | Description |
-| --------------------------- | --------- | ----------- |
-| newBondMarketCapacityScalar | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newBondMarketCapacityScalar | `uint256` |  |
 
 ## Errors
 
@@ -217,9 +217,9 @@ error InvalidParam(string parameter);
 
 **Parameters**
 
-| Name      | Type     | Description |
-| --------- | -------- | ----------- |
-| parameter | `string` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parameter | `string` |  |
 
 ### CannotRestartYet
 
@@ -229,9 +229,9 @@ error CannotRestartYet(uint48 availableAt);
 
 **Parameters**
 
-| Name        | Type     | Description |
-| ----------- | -------- | ----------- |
-| availableAt | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| availableAt | `uint48` |  |
 
 ### RestartTimeframePassed
 
@@ -253,11 +253,11 @@ struct BaseRateChange {
 
 **Properties**
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| changeBy | `uint256` |             |
-| daysLeft | `uint48`  |             |
-| addition | `bool`    |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| changeBy | `uint256` |  |
+| daysLeft | `uint48` |  |
+| addition | `bool` |  |
 
 ### EnableParams
 

@@ -24,9 +24,9 @@ constructor(Kernel kernel_) Policy(kernel_);
 
 **Parameters**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| kernel_ | `Kernel` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
 
 <a id="configuredependencies"></a>
 
@@ -76,11 +76,11 @@ function grantWithdrawerApproval(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| for_    | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| for_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="reducewithdrawerapproval-address-erc20-uint256"></a>
 
@@ -98,11 +98,11 @@ function reduceWithdrawerApproval(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| for_    | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| for_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="withdrawreservesto-address-erc20-uint256"></a>
 
@@ -126,11 +126,11 @@ function withdrawReservesTo(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| to_     | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="grantdebtorapproval-address-erc20-uint256"></a>
 
@@ -148,11 +148,11 @@ function grantDebtorApproval(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| for_    | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| for_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="reducedebtorapproval-address-erc20-uint256"></a>
 
@@ -170,11 +170,11 @@ function reduceDebtorApproval(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| for_    | `address` |             |
-| token_  | `ERC20`   |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| for_ | `address` |  |
+| token_ | `ERC20` |  |
+| amount_ | `uint256` |  |
 
 <a id="increasedebt-erc20-address-uint256"></a>
 
@@ -192,11 +192,11 @@ function increaseDebt(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| token_  | `ERC20`   |             |
-| debtor_ | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token_ | `ERC20` |  |
+| debtor_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="decreasedebt-erc20-address-uint256"></a>
 
@@ -214,11 +214,11 @@ function decreaseDebt(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| token_  | `ERC20`   |             |
-| debtor_ | `address` |             |
-| amount_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token_ | `ERC20` |  |
+| debtor_ | `address` |  |
+| amount_ | `uint256` |  |
 
 <a id="revokepolicyapprovals-address-erc20"></a>
 
@@ -235,10 +235,10 @@ function revokePolicyApprovals(
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
-| tokens_ | `ERC20[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
+| tokens_ | `ERC20[]` |  |
 
 ## Events
 
@@ -250,10 +250,10 @@ event ApprovalRevoked(address indexed policy_, ERC20[] tokens_);
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| policy_ | `address` |             |
-| tokens_ | `ERC20[]` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| policy_ | `address` |  |
+| tokens_ | `ERC20[]` |  |
 
 ## Errors
 

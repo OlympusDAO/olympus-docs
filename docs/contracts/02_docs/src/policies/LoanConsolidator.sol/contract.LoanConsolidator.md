@@ -212,10 +212,10 @@ constructor(address kernel_, uint256 feePercentage_) Policy(Kernel(kernel_));
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| kernel_        | `address` |             |
-| feePercentage_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
+| feePercentage_ | `uint256` |  |
 
 <a id="configuredependencies"></a>
 
@@ -454,9 +454,9 @@ function setFeePercentage(
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| feePercentage_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| feePercentage_ | `uint256` |  |
 
 <a id="activate"></a>
 
@@ -582,15 +582,15 @@ function _isValidClearinghouse(address clearinghouse_) internal view returns (bo
 
 **Parameters**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| clearinghouse_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| clearinghouse_ | `address` |  |
 
 **Returns**
 
-| Name         | Type   | Description |
-| ------------ | ------ | ----------- |
-| &lt;none&gt; | `bool` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
 
 <a id="_isvalidcooler-address-address"></a>
 
@@ -677,11 +677,11 @@ function _getMigrationType(
 
 **Returns**
 
-| Name          | Type            | Description                             |
-| ------------- | --------------- | --------------------------------------- |
-| migrationType | `MigrationType` | Migration type                          |
-| reserveFrom   | `IERC20`        | Reserve token for the existing loans    |
-| reserveTo     | `IERC20`        | Reserve token for the consolidated loan |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| migrationType | `MigrationType` |       Migration type |
+| reserveFrom | `IERC20` |         Reserve token for the existing loans |
+| reserveTo | `IERC20` |           Reserve token for the consolidated loan |
 
 <a id="_getflashloanparameters-clearinghouse-clearinghouse-cooler-cooler-uint256-migrationtype-ierc20-ierc20"></a>
 
@@ -717,10 +717,10 @@ function _getFlashloanParameters(
 
 **Returns**
 
-| Name            | Type            | Description             |
-| --------------- | --------------- | ----------------------- |
-| flashloanAmount | `uint256`       | Amount of the flashloan |
-| flashloanParams | `FlashLoanData` | Flashloan parameters    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| flashloanAmount | `uint256` |     Amount of the flashloan |
+| flashloanParams | `FlashLoanData` |     Flashloan parameters |
 
 <a id="getprotocolfee-uint256"></a>
 
@@ -734,15 +734,15 @@ function getProtocolFee(uint256 totalDebt_) public view returns (uint256);
 
 **Parameters**
 
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| totalDebt_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| totalDebt_ | `uint256` |  |
 
 **Returns**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| &lt;none&gt; | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 <a id="requiredapprovals-address-address-uint256"></a>
 
@@ -823,11 +823,11 @@ function collateralRequired(
 
 **Returns**
 
-| Name                       | Type      | Description                                                                                                 |
-| -------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
-| consolidatedLoanCollateral | `uint256` | Collateral required for the consolidated loan.                                                              |
-| existingLoanCollateral     | `uint256` | Collateral of the existing loans.                                                                           |
-| additionalCollateral       | `uint256` | Additional collateral required to consolidate the loans. This will need to be supplied by the Cooler owner. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| consolidatedLoanCollateral | `uint256` |  Collateral required for the consolidated loan. |
+| existingLoanCollateral | `uint256` |      Collateral of the existing loans. |
+| additionalCollateral | `uint256` |        Additional collateral required to consolidate the loans. This will need to be supplied by the Cooler owner. |
 
 <a id="fundsrequired-address-address-uint256"></a>
 
@@ -858,12 +858,12 @@ function fundsRequired(
 
 **Returns**
 
-| Name        | Type      | Description                            |
-| ----------- | --------- | -------------------------------------- |
-| reserveTo   | `address` | Token the fund amounts are in terms of |
-| interest    | `uint256` | Total interest                         |
-| lenderFee   | `uint256` | Lender fee                             |
-| protocolFee | `uint256` | Protocol fee                           |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reserveTo | `address` |           Token the fund amounts are in terms of |
+| interest | `uint256` |            Total interest |
+| lenderFee | `uint256` |           Lender fee |
+| protocolFee | `uint256` |         Protocol fee |
 
 <a id="version"></a>
 
@@ -921,9 +921,9 @@ event FeePercentageSet(uint256 feePercentage);
 
 **Parameters**
 
-| Name          | Type      | Description |
-| ------------- | --------- | ----------- |
-| feePercentage | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| feePercentage | `uint256` |  |
 
 ## Errors
 
@@ -1037,19 +1037,19 @@ struct FlashLoanData {
 
 **Properties**
 
-| Name              | Type            | Description |
-| ----------------- | --------------- | ----------- |
-| clearinghouseFrom | `Clearinghouse` |             |
-| clearinghouseTo   | `Clearinghouse` |             |
-| coolerFrom        | `Cooler`        |             |
-| coolerTo          | `Cooler`        |             |
-| ids               | `uint256[]`     |             |
-| principal         | `uint256`       |             |
-| interest          | `uint256`       |             |
-| protocolFee       | `uint256`       |             |
-| migrationType     | `MigrationType` |             |
-| reserveFrom       | `IERC20`        |             |
-| reserveTo         | `IERC20`        |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| clearinghouseFrom | `Clearinghouse` |  |
+| clearinghouseTo | `Clearinghouse` |  |
+| coolerFrom | `Cooler` |  |
+| coolerTo | `Cooler` |  |
+| ids | `uint256[]` |  |
+| principal | `uint256` |  |
+| interest | `uint256` |  |
+| protocolFee | `uint256` |  |
+| migrationType | `MigrationType` |  |
+| reserveFrom | `IERC20` |  |
+| reserveTo | `IERC20` |  |
 
 ## Enums
 
@@ -1066,9 +1066,9 @@ enum MigrationType {
 
 **Variants**
 
-| Name      | Description |
-| --------- | ----------- |
-| DAI_DAI   |             |
-| USDS_USDS |             |
-| DAI_USDS  |             |
-| USDS_DAI  |             |
+| Name | Description |
+| ---- | ----------- |
+| DAI_DAI |  |
+| USDS_USDS |  |
+| DAI_USDS |  |
+| USDS_DAI |  |

@@ -9,6 +9,10 @@ enable = [
 include = ["**/*.md", "**/*.mdx"]
 exclude = ["node_modules", "dependencies", "build", ".docusaurus", ".pnpm-store"]
 
+[per-file-ignores]
+# Preserve Forge's unaligned tables to keep regenerated diffs small.
+"docs/contracts/02_docs/**" = ["MD060"]
+
 [MD004]
 style = "dash"
 

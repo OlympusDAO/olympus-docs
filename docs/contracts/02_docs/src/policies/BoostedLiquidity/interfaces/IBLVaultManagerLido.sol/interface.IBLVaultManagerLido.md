@@ -16,9 +16,9 @@ function minWithdrawalDelay() external returns (uint48);
 
 **Returns**
 
-| Name         | Type     | Description |
-| ------------ | -------- | ----------- |
-| &lt;none&gt; | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
 
 <a id="deployvault"></a>
 
@@ -276,9 +276,9 @@ function getExpectedTokensOutProtocol(
 
 **Returns**
 
-| Name                 | Type        | Description                                               |
-| -------------------- | ----------- | --------------------------------------------------------- |
-| expectedTokenAmounts | `uint256[]` | The amount of OHM and pair tokens that should be received |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| expectedTokenAmounts | `uint256[]` |    The amount of OHM and pair tokens that should be received |
 
 <a id="getexpectedpairtokenoutuser-uint256"></a>
 
@@ -300,9 +300,9 @@ function getExpectedPairTokenOutUser(
 
 **Returns**
 
-| Name              | Type      | Description                                       |
-| ----------------- | --------- | ------------------------------------------------- |
-| expectedTknAmount | `uint256` | The amount of pair tokens that should be received |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| expectedTknAmount | `uint256` |       The amount of pair tokens that should be received |
 
 <a id="getrewardtokens"></a>
 
@@ -332,9 +332,9 @@ function getRewardRate(address rewardToken_) external view returns (uint256);
 
 **Parameters**
 
-| Name         | Type      | Description |
-| ------------ | --------- | ----------- |
-| rewardToken_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| rewardToken_ | `address` |  |
 
 **Returns**
 
@@ -587,12 +587,12 @@ struct TokenData {
 
 **Properties**
 
-| Name      | Type      | Description |
-| --------- | --------- | ----------- |
-| ohm       | `address` |             |
-| pairToken | `address` |             |
-| aura      | `address` |             |
-| bal       | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ohm | `address` |  |
+| pairToken | `address` |  |
+| aura | `address` |  |
+| bal | `address` |  |
 
 ### BalancerData
 
@@ -606,11 +606,11 @@ struct BalancerData {
 
 **Properties**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| vault          | `address` |             |
-| liquidityPool  | `address` |             |
-| balancerHelper | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| vault | `address` |  |
+| liquidityPool | `address` |  |
+| balancerHelper | `address` |  |
 
 ### AuraData
 
@@ -624,11 +624,11 @@ struct AuraData {
 
 **Properties**
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| pid            | `uint256` |             |
-| auraBooster    | `address` |             |
-| auraRewardPool | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pid | `uint256` |  |
+| auraBooster | `address` |  |
+| auraRewardPool | `address` |  |
 
 ### OracleFeed
 
@@ -641,7 +641,7 @@ struct OracleFeed {
 
 **Properties**
 
-| Name            | Type                    | Description |
-| --------------- | ----------------------- | ----------- |
-| feed            | `AggregatorV3Interface` |             |
-| updateThreshold | `uint48`                |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| feed | `AggregatorV3Interface` |  |
+| updateThreshold | `uint48` |  |

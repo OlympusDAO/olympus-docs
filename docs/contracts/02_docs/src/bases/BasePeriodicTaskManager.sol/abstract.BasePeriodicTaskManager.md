@@ -41,11 +41,11 @@ function _addPeriodicTask(address task_, bytes4 customSelector_, uint256 index_)
 
 **Parameters**
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| task_           | `address` |             |
-| customSelector_ | `bytes4`  |             |
-| index_          | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| task_ | `address` |  |
+| customSelector_ | `bytes4` |  |
+| index_ | `uint256` |  |
 
 <a id="addperiodictask-address"></a>
 
@@ -117,9 +117,9 @@ function _removePeriodicTask(uint256 index_) internal;
 
 **Parameters**
 
-| Name   | Type      | Description |
-| ------ | --------- | ----------- |
-| index_ | `uint256` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| index_ | `uint256` |  |
 
 <a id="removeperiodictask-address"></a>
 
@@ -273,9 +273,9 @@ function getPeriodicTaskIndex(address task_) public view override returns (uint2
 
 **Returns**
 
-| Name   | Type      | Description                                              |
-| ------ | --------- | -------------------------------------------------------- |
-| _index | `uint256` | The index of the task, or type(uint256).max if not found |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _index | `uint256` |  The index of the task, or type(uint256).max if not found |
 
 <a id="hasperiodictask-address"></a>
 

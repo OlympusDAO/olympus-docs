@@ -56,9 +56,9 @@ constructor(address kernel_) Policy(Kernel(kernel_));
 
 **Parameters**
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| kernel_ | `address` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `address` |  |
 
 <a id="configuredependencies"></a>
 
@@ -108,9 +108,9 @@ function VERSION() external pure returns (uint8);
 
 **Returns**
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| &lt;none&gt; | `uint8` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 <a id="onlypolicyactive"></a>
 

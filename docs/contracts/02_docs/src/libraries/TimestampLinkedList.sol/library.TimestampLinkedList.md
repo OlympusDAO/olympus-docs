@@ -263,9 +263,9 @@ error TimestampLinkedList_InvalidTimestamp(uint48 timestamp);
 
 **Parameters**
 
-| Name      | Type     | Description |
-| --------- | -------- | ----------- |
-| timestamp | `uint48` |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| timestamp | `uint48` |  |
 
 ## Structs
 
