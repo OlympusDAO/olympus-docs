@@ -1,26 +1,38 @@
 # OlympusBoostedLiquidityRegistry
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/modules/BLREG/OlympusBoostedLiquidityRegistry.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/modules/BLREG/OlympusBoostedLiquidityRegistry.sol)
 
-**Inherits:**
-[BLREGv1](/main/contracts/docs/src/modules/BLREG/BLREG.v1.sol/abstract.BLREGv1)
+**Inherits:** [BLREGv1](/main/contracts/docs/src/modules/BLREG/BLREG.v1.sol/abstract.BLREGv1)
 
-**Title:**
-Olympus Boosted Liquidity Vault Registry
+**Title:** Olympus Boosted Liquidity Vault Registry
 
 Olympus Boosted Liquidity Vault Registry (Module) Contract
+
+<i>
 
 The Olympus Boosted Liquidity Vault Registry Module tracks the boosted liquidity vaults
 that are approved to be used by the Olympus protocol. This allows for a single-soure
 of truth for reporting purposes around total OHM deployed and net emissions.
 
+</i>
+
 ## Functions
+
+<a id="constructor-kernel"></a>
 
 ### constructor
 
 ```solidity
 constructor(Kernel kernel_) Module(kernel_);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| kernel_ | `Kernel` |  |
+
+<a id="keycode"></a>
 
 ### KEYCODE
 
@@ -29,6 +41,14 @@ constructor(Kernel kernel_) Module(kernel_);
 ```solidity
 function KEYCODE() public pure override returns (Keycode);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Keycode` |  |
+
+<a id="version"></a>
 
 ### VERSION
 
@@ -40,10 +60,12 @@ function VERSION() public pure override returns (uint8 major, uint8 minor);
 
 **Returns**
 
-| Name    | Type    | Description                                                         |
-| ------- | ------- | ------------------------------------------------------------------- |
-| `major` | `uint8` | - Major version upgrade indicates breaking change to the interface. |
-| `minor` | `uint8` | - Minor version change retains backward-compatible interface.       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| major | `uint8` | - Major version upgrade indicates breaking change to the interface. |
+| minor | `uint8` | - Minor version change retains backward-compatible interface. |
+
+<a id="addvault-address"></a>
 
 ### addVault
 
@@ -55,9 +77,11 @@ function addVault(address vault_) external override permissioned;
 
 **Parameters**
 
-| Name     | Type      | Description                     |
-| -------- | --------- | ------------------------------- |
-| `vault_` | `address` | The address of the vault to add |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| vault_ | `address` | The address of the vault to add |
+
+<a id="removevault-address"></a>
 
 ### removeVault
 
@@ -69,6 +93,6 @@ function removeVault(address vault_) external override permissioned;
 
 **Parameters**
 
-| Name     | Type      | Description                        |
-| -------- | --------- | ---------------------------------- |
-| `vault_` | `address` | The address of the vault to remove |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| vault_ | `address` | The address of the vault to remove |

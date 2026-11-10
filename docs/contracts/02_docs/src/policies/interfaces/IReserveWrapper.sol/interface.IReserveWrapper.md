@@ -1,13 +1,14 @@
 # IReserveWrapper
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/IReserveWrapper.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/IReserveWrapper.sol)
 
-**Title:**
-IReserveWrapper
+**Title:** IReserveWrapper
 
 Interface for the ReserveWrapper policy
 
 ## Functions
+
+<a id="getreserve"></a>
 
 ### getReserve
 
@@ -17,6 +18,14 @@ Returns the address of the reserve token
 function getReserve() external view returns (address);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
+
+<a id="getsreserve"></a>
+
 ### getSReserve
 
 Returns the address of the sReserve token
@@ -25,6 +34,12 @@ Returns the address of the sReserve token
 function getSReserve() external view returns (address);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
+
 ## Events
 
 ### ReserveWrapped
@@ -32,6 +47,14 @@ function getSReserve() external view returns (address);
 ```solidity
 event ReserveWrapped(address indexed reserve, address indexed sReserve, uint256 amount);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reserve | `address` |  |
+| sReserve | `address` |  |
+| amount | `uint256` |  |
 
 ## Errors
 

@@ -1,58 +1,82 @@
 # OlympusAccessControlled
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/OlympusERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/external/OlympusERC20.sol)
 
 ## State Variables
 
 ### UNAUTHORIZED
 
 ```solidity
-string internal UNAUTHORIZED = "UNAUTHORIZED"
+string internal UNAUTHORIZED = "UNAUTHORIZED";
 ```
 
 ### authority
 
 ```solidity
-IOlympusAuthority public authority
+IOlympusAuthority public authority;
 ```
 
 ## Functions
 
+<a id="constructor-iolympusauthority"></a>
+
 ### constructor
 
 ```solidity
-constructor(IOlympusAuthority _authority) ;
+constructor(IOlympusAuthority _authority);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _authority | `IOlympusAuthority` |  |
+
+<a id="onlygovernor"></a>
 
 ### onlyGovernor
 
 ```solidity
-modifier onlyGovernor() ;
+modifier onlyGovernor();
 ```
+
+<a id="onlyguardian"></a>
 
 ### onlyGuardian
 
 ```solidity
-modifier onlyGuardian() ;
+modifier onlyGuardian();
 ```
+
+<a id="onlypermitted"></a>
 
 ### onlyPermitted
 
 ```solidity
-modifier onlyPermitted() ;
+modifier onlyPermitted();
 ```
+
+<a id="onlyvault"></a>
 
 ### onlyVault
 
 ```solidity
-modifier onlyVault() ;
+modifier onlyVault();
 ```
+
+<a id="setauthority-iolympusauthority"></a>
 
 ### setAuthority
 
 ```solidity
 function setAuthority(IOlympusAuthority _newAuthority) external onlyGovernor;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _newAuthority | `IOlympusAuthority` |  |
 
 ## Events
 
@@ -61,3 +85,9 @@ function setAuthority(IOlympusAuthority _newAuthority) external onlyGovernor;
 ```solidity
 event AuthorityUpdated(IOlympusAuthority indexed authority);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| authority | `IOlympusAuthority` |  |

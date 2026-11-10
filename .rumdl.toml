@@ -1,0 +1,23 @@
+[global]
+# Site-wide formatting. Contract generation uses .markdownlint-contracts.json
+# for its additional lint rules.
+enable = [
+  "MD004", "MD007", "MD009", "MD010", "MD012", "MD022", "MD023",
+  "MD027", "MD030", "MD031", "MD032", "MD037", "MD038", "MD039",
+  "MD047", "MD048", "MD049", "MD050", "MD055", "MD058", "MD060",
+]
+include = ["**/*.md", "**/*.mdx"]
+exclude = ["node_modules", "dependencies", "build", ".docusaurus", ".pnpm-store"]
+
+[per-file-ignores]
+# Preserve Forge's unaligned tables to keep regenerated diffs small.
+"docs/contracts/02_docs/**" = ["MD060"]
+
+[MD004]
+style = "dash"
+
+[MD007]
+indent = 2
+
+[MD048]
+style = "backtick"

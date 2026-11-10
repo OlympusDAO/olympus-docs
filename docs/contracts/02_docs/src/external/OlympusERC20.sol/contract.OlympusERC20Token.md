@@ -1,20 +1,31 @@
 # OlympusERC20Token
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/OlympusERC20.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/external/OlympusERC20.sol)
 
-**Inherits:**
-[ERC20Permit](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.ERC20Permit), [IOHM](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IOHM), [OlympusAccessControlled](/main/contracts/docs/src/external/OlympusAuthority.sol/abstract.OlympusAccessControlled)
+**Inherits:** [ERC20Permit](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.ERC20Permit), [IOHM](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IOHM), [OlympusAccessControlled](/main/contracts/docs/src/external/OlympusERC20.sol/abstract.OlympusAccessControlled)
 
 ## Functions
+
+<a id="constructor-address"></a>
 
 ### constructor
 
 ```solidity
-constructor(address _authority)
-    ERC20("Olympus", "OHM", 9)
-    ERC20Permit("Olympus")
-    OlympusAccessControlled(IOlympusAuthority(_authority));
+constructor(
+        address _authority
+    )
+        ERC20("Olympus", "OHM", 9)
+        ERC20Permit("Olympus")
+        OlympusAccessControlled(IOlympusAuthority(_authority));
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _authority | `address` |  |
+
+<a id="mint-address-uint256"></a>
 
 ### mint
 
@@ -22,11 +33,28 @@ constructor(address _authority)
 function mint(address account_, uint256 amount_) external override onlyVault;
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` |  |
+| amount_ | `uint256` |  |
+
+<a id="burn-uint256"></a>
+
 ### burn
 
 ```solidity
 function burn(uint256 amount) external override;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount | `uint256` |  |
+
+<a id="burnfrom-address-uint256"></a>
 
 ### burnFrom
 
@@ -34,8 +62,24 @@ function burn(uint256 amount) external override;
 function burnFrom(address account_, uint256 amount_) external override;
 ```
 
-### \_burnFrom
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` |  |
+| amount_ | `uint256` |  |
+
+<a id="_burnfrom-address-uint256"></a>
+
+### _burnFrom
 
 ```solidity
 function _burnFrom(address account_, uint256 amount_) internal;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account_ | `address` |  |
+| amount_ | `uint256` |  |

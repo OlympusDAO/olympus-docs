@@ -19,8 +19,8 @@ All currency and money, be it USD or BTC, are ultimately backed by collective fa
 
 Olympus, like any currency issuer, has two main tools at its disposal.
 
-1.  Liquidity
-2.  Interest Rates
+1. Liquidity
+2. Interest Rates
 
 We see the treasury’s control over liquidity manifested most intuitively as ownership of liquidity pools and the ability to increase or decrease liquidity through reserves. The protocol can always generate or diminish liquidity, either by purchasing or selling liquidity shares on the open market with OHM or reserves, or by creating or destroying liquidity shares directly with the addition or removal of OHM and reserves. Though the treasury has been passive to date, it is worthwhile to note that it can take active control over not only market liquidity, but pricing as well – as the dominant owner of the market, the treasury has the power to set market price.
 

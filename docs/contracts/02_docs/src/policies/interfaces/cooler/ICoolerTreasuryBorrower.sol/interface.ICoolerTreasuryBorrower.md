@@ -1,9 +1,8 @@
 # ICoolerTreasuryBorrower
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/cooler/ICoolerTreasuryBorrower.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/cooler/ICoolerTreasuryBorrower.sol)
 
-**Title:**
-Cooler Treasury Borrower
+**Title:** Cooler Treasury Borrower
 
 Policy which can borrow from Treasury on behalf of Cooler
 
@@ -16,11 +15,17 @@ Policy which can borrow from Treasury on behalf of Cooler
 
 ## Functions
 
+<a id="borrow-uint256-address"></a>
+
 ### borrow
 
 Cooler borrows `amount` of `debtToken` from treasury, sent to `recipient`
 
+<i>
+
 If the debtToken is 6dp (eg USDC) then this contract needs to handle the conversion internally
+
+</i>
 
 ```solidity
 function borrow(uint256 amountInWad, address recipient) external;
@@ -28,30 +33,50 @@ function borrow(uint256 amountInWad, address recipient) external;
 
 **Parameters**
 
-| Name          | Type      | Description                                                                             |
-| ------------- | --------- | --------------------------------------------------------------------------------------- |
-| `amountInWad` | `uint256` | The amount to borrow. Always 18 decimal places regardless of the `debtToken.decimals()` |
-| `recipient`   | `address` |                                                                                         |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amountInWad | `uint256` | The amount to borrow. Always 18 decimal places<br/>regardless of the `debtToken.decimals()` |
+| recipient | `address` |  |
+
+<a id="repay"></a>
 
 ### repay
 
 Repay any `debtToken` in this contract back to treasury.
 
+<i>
+
 Cooler is expected to transfer the amount to this contract prior to calling
+
+</i>
 
 ```solidity
 function repay() external;
 ```
 
+<a id="writeoffdebt-uint256"></a>
+
 ### writeOffDebt
 
 Cooler may write off debt in the case of liquidations.
 
+<i>
+
 This reduces the policies debt to TRSRY
+
+</i>
 
 ```solidity
 function writeOffDebt(uint256 debtTokenAmount) external;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtTokenAmount | `uint256` |  |
+
+<a id="setdebt-uint256"></a>
 
 ### setDebt
 
@@ -65,9 +90,11 @@ function setDebt(uint256 debtTokenAmount) external;
 
 **Parameters**
 
-| Name              | Type      | Description                                                                  |
-| ----------------- | --------- | ---------------------------------------------------------------------------- |
-| `debtTokenAmount` | `uint256` | The amount of debt to set in Treasury, in the debtToken.decimals() precision |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| debtTokenAmount | `uint256` | The amount of debt to set in Treasury, in the debtToken.decimals() precision |
+
+<a id="debttoken"></a>
 
 ### debtToken
 
@@ -77,23 +104,58 @@ The token (USD based stablecoin) which Cooler users borrow and repay
 function debtToken() external view returns (IERC20);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
+
+<a id="converttodebttokenamount-uint256"></a>
+
 ### convertToDebtTokenAmount
 
 Convert a debt amount in wad (18dp) into the decimals of the `debtToken`
 
 ```solidity
-function convertToDebtTokenAmount(uint256 amountInWad) external view returns (IERC20 dToken, uint256 dTokenAmount);
+function convertToDebtTokenAmount(
+        uint256 amountInWad
+    ) external view returns (IERC20 dToken, uint256 dTokenAmount);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amountInWad | `uint256` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dToken | `IERC20` |  |
+| dTokenAmount | `uint256` |  |
+
+<a id="decimals"></a>
 
 ### DECIMALS
 
 The decimal precision of the `amountInWad` used in borrow and repay functions.
 
+<i>
+
 A constant of 18
+
+</i>
 
 ```solidity
 function DECIMALS() external view returns (uint8);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint8` |  |
 
 ## Errors
 

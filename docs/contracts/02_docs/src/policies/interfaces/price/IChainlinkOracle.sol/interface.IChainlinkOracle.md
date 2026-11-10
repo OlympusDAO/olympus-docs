@@ -1,19 +1,18 @@
 # IChainlinkOracle
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/price/IChainlinkOracle.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/price/IChainlinkOracle.sol)
 
-**Inherits:**
-[AggregatorV2V3Interface](/main/contracts/docs/src/interfaces/AggregatorV2V3Interface.sol/interface.AggregatorV2V3Interface)
+**Inherits:** [AggregatorV2V3Interface](/main/contracts/docs/src/interfaces/AggregatorV2V3Interface.sol/interface.AggregatorV2V3Interface)
 
-**Title:**
-IChainlinkOracle
+**Title:** IChainlinkOracle
 
-**Author:**
-OlympusDAO
+**Author:** OlympusDAO
 
 Interface for a Chainlink-compatible oracle
 
 ## Functions
+
+<a id="basetoken"></a>
 
 ### baseToken
 
@@ -25,9 +24,11 @@ function baseToken() external view returns (address baseToken_);
 
 **Returns**
 
-| Name         | Type      | Description            |
-| ------------ | --------- | ---------------------- |
-| `baseToken_` | `address` | The base token address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| baseToken_ | `address` |  The base token address |
+
+<a id="quotetoken"></a>
 
 ### quoteToken
 
@@ -39,9 +40,11 @@ function quoteToken() external view returns (address quoteToken_);
 
 **Returns**
 
-| Name          | Type      | Description             |
-| ------------- | --------- | ----------------------- |
-| `quoteToken_` | `address` | The quote token address |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| quoteToken_ | `address` | The quote token address |
+
+<a id="maxage"></a>
 
 ### maxAge
 
@@ -53,9 +56,11 @@ function maxAge() external view returns (uint48 maxAge_);
 
 **Returns**
 
-| Name      | Type     | Description                                 |
-| --------- | -------- | ------------------------------------------- |
-| `maxAge_` | `uint48` | The configured maximum cache age in seconds |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxAge_ | `uint48` |  The configured maximum cache age in seconds |
+
+<a id="name"></a>
 
 ### name
 
@@ -67,9 +72,11 @@ function name() external view returns (string memory name_);
 
 **Returns**
 
-| Name    | Type     | Description |
-| ------- | -------- | ----------- |
-| `name_` | `string` | The name    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name_ | `string` |   The name |
+
+<a id="isstale"></a>
 
 ### isStale
 
@@ -81,9 +88,9 @@ function isStale() external view returns (bool isStale_);
 
 **Returns**
 
-| Name       | Type   | Description                                                     |
-| ---------- | ------ | --------------------------------------------------------------- |
-| `isStale_` | `bool` | true if the direct pair cache is unset or older than `maxAge()` |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| isStale_ | `bool` |    true if the direct pair cache is unset or older than `maxAge()` |
 
 ## Errors
 
@@ -113,7 +120,7 @@ error ChainlinkOracle_Stale(uint256 cachedTimestamp, uint256 latestPermissibleTi
 
 **Parameters**
 
-| Name                         | Type      | Description                                                     |
-| ---------------------------- | --------- | --------------------------------------------------------------- |
-| `cachedTimestamp`            | `uint256` | The cached timestamp used for the base/quote pair               |
-| `latestPermissibleTimestamp` | `uint256` | The oldest permissible timestamp (`block.timestamp - maxAge()`) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cachedTimestamp | `uint256` | The cached timestamp used for the base/quote pair |
+| latestPermissibleTimestamp | `uint256` | The oldest permissible timestamp (`block.timestamp - maxAge()`) |

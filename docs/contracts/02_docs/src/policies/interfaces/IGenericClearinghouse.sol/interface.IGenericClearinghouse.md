@@ -1,8 +1,10 @@
 # IGenericClearinghouse
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/IGenericClearinghouse.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/IGenericClearinghouse.sol)
 
 ## Functions
+
+<a id="debttoken"></a>
 
 ### debtToken
 
@@ -12,6 +14,14 @@ The debt token of the clearinghouse.
 function debtToken() external view returns (IERC20);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
+
+<a id="collateraltoken"></a>
+
 ### collateralToken
 
 The collateral token of the clearinghouse.
@@ -20,6 +30,14 @@ The collateral token of the clearinghouse.
 function collateralToken() external view returns (IERC20);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `IERC20` |  |
+
+<a id="duration"></a>
+
 ### duration
 
 The duration of the loan.
@@ -27,6 +45,14 @@ The duration of the loan.
 ```solidity
 function duration() external view returns (uint48);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
+
+<a id="interestrate"></a>
 
 ### interestRate
 
@@ -37,6 +63,14 @@ Stored as a percentage, in terms of 1e18.
 function interestRate() external view returns (uint256);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="loantocollateral"></a>
+
 ### loanToCollateral
 
 The ratio of debt tokens to collateral tokens.
@@ -45,6 +79,14 @@ The ratio of debt tokens to collateral tokens.
 function loanToCollateral() external view returns (uint256);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="maxrewardperloan"></a>
+
 ### maxRewardPerLoan
 
 The maximum reward (in collateral tokens) per loan.
@@ -52,6 +94,14 @@ The maximum reward (in collateral tokens) per loan.
 ```solidity
 function maxRewardPerLoan() external view returns (uint256);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="lendtocooler-icooler-uint256"></a>
 
 ### lendToCooler
 
@@ -63,16 +113,18 @@ function lendToCooler(ICooler cooler_, uint256 amount_) external returns (uint25
 
 **Parameters**
 
-| Name      | Type      | Description                       |
-| --------- | --------- | --------------------------------- |
-| `cooler_` | `ICooler` | The Cooler instance to lend to.   |
-| `amount_` | `uint256` | The amount of debt token to lend. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler_ | `ICooler` | The Cooler instance to lend to. |
+| amount_ | `uint256` | The amount of debt token to lend. |
 
 **Returns**
 
-| Name     | Type      | Description                 |
-| -------- | --------- | --------------------------- |
-| `loanId` | `uint256` | The id of the granted loan. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanId | `uint256` |  The id of the granted loan. |
+
+<a id="extendloan-icooler-uint256-uint8"></a>
 
 ### extendLoan
 
@@ -84,18 +136,24 @@ function extendLoan(ICooler cooler_, uint256 loanId_, uint8 times_) external;
 
 **Parameters**
 
-| Name      | Type      | Description                                 |
-| --------- | --------- | ------------------------------------------- |
-| `cooler_` | `ICooler` | The Cooler instance to extend the loan for. |
-| `loanId_` | `uint256` | The id of the loan to extend.               |
-| `times_`  | `uint8`   | The number of times to extend the loan.     |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler_ | `ICooler` | The Cooler instance to extend the loan for. |
+| loanId_ | `uint256` | The id of the loan to extend. |
+| times_ | `uint8` | The number of times to extend the loan. |
+
+<a id="claimdefaulted-address-uint256"></a>
 
 ### claimDefaulted
 
 Batch several default claims to save gas.
 The elements on both arrays must be paired based on their index.
 
+<i>
+
 Implements an auction style reward system that linearly increases up to a max reward.
+
+</i>
 
 ```solidity
 function claimDefaulted(address[] calldata coolers_, uint256[] calldata loans_) external;
@@ -103,10 +161,12 @@ function claimDefaulted(address[] calldata coolers_, uint256[] calldata loans_) 
 
 **Parameters**
 
-| Name       | Type        | Description                                           |
-| ---------- | ----------- | ----------------------------------------------------- |
-| `coolers_` | `address[]` | Array of contracts where the default must be claimed. |
-| `loans_`   | `uint256[]` | Array of defaulted loan ids.                          |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| coolers_ | `address[]` | Array of contracts where the default must be claimed. |
+| loans_ | `uint256[]` | Array of defaulted loan ids. |
+
+<a id="getcollateralforloan-uint256"></a>
 
 ### getCollateralForLoan
 
@@ -118,57 +178,68 @@ function getCollateralForLoan(uint256 principal_) external view returns (uint256
 
 **Parameters**
 
-| Name         | Type      | Description                                          |
-| ------------ | --------- | ---------------------------------------------------- |
-| `principal_` | `uint256` | The amount of debt tokens to compute collateral for. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| principal_ | `uint256` | The amount of debt tokens to compute collateral for. |
 
 **Returns**
 
-| Name     | Type      | Description                                                         |
-| -------- | --------- | ------------------------------------------------------------------- |
-| `<none>` | `uint256` | collateral\_ The amount of collateral tokens required for the loan. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | collateral_ The amount of collateral tokens required for the loan. |
+
+<a id="getloanforcollateral-uint256"></a>
 
 ### getLoanForCollateral
 
 View function computing loan for a collateral amount.
 
 ```solidity
-function getLoanForCollateral(uint256 collateral_) external view returns (uint256 principal, uint256 interest);
+function getLoanForCollateral(
+        uint256 collateral_
+    ) external view returns (uint256 principal, uint256 interest);
 ```
 
 **Parameters**
 
-| Name          | Type      | Description                                              |
-| ------------- | --------- | -------------------------------------------------------- |
-| `collateral_` | `uint256` | The amount of collateral tokens to compute the loan for. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateral_ | `uint256` | The amount of collateral tokens to compute the loan for. |
 
 **Returns**
 
-| Name        | Type      | Description                                 |
-| ----------- | --------- | ------------------------------------------- |
-| `principal` | `uint256` | The amount of debt tokens for the loan.     |
-| `interest`  | `uint256` | The amount of interest tokens for the loan. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| principal | `uint256` |   The amount of debt tokens for the loan. |
+| interest | `uint256` |    The amount of interest tokens for the loan. |
+
+<a id="interestforloan-uint256-uint256"></a>
 
 ### interestForLoan
 
 View function to compute the interest for given principal amount.
 
 ```solidity
-function interestForLoan(uint256 principal_, uint256 duration_) external view returns (uint256 interest);
+function interestForLoan(
+        uint256 principal_,
+        uint256 duration_
+    ) external view returns (uint256 interest);
 ```
 
 **Parameters**
 
-| Name         | Type      | Description                       |
-| ------------ | --------- | --------------------------------- |
-| `principal_` | `uint256` | The amount of reserve being lent. |
-| `duration_`  | `uint256` | The elapsed time in seconds.      |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| principal_ | `uint256` | The amount of reserve being lent. |
+| duration_ | `uint256` | The elapsed time in seconds. |
 
 **Returns**
 
-| Name       | Type      | Description                          |
-| ---------- | --------- | ------------------------------------ |
-| `interest` | `uint256` | The amount of interest for the loan. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interest | `uint256` |    The amount of interest for the loan. |
+
+<a id="principalreceivables"></a>
 
 ### principalReceivables
 
@@ -178,6 +249,14 @@ The amount of principal receivables.
 function principalReceivables() external view returns (uint256);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="interestreceivables"></a>
+
 ### interestReceivables
 
 The amount of interest receivables.
@@ -185,6 +264,14 @@ The amount of interest receivables.
 ```solidity
 function interestReceivables() external view returns (uint256);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="gettotalreceivables"></a>
 
 ### getTotalReceivables
 
@@ -195,6 +282,12 @@ Includes both principal and interest.
 function getTotalReceivables() external view returns (uint256);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
 ## Events
 
 ### YieldSwept
@@ -203,11 +296,24 @@ function getTotalReceivables() external view returns (uint256);
 event YieldSwept(address indexed to, uint256 amount);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to | `address` |  |
+| amount | `uint256` |  |
+
 ### InterestRateSet
 
 ```solidity
 event InterestRateSet(uint256 interestRate);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| interestRate | `uint256` |  |
 
 ### MaxRewardPerLoanSet
 
@@ -215,17 +321,35 @@ event InterestRateSet(uint256 interestRate);
 event MaxRewardPerLoanSet(uint256 maxRewardPerLoan);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxRewardPerLoan | `uint256` |  |
+
 ### LoanToCollateralSet
 
 ```solidity
 event LoanToCollateralSet(uint256 loanToCollateral);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loanToCollateral | `uint256` |  |
+
 ### DurationSet
 
 ```solidity
 event DurationSet(uint48 duration);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| duration | `uint48` |  |
 
 ## Errors
 
@@ -276,3 +400,9 @@ error NotLender();
 ```solidity
 error InvalidParams(string reason);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason | `string` |  |

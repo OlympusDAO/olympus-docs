@@ -1,9 +1,8 @@
 # INSTRv1
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/modules/INSTR/INSTR.v1.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/modules/INSTR/INSTR.v1.sol)
 
-**Inherits:**
-[Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
+**Inherits:** [Module](/main/contracts/docs/src/Kernel.sol/abstract.Module)
 
 Caches and executes batched instructions for protocol upgrades in the Kernel.
 
@@ -14,7 +13,7 @@ Caches and executes batched instructions for protocol upgrades in the Kernel.
 Counter of total instructions
 
 ```solidity
-uint256 public totalInstructions
+uint256 public totalInstructions;
 ```
 
 ### storedInstructions
@@ -22,18 +21,36 @@ uint256 public totalInstructions
 All stored instructions per count in totalInstructions
 
 ```solidity
-mapping(uint256 => Instruction[]) public storedInstructions
+mapping(uint256 => Instruction[]) public storedInstructions;
 ```
 
 ## Functions
+
+<a id="getinstructions-uint256"></a>
 
 ### getInstructions
 
 View function for retrieving a list of Instructions in an outside contract.
 
 ```solidity
-function getInstructions(uint256 instructionsId_) external virtual returns (Instruction[] memory);
+function getInstructions(
+        uint256 instructionsId_
+    ) external virtual returns (Instruction[] memory);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| instructionsId_ | `uint256` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Instruction[]` |  |
+
+<a id="store-instruction"></a>
 
 ### store
 
@@ -43,6 +60,18 @@ Store a list of Instructions to be executed in the future.
 function store(Instruction[] calldata instructions_) external virtual returns (uint256);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| instructions_ | `Instruction[]` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
 ## Events
 
 ### InstructionsStored
@@ -50,6 +79,12 @@ function store(Instruction[] calldata instructions_) external virtual returns (u
 ```solidity
 event InstructionsStored(uint256 instructionsId);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| instructionsId | `uint256` |  |
 
 ## Errors
 

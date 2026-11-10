@@ -1,13 +1,17 @@
 # IYieldRepo
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/IYieldRepo.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/IYieldRepo.sol)
 
 ## Functions
+
+<a id="endepoch"></a>
 
 ### endEpoch
 
 Triggers the yield repurchase facility functionality
 Access controlled to the "heart" role
+
+<i>
 
 Increments the epoch and triggers various actions depending on the new epoch number
 When epoch == epochLength (21), withdraws the last week's yield and interest from the treasury
@@ -15,9 +19,13 @@ When epoch % 3 == 0 (once a day), triggers the creation of a bond market with th
 Otherwise, does nothing.
 The contract can be shutdown and this function will still work, but executes no logic.
 
+</i>
+
 ```solidity
 function endEpoch() external;
 ```
+
+<a id="epoch"></a>
 
 ### epoch
 
@@ -29,6 +37,14 @@ Returns the current epoch
 function epoch() external view returns (uint48);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
+
+<a id="isshutdown"></a>
+
 ### isShutdown
 
 Returns whether the contract is shutdown
@@ -36,6 +52,14 @@ Returns whether the contract is shutdown
 ```solidity
 function isShutdown() external view returns (bool);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
+
+<a id="getreservebalance"></a>
 
 ### getReserveBalance
 
@@ -45,23 +69,54 @@ Returns the current balance of yield generating reserves in the treasury and cle
 function getReserveBalance() external view returns (uint256);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="getnextyield"></a>
+
 ### getNextYield
 
 Returns the next yield amount which is converted to the bid budget
 
+<i>
+
 This value uses the current sDAI balance, but always assumes a week's worth of interest for the clearinghouse
 Therefore, it's only accurate when called close to the end of the epoch
+
+</i>
 
 ```solidity
 function getNextYield() external view returns (uint256);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="getohmbalanceandbacking"></a>
+
 ### getOhmBalanceAndBacking
 
 Returns the contract's OHM balance and the DAI balance to be returned for burning the OHM
 
+<i>
+
 This computes a DAI amount using contract ohm balance and backing of 11.33 DAI
+
+</i>
 
 ```solidity
 function getOhmBalanceAndBacking() external view returns (uint256, uint256);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |

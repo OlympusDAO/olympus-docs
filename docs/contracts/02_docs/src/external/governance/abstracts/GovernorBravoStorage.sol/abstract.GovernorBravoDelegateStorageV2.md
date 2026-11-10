@@ -1,9 +1,8 @@
 # GovernorBravoDelegateStorageV2
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/governance/abstracts/GovernorBravoStorage.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/external/governance/abstracts/GovernorBravoStorage.sol)
 
-**Inherits:**
-[GovernorBravoDelegateStorageV1](/main/contracts/docs/src/external/governance/abstracts/GovernorBravoStorage.sol/abstract.GovernorBravoDelegateStorageV1)
+**Inherits:** [GovernorBravoDelegateStorageV1](/main/contracts/docs/src/external/governance/abstracts/GovernorBravoStorage.sol/abstract.GovernorBravoDelegateStorageV1)
 
 ## State Variables
 
@@ -11,12 +10,16 @@
 
 Modules in the Default system that are considered high risk
 
+<i>
+
 In Default Framework, Keycodes are used to uniquely identify modules. They are a
 wrapper over the bytes5 data type, and allow us to easily check if a proposal is
 touching any specific modules
 
+</i>
+
 ```solidity
-mapping(Keycode => bool) public isKeycodeHighRisk
+mapping(Keycode => bool) public isKeycodeHighRisk;
 ```
 
 ### vetoGuardian
@@ -24,15 +27,19 @@ mapping(Keycode => bool) public isKeycodeHighRisk
 Address which has veto power over all proposals
 
 ```solidity
-address public vetoGuardian
+address public vetoGuardian;
 ```
 
 ### kernel
 
 The central hub of the Default Framework system that manages modules and policies
 
+<i>
+
 Used in this adaptation of Governor Bravo to identify high risk proposals
 
+</i>
+
 ```solidity
-address public kernel
+address public kernel;
 ```

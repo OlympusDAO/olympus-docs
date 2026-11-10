@@ -159,6 +159,19 @@ const config = {
               },
             ],
           },
+          {
+            title: "Legal",
+            items: [
+              {
+                label: "Privacy Policy",
+                to: "/main/legal/privacy-policy",
+              },
+              {
+                label: "Terms of Use",
+                to: "/main/legal/terms-of-use",
+              },
+            ],
+          },
         ],
       },
       prism: {

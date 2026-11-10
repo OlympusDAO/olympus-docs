@@ -1,18 +1,17 @@
 # GovernorBravoDelegate
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/governance/GovernorBravoDelegate.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/external/governance/GovernorBravoDelegate.sol)
 
-**Inherits:**
-[GovernorBravoDelegateStorageV2](/main/contracts/docs/src/external/governance/abstracts/GovernorBravoStorage.sol/abstract.GovernorBravoDelegateStorageV2), [IGovernorBravoEventsAndErrors](/main/contracts/docs/src/external/governance/interfaces/IGovernorBravoEvents.sol/interface.IGovernorBravoEventsAndErrors)
+**Inherits:** [GovernorBravoDelegateStorageV2](/main/contracts/docs/src/external/governance/abstracts/GovernorBravoStorage.sol/abstract.GovernorBravoDelegateStorageV2), [IGovernorBravoEventsAndErrors](/main/contracts/docs/src/external/governance/interfaces/IGovernorBravoEvents.sol/interface.IGovernorBravoEventsAndErrors)
 
-## State Variables
+## Constants
 
 ### name
 
 The name of this contract
 
 ```solidity
-string public constant name = "Olympus Governor Bravo"
+string public constant name = "Olympus Governor Bravo";
 ```
 
 ### MIN_PROPOSAL_THRESHOLD_PCT
@@ -20,7 +19,7 @@ string public constant name = "Olympus Governor Bravo"
 The minimum setable proposal threshold
 
 ```solidity
-uint256 public constant MIN_PROPOSAL_THRESHOLD_PCT = 15_000
+uint256 public constant MIN_PROPOSAL_THRESHOLD_PCT = 15_000;
 ```
 
 ### MAX_PROPOSAL_THRESHOLD_PCT
@@ -28,7 +27,7 @@ uint256 public constant MIN_PROPOSAL_THRESHOLD_PCT = 15_000
 The maximum setable proposal threshold
 
 ```solidity
-uint256 public constant MAX_PROPOSAL_THRESHOLD_PCT = 1_000_000
+uint256 public constant MAX_PROPOSAL_THRESHOLD_PCT = 1_000_000;
 ```
 
 ### MIN_VOTING_PERIOD
@@ -36,7 +35,7 @@ uint256 public constant MAX_PROPOSAL_THRESHOLD_PCT = 1_000_000
 The minimum setable voting period
 
 ```solidity
-uint256 public constant MIN_VOTING_PERIOD = 21600
+uint256 public constant MIN_VOTING_PERIOD = 21600;
 ```
 
 ### MAX_VOTING_PERIOD
@@ -44,7 +43,7 @@ uint256 public constant MIN_VOTING_PERIOD = 21600
 The max setable voting period
 
 ```solidity
-uint256 public constant MAX_VOTING_PERIOD = 100800
+uint256 public constant MAX_VOTING_PERIOD = 100800;
 ```
 
 ### MIN_VOTING_DELAY
@@ -52,7 +51,7 @@ uint256 public constant MAX_VOTING_PERIOD = 100800
 The min setable voting delay
 
 ```solidity
-uint256 public constant MIN_VOTING_DELAY = 7200
+uint256 public constant MIN_VOTING_DELAY = 7200;
 ```
 
 ### MAX_VOTING_DELAY
@@ -60,7 +59,7 @@ uint256 public constant MIN_VOTING_DELAY = 7200
 The max setable voting delay
 
 ```solidity
-uint256 public constant MAX_VOTING_DELAY = 50400
+uint256 public constant MAX_VOTING_DELAY = 50400;
 ```
 
 ### MIN_GOHM_SUPPLY
@@ -68,18 +67,22 @@ uint256 public constant MAX_VOTING_DELAY = 50400
 The minimum level of gOHM supply acceptable for OCG operations
 
 ```solidity
-uint256 public constant MIN_GOHM_SUPPLY = 1_000e18
+uint256 public constant MIN_GOHM_SUPPLY = 1_000e18;
 ```
 
 ### quorumPct
 
 The percentage of total supply in support of a proposal required in order for a quorum to be reached and for a vote to succeed
 
+<i>
+
 Olympus has a variable supply system, that actively fluctuates fairly significantly, so it is better to use
 a percentage of total supply, rather than a fixed number of tokens.
 
+</i>
+
 ```solidity
-uint256 public constant quorumPct = 20_000_000
+uint256 public constant quorumPct = 20_000_000;
 ```
 
 ### highRiskQuorum
@@ -87,11 +90,15 @@ uint256 public constant quorumPct = 20_000_000
 The percentage of total supply in support of a proposal related to a high risk module in the Default system required
 in order for a quorum to be reached and for a vote to succeed
 
+<i>
+
 Olympus has a variable supply system, that actively fluctuates fairly significantly, so it is better to use
 a percentage of total supply, rather than a fixed number of tokens.
 
+</i>
+
 ```solidity
-uint256 public constant highRiskQuorum = 20_000_000
+uint256 public constant highRiskQuorum = 20_000_000;
 ```
 
 ### approvalThresholdPct
@@ -99,7 +106,7 @@ uint256 public constant highRiskQuorum = 20_000_000
 The percentage of votes that must be in favor of a proposal for it to succeed
 
 ```solidity
-uint256 public constant approvalThresholdPct = 60_000_000
+uint256 public constant approvalThresholdPct = 60_000_000;
 ```
 
 ### proposalMaxOperations
@@ -107,7 +114,7 @@ uint256 public constant approvalThresholdPct = 60_000_000
 The maximum number of actions that can be included in a proposal
 
 ```solidity
-uint256 public constant proposalMaxOperations = 15
+uint256 public constant proposalMaxOperations = 15;
 ```
 
 ### DOMAIN_TYPEHASH
@@ -116,7 +123,7 @@ The EIP-712 typehash for the contract's domain
 
 ```solidity
 bytes32 public constant DOMAIN_TYPEHASH =
-    keccak256("EIP712Domain(string name,uint256 chainId,address verifyingContract)")
+        keccak256("EIP712Domain(string name,uint256 chainId,address verifyingContract)");
 ```
 
 ### BALLOT_TYPEHASH
@@ -124,10 +131,12 @@ bytes32 public constant DOMAIN_TYPEHASH =
 The EIP-712 typehash for the ballot struct used by the contract
 
 ```solidity
-bytes32 public constant BALLOT_TYPEHASH = keccak256("Ballot(uint256 proposalId,uint8 support)")
+bytes32 public constant BALLOT_TYPEHASH = keccak256("Ballot(uint256 proposalId,uint8 support)");
 ```
 
 ## Functions
+
+<a id="initialize-address-address-address-address-uint256-uint256-uint256-uint256"></a>
 
 ### initialize
 
@@ -135,29 +144,31 @@ Used to initialize the contract during delegator constructor
 
 ```solidity
 function initialize(
-    address timelock_,
-    address gohm_,
-    address kernel_,
-    address vetoGuardian_,
-    uint256 votingPeriod_,
-    uint256 votingDelay_,
-    uint256 activationGracePeriod_,
-    uint256 proposalThreshold_
-) public virtual;
+        address timelock_,
+        address gohm_,
+        address kernel_,
+        address vetoGuardian_,
+        uint256 votingPeriod_,
+        uint256 votingDelay_,
+        uint256 activationGracePeriod_,
+        uint256 proposalThreshold_
+    ) public virtual;
 ```
 
 **Parameters**
 
-| Name                     | Type      | Description                                                              |
-| ------------------------ | --------- | ------------------------------------------------------------------------ |
-| `timelock_`              | `address` | The address of the Timelock                                              |
-| `gohm_`                  | `address` | The address of the gOHM token                                            |
-| `kernel_`                | `address` | The address of the kernel                                                |
-| `vetoGuardian_`          | `address` | The address of the veto guardian                                         |
-| `votingPeriod_`          | `uint256` | The initial voting period                                                |
-| `votingDelay_`           | `uint256` | The initial voting delay                                                 |
-| `activationGracePeriod_` | `uint256` |                                                                          |
-| `proposalThreshold_`     | `uint256` | The initial proposal threshold (percentage of total supply. out of 1000) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| timelock_ | `address` | The address of the Timelock |
+| gohm_ | `address` | The address of the gOHM token |
+| kernel_ | `address` | The address of the kernel |
+| vetoGuardian_ | `address` | The address of the veto guardian |
+| votingPeriod_ | `uint256` | The initial voting period |
+| votingDelay_ | `uint256` | The initial voting delay |
+| activationGracePeriod_ | `uint256` |  |
+| proposalThreshold_ | `uint256` | The initial proposal threshold (percentage of total supply. out of 1000) |
+
+<a id="propose-address-uint256-string-bytes-string"></a>
 
 ### propose
 
@@ -165,63 +176,89 @@ Function used to propose a new proposal. Sender must have delegates above the pr
 
 ```solidity
 function propose(
-    address[] memory targets,
-    uint256[] memory values,
-    string[] memory signatures,
-    bytes[] memory calldatas,
-    string memory description
-) public returns (uint256);
+        address[] memory targets,
+        uint256[] memory values,
+        string[] memory signatures,
+        bytes[] memory calldatas,
+        string memory description
+    ) public returns (uint256);
 ```
 
 **Parameters**
 
-| Name          | Type        | Description                            |
-| ------------- | ----------- | -------------------------------------- |
-| `targets`     | `address[]` | Target addresses for proposal calls    |
-| `values`      | `uint256[]` | Eth values for proposal calls          |
-| `signatures`  | `string[]`  | Function signatures for proposal calls |
-| `calldatas`   | `bytes[]`   | Calldatas for proposal calls           |
-| `description` | `string`    | String description of the proposal     |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| targets | `address[]` | Target addresses for proposal calls |
+| values | `uint256[]` | Eth values for proposal calls |
+| signatures | `string[]` | Function signatures for proposal calls |
+| calldatas | `bytes[]` | Calldatas for proposal calls |
+| description | `string` | String description of the proposal |
 
 **Returns**
 
-| Name     | Type      | Description                 |
-| -------- | --------- | --------------------------- |
-| `<none>` | `uint256` | Proposal id of new proposal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | Proposal id of new proposal |
+
+<a id="emergencypropose-address-uint256-string-bytes"></a>
 
 ### emergencyPropose
 
 Create proposal in case of emergency
 
+<i>
+
 Can only be called by the veto guardian in the event of an emergency
+
+</i>
 
 ```solidity
 function emergencyPropose(
-    address[] memory targets,
-    uint256[] memory values,
-    string[] memory signatures,
-    bytes[] memory calldatas
-) external returns (uint256);
+        address[] memory targets,
+        uint256[] memory values,
+        string[] memory signatures,
+        bytes[] memory calldatas
+    ) external returns (uint256);
 ```
 
 **Parameters**
 
-| Name         | Type        | Description                            |
-| ------------ | ----------- | -------------------------------------- |
-| `targets`    | `address[]` | Target addresses for proposal calls    |
-| `values`     | `uint256[]` | Eth values for proposal calls          |
-| `signatures` | `string[]`  | Function signatures for proposal calls |
-| `calldatas`  | `bytes[]`   | Calldatas for proposal calls           |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| targets | `address[]` | Target addresses for proposal calls |
+| values | `uint256[]` | Eth values for proposal calls |
+| signatures | `string[]` | Function signatures for proposal calls |
+| calldatas | `bytes[]` | Calldatas for proposal calls |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="activate-uint256"></a>
 
 ### activate
 
 Activates voting for a proposal
 
+<i>
+
 This also captures quorum based on total supply to ensure it's as close as possible to the proposal start time
+
+</i>
 
 ```solidity
 function activate(uint256 proposalId) external;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+
+<a id="queue-uint256"></a>
 
 ### queue
 
@@ -233,22 +270,37 @@ function queue(uint256 proposalId) external;
 
 **Parameters**
 
-| Name         | Type      | Description                     |
-| ------------ | --------- | ------------------------------- |
-| `proposalId` | `uint256` | The id of the proposal to queue |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | The id of the proposal to queue |
 
-### \_queueOrRevertInternal
+<a id="_queueorrevertinternal-uint256-address-uint256-string-bytes-uint256"></a>
+
+### _queueOrRevertInternal
 
 ```solidity
 function _queueOrRevertInternal(
-    uint256 proposalId,
-    address target,
-    uint256 value,
-    string memory signature,
-    bytes memory data,
-    uint256 eta
-) internal;
+        uint256 proposalId,
+        address target,
+        uint256 value,
+        string memory signature,
+        bytes memory data,
+        uint256 eta
+    ) internal;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| target | `address` |  |
+| value | `uint256` |  |
+| signature | `string` |  |
+| data | `bytes` |  |
+| eta | `uint256` |  |
+
+<a id="execute-uint256"></a>
 
 ### execute
 
@@ -260,9 +312,11 @@ function execute(uint256 proposalId) external payable;
 
 **Parameters**
 
-| Name         | Type      | Description                       |
-| ------------ | --------- | --------------------------------- |
-| `proposalId` | `uint256` | The id of the proposal to execute |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | The id of the proposal to execute |
+
+<a id="cancel-uint256"></a>
 
 ### cancel
 
@@ -274,9 +328,11 @@ function cancel(uint256 proposalId) external;
 
 **Parameters**
 
-| Name         | Type      | Description                      |
-| ------------ | --------- | -------------------------------- |
-| `proposalId` | `uint256` | The id of the proposal to cancel |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | The id of the proposal to cancel |
+
+<a id="veto-uint256"></a>
 
 ### veto
 
@@ -288,9 +344,11 @@ function veto(uint256 proposalId) external;
 
 **Parameters**
 
-| Name         | Type      | Description                    |
-| ------------ | --------- | ------------------------------ |
-| `proposalId` | `uint256` | The id of the proposal to veto |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | The id of the proposal to veto |
+
+<a id="castvote-uint256-uint8"></a>
 
 ### castVote
 
@@ -302,60 +360,96 @@ function castVote(uint256 proposalId, uint8 support) external;
 
 **Parameters**
 
-| Name         | Type      | Description                                                 |
-| ------------ | --------- | ----------------------------------------------------------- |
-| `proposalId` | `uint256` | The id of the proposal to vote on                           |
-| `support`    | `uint8`   | The support value for the vote. 0=against, 1=for, 2=abstain |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | The id of the proposal to vote on |
+| support | `uint8` | The support value for the vote. 0=against, 1=for, 2=abstain |
+
+<a id="castvotewithreason-uint256-uint8-string"></a>
 
 ### castVoteWithReason
 
 Cast a vote for a proposal with a reason
 
 ```solidity
-function castVoteWithReason(uint256 proposalId, uint8 support, string calldata reason) external;
+function castVoteWithReason(
+        uint256 proposalId,
+        uint8 support,
+        string calldata reason
+    ) external;
 ```
 
 **Parameters**
 
-| Name         | Type      | Description                                                 |
-| ------------ | --------- | ----------------------------------------------------------- |
-| `proposalId` | `uint256` | The id of the proposal to vote on                           |
-| `support`    | `uint8`   | The support value for the vote. 0=against, 1=for, 2=abstain |
-| `reason`     | `string`  | The reason given for the vote by the voter                  |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | The id of the proposal to vote on |
+| support | `uint8` | The support value for the vote. 0=against, 1=for, 2=abstain |
+| reason | `string` | The reason given for the vote by the voter |
+
+<a id="castvotebysig-uint256-uint8-uint8-bytes32-bytes32"></a>
 
 ### castVoteBySig
 
 Cast a vote for a proposal by signature
 
+<i>
+
 External function that accepts EIP-712 signatures for voting on proposals.
 
+</i>
+
 ```solidity
-function castVoteBySig(uint256 proposalId, uint8 support, uint8 v, bytes32 r, bytes32 s) external;
+function castVoteBySig(
+        uint256 proposalId,
+        uint8 support,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) external;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` |  |
+| support | `uint8` |  |
+| v | `uint8` |  |
+| r | `bytes32` |  |
+| s | `bytes32` |  |
+
+<a id="castvoteinternal-address-uint256-uint8"></a>
 
 ### castVoteInternal
 
 Internal function that caries out voting logic
 
 ```solidity
-function castVoteInternal(address voter, uint256 proposalId, uint8 support) internal returns (uint256);
+function castVoteInternal(
+        address voter,
+        uint256 proposalId,
+        uint8 support
+    ) internal returns (uint256);
 ```
 
 **Parameters**
 
-| Name         | Type      | Description                                                 |
-| ------------ | --------- | ----------------------------------------------------------- |
-| `voter`      | `address` | The voter that is casting their vote                        |
-| `proposalId` | `uint256` | The id of the proposal to vote on                           |
-| `support`    | `uint8`   | The support value for the vote. 0=against, 1=for, 2=abstain |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| voter | `address` | The voter that is casting their vote |
+| proposalId | `uint256` | The id of the proposal to vote on |
+| support | `uint8` | The support value for the vote. 0=against, 1=for, 2=abstain |
 
 **Returns**
 
-| Name     | Type      | Description              |
-| -------- | --------- | ------------------------ |
-| `<none>` | `uint256` | The number of votes cast |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The number of votes cast |
 
-### \_setVotingDelay
+<a id="_setvotingdelay-uint256"></a>
+
+### _setVotingDelay
 
 Admin function for setting the voting delay
 
@@ -365,11 +459,13 @@ function _setVotingDelay(uint256 newVotingDelay) external;
 
 **Parameters**
 
-| Name             | Type      | Description                 |
-| ---------------- | --------- | --------------------------- |
-| `newVotingDelay` | `uint256` | new voting delay, in blocks |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newVotingDelay | `uint256` | new voting delay, in blocks |
 
-### \_setVotingPeriod
+<a id="_setvotingperiod-uint256"></a>
+
+### _setVotingPeriod
 
 Admin function for setting the voting period
 
@@ -379,15 +475,21 @@ function _setVotingPeriod(uint256 newVotingPeriod) external;
 
 **Parameters**
 
-| Name              | Type      | Description                  |
-| ----------------- | --------- | ---------------------------- |
-| `newVotingPeriod` | `uint256` | new voting period, in blocks |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newVotingPeriod | `uint256` | new voting period, in blocks |
 
-### \_setProposalThreshold
+<a id="_setproposalthreshold-uint256"></a>
+
+### _setProposalThreshold
 
 Admin function for setting the proposal threshold
 
+<i>
+
 newProposalThreshold must be greater than the hardcoded min
+
+</i>
 
 ```solidity
 function _setProposalThreshold(uint256 newProposalThreshold) external;
@@ -395,11 +497,13 @@ function _setProposalThreshold(uint256 newProposalThreshold) external;
 
 **Parameters**
 
-| Name                   | Type      | Description            |
-| ---------------------- | --------- | ---------------------- |
-| `newProposalThreshold` | `uint256` | new proposal threshold |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newProposalThreshold | `uint256` | new proposal threshold |
 
-### \_setVetoGuardian
+<a id="_setvetoguardian-address"></a>
+
+### _setVetoGuardian
 
 Admin function for setting the vetoGuardian. vetoGuardian can veto any proposal
 
@@ -409,15 +513,21 @@ function _setVetoGuardian(address account) external;
 
 **Parameters**
 
-| Name      | Type      | Description                                                 |
-| --------- | --------- | ----------------------------------------------------------- |
-| `account` | `address` | Account to set vetoGuardian to (0x0 to remove vetoGuardian) |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | `address` | Account to set vetoGuardian to (0x0 to remove vetoGuardian) |
 
-### \_setPendingAdmin
+<a id="_setpendingadmin-address"></a>
+
+### _setPendingAdmin
 
 Begins transfer of admin rights. The newPendingAdmin must call `_acceptAdmin` to finalize the transfer.
 
+<i>
+
 Admin function to begin change of admin. The newPendingAdmin must call `_acceptAdmin` to finalize the transfer.
+
+</i>
 
 ```solidity
 function _setPendingAdmin(address newPendingAdmin) external;
@@ -425,25 +535,37 @@ function _setPendingAdmin(address newPendingAdmin) external;
 
 **Parameters**
 
-| Name              | Type      | Description        |
-| ----------------- | --------- | ------------------ |
-| `newPendingAdmin` | `address` | New pending admin. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newPendingAdmin | `address` | New pending admin. |
 
-### \_acceptAdmin
+<a id="_acceptadmin"></a>
+
+### _acceptAdmin
 
 Accepts transfer of admin rights. msg.sender must be pendingAdmin
 
+<i>
+
 Admin function for pending admin to accept role and update admin
+
+</i>
 
 ```solidity
 function _acceptAdmin() external;
 ```
 
-### \_setModuleRiskLevel
+<a id="_setmodulerisklevel-bytes5-bool"></a>
+
+### _setModuleRiskLevel
 
 Sets whether a module is considered high risk
 
+<i>
+
 Admin function to set whether a module in the Default Framework is considered high risk
+
+</i>
 
 ```solidity
 function _setModuleRiskLevel(bytes5 module_, bool isHighRisk_) external;
@@ -451,31 +573,67 @@ function _setModuleRiskLevel(bytes5 module_, bool isHighRisk_) external;
 
 **Parameters**
 
-| Name          | Type     | Description                   |
-| ------------- | -------- | ----------------------------- |
-| `module_`     | `bytes5` | The module to set the risk of |
-| `isHighRisk_` | `bool`   | If the module is high risk    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| module_ | `bytes5` | The module to set the risk of |
+| isHighRisk_ | `bool` | If the module is high risk |
 
-### \_isEmergency
+<a id="_isemergency"></a>
+
+### _isEmergency
+
+<i>
 
 Checks if the system should be set to an emergency state due to a collapsing supply of gOHM
+
+</i>
 
 ```solidity
 function _isEmergency() internal view returns (bool);
 ```
 
-### \_isHighRiskProposal
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
+
+<a id="_ishighriskproposal-address-string-bytes"></a>
+
+### _isHighRiskProposal
+
+<i>
 
 Checks if a proposal is high risk by identifying actions where the Default Framework kernel
-is the target, if so, checking if it's installing or deactivating a policy, and if so,
-checking if the policy is touching a high risk module. This makes external calls, so when
-for future updates to the Governor, make sure that functions where it is used cannot be re-entered.
+     is the target, if so, checking if it's installing or deactivating a policy, and if so,
+     checking if the policy is touching a high risk module. This makes external calls, so when
+     for future updates to the Governor, make sure that functions where it is used cannot be re-entered.
+
+</i>
 
 ```solidity
-function _isHighRiskProposal(address[] memory targets, string[] memory signatures, bytes[] memory calldatas)
-    internal
-    returns (bool);
+function _isHighRiskProposal(
+        address[] memory targets,
+        string[] memory signatures,
+        bytes[] memory calldatas
+    ) internal returns (bool);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| targets | `address[]` |  |
+| signatures | `string[]` |  |
+| calldatas | `bytes[]` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` |  |
+
+<a id="getchainidinternal"></a>
 
 ### getChainIdInternal
 
@@ -487,9 +645,11 @@ function getChainIdInternal() internal view returns (uint256);
 
 **Returns**
 
-| Name     | Type      | Description  |
-| -------- | --------- | ------------ |
-| `<none>` | `uint256` | The chain ID |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The chain ID |
+
+<a id="getproposalthresholdvotes"></a>
 
 ### getProposalThresholdVotes
 
@@ -501,9 +661,11 @@ function getProposalThresholdVotes() public view returns (uint256);
 
 **Returns**
 
-| Name     | Type      | Description                              |
-| -------- | --------- | ---------------------------------------- |
-| `<none>` | `uint256` | The proposal threshold in number of gOHM |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The proposal threshold in number of gOHM |
+
+<a id="getquorumvotes"></a>
 
 ### getQuorumVotes
 
@@ -515,9 +677,11 @@ function getQuorumVotes() public view returns (uint256);
 
 **Returns**
 
-| Name     | Type      | Description                  |
-| -------- | --------- | ---------------------------- |
-| `<none>` | `uint256` | The quorum in number of gOHM |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The quorum in number of gOHM |
+
+<a id="gethighriskquorumvotes"></a>
 
 ### getHighRiskQuorumVotes
 
@@ -529,9 +693,11 @@ function getHighRiskQuorumVotes() public view returns (uint256);
 
 **Returns**
 
-| Name     | Type      | Description                            |
-| -------- | --------- | -------------------------------------- |
-| `<none>` | `uint256` | The high risk quorum in number of gOHM |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The high risk quorum in number of gOHM |
+
+<a id="getproposalquorum-uint256"></a>
 
 ### getProposalQuorum
 
@@ -543,15 +709,17 @@ function getProposalQuorum(uint256 proposalId) external view returns (uint256);
 
 **Parameters**
 
-| Name         | Type      | Description            |
-| ------------ | --------- | ---------------------- |
-| `proposalId` | `uint256` | the id of the proposal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | the id of the proposal |
 
 **Returns**
 
-| Name     | Type      | Description                                |
-| -------- | --------- | ------------------------------------------ |
-| `<none>` | `uint256` | The quorum required for the given proposal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The quorum required for the given proposal |
+
+<a id="getproposalthreshold-uint256"></a>
 
 ### getProposalThreshold
 
@@ -563,15 +731,17 @@ function getProposalThreshold(uint256 proposalId) external view returns (uint256
 
 **Parameters**
 
-| Name         | Type      | Description            |
-| ------------ | --------- | ---------------------- |
-| `proposalId` | `uint256` | the id of the proposal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | the id of the proposal |
 
 **Returns**
 
-| Name     | Type      | Description                                                  |
-| -------- | --------- | ------------------------------------------------------------ |
-| `<none>` | `uint256` | The proposer votes threshold required for the given proposal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The proposer votes threshold required for the given proposal |
+
+<a id="getproposaleta-uint256"></a>
 
 ### getProposalEta
 
@@ -583,68 +753,78 @@ function getProposalEta(uint256 proposalId) external view returns (uint256);
 
 **Parameters**
 
-| Name         | Type      | Description            |
-| ------------ | --------- | ---------------------- |
-| `proposalId` | `uint256` | the id of the proposal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | the id of the proposal |
 
 **Returns**
 
-| Name     | Type      | Description                          |
-| -------- | --------- | ------------------------------------ |
-| `<none>` | `uint256` | The eta value for the given proposal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The eta value for the given proposal |
+
+<a id="getproposalvotes-uint256"></a>
 
 ### getProposalVotes
 
 Gets the against, for, and abstain votes for a given proposal
 
 ```solidity
-function getProposalVotes(uint256 proposalId) external view returns (uint256, uint256, uint256);
+function getProposalVotes(
+        uint256 proposalId
+    ) external view returns (uint256, uint256, uint256);
 ```
 
 **Parameters**
 
-| Name         | Type      | Description            |
-| ------------ | --------- | ---------------------- |
-| `proposalId` | `uint256` | the id of the proposal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | the id of the proposal |
 
 **Returns**
 
-| Name     | Type      | Description                                                |
-| -------- | --------- | ---------------------------------------------------------- |
-| `<none>` | `uint256` | The against, for, and abstain votes for the given proposal |
-| `<none>` | `uint256` |                                                            |
-| `<none>` | `uint256` |                                                            |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` | The against, for, and abstain votes for the given proposal |
+| &lt;none&gt; | `uint256` |  |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="getactions-uint256"></a>
 
 ### getActions
 
 Gets actions of a proposal
 
 ```solidity
-function getActions(uint256 proposalId)
-    external
-    view
-    returns (
-        address[] memory targets,
-        uint256[] memory values,
-        string[] memory signatures,
-        bytes[] memory calldatas
-    );
+function getActions(
+        uint256 proposalId
+    )
+        external
+        view
+        returns (
+            address[] memory targets,
+            uint256[] memory values,
+            string[] memory signatures,
+            bytes[] memory calldatas
+        );
 ```
 
 **Parameters**
 
-| Name         | Type      | Description            |
-| ------------ | --------- | ---------------------- |
-| `proposalId` | `uint256` | the id of the proposal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | the id of the proposal |
 
 **Returns**
 
-| Name         | Type        | Description             |
-| ------------ | ----------- | ----------------------- |
-| `targets`    | `address[]` | of the proposal actions |
-| `values`     | `uint256[]` | of the proposal actions |
-| `signatures` | `string[]`  | of the proposal actions |
-| `calldatas`  | `bytes[]`   | of the proposal actions |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| targets | `address[]` | of the proposal actions |
+| values | `uint256[]` | of the proposal actions |
+| signatures | `string[]` | of the proposal actions |
+| calldatas | `bytes[]` | of the proposal actions |
+
+<a id="getreceipt-uint256-address"></a>
 
 ### getReceipt
 
@@ -656,16 +836,18 @@ function getReceipt(uint256 proposalId, address voter) external view returns (Re
 
 **Parameters**
 
-| Name         | Type      | Description              |
-| ------------ | --------- | ------------------------ |
-| `proposalId` | `uint256` | the id of proposal       |
-| `voter`      | `address` | The address of the voter |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | the id of proposal |
+| voter | `address` | The address of the voter |
 
 **Returns**
 
-| Name     | Type      | Description        |
-| -------- | --------- | ------------------ |
-| `<none>` | `Receipt` | The voting receipt |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `Receipt` | The voting receipt |
+
+<a id="getvoteoutcome-uint256"></a>
 
 ### getVoteOutcome
 
@@ -677,15 +859,17 @@ function getVoteOutcome(uint256 proposalId) public view returns (bool);
 
 **Parameters**
 
-| Name         | Type      | Description        |
-| ------------ | --------- | ------------------ |
-| `proposalId` | `uint256` | the id of proposal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | the id of proposal |
 
 **Returns**
 
-| Name     | Type   | Description        |
-| -------- | ------ | ------------------ |
-| `<none>` | `bool` | The voting outcome |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | The voting outcome |
+
+<a id="state-uint256"></a>
 
 ### state
 
@@ -697,12 +881,12 @@ function state(uint256 proposalId) public view returns (ProposalState);
 
 **Parameters**
 
-| Name         | Type      | Description            |
-| ------------ | --------- | ---------------------- |
-| `proposalId` | `uint256` | The id of the proposal |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| proposalId | `uint256` | The id of the proposal |
 
 **Returns**
 
-| Name     | Type            | Description    |
-| -------- | --------------- | -------------- |
-| `<none>` | `ProposalState` | Proposal state |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `ProposalState` | Proposal state |

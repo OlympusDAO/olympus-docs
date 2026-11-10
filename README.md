@@ -19,6 +19,17 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 
 #### Installation
 
+Install the tools from [`mise.toml`](mise.toml) with [mise](https://mise.jdx.dev/):
+
+```sh
+mise install
+```
+
+The config pins Node.js, pnpm, and Foundry. Foundry provides `forge` and `forge soldeer` for contract documentation generation.
+Keep the pnpm version in `mise.toml` aligned with `packageManager` in `package.json`.
+
+Install the site dependencies:
+
 ```sh
 pnpm install
 ```
@@ -30,6 +41,17 @@ pnpm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+#### Formatting and Linting
+
+Run `pnpm format` to format files, or `pnpm format:check` to check formatting without changes.
+Run `pnpm lint` to apply lint fixes, or `pnpm lint:check` to check files without changes.
+
+Biome formats and lints JavaScript, TypeScript, JSON, CSS, and YAML.
+It also formats HTML with its experimental HTML formatter.
+Rumdl formats Markdown and MDX with the rules in `.rumdl.toml`.
+It preserves MDX imports, JSX components, and expressions. It does not format the JavaScript or JSX inside MDX files.
+Contract generation also runs rumdl with the existing rules in `.markdownlint-contracts.json`.
 
 #### Build
 
@@ -49,7 +71,7 @@ The contract documentation is generated from the `olympus-v3` repository. To upd
    Open `foundry.toml` and update the `rev` field for the olympus-v3 dependency to the desired commit hash.
 
 2. **Update the revision in `soldeer.lock`:**
-   Open `soldeer.lock` and update the `version` field for the olympus-v3 dependency to match the same commit hash.
+   Open `soldeer.lock` and update the `rev` field for the olympus-v3 dependency to match the same commit hash.
 
 3. **Regenerate the contract documentation:**
 
@@ -60,7 +82,7 @@ The contract documentation is generated from the `olympus-v3` repository. To upd
 4. **Commit the changes:**
 
    ```bash
-   git add foundry.toml soldeer.lock
+   git add foundry.toml soldeer.lock docs/contracts/02_docs
    git commit -m "Update contract documentation to latest olympus-v3 commit"
    ```
 
@@ -68,10 +90,11 @@ The contract documentation is generated from the `olympus-v3` repository. To upd
 
 The `pnpm run build:contracts` command (which runs `contracts.sh`):
 
-- Builds the olympus-v3 project
-- Generates forge documentation
-- Cleans up unnecessary directories (scripts, tests)
-- Fixes markdown issues and broken links
+- Installs the pinned olympus-v3 source and its locked Solidity dependencies
+- Generates Forge documentation without installing V3's Node development tools or compiling contracts
+- Converts Forge 1.8 pages to Markdown and preserves the existing Solidity-based documentation URLs
+- Recovers pages for duplicate symbol names that Forge writes to the same path
+- Excludes scripts and tests, generates directory indexes, and checks Markdown links
 - Updates the contract documentation in `docs/contracts/02_docs/`
 
 ### Partial Editing with Netlify CMS

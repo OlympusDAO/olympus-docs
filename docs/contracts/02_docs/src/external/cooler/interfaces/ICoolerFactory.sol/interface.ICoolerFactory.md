@@ -1,8 +1,10 @@
 # ICoolerFactory
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/external/cooler/interfaces/ICoolerFactory.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/external/cooler/interfaces/ICoolerFactory.sol)
 
 ## Functions
+
+<a id="generatecooler-ierc20-ierc20"></a>
 
 ### generateCooler
 
@@ -14,38 +16,46 @@ function generateCooler(IERC20 collateral_, IERC20 debt_) external returns (addr
 
 **Parameters**
 
-| Name          | Type     | Description           |
-| ------------- | -------- | --------------------- |
-| `collateral_` | `IERC20` | The collateral token. |
-| `debt_`       | `IERC20` | The debt token.       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collateral_ | `IERC20` | The collateral token. |
+| debt_ | `IERC20` | The debt token. |
 
 **Returns**
 
-| Name     | Type      | Description                    |
-| -------- | --------- | ------------------------------ |
-| `cooler` | `address` | The address of the new cooler. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |      The address of the new cooler. |
+
+<a id="getcoolerfor-address-address-address"></a>
 
 ### getCoolerFor
 
-Get the cooler for a given user \\<\\> collateral \\<\\> debt combination.
+Get the cooler for a given user &lt;> collateral &lt;> debt combination.
 
 ```solidity
-function getCoolerFor(address user_, address collateral_, address debt_) external view returns (address cooler);
+function getCoolerFor(
+        address user_,
+        address collateral_,
+        address debt_
+    ) external view returns (address cooler);
 ```
 
 **Parameters**
 
-| Name          | Type      | Description           |
-| ------------- | --------- | --------------------- |
-| `user_`       | `address` | The user address.     |
-| `collateral_` | `address` | The collateral token. |
-| `debt_`       | `address` | The debt token.       |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user_ | `address` | The user address. |
+| collateral_ | `address` | The collateral token. |
+| debt_ | `address` | The debt token. |
 
 **Returns**
 
-| Name     | Type      | Description                |
-| -------- | --------- | -------------------------- |
-| `cooler` | `address` | The address of the cooler. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |      The address of the cooler. |
+
+<a id="created-address"></a>
 
 ### created
 
@@ -57,15 +67,15 @@ function created(address cooler_) external view returns (bool);
 
 **Parameters**
 
-| Name      | Type      | Description         |
-| --------- | --------- | ------------------- |
-| `cooler_` | `address` | The cooler address. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler_ | `address` | The cooler address. |
 
 **Returns**
 
-| Name     | Type   | Description                                         |
-| -------- | ------ | --------------------------------------------------- |
-| `<none>` | `bool` | bool Whether the cooler was created by the factory. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `bool` | bool    Whether the cooler was created by the factory. |
 
 ## Events
 
@@ -77,6 +87,15 @@ A global event when a new loan request is created.
 event RequestLoan(address indexed cooler, address collateral, address debt, uint256 reqID);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| collateral | `address` |  |
+| debt | `address` |  |
+| reqID | `uint256` |  |
+
 ### RescindRequest
 
 A global event when a loan request is rescinded.
@@ -84,6 +103,13 @@ A global event when a loan request is rescinded.
 ```solidity
 event RescindRequest(address indexed cooler, uint256 reqID);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| reqID | `uint256` |  |
 
 ### ClearRequest
 
@@ -93,6 +119,14 @@ A global event when a loan request is fulfilled.
 event ClearRequest(address indexed cooler, uint256 reqID, uint256 loanID);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| reqID | `uint256` |  |
+| loanID | `uint256` |  |
+
 ### RepayLoan
 
 A global event when a loan is repaid.
@@ -100,6 +134,14 @@ A global event when a loan is repaid.
 ```solidity
 event RepayLoan(address indexed cooler, uint256 loanID, uint256 amount);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| loanID | `uint256` |  |
+| amount | `uint256` |  |
 
 ### ExtendLoan
 
@@ -109,6 +151,14 @@ A global event when a loan is extended.
 event ExtendLoan(address indexed cooler, uint256 loanID, uint8 times);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| loanID | `uint256` |  |
+| times | `uint8` |  |
+
 ### DefaultLoan
 
 A global event when the collateral of defaulted loan is claimed.
@@ -116,6 +166,14 @@ A global event when the collateral of defaulted loan is claimed.
 ```solidity
 event DefaultLoan(address indexed cooler, uint256 loanID, uint256 amount);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cooler | `address` |  |
+| loanID | `uint256` |  |
+| amount | `uint256` |  |
 
 ## Errors
 

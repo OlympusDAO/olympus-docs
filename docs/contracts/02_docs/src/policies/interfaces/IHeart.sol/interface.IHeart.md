@@ -1,10 +1,16 @@
 # IHeart
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/policies/interfaces/IHeart.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/policies/interfaces/IHeart.sol)
+
+<i>
 
 Interface for the Heart policy as of v1.7
 
+</i>
+
 ## Functions
+
+<a id="beat"></a>
 
 ### beat
 
@@ -14,11 +20,17 @@ Only callable when enough time has passed since last beat (determined by frequen
 
 This function is incentivized with a token reward (see rewardToken and reward variables).
 
+<i>
+
 Triggers price oracle update and market operations
+
+</i>
 
 ```solidity
 function beat() external;
 ```
+
+<a id="resetbeat"></a>
 
 ### resetBeat
 
@@ -29,6 +41,8 @@ Access restricted
 ```solidity
 function resetBeat() external;
 ```
+
+<a id="setdistributor-address"></a>
 
 ### setDistributor
 
@@ -42,9 +56,11 @@ function setDistributor(address distributor_) external;
 
 **Parameters**
 
-| Name           | Type      | Description                                 |
-| -------------- | --------- | ------------------------------------------- |
-| `distributor_` | `address` | The address of the new Distributor contract |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| distributor_ | `address` | The address of the new Distributor contract |
+
+<a id="setrewardauctionparams-uint256-uint48"></a>
 
 ### setRewardAuctionParams
 
@@ -58,10 +74,12 @@ function setRewardAuctionParams(uint256 maxReward_, uint48 auctionDuration_) ext
 
 **Parameters**
 
-| Name               | Type      | Description                                           |
-| ------------------ | --------- | ----------------------------------------------------- |
-| `maxReward_`       | `uint256` | - New max reward amount, in units of the reward token |
-| `auctionDuration_` | `uint48`  | - New auction duration, in seconds                    |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxReward_ | `uint256` | - New max reward amount, in units of the reward token |
+| auctionDuration_ | `uint48` | - New auction duration, in seconds |
+
+<a id="frequency"></a>
 
 ### frequency
 
@@ -71,6 +89,14 @@ Heart beat frequency, in seconds
 function frequency() external view returns (uint48);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint48` |  |
+
+<a id="currentreward"></a>
+
 ### currentReward
 
 Current reward amount based on linear auction
@@ -78,6 +104,12 @@ Current reward amount based on linear auction
 ```solidity
 function currentReward() external view returns (uint256);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
 
 ## Events
 
@@ -87,17 +119,37 @@ function currentReward() external view returns (uint256);
 event Beat(uint256 timestamp_);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| timestamp_ | `uint256` |  |
+
 ### RewardIssued
 
 ```solidity
 event RewardIssued(address to_, uint256 rewardAmount_);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| to_ | `address` |  |
+| rewardAmount_ | `uint256` |  |
+
 ### RewardUpdated
 
 ```solidity
 event RewardUpdated(uint256 maxRewardAmount_, uint48 auctionDuration_);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxRewardAmount_ | `uint256` |  |
+| auctionDuration_ | `uint48` |  |
 
 ## Errors
 

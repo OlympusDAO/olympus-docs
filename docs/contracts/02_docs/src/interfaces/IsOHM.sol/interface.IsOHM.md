@@ -1,11 +1,12 @@
 # IsOHM
 
-[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/85927f39f9ef0f1355aa04e3451eec63a7df478f/src/interfaces/IsOHM.sol)
+[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/5fa826cecd6023bab8135ebb7a48a9313caea5a4/src/interfaces/IsOHM.sol)
 
-**Inherits:**
-[IERC20](/main/contracts/docs/src/external/OlympusERC20.sol/interface.IERC20)
+**Inherits:** [IERC20](/main/contracts/docs/src/interfaces/IERC20.sol/interface.IERC20)
 
 ## Functions
+
+<a id="setindex-uint256"></a>
 
 ### setIndex
 
@@ -13,11 +14,27 @@
 function setIndex(uint256 _index) external;
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _index | `uint256` |  |
+
+<a id="setgohm-address"></a>
+
 ### setgOHM
 
 ```solidity
 function setgOHM(address _gOHM) external;
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _gOHM | `address` |  |
+
+<a id="initialize-address-address"></a>
 
 ### initialize
 
@@ -25,11 +42,28 @@ function setgOHM(address _gOHM) external;
 function initialize(address _stakingContract, address _treasury) external;
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| _stakingContract | `address` |  |
+| _treasury | `address` |  |
+
+<a id="index"></a>
+
 ### index
 
 ```solidity
 function index() external view returns (uint256);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="gohm"></a>
 
 ### gOHM
 
@@ -37,11 +71,27 @@ function index() external view returns (uint256);
 function gOHM() external view returns (address);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
+
+<a id="stakingcontract"></a>
+
 ### stakingContract
 
 ```solidity
 function stakingContract() external view returns (address);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
+
+<a id="treasury"></a>
 
 ### treasury
 
@@ -49,11 +99,27 @@ function stakingContract() external view returns (address);
 function treasury() external view returns (address);
 ```
 
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `address` |  |
+
+<a id="circulatingsupply"></a>
+
 ### circulatingSupply
 
 ```solidity
 function circulatingSupply() external view returns (uint256);
 ```
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="gonsforbalance-uint256"></a>
 
 ### gonsForBalance
 
@@ -61,8 +127,34 @@ function circulatingSupply() external view returns (uint256);
 function gonsForBalance(uint256 amount) external view returns (uint256);
 ```
 
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| amount | `uint256` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
+
+<a id="balanceforgons-uint256"></a>
+
 ### balanceForGons
 
 ```solidity
 function balanceForGons(uint256 gons) external view returns (uint256);
 ```
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gons | `uint256` |  |
+
+**Returns**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| &lt;none&gt; | `uint256` |  |
