@@ -292,6 +292,12 @@ Converting to OHM is the primary way to profit from a convertible deposit when O
 - **Receipt Tokens**: Required for conversion - these will be burned
 - **Before Expiry**: Must convert before the position expiry date
 
+#### What Happens to the Deposit When a Position Converts?
+
+The receipt tokens are burned, the deposited stablecoins move to the protocol treasury, and the protocol's contracts create
+new OHM for the holder at the conversion price locked in when the deposit was made. A position that is redeemed or
+reclaimed instead returns the deposit (less the reclaim discount, if reclaimed early), and no OHM is created.
+
 ### Early Reclaim
 
 Early reclaim allows users to exit their position immediately but with a discount applied to their original deposit. The reclaim rate, which determines the discount, is configured by governance on a per-asset basis.
@@ -811,8 +817,8 @@ minimumPrice = marketPrice * minimumPriceScalar
 
 `minimumPriceScalar` must be greater than 100%.
 
-**Q: How does price decay work in the auction?**
-A: Price decay occurs only after an auction has started and no bids have come in at a certain tick for a period of time. The price will decay continuously while there are no bids, but it cannot go below the minimum price floor.
+**Q: How does the auction price move when no one bids?**
+A: While the auction is running, capacity is added through the day: the daily target, divided across the enabled deposit periods. Each time a full tick's worth of capacity goes unsold, the price moves down one tick step, and it never goes below the minimum price. How fast the price falls is therefore set by three parameters: the daily target, the tick size and the tick step. Current values: `getAuctionParameters()` (target, tick size, minimum price) and `getTickStep()` on the ConvertibleDepositAuctioneer; the live tick for a deposit period is `getCurrentTick(depositPeriod)`. A daily target of zero pauses the auction, and the price holds where it is until a new target is set.
 
 **Q: What happens at expiry?**
 A: At expiry, you can no longer convert to OHM. Your options are limited to redemption (if you haven't started it) or reclaim (with discount).
