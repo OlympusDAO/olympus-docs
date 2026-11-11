@@ -1,6 +1,6 @@
 ---
 title: "Cooler Loans: Borrow USDS Against gOHM"
-description: "Cooler Loans is Olympus's perpetual lending facility: borrow USDS against gOHM at a fixed 0.5% APR, with no price-based liquidation, no oracle, and no expiry."
+description: "Cooler Loans is Olympus's perpetual lending facility: borrow USDS against gOHM at a fixed rate set by governance, with no price-based liquidation, no oracle, and no expiry."
 sidebar_label: "Cooler Loans"
 ---
 
@@ -14,10 +14,10 @@ Cooler Loans differentiates itself from existing lending markets:
 
 - **Peer-to-lender** - loans originate from Olympus Treasury. Practically, Cooler Loans acts as lender-of-last-resort and can guarantee liquidity because every gOHM is backed by USDS.
 - **Perpetual Borrowing** - No expiration or renewal needed. Positions stay open as long as interest is paid.
-- **Fixed 0.5% APR** - Continuous interest accrual, set via governance, independent of market conditions.
+- **Fixed Rate** - Continuous interest accrual at a rate set via governance, independent of market conditions.
 - **No Price-Based Liquidations** - Whereas most lending markets will liquidate your position if underlying collateral falls below a certain price, Cooler Loans is in a unique position to offer liquidation-free loans because every gOHM is backed by USDS. As long as Loan-to-Collateral value is at a safe discount relative to actual backing, the protocol remains solvent. Loans default only when unpaid interest exceeds a governance-defined threshold.
 - **Unified Loan Position** - One dynamic loan per user- collateral, debt, and repayments are managed flexibly.
-- **Governance-Aligned LTV Drip** - Origination LTV increases over time through a governance-controlled drip system.
+- **Governance-Aligned LTV Drip** - When governance sets a higher target, origination LTV moves toward it gradually at a capped rate (the drip). Once the target date is reached, it stays at the target until governance sets a new one.
 - **gOHM Collateral** - Ensures borrowing is backed by a protocol-native asset, reinforcing system solvency.
 - **Delegated Multi-Wallet Access** - Up to 10 wallets can manage a single loan position.
 - **Oracle-Free, Fully Treasury-Backed** - Since Cooler Loans does not have price liquidations and origination is based on a governance defined value, it doesn’t depend on any external oracles or price feeds.
@@ -41,26 +41,24 @@ Cooler Loans differentiates itself from existing lending markets:
 #### Periphery
 
 - `Composites` - Enables gas-efficient combined actions (e.g., deposit + borrow).
-- `Migrator` - Streamlines transition from Cooler V1 to V2.
 
 ### Loan Terms and Conditions
 
-Before borrowing from the Clearinghouse, it's important to understand the terms and conditions:
+Loans are extended in USDS against gOHM collateral. The terms are parameters set by governance:
 
-- Loans are extended in USDS, against gOHM collateral
-- Loans have an annualized interest rate of 0.5%, as approved by OCG Proposal 8
-- The Initial Origination loan-to-collateral ratio (as of May 15, 2025) is 2961.64 USDS/gOHM (~ 11 USDS/OHM)
-- The Liquidation Premium is 1%.
-- The LTV Drip Rate: max (positive) rate of change of Origination LTV allowed: 0.0000011574 USDS/second (0.1 USDS/day)
-- Minimum debt required to open a loan: 1000 USDS
-- Debt must remain above 1000 USDS or be paid off entirely if closing a position.
-- Origination LTV Update Interval: 604800 seconds (7 days)
+- **Interest rate**: one annual rate, compounded continuously, applies to every position. Current value: the Cooler page
+  in the app, or `interestRateWad()` on MonoCooler.
+- **Origination LTV**: the USDS that can be borrowed per gOHM.
+- **Liquidation LTV**: the debt per gOHM at which a position can be liquidated. It is measured against a value set by
+  governance, so the market price of gOHM does not move it. Current values for both: `loanToValues()` on MonoCooler.
+- **Liquidation premium**: how far liquidation LTV sits above origination LTV. Current value: `liquidationLtvPremiumBps()`
+  on the LTV Oracle.
+- **LTV target and drip rate**: governance can set a target origination LTV. The LTV Oracle then moves origination LTV
+  toward it linearly, at a capped rate, and a new target date must be at least a minimum time away. Current values:
+  `originationLtvData()`, `maxOriginationLtvRateOfChange()` and `minOriginationLtvTargetTimeDelta()` on the LTV Oracle.
 
-:::note
-The system gradually increases the LTV through a drip mechanism, moving from its current value toward the target origination LTV for the Cooler V2 policy to be 2991.2564 USDS/gOHM (~ 11.11 USDS/OHM) on 15th May 2026. This is a linear release, not a cadence-based recalculation.
-:::
-
-Governance can update these parameters as needed.
+Governance can update these parameters as needed. The minimum debt is fixed in the contract at 1,000 USDS: a position must
+carry at least that much debt or be repaid in full.
 
 ### Opening a Loan
 
@@ -68,7 +66,7 @@ To open a loan, a user will first need to obtain gOHM. A user requests a loan by
 
 It’s important to highlight that interest on the loan accrues over the duration of the loan, beginning at the time the loan is opened.
 
-Example: user requests to borrow against 1 gOHM. The LTV for cooler is 2961.64 USDS per gOHM, at the time the loan is opened, the user owes 0.4 USDS in interest (0.5% multiplied by 2961.64 USDS principal multiplied by 1 day out of 365). User gets 2961.62 USDS in their wallet and transfers 1 gOHM.
+Example: user requests to borrow against 1 gOHM. Assume an LTV of 2961.64 USDS per gOHM and a 0.5% rate. At the time the loan is opened, the user owes 0.4 USDS in interest (0.5% multiplied by 2961.64 USDS principal multiplied by 1 day out of 365). User gets 2961.62 USDS in their wallet and transfers 1 gOHM.
 
 ![Originating a Loan](/gitbook/assets/origination.png)
 
@@ -76,7 +74,7 @@ Example: user requests to borrow against 1 gOHM. The LTV for cooler is 2961.64 U
 
 Borrowers can repay a loan at any time with any amount using the Olympus front-end or by calling the repay() function on the Cooler V2 contract. However, because of how loans are fulfilled, any repayment will be allocated toward interest first. Any repayment in excess of interest owed is then allocated to repaying the principal. Partial repayments reduce both debt and the associated interest-bearing collateral, which becomes withdrawable. Full repayment stops interest accrual and unlocks the full gOHM collateral. Withdrawals must be executed manually unless bundled using the Composites contract.
 
-Example: user borrowed against 1 gOHM 4 months ago. The LTV for cooler is 2961.64 USDS per gOHM, therefore the interest owed is 4.936 USDS at this point. For this example ignore the drip rate.
+Example: user borrowed against 1 gOHM 4 months ago. Assume an LTV of 2961.64 USDS per gOHM and a 0.5% rate, so the interest owed is 4.936 USDS at this point. For this example ignore the drip rate.
 
 - If user repays 1 USDS, the user now owes 3.936 USDS in interest and 2961.64 USDS in principal. User gets no collateral back.
 - If user repays 4.936 USDS, user owes no interest and only 2961.64 USDS in principal. User gets no collateral back.
@@ -130,11 +128,8 @@ Loans are issued from Treasury USDS reserves. Interest is recycled into:
 
 ### Migration from V1
 
-A dedicated Migrator contract allows users to:
-
-- Exit V1 positions
-- Transition to V2 seamlessly
-- Maintain collateral continuity
+A Cooler V1 loan can move to V2 this way: repay it in full, then open a V2 position. See
+[Held OHM before? Start here](./11_held-ohm-before.md#repay-or-extend-a-cooler-v1-loan-dai-or-usds).
 
 ### Use Cases
 
@@ -144,7 +139,7 @@ A dedicated Migrator contract allows users to:
 
 ## Summary
 
-Cooler Loans V2 is a protocol-native borrowing system that replaces expiring debt with perpetual, flexible credit. It eliminates price-based liquidation risk entirely, ensuring borrower safety through predictable, behavior-based mechanics. By requiring gOHM as collateral, it reinforces alignment with Olympus governance and long-term protocol incentives. Loan growth is managed transparently through a governance-controlled, drip-fed LTV increase mechanism, enabling sustainable expansion over time. Altogether, Cooler Loans V2 serves as a foundational building block for Olympus’ on-chain financial infrastructure.
+Cooler Loans V2 is a protocol-native borrowing system that replaces expiring debt with perpetual, flexible credit. It eliminates price-based liquidation risk entirely, ensuring borrower safety through predictable, behavior-based mechanics. By requiring gOHM as collateral, it reinforces alignment with Olympus governance and long-term protocol incentives. Any increase in origination LTV is set by governance and released gradually through the drip. Altogether, Cooler Loans V2 serves as a foundational building block for Olympus’ on-chain financial infrastructure.
 
 ## FAQ
 
@@ -205,6 +200,24 @@ To participate in governance, users MUST self-delegate in order to be able to us
 - ALL of the collateral in your Cooler is delegated when calling this function.
 - You only need to call delegate once, it will automatically recognize each time you add to your loan.
 - You can choose to change the address(s) that you delegate to at a later time.
+
+### When the interest rate changes, which loans does it apply to?
+
+All open positions, from the moment of the change. Cooler V2 tracks interest with a single protocol-wide accumulator.
+When a new rate is set, the contract first records the interest accrued at the old rate up to that block, then accrues at
+the new rate from that point on. Interest accrued before the change is unaffected. Each change emits an `InterestRateSet`
+event onchain, and the contract caps the rate at 10%.
+
+### Can I repay and withdraw my collateral in one transaction?
+
+Yes. `repayAndRemoveCollateral` on the Cooler V2 Composites contract (see [Contracts](#contracts)) repays USDS debt and
+withdraws gOHM in a single call. (`addCollateralAndBorrow` does the reverse.)
+
+### I have a Cooler V1 loan. How do I repay it?
+
+Cooler V1 loans are repaid in DAI or USDS, depending on the Clearinghouse version, on the Cooler V1 page of the app, until
+the loan's expiry. See
+[Held OHM before? Start here](./11_held-ohm-before.md#repay-or-extend-a-cooler-v1-loan-dai-or-usds).
 
 ## Contracts
 
