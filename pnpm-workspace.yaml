@@ -1,32 +1,20 @@
 blockExoticSubdeps: true
 engineStrict: true
 minimumReleaseAge: 10080
-minimumReleaseAgeExclude:
-  - "joi@18.3.1" # GHSA-4528-x5fx-h6hg patched release; remove after maturity window.
-auditConfig:
-  ignoreGhsas:
-    # image-size DoS via infinite loops in the ICNS/JXL/HEIF parsers. Both advisories cover
-    # image-size >=2.0.3 is patched, but @docusaurus/mdx-loader 2.4.1 requires the
-    # v1 callback/path API, which v2 removed. The loader only reads images committed
-    # to this repo at build time, so there is no untrusted input path. Remove these
-    # exceptions when Docusaurus can use a patched image-size version.
-    - GHSA-w3rx-r6r6-pgpr
-    - GHSA-5p2g-fcmc-qvqq
-    # deepmerge <=4.3.1 prototype poisoning in mergeObject(). No patched version exists.
-    # Only build tooling (@svgr/plugin-svgo, fork-ts-checker-webpack-plugin) uses deepmerge,
-    # to merge config objects from Docusaurus and this repo. Remove this exception when
-    # a patched deepmerge release is available.
-    - GHSA-gcqx-w48m-w2h4
 allowBuilds:
   "core-js@3.49.0": true
   "core-js-pure@3.49.0": true
 overrides:
+  "webpack@<5.112.0": "^5.112.2"
+  # plugin-svgo 8.1.0 declares deepmerge but its published code never imports it.
+  "@svgr/plugin-svgo@8.1.0>deepmerge": "-"
+  "tinypool@<2.1.2": "2.1.2" # Security fixes; Docusaurus SSG API verified by the production build.
+  "core-js": "3.49.0" # Keep the explicitly approved build-script version.
   "@babel/core@<=7.29.0": "7.29.6"
   "@babel/helper-compilation-targets@<7.29.7": "7.29.7"
   "@babel/runtime-corejs3@<7.26.10": "^7.26.10"
   "@babel/runtime@<7.26.10": "^7.26.10"
   "@babel/traverse@<7.23.2": "^7.23.2"
-  "@types/react@>=19": "^18.3.31" # React runtime is 17.x; v19 types drop the global JSX namespace and break `tsc`.
   "ajv@<6.14.0": "6.14.0"
   "algoliasearch-helper@<3.11.2": "^3.11.2"
   "axios@<1.20.0": "^1.20.0"
@@ -42,12 +30,11 @@ overrides:
   "http-proxy-middleware@<2.0.10": "^2.0.10"
   "joi@<18.3.1": "18.3.1"
   "js-yaml@<4.3.2": "4.3.2"
-  "katex@<0.18.2": "^0.18.11"
+  "katex@<0.19.1": "^0.19.1"
   "launch-editor@<=2.14.1": "2.14.2"
   "loader-utils@<2.0.4": "2.0.4"
   "lodash@<4.18.0": "^4.18.0"
   "dompurify@<3.4.16": "3.4.17"
-  "mermaid@<10.9.8": "10.9.8"
   "micromatch@<4.0.8": "^4.0.8"
   "minimatch@<11.0.2": "11.0.2"
   "nanoid@<3.3.18": "^3.3.18"
@@ -70,12 +57,10 @@ overrides:
   "wait-on@<9.0.4": "^9.0.4"
   "websocket-driver@<0.7.5": "^0.7.5"
   "webpack-dev-server@<=5.2.5": "^5.2.6"
-  "webpack@<5.94.0": "5.105.4"
-  "webpack@>5.105.4": "5.105.4" # >=5.106 tightens ProgressPlugin option validation, breaking webpackbar 5.0.2 (Docusaurus 2.4.1).
   "ws@<8.0.0": "^8.17.1"
   "ws@>=8.0.0 <8.20.1": "^8.20.1"
   "yaml@<1.10.3": "^1.10.3"
-patchedDependencies:
-  gray-matter@4.0.3: patches/gray-matter@4.0.3.patch
 preferFrozenLockfile: true
+trustLockfile: false
+trustPolicy: no-downgrade
 strictDepBuilds: true

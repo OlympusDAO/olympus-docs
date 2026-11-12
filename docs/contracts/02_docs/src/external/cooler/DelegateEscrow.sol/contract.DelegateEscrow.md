@@ -12,7 +12,7 @@ An escrow to hold gOHM and delegate that amount to exactly one account.
 
 Any caller (eg MonoCooler) can delegate on behalf of a `delegator` address, but only that same caller
 can rescind the delegation to pull the gOHM back.
-This contract uses Clones (<https://github.com/wighawag/clones-with-immutable-args>)
+This contract uses Clones ([https://github.com/wighawag/clones-with-immutable-args](https://github.com/wighawag/clones-with-immutable-args))
 to save gas on deployment.
 Note: Any donated gOHM (transferred directly rather than using `delegate()`) cannot be recovered.
 

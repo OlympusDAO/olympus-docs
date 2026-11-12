@@ -24,6 +24,33 @@ function addPage(file, route) {
     /^---\n[\s\S]*?\n---\n\n/,
     "",
   );
+  // MDX 3 treats Markdown autolinks as JSX. Keep fenced examples verbatim.
+  content = content.replace(
+    /(^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\2[ \t]*$)|<(https?:\/\/[^<>\s]+|[^<>\s]+@[^<>\s]+)>/gm,
+    (_, code, _fence, link) =>
+      code ?? `[${link}](${link.includes("://") ? "" : "mailto:"}${link})`,
+  );
+  // Make legacy MDX 1 emphasis explicit so regenerated pages keep their appearance.
+  for (const [before, after] of [
+    [
+      "positionIds_ array does not match the length of the amounts_",
+      "positionIds<em> array does not match the length of the amounts</em>",
+    ],
+    [
+      "minimumDeposit_ > depositCap_",
+      "minimumDeposit<em> &gt; depositCap</em>",
+    ],
+    [
+      "baseToken_ is used as collateralToken, quoteToken_",
+      "baseToken<em> is used as collateralToken, quoteToken</em>",
+    ],
+    [
+      "10**(collateral token decimals) assets of collateral token quoted in\n10**(loan token decimals)",
+      "10<strong>(collateral token decimals) assets of collateral token quoted in\n10</strong>(loan token decimals)",
+    ],
+  ]) {
+    content = content.replaceAll(before, after);
+  }
   // This NatSpec formula is prose; Markdown otherwise reads it as emphasis.
   content = content.replaceAll(
     "0.25 * 1e3 * decayInterval / marketDuration",

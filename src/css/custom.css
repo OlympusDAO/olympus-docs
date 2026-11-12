@@ -1,3 +1,5 @@
+@import "katex/dist/katex.min.css";
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -27,4 +29,22 @@
   --ifm-color-primary-lighter: #a3a3a3;
   --ifm-color-primary-lightest: #676b74;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Keep the Docusaurus 2 documentation-card typography and inline icon spacing. */
+.theme-doc-card-container .theme-doc-card-heading {
+  display: block;
+  overflow: hidden;
+  font-size: 1.2rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.theme-doc-card-container .theme-doc-card-icon {
+  margin-right: 0;
+  font-size: inherit;
+}
+
+.theme-doc-card-container .theme-doc-card-icon::after {
+  content: " ";
 }

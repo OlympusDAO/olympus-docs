@@ -273,7 +273,7 @@ To avoid price manipulation, this function calculated the pool token price in th
 
 <i>
 
-Balancer at <https://docs.balancer.fi/concepts/advanced/valuing-bpt/valuing-bpt.html#on-chain-price-evaluation> :
+Balancer at [https://docs.balancer.fi/concepts/advanced/valuing-bpt/valuing-bpt.html#on-chain-price-evaluation](https://docs.balancer.fi/concepts/advanced/valuing-bpt/valuing-bpt.html#on-chain-price-evaluation) :
 
 - Obtains the prices of all tokens in the pool from PRICE (usually using price feeds)
 - Applies a guard to protect against re-entrancy attacks on the Balancer pool
@@ -323,7 +323,7 @@ Determines the unit price of the pool token for the Balancer stable pool specifi
 To avoid price manipulation, this function calculated the pool token price in the following manner:
 
 - Applies a guard to protect against re-entrancy attacks on the Balancer pool
-- Utilises the formula suggested by Balancer: <https://docs.balancer.fi/concepts/advanced/valuing-bpt/valuing-bpt.html#on-chain-price-evaluation>
+- Utilises the formula suggested by Balancer: [https://docs.balancer.fi/concepts/advanced/valuing-bpt/valuing-bpt.html#on-chain-price-evaluation](https://docs.balancer.fi/concepts/advanced/valuing-bpt/valuing-bpt.html#on-chain-price-evaluation)
 
 </i>
 
@@ -339,7 +339,7 @@ This function will revert if:
 
 <i>
 
-NOTE: If there is a significant de-peg between the prices of constituent assets, the token price will be inaccurate. See the now-deleted mention of this: <https://github.com/balancer/docs/pull/112/files>
+NOTE: If there is a significant de-peg between the prices of constituent assets, the token price will be inaccurate. See the now-deleted mention of this: [https://github.com/balancer/docs/pull/112/files](https://github.com/balancer/docs/pull/112/files)
 
 </i>
 

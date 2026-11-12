@@ -4,13 +4,13 @@
 
 **Title:** IPriceOracle
 
-**Author:** Euler Labs (<https://www.eulerlabs.com/>)
+**Author:** Euler Labs ([https://www.eulerlabs.com/](https://www.eulerlabs.com/))
 
 Common PriceOracle interface.
 
 **Note:**
 
-- **security-contact:** <security@euler.xyz>
+- **security-contact:** [security@euler.xyz](mailto:security@euler.xyz)
 
 ## Functions
 

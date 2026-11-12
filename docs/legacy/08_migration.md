@@ -62,10 +62,10 @@ No, you can't switch back from gOHM to V1 tokens through our migration tool.
 
 The Index at the time of migration was `46.721314322` and will be used for the migration.
 
-- For OHM v1 and sOHM v1 the amount of gOHM you will receive is `(amount of [s]OHM v1) / 46.721314322`.\
-  So if you have 10 OHM or sOHM you will receive `10 / 46.721314322` → `0.214035074678779` gOHM.\
+- For OHM v1 and sOHM v1 the amount of gOHM you will receive is `(amount of [s]OHM v1) / 46.721314322`.&#92;
+  So if you have 10 OHM or sOHM you will receive `10 / 46.721314322` → `0.214035074678779` gOHM.&#92;
   That gOHM will be worth much more (s)OHM v2 than you had (s)OHM v1 because it accounts for missing rewards.
-- For wsOHM you will receive exactly the same amount in gOHM.\
+- For wsOHM you will receive exactly the same amount in gOHM.&#92;
   So if you have 0.5 wsOHM you will receive 0.5 gOHM.
 
 :::note

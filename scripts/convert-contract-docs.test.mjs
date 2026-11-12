@@ -191,3 +191,62 @@ test("joins condition lists split across Forge italic blocks and preserves code 
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("makes Forge autolinks compatible with MDX without changing code examples", () => {
+  const root = mkdtempSync(join(tmpdir(), "contract-docs-autolinks-"));
+  try {
+    const input = join(root, "input");
+    const output = join(root, "output");
+    mkdirSync(join(input, "src"), { recursive: true });
+    const example = "```md\n<https://example.com>\n```";
+    writeFileSync(
+      join(input, "src/contract.Example.mdx"),
+      `# Example\n\n[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/abc/src/Example.sol)\n\n<https://example.com> and <security@example.com>\n\n${example}\n`,
+    );
+    execFileSync(process.execPath, [
+      "scripts/convert-contract-docs.mjs",
+      input,
+      output,
+    ]);
+    const result = readFileSync(
+      join(output, "src/Example.sol/contract.Example.md"),
+      "utf8",
+    );
+    assert.ok(result.includes("[https://example.com](https://example.com)"));
+    assert.ok(
+      result.includes("[security@example.com](mailto:security@example.com)"),
+    );
+    assert.ok(result.includes(example));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("preserves legacy emphasis in Forge prose under MDX 3", () => {
+  const root = mkdtempSync(join(tmpdir(), "contract-docs-emphasis-"));
+  try {
+    const input = join(root, "input");
+    const output = join(root, "output");
+    mkdirSync(join(input, "src"), { recursive: true });
+    writeFileSync(
+      join(input, "src/contract.Example.mdx"),
+      "# Example\n\n[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/abc/src/Example.sol)\n\n<i>\n\nThe length of the positionIds_ array does not match the length of the amounts_ array\n\n</i>\n",
+    );
+    execFileSync(process.execPath, [
+      "scripts/convert-contract-docs.mjs",
+      input,
+      output,
+    ]);
+    const result = readFileSync(
+      join(output, "src/Example.sol/contract.Example.md"),
+      "utf8",
+    );
+    assert.ok(
+      result.includes(
+        "positionIds<em> array does not match the length of the amounts</em> array",
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});

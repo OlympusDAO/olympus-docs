@@ -181,7 +181,7 @@ Determines the unit price of the pool token for the UniswapV2 pool specified in 
 
 <i>
 
-The pool token price is determined using the "fair LP pricing" described here: <https://cmichel.io/pricing-lp-tokens/>
+The pool token price is determined using the "fair LP pricing" described here: [https://cmichel.io/pricing-lp-tokens/](https://cmichel.io/pricing-lp-tokens/)
 
 </i>
 
