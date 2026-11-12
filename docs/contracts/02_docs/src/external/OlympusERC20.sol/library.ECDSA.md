@@ -48,8 +48,8 @@ be too long), and then calling [toEthSignedMessageHash](#toethsignedmessagehash)
 
 Documentation for signature generation:
 
-- with [https://web3js.readthedocs.io/en/v1.3.4/web3-eth-accounts.html#sign](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-accounts.html#sign)[Web3.js]
-- with [https://docs.ethers.io/v5/api/signer/#Signer-signMessage](https://docs.ethers.io/v5/api/signer/#Signer-signMessage)[ethers]
+- with [Web3.js](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-accounts.html#sign)
+- with [ethers](https://docs.ethers.io/v5/api/signer/#Signer-signMessage)
 
 _Available since v4.3._
 
@@ -122,7 +122,7 @@ function recover(bytes32 hash, bytes memory signature) internal pure returns (ad
 
 Overload of [ECDSA.tryRecover](#tryrecover) that receives the `r` and `vs` short-signature fields separately.
 
-See [https://eips.ethereum.org/EIPS/eip-2098](https://eips.ethereum.org/EIPS/eip-2098)[EIP-2098 short signatures]
+See [EIP-2098 short signatures](https://eips.ethereum.org/EIPS/eip-2098)
 
 _Available since v4.3._
 
@@ -257,7 +257,7 @@ function recover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) internal pure retu
 
 Returns an Ethereum Signed Message, created from a `hash`. This
 produces hash corresponding to the one signed with the
-[https://eth.wiki/json-rpc/API#eth_sign](https://eth.wiki/json-rpc/API#eth_sign)[`eth_sign`]
+[`eth_sign`](https://eth.wiki/json-rpc/API#eth_sign)
 JSON-RPC method as part of EIP-191.
 
 See [recover](#recover).
@@ -289,7 +289,7 @@ function toEthSignedMessageHash(bytes32 hash) internal pure returns (bytes32);
 Returns an Ethereum Signed Typed Data, created from a
 `domainSeparator` and a `structHash`. This produces hash corresponding
 to the one signed with the
-[https://eips.ethereum.org/EIPS/eip-712](https://eips.ethereum.org/EIPS/eip-712)[`eth_signTypedData`]
+[`eth_signTypedData`](https://eips.ethereum.org/EIPS/eip-712)
 JSON-RPC method as part of EIP-712.
 
 See [recover](#recover).

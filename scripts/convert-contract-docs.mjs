@@ -19,49 +19,79 @@ const files = (dir, extension) =>
   readdirSync(dir, { recursive: true }).filter((p) => p.endsWith(extension));
 const pages = new Map();
 
+// Transform prose as a unit while preserving fenced examples, including longer closers.
+function mapProse(content, transform) {
+  let fence = "";
+  let prose = "";
+  let result = "";
+  for (const line of content.split(/(?<=\n)/)) {
+    const marker = line.match(/^ {0,3}(`{3,}|~{3,})([^\r\n]*)(?:\r?\n)?$/);
+    if (fence) {
+      result += line;
+      if (
+        marker &&
+        marker[1][0] === fence[0] &&
+        marker[1].length >= fence.length &&
+        /^[ \t]*$/.test(marker[2])
+      ) {
+        fence = "";
+      }
+    } else if (marker && !(marker[1][0] === "`" && marker[2].includes("`"))) {
+      result += transform(prose) + line;
+      prose = "";
+      fence = marker[1];
+    } else {
+      prose += line;
+    }
+  }
+  return result + transform(prose);
+}
+
 function addPage(file, route) {
   let content = readFileSync(file, "utf8").replace(
     /^---\n[\s\S]*?\n---\n\n/,
     "",
   );
-  // MDX 3 treats Markdown autolinks as JSX. Keep fenced examples verbatim.
-  content = content.replace(
-    /(^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\2[ \t]*$)|<(https?:\/\/[^<>\s]+|[^<>\s]+@[^<>\s]+)>/gm,
-    (_, code, _fence, link) =>
-      code ?? `[${link}](${link.includes("://") ? "" : "mailto:"}${link})`,
-  );
-  // Make legacy MDX 1 emphasis explicit so regenerated pages keep their appearance.
-  for (const [before, after] of [
-    [
-      "positionIds_ array does not match the length of the amounts_",
-      "positionIds<em> array does not match the length of the amounts</em>",
-    ],
-    [
-      "minimumDeposit_ > depositCap_",
-      "minimumDeposit<em> &gt; depositCap</em>",
-    ],
-    [
-      "baseToken_ is used as collateralToken, quoteToken_",
-      "baseToken<em> is used as collateralToken, quoteToken</em>",
-    ],
-    [
-      "10**(collateral token decimals) assets of collateral token quoted in\n10**(loan token decimals)",
-      "10<strong>(collateral token decimals) assets of collateral token quoted in\n10</strong>(loan token decimals)",
-    ],
-  ]) {
-    content = content.replaceAll(before, after);
-  }
-  // This NatSpec formula is prose; Markdown otherwise reads it as emphasis.
-  content = content.replaceAll(
-    "0.25 * 1e3 * decayInterval / marketDuration",
-    "`0.25 * 1e3 * decayInterval / marketDuration`",
-  );
-  // Repeated @dev tags split list items into separate italic blocks. Keep
-  // fenced examples verbatim while joining list items and parenthetical continuations.
-  content = content.replace(
-    /(^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\2[ \t]*$)|\n\n<\/i>\n\n<i>\n\n(?=[ \t]*(?:[-*+] |\d+[.)] |\())/gm,
-    (_, code) => code ?? "\n",
-  );
+  content = mapProse(content, (prose) => {
+    // MDX 3 treats Markdown autolinks as JSX; Forge may append a bracketed label.
+    let result = prose.replace(
+      /<(https?:\/\/[^<>\s]+|[^<>\s]+@[^<>\s]+)>(?:\[([^\]]+)\])?/g,
+      (_, link, label) =>
+        `[${label ?? link}](${link.includes("://") ? "" : "mailto:"}${link})`,
+    );
+    // Exponent operators in NatSpec are arithmetic, not Markdown emphasis.
+    result = result.replace(
+      /10\*\*\((?:collateral|loan) token decimals\)/g,
+      "`$&`",
+    );
+    // Make legacy MDX 1 emphasis explicit so regenerated pages keep their appearance.
+    for (const [before, after] of [
+      [
+        "positionIds_ array does not match the length of the amounts_",
+        "positionIds<em> array does not match the length of the amounts</em>",
+      ],
+      [
+        "minimumDeposit_ > depositCap_",
+        "minimumDeposit<em> &gt; depositCap</em>",
+      ],
+      [
+        "baseToken_ is used as collateralToken, quoteToken_",
+        "baseToken<em> is used as collateralToken, quoteToken</em>",
+      ],
+    ]) {
+      result = result.replaceAll(before, after);
+    }
+    // This NatSpec formula is prose; Markdown otherwise reads it as emphasis.
+    result = result.replaceAll(
+      "0.25 * 1e3 * decayInterval / marketDuration",
+      "`0.25 * 1e3 * decayInterval / marketDuration`",
+    );
+    // Repeated @dev tags split list items into separate italic blocks.
+    return result.replace(
+      /\n\n<\/i>\n\n<i>\n\n(?=[ \t]*(?:[-*+] |\d+[.)] |\())/g,
+      "\n",
+    );
+  });
   const source = content.match(
     /\[Git Source\]\(https:\/\/github\.com\/OlympusDAO\/olympus-v3\/blob\/[^/]+\/(src\/[^)]+)\)/,
   )?.[1];
