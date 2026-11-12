@@ -1,7 +1,5 @@
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
-// biome-ignore lint/correctness/noUnusedImports: The classic JSX TypeScript config requires React in scope.
-import React from "react";
 
 import "./index.module.css";
 import useBaseUrl from "@docusaurus/useBaseUrl";

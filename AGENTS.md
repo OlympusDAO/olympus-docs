@@ -2,12 +2,12 @@
 
 ## Project Overview
 
-This is the official documentation repository for OlympusDAO, built with Docusaurus 2. The site documents the Olympus protocol - a decentralized financial (DeFi) system that supports OHM, a treasury-backed, liquidity-enabling token on the Ethereum network.
+This is the official documentation repository for OlympusDAO, built with Docusaurus 3. The site documents the Olympus protocol - a decentralized financial (DeFi) system that supports OHM, a treasury-backed, liquidity-enabling token on the Ethereum network.
 
 **Key Technologies:**
 
-- Docusaurus 2.4.1
-- React 17.0.2
+- Docusaurus 3.10.2 (MDX 3)
+- React 18.3.1
 - TypeScript
 - Emotion for styling
 - KaTeX for math equations
@@ -16,25 +16,28 @@ This is the official documentation repository for OlympusDAO, built with Docusau
 
 ```bash
 # Install dependencies
-yarn
+pnpm install
 
 # Local development
-yarn start
+pnpm start
 
 # Build production site
-yarn build
+pnpm build
 
 # Type checking
-yarn typecheck
+pnpm typecheck
+
+# Run script tests
+pnpm test
 
 # Clear cache
-yarn clear
+pnpm clear
 
 # Deploy (via CI/CD)
-yarn deploy
+pnpm deploy
 
 # Generate contract documentation
-./contracts.sh
+pnpm build:contracts
 ```
 
 ## Project Structure
@@ -193,6 +196,9 @@ User guides and tutorials:
 - Use standard Markdown (.md) files
 - Follow existing formatting conventions
 - Use proper header hierarchy (H1, H2, H3, etc.)
+- Write for MDX 3. Use fenced code blocks, not indented code blocks.
+- Write links as `[text](https://...)`. MDX 3 reads `<https://...>` as JSX.
+- Escape a literal `$` as `\$`. `remark-math` reads a pair of `$` signs as math.
 
 ### Sidebar Organization
 

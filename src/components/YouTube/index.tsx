@@ -1,6 +1,3 @@
-// biome-ignore lint/correctness/noUnusedImports: The classic JSX TypeScript config requires React in scope.
-import React from "react";
-
 export default function YouTube({
   youTubeId,
   alt,
@@ -15,7 +12,7 @@ export default function YouTube({
     >
       <iframe
         title={alt ?? `youTube-${youTubeId}`}
-        src={`https://www.youtube.com/embed/${youTubeId}?&autoplay=false&start=0`}
+        src={`https://www.youtube.com/embed/${youTubeId}`}
         loading="lazy"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

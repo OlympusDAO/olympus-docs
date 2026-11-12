@@ -47,22 +47,34 @@ function mapProse(content, transform) {
   return result + transform(prose);
 }
 
+// Inline code spans stay literal; only the text around them is transformed.
+const codeSpan = /(?<!`)(`+)(?!`)(?:(?!\n[ \t]*\n)[\s\S])*?(?<!`)\1(?!`)/;
+function outsideCode(text, pattern, replace) {
+  const regex = new RegExp(`${codeSpan.source}|${pattern.source}`, "g");
+  return text.replace(regex, (match, _ticks, ...groups) =>
+    match.startsWith("`") ? match : replace(match, ...groups),
+  );
+}
+
 function addPage(file, route) {
   let content = readFileSync(file, "utf8").replace(
     /^---\n[\s\S]*?\n---\n\n/,
     "",
   );
   content = mapProse(content, (prose) => {
-    // MDX 3 treats Markdown autolinks as JSX; Forge may append a bracketed label.
-    let result = prose.replace(
-      /<(https?:\/\/[^<>\s]+|[^<>\s]+@[^<>\s]+)>(?:\[([^\]]+)\])?/g,
+    // MDX 3 treats Markdown autolinks as JSX. Forge may append a bracketed label;
+    // a numeric citation or an existing link after the autolink is not a label.
+    let result = outsideCode(
+      prose,
+      /<(https?:\/\/[^<>\s]+|[^<>\s]+@[^<>\s]+)>(?:\[(?!\d+\])([^\]]+)\](?!\())?/,
       (_, link, label) =>
         `[${label ?? link}](${link.includes("://") ? "" : "mailto:"}${link})`,
     );
     // Exponent operators in NatSpec are arithmetic, not Markdown emphasis.
-    result = result.replace(
-      /10\*\*\((?:collateral|loan) token decimals\)/g,
-      "`$&`",
+    result = outsideCode(
+      result,
+      /10\*\*\((?:collateral|loan) token decimals\)/,
+      (match) => `\`${match}\``,
     );
     // Make legacy MDX 1 emphasis explicit so regenerated pages keep their appearance.
     for (const [before, after] of [
@@ -82,9 +94,10 @@ function addPage(file, route) {
       result = result.replaceAll(before, after);
     }
     // This NatSpec formula is prose; Markdown otherwise reads it as emphasis.
-    result = result.replaceAll(
-      "0.25 * 1e3 * decayInterval / marketDuration",
-      "`0.25 * 1e3 * decayInterval / marketDuration`",
+    result = outsideCode(
+      result,
+      /0\.25 \* 1e3 \* decayInterval \/ marketDuration/,
+      (match) => `\`${match}\``,
     );
     // Repeated @dev tags split list items into separate italic blocks.
     return result.replace(

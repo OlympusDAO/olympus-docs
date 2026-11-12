@@ -222,6 +222,46 @@ test("makes Forge autolinks compatible with MDX without changing code examples",
   }
 });
 
+test("keeps inline code literal and reads only Forge labels after autolinks", () => {
+  const root = mkdtempSync(join(tmpdir(), "contract-docs-inline-"));
+  try {
+    const input = join(root, "input");
+    const output = join(root, "output");
+    mkdirSync(join(input, "src"), { recursive: true });
+    const prose = [
+      "Code `<https://x.org>` and `price * 10**(loan token decimals)` stay literal.",
+      "Label <https://a.org>[`sign` in MetaMask] becomes a link.",
+      "Citation <https://b.org>[1] keeps its URL.",
+      "Link <https://c.org>[see](https://d.org) stays separate.",
+      "Prose 10**(loan token decimals) becomes code.",
+    ].join("\n\n");
+    writeFileSync(
+      join(input, "src/contract.Example.mdx"),
+      `# Example\n\n[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/abc/src/Example.sol)\n\n${prose}\n`,
+    );
+    execFileSync(process.execPath, [
+      "scripts/convert-contract-docs.mjs",
+      input,
+      output,
+    ]);
+    const result = readFileSync(
+      join(output, "src/Example.sol/contract.Example.md"),
+      "utf8",
+    );
+    for (const expected of [
+      "Code `<https://x.org>` and `price * 10**(loan token decimals)` stay literal.",
+      "Label [`sign` in MetaMask](https://a.org) becomes a link.",
+      "Citation [https://b.org](https://b.org)[1] keeps its URL.",
+      "Link [https://c.org](https://c.org)[see](https://d.org) stays separate.",
+      "Prose `10**(loan token decimals)` becomes code.",
+    ]) {
+      assert.ok(result.includes(expected), expected);
+    }
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("preserves legacy emphasis in Forge prose under MDX 3", () => {
   const root = mkdtempSync(join(tmpdir(), "contract-docs-emphasis-"));
   try {
