@@ -17,7 +17,7 @@ points to them.
 
 TIP: If you would like to learn more about reentrancy and alternative ways
 to protect against it, check out our blog post
-<https://blog.openzeppelin.com/reentrancy-after-istanbul/>[Reentrancy After Istanbul].
+[Reentrancy After Istanbul](https://blog.openzeppelin.com/reentrancy-after-istanbul/).
 
 </i>
 

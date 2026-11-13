@@ -22,7 +22,7 @@ Calculates floor(a×b÷denominator) with full precision. Throws if result overfl
 
 <i>
 
-Credit to Remco Bloemen under MIT license <https://xn--2-umb.com/21/muldiv>
+Credit to Remco Bloemen under MIT license [https://xn--2-umb.com/21/muldiv](https://xn--2-umb.com/21/muldiv)
 
 </i>
 

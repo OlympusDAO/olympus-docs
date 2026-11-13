@@ -9,7 +9,7 @@ that otherwise expect an ERC20 address.
 
 <i>
 
-See <https://eips.ethereum.org/EIPS/eip-7528>.
+See [https://eips.ethereum.org/EIPS/eip-7528](https://eips.ethereum.org/EIPS/eip-7528).
 
 </i>
 

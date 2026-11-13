@@ -41,24 +41,29 @@ The following specification was used to implement the RBS V1 system. It provides
 1. Calculate and maintain a moving average price for OHM against a specified reserve asset for a configurable duration. The MA price should be updated each system epoch.
 2. Calculate lower and upper bounds for the price OHM against a specified reserve asset, both “wall” and “cushion” components, from the moving average price and configurable spread variables. The price levels are calculated as:
 
-       Lower Wall = MA * (1 - Wall Spread)
-       Lower Cushion = MA * (1 - Cushion Spread)
-       Upper Cushion = MA * (1 + Cushion Spread)
-       Upper Wall = MA * (1 + Wall Spread)
+   ```text
+   Lower Wall = MA * (1 - Wall Spread)
+   Lower Cushion = MA * (1 - Cushion Spread)
+   Upper Cushion = MA * (1 + Cushion Spread)
+   Upper Wall = MA * (1 + Wall Spread)
 
-       where Cushion Spread < Wall Spread
-
-       such that LW < LC < MA < UC < UW
+   where Cushion Spread < Wall Spread
+   such that LW < LC < MA < UC < UW
+   ```
 
 3. Allow users to swap OHM for reserves at the lower wall price (WL) and reserves for OHM at the upper wall price (WH) up to the specified capacity of the current walls.
 
    a. Capacity of the lower wall (bid) in reserves should be the amount of reserves in the Olympus Treasury multiplied by a configured bid factor (percent of reserves to use for each wall).
 
-       Bid Capacity = Bid Factor * Reserves
+   ```text
+   Bid Capacity = Bid Factor * Reserves
+   ```
 
    b. Capacity of the upper wall (ask) in OHM should be the capacity of the lower wall (bid) divided by the upper wall price and scaled up by the difference in spread from the lower wall to the upper wall.
 
-       Ask Capacity = Bid Capacity * (1 + 2 * Wall Spread) / Upper Wall Price
+   ```text
+   Ask Capacity = Bid Capacity * (1 + 2 * Wall Spread) / Upper Wall Price
+   ```
 
    c. When the capacity of either wall is depleted, the system should not allow additional swaps on that side until it is regenerated.
 
