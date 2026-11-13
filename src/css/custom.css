@@ -41,6 +41,18 @@
   height: auto;
 }
 
+/* Scroll long equations without widening the page or clipping their left edge. */
+.theme-doc-markdown .katex-display {
+  overflow: auto hidden;
+  padding-block: 0.25em;
+  margin-block: 0.75em;
+}
+
+.theme-doc-markdown .katex-display > .katex {
+  width: max-content;
+  min-width: 100%;
+}
+
 /* Keep the Docusaurus 2 documentation-card typography and inline icon spacing. */
 .theme-doc-card-container .theme-doc-card-heading {
   display: block;
