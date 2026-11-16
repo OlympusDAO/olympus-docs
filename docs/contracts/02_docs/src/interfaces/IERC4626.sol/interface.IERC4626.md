@@ -7,7 +7,7 @@
 <i>
 
 Interface of the ERC4626 "Tokenized Vault Standard", as defined in
-<https://eips.ethereum.org/EIPS/eip-4626>
+[https://eips.ethereum.org/EIPS/eip-4626](https://eips.ethereum.org/EIPS/eip-4626)
 
 </i>
 

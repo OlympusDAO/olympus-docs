@@ -9,7 +9,7 @@ gOHM from other accounts
 
 <i>
 
-This contract uses Clones (<https://github.com/wighawag/clones-with-immutable-args>)
+This contract uses Clones ([https://github.com/wighawag/clones-with-immutable-args](https://github.com/wighawag/clones-with-immutable-args))
 to save gas on deployment.
 
 </i>

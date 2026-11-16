@@ -19,22 +19,92 @@ const files = (dir, extension) =>
   readdirSync(dir, { recursive: true }).filter((p) => p.endsWith(extension));
 const pages = new Map();
 
+// Transform prose as a unit while preserving fenced examples, including longer closers.
+function mapProse(content, transform) {
+  let fence = "";
+  let prose = "";
+  let result = "";
+  for (const line of content.split(/(?<=\n)/)) {
+    const marker = line.match(/^ {0,3}(`{3,}|~{3,})([^\r\n]*)(?:\r?\n)?$/);
+    if (fence) {
+      result += line;
+      if (
+        marker &&
+        marker[1][0] === fence[0] &&
+        marker[1].length >= fence.length &&
+        /^[ \t]*$/.test(marker[2])
+      ) {
+        fence = "";
+      }
+    } else if (marker && !(marker[1][0] === "`" && marker[2].includes("`"))) {
+      result += transform(prose) + line;
+      prose = "";
+      fence = marker[1];
+    } else {
+      prose += line;
+    }
+  }
+  return result + transform(prose);
+}
+
+// Inline code spans stay literal; only the text around them is transformed.
+const codeSpan = /(?<!`)(`+)(?!`)(?:(?!\n[ \t]*\n)[\s\S])*?(?<!`)\1(?!`)/;
+function outsideCode(text, pattern, replace) {
+  const regex = new RegExp(`${codeSpan.source}|${pattern.source}`, "g");
+  return text.replace(regex, (match, _ticks, ...groups) =>
+    match.startsWith("`") ? match : replace(match, ...groups),
+  );
+}
+
 function addPage(file, route) {
   let content = readFileSync(file, "utf8").replace(
     /^---\n[\s\S]*?\n---\n\n/,
     "",
   );
-  // This NatSpec formula is prose; Markdown otherwise reads it as emphasis.
-  content = content.replaceAll(
-    "0.25 * 1e3 * decayInterval / marketDuration",
-    "`0.25 * 1e3 * decayInterval / marketDuration`",
-  );
-  // Repeated @dev tags split list items into separate italic blocks. Keep
-  // fenced examples verbatim while joining list items and parenthetical continuations.
-  content = content.replace(
-    /(^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\2[ \t]*$)|\n\n<\/i>\n\n<i>\n\n(?=[ \t]*(?:[-*+] |\d+[.)] |\())/gm,
-    (_, code) => code ?? "\n",
-  );
+  content = mapProse(content, (prose) => {
+    // MDX 3 treats Markdown autolinks as JSX. Forge may append a bracketed label;
+    // a numeric citation or an existing link after the autolink is not a label.
+    let result = outsideCode(
+      prose,
+      /<(https?:\/\/[^<>\s]+|[^<>\s]+@[^<>\s]+)>(?:\[(?!\d+\])([^\]]+)\](?!\())?/,
+      (_, link, label) =>
+        `[${label ?? link}](${link.includes("://") ? "" : "mailto:"}${link})`,
+    );
+    // Exponent operators in NatSpec are arithmetic, not Markdown emphasis.
+    result = outsideCode(
+      result,
+      /10\*\*\((?:collateral|loan) token decimals\)/,
+      (match) => `\`${match}\``,
+    );
+    // Make legacy MDX 1 emphasis explicit so regenerated pages keep their appearance.
+    for (const [before, after] of [
+      [
+        "positionIds_ array does not match the length of the amounts_",
+        "positionIds<em> array does not match the length of the amounts</em>",
+      ],
+      [
+        "minimumDeposit_ > depositCap_",
+        "minimumDeposit<em> &gt; depositCap</em>",
+      ],
+      [
+        "baseToken_ is used as collateralToken, quoteToken_",
+        "baseToken<em> is used as collateralToken, quoteToken</em>",
+      ],
+    ]) {
+      result = result.replaceAll(before, after);
+    }
+    // This NatSpec formula is prose; Markdown otherwise reads it as emphasis.
+    result = outsideCode(
+      result,
+      /0\.25 \* 1e3 \* decayInterval \/ marketDuration/,
+      (match) => `\`${match}\``,
+    );
+    // Repeated @dev tags split list items into separate italic blocks.
+    return result.replace(
+      /\n\n<\/i>\n\n<i>\n\n(?=[ \t]*(?:[-*+] |\d+[.)] |\())/g,
+      "\n",
+    );
+  });
   const source = content.match(
     /\[Git Source\]\(https:\/\/github\.com\/OlympusDAO\/olympus-v3\/blob\/[^/]+\/(src\/[^)]+)\)/,
   )?.[1];

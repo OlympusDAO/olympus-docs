@@ -4,7 +4,7 @@
 
 **Inherits:** Clone, [IERC20](/main/contracts/docs/src/interfaces/IERC20.sol/interface.IERC20)
 
-**Authors:** Solmate (<https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol>), Modified from Uniswap (<https://github.com/Uniswap/uniswap-v2-core/blob/master/contracts/UniswapV2ERC20.sol>)
+**Authors:** Solmate ([https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol](https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol)), Modified from Uniswap ([https://github.com/Uniswap/uniswap-v2-core/blob/master/contracts/UniswapV2ERC20.sol](https://github.com/Uniswap/uniswap-v2-core/blob/master/contracts/UniswapV2ERC20.sol))
 
 Modern and gas efficient ERC20 implementation.
 
@@ -130,7 +130,7 @@ Sets `amount` as the allowance of `spender` over the caller's tokens.
 
 <i>
 
-Be aware of front-running risks: <https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729>
+Be aware of front-running risks: [https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729](https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729)
 
 </i>
 

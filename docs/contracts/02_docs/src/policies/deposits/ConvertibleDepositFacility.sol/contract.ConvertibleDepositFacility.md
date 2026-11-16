@@ -224,7 +224,7 @@ Preview the amount of receipt tokens and OHM that would be converted
 This function reverts if:
 
 - The contract is not enabled
-- The length of the positionIds_ array does not match the length of the amounts_ array
+- The length of the positionIds<em> array does not match the length of the amounts</em> array
 - depositor_ is not the owner of all of the positions
 - Any position is not valid
 - Any position is not a supported asset
@@ -271,7 +271,7 @@ This function reverts if:
 
 - The contract is not enabled
 - No positions are provided
-- The length of the positionIds_ array does not match the length of the amounts_ array
+- The length of the positionIds<em> array does not match the length of the amounts</em> array
 - The caller is not the owner of all of the positions
 - Any position is not valid
 - Any position is not a supported asset

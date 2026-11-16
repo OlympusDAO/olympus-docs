@@ -54,7 +54,7 @@ PRICE v1.2 also adds granular asset-specific accessors, such as `getPrice()`, fo
 
 - Total supply: 15m OHM
 - Base emissions rate: 0.02%
-- Current premium: 200% (price: $30, backing: $10)
+- Current premium: 200% (price: \$30, backing: \$10)
 - Minimum premium: 100%
 
 **Calculation:**

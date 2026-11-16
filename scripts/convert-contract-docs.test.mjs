@@ -191,3 +191,176 @@ test("joins condition lists split across Forge italic blocks and preserves code 
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("makes Forge autolinks compatible with MDX without changing code examples", () => {
+  const root = mkdtempSync(join(tmpdir(), "contract-docs-autolinks-"));
+  try {
+    const input = join(root, "input");
+    const output = join(root, "output");
+    mkdirSync(join(input, "src"), { recursive: true });
+    const example = "```md\n<https://example.com>\n```";
+    writeFileSync(
+      join(input, "src/contract.Example.mdx"),
+      `# Example\n\n[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/abc/src/Example.sol)\n\n<https://example.com> and <security@example.com>\n\n${example}\n`,
+    );
+    execFileSync(process.execPath, [
+      "scripts/convert-contract-docs.mjs",
+      input,
+      output,
+    ]);
+    const result = readFileSync(
+      join(output, "src/Example.sol/contract.Example.md"),
+      "utf8",
+    );
+    assert.ok(result.includes("[https://example.com](https://example.com)"));
+    assert.ok(
+      result.includes("[security@example.com](mailto:security@example.com)"),
+    );
+    assert.ok(result.includes(example));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("keeps inline code literal and reads only Forge labels after autolinks", () => {
+  const root = mkdtempSync(join(tmpdir(), "contract-docs-inline-"));
+  try {
+    const input = join(root, "input");
+    const output = join(root, "output");
+    mkdirSync(join(input, "src"), { recursive: true });
+    const prose = [
+      "Code `<https://x.org>` and `price * 10**(loan token decimals)` stay literal.",
+      "Label <https://a.org>[`sign` in MetaMask] becomes a link.",
+      "Citation <https://b.org>[1] keeps its URL.",
+      "Link <https://c.org>[see](https://d.org) stays separate.",
+      "Prose 10**(loan token decimals) becomes code.",
+    ].join("\n\n");
+    writeFileSync(
+      join(input, "src/contract.Example.mdx"),
+      `# Example\n\n[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/abc/src/Example.sol)\n\n${prose}\n`,
+    );
+    execFileSync(process.execPath, [
+      "scripts/convert-contract-docs.mjs",
+      input,
+      output,
+    ]);
+    const result = readFileSync(
+      join(output, "src/Example.sol/contract.Example.md"),
+      "utf8",
+    );
+    for (const expected of [
+      "Code `<https://x.org>` and `price * 10**(loan token decimals)` stay literal.",
+      "Label [`sign` in MetaMask](https://a.org) becomes a link.",
+      "Citation [https://b.org](https://b.org)[1] keeps its URL.",
+      "Link [https://c.org](https://c.org)[see](https://d.org) stays separate.",
+      "Prose `10**(loan token decimals)` becomes code.",
+    ]) {
+      assert.ok(result.includes(expected), expected);
+    }
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("preserves legacy emphasis in Forge prose under MDX 3", () => {
+  const root = mkdtempSync(join(tmpdir(), "contract-docs-emphasis-"));
+  try {
+    const input = join(root, "input");
+    const output = join(root, "output");
+    mkdirSync(join(input, "src"), { recursive: true });
+    writeFileSync(
+      join(input, "src/contract.Example.mdx"),
+      "# Example\n\n[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/abc/src/Example.sol)\n\n<i>\n\nThe length of the positionIds_ array does not match the length of the amounts_ array\n\n</i>\n",
+    );
+    execFileSync(process.execPath, [
+      "scripts/convert-contract-docs.mjs",
+      input,
+      output,
+    ]);
+    const result = readFileSync(
+      join(output, "src/Example.sol/contract.Example.md"),
+      "utf8",
+    );
+    assert.ok(
+      result.includes(
+        "positionIds<em> array does not match the length of the amounts</em> array",
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+for (const [name, opener, body, closer] of [
+  ["longer closer", "```md", "<https://example.com>", "````"],
+  [
+    "tilde fence containing backticks",
+    "~~~md",
+    "```\n<https://example.com>\n```",
+    "~~~~",
+  ],
+  ["indented closer", "```md", "<https://example.com>", "   ```  "],
+  ["indented opener", "  ~~~md", "<https://example.com>", "  ~~~~"],
+]) {
+  test(`preserves a fenced example with ${name}`, () => {
+    const root = mkdtempSync(join(tmpdir(), "contract-docs-fence-"));
+    try {
+      const input = join(root, "input");
+      const output = join(root, "output");
+      mkdirSync(join(input, "src"), { recursive: true });
+      const example = `${opener}\n${body}\n${closer}`;
+      writeFileSync(
+        join(input, "src/contract.Example.mdx"),
+        `# Example\n\n[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/abc/src/Example.sol)\n\n${example}\n\n<https://outside.example>\n`,
+      );
+      execFileSync(process.execPath, [
+        "scripts/convert-contract-docs.mjs",
+        input,
+        output,
+      ]);
+      const result = readFileSync(
+        join(output, "src/Example.sol/contract.Example.md"),
+        "utf8",
+      );
+      assert.ok(result.includes(example), "fenced content must remain literal");
+      assert.ok(
+        result.includes("[https://outside.example](https://outside.example)"),
+        "prose after the closer must still be converted",
+      );
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+}
+
+test("uses generated link labels and preserves oracle exponent operators", () => {
+  const root = mkdtempSync(join(tmpdir(), "contract-docs-labels-"));
+  try {
+    const input = join(root, "input");
+    const output = join(root, "output");
+    mkdirSync(join(input, "src"), { recursive: true });
+    writeFileSync(
+      join(input, "src/contract.Example.mdx"),
+      "# Example\n\n[Git Source](https://github.com/OlympusDAO/olympus-v3/blob/abc/src/Example.sol)\n\n<https://eips.ethereum.org/EIPS/eip-712>[EIP 712]\n\n<https://eips.ethereum.org/EIPS/eip-2612>[EIP\n2612]\n\n<i>\n\nIt corresponds to the price of 10**(collateral token decimals) assets of collateral token quoted in\n10**(loan token decimals) assets of loan token.\n\n</i>\n",
+    );
+    execFileSync(process.execPath, [
+      "scripts/convert-contract-docs.mjs",
+      input,
+      output,
+    ]);
+    const result = readFileSync(
+      join(output, "src/Example.sol/contract.Example.md"),
+      "utf8",
+    );
+    assert.ok(
+      result.includes("[EIP 712](https://eips.ethereum.org/EIPS/eip-712)"),
+    );
+    assert.ok(
+      result.includes("[EIP\n2612](https://eips.ethereum.org/EIPS/eip-2612)"),
+    );
+    assert.ok(result.includes("`10**(collateral token decimals)`"));
+    assert.ok(result.includes("`10**(loan token decimals)`"));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});

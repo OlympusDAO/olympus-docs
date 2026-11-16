@@ -109,7 +109,7 @@ Sets `amount` as the allowance of `spender` over the caller's tokens.
 
 <i>
 
-Be aware of front-running risks: <https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729>
+Be aware of front-running risks: [https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729](https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729)
 
 </i>
 

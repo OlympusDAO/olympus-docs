@@ -158,7 +158,7 @@ This function will revert if:
 
 NOTE: as a UniswapV3 pool can be manipulated using multi-block MEV, the TWAP values
 can also be manipulated. Price feeds are a preferred source of price data. Use this function with caution.
-See <https://chainsecurity.com/oracle-manipulation-after-merge/>
+See [https://chainsecurity.com/oracle-manipulation-after-merge/](https://chainsecurity.com/oracle-manipulation-after-merge/)
 
 ```solidity
 function getTokenTWAP(
@@ -200,7 +200,7 @@ This function will revert if:
 
 NOTE: as a UniswapV3 pool can be manipulated using multi-block MEV, the TWAP values
 can also be manipulated. Price feeds are a preferred source of price data. Use this function with caution.
-See <https://chainsecurity.com/oracle-manipulation-after-merge/>
+See [https://chainsecurity.com/oracle-manipulation-after-merge/](https://chainsecurity.com/oracle-manipulation-after-merge/)
 
 ```solidity
 function getTokenPrice(

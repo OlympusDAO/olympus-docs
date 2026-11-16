@@ -18,6 +18,12 @@ jobs:
 
       - name: Bootstrap
         uses: ./.github/actions/bootstrap
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+
       - name: Run build
         run: pnpm run build
 

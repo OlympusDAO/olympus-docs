@@ -622,7 +622,7 @@ This function reverts if:
 - The contract is not enabled
 - The caller does not have the admin or manager role
 - asset_ is the zero address
-- minimumDeposit_ > depositCap_
+- minimumDeposit<em> &gt; depositCap</em>
 
 </i>
 

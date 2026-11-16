@@ -85,7 +85,7 @@ Encodes Morpho-specific oracle data for cloning
 
 Performs Morpho-specific validation (decimals bounds check),
 generates oracle name, and encodes immutable args.
-Note: baseToken_ is used as collateralToken, quoteToken_ is used as loanToken.
+Note: baseToken<em> is used as collateralToken, quoteToken</em> is used as loanToken.
 If either token is a non-contract asset, decimals are PriceCache metadata rather
 than token metadata. The clone recalculates from `PriceCache.assetDecimals()` on
 reads, so later NCA decimal updates can change the live Morpho scale factor.

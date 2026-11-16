@@ -4,7 +4,7 @@
 
 <i>
 
-<https://eips.ethereum.org/EIPS/eip-712>[EIP 712] is a standard for hashing and signing of typed structured data.
+[EIP 712](https://eips.ethereum.org/EIPS/eip-712) is a standard for hashing and signing of typed structured data.
 
 The encoding specified in the EIP is very generic, and such a generic implementation in Solidity is not feasible,
 thus this contract does not implement the encoding itself. Protocols need to implement the type-specific encoding
@@ -18,7 +18,7 @@ The implementation of the domain separator was designed to be as efficient as po
 the chain id to protect against replay attacks on an eventual fork of the chain.
 
 NOTE: This contract implements the version of the encoding known as "v4", as implemented by the JSON RPC method
-<https://docs.metamask.io/guide/signing-data.html>[`eth_signTypedDataV4` in MetaMask].
+[`eth_signTypedDataV4` in MetaMask](https://docs.metamask.io/guide/signing-data.html).
 
 _Available since v3.4._
 
@@ -67,7 +67,7 @@ bytes32 private immutable _TYPE_HASH;
 Initializes the domain separator and parameter caches.
 
 The meaning of `name` and `version` is specified in
-<https://eips.ethereum.org/EIPS/eip-712#definition-of-domainseparator>[EIP 712]:
+[EIP 712](https://eips.ethereum.org/EIPS/eip-712#definition-of-domainseparator):
 
 - `name`: the user readable name of the signing domain, i.e. the name of the DApp or the protocol.
 - `version`: the current major version of the signing domain.
@@ -140,7 +140,7 @@ function _buildDomainSeparator(
 
 <i>
 
-Given an already <https://eips.ethereum.org/EIPS/eip-712#definition-of-hashstruct>[hashed struct], this
+Given an already [hashed struct](https://eips.ethereum.org/EIPS/eip-712#definition-of-hashstruct), this
 function returns the hash of the fully encoded EIP712 message for this domain.
 
 This hash can be used together with [ECDSA.recover](/main/contracts/docs/src/external/OlympusERC20.sol/library.ECDSA#recover) to obtain the signer of a message. For example:

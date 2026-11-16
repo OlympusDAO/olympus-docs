@@ -1,5 +1,4 @@
-// biome-ignore lint/style/useImportType: The classic JSX TypeScript config requires React in scope.
-import React from "react";
+import type React from "react";
 import styles from "./styles.module.css";
 
 type FeatureItem = {

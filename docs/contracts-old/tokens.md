@@ -42,11 +42,11 @@ Polygon:
 
 - V1 [0xd8cA...5195](https://polygonscan.com/token/0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195)
 
-{% hint style="info" %}
+\{% hint style="info" %}
 **Current Index explanation / Why does it show less OHM for me during migration?**
 
 The Current Index is how many OHM one would have if they staked 1 OHM since the protocol inception. Check out the [Olympus dashboard](https://app.olympusdao.finance/#/dashboard) for the Current Index value.
-{% endhint %}
+\{% endhint %}
 
 ### OHM
 

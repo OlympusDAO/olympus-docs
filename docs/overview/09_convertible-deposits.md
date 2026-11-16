@@ -811,7 +811,7 @@ A: No, bids are processed through the tick system where each tick has a differen
 **Q: Where does the auction price start relative to market price?**
 A: The auction starts at the minimum price and won't go below that floor. The minimum price is set once per day at the time of auction tuning, with the following formula:
 
-```math
+```text
 minimumPrice = marketPrice * minimumPriceScalar
 ```
 
