@@ -43,7 +43,7 @@
     "@docusaurus/theme-classic": "3.10.2",
     "@docusaurus/types": "3.10.2",
     "@types/node": "^24.13.3",
-    "rumdl": "0.3.0",
+    "rumdl": "0.3.2",
     "typescript": "^5.9.3",
     "@docusaurus/tsconfig": "3.10.2",
     "@types/react": "^18.3.31",
